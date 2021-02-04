@@ -4,6 +4,7 @@ wp-content/*
 
 wp-config.php
 
-# ignore log files and databases
 *.log
 *.sql
+
+.DS_Store
