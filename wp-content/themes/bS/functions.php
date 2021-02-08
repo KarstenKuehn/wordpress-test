@@ -79,7 +79,6 @@ function page_data()
 function footer()
 {
 
-
 	$html = file_get_contents(get_template_directory().'/views/footer.blade.html');
 
 	$page_data = page_data();
