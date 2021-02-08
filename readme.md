@@ -41,6 +41,9 @@ The Header & Footer are loaded by the template - however in order not to damage 
 2) Password Protected (in order to prevent site to be accessed before launch)
 
 
+3) BS SEO PLUGIN
+=> DO NOT FORGET TO UPLOAD DB from plugin folder (!)
+
 
 ## ROLES 
 No additional roles have to be implemented into Wordpress (atm 08.02.2021)

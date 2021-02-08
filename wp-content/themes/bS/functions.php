@@ -4,12 +4,14 @@
 
 function seo_header()
 {
-	$html = file_get_contents( get_bloginfo('template_directory').'/views/header.blade.html' );
+
+
+	$html = file_get_contents( get_template_directory().'/views/header.blade.html');
 
 	$page_data = page_data();
 
-	$css = file_get_contents(get_bloginfo('template_directory').'/css/viewport.css');
-	$css .= file_get_contents(get_bloginfo('template_directory').'/css/main_min.css');
+	$css = file_get_contents(get_template_directory().'/css/viewport.css');
+	$css .= file_get_contents(get_template_directory().'/css/main_min.css');
 	
 	$html = str_replace(
 	array(
@@ -76,7 +78,9 @@ function page_data()
 
 function footer()
 {
-	$html = file_get_contents( get_bloginfo('template_directory').'/views/footer.blade.html' );
+
+
+	$html = file_get_contents(get_template_directory().'/views/footer.blade.html');
 
 	$page_data = page_data();
 	
