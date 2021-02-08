@@ -40,3 +40,7 @@ The Header & Footer are loaded by the template - however in order not to damage 
 1) Redirection
 2) Password Protected (in order to prevent site to be accessed before launch)
 
+
+
+## ROLES 
+No additional roles have to be implemented into Wordpress (atm 08.02.2021)
