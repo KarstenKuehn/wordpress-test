@@ -39,7 +39,7 @@ The Header & Footer are loaded by the template - however in order not to damage 
 ##PLUGINS
 1) Redirection
 2) Password Protected (in order to prevent site to be accessed before launch)
-
+3) ALL Plugins should be developed in "GERMAN" (deutsche Plugins!)
 
 3) BS SEO PLUGIN
 => DO NOT FORGET TO UPLOAD DB from plugin folder (!)
@@ -47,3 +47,14 @@ The Header & Footer are loaded by the template - however in order not to damage 
 
 ## ROLES 
 No additional roles have to be implemented into Wordpress (atm 08.02.2021)
+
+
+##LIVE SYSTEM | WP ADMIN
+waldemar.schneider
+clPNxfwL!LSYIFmNgk!E71EyoFBC-ENB
+
+Password to access pages:
+parser
+
+## DEV | SERVER
+There is an alias - just type "pull" from anywhere in the system
