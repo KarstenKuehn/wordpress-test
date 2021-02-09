@@ -50,11 +50,13 @@ No additional roles have to be implemented into Wordpress (atm 08.02.2021)
 
 
 ##LIVE SYSTEM | WP ADMIN
-waldemar.schneider
-clPNxfwL!LSYIFmNgk!E71EyoFBC-ENB
-
 Password to access pages:
 parser
 
 ## DEV | SERVER
 There is an alias - just type "pull" from anywhere in the system
+
+
+##PHP MY ADMIN
+lottobay
+9ot!pSxJ^5$OFt@qV/oF-4Wx!;Kz"74X
