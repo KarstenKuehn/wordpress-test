@@ -17,9 +17,7 @@ function bs_seo_menu() {
 
 /** Step 3. */
 function handle() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
+
 
 	// OUTPUT
 
