@@ -10,11 +10,7 @@ https://codex.wordpress.org/de:Hauptseite
 
 
 ##LAZY LOADING
-
-Script in Footer Blade
-
-EXAMPLE:
-&lt;img src="/wordpress-template/wp-content/themes/bS/assets/p.gif" class="lazy" data-src="REAL IMG PATH HERE" /&gt;
+Script in Footer Blade implemented
 
 
 
@@ -39,7 +35,12 @@ The Header & Footer are loaded by the template - however in order not to damage 
 ##PLUGINS
 1) Redirection
 2) Password Protected (in order to prevent site to be accessed before launch)
-3) ALL Plugins should be developed in "GERMAN" (deutsche Plugins!)
+3) Google Sitemap
+(4... our Plugins)
+4) There is a german dictionary installed in order to make WP-Admin "deutsch"- 
+everytime you install a (commercial) plugin you might / certainly will get a message to update - 
+because the systems wants to update the plugin's language. 
+5) ALL Plugins should be developed in "GERMAN" (deutsche Plugins!)
 
 3) BS SEO PLUGIN
 => DO NOT FORGET TO UPLOAD DB from plugin folder (!)

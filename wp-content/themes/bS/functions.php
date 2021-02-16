@@ -107,11 +107,36 @@ function footer()
 
 
 
+function get_content()
+{
+    $html = get_the_content();
+
+    $html = str_replace(
+        array(
+            '<img src',
+            ''
+        ),
+        array(
+            '<img src="/wp-content/themes/bS/assets/p.gif" data-src',
+            ''
+        ),
+        $html
+    );
+
+
+    #echo minify_html($html);
+    echo $html;
+}
+
+
 
 // HOOKS / ADDITIONAL FUNCTIONS START 
 add_action('save_post', 'setup_seo');
+add_action('save_post', 'postChangedEmail');
 add_action('delete_post', 'cleanup_seo');
+add_action('delete_post', 'postChangedEmail');
 add_action('trash_post', 'cleanup_seo');
+
 
 function setup_seo($post_ID) 
 {
@@ -138,6 +163,19 @@ function cleanup_seo($post_ID) // GET'S CALLED WHEN TRASH IS BEING EMPTIED !!!
 
 
 // HELPER FUNCTIONS 
+
+function postChangedEmail($post_ID)
+{
+
+    $empfaenger = 'waldemar.schneider@bluesummit.de';
+    $betreff = 'Post has changed';
+    $nachricht = 'no message';
+    $header = 'From: lb@bluesummit.de' . "\r\n" .
+        'Reply-To: lb@bluesummit.de' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+    mail($empfaenger, $betreff, $nachricht, $header);
+}
 
 function db()
 {

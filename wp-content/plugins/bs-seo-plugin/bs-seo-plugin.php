@@ -12,7 +12,7 @@ add_action( 'admin_menu', 'bs_seo_menu' );
 
 /** Step 1. */
 function bs_seo_menu() {
-	add_options_page( 'SEO Options', 'SEO', 'manage_options', 'bs_seo_plugin', 'handle' );
+	add_options_page( 'SEO Einstellungen', 'SEO', 'manage_options', 'bs_seo_plugin', 'handle' );
 }
 
 /** Step 3. */
@@ -76,7 +76,7 @@ function handle() {
 	}
 	
 	echo '</tbody></table>';
-	echo '<button type="submit" name="bs_seo_save_button" style="">save</button></form>';
+	echo '<button type="submit" name="bs_seo_save_button" style="">speichern</button></form>';
 
 	//END OUTPUT
 
