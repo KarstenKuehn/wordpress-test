@@ -175,8 +175,8 @@ function postChangedEmail($post_ID)
     $empfaenger = 'seo-cron@bluesummit.de';
     $betreff = 'Post has changed: '.$post_ID;
     $nachricht = 'no message';
-    $header = 'From: lottobayern@bluesummit.de' . "\r\n" .
-        'Reply-To: lottobayern@bluesummit.de' . "\r\n" .
+    $header = 'From: lottobayern@lottobayern.bluesummit.de' . "\r\n" .
+        'Reply-To: lottobayern@lottobayern.bluesummit.de' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
 
     mail($empfaenger, $betreff, $nachricht, $header);
