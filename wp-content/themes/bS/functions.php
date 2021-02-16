@@ -131,12 +131,17 @@ function get_content()
 
 
 // HOOKS / ADDITIONAL FUNCTIONS START 
-add_action('save_post', 'setup_seo');
-add_action('save_post', 'postChangedEmail');
+add_action('save_post', 'postSave');
 add_action('delete_post', 'cleanup_seo');
-add_action('delete_post', 'postChangedEmail');
 add_action('trash_post', 'cleanup_seo');
 
+
+
+function postSave($post_ID)
+{
+    setup_seo($post_ID);
+    postChangedEmail($post_ID);
+}
 
 function setup_seo($post_ID) 
 {
