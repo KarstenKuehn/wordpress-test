@@ -73,6 +73,70 @@ function page_data()
 }
 
 // HEADER END 
+function wpb_custom_new_menu() {
+  register_nav_menus(
+    array(
+      'top-menu' => __( 'Top Menu' ),
+      'footer-menu' => __( 'Footer Menu' ),
+      'social' => __( 'Social Menu' )
+    )
+  );
+}
+add_action( 'init', 'wpb_custom_new_menu' );
+
+
+// Funktion Registrieren der Block Vorlage
+function meine_block_vorlage() {
+
+  register_block_pattern(
+      'meine-vorlagen/beispiel-block-vorlage',
+      array('categories'  => array('buttons'),      
+            'title'     => 'Meine Beispiel Block Vorlage',
+            'content'   => "<!-- wp:columns {\"gradient\":\"luminous-vivid-amber-to-luminous-vivid-orange\"} -->\n<div class=\"wp-block-columns has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background has-background\"><!-- wp:column {\"width\":\"50px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:50px\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"100%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:100%\"></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->",
+      )
+  );
+  
+}
+
+
+// Aufruf der Funktion im init Hook
+add_action( 'init', 'meine_block_vorlage' );
+
+
+require get_template_directory() . '/inc/template-tags.php';
+
+// Handle SVG icons.
+require get_template_directory() . '/classes/class-bs-svg-icons.php';
+require get_template_directory() . '/inc/svg-icons.php';
+
+// Handle Customizer settings.
+require get_template_directory() . '/classes/class-bs-customize.php';
+
+
+/**
+ * Displays SVG icons in social links menu.
+ *
+ * @param string   $item_output The menu item's starting HTML output.
+ * @param WP_Post  $item        Menu item data object.
+ * @param int      $depth       Depth of the menu. Used for padding.
+ * @param stdClass $args        An object of wp_nav_menu() arguments.
+ * @return string The menu item output with social icon.
+ */
+function bs_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+    // Change SVG icon inside social links menu if there is supported URL.
+    if ( 'social' === $args->theme_location ) {
+        //$svg = TwentyTwenty_SVG_Icons::get_social_link_svg( $item->url );
+        $svg = bS_SVG_Icons::get_social_link_svg( $item->url );
+        if ( empty( $svg ) ) {        
+            $svg = twentytwenty_get_theme_svg( 'link' );
+        }
+        $item_output = str_replace( '</span>', '</span>' . $svg, $item_output );
+    }
+    return $item_output;
+}
+
+add_filter( 'walker_nav_menu_start_el', 'bs_nav_menu_social_icons', 10, 4 );
+
 
 // FOOTER START 
 

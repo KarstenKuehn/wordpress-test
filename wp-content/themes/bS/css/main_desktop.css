@@ -1,0 +1,18 @@
+.wp-block-column.lotto-logo{
+    flex-basis:130px;
+}
+
+.wp-block-columns.lotto-header .wp-block-column:not(:first-child).top-menu {
+    background: #df0026;
+    margin-left: -60px;
+    padding-left: 54px;
+}
+#menu-top-menu > li
+{
+        width: 25%;
+}
+
+#menu-top-menu > li:last-child
+{
+    border-bottom: 1px solid #FFFFFF;
+}
