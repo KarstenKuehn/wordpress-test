@@ -236,15 +236,8 @@ function cleanup_seo($post_ID) // GET'S CALLED WHEN TRASH IS BEING EMPTIED !!!
 function postChangedEmail($post_ID)
 {
 
-    $empfaenger = 'seo-cron@bluesummit.de';
-    $betreff = 'Post has changed: '.$post_ID;
-    $nachricht = 'no message';
-    $header = 'From: noreply@bluesummit.de' . "\r\n" .
-        'Reply-To: noreply@bluesummit.de' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-
-    mail($empfaenger, $betreff, $nachricht, $header);
 }
+
 
 function db()
 {
