@@ -89,7 +89,7 @@ figure{
 .sub-menu > li
 {
     position: relative;
-    height: 30px;
+    height: 31px;
     background: #999999;
 }
 .sub-menu > li:hover { background: #CCCCCC; }

@@ -137,14 +137,17 @@ function bs_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 
 add_filter( 'walker_nav_menu_start_el', 'bs_nav_menu_social_icons', 10, 4 );
 
+// Ergänzen StructuredData
+require get_template_directory() . '/inc/structureddata-content.php';
 
 // FOOTER START 
 
 function footer()
 {
-
+    //echo 'aa';
+    //echo $page_data->id;
 	$html = file_get_contents(get_template_directory().'/views/footer.blade.html');
-
+    
 	$page_data = page_data();
 	
 	$html = str_replace(
@@ -161,8 +164,8 @@ function footer()
         $page_data->meta_description,
 	),
 	$html);
-
 	#echo minify_html($html);
+
 	echo $html;
 }
 

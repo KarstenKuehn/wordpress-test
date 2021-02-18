@@ -56,7 +56,6 @@ if ( ! class_exists( 'bS_SVG_Icons' ) ) {
 			 */
 			//$color = apply_filters( 'twentytwenty_svg_icon_color', $color, $icon, $group );
 			$color = apply_filters( 'bs_svg_icon_color', $color, $icon, $group );
-echo $color;
 			if ( array_key_exists( $icon, $arr ) ) {
 				$repl = '<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" ';
 				$svg  = preg_replace( '/^<svg /', $repl, trim( $arr[ $icon ] ) ); // Add extra attributes to SVG code.
