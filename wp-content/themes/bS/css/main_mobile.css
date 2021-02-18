@@ -1,12 +1,32 @@
-.wp-block-column.lotto-logo{
-    flex-basis:50px;
-}
-.wp-block-columns.lotto-header .wp-block-column:not(:first-child).top-menu {
+/*.wp-block-columns.lotto-header .wp-block-column.top-menu {
     background: #df0026;
     margin-left: -25px;
     padding-left: 25px;
 }
 
-.wp-block-column.lotto_top-menu{
-    flex-basis:calc(100% - 50px );
+*/
+@media (max-width: 599px)
+{
+	.wp-block-column.lotto-logo{
+	    flex-basis:50px!important;
+	    z-index: 10;
+	}
+	.wp-block-columns.lotto-header .wp-block-column.lotto_top-menu{
+	    flex-basis:calc(100% - 50px ) !important;
+	    margin-left: -25px;
+	    padding-left: 25px;    
+	}    
+}
+
+@media (min-width: 600px) and (max-width: 781px)
+{
+    .wp-block-column.lotto-logo{
+        flex-basis:150px!important;
+        z-index: 10;
+    }
+	.wp-block-columns.lotto-header .wp-block-column.lotto_top-menu{
+	    flex-basis:calc(100% - 150px ) !important;
+	    margin-left: -75px;
+	    padding-left: 75px;
+	}    
 }

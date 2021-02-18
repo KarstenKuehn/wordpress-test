@@ -86,12 +86,12 @@ add_action( 'init', 'wpb_custom_new_menu' );
 
 
 // Funktion Registrieren der Block Vorlage
-function meine_block_vorlage() {
+function my_block_template() {
 
   register_block_pattern(
-      'meine-vorlagen/beispiel-block-vorlage',
+      'my_template/example-block-template',
       array('categories'  => array('buttons'),      
-            'title'     => 'Meine Beispiel Block Vorlage',
+            'title'     => 'Image | Text',
             'content'   => "<!-- wp:columns {\"gradient\":\"luminous-vivid-amber-to-luminous-vivid-orange\"} -->\n<div class=\"wp-block-columns has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background has-background\"><!-- wp:column {\"width\":\"50px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:50px\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"100%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:100%\"></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->",
       )
   );
@@ -100,7 +100,7 @@ function meine_block_vorlage() {
 
 
 // Aufruf der Funktion im init Hook
-add_action( 'init', 'meine_block_vorlage' );
+add_action( 'init', 'my_block_template' );
 
 
 require get_template_directory() . '/inc/template-tags.php';
