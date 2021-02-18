@@ -172,7 +172,7 @@ function cleanup_seo($post_ID) // GET'S CALLED WHEN TRASH IS BEING EMPTIED !!!
 function postChangedEmail($post_ID)
 {
 
-    $empfaenger = 'seo-cron@bluesummit.de';
+    $empfaenger = 'waldemar.schneider@bluesummit.de';
     $betreff = 'Post has changed: '.$post_ID;
     $nachricht = 'no message';
     $header = 'From: lottobayern@bluesummit.de' . "\r\n" .
