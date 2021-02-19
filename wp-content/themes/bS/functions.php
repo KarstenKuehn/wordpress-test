@@ -1,11 +1,25 @@
 <?php
+// Shortcodes
 
+// Mein erster Shortcode: [meinshortcode]
+function meinshortcode_function(){
+return "<p><b>Hey, das ist mein Shortcode!</b></p>";
+}
+add_shortcode('meinshortcode', 'meinshortcode_function' );
+
+function googlemap_function($atts, $content = null) {
+  extract(shortcode_atts(array(
+    "width" => '640',
+    "height" => '480',
+    "src" => ''
+  ), $atts));
+  return $src.'<iframe width="'.$width.'" height="'.$height.'" src="'.$src.'"></iframe>';
+}
+add_shortcode("googlemap", "googlemap_function");
 // HEADER START 
 
 function seo_header()
 {
-
-
 	$html = file_get_contents( get_template_directory().'/views/header.blade.html');
 
 	$page_data = page_data();
@@ -111,6 +125,8 @@ require get_template_directory() . '/inc/svg-icons.php';
 
 // Handle Customizer settings.
 require get_template_directory() . '/classes/class-bs-customize.php';
+// Require Separator Control class.
+require get_template_directory() . '/classes/class-bs-separator-control.php';
 
 
 /**
@@ -137,7 +153,7 @@ function bs_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 
 add_filter( 'walker_nav_menu_start_el', 'bs_nav_menu_social_icons', 10, 4 );
 
-// Ergänzen StructuredData
+// Einbindung und Ergänzungen für StructuredData
 require get_template_directory() . '/inc/structureddata-content.php';
 
 // FOOTER START 
@@ -461,4 +477,44 @@ function bS_theme_support() {
             'navigation-widgets',
         )
     );
+}
+
+
+/**
+ * Get accessible color for an area.
+ *
+ * @since Twenty Twenty 1.0
+ *
+ * @param string $area The area we want to get the colors for.
+ * @param string $context Can be 'text' or 'accent'.
+ * @return string Returns a HEX color.
+ */
+function bs_get_color_for_area( $area = 'content', $context = 'text' ) {
+
+    // Get the value from the theme-mod.
+    $settings = get_theme_mod(
+        'accent_accessible_colors',
+        array(
+            'content'       => array(
+                'text'      => 'blue',
+                'accent'    => '#cd2653',
+                'secondary' => '#6d6d6d',
+                'borders'   => '#dcd7ca',
+            ),
+            'header-footer' => array(
+                'text'      => 'green',
+                'accent'    => '#cd2653',
+                'secondary' => '#6d6d6d',
+                'borders'   => '#dcd7ca',
+            ),
+        )
+    );
+
+    // If we have a value return it.
+    if ( isset( $settings[ $area ] ) && isset( $settings[ $area ][ $context ] ) ) {
+        return $settings[ $area ][ $context ];
+    }
+
+    // Return false if the option doesn't exist.
+    return false;
 }

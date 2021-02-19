@@ -325,7 +325,7 @@ if ( ! class_exists( 'bS_Customize' ) ) {
 			);
 
 			$wp_customize->add_control(
-				new TwentyTwenty_Separator_Control(
+				new bS_Separator_Control(
 					$wp_customize,
 					'cover_template_separator_1',
 					array(
@@ -339,7 +339,7 @@ if ( ! class_exists( 'bS_Customize' ) ) {
 			$wp_customize->add_setting(
 				'cover_template_overlay_background_color',
 				array(
-					'default'           => twentytwenty_get_color_for_area( 'content', 'accent' ),
+					'default'           => bs_get_color_for_area( 'content', 'accent' ),
 					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);
@@ -392,11 +392,11 @@ if ( ! class_exists( 'bS_Customize' ) ) {
 			$wp_customize->add_control(
 				'cover_template_overlay_opacity',
 				array(
-					'label'       => __( 'Overlay Opacity', 'twentytwenty' ),
-					'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'twentytwenty' ),
+					'label'       => __( 'Overlay Opacity', 'bs' ),
+					'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'bs' ),
 					'section'     => 'cover_template_options',
 					'type'        => 'range',
-					'input_attrs' => twentytwenty_customize_opacity_range(),
+					'input_attrs' => bs_customize_opacity_range(),
 				)
 			);
 
@@ -466,32 +466,32 @@ if ( ! class_exists( 'bS_Customize' ) ) {
 /**
  * PARTIAL REFRESH FUNCTIONS
  * */
-if ( ! function_exists( 'twentytwenty_customize_partial_blogname' ) ) {
+if ( ! function_exists( 'bs_customize_partial_blogname' ) ) {
 	/**
 	 * Render the site title for the selective refresh partial.
 	 */
-	function twentytwenty_customize_partial_blogname() {
+	function bs_customize_partial_blogname() {
 		bloginfo( 'name' );
 	}
 }
 
-if ( ! function_exists( 'twentytwenty_customize_partial_blogdescription' ) ) {
+if ( ! function_exists( 'bs_customize_partial_blogdescription' ) ) {
 	/**
 	 * Render the site description for the selective refresh partial.
 	 */
-	function twentytwenty_customize_partial_blogdescription() {
+	function bs_customize_partial_blogdescription() {
 		bloginfo( 'description' );
 	}
 }
 
-if ( ! function_exists( 'twentytwenty_customize_partial_site_logo' ) ) {
+if ( ! function_exists( 'bs_customize_partial_site_logo' ) ) {
 	/**
 	 * Render the site logo for the selective refresh partial.
 	 *
 	 * Doing it this way so we don't have issues with `render_callback`'s arguments.
 	 */
-	function twentytwenty_customize_partial_site_logo() {
-		twentytwenty_site_logo();
+	function bs_customize_partial_site_logo() {
+		bs_site_logo();
 	}
 }
 
@@ -501,7 +501,7 @@ if ( ! function_exists( 'twentytwenty_customize_partial_site_logo' ) ) {
  *
  * @return array Array containing attribute names and their values.
  */
-function twentytwenty_customize_opacity_range() {
+function bs_customize_opacity_range() {
 	/**
 	 * Filters the input attributes for opacity
 	 *
