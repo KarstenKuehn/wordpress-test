@@ -1,6 +1,11 @@
 <?php seo_header();?>
 
 <body>
+	<?php bs_site_logo(); ?>
+
+	<?php //get_custom_logo_url(); ?>
+
+
 <div class="wp-block-columns lotto-header">
 	<div class="wp-block-column lotto-logo">
 		<figure class="wp-block-image size-large is-resized is-style-rounded logo">

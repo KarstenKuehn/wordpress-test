@@ -94,7 +94,39 @@ figure{
 }
 .sub-menu > li:hover { background: #CCCCCC; }
 
+/* LB Gallery */
 
+
+.lb_gallery .wp-block-columns {
+    margin: 0px; 
+}
+.lb_gallery .wp-block-column {
+    text-align: center;
+    margin: 0px;
+    flex-basis:100%;    
+}
+.lb_gallery .wp-block-column:not(:first-child) {
+    text-align: center;
+    margin: 0px;
+    flex-basis:100%;  
+}
+
+.lb_gallery .wp-block-column.lb_gallery_image {
+    padding-top: 1em;
+}
+
+.lb_gallery .wp-block-column.lb_gallery_image img{
+    max-height: 130px;
+}
+
+.lb_gallery .wp-block-column.lb_gallery_image figcaption{
+    color: #fff;
+    font-weight: 600;
+}
+
+.lb_gallery .wp-block-column.lb_gallery_spacer {
+    background: lightgray
+}
 
 /* Social Icons ------------------------------ */
 

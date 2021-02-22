@@ -6,18 +6,8 @@ function seo_structuredData()
 
 	$page_data 				= page_data();
 	$user_data 				= get_userdata($page_data->post_author);
-	/*
-echo get_the_author();
-print_r($page_data );
-echo '<hr>';
-print_r(get_post());
-echo '<hr>';
-print_r(get_post_modified_time('Y-m-d H:i:s'));
-echo '<hr>';
-print_r(get_the_modified_author());
-echo '<hr>';
-*/
-	$artikel_body = get_the_content().' test test-test test test\'test';
+
+	$artikel_body = ' test test-test test test\'test';
 	$artikel_body_count_word = count(str_word_count(strip_tags($artikel_body),1,'-\'_'));
     // 1. structuredData Website
     $structuredData_html = str_replace(
@@ -62,9 +52,6 @@ echo '<hr>';
         '{{Article-alternativeHeadline}}',
         '{{Article-Image}}',
         '{{Article-Autor}}',
-        '{{Article-Award}}',
-        '{{Article-Editor}}',
-        '{{Article-Genre}}',
         '{{Article-Keywords}}',
         '{{Article-WordCount}}',
         '{{Publisher-Name}}',
@@ -83,17 +70,14 @@ echo '<hr>';
         'Article-alternativeHeadline',
         '/wp-content/uploads/2021/02/lotto_small.png',
         $user_data->display_name,
-        'Article-Award',
-        'Article-Editor',
-        'Article-Genre',
         'Article-Keywords',
         $artikel_body_count_word,
-        'Publisher-Name',
+        'LottoBayern',
         '/wp-content/uploads/2021/02/lotto_transparent.png',
         get_home_url(),
-        'MainEntityOfPage-URL',
-        get_the_date(),
-        get_the_date(),
+        get_home_url(),
+        get_the_date('Y-m-d H:i:s'),
+        get_the_date('Y-m-d H:i:s'),
         get_post_modified_time('Y-m-d H:i:s'),
         $page_data->meta_description,
         $artikel_body

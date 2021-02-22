@@ -98,24 +98,12 @@ function wpb_custom_new_menu() {
 }
 add_action( 'init', 'wpb_custom_new_menu' );
 
-
-// Funktion Registrieren der Block Vorlage
-function my_block_template() {
-
-  register_block_pattern(
-      'my_template/example-block-template',
-      array('categories'  => array('buttons'),      
-            'title'     => 'Image | Text',
-            'content'   => "<!-- wp:columns {\"gradient\":\"luminous-vivid-amber-to-luminous-vivid-orange\"} -->\n<div class=\"wp-block-columns has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background has-background\"><!-- wp:column {\"width\":\"50px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:50px\"></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"100%\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:100%\"></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->",
-      )
-  );
-  
-}
+// Handle/Create Custom-Block-Pattern
+require get_template_directory() . '/inc/custom_logo.php';
 
 
-// Aufruf der Funktion im init Hook
-add_action( 'init', 'my_block_template' );
-
+// Handle/Create Custom-Block-Pattern
+require get_template_directory() . '/inc/template-custom_block.php';
 
 require get_template_directory() . '/inc/template-tags.php';
 
