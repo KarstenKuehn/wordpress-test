@@ -4,7 +4,9 @@
 */
 get_header(); ?>
 
-<?php get_content(); ?>
+<?php //get_content(); ?>
+<?php get_my_content()?>
+
 <?php echo do_shortcode('[meinshortcode]'); ?>
 
 

@@ -147,7 +147,7 @@ function bs_site_logo_url( $args = array(), $echo = true ) {
  * @param bool $echo Echo or return the html.
  * @return string The HTML to display.
  */
-function twentytwenty_site_description( $echo = true ) {
+function bs_site_description( $echo = true ) {
 	$description = get_bloginfo( 'description' );
 
 	if ( ! $description ) {
@@ -167,7 +167,7 @@ function twentytwenty_site_description( $echo = true ) {
 	 * @param string $description  Site description via `bloginfo()`.
 	 * @param string $wrapper      The format used in case you want to reuse it in a `sprintf()`.
 	 */
-	$html = apply_filters( 'twentytwenty_site_description', $html, $description, $wrapper );
+	$html = apply_filters( 'bs_site_description', $html, $description, $wrapper );
 
 	if ( ! $echo ) {
 		return $html;
@@ -186,7 +186,7 @@ function twentytwenty_site_description( $echo = true ) {
  * @param object $comment Comment data.
  * @return bool
  */
-function twentytwenty_is_comment_by_post_author( $comment = null ) {
+function bs_is_comment_by_post_author( $comment = null ) {
 
 	if ( is_object( $comment ) && $comment->user_id > 0 ) {
 
@@ -212,14 +212,14 @@ function twentytwenty_is_comment_by_post_author( $comment = null ) {
  * @param string $link Link to the top of the page.
  * @return string Link to the top of the page.
  */
-function twentytwenty_filter_comment_reply_link( $link ) {
+function bs_filter_comment_reply_link( $link ) {
 
 	$link = str_replace( 'class=\'', 'class=\'do-not-scroll ', $link );
 	return $link;
 
 }
 
-add_filter( 'comment_reply_link', 'twentytwenty_filter_comment_reply_link' );
+add_filter( 'comment_reply_link', 'bs_filter_comment_reply_link' );
 
 /**
  * Post Meta
@@ -233,9 +233,9 @@ add_filter( 'comment_reply_link', 'twentytwenty_filter_comment_reply_link' );
  * @param int    $post_id  The ID of the post for which the post meta should be output.
  * @param string $location Which post meta location to output – single or preview.
  */
-function twentytwenty_the_post_meta( $post_id = null, $location = 'single-top' ) {
+function bs_the_post_meta( $post_id = null, $location = 'single-top' ) {
 
-	echo twentytwenty_get_post_meta( $post_id, $location ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in twentytwenty_get_post_meta().
+	echo bs_get_post_meta( $post_id, $location ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in twentytwenty_get_post_meta().
 
 }
 
@@ -246,7 +246,7 @@ function twentytwenty_the_post_meta( $post_id = null, $location = 'single-top' )
  * @param int    $post_id Post ID.
  * @param string $text    Anchor text.
  */
-function twentytwenty_edit_post_link( $link, $post_id, $text ) {
+function bs_edit_post_link( $link, $post_id, $text ) {
 	if ( is_admin() ) {
 		return $link;
 	}
@@ -270,11 +270,11 @@ function twentytwenty_edit_post_link( $link, $post_id, $text ) {
 		get_the_title( $post_id )
 	);
 
-	return '<div class="post-meta-wrapper post-meta-edit-link-wrapper"><ul class="post-meta"><li class="post-edit meta-wrapper"><span class="meta-icon">' . twentytwenty_get_theme_svg( 'edit' ) . '</span><span class="meta-text"><a href="' . esc_url( $edit_url ) . '">' . $text . '</a></span></li></ul><!-- .post-meta --></div><!-- .post-meta-wrapper -->';
+	return '<div class="post-meta-wrapper post-meta-edit-link-wrapper"><ul class="post-meta"><li class="post-edit meta-wrapper"><span class="meta-icon">' . bs_get_theme_svg( 'edit' ) . '</span><span class="meta-text"><a href="' . esc_url( $edit_url ) . '">' . $text . '</a></span></li></ul><!-- .post-meta --></div><!-- .post-meta-wrapper -->';
 
 }
 
-add_filter( 'edit_post_link', 'twentytwenty_edit_post_link', 10, 3 );
+add_filter( 'edit_post_link', 'bs_edit_post_link', 10, 3 );
 
 /**
  * Retrieves the post meta.
@@ -282,7 +282,7 @@ add_filter( 'edit_post_link', 'twentytwenty_edit_post_link', 10, 3 );
  * @param int    $post_id The ID of the post.
  * @param string $location The location where the meta is shown.
  */
-function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' ) {
+function bs_get_post_meta( $post_id = null, $location = 'single-top' ) {
 
 	// Require post ID.
 	if ( ! $post_id ) {
@@ -299,7 +299,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 	 *
 	 * @param array Array of post types
 	 */
-	$disallowed_post_types = apply_filters( 'twentytwenty_disallowed_post_types_for_meta_output', array( 'page' ) );
+	$disallowed_post_types = apply_filters( 'bs_disallowed_post_types_for_meta_output', array( 'page' ) );
 
 	// Check whether the post type is allowed to output post meta.
 	if ( in_array( get_post_type( $post_id ), $disallowed_post_types, true ) ) {
@@ -326,7 +326,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 		 * }
 		 */
 		$post_meta = apply_filters(
-			'twentytwenty_post_meta_location_single_top',
+			'bs_post_meta_location_single_top',
 			array(
 				'author',
 				'post-date',
@@ -351,7 +351,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 		 * }
 		 */
 		$post_meta = apply_filters(
-			'twentytwenty_post_meta_location_single_bottom',
+			'bs_post_meta_location_single_bottom',
 			array(
 				'tags',
 			)
@@ -394,7 +394,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 				 * @param string $location  The location where the meta is shown.
 				 *                          Accepts 'single-top' or 'single-bottom'.
 				 */
-				do_action( 'twentytwenty_start_of_post_meta_list', $post_id, $post_meta, $location );
+				do_action( 'bs_start_of_post_meta_list', $post_id, $post_meta, $location );
 
 				// Author.
 				if ( post_type_supports( get_post_type( $post_id ), 'author' ) && in_array( 'author', $post_meta, true ) ) {
@@ -404,7 +404,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					<li class="post-author meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Post author', 'twentytwenty' ); ?></span>
-							<?php twentytwenty_the_theme_svg( 'user' ); ?>
+							<?php bs_the_theme_svg( 'user' ); ?>
 						</span>
 						<span class="meta-text">
 							<?php
@@ -428,7 +428,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					<li class="post-date meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Post date', 'twentytwenty' ); ?></span>
-							<?php twentytwenty_the_theme_svg( 'calendar' ); ?>
+							<?php bs_the_theme_svg( 'calendar' ); ?>
 						</span>
 						<span class="meta-text">
 							<a href="<?php the_permalink(); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a>
@@ -446,7 +446,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					<li class="post-categories meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Categories', 'twentytwenty' ); ?></span>
-							<?php twentytwenty_the_theme_svg( 'folder' ); ?>
+							<?php bs_the_theme_svg( 'folder' ); ?>
 						</span>
 						<span class="meta-text">
 							<?php _ex( 'In', 'A string that is output before one or more categories', 'twentytwenty' ); ?> <?php the_category( ', ' ); ?>
@@ -464,7 +464,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					<li class="post-tags meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Tags', 'twentytwenty' ); ?></span>
-							<?php twentytwenty_the_theme_svg( 'tag' ); ?>
+							<?php bs_the_theme_svg( 'tag' ); ?>
 						</span>
 						<span class="meta-text">
 							<?php the_tags( '', ', ', '' ); ?>
@@ -481,7 +481,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					?>
 					<li class="post-comment-link meta-wrapper">
 						<span class="meta-icon">
-							<?php twentytwenty_the_theme_svg( 'comment' ); ?>
+							<?php bs_the_theme_svg( 'comment' ); ?>
 						</span>
 						<span class="meta-text">
 							<?php comments_popup_link(); ?>
@@ -498,7 +498,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					?>
 					<li class="post-sticky meta-wrapper">
 						<span class="meta-icon">
-							<?php twentytwenty_the_theme_svg( 'bookmark' ); ?>
+							<?php bs_the_theme_svg( 'bookmark' ); ?>
 						</span>
 						<span class="meta-text">
 							<?php _e( 'Sticky post', 'twentytwenty' ); ?>
@@ -521,7 +521,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 				 * @param string $location  The location where the meta is shown.
 				 *                          Accepts 'single-top' or 'single-bottom'.
 				 */
-				do_action( 'twentytwenty_end_of_post_meta_list', $post_id, $post_meta, $location );
+				do_action( 'bs_end_of_post_meta_list', $post_id, $post_meta, $location );
 
 				?>
 
@@ -562,7 +562,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
  * @param int      $current_page ID of the current page.
  * @return array CSS class names.
  */
-function twentytwenty_filter_wp_list_pages_item_classes( $css_class, $page, $depth, $args, $current_page ) {
+function bs_filter_wp_list_pages_item_classes( $css_class, $page, $depth, $args, $current_page ) {
 
 	// Only apply to wp_list_pages() calls with match_menu_classes set to true.
 	$match_menu_classes = isset( $args['match_menu_classes'] );
@@ -585,7 +585,7 @@ function twentytwenty_filter_wp_list_pages_item_classes( $css_class, $page, $dep
 
 }
 
-add_filter( 'page_css_class', 'twentytwenty_filter_wp_list_pages_item_classes', 10, 5 );
+add_filter( 'page_css_class', 'bs_filter_wp_list_pages_item_classes', 10, 5 );
 
 /**
  * Adds a Sub Nav Toggle to the Expanded Menu and Mobile Menu.
@@ -595,7 +595,7 @@ add_filter( 'page_css_class', 'twentytwenty_filter_wp_list_pages_item_classes', 
  * @param int      $depth Depth of menu item. Used for padding.
  * @return stdClass An object of wp_nav_menu() arguments.
  */
-function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
+function bs_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 
 	// Add sub menu toggles to the Expanded Menu with toggles.
 	if ( isset( $args->show_toggles ) && $args->show_toggles ) {
@@ -608,10 +608,10 @@ function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
 
 			$toggle_target_string = '.menu-modal .menu-item-' . $item->ID . ' > .sub-menu';
-			$toggle_duration      = twentytwenty_toggle_duration();
+			$toggle_duration      = bs_toggle_duration();
 
 			// Add the sub menu toggle.
-			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="screen-reader-text">' . __( 'Show sub menu', 'twentytwenty' ) . '</span>' . twentytwenty_get_theme_svg( 'chevron-down' ) . '</button>';
+			$args->after .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="screen-reader-text">' . __( 'Show sub menu', 'twentytwenty' ) . '</span>' . bs_get_theme_svg( 'chevron-down' ) . '</button>';
 
 		}
 
@@ -631,7 +631,7 @@ function twentytwenty_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 
 }
 
-add_filter( 'nav_menu_item_args', 'twentytwenty_add_sub_toggles_to_main_menu', 10, 3 );
+add_filter( 'nav_menu_item_args', 'bs_add_sub_toggles_to_main_menu', 10, 3 );
 
 
 /**
@@ -643,7 +643,7 @@ add_filter( 'nav_menu_item_args', 'twentytwenty_add_sub_toggles_to_main_menu', 1
  *
  * If we're missing JavaScript support, the HTML element will have a 'no-js' class.
  */
-function twentytwenty_no_js_class() {
+function bs_no_js_class() {
 
 	?>
 	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
@@ -651,7 +651,7 @@ function twentytwenty_no_js_class() {
 
 }
 
-add_action( 'wp_head', 'twentytwenty_no_js_class' );
+add_action( 'wp_head', 'bs_no_js_class' );
 
 /**
  * Adds conditional body classes.
@@ -659,7 +659,7 @@ add_action( 'wp_head', 'twentytwenty_no_js_class' );
  * @param array $classes Classes added to the body tag.
  * @return array Classes added to the body tag.
  */
-function twentytwenty_body_classes( $classes ) {
+function bs_body_classes( $classes ) {
 
 	global $post;
 	$post_type = isset( $post ) ? $post->post_type : false;
@@ -748,7 +748,7 @@ function twentytwenty_body_classes( $classes ) {
 
 }
 
-add_filter( 'body_class', 'twentytwenty_body_classes' );
+add_filter( 'body_class', 'bs_body_classes' );
 
 /**
  * Archives
@@ -760,10 +760,10 @@ add_filter( 'body_class', 'twentytwenty_body_classes' );
  * @param string $title Current archive title.
  * @return string Current archive title.
  */
-function twentytwenty_get_the_archive_title( $title ) {
+function bs_get_the_archive_title( $title ) {
 
 	$regex = apply_filters(
-		'twentytwenty_get_the_archive_title_regex',
+		'bs_get_the_archive_title_regex',
 		array(
 			'pattern'     => '/(\A[^\:]+\:)/',
 			'replacement' => '<span class="color-accent">$1</span>',
@@ -780,7 +780,7 @@ function twentytwenty_get_the_archive_title( $title ) {
 
 }
 
-add_filter( 'get_the_archive_title', 'twentytwenty_get_the_archive_title' );
+add_filter( 'get_the_archive_title', 'bs_get_the_archive_title' );
 
 /**
  * Miscellaneous
@@ -791,7 +791,7 @@ add_filter( 'get_the_archive_title', 'twentytwenty_get_the_archive_title' );
  *
  * @return int Duration in milliseconds
  */
-function twentytwenty_toggle_duration() {
+function bs_toggle_duration() {
 	/**
 	 * Filters the animation duration/speed used usually for submenu toggles.
 	 *
@@ -799,7 +799,7 @@ function twentytwenty_toggle_duration() {
 	 *
 	 * @param int $duration Duration in milliseconds.
 	 */
-	$duration = apply_filters( 'twentytwenty_toggle_duration', 250 );
+	$duration = apply_filters( 'bs_toggle_duration', 250 );
 
 	return $duration;
 }
@@ -817,7 +817,7 @@ function twentytwenty_toggle_duration() {
  * @param string $prefix Prefix for the returned ID.
  * @return string Unique ID.
  */
-function twentytwenty_unique_id( $prefix = '' ) {
+function bs_unique_id( $prefix = '' ) {
 	static $id_counter = 0;
 	if ( function_exists( 'wp_unique_id' ) ) {
 		return wp_unique_id( $prefix );

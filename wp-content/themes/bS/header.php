@@ -1,7 +1,7 @@
 <?php seo_header();?>
 
 <body>
-	<?php bs_site_logo(); ?>
+	<?php //bs_site_logo(); ?>
 
 	<?php //get_custom_logo_url(); ?>
 

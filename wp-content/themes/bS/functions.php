@@ -1,23 +1,6 @@
 <?php
-// Shortcodes
 
-// Mein erster Shortcode: [meinshortcode]
-function meinshortcode_function(){
-return "<p><b>Hey, das ist mein Shortcode!</b></p>";
-}
-add_shortcode('meinshortcode', 'meinshortcode_function' );
-
-function googlemap_function($atts, $content = null) {
-  extract(shortcode_atts(array(
-    "width" => '640',
-    "height" => '480',
-    "src" => ''
-  ), $atts));
-  return $src.'<iframe width="'.$width.'" height="'.$height.'" src="'.$src.'"></iframe>';
-}
-add_shortcode("googlemap", "googlemap_function");
 // HEADER START 
-
 function seo_header()
 {
 	$html = file_get_contents( get_template_directory().'/views/header.blade.html');
@@ -102,9 +85,6 @@ add_action( 'init', 'wpb_custom_new_menu' );
 require get_template_directory() . '/inc/custom_logo.php';
 
 
-// Handle/Create Custom-Block-Pattern
-require get_template_directory() . '/inc/template-custom_block.php';
-
 require get_template_directory() . '/inc/template-tags.php';
 
 // Handle SVG icons.
@@ -176,7 +156,26 @@ function footer()
 
 // FOOTER END 
 
+function get_my_content()
+{
+    $html = the_content();
 
+
+    $html = str_replace(
+        array(
+            '<img src',
+            ''
+        ),
+        array(
+            '<img src="/wp-content/themes/bS/assets/p.gif" data-src',
+            ''
+        ),
+        $html
+    );
+
+
+    echo $html;
+}
 
 function get_content()
 {
