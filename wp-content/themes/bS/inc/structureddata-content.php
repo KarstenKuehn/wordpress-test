@@ -3,9 +3,8 @@
 function seo_structuredData()
 {
 
-/*
-
-echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+    $page_data              = page_data();
+    $user_data              = get_userdata($page_data->post_author);
 
 $html = get_the_content();
 
@@ -14,23 +13,7 @@ $html = get_the_content();
  preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
 
 
-foreach ($_headings[0] as $key => $value) {
-    echo $key;
-    print_r ($value);
-echo $value;
-preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
-
-print_r($_html);
-echo id = $_html[1][0];
-
-    echo '<hr>';
-}
-*/
-/*
-
-test ci
-*/
- /** headings:
+/** headings:
 
 <h1>...
 <h2>...
@@ -40,9 +23,6 @@ test ci
 */
 
     $structuredData_html 	= file_get_contents(get_template_directory().'/views/structured_data.blade.html');
-
-	$page_data 				= page_data();
-	$user_data 				= get_userdata($page_data->post_author);
 
 	$artikel_body = ' test test-test test test\'test';
 	$artikel_body_count_word = count(str_word_count(strip_tags($artikel_body),1,'-\'_'));
@@ -139,10 +119,44 @@ $listItem .='
   "url":"/testseite-fuer-footer#2"
   }
 ';
+$i=3;
+foreach ($_headings[0] as $key => $value) {
+
+preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
+/*
+print_r($value);
+echo '<br>';
+print_r($_html[1]);
+echo '<br>';
+print_r($_html[2]);
+echo '<br>';
+echo 'html_tag = '.$_html[1][0];
+echo '<br>';
+echo 'id = '.$_html[2][0];
+echo '<br>';
+echo 'value = '.$_html[3][0];
+echo '<br>';
+
+echo get_permalink( $page_data->ID).'#'.$_html[2][0];
+    echo '<hr>';
+
+*/
+
+$listItem .='
+  {
+  "@type":"ListItem",
+  "position":'.$i.',
+  "name" : "'.$_html[3][0].'",
+  "url":"'.get_permalink( $page_data->ID).'#'.$_html[2][0].'"
+  },
+';
+$i++;
+}
+
 $listItem .='  ]
 }</script>';
     //$structuredData_html = minify_html($structuredData_html);
     echo $structuredData_html;
-//echo $listItem;
+echo $listItem;
 
 }
