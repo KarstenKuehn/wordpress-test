@@ -26,13 +26,11 @@ get_header();
 
 	if ( is_search() ) {
 		global $wp_query;
-
 		$archive_title = sprintf(
 			'%1$s %2$s',
 			'<span class="color-accent">' . __( 'Search:', 'twentytwenty' ) . '</span>',
 			'&ldquo;' . get_search_query() . '&rdquo;'
 		);
-
 		if ( $wp_query->found_posts ) {
 			$archive_subtitle = sprintf(
 				/* translators: %s: Number of search results. */

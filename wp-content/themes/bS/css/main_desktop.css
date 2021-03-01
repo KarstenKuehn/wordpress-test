@@ -1,5 +1,6 @@
 .wp-block-column.lotto-logo{
     flex-basis:132px;
+    max-width: 132px;
 }
 
 .wp-block-columns.lotto-header .wp-block-column:not(:first-child).top-menu {
@@ -21,5 +22,6 @@
 .sub-menu
 {
     position: absolute;
-    top: 31px;
+    top: 30px;
+    width: 50vw;
 }

@@ -81,6 +81,51 @@ function wpb_custom_new_menu() {
 }
 add_action( 'init', 'wpb_custom_new_menu' );
 
+// tag_cloud_shortcode
+function bs_tag_cloud_shortcode( $atts = '' ) {
+    $atts = shortcode_atts(
+        array(
+            'cat_id' => '14',
+            'smallest' => '14',
+            'largest' => '22',
+            'separator' => ' | ',
+        ), $atts
+    );
+    
+    $category_id = $atts['cat_id']; 
+    $query_args = array( 'cat' => $category_id, 'posts_per_page' => -1 );
+    $custom_query = new WP_Query( $query_args );
+    if ($custom_query->have_posts()) :
+        while ($custom_query->have_posts()) : $custom_query->the_post();
+            $posttags = get_the_tags();
+            if ($posttags) {
+                foreach($posttags as $tag) {
+                    $all_tags[] = $tag->term_id;
+                }
+            }
+        endwhile;
+    endif;
+
+    $tags_arr = array_unique($all_tags);
+    $tags_str = implode(",", $tags_arr);
+
+    $args = array(
+        'echo'      => false,
+        'smallest'  => $atts['smallest'],
+        'largest'   => $atts['largest'],
+        'unit'      => 'px',
+        'number'    => 0,
+        'format'    => 'flat',  
+        'separator' => $atts['separator'],
+        'order'     => 'count',
+        'include'   => $tags_str
+    );
+    return wp_tag_cloud($args);
+}
+add_shortcode( 'bs_tagcloud', 'bs_tag_cloud_shortcode' );
+
+
+
 // Handle/Create Custom-Block-Pattern
 require get_template_directory() . '/inc/custom_logo.php';
 
@@ -96,6 +141,8 @@ require get_template_directory() . '/classes/class-bs-customize.php';
 // Require Separator Control class.
 require get_template_directory() . '/classes/class-bs-separator-control.php';
 
+// Custom page walker.
+require get_template_directory() . '/classes/class-bs-walker-page.php';
 
 /**
  * Displays SVG icons in social links menu.

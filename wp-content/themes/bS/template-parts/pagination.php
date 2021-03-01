@@ -17,13 +17,13 @@
 
 $prev_text = sprintf(
 	'%s <span class="nav-prev-text">%s</span>',
-	'<span aria-hidden="true">&larr;</span>',
+	'aaa<span aria-hidden="true">&larr;</span>',
 	__( 'Newer <span class="nav-short">Posts</span>', 'twentytwenty' )
 );
 $next_text = sprintf(
 	'<span class="nav-next-text">%s</span> %s',
 	__( 'Older <span class="nav-short">Posts</span>', 'twentytwenty' ),
-	'<span aria-hidden="true">&rarr;</span>'
+	'bbb<span aria-hidden="true">&rarr;</span>'
 );
 
 $posts_pagination = get_the_posts_pagination(

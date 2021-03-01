@@ -19,7 +19,7 @@
 
 				<button class="toggle close-nav-toggle fill-children-current-color" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".menu-modal">
 					<span class="toggle-text"><?php _e( 'Close Menu', 'twentytwenty' ); ?></span>
-					<?php twentytwenty_the_theme_svg( 'cross' ); ?>
+					<?php bs_the_theme_svg( 'cross' ); ?>
 				</button><!-- .nav-toggle -->
 
 				<?php
@@ -29,8 +29,8 @@
 				// If the mobile menu location is not set, use the primary and expanded locations as fallbacks, in that order.
 				if ( has_nav_menu( 'mobile' ) ) {
 					$mobile_menu_location = 'mobile';
-				} elseif ( has_nav_menu( 'primary' ) ) {
-					$mobile_menu_location = 'primary';
+				} elseif ( has_nav_menu( 'top-menu' ) ) {
+					$mobile_menu_location = 'top-menu';
 				} elseif ( has_nav_menu( 'expanded' ) ) {
 					$mobile_menu_location = 'expanded';
 				}
@@ -93,7 +93,7 @@
 									'match_menu_classes' => true,
 									'show_toggles'       => true,
 									'title_li'           => false,
-									'walker'             => new TwentyTwenty_Walker_Page(),
+									'walker'             => new bS_Walker_Page(),
 								)
 							);
 

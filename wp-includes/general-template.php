@@ -326,10 +326,14 @@ function get_search_form( $args = array() ) {
 			</form>';
 		} else {
 			$form = '<form role="search" ' . $aria_label . 'method="get" id="searchform" class="searchform" action="' . esc_url( home_url( '/' ) ) . '">
-				<div>
+				<div class="wp-block-columns">
+				<div class="wp-block-column searchfield">
 					<label class="screen-reader-text" for="s">' . _x( 'Search for:', 'label' ) . '</label>
 					<input type="text" value="' . get_search_query() . '" name="s" id="s" />
-					<input type="submit" id="searchsubmit" value="' . esc_attr_x( 'Search', 'submit button' ) . '" />
+				</div>
+				<div class="wp-block-column searchsubmit">
+					<input type="submit" id="searchsubmit" value="BL_' . esc_attr_x( 'Search', 'submit button' ) . '" />
+				</div>				
 				</div>
 			</form>';
 		}
