@@ -2,6 +2,40 @@
 
 function seo_structuredData()
 {
+
+/*
+
+echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+
+$html = get_the_content();
+
+
+
+ preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
+
+
+foreach ($_headings[0] as $key => $value) {
+    echo $key;
+    print_r ($value);
+echo $value;
+preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
+
+print_r($_html);
+echo id = $_html[1][0];
+
+    echo '<hr>';
+}
+*/
+
+ /** headings:
+
+<h1>...
+<h2>...
+<h3>...
+
+
+*/
+
     $structuredData_html 	= file_get_contents(get_template_directory().'/views/structured_data.blade.html');
 
 	$page_data 				= page_data();
@@ -83,7 +117,29 @@ function seo_structuredData()
         $artikel_body
     ),
     $structuredData_html);
-
+$listItem ='
+<script type="application/ld+json">
+{
+"@context":"http://schema.org",
+"@type":"ItemList",
+"itemListElement":[';
+$listItem .='
+  {
+  "@type":"ListItem",
+  "position":1,
+  "name" : "1.",
+  "url":"/testseite-fuer-footer#1"
+  },  {
+  "@type":"ListItem",
+  "position":2,
+  "name" : "2.",
+  "url":"/testseite-fuer-footer#2"
+  }
+';
+$listItem .='  ]
+}</script>';
     //$structuredData_html = minify_html($structuredData_html);
     echo $structuredData_html;
+//echo $listItem;
+
 }

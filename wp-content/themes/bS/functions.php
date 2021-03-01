@@ -85,7 +85,7 @@ add_action( 'init', 'wpb_custom_new_menu' );
 function bs_tag_cloud_shortcode( $atts = '' ) {
     $atts = shortcode_atts(
         array(
-            'cat_id' => '14',
+            'cat_id' => '15',
             'smallest' => '14',
             'largest' => '22',
             'separator' => ' | ',
