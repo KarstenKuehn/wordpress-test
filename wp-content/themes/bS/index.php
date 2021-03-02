@@ -104,7 +104,10 @@ get_header(); ?>
 	}
 	else
 	{
-		the_content();
+		//the_content();
+		get_my_content();
+		echo 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
 	}
 ?>
 

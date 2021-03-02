@@ -205,8 +205,9 @@ function footer()
 
 function get_my_content()
 {
-    $html = the_content();
-
+    echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';    
+//    $html = the_content();
+$html = apply_filters('the_content', get_the_content());
 
     $html = str_replace(
         array(
@@ -219,13 +220,62 @@ function get_my_content()
         ),
         $html
     );
+preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
+$i = 0;
+    foreach ($_headings[0] as $key => $value) {
+
+preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
+
+
+if(!$_html[0][0] or $_html[0][0]=='')
+{
+
+
+    preg_match_all( '@<([^\s]+).*?>(.+?)</\1>@', $value, $_html );
+    $tag = 'headline_'.$_html[1][0].'_'.$i;
+    $str_1  =  $_html[0][0];
+    $str_2  = str_replace(
+        array(
+            '<'.$_html[1][0]
+        ),
+        array(
+            '<'.$_html[1][0].' id="'.$tag.'" style="color:red;"'
+        ),
+        $str_1
+    );
+}
+else
+{
+    $str_2 = $value;
+}
+
+/**/
+
+
+    $html = str_replace(
+        array(
+            $value,
+            ''
+        ),
+        array(
+            $str_2,
+            ''
+        ),
+        $html
+    );
+    $i++;
+}
 
 
     echo $html;
+    echo 'yyyyyyyyyyyyyyyyyyyyyyyy';
+
+    return $html;
 }
 
 function get_content()
 {
+    echo 'ccccccccccccccccccccc';
     $html = get_the_content();
 
     $html = str_replace(
@@ -240,9 +290,10 @@ function get_content()
         $html
     );
 
+    echo 'ddd';
 
     #echo minify_html($html);
-    echo $html;
+    return $html;
 }
 
 

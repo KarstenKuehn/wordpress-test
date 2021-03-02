@@ -6,21 +6,28 @@ function seo_structuredData()
     $page_data              = page_data();
     $user_data              = get_userdata($page_data->post_author);
 
-$html = get_the_content();
+
+echo 'bbbbbbbbbbbbbbbbbb';
+//$html = get_the_content();
+//$html = the_content();
+
+$html = get_my_content();
+//$html = apply_filters('the_content', get_the_content());
+echo $html;
+
+     preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
 
 
+    /** headings:
 
- preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
-
-
-/** headings:
-
-<h1>...
-<h2>...
-<h3>...
+    <h1>...
+    <h2>...
+    <h3>...
 
 
-*/
+    */
+
+    print_r($_headings);
 
     $structuredData_html 	= file_get_contents(get_template_directory().'/views/structured_data.blade.html');
 
@@ -100,63 +107,40 @@ $html = get_the_content();
         $artikel_body
     ),
     $structuredData_html);
-$listItem ='
-<script type="application/ld+json">
+$i=1;
+$items_count = count($_headings[0]);
+if($items_count>0)
 {
-"@context":"http://schema.org",
-"@type":"ItemList",
-"itemListElement":[';
-$listItem .='
-  {
-  "@type":"ListItem",
-  "position":1,
-  "name" : "1.",
-  "url":"/testseite-fuer-footer#1"
-  },  {
-  "@type":"ListItem",
-  "position":2,
-  "name" : "2.",
-  "url":"/testseite-fuer-footer#2"
-  }
-';
-$i=3;
-foreach ($_headings[0] as $key => $value) {
+    $listItem ='
+    <script type="application/ld+json">
+    {
+    "@context":"http://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[';
 
-preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
-/*
-print_r($value);
-echo '<br>';
-print_r($_html[1]);
-echo '<br>';
-print_r($_html[2]);
-echo '<br>';
-echo 'html_tag = '.$_html[1][0];
-echo '<br>';
-echo 'id = '.$_html[2][0];
-echo '<br>';
-echo 'value = '.$_html[3][0];
-echo '<br>';
+    foreach ($_headings[0] as $key => $value) {
 
-echo get_permalink( $page_data->ID).'#'.$_html[2][0];
-    echo '<hr>';
+    preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
 
-*/
-
-$listItem .='
-  {
-  "@type":"ListItem",
-  "position":'.$i.',
-  "name" : "'.$_html[3][0].'",
-  "url":"'.get_permalink( $page_data->ID).'#'.$_html[2][0].'"
-  },
-';
-$i++;
+    $listItem .='
+      {
+      "@type":"ListItem",
+      "position":'.$i.',
+      "name" : "'.$items_count.' '.$_html[3][0].'",
+      "url":"'.get_permalink( $page_data->ID).'#'.$_html[2][0].'"
+      }
+    ';
+    if($i<$items_count)
+    {
+        $listItem .=',';
+    }
+    $i++;
+    }
+    $listItem .='  ]
+    }</script>';
 }
-
-$listItem .='  ]
-}</script>';
     //$structuredData_html = minify_html($structuredData_html);
-    echo $structuredData_html;
+echo $structuredData_html;
 echo $listItem;
 
 }

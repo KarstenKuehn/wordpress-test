@@ -10,7 +10,7 @@ add_filter( 'widget_text', 'do_shortcode' );
 
 // Mein erster Shortcode: [meinshortcode]
 function meinshortcode_function(){
-return "<p><b>Hey, das ist mein Shortcode_xxxxxxxxxxxxxxxxxxx!</b></p>";
+return "<h2>aaa</h2><p><b>Hey, das ist mein Shortcode_xxxxxxxxxxxxxxxxxxx!</b></p>";
 }
 //add_shortcode('meinshortcode', 'meinshortcode_function' );
 
