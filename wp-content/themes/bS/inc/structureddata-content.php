@@ -5,10 +5,6 @@ function seo_structuredData()
 
     $page_data              = page_data();
     $user_data              = get_userdata($page_data->post_author);
-    $html = get_my_content();
-    //$html = apply_filters('the_content', get_the_content());
-    echo $html;
-    preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
     $structuredData_html 	= file_get_contents(get_template_directory().'/views/structured_data.blade.html');
 
 	$artikel_body = ' test test-test test test\'test';
@@ -87,40 +83,38 @@ function seo_structuredData()
         $artikel_body
     ),
     $structuredData_html);
-$i=1;
-$items_count = count($_headings[0]);
-if($items_count>0)
-{
-    $listItem ='
-    <script type="application/ld+json">
+
+    $html = get_my_content();
+    preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
+    $i=1;
+    $items_count = count($_headings[0]);
+    if($items_count>0)
     {
-    "@context":"http://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[';
+        $listItem ='
+        <script type="application/ld+json">
+        {
+        "@context":"http://schema.org",
+        "@type":"ItemList",
+        "itemListElement":[';
 
-    foreach ($_headings[0] as $key => $value) {
+        $listItem_arr = [];
+        foreach ($_headings[0] as $key => $value) {
+            preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
 
-    preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
-
-    $listItem .='
-      {
-      "@type":"ListItem",
-      "position":'.$i.',
-      "name" : "'.$_html[3][0].'",
-      "url":"'.get_permalink( $page_data->ID).'#'.$_html[2][0].'"
-      }
-    ';
-    if($i<$items_count)
-    {
-        $listItem .=',';
+            $listItem_arr []='
+              {
+              "@type":"ListItem",
+              "position":'.$i.',
+              "name" : "'.$_html[3][0].'",
+              "url":"'.get_permalink( $page_data->ID).'#'.$_html[2][0].'"
+              }';
+            $i++;
+        }
+        $listItem .=implode(',', $listItem_arr).'  ]
+        }</script>';
     }
-    $i++;
-    }
-    $listItem .='  ]
-    }</script>';
-}
     //$structuredData_html = minify_html($structuredData_html);
-echo $structuredData_html;
-echo $listItem;
+    echo $structuredData_html;
+    echo $listItem;
 
 }

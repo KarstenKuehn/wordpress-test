@@ -105,9 +105,8 @@ get_header(); ?>
 	else
 	{
 		//the_content();
-		get_my_content();
+		echo get_my_content();
 	}
 ?>
-
 <?php get_footer(); ?>
 <?php seo_structuredData();?>
