@@ -5,30 +5,10 @@ function seo_structuredData()
 
     $page_data              = page_data();
     $user_data              = get_userdata($page_data->post_author);
-
-
-echo 'bbbbbbbbbbbbbbbbbb';
-//$html = get_the_content();
-//$html = the_content();
-
-$html = get_my_content();
-//$html = apply_filters('the_content', get_the_content());
-echo $html;
-
-     preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
-
-
-    /** headings:
-
-    <h1>...
-    <h2>...
-    <h3>...
-
-
-    */
-
-    print_r($_headings);
-
+    $html = get_my_content();
+    //$html = apply_filters('the_content', get_the_content());
+    echo $html;
+    preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
     $structuredData_html 	= file_get_contents(get_template_directory().'/views/structured_data.blade.html');
 
 	$artikel_body = ' test test-test test test\'test';
@@ -126,7 +106,7 @@ if($items_count>0)
       {
       "@type":"ListItem",
       "position":'.$i.',
-      "name" : "'.$items_count.' '.$_html[3][0].'",
+      "name" : "'.$_html[3][0].'",
       "url":"'.get_permalink( $page_data->ID).'#'.$_html[2][0].'"
       }
     ';

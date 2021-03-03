@@ -106,8 +106,6 @@ get_header(); ?>
 	{
 		//the_content();
 		get_my_content();
-		echo 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
-
 	}
 ?>
 

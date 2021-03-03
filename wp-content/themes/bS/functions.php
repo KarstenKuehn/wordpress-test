@@ -175,8 +175,6 @@ require get_template_directory() . '/inc/structureddata-content.php';
 
 function footer()
 {
-    //echo 'aa';
-    //echo $page_data->id;
 	$html = file_get_contents(get_template_directory().'/views/footer.blade.html');
     
 	$page_data = page_data();
@@ -205,10 +203,7 @@ function footer()
 
 function get_my_content()
 {
-    echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';    
-//    $html = the_content();
-$html = apply_filters('the_content', get_the_content());
-
+    $html = apply_filters('the_content', get_the_content());
     $html = str_replace(
         array(
             '<img src',
@@ -220,64 +215,38 @@ $html = apply_filters('the_content', get_the_content());
         ),
         $html
     );
-preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
-$i = 0;
+    preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
+    $i = 0;
     foreach ($_headings[0] as $key => $value) {
+        // is ID defined for headline?  
+        preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
+        $str_2 = $value;
 
-preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
+        if(!$_html[0][0] or $_html[0][0]=='')
+        {
+            preg_match_all( '@<([^\s]+).*?>(.+?)</\1>@', $value, $_html );
+            $tag = 'headline_'.$_html[1][0].'_'.$i;
+            $str_1  =  $_html[0][0];
+            $str_2  = str_replace(
+                array(
+                    '<'.$_html[1][0]
+                ),
+                array(
+                    '<'.$_html[1][0].' id="'.$tag.'"'
+                ),
+                $str_1
+            );
+        }
 
-
-if(!$_html[0][0] or $_html[0][0]=='')
-{
-
-
-    preg_match_all( '@<([^\s]+).*?>(.+?)</\1>@', $value, $_html );
-    $tag = 'headline_'.$_html[1][0].'_'.$i;
-    $str_1  =  $_html[0][0];
-    $str_2  = str_replace(
-        array(
-            '<'.$_html[1][0]
-        ),
-        array(
-            '<'.$_html[1][0].' id="'.$tag.'" style="color:red;"'
-        ),
-        $str_1
-    );
-}
-else
-{
-    $str_2 = $value;
-}
-
-/**/
-
-
-    $html = str_replace(
-        array(
-            $value,
-            ''
-        ),
-        array(
-            $str_2,
-            ''
-        ),
-        $html
-    );
-    $i++;
-}
-
-
-    echo $html;
-    echo 'yyyyyyyyyyyyyyyyyyyyyyyy';
-
+        $html = str_replace($value,$str_2,$html);
+        $i++;
+    }
     return $html;
 }
 
 function get_content()
 {
-    echo 'ccccccccccccccccccccc';
     $html = get_the_content();
-
     $html = str_replace(
         array(
             '<img src',
@@ -289,9 +258,6 @@ function get_content()
         ),
         $html
     );
-
-    echo 'ddd';
-
     #echo minify_html($html);
     return $html;
 }
