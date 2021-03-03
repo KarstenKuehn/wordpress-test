@@ -1,5 +1,6 @@
 <?php
 
+$post_ID = 4;
 
 $empfaenger = 'seo-cron@bluesummit.de';
 $betreff = 'Page wurde verändert '.$post_ID;
