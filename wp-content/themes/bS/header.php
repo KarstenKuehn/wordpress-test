@@ -4,6 +4,20 @@
 	<?php //bs_site_logo(); ?>
 
 	<?php //get_custom_logo_url(); ?>
+		<div class="lb-header">
+			<div>
+				logo
+			</div>		
+			<div>
+				navi1
+			</div>
+			<div>
+				navi2
+			</div>
+			<div>
+				suche
+			</div>			
+		</div>
 		<header id="site-header" class="header-footer-group" role="banner">
 
 			<div class="header-inner section-inner">
@@ -96,7 +110,6 @@
 								<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">Suche 
 									<span class="toggle-inner">
 										<?php bs_the_theme_svg( 'search' ); ?>
-										<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'twentytwenty' ); ?></span>
 									</span>
 								</button><!-- .search-toggle -->
 
