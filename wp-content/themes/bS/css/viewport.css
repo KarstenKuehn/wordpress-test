@@ -1691,13 +1691,6 @@ button.sub-menu-toggle.active svg {
 
 @media ( min-width: 768px ) {
 
-
-    /* Document Setup ------------------------ */
-
-    /* Helper Classes ------------------------ */
-
-    /* Site Header --------------------------- */
-
     #site-header {
         z-index: 2;
     }
@@ -1718,7 +1711,7 @@ button.sub-menu-toggle.active svg {
     }
 
     .header-titles {
-        align-items: baseline;
+        align-items: stretch;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -1731,15 +1724,11 @@ button.sub-menu-toggle.active svg {
         margin: 1rem 0 0 2.4rem;
     }
 
-    .wp-custom-logo .header-titles {
-        align-items: center;
-    }
-
     /* HEADER NAVIGATION */
 
     .header-navigation-wrapper {
         display: flex;
-        flex-basis: 100%
+        flex-basis: 100%;
     }
 
     .primary-menu-wrapper {
@@ -1766,7 +1755,7 @@ button.sub-menu-toggle.active svg {
 
     .header-inner .toggle {
         height: 4.4rem;
-        padding: 0 3rem;
+        padding: 0 0.5rem;
         position: relative;
         bottom: auto;
         left: auto;
@@ -1839,7 +1828,7 @@ button.sub-menu-toggle.active svg {
 }
 /* -------------------------------------------------------------------------- */
 
-/*  6. Search Modal
+/*  Search Modal
 /* -------------------------------------------------------------------------- */
 
 
@@ -1858,13 +1847,6 @@ button.sub-menu-toggle.active svg {
 
 .admin-bar .search-modal.active {
     top: 26px;
-}
-
-@media (max-width: 782px) {
-
-    .admin-bar .search-modal.active {
-        top: 46px;
-    }
 }
 
 .search-modal-inner {
@@ -1966,13 +1948,13 @@ button.search-untoggle {
 }
 
 /* BS-CSS */
-
+img { }
 .search-toggle:focus{
     outline: none;
 }
 
 .wp-block-image img {
-    height: auto;
+    height: auto;vertical-align: top 
 }
 
 .lb-header{
@@ -1982,15 +1964,31 @@ button.search-untoggle {
 .lb-header div{
     display: inline-block;
     min-height: 100px;
+    background: green;
+    margin: 0;
+    padding: 0
+
+}
+.lb-logo img{
+    vertical-align: bottom;
 }
 
+.lb-search{
+    position: relative;
+    flex-basis: 104px;
+    background: green;
+}
 
+.lb-top-menu {
+    background: yellow;
+    flex-basis: calc( 100% - 104px );
+}
 
 .site-logo{
     background: beige;
 }
 
-
+/*
 figure.wp-block-image.size-large.is-style-rounded.logo {
     margin: 0;
     z-index: 10;
@@ -2090,6 +2088,23 @@ figure{
     border-top: 1px solid #fff; 
 }
 .sub-menu > li:hover { background: #CCCCCC; }
+
+*/
+
+/* Breadcrumb */
+
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+.breadcrumb a {
+    color: #428bca;
+    text-decoration: none;
+}
+
 
 /* LB Gallery */
 

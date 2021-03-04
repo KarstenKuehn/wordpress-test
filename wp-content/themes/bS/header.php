@@ -1,23 +1,6 @@
 <?php seo_header();?>
 
 <body <?php body_class(); ?>>
-	<?php //bs_site_logo(); ?>
-
-	<?php //get_custom_logo_url(); ?>
-		<div class="lb-header">
-			<div>
-				logo
-			</div>		
-			<div>
-				navi1
-			</div>
-			<div>
-				navi2
-			</div>
-			<div>
-				suche
-			</div>			
-		</div>
 		<header id="site-header" class="header-footer-group" role="banner">
 
 			<div class="header-inner section-inner">
@@ -69,18 +52,20 @@
 				<div class="header-navigation-wrapper">
 
 					<?php			
-
-					if ( has_nav_menu( 'top-menu' ) || ! has_nav_menu( 'expanded' ) ) {
+					if ( has_nav_menu( 'top-menu1' ) || has_nav_menu( 'top-menu2' ) || ! has_nav_menu( 'expanded' ) ) {
 						
-					wp_nav_menu( array( 
-			    'theme_location' => 'top-menu', 
-			    'container_class' => 'wp-block-column lotto_top-menu top-menu' ) ); 
-				}
+						wp_nav_menu( array( 
+					    'theme_location' => 'top-menu1', 
+					    'container_class' => 'lb-top-menu top-menu' ) ); 
+						wp_nav_menu( array( 
+					    'theme_location' => 'top-menu2', 
+					    'container_class' => 'lb-top-menu top-menu' ) ); 					    
+					}
 
 					if ( true === $enable_header_search || has_nav_menu( 'expanded' ) ) {
 						?>
 
-						<div class="header-toggles hide-no-js">
+						<div class="header-toggles hide-no-js lb-search">
 
 						<?php
 						if ( has_nav_menu( 'expanded' ) ) {
@@ -137,6 +122,10 @@
 			?>
 
 		</header><!-- #site-header -->
+
+<div class="breadcrumb"><?php seo_breadcrumb(); ?></div>
+
+<?php if (function_exists('nav_breadcrumb')) nav_breadcrumb(); ?>
 <div class="wp-block-columns lotto-header">
 	<div class="wp-block-column lotto-logo">
 		<figure class="wp-block-image size-large is-resized is-style-rounded logo">
@@ -151,8 +140,8 @@
 	</div>
 			<?php
 			wp_nav_menu( array( 
-			    'theme_location' => 'top-menu', 
-			    'container_class' => 'wp-block-column lotto_top-menu top-menu' ) ); 
+			    'theme_location' => 'top-menu1', 
+			    'container_class' => 'wp-block-column lotto_top-menu top-menu1' ) ); 
 			?>
 
 </div>
