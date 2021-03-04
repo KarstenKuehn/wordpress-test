@@ -46,12 +46,12 @@ function seo_breadcrumb() {
  $after = '</span>'; 
  
  if ( !is_home() && !is_front_page() || is_paged() ) {
- echo'<span class="toggle-inner">'.bs_the_theme_svg( 'tag' ).'</span>';
- echo '<nav class="breadcrumb">';
+ 
+ echo '<nav class="breadcrumb">Sie sind hier: ';
  
  global $post;
  $homeLink = get_bloginfo('url');
- echo '<a href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+ echo '<a href="' . $homeLink . '"><span class="_">'.bs_the_theme_svg( 'tag' ).'</span>' . $home . '</a> ' . $delimiter . ' ';
  
  if ( is_category()) {
  global $wp_query;
