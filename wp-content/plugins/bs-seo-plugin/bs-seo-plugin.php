@@ -17,6 +17,38 @@ function bs_seo_menu() {
 
 /** Step 3. */
 function handle() {
+
+
+	// SUBMIT
+	if(isset($_POST['bs_seo_save_button']))
+	{
+
+		foreach (get_pages() as $key => $value)
+		{
+			$index 	= '0';
+			$follow = '0';
+
+			if(@$_POST['index_'.$value->ID] == 'on')
+			{
+				$index = 1;
+			}			
+			if(@$_POST['follow_'.$value->ID] == 'on')
+			{
+				$follow = 1;
+			}
+
+			$q = 'UPDATE wp_seo SET 
+			indexable = \''.$index.'\',
+			follow = \''.$follow.'\',
+			meta_title = \''.$_POST['title_'.$value->ID].'\',
+			meta_description = \''.$_POST['description_'.$value->ID].'\',
+			canonical = \''.$_POST['canonical_'.$value->ID].'\' WHERE page_id = \''.$value->ID.'\'';
+
+			db()->query($q);
+		}
+		$_POST = NULL;
+	} // END SUBMIT;
+	
 	if ( !current_user_can( 'manage_options' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
@@ -82,35 +114,6 @@ function handle() {
 
 
 
-
-	// SUBMIT
-	if(isset($_POST['bs_seo_save_button']))
-	{
-
-		foreach (get_pages() as $key => $value)
-		{
-			$index 	= '0';
-			$follow = '0';
-
-			if(@$_POST['index_'.$value->ID] == 'on')
-			{
-				$index = 1;
-			}			
-			if(@$_POST['follow_'.$value->ID] == 'on')
-			{
-				$follow = 1;
-			}
-
-			$q = 'UPDATE wp_seo SET 
-			indexable = \''.$index.'\',
-			follow = \''.$follow.'\',
-			meta_title = \''.$_POST['title_'.$value->ID].'\',
-			meta_description = \''.$_POST['description_'.$value->ID].'\',
-			canonical = \''.$_POST['canonical_'.$value->ID].'\' WHERE page_id = \''.$value->ID.'\'';
-
-			db()->query($q);
-		}
-	} // END SUBMIT;
 }
 
 
