@@ -17,8 +17,7 @@ function bs_seo_menu() {
 
 /** Step 3. */
 function handle() {
-
-
+	
 	// SUBMIT
 	if(isset($_POST['bs_seo_save_button']))
 	{
@@ -48,7 +47,7 @@ function handle() {
 		}
 		$_POST = NULL;
 	} // END SUBMIT;
-	
+
 	if ( !current_user_can( 'manage_options' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
