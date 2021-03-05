@@ -47,11 +47,11 @@ function seo_breadcrumb() {
  
  if ( !is_home() && !is_front_page() || is_paged() ) {
  
- echo '<nav class="breadcrumb">Sie sind hier: ';
- 
+ echo '<nav class="breadcrumb">';
+ echo '<ul itemscope="" itemtype="http://schema.org/BreadcrumbList">';
  global $post;
  $homeLink = get_bloginfo('url');
- echo '<a href="' . $homeLink . '"><span class="_">'.bs_the_theme_svg( 'tag' ).'</span>' . $home . '</a> ' . $delimiter . ' ';
+ echo '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="' . $homeLink . '"><span itemprop="name" class="screen-reader-text">'.$home.'</span>' .bs_get_theme_svg( 'home' ).'</a> ' . $delimiter . ' <meta itemprop="position" content="1"></li>';
  
  if ( is_category()) {
  global $wp_query;
@@ -103,15 +103,16 @@ function seo_breadcrumb() {
  
  } elseif ( is_page() && $post->post_parent ) {
  $parent_id = $post->post_parent;
- $breadcrumbs = array();
+ $breadcrumbs = array(); 
  while ($parent_id) {
  $page = get_page($parent_id);
- $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
- $parent_id = $page->post_parent;
+ $breadcrumbs[] = '<a itemprop="item" href="' . get_permalink($page->ID) . '">'. get_the_title($page->ID) . '</a><span itemprop="name" class="screen-reader-text">'.get_the_title($page->ID).'</span>';
+ $parent_id = $page->post_parent; 
  }
  $breadcrumbs = array_reverse($breadcrumbs);
- foreach ($breadcrumbs as $crumb) echo $crumb . ' ' . $delimiter . ' ';
- echo $before . get_the_title() . $after;
+ foreach ($breadcrumbs as $key => $crumb) echo '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">'.$crumb . ' ' . $delimiter . ' <meta itemprop="position" content="'.($key+2).'"></li> ';
+ echo '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="">'.$before . get_the_title() . $after.'</a><span itemprop="name" class="screen-reader-text">'.get_the_title().'</span> <meta itemprop="position" content="'.(count($breadcrumbs)+2).'"></li>';
+
  
  } elseif ( is_search() ) {
  echo $before . 'Ergebnisse für Ihre Suche nach "' . get_search_query() . '"' . $after;
@@ -128,7 +129,7 @@ function seo_breadcrumb() {
  echo ': ' . __('Seite') . ' ' . get_query_var('paged');
  if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
  }
- 
+ echo '</ul>';
  echo '</nav>';
  
  } 

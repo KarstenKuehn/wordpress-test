@@ -122,8 +122,7 @@
 			?>
 
 		</header><!-- #site-header -->
-
-<div class="breadcrumb"><?php seo_breadcrumb(); ?></div>
+<?php seo_breadcrumb(); ?>
 
 <?php if (function_exists('nav_breadcrumb')) nav_breadcrumb(); ?>
 <div class="wp-block-columns lotto-header">
