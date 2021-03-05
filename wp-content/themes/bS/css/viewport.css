@@ -1689,14 +1689,7 @@ button.sub-menu-toggle.active svg {
 
 
 
-@media ( min-width: 1000px ) {
-
-
-    /* Document Setup ------------------------ */
-
-    /* Helper Classes ------------------------ */
-
-    /* Site Header --------------------------- */
+@media ( min-width: 768px ) {
 
     #site-header {
         z-index: 2;
@@ -1718,7 +1711,7 @@ button.sub-menu-toggle.active svg {
     }
 
     .header-titles {
-        align-items: baseline;
+        align-items: stretch;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -1731,15 +1724,11 @@ button.sub-menu-toggle.active svg {
         margin: 1rem 0 0 2.4rem;
     }
 
-    .wp-custom-logo .header-titles {
-        align-items: center;
-    }
-
     /* HEADER NAVIGATION */
 
     .header-navigation-wrapper {
         display: flex;
-        flex-basis: 100%
+        flex-basis: 100%;
     }
 
     .primary-menu-wrapper {
@@ -1766,7 +1755,7 @@ button.sub-menu-toggle.active svg {
 
     .header-inner .toggle {
         height: 4.4rem;
-        padding: 0 3rem;
+        padding: 0 0.5rem;
         position: relative;
         bottom: auto;
         left: auto;
@@ -1835,206 +1824,11 @@ button.sub-menu-toggle.active svg {
         color: inherit;
     }
 }
-
-
-/* BS-CSS */
-
-
-
-.wp-block-image img {
-    height: auto;
+@media ( min-width: 1000px ) {
 }
-
-figure.wp-block-image.size-large.is-style-rounded.logo {
-    margin: 0;
-    z-index: 10;
-}
-figure.logo img{
-    vertical-align: bottom;
-    background: #f7dc16;
-    width: 100%;
-}
-
-figure.logo img:hover{
-    background: beige;
-}
-
-
-.wp-block-columns.lotto-header{
-    margin-top: 20px;
-}
-
-.wp-block-columns.lotto-header .wp-block-column{
-    margin: 0
-}
-
-.wp-block-column.lotto-logo{
-    flex-basis:50px;
-    z-index: 10;
-}
-.wp-block-column.lotto_top-menu{
-    vertical-align: top;
-    flex-basis:100%;
-    z-index: 1;
-    background: #df0026;
-    color: #fff;
-    padding-bottom: 10px
-}
-#menu-top-menu
-{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: calc(100% - 20px);
-}
-
-#menu-top-menu > li
-{
-    position: relative;
-    float: left;
-    width: calc(100% + 20px);
-    background: #df0026;
-    border-bottom: 1px solid #FFFFFF;
-}
-#menu-top-menu > li:last-child
-{
-    border:none;
-}
-
-#menu-top-menu > li:hover { background: #CCCCCC; }
-
-#menu-top-menu li:hover > ul
-{
-    /* On hover, display the next level's menu */
-    display: inline;
-}
-
-
-/* Menu Link Styles */
-
-#menu-top-menu a ,#menu-top-menu-1 a /* Apply to all links inside the multi-level menu */
-{
-    font: bold 14px Arial, Helvetica, sans-serif;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 0 0 0 10px;
-
-    /* Make the link cover the entire list item-container */
-    display: block;
-    line-height: 30px;
-}
-#menu-top-menu a:hover { color: #000000; }
-figure{
-    margin: 0;
-}
-.sub-menu
-{
-    position: relative;
-    left: 0;
-    width: 100%;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: none;
-}
-
-.sub-menu > li
-{
-    position: relative;
-    background: #999999;
-    margin: 0;
-    border-top: 1px solid #fff; 
-}
-.sub-menu > li:hover { background: #CCCCCC; }
-
-/* LB Gallery */
-
-
-.lb_gallery .wp-block-columns {
-    margin: 0px; 
-}
-.lb_gallery .wp-block-column {
-    text-align: center;
-    margin: 0px;
-    flex-basis:100%;    
-}
-.lb_gallery .wp-block-column:not(:first-child) {
-    text-align: center;
-    margin: 0px;
-    flex-basis:100%;  
-}
-
-.lb_gallery .wp-block-column.lb_gallery_image {
-    padding-top: 1em;
-}
-
-.lb_gallery .wp-block-column.lb_gallery_image img{
-    max-height: 130px;
-    width: auto;
-    margin: auto;
-}
-
-.lb_gallery .wp-block-column.lb_gallery_image figcaption{
-    color: #fff;
-    font-weight: 600;
-}
-
-.lb_gallery .wp-block-column.lb_gallery_spacer {
-    background: lightgray
-}
-
-/* Social Icons ------------------------------ */
-
-ul.social-icons {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -0.9rem 0 0 -0.9rem;
-    justify-content: center;
-    list-style: none;
-}
-
-ul.social-icons li {
-    margin: 0.9rem 0 0 0.9rem;
-}
-
-.social-icons a {
-    align-items: center;
-    background: #f7dc16;
-    border-radius: 50%;
-    color: #fff;
-    display: flex;
-    height: 2.4rem;
-    justify-content: center;
-    padding: 0;
-    text-decoration: none;
-    transition: transform 0.15s ease-in-out;
-    width: 2.4rem;
-}
-
-.social-icons a:focus,
-.social-icons a:hover {
-    transform: scale(1.1);
-    text-decoration: none;
-}
-.screen-reader-text {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute !important;
-    width: 1px;
-    word-wrap: normal !important;
-    word-break: normal;
-}
-
-
 /* -------------------------------------------------------------------------- */
 
-/*  6. Search Modal
+/*  Search Modal
 /* -------------------------------------------------------------------------- */
 
 
@@ -2053,13 +1847,6 @@ ul.social-icons li {
 
 .admin-bar .search-modal.active {
     top: 26px;
-}
-
-@media (max-width: 782px) {
-
-    .admin-bar .search-modal.active {
-        top: 46px;
-    }
 }
 
 .search-modal-inner {
@@ -2159,6 +1946,255 @@ button.search-untoggle {
 .search-modal .search-submit:focus {
     right: 0;
 }
+
+/* BS-CSS */
+img { }
+.search-toggle:focus{
+    outline: none;
+}
+
+.wp-block-image img {
+    height: auto;vertical-align: top 
+}
+
+.lb-header{
+    background: beige;
+}
+
+.lb-header div{
+    display: inline-block;
+    min-height: 100px;
+    background: green;
+    margin: 0;
+    padding: 0
+
+}
+.lb-logo img{
+    vertical-align: bottom;
+}
+
+.lb-search{
+    position: relative;
+    flex-basis: 104px;
+    background: green;
+}
+
+.lb-top-menu {
+    background: yellow;
+    flex-basis: calc( 100% - 104px );
+}
+
+.site-logo{
+    background: beige;
+}
+
+/*
+figure.wp-block-image.size-large.is-style-rounded.logo {
+    margin: 0;
+    z-index: 10;
+}
+figure.logo img{
+    vertical-align: bottom;
+    background: #f7dc16;
+    width: 100%;
+}
+
+figure.logo img:hover{
+    background: beige;
+}
+
+
+.wp-block-columns.lotto-header{
+    margin-top: 20px;
+}
+
+.wp-block-columns.lotto-header .wp-block-column{
+    margin: 0
+}
+
+.wp-block-column.lotto-logo{
+    flex-basis:50px;
+    z-index: 10;
+}
+.wp-block-column.lotto_top-menu{
+    vertical-align: top;
+    flex-basis:100%;
+    z-index: 1;
+    background: #df0026;
+    color: #fff;
+    padding-bottom: 10px
+}
+#menu-top-menu
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: calc(100% - 20px);
+}
+
+#menu-top-menu > li
+{
+    position: relative;
+    float: left;
+    width: calc(100% + 20px);
+    background: #df0026;
+    border-bottom: 1px solid #FFFFFF;
+}
+#menu-top-menu > li:last-child
+{
+    border:none;
+}
+
+#menu-top-menu > li:hover { background: #CCCCCC; }
+
+#menu-top-menu li:hover > ul
+{
+    display: inline;
+}
+
+
+
+
+#menu-top-menu a ,#menu-top-menu-1 a 
+{
+    font: bold 14px Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0 0 0 10px;
+
+    display: block;
+    line-height: 30px;
+}
+#menu-top-menu a:hover { color: #000000; }
+figure{
+    margin: 0;
+}
+.sub-menu
+{
+    position: relative;
+    left: 0;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.sub-menu > li
+{
+    position: relative;
+    background: #999999;
+    margin: 0;
+    border-top: 1px solid #fff; 
+}
+.sub-menu > li:hover { background: #CCCCCC; }
+
+*/
+
+/* Breadcrumb */
+
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+.breadcrumb ul{
+    list-style: none;
+    margin: 0;
+}
+
+.breadcrumb ul li{
+    display: inline-block;
+}
+
+.breadcrumb a {
+    color: #428bca;
+    text-decoration: none;
+}
+
+.breadcrumb svg.svg-icon {
+    display: inline-block;
+    color: #428bca;
+    fill: #428bca;
+    vertical-align: middle;
+}
+
+/* LB Gallery */
+
+
+.lb_gallery .wp-block-columns {
+    margin: 0px; 
+}
+.lb_gallery .wp-block-column {
+    text-align: center;
+    margin: 0px;
+    flex-basis:100%;    
+}
+.lb_gallery .wp-block-column:not(:first-child) {
+    text-align: center;
+    margin: 0px;
+    flex-basis:100%;  
+}
+
+.lb_gallery .wp-block-column.lb_gallery_image {
+    padding-top: 1em;
+}
+
+.lb_gallery .wp-block-column.lb_gallery_image img{
+    max-height: 130px;
+    width: auto;
+    margin: auto;
+}
+
+.lb_gallery .wp-block-column.lb_gallery_image figcaption{
+    color: #fff;
+    font-weight: 600;
+}
+
+.lb_gallery .wp-block-column.lb_gallery_spacer {
+    background: lightgray
+}
+
+/* Social Icons ------------------------------ */
+
+ul.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.9rem 0 0 -0.9rem;
+    justify-content: center;
+    list-style: none;
+}
+
+ul.social-icons li {
+    margin: 0.9rem 0 0 0.9rem;
+}
+
+.social-icons a {
+    align-items: center;
+    background: #f7dc16;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    height: 4.4rem;
+    justify-content: center;
+    padding: 0;
+    text-decoration: none;
+    transition: transform 0.15s ease-in-out;
+    width: 4.4rem;
+
+color:#cd2653;
+fill:#cd2653;
+
+}
+
+.social-icons a:focus,
+.social-icons a:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
 #searchform .searchfield{
     flex-basis: calc( 70% - 40px )!important;
 }
