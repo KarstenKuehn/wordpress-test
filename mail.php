@@ -2,7 +2,7 @@
 
 $post_ID = 4;
 
-$empfaenger = 'seo-cron@bluesummit.de';
+$empfaenger = 'waldemar.schneider@bluesummit.de';
 $betreff = 'Page wurde verändert '.$post_ID;
 $nachricht = 'no message';
 $header = 'From: wordpress@bluesummit.de' . "\r\n" .
