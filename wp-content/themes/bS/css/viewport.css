@@ -1947,7 +1947,58 @@ button.search-untoggle {
     right: 0;
 }
 
+
+/* Single Pagination ------------------------- */
+
+.pagination-single {
+    font-size: 1.8rem;
+    margin-top: 5rem;
+}
+
+.pagination-single-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.pagination-single hr:first-child {
+    margin: 0 0 2.8rem 0;
+}
+
+.pagination-single hr:last-child {
+    margin: 2.8rem 0 0.8rem 0;
+}
+
+.pagination-single a {
+    align-items: baseline;
+    display: flex;
+    font-weight: 600;
+    letter-spacing: -0.0275em;
+    text-decoration: none;
+    flex: 1;
+}
+
+.pagination-single a + a {
+    margin-top: 1rem;
+}
+
+.pagination-single a .arrow {
+    margin-right: 1rem;
+}
+
+.pagination-single a:focus .title,
+.pagination-single a:hover .title {
+    text-decoration: underline;
+}
+
+
 /* BS-CSS */
+
+main#site-content {
+    max-width: 1440px;
+    margin: auto;
+    background: beige;
+}
+
 img { }
 .search-toggle:focus{
     outline: none;
@@ -2150,7 +2201,7 @@ figure{
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev_slide, .next_slide {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -2167,13 +2218,13 @@ figure{
 }
 
 /* Position the "next button" to the right */
-.next {
+.next_slide {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+.prev_slide:hover, .next_slide:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
@@ -2240,7 +2291,7 @@ figure{
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active_dot, .dot:hover {
   background-color: #717171;
 }
 

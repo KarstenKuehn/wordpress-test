@@ -271,6 +271,9 @@ add_filter( 'walker_nav_menu_start_el', 'bs_nav_menu_social_icons', 10, 4 );
 // Einbindung und Ergänzungen für StructuredData
 require get_template_directory() . '/inc/structureddata-content.php';
 
+// Einbindung und Ergänzungen für index-slider
+require get_template_directory() . '/inc/index_slider-content.php';
+
 // FOOTER START 
 
 function footer()

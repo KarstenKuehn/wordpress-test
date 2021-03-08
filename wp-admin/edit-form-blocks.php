@@ -108,7 +108,27 @@ if ( 'auto-draft' === $post->post_status ) {
 	// Override "(Auto Draft)" new post default title with empty string, or filtered value.
 	$initial_edits = array(
 		'title'   => $post->post_title,
-		'content' => $post->post_content,
+		'content' => '
+			<!-- wp:columns {"gradient":"luminous-vivid-amber-to-luminous-vivid-orange"} -->
+				<div class="wp-block-columns has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background has-background xxxx">
+					<!-- wp:column {"width":"50%"} -->
+						<div class="wp-block-column" style="flex-basis:50%">
+							<!-- wp:image -->
+								<figure class="wp-block-image"><img alt=""/>
+								</figure>
+							<!-- /wp:image -->
+						</div>
+					<!-- /wp:column -->
+					<!-- wp:column {"width":"50%"} -->
+						<div class="wp-block-column" style="flex-basis:50%">
+							<!-- wp:image -->
+								<figure class="wp-block-image"><img alt=""/>
+								</figure>
+							<!-- /wp:image -->
+						</div>
+					<!-- /wp:column -->
+				</div>
+			<!-- /wp:columns -->'.$post->post_content,
 		'excerpt' => $post->post_excerpt,
 	);
 }

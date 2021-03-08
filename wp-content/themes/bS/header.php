@@ -1,32 +1,23 @@
 <?php seo_header();?>
 
 <body <?php body_class(); ?>>
-		<header id="site-header" class="header-footer-group" role="banner">
-
-			<div class="header-inner section-inner">
-
-				<div class="header-titles-wrapper">
-					<div class="header-titles">
-
-						<?php
-							// Site title or logo.
-							bs_site_logo();
-
-							// Site description.
-							//bs_site_description();
-						?>
-
-					</div><!-- .header-titles -->
+	<header id="site-header" class="header-footer-group" role="banner">
+		<div class="header-inner section-inner">
+			<div class="header-titles-wrapper">
+				<div class="header-titles">
 					<?php
-
+						// Site title or logo.
+						bs_site_logo();
+						// Site description.
+						//bs_site_description();
+					?>
+				</div><!-- .header-titles -->
+				<?php
 					// Check whether the header search is activated in the customizer.
 					$enable_header_search = get_theme_mod( 'enable_header_search', true );
-
 					if ( true === $enable_header_search ) {
-
-						?>
-
-						<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+				?>
+					<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
 							<span class="toggle-inner">
 								<span class="toggle-icon">
 									<?php bs_the_theme_svg( 'search' ); ?>
@@ -36,8 +27,6 @@
 						</button><!-- .search-toggle -->
 
 					<?php } ?>
-
-
 
 					<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
 						<span class="toggle-inner">
@@ -125,25 +114,7 @@
 <?php seo_breadcrumb(); ?>
 
 <?php if (function_exists('nav_breadcrumb')) nav_breadcrumb(); ?>
-<div class="wp-block-columns lotto-header">
-	<div class="wp-block-column lotto-logo">
-		<figure class="wp-block-image size-large is-resized is-style-rounded logo">
-			<a href="/">
-			<picture>
-				<source media="(max-width: 899px)" srcset="/wp-content/uploads/2021/02/lotto_small.png">
-				<source srcset="/wp-content/uploads/2021/02/lotto_transparent.png">
-				<img alt="test" class="wp-image-21" data-src="/wp-content/uploads/2021/02/lotto_small.png">
-			</picture>
-			</a>
-		</figure>
-	</div>
-			<?php
-			wp_nav_menu( array( 
-			    'theme_location' => 'top-menu1', 
-			    'container_class' => 'wp-block-column lotto_top-menu top-menu1' ) ); 
-			?>
 
-</div>
 
 
 
