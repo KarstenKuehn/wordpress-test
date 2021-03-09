@@ -2185,7 +2185,7 @@ figure{
 /* Slideshow */
 
 /* Slideshow container */
-.slideshow-container {
+.slideshow-container > .wp-block-group__inner-container {
   position: relative;
   margin: auto;
   max-width: 1440px;
@@ -2232,6 +2232,7 @@ figure{
 .text {
     color: #f2f2f2;
     font-size: 15px;
+    margin: 0;
     padding: 8px 12px;
     position: absolute;
     bottom: 72px;
@@ -2404,3 +2405,4 @@ input#searchsubmit {
     width: 100%;    
     background: #df0026;
 }
+

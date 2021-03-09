@@ -19,6 +19,7 @@ function _register_core_block_patterns_and_categories() {
 
 	if ( $should_register_core_patterns ) {
 		$core_block_patterns = array(
+			'lottobayern',			
 			'text-two-columns',
 			'two-buttons',
 			'two-images',
@@ -29,6 +30,7 @@ function _register_core_block_patterns_and_categories() {
 			'three-buttons',
 			'heading-paragraph',
 			'quote',
+
 		);
 
 		foreach ( $core_block_patterns as $core_block_pattern ) {
@@ -38,7 +40,7 @@ function _register_core_block_patterns_and_categories() {
 			);
 		}
 	}
-
+	register_block_pattern_category( 'lb_vorlagen', array( 'label' => _x( 'LB Vorlagen', 'Block pattern category' ) ) );
 	register_block_pattern_category( 'buttons', array( 'label' => _x( 'Buttons', 'Block pattern category' ) ) );
 	register_block_pattern_category( 'columns', array( 'label' => _x( 'Columns', 'Block pattern category' ) ) );
 	register_block_pattern_category( 'gallery', array( 'label' => _x( 'Gallery', 'Block pattern category' ) ) );
