@@ -227,6 +227,10 @@ add_shortcode( 'bs_tagcloud', 'bs_tag_cloud_shortcode' );
 
 
 // Handle/Create Custom-Block-Pattern
+require get_template_directory() . '/block-patterns.php';
+
+
+
 require get_template_directory() . '/inc/custom_logo.php';
 
 
