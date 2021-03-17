@@ -13,7 +13,6 @@ xxxx
 <?php get_footer(); ?>
 <script>
 
-
 var slides    = document.getElementsByClassName("mySlides");
 var dots_navi     = document.getElementById("dots");
 var dots_html   = '';

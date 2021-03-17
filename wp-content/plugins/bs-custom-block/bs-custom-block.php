@@ -34,7 +34,7 @@ function my_block_template() {
         'my_template/slider-new',
         array('categories'  => array('lb_vorlagen'),      
             'title'     => 'Slider_new',
-            'content'   => "<!-- wp:group -->\r\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container\"></div></div>\r\n<!-- /wp:group -->",
+            'content'   => "<!-- wp:group {\"className\":\"slideshow-container\"} -->\r\n<div class=\"wp-block-group slideshow-container\"><div class=\"wp-block-group__inner-container\"><!-- wp:freeform -->\r\n<a class=\"prev_slide\" onclick=\"plusSlides(-1)\">❮</a><a class=\"next_slide\" onclick=\"plusSlides(1)\">❯</a>\r\n<!-- /wp:freeform --><!-- wp:freeform --><div id=\"dots\" class=\"dots\"></div><!-- /wp:freeform --></div></div>\r\n<!-- /wp:group -->",
         )
     );    
     register_block_pattern(

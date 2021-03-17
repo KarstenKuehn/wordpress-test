@@ -26,7 +26,7 @@
 }
 body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
 
-/* LB-Header */
+/* LB-Header 
 .lb_header{
   display: block;
   background: beige;
@@ -44,7 +44,35 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
   max-height: 120px;
   width: auto;
 }
+*/
 
+.lb_header {
+  display: grid;
+
+  grid-template-areas: "logo navi search";
+
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-rows: auto 1fr auto;
+    background: beige;
+  gap: 0px 24px;
+}
+.lb_search{
+  grid-area: search;
+  background: yellow;
+}
+.lb_navi{
+  grid-area: navi;
+  background: yellow;
+}
+.lb_logo{
+  grid-area: logo;
+  background: yellow;
+}
+
+.lb_logo img{
+  max-height: 120px;
+  width: auto;
+}
 /* Breadcrumb */
 
 .breadcrumb {
@@ -88,18 +116,20 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
 /* Slideshow */
 
 /* Slideshow container */
-.slideshow-container > .wp-block-group__inner-container {
+.slideshow-container {
   position: relative;
-  margin: auto;
-  max-width: 1440px;
+  background: red;
+  min-height: 618px;
+  max-width: 1440px; 
+  position: relative;  margin: auto;
 }
 
 /* Hide the images by default */
 .mySlides {
   display: none;  
   background: burlywood;
- 
-  position: relative;
+
+
 
 }
 
@@ -118,6 +148,7 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
   border-radius: 0 3px 3px 0;
   user-select: none;
   text-decoration: none;
+  z-index: 10
 }
 
 /* Position the "next button" to the right */
@@ -138,7 +169,7 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
     margin: 0;
     padding: 8px 12px;
     position: absolute;
-    bottom: 72px;
+    bottom: 122px;
     left: 10.9%;
     width: 48%;
     text-align: left;
@@ -182,7 +213,12 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
 
 /* The dots/bullets/indicators */
 .dots{
+  position: absolute;
     text-align: center;
+    height: 50px;
+    line-height: 50px;
+    bottom: 0;
+    width: 100%
 }
 .dot {
   cursor: pointer;
@@ -567,4 +603,13 @@ position: relative;
 }
 #menu-top-menu1 li:hover .sub-menu{
   display: inline-block;
+}
+
+.notice-success{
+  color:red;
+  background: beige
+}
+
+.my-block-image{
+  background:aqua;
 }
