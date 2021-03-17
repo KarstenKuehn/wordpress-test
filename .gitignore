@@ -3,5 +3,6 @@ wp-config.php
 
 *.log
 *.sql
-
+/wp-admin
+/wp-includes
 .DS_Store
