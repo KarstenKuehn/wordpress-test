@@ -102,8 +102,13 @@ get_header(); ?>
 </main><!-- #site-content -->
 <?php
 	}
-	else
+//	else
 	{
+
+	echo seo_index_slider();
+?>
+
+<?php
 		//the_content();
 		echo get_my_content();
 	}

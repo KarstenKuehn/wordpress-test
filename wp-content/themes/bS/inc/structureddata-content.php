@@ -86,33 +86,46 @@ function seo_structuredData()
 
     $html = get_my_content();
     preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
-    $i=1;
-    $items_count = count($_headings[0]);
-    if($items_count>0)
-    {
         $listItem ='
         <script type="application/ld+json">
         {
         "@context":"http://schema.org",
         "@type":"ItemList",
         "itemListElement":[';
+$i=1;
+        $listItem_arr = [];   
+                $listItem_arr []='
+                  {
+                  "@type":"ListItem",
+                  "position":'.$i.',
+                  "name" : "Suche",
+                  "url":"'.get_permalink( $page_data->ID).'#lb-search"
+                  }';
 
-        $listItem_arr = [];
-        foreach ($_headings[0] as $key => $value) {
-            preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
 
-            $listItem_arr []='
-              {
-              "@type":"ListItem",
-              "position":'.$i.',
-              "name" : "'.$_html[3][0].'",
-              "url":"'.get_permalink( $page_data->ID).'#'.$_html[2][0].'"
-              }';
-            $i++;
+        $i=2;
+        $items_count = count($_headings[0]);
+        if($items_count>0)
+        {
+
+
+
+            foreach ($_headings[0] as $key => $value) {
+                preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
+
+                $listItem_arr []='
+                  {
+                  "@type":"ListItem",
+                  "position":'.$i.',
+                  "name" : "'.$_html[3][0].'",
+                  "url":"'.get_permalink( $page_data->ID).'#'.$_html[2][0].'"
+                  }';
+                $i++;
+            }
+
         }
         $listItem .=implode(',', $listItem_arr).'  ]
-        }</script>';
-    }
+        }</script>';    
     //$structuredData_html = minify_html($structuredData_html);
     echo $structuredData_html;
     echo $listItem;

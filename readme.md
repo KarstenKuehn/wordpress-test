@@ -45,6 +45,13 @@ because the systems wants to update the plugin's language.
 3) BS SEO PLUGIN
 => DO NOT FORGET TO UPLOAD DB from plugin folder (!)
 
+##EIGENE VORLAGEN
+1) im Folder ...\wp-content\themes\MyTHEMES Datei block-patterns.php erstellen
+2) hier eigene Kategorie registrieren => register_block_pattern_category( ... );
+3) in ...\wp-content\themes\MyTHEMES\functions.php 
+	einbinden => require get_template_directory() . '/block-patterns.php';
+4) eigenen Plugin für eigene Vorlagen definieren => \wp-content\plugins\MyPLUGIN\myPlugin.php
+5) eigene block-patterns registrieren => register_block_pattern( ... ) 
 
 ## ROLES 
 No additional roles have to be implemented into Wordpress (atm 08.02.2021)
