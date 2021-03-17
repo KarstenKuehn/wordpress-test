@@ -30,9 +30,33 @@ function my_block_template() {
 <!-- wp:freeform -->\r\n<a class=\"prev_slide\" onclick=\"plusSlides(-1)\">❮</a><a class=\"next_slide\" onclick=\"plusSlides(1)\">❯</a>\r\n<!-- /wp:freeform --><!-- wp:freeform --><div id=\"dots\" class=\"dots\"></div><!-- /wp:freeform --></div></div>\r\n<!-- /wp:group -->",
         )
     );
+    register_block_pattern(
+        'my_template/slider-new',
+        array('categories'  => array('lb_vorlagen'),      
+            'title'     => 'Slider_new',
+            'content'   => "<!-- wp:group -->\r\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container\"></div></div>\r\n<!-- /wp:group -->",
+        )
+    );    
+    register_block_pattern(
+        'my_template/slide-item',
+        array('categories'  => array('lb_vorlagen'),      
+            'title'     => 'Slide-Item',
+            'content'   => "<!-- wp:media-text {\"className\":\"mySlides fade block\"} -->\r\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile mySlides fade block\"><figure class=\"wp-block-media-text__media\"></figure><div class=\"wp-block-media-text__content\"><!-- wp:paragraph {\"placeholder\":\"Inhalt\u2026\",\"className\":\"text\",\"fontSize\":\"large\"} -->\r\n<p class=\"text has-large-font-size\"></p>\r\n<!-- /wp:paragraph --></div></div>\r\n<!-- /wp:media-text -->",
+        )
+    );
 
 }
 
 // Aufruf der Funktion im init Hook
 add_action( 'init', 'my_block_template' );
 
+function loadMyBlock() {
+  wp_enqueue_script(
+    'my-new-block',
+    plugin_dir_url(__FILE__) . 'test-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadMyBlock');

@@ -39,7 +39,6 @@ function _register_core_block_patterns_and_categories() {
 		}
 	}
 
-	//register_block_pattern_category( 'lb_vorlagen', array( 'label' => _x( 'LB Vorlagen', 'Block pattern category' ) ) );
 	register_block_pattern_category( 'buttons', array( 'label' => _x( 'Buttons', 'Block pattern category' ) ) );
 	register_block_pattern_category( 'columns', array( 'label' => _x( 'Columns', 'Block pattern category' ) ) );
 	register_block_pattern_category( 'gallery', array( 'label' => _x( 'Gallery', 'Block pattern category' ) ) );
