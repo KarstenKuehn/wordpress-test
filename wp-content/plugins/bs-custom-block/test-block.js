@@ -186,11 +186,12 @@ return [
   el(
     'div', {
     className: props.className,
-    style: { textAlign: attributes.alignment }
+    style: { textAlign: attributes.alignment,border:'1px solid grey',paddingBottom:'10px' }
     },
     el(
       'div', {
-      className: 'my-block-image'
+      className: 'my-block-image',
+      style:{display:'inline-block',width:'40%'},
       },
       el(
         MediaUpload, {
@@ -201,16 +202,19 @@ return [
             return el(
               components.Button, {
               className: attributes.mediaID ? 'image-button' : 'button button-large',
+      style:{height:'120px'},
               onClick: obj.open
               },
-              !attributes.mediaID ? i18n.__('Upload Image', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL})
+              !attributes.mediaID ? i18n.__('Upload Image', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL,
+      style:{height:'120px'}})
             )
           }
         }
               )
   ),
   el('div', {
-  className: 'my-block-content wp-block-media-text__content'
+  className: 'my-block-content wp-block-media-text__content',
+      style:{display:'inline-block',width:'40%'}
   },
   el(RichText, {
   key: 'editable',
