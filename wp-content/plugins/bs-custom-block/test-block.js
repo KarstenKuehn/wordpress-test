@@ -1,3 +1,4 @@
+/*
 wp.blocks.registerBlockType('brad/border-box', {
   title: 'Simple Box',
   icon: 'smiley',
@@ -6,6 +7,11 @@ wp.blocks.registerBlockType('brad/border-box', {
     text1: {type: 'string'},
     text2: {type: 'string'},
 //    color: {type: 'string'}
+      exampleContent: {
+        type: 'array',
+        source: 'children',
+        selector: 'div.my-content',
+      },
   },
   
  
@@ -20,29 +26,45 @@ wp.blocks.registerBlockType('brad/border-box', {
     function updateColor(value) {
       props.setAttributes({color: value.hex})
     }
+    function onChangeContent(value)
+    {
+      props.setAttributes( { exampleContent: value } );
+    }
     return React.createElement(
       "div",
-      null,
+      {  class: "simple-box" ,style:{background:"red"}},
       React.createElement(
-        "div",
-        null,
+        "label",
+        {
+        style: { border: "3px solid green" , padding:"25px" , margin:"25px"} 
+      },
         "Simple Box"
       ),
       React.createElement("input", { name: "text1", type: "text", value: props.attributes.text1, onChange: updateContent }),
       React.createElement("input", { name: "text2",type: "text", value: props.attributes.text2, onChange: updateContent2 }),
 //      React.createElement(wp.components.ColorPicker, { color: props.attributes.color, onChangeComplete: updateColor })
+      React.createElement(
+        "div", 
+        {  
+          class: "my-content" ,
+          style: { border: "3px solid blue" , padding:"25px" , margin:"25px"} ,
+          placeholder: "Add your content…", 
+          value: 'xxxxxxxxxxxxx'+ props.attributes.exampleContent, onChange: onChangeContent ,
+          multiline:"p"
+        }
+      ),
     );
   },
   save: function(props) {
     return wp.element.createElement(
       "div",
       { style: { border: "3px solid " },
-        class:"wp-block-media-text alignwide is-stacked-on-mobile mySlides fade block"  
+        class:"simple-box"  
       },
       wp.element.createElement(
         "div",
         { style: { border: "3px solid black" , padding:"25px" , margin:"25px"},
-          class: "wp-block-media-text__content" 
+          class: "simple-box_content" 
         },
         props.attributes.text1
       ),
@@ -50,6 +72,11 @@ wp.blocks.registerBlockType('brad/border-box', {
         "button",
         { value:props.attributes.text2,style: { border: "3px solid red" , padding:"25px" , margin:"25px"} },
         props.attributes.text2
+      ),
+      wp.element.createElement(
+        "div",
+        { class:'my-content',style: { border: "3px solid blue" , padding:"25px" , margin:"25px"} },
+        props.attributes.exampleContent
       )
     );
   }
@@ -77,8 +104,7 @@ wp.blocks.registerBlockType('brad/border-box', {
     };
 
     wp.blocks.registerBlockType('no-build-blocks/test-block-vanilla', blockConfig);
-/**/
-
+*/
 (function (blocks, editor, components, i18n, element) {
 var el = element.createElement;
 var registerBlockType = blocks.registerBlockType;
@@ -188,7 +214,11 @@ return [
     className: props.className,
     style: { textAlign: attributes.alignment,border:'1px solid grey',paddingBottom:'10px' }
     },
-    el(
+      el(
+        "div",
+        null,
+        "Slide-Item"
+      ),    el(
       'div', {
       className: 'my-block-image',
       style:{display:'inline-block',width:'40%'},
@@ -294,3 +324,6 @@ window.wp.components,
 window.wp.i18n,
 window.wp.element
 );
+
+
+

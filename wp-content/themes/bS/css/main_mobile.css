@@ -24,4 +24,13 @@
 	    margin-left: -66px;
 	    padding-left: 66px;
 	}    
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  background: red;
+  min-height: auto;
+  margin: auto;
+}
+
 }

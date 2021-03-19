@@ -43,5 +43,4 @@
 			?>
 	
 <?php seo_breadcrumb(); ?>
-xx
-<?php if (function_exists('nav_breadcrumb')) nav_breadcrumb(); ?>yyy
+<?php if (function_exists('nav_breadcrumb')) nav_breadcrumb(); ?>

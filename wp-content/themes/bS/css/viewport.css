@@ -45,6 +45,10 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
   width: auto;
 }
 */
+main{
+    max-width: 1440px; 
+  margin: auto;
+}
 
 .lb_header {
   display: grid;
@@ -119,10 +123,22 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
 .slideshow-container {
   position: relative;
   background: red;
-  min-height: 618px;
-  max-width: 1440px; 
-  position: relative;  margin: auto;
+  min-height: 568px;
+  margin: auto;
 }
+
+.slideshow-container.xx {
+    background: green;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    min-height: 0;
+}
+
+
 
 /* Hide the images by default */
 .mySlides {
@@ -169,7 +185,7 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
     margin: 0;
     padding: 8px 12px;
     position: absolute;
-    bottom: 122px;
+    bottom: 144px;
     left: 10.9%;
     width: 48%;
     text-align: left;
@@ -215,24 +231,39 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
 .dots{
   position: absolute;
     text-align: center;
-    height: 50px;
-    line-height: 50px;
-    bottom: 0;
-    width: 100%
+    height: 72px;
+    line-height: 72px;
+    bottom: 72px;
+    width: 100%;
+    background: red;
 }
 .dot {
   cursor: pointer;
-  height: 15px;
-  width: 15px;
+  height: 8px;
+  width: 8px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: #fff;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
-
+.dots.d_text{
+    left: 10.9%;
+    width: 48%;
+    text-align: left;
+    display: grid;
+  grid: repeat(auto-fill, 50px) / auto-flow 1fr;  
+   gap: 0px 24px;   
+}
+.d_text .dot{
+    width: auto;
+    min-width: 15px;
+    border-top: 3px solid #fff;
+    border-radius: 0;
+    height: calc( 100% - 3px );
+}
 .active_dot, .dot:hover {
-  background-color: #717171;
+  background-color: #0061AB;
 }
 
 /* Fading animation */
@@ -256,6 +287,7 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
 .mySlides img{
     background: beige;
     margin: auto;
+    width: 100%
 }
 
 

@@ -34,14 +34,22 @@ function my_block_template() {
         'my_template/slider-new',
         array('categories'  => array('lb_vorlagen'),      
             'title'     => 'Slider_new',
-            'content'   => "<!-- wp:group {\"className\":\"slideshow-container\"} -->\r\n<div class=\"wp-block-group slideshow-container\"><div class=\"wp-block-group__inner-container\"><!-- wp:freeform -->\r\n<a class=\"prev_slide\" onclick=\"plusSlides(-1)\">❮</a><a class=\"next_slide\" onclick=\"plusSlides(1)\">❯</a>\r\n<!-- /wp:freeform --><!-- wp:freeform --><div id=\"dots\" class=\"dots\"></div><!-- /wp:freeform --></div></div>\r\n<!-- /wp:group -->",
+            'content'   => "<!-- wp:group {\"style\":{\"color\":{\"background\":\"#eceff2\"}},\"className\":\"slideshow-container\"} -->\r\n<div class=\"wp-block-group slideshow-container has-background\" style=\"background-color:#eceff2\"><div class=\"wp-block-group__inner-container\"></div></div>\r\n<!-- /wp:group -->",
         )
-    );    
+    );  
+    register_block_pattern(
+        'my_template/slider-teaser',
+        array('categories'  => array('lb_vorlagen'),      
+            'title'     => 'Teaser Slider',
+            'content'   => "<!-- wp:group {\"style\":{\"color\":{\"background\":\"#cbe5f5\"}},\"className\":\"slideshow-container xx\"} -->\r\n<div class=\"wp-block-group slideshow-container xx has-background\" style=\"background-color:#cbe5f5\"><div class=\"wp-block-group__inner-container\"></div></div>\r\n<!-- /wp:group -->",
+        )
+    );
+
     register_block_pattern(
         'my_template/slide-item',
         array('categories'  => array('lb_vorlagen'),      
             'title'     => 'Slide-Item',
-            'content'   => "<!-- wp:media-text {\"className\":\"mySlides fade block\"} -->\r\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile mySlides fade block\"><figure class=\"wp-block-media-text__media\"></figure><div class=\"wp-block-media-text__content\"><!-- wp:paragraph {\"placeholder\":\"Inhalt\u2026\",\"className\":\"text\",\"fontSize\":\"large\"} -->\r\n<p class=\"text has-large-font-size\"></p>\r\n<!-- /wp:paragraph --></div></div>\r\n<!-- /wp:media-text -->",
+            'content'   => "<!-- wp:media-text {\"className\":\"mySlides fade block\"} -->\r\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile mySlides fade block\" id=\"test\"><figure class=\"wp-block-media-text__media\"></figure><div class=\"wp-block-media-text__content\"><!-- wp:paragraph {\"placeholder\":\"Inhalt\u2026\",\"className\":\"text\",\"fontSize\":\"large\"} -->\r\n<p class=\"text has-large-font-size\"></p>\r\n<!-- /wp:paragraph --></div></div>\r\n<!-- /wp:media-text -->",
         )
     );
 
