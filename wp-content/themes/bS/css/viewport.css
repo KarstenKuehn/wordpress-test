@@ -45,7 +45,7 @@ body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
   width: auto;
 }
 */
-main{
+main,.lb_header{
     max-width: 1440px; 
   margin: auto;
 }
@@ -59,6 +59,7 @@ main{
   grid-template-rows: auto 1fr auto;
     background: beige;
   gap: 0px 24px;
+  border-bottom: 5px solid red;
 }
 .lb_search{
   grid-area: search;
