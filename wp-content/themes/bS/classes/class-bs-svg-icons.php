@@ -171,6 +171,8 @@ if ( ! class_exists( 'bS_SVG_Icons' ) ) {
 						</svg>',
 			'arrow-right' 				=> '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path fill="#1A1A1B" d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/></svg>',
 			'arrow-double' 				=> '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><rect fill="none" height="24" width="24"/></g><g><g><polygon points="15.5,5 11,5 16,12 11,19 15.5,19 20.5,12"/><polygon points="8.5,5 4,5 9,12 4,19 8.5,19 13.5,12"/></g></g></svg>'
+			,
+			'menu' 				=> '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="green" width="24px" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>'
 		);
 
 		/**

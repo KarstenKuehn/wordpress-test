@@ -33,7 +33,7 @@ function my_block_template() {
     register_block_pattern(
         'my_template/slider-new',
         array('categories'  => array('lb_vorlagen'),      
-            'title'     => 'Slider_new',
+            'title'     => 'Content Slider',
             'content'   => "<!-- wp:group {\"style\":{\"color\":{\"background\":\"#eceff2\"}},\"className\":\"slideshow-container\"} -->\r\n<div class=\"wp-block-group slideshow-container has-background\" style=\"background-color:#eceff2\"><div class=\"wp-block-group__inner-container\"></div></div>\r\n<!-- /wp:group -->",
         )
     );  
@@ -68,3 +68,25 @@ function loadMyBlock() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadMyBlock');
+
+function loadMyAccordion() {
+  wp_enqueue_script(
+    'my-new-accordion',
+    plugin_dir_url(__FILE__) . 'accordion-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadMyAccordion');
+
+function loadMyExtraNaviItem() {
+  wp_enqueue_script(
+    'my-new-extranavi',
+    plugin_dir_url(__FILE__) . 'extranaviitem-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadMyExtraNaviItem');

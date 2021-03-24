@@ -80,7 +80,7 @@ function bs_site_logo( $args = array(), $echo = true ) {
 	if ( ! $echo ) {
 		return $html;
 	}
-	$html = str_replace('<img', '<img data-src="/wp-content/uploads/2021/02/lotto_small.png"', $html);
+//	$html = str_replace('<img', '<img data-src="/wp-content/uploads/2021/02/lotto_small.png"', $html);
 	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 }

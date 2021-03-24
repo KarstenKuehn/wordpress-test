@@ -107,10 +107,14 @@ get_header(); ?>
 
 	echo seo_index_slider();
 ?>
-
+<main>
 <?php
 		//the_content();
 		echo get_my_content();
+
+?>
+</main>
+<?php		
 	}
 ?>
 <?php get_footer(); ?>

@@ -2,10 +2,14 @@
 /* 
 	Template Name: Index-Slider Template
 */
-get_header(); ?>
-<main>
+get_header(); ?>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+<main class="mymain" id="mymain">
 <?php
-	echo get_my_content();
+$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+
+echo $html;
+
+	//echo get_my_content();
 ?>
 </main>
 <?php get_footer(); ?>
@@ -92,7 +96,47 @@ function showSlides(c,n) {
   dots[slideIndex-1].className += " active_dot";
 }
 
+/* accordion */
 
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+/*
+
+        var accord_items = document.getElementsByClassName('accordion_head');
+        for(var i = 0; i < accord_items.length; i++) {
+            accord_item = accord_items[i];
+
+            accord_item.onclick = function(e) {console.log(accord_item );
+                //alert('ho ho ho');
+                accord_item.style.border = "1px solid red";
+                parent= accord_item.parentElement;
+                parent.style.border = "1px solid green";
+                item_content = parent.getElementsByClassName("accordion_content")[0];
+                item_content.style.border = "1px solid blue";
+                item_content.classList.toggle('fade');
+            }
+        }
+
+*/
+
+/*
+.accordion_head.onclick = function(){
+alert('aaaaaaaaaaa');
+};
+*/
 
 </script>
 <?php seo_structuredData();?>

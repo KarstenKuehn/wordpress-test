@@ -173,11 +173,13 @@ function page_data()
 function wpb_custom_new_menu() {
   register_nav_menus(
     array(
-      'top-menu1' => __( 'Top Menu1' ),
-      'top-menu2' => __( 'Top Menu2' ),
+      'top-menu' => __( 'MainNavigation' ),
       'footer-menu' => __( 'Footer Menu' ),
       'social' => __( 'Social Menu' ),
-      'mobile' => __( 'Mobile Menu' )
+      'sub-menu1' => __( 'Sub Menu1' ),
+      'sub-menu2' => __( 'Sub Menu2' ),
+      'sub-menu3' => __( 'Sub Menu3' ),
+      'sub-menu4' => __( 'Sub Menu4' )
     )
   );
 }
