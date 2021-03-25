@@ -1,8 +1,13 @@
+<IfModule mod_headers.c>
+Header set Strict-Transport-Security "max-age=15768000; includeSubDomains" env=HTTPS
+</IfModule>
 
-# BEGIN WordPress
-# Die Anweisungen (Zeilen) zwischen „BEGIN WordPress“ und „END WordPress“ sind
-# dynamisch generiert und sollten nur über WordPress-Filter geändert werden.
-# Alle Änderungen an den Anweisungen zwischen diesen Markierungen werden überschrieben.
+<IfModule mod_headers.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -13,4 +18,3 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 
-# END WordPress

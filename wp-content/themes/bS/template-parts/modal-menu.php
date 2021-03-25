@@ -35,8 +35,8 @@
 					$mobile_menu_location = 'expanded';
 				}
 
-				if ( has_nav_menu( 'expanded' ) ) {
 
+				if ( has_nav_menu( 'expanded' ) ) {
 					$expanded_nav_classes = '';
 
 					if ( 'expanded' === $mobile_menu_location ) {
@@ -48,6 +48,7 @@
 					<nav class="expanded-menu<?php echo esc_attr( $expanded_nav_classes ); ?>" aria-label="<?php echo esc_attr_x( 'Expanded', 'menu', 'twentytwenty' ); ?>" role="navigation">
 
 						<ul class="modal-menu reset-list-style">
+							<li><b>1.</b></li>
 							<?php
 							if ( has_nav_menu( 'expanded' ) ) {
 								wp_nav_menu(
@@ -68,23 +69,26 @@
 				}
 
 				if ( 'expanded' !== $mobile_menu_location ) {
+
 					?>
 
 					<nav class="mobile-menu" aria-label="<?php echo esc_attr_x( 'Mobile', 'menu', 'twentytwenty' ); ?>" role="navigation">
 
 						<ul class="modal-menu reset-list-style">
-
 						<?php
 						if ( $mobile_menu_location ) {
 
-							wp_nav_menu(
+							$m = wp_nav_menu(
 								array(
 									'container'      => '',
 									'items_wrap'     => '%3$s',
 									'show_toggles'   => true,
-									'theme_location' => $mobile_menu_location,
+									'theme_location' => 'top-menu1',
 								)
 							);
+						?>
+
+						<?php
 
 						} else {
 
@@ -101,45 +105,35 @@
 						?>
 
 						</ul>
-
+						<?php 
+						for ($m=1; $m < 10; $m++) { 
+							$menu_id = 'sub-menu'.$m;
+							if ( has_nav_menu( $menu_id ) ) 
+							{
+							?>
+							<ul class="modal-menu reset-list-style">
+								<?php
+								echo '<li><b>'.wp_get_nav_menu_name( $menu_id ).'</b></li>';
+								wp_nav_menu(
+									array(
+										'container'      => '',
+										'items_wrap'     => '%3$s',
+										'show_toggles'   => true,
+										'theme_location' => $menu_id ,
+									)								
+								);
+								?>
+							</ul>
+							<?php	
+							}
+						}
+						?>
 					</nav>
-
 					<?php
 				}
 				?>
 
 			</div><!-- .menu-top -->
-
-			<div class="menu-bottom">
-
-				<?php if ( has_nav_menu( 'social' ) ) { ?>
-
-					<nav aria-label="<?php esc_attr_e( 'Expanded Social links', 'twentytwenty' ); ?>" role="navigation">
-						<ul class="social-menu reset-list-style social-icons fill-children-current-color">
-
-							<?php
-							wp_nav_menu(
-								array(
-									'theme_location'  => 'social',
-									'container'       => '',
-									'container_class' => '',
-									'items_wrap'      => '%3$s',
-									'menu_id'         => '',
-									'menu_class'      => '',
-									'depth'           => 1,
-									'link_before'     => '<span class="screen-reader-text">',
-									'link_after'      => '</span>',
-									'fallback_cb'     => '',
-								)
-							);
-							?>
-
-						</ul>
-					</nav><!-- .social-menu -->
-
-				<?php } ?>
-
-			</div><!-- .menu-bottom -->
 
 		</div><!-- .menu-wrapper -->
 

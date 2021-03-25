@@ -7,7 +7,8 @@ function seo_header()
 
 	$page_data = page_data();
     $css = file_get_contents(get_template_directory().'/css/main_min.css');
-	$css .= file_get_contents(get_template_directory().'/css/viewport.css');
+    $css .= file_get_contents(get_template_directory().'/css/viewport.css');
+//    $css .= file_get_contents(get_template_directory().'/css/viewport_back_15-03-2021.css');
 	
 	$html = str_replace(
 	array(
@@ -40,7 +41,8 @@ function seo_header()
  * @authorURL www.codexworld.com
  */
 function seo_breadcrumb() {
- $delimiter = '&raquo;';
+ $delimiter = '&raquo;&nbsp;';
+ //$delimiter = bs_get_theme_svg( 'arrow-double' );
  $home = 'Home'; 
  $before = '<span class="current-page">'; 
  $after = '</span>'; 
@@ -51,7 +53,7 @@ function seo_breadcrumb() {
  echo '<ul itemscope="" itemtype="http://schema.org/BreadcrumbList">';
  global $post;
  $homeLink = get_bloginfo('url');
- echo '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="' . $homeLink . '"><span itemprop="name" class="screen-reader-text">'.$home.'</span>' .bs_get_theme_svg( 'home' ).'</a> ' . $delimiter . ' <meta itemprop="position" content="1"></li>';
+ echo '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="' . $homeLink . '"><span itemprop="name" class="screen-reader-text">'.$home.'</span> ' .bs_get_theme_svg( 'home' ).'</a> ' . $delimiter . ' <meta itemprop="position" content="1"></li>';
  
  if ( is_category()) {
  global $wp_query;
@@ -171,62 +173,26 @@ function page_data()
 function wpb_custom_new_menu() {
   register_nav_menus(
     array(
-      'top-menu1' => __( 'Top Menu1' ),
-      'top-menu2' => __( 'Top Menu2' ),
+      'top-menu' => __( 'MainNavigation' ),
       'footer-menu' => __( 'Footer Menu' ),
       'social' => __( 'Social Menu' ),
-      'mobile' => __( 'Mobile Menu' )
+      'sub-menu1' => __( 'Sub Menu1' ),
+      'sub-menu2' => __( 'Sub Menu2' ),
+      'sub-menu3' => __( 'Sub Menu3' ),
+      'sub-menu4' => __( 'Sub Menu4' )
     )
   );
 }
 add_action( 'init', 'wpb_custom_new_menu' );
 
-// tag_cloud_shortcode
-function bs_tag_cloud_shortcode( $atts = '' ) {
-    $atts = shortcode_atts(
-        array(
-            'cat_id' => '15',
-            'smallest' => '14',
-            'largest' => '22',
-            'separator' => ' | ',
-        ), $atts
-    );
-    
-    $category_id = $atts['cat_id']; 
-    $query_args = array( 'cat' => $category_id, 'posts_per_page' => -1 );
-    $custom_query = new WP_Query( $query_args );
-    if ($custom_query->have_posts()) :
-        while ($custom_query->have_posts()) : $custom_query->the_post();
-            $posttags = get_the_tags();
-            if ($posttags) {
-                foreach($posttags as $tag) {
-                    $all_tags[] = $tag->term_id;
-                }
-            }
-        endwhile;
-    endif;
-
-    $tags_arr = array_unique($all_tags);
-    $tags_str = implode(",", $tags_arr);
-
-    $args = array(
-        'echo'      => false,
-        'smallest'  => $atts['smallest'],
-        'largest'   => $atts['largest'],
-        'unit'      => 'px',
-        'number'    => 0,
-        'format'    => 'flat',  
-        'separator' => $atts['separator'],
-        'order'     => 'count',
-        'include'   => $tags_str
-    );
-    return wp_tag_cloud($args);
-}
-add_shortcode( 'bs_tagcloud', 'bs_tag_cloud_shortcode' );
 
 
 
 // Handle/Create Custom-Block-Pattern
+require get_template_directory() . '/block-patterns.php';
+
+
+
 require get_template_directory() . '/inc/custom_logo.php';
 
 
@@ -270,6 +236,9 @@ add_filter( 'walker_nav_menu_start_el', 'bs_nav_menu_social_icons', 10, 4 );
 
 // Einbindung und Ergänzungen für StructuredData
 require get_template_directory() . '/inc/structureddata-content.php';
+
+// Einbindung und Ergänzungen für index-slider
+require get_template_directory() . '/inc/index_slider-content.php';
 
 // FOOTER START 
 
@@ -341,9 +310,43 @@ function get_my_content()
         $html = str_replace($value,$str_2,$html);
         $i++;
     }
+
     return $html;
 }
 
+function get_skiplinks()
+{
+$html = apply_filters('the_content', get_the_content());    
+
+    $skiplinks ='   <nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes">
+                <h2 class="is-visuallyhidden">Skiplinks
+</h2>
+                                        
+                    <ul>';
+
+
+
+    preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
+    $i = 0;
+    foreach ($_headings[0] as $key => $value) {
+        // is ID defined for headline?  
+        preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
+        $str_2 = $value;
+
+        if(!$_html[0][0] or $_html[0][0]=='')
+        {
+            preg_match_all( '@<([^\s]+).*?>(.+?)</\1>@', $value, $_html );
+            $tag = 'headline_'.$_html[1][0].'_'.$i;
+       }
+
+        $html = str_replace($value,$str_2,$html);
+        $skiplinks .=' <li class="skiplink"><a accesskey="'.$i.'" href="#'.$tag.'" title="ALT + '.$i.'">'.$_html[2][0].'</a></li>';        
+        $i++;
+        }
+        $skiplinks .='<li class="skiplink"><a accesskey="'.$i.'" href="#lb-search" title="[ALT + '.$i.']">Skip to search</a></li>';      
+        $skiplinks .='</ul></nav>';
+    return $skiplinks;
+}
 function get_content()
 {
     $html = get_the_content();
@@ -405,7 +408,7 @@ function cleanup_seo($post_ID) // GET'S CALLED WHEN TRASH IS BEING EMPTIED !!!
 
 function postChangedEmail($post_ID)
 {
-
+    // t.b.d.
 }
 
 

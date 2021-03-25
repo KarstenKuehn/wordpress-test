@@ -102,107 +102,19 @@ get_header(); ?>
 </main><!-- #site-content -->
 <?php
 	}
-	else
+//	else
 	{
+
+	echo seo_index_slider();
 ?>
-
-<!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-    <img src="http://lbup.local/wp-content/uploads/2021/02/home_slide1.png">
-    <div class="text">
-    	<span class="slide_h2">h2 Caption Text 1</span>
-    	<span class="slide_h1">h1 Caption Text 1</span>
-    	<span class="slide_h1">h1 Caption Text 1</span>
-    	<button>Spiele entdecken <?php bs_the_theme_svg( 'arrow-right','ui','white' ) ?></button>
-    </div>
-  </div>
-
-  <div class="mySlides fade">
-    <img src="http://lbup.local/wp-content/uploads/2021/02/home_slide2.png">
-    <div class="text">
-    	<span class="slide_h2">h2 Caption Text 2</span>
-    	<span class="slide_h1">h1 Caption Text 2</span>
-    	<span class="slide_h1">h1 Caption Text 2</span>
-    	<button>Spiele entdecken 2 <?php bs_the_theme_svg( 'arrow-right','ui','white' ) ?></button>
-    </div>
-	</div>
-
-  <div class="mySlides fade">
-    <img src="http://lbup.local/wp-content/uploads/2021/02/home_slide3.png">
-    <div class="text">
-    	<span class="slide_h2">h2 Caption Text 3</span>
-    	<span class="slide_h1">h1 Caption Text 3</span>
-    	<span class="slide_h1">h1 Caption Text 3</span>
-    	<button>Spiele entdecken 3 <?php bs_the_theme_svg( 'arrow-right','ui','white' ) ?></button>
-    </div>
-  </div>
-
-  <div class="mySlides fade">
-    <img src="http://lbup.local/wp-content/uploads/2021/02/home_slide1.png">
-    <div class="text">
-    	<span class="slide_h2">h2 Caption Text 4</span>
-    	<span class="slide_h1">h1 Caption Text 4</span>
-    	<span class="slide_h1">h1 Caption Text 4</span>
-    	<button>Spiele entdecken 4 <?php bs_the_theme_svg( 'arrow-right','ui','white' ) ?></button>
-    </div>
-  </div>
-
-    <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-
-<br>
-
-
-
-
-<!-- The dots/circles -->
-<div id="dots" class="dots"></div>
-<script>
-
-
-var slides 		= document.getElementsByClassName("mySlides");
-var dots_navi 		= document.getElementById("dots");
-var dots_html 	= '';
-dots_navi.innerHTML 	= '';
-for (i = 1; i <= slides.length; i++) {
-	dots_html 	= '<span class="dot" onclick="currentSlide('+i+')"></span>';
-	dots_navi.innerHTML 	+= dots_html;
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-</script>
+<main>
 <?php
 		//the_content();
 		echo get_my_content();
+
+?>
+</main>
+<?php		
 	}
 ?>
 <?php get_footer(); ?>
