@@ -1,110 +1,3 @@
-/*
-wp.blocks.registerBlockType('brad/border-box', {
-  title: 'Simple Box',
-  icon: 'smiley',
-  category: 'common',
-  attributes: {
-    text1: {type: 'string'},
-    text2: {type: 'string'},
-//    color: {type: 'string'}
-      exampleContent: {
-        type: 'array',
-        source: 'children',
-        selector: 'div.my-content',
-      },
-  },
-  
- 
-  edit: function(props) {
-    function updateContent(event) {
-      props.setAttributes({text1: event.target.value})
-    }
-    function updateContent2(event) {
-      props.setAttributes({text2: event.target.value})
-    }
-
-    function updateColor(value) {
-      props.setAttributes({color: value.hex})
-    }
-    function onChangeContent(value)
-    {
-      props.setAttributes( { exampleContent: value } );
-    }
-    return React.createElement(
-      "div",
-      {  class: "simple-box" ,style:{background:"red"}},
-      React.createElement(
-        "label",
-        {
-        style: { border: "3px solid green" , padding:"25px" , margin:"25px"} 
-      },
-        "Simple Box"
-      ),
-      React.createElement("input", { name: "text1", type: "text", value: props.attributes.text1, onChange: updateContent }),
-      React.createElement("input", { name: "text2",type: "text", value: props.attributes.text2, onChange: updateContent2 }),
-//      React.createElement(wp.components.ColorPicker, { color: props.attributes.color, onChangeComplete: updateColor })
-      React.createElement(
-        "div", 
-        {  
-          class: "my-content" ,
-          style: { border: "3px solid blue" , padding:"25px" , margin:"25px"} ,
-          placeholder: "Add your content…", 
-          value: 'xxxxxxxxxxxxx'+ props.attributes.exampleContent, onChange: onChangeContent ,
-          multiline:"p"
-        }
-      ),
-    );
-  },
-  save: function(props) {
-    return wp.element.createElement(
-      "div",
-      { style: { border: "3px solid " },
-        class:"simple-box"  
-      },
-      wp.element.createElement(
-        "div",
-        { style: { border: "3px solid black" , padding:"25px" , margin:"25px"},
-          class: "simple-box_content" 
-        },
-        props.attributes.text1
-      ),
-      wp.element.createElement(
-        "button",
-        { value:props.attributes.text2,style: { border: "3px solid red" , padding:"25px" , margin:"25px"} },
-        props.attributes.text2
-      ),
-      wp.element.createElement(
-        "div",
-        { class:'my-content',style: { border: "3px solid blue" , padding:"25px" , margin:"25px"} },
-        props.attributes.exampleContent
-      )
-    );
-  }
-})
-
-
-    const blockConfig = {
-        title: 'Test Block Vanilla Javascript',
-        icon: 'edit',
-        category: 'common',
-        edit() {
-            return wp.element.createElement(
-                'div',
-                null,
-                'Hello, World! I\'m plain js!'
-            );
-        },
-        save() {
-            return wp.element.createElement(
-                'div',
-                null,
-                'Hello, World! I\'m plain js!'
-            );
-        }
-    };
-
-    wp.blocks.registerBlockType('no-build-blocks/test-block-vanilla', blockConfig);
-*/
 (function (blocks, editor, components, i18n, element) {
 var el = element.createElement;
 var registerBlockType = blocks.registerBlockType;
@@ -115,7 +8,7 @@ var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
 registerBlockType('my-first-gutenberg-block/image-with-text-block', {
-title: i18n.__('SlideItem', 'my-first-gutenberg-block'),
+title: i18n.__('LB-SlideItem-aa', 'my-first-gutenberg-block'),
 description: i18n.__('A custom block for displaying image with text section', 'my-first-gutenberg-block'),
 icon: 'id',
 category: 'common',

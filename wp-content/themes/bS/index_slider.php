@@ -2,7 +2,7 @@
 /* 
 	Template Name: Index-Slider Template
 */
-get_header(); ?>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+get_header(); ?>
 <main class="mymain" id="mymain">
 <?php
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());

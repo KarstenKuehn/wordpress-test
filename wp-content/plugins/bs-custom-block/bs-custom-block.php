@@ -61,7 +61,7 @@ add_action( 'init', 'my_block_template' );
 function loadMyBlock() {
   wp_enqueue_script(
     'my-new-block',
-    plugin_dir_url(__FILE__) . 'test-block.js',
+    plugin_dir_url(__FILE__) . 'test-block_x.js',
     array('wp-blocks','wp-editor'),
     true
   );
@@ -90,3 +90,29 @@ function loadMyExtraNaviItem() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadMyExtraNaviItem');
+
+
+
+function load_xx() {
+  wp_enqueue_script(
+    'my-new-test',
+    plugin_dir_url(__FILE__) . 'xx.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_xx');
+
+
+
+function load_yy() {
+  wp_enqueue_script(
+    'my-new-yy',
+    plugin_dir_url(__FILE__) . 'yy.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_yy');
