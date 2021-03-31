@@ -76,17 +76,40 @@
 
 						<ul class="modal-menu reset-list-style">
 						<?php
-						if ( $mobile_menu_location ) {
 
+
+
+						if ( $mobile_menu_location ) {
+						/*
 							$m = wp_nav_menu(
 								array(
 									'container'      => '',
 									'items_wrap'     => '%3$s',
 									'show_toggles'   => true,
 									'theme_location' => 'top-menu1',
+  									'sub_menu'      => false,
 								)
 							);
-						?>
+						*/
+
+
+echo '--------------------------- ';
+//$menu_items = wp_get_nav_menu_object('top-menu1' );
+$current_nav_item =  my_get_menu_item_name( 'top-menu1' );
+//print_r($menu_items);
+//$this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
+//echo $this_item->title;
+echo $current_nav_item;
+echo ' ---------------------------';
+
+$args = array(
+    'theme_location' => 'top-menu1', // the one used on register_nav_menus
+    'submenu' => $current_nav_item , // could be used __() for translations
+);
+
+wp_nav_menu( $args );
+
+						?>bbbb
 
 						<?php
 
