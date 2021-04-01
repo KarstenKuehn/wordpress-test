@@ -214,8 +214,9 @@ return (
         },
         attributes.title
 
-      ),el('img', {
+      ) ,el('div', {
       src: attributes.mediaURL,
+      style:{backgroundImage:'url('+attributes.mediaURL+')'},
       alt: attributes.mediaALT,
           className:'block_image'
       }),

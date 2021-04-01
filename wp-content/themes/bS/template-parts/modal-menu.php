@@ -48,7 +48,7 @@
 					<nav class="expanded-menu<?php echo esc_attr( $expanded_nav_classes ); ?>" aria-label="<?php echo esc_attr_x( 'Expanded', 'menu', 'twentytwenty' ); ?>" role="navigation">
 
 						<ul class="modal-menu reset-list-style">
-							<li><b>1.</b></li>
+							<li><b></b></li>
 							<?php
 							if ( has_nav_menu( 'expanded' ) ) {
 								wp_nav_menu(
@@ -80,36 +80,20 @@
 
 
 						if ( $mobile_menu_location ) {
-						/*
-							$m = wp_nav_menu(
-								array(
-									'container'      => '',
-									'items_wrap'     => '%3$s',
-									'show_toggles'   => true,
-									'theme_location' => 'top-menu1',
-  									'sub_menu'      => false,
-								)
-							);
-						*/
+						$current_nav_item =  my_get_menu_item_name( 'top-menu' );
+						echo '<h2> ';
+						echo $current_nav_item;
+						echo '</h2>';
 
+						$args = array(
+						    'theme_location' => 'top-menu', // the one used on register_nav_menus
+						    'submenu' => $current_nav_item , // could be used __() for translations
+						    'depth' => 2
+						);
 
-echo '--------------------------- ';
-//$menu_items = wp_get_nav_menu_object('top-menu1' );
-$current_nav_item =  my_get_menu_item_name( 'top-menu1' );
-//print_r($menu_items);
-//$this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
-//echo $this_item->title;
-echo $current_nav_item;
-echo ' ---------------------------';
+						wp_nav_menu( $args );
 
-$args = array(
-    'theme_location' => 'top-menu1', // the one used on register_nav_menus
-    'submenu' => $current_nav_item , // could be used __() for translations
-);
-
-wp_nav_menu( $args );
-
-						?>bbbb
+						?>
 
 						<?php
 

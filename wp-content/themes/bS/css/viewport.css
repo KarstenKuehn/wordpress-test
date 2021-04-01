@@ -28,11 +28,15 @@
 
   font-display: swap;       
 }
-body {font-family: 'Lato', sans-serif; margin: 0;padding: 0}
+body {font-family: 'Lato', sans-serif; margin: 0 auto;padding: 0; max-width: 2000px; background: beige;border: 2px solid green}
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: unset;
     width: auto;
     vertical-align: middle;
+}
+
+main{
+  margin: 0 auto;padding: 0; max-width: 1224px; border: 1px solid blue
 }
 
 /* skiplinks */

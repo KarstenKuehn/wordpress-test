@@ -14,7 +14,7 @@
 			// Site Navi.
 			if ( has_nav_menu( 'top-menu' ) ) {
 				wp_nav_menu( array( 
-			    'theme_location' => 'top-menu' ) ); 					    
+			    'theme_location' => 'top-menu', 'depth' => 1 ) ); 					    
 			}						
 			?>
 			
@@ -57,7 +57,6 @@
 		get_template_part( 'template-parts/modal-search' );
 	}
 	?>
-	
 <?php seo_breadcrumb(); ?>
 <?php if (function_exists('nav_breadcrumb')) nav_breadcrumb(); 
 
