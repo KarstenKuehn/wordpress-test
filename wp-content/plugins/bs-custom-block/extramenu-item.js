@@ -1,110 +1,3 @@
-/*
-wp.blocks.registerBlockType('brad/border-box', {
-  title: 'Simple Box',
-  icon: 'smiley',
-  category: 'common',
-  attributes: {
-    text1: {type: 'string'},
-    text2: {type: 'string'},
-//    color: {type: 'string'}
-      exampleContent: {
-        type: 'array',
-        source: 'children',
-        selector: 'div.my-content',
-      },
-  },
-  
- 
-  edit: function(props) {
-    function updateContent(event) {
-      props.setAttributes({text1: event.target.value})
-    }
-    function updateContent2(event) {
-      props.setAttributes({text2: event.target.value})
-    }
-
-    function updateColor(value) {
-      props.setAttributes({color: value.hex})
-    }
-    function onChangeContent(value)
-    {
-      props.setAttributes( { exampleContent: value } );
-    }
-    return React.createElement(
-      "div",
-      {  class: "simple-box" ,style:{background:"red"}},
-      React.createElement(
-        "label",
-        {
-        style: { border: "3px solid green" , padding:"25px" , margin:"25px"} 
-      },
-        "Simple Box"
-      ),
-      React.createElement("input", { name: "text1", type: "text", value: props.attributes.text1, onChange: updateContent }),
-      React.createElement("input", { name: "text2",type: "text", value: props.attributes.text2, onChange: updateContent2 }),
-//      React.createElement(wp.components.ColorPicker, { color: props.attributes.color, onChangeComplete: updateColor })
-      React.createElement(
-        "div", 
-        {  
-          class: "my-content" ,
-          style: { border: "3px solid blue" , padding:"25px" , margin:"25px"} ,
-          placeholder: "Add your content…", 
-          value: 'xxxxxxxxxxxxx'+ props.attributes.exampleContent, onChange: onChangeContent ,
-          multiline:"p"
-        }
-      ),
-    );
-  },
-  save: function(props) {
-    return wp.element.createElement(
-      "div",
-      { style: { border: "3px solid " },
-        class:"simple-box"  
-      },
-      wp.element.createElement(
-        "div",
-        { style: { border: "3px solid black" , padding:"25px" , margin:"25px"},
-          class: "simple-box_content" 
-        },
-        props.attributes.text1
-      ),
-      wp.element.createElement(
-        "button",
-        { value:props.attributes.text2,style: { border: "3px solid red" , padding:"25px" , margin:"25px"} },
-        props.attributes.text2
-      ),
-      wp.element.createElement(
-        "div",
-        { class:'my-content',style: { border: "3px solid blue" , padding:"25px" , margin:"25px"} },
-        props.attributes.exampleContent
-      )
-    );
-  }
-})
-
-
-    const blockConfig = {
-        title: 'Test Block Vanilla Javascript',
-        icon: 'edit',
-        category: 'common',
-        edit() {
-            return wp.element.createElement(
-                'div',
-                null,
-                'Hello, World! I\'m plain js!'
-            );
-        },
-        save() {
-            return wp.element.createElement(
-                'div',
-                null,
-                'Hello, World! I\'m plain js!'
-            );
-        }
-    };
-
-    wp.blocks.registerBlockType('no-build-blocks/test-block-vanilla', blockConfig);
-*/
 (function (blocks, editor, components, i18n, element) {
 var el = element.createElement;
 var registerBlockType = blocks.registerBlockType;
@@ -114,9 +7,9 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
-registerBlockType('my-first-gutenberg-block/image-with-text-block', {
-title: i18n.__('SlideItem', 'my-first-gutenberg-block'),
-description: i18n.__('A custom block for displaying image with text section', 'my-first-gutenberg-block'),
+registerBlockType('my-first-gutenberg-block/menuitem', {
+title: i18n.__('LB-MenuItem', 'my-first-gutenberg-block'),
+description: i18n.__('A custom block for displaying LB-MenuItem', 'my-first-gutenberg-block'),
 icon: 'id',
 category: 'common',
 attributes: {
@@ -184,7 +77,8 @@ return [
     }
     })
   ),
-  el(InspectorControls, {key: 'inspector'},
+  /*
+  el(BlockControls, {key: 'inspector'},
   el(components.PanelBody, {
   title: i18n.__('Block Content', 'my-first-gutenberg-block'),
   className: 'block-content',
@@ -209,6 +103,8 @@ return [
   })
   )
   ),
+
+  */
   el(
     'div', {
     className: props.className,
@@ -217,12 +113,18 @@ return [
       el(
         "div",
         null,
-        "Slide-Item"
-      ),    el(
+        "Extramenu-Item"
+      ),    
+      el(
       'div', {
-      className: 'my-block-image',
-      style:{display:'inline-block',width:'40%'},
+        className: 'wp-block-media-text__media',
+        style:{display:'inline-block',width:'40%',verticalAlign:'top'},
       },
+      el(
+        "span",
+        null,
+        "MenuItem-Logo:"
+      ),
       el(
         MediaUpload, {
           onSelect: onSelectImage,
@@ -232,31 +134,41 @@ return [
             return el(
               components.Button, {
               className: attributes.mediaID ? 'image-button' : 'button button-large',
-      style:{height:'120px'},
+              style:{height:'auto',width:'auto'},
               onClick: obj.open
               },
               !attributes.mediaID ? i18n.__('Upload Image', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL,
-      style:{height:'120px'}})
+              style:{height:'auto',width:'auto'}})
             )
           }
         }
-              )
+      )
   ),
   el('div', {
   className: 'my-block-content wp-block-media-text__content',
       style:{display:'inline-block',width:'40%'}
   },
+      el(
+        "span",
+        null,
+        "MenuItem-URL:"
+      ), 
+
   el(RichText, {
+  type: 'url',
+  label: i18n.__('Button URL', 'my-first-gutenberg-block'),
+  value: attributes.buttonURL,    
   key: 'editable',
-  tagName: 'h3',
-  className: 'my-block-title',
-  placeholder: i18n.__('Title Text', 'my-first-gutenberg-block'),
+  tagName: 'p',
+  className: 'my-block-text url',
+  placeholder: i18n.__('TextURL', 'my-first-gutenberg-block'),
   keepPlaceholderOnFocus: true,
-  value: attributes.title,
-  onChange: function (newTitle) {
-  props.setAttributes({title: newTitle})
+  value: attributes.buttonURL,
+  onChange: function (newURL) {
+  props.setAttributes({buttonURL: newURL})
   }
   }),
+/*
   el(RichText, {
   key: 'editable',
   tagName: 'p',
@@ -273,6 +185,9 @@ return [
   placeholder: i18n.__('Text', 'my-first-gutenberg-block'),
   href: attributes.buttonURL
   }, attributes.buttonText)
+
+
+  */
   )
   )
 ];
@@ -283,26 +198,31 @@ return (
   el(
     'div', 
     {
-      className: 'mySlides',
+      className: 'navi-item',
       style: {textAlign: attributes.alignment}
     },
     el(
       'div', {
-      className: 'my-block-image'
+      className: 'wp-block-media-text__media'
       },
+      el('a', {
+      className: 'my-block-button',
+      href: attributes.buttonURL
+      },       el('img', {
+      src: attributes.mediaURL
+      }))
+
+      /*
       el('img', {
       src: attributes.mediaURL
       })
-    ),
+      */
+    )
+    /*,
     el(
       'div', {
-      className: 'text'
+      className: 'wp-block-media-text__content'
       },
-      el(RichText.Content, {
-      tagName: 'h3',
-      className: 'my-block-title',
-      value: attributes.title
-      }),
       el(RichText.Content, {
       tagName: 'p',
       className: 'my-block-text',
@@ -313,6 +233,7 @@ return (
       href: attributes.buttonURL
       }, attributes.buttonText)
     )
+    */
   )
 )
 }

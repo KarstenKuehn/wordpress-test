@@ -58,21 +58,21 @@ function my_block_template() {
 // Aufruf der Funktion im init Hook
 add_action( 'init', 'my_block_template' );
 
-function loadMyBlock() {
+function loadMySlide() {
   wp_enqueue_script(
     'my-new-block',
-    plugin_dir_url(__FILE__) . 'test-block.js',
+    plugin_dir_url(__FILE__) . 'slide-item.js',
     array('wp-blocks','wp-editor'),
     true
   );
 }
    
-add_action('enqueue_block_editor_assets', 'loadMyBlock');
+add_action('enqueue_block_editor_assets', 'loadMySlide');
 
 function loadMyAccordion() {
   wp_enqueue_script(
     'my-new-accordion',
-    plugin_dir_url(__FILE__) . 'accordion-block.js',
+    plugin_dir_url(__FILE__) . 'accordion-item.js',
     array('wp-blocks','wp-editor'),
     true
   );
@@ -90,3 +90,52 @@ function loadMyExtraNaviItem() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadMyExtraNaviItem');
+
+
+
+function loadExtramenuItem() {
+  wp_enqueue_script(
+    'my-new-test',
+    plugin_dir_url(__FILE__) . 'extramenu-item.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadExtramenuItem');
+
+function loadImageText() {
+  wp_enqueue_script(
+    'image-text-block',
+    plugin_dir_url(__FILE__) . 'image-text-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadImageText');
+
+function loadTextImage() {
+  wp_enqueue_script(
+    'text-image-block',
+    plugin_dir_url(__FILE__) . 'text-image-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadTextImage');
+
+
+
+
+function load_yy() {
+  wp_enqueue_script(
+    'my-new-yy',
+    plugin_dir_url(__FILE__) . 'yy.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_yy');

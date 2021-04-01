@@ -101,7 +101,7 @@ function seo_breadcrumb() {
  echo $before . get_the_title() . $after;
  
  } elseif ( is_page() && !$post->post_parent ) {
- echo $before . get_the_title() . $after;
+ echo '<li>'.$before . get_the_title() . $after.'</li>';
  
  } elseif ( is_page() && $post->post_parent ) {
  $parent_id = $post->post_parent;
@@ -186,7 +186,63 @@ function wpb_custom_new_menu() {
 add_action( 'init', 'wpb_custom_new_menu' );
 
 
+function my_get_menu_item_name( $loc ) {
+    global $post;
 
+    $locs = get_nav_menu_locations();
+
+    $menu = wp_get_nav_menu_object( $locs[$loc] );
+
+    if($menu) {
+
+        $items = wp_get_nav_menu_items($menu->term_id);
+
+        foreach ($items as $k => $v) {
+            // Check if this menu item links to the current page
+            if ($items[$k]->object_id == $post->ID) {
+                $name = $items[$k]->title;
+                break;
+            }
+        }
+
+    }
+    return $name;
+}
+
+
+add_filter( 'wp_nav_menu_objects', 'submenu_limit', 10, 2 );
+
+function submenu_limit( $items, $args ) {
+
+    if ( empty( $args->submenu ) ) {
+        return $items;
+    }
+
+    $ids       = wp_filter_object_list( $items, array( 'title' => $args->submenu ), 'and', 'ID' );
+    $parent_id = array_pop( $ids );
+    $children  = submenu_get_children_ids( $parent_id, $items );
+
+    foreach ( $items as $key => $item ) {
+
+        if ( ! in_array( $item->ID, $children ) ) {
+            unset( $items[$key] );
+        }
+    }
+
+    return $items;
+}
+
+function submenu_get_children_ids( $id, $items ) {
+
+    $ids = wp_filter_object_list( $items, array( 'menu_item_parent' => $id ), 'and', 'ID' );
+
+    foreach ( $ids as $id ) {
+
+        $ids = array_merge( $ids, submenu_get_children_ids( $id, $items ) );
+    }
+
+    return $ids;
+}
 
 // Handle/Create Custom-Block-Pattern
 require get_template_directory() . '/block-patterns.php';
@@ -279,7 +335,7 @@ function get_my_content()
             ''
         ),
         array(
-            '<img src="/wp-content/themes/bS/assets/p.gif" data-src',
+            '<img wdith="473" height="305" src="/wp-content/themes/bS/assets/p.gif" data-src',
             ''
         ),
         $html

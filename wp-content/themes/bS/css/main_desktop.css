@@ -1,31 +1,79 @@
-/*
-
-.wp-block-column.lotto-logo{
-    flex-basis:132px;
-    max-width: 132px;
+.text-image, .image-text{
+  position: relative;
+  height: 504px;
+  background-color: #F3F4F7;
+  border: 1px solid green; 
+  margin-bottom: 50px;
 }
 
-.wp-block-columns.lotto-header .wp-block-column:not(:first-child).top-menu {
-    background: #df0026;
-	    flex-basis:calc(100% - 132px ) !important;
-	    margin-left: -66px;
-	    padding-left: 66px;
+.text-image .block_image, .image-text .block_image{
+  position: absolute;
+  top: 96px;
+  height: 456px;
+  width: 708px;
 }
-#menu-top-menu > li
-{
-        width: auto;
-        padding-right: 10px;
+.text-image .block_image{
+  right: 0;
 }
-
-#menu-top-menu > li:last-child
-{
-    border-bottom: 1px solid #FFFFFF;
-}
-.sub-menu
-{
-    position: absolute;
-    top: 30px;
-    width: 50vw;
+.image-text .block_image{
+  left: 0;
 }
 
-*/
+.block_headline,.block_content,.my-block-button{
+  position: relative;
+  display: block;
+  width: 50%;
+  background: aliceblue;
+  margin: 0;
+  padding:0 ;
+  margin-top: 40px;
+} 
+
+
+.image-text .block_headline,.image-text .block_content, .image-text .my-block-button{
+  left: 50%;
+} 
+
+.block_headline{
+  height: 48px;
+  width: 496px;
+  color: #091B30;
+  font-family: Lato;
+  font-size: 42px;
+  letter-spacing: 0;
+  line-height: 48px;
+  margin: 0;
+  padding: 0;
+  margin-top: 96px;
+}
+
+.block_content{
+  height: 144px;
+  width: 496px;
+  color: #091B30;
+  font-family: Lato;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+  margin-top: 24px;
+}
+.my-block-button span.button-text {
+    color: #fff;
+    background-color: #0061AB;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: break-word;
+    height: 56px;
+    width: 153px;
+    font-size: 16px;
+    line-height: 56px;
+    margin: 0;
+    padding:0 ;
+}
