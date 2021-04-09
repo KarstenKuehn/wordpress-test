@@ -252,7 +252,7 @@ button
   {
     display: inline-block;
   }
-  .desktop_navi a:visited
+  .desktop_navi a, .desktop_navi a:visited
   {
     color:#091B30;
   }
