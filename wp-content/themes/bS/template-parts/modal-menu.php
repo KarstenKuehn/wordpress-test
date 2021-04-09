@@ -11,16 +11,7 @@
 
 <div class="menu-modal cover-modal header-footer-group" data-modal-target-string=".menu-modal">
 
-	<div class="menu-modal-inner modal-inner">
-
-		<div class="menu-wrapper section-inner">
-
-			<div class="menu-top">
-
-				<button class="toggle close-nav-toggle fill-children-current-color" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".menu-modal">
-					<span class="toggle-text"><?php _e( 'Close Menu', 'twentytwenty' ); ?></span>
-					<?php bs_the_theme_svg( 'cross' ); ?>
-				</button><!-- .nav-toggle -->
+			<div class="mobile-menu">
 
 				<?php
 
@@ -45,7 +36,7 @@
 
 					?>
 
-					<nav class="expanded-menu<?php echo esc_attr( $expanded_nav_classes ); ?>" aria-label="<?php echo esc_attr_x( 'Expanded', 'menu', 'twentytwenty' ); ?>" role="navigation">
+		
 
 						<ul class="modal-menu reset-list-style">
 							<li><b></b></li>
@@ -63,7 +54,6 @@
 							?>
 						</ul>
 
-					</nav>
 
 					<?php
 				}
@@ -72,18 +62,12 @@
 
 					?>
 
-					<nav class="mobile-menu" aria-label="<?php echo esc_attr_x( 'Mobile', 'menu', 'twentytwenty' ); ?>" role="navigation">
-
 						<ul class="modal-menu reset-list-style">
 						<?php
 
 
 
 						if ( $mobile_menu_location ) {
-						$current_nav_item =  my_get_menu_item_name( 'top-menu' );
-						echo '<h2> ';
-						echo $current_nav_item;
-						echo '</h2>';
 
 						$args = array(
 						    'theme_location' => 'top-menu', // the one used on register_nav_menus
@@ -135,14 +119,11 @@
 							}
 						}
 						?>
-					</nav>
 					<?php
 				}
 				?>
 
-			</div><!-- .menu-top -->
 
-		</div><!-- .menu-wrapper -->
 
 	</div><!-- .menu-modal-inner -->
 

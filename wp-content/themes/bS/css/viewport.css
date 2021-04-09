@@ -196,10 +196,15 @@ button
   height:32px;
   margin:0 15px;
 }
+.mobile-menu
+{
+  padding:0 16px;
+  height:100vh;
+}
 .mobile-menu li
 {  
   border-bottom:1px solid #E3E5ED;
-  margin:0 16px;
+  margin:0;
   list-style-type: none;
 }
 .mobile-menu a
