@@ -198,24 +198,32 @@ button
 }
 .mobile-menu
 {
-  padding:0 16px;
+  padding:32px 16px 0 16px;
   height:100vh;
 }
 .mobile-menu li
 {  
   border-bottom:1px solid #E3E5ED;
-  margin:0;
+  margin:0 0 16px 0;
   list-style-type: none;
 }
+
 .mobile-menu a
 {
   text-decoration: none;
-  
   font-size:24px;
   line-height:24px;
   color:#091B30;
-
 }
+.showing-modal .mobile_menu_open_button, .mobile_menu_close_button
+{
+  display:none;
+}
+.showing-modal .mobile_menu_close_button
+{
+  display:inline-block;
+}
+
 .header{
   height:70px;
   border-bottom:2px solid #C7CCDB;

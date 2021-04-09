@@ -29,7 +29,8 @@
 		<?php
 						}
 		?>
-			<img src="/wp-content/themes/bS/assets/menu.svg" class="mobile_menu_button" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle"/>
+			<img src="/wp-content/themes/bS/assets/menu.svg" class="mobile_menu_open_button" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle"/>
+			<img src="/wp-content/themes/bS/assets/close.svg" class="mobile_menu_close_button" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle"/>
 			<!-- .nav-toggle -->	
 		</div>
 	</div>
