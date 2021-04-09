@@ -255,6 +255,7 @@ button
   .desktop_navi a, .desktop_navi a:visited
   {
     color:#091B30;
+    margin-left:32px;
   }
   .header .nav-frame
   {
