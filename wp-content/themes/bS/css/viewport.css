@@ -28,7 +28,8 @@
 
   font-display: swap;       
 }
-body {font-family: 'Lato', sans-serif; margin: 0 auto;padding: 0; max-width: 2000px; background: beige;border: 2px solid green}
+*{box-sizing: border-box;margin: 0;padding: 0;}
+body {font-family: 'Lato', sans-serif; max-width: 2000px;}
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: unset;
     width: auto;
@@ -36,7 +37,7 @@ body {font-family: 'Lato', sans-serif; margin: 0 auto;padding: 0; max-width: 200
 }
 
 main{
-  margin: 0 auto;padding: 0; max-width: 1224px; border: 1px solid blue
+  margin: 0 auto;padding: 0; max-width: 1224px;
 }
 
 /* skiplinks */
@@ -64,7 +65,7 @@ main{
 .is-visuallyhidden:not(:focus), .visuallyhidden:not(:focus) {
     border: 0!important;
     clip: rect(0 0 0 0)!important;
-    height: 1px!important;
+    height: 0px!important;
     margin: -1px!important;
     overflow: hidden!important;
     padding: 0!important;
@@ -155,4 +156,78 @@ button{
   display: block;
   width: 100%;
   background: aliceblue;
-} 
+}
+button
+{
+  background: transparent;
+  border:0;
+  margin:0;
+}
+
+.header img
+{
+  cursor: pointer;
+}
+
+.site-title
+{
+  width:74%;
+  display: inline-block;
+  height:98%;
+}
+
+.header .nav-frame
+{
+  width: 25%;
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 0 0 20px 0;
+  text-align: right;
+}
+
+.header .logo
+{
+  width:128px;
+  height:98%;
+  margin:0 0 0 0;
+}
+.nav-frame img
+{
+  height:32px;
+  margin:0 15px;
+}
+.mobile-menu li
+{  
+  border-bottom:1px solid #E3E5ED;
+  margin:0 16px;
+  list-style-type: none;
+}
+.mobile-menu a
+{
+  text-decoration: none;
+  
+  font-size:24px;
+  line-height:24px;
+  color:#091B30;
+
+}
+.header{
+  height:70px;
+  border-bottom:2px solid #C7CCDB;
+}
+
+.cover-modal, .lb_navi
+{display:none;}
+.cover-modal.show-modal.active
+{display: block;}
+
+@media(min-width:798px)
+{
+  .lb_navi
+  {
+    display: block;
+  }
+
+
+
+}
