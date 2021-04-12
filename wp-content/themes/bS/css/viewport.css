@@ -228,16 +228,37 @@ button
   .header
   {
     height:111px;
+    max-width: 1224px;
+    margin: auto;
   }
   .site-title
   {
     width:20%;
   }
+
+.nav-frame
+{
+  background-color: beige;
+}
+.nav-frame img
+{
+  background-color: lavender;
+}
+.nav-frame .label
+{
+  line-height:32px;
+  display: inline-block;
+  margin:0 15px 0 0;
+  background-color: aqua;
+}
+
   .header .logo
   {
   width:150px;
   height:auto;
   margin:0 0 0 20%;
+    background-color: beige;
+    border:1px solid green; 
   }
   .desktop_navi
   {

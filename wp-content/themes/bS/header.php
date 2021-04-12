@@ -4,11 +4,13 @@
 	<?php echo get_skiplinks();?><div class="header">
 		<?php
 			// Site title or logo.
-			//bs_site_logo();
+			bs_site_logo();
 		?>
+		<!--
 		<a class="site-title" href="/">
 			<img class="logo" src="/wp-content/themes/bS/assets/logo.png"/>
 		</a>
+	-->
 		<div class="lb_navi">
 			<?php
 			// Site Navi.
@@ -34,7 +36,7 @@
 			$enable_header_search = get_theme_mod( 'enable_header_search', true );
 						if ( true === $enable_header_search ) {
 							?>
-			<img src="/wp-content/themes/bS/assets/search.svg" class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false"/>
+			<img src="/wp-content/themes/bS/assets/search.svg" class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false"/><span class="mobile_hidden label">Suche</span>
 								<!-- .search-toggle -->
 		<?php
 						}
