@@ -1,17 +1,8 @@
 <?php seo_header();?>
 
 <body <?php body_class(); ?>>
-	<?php echo get_skiplinks();?><div class="header">
-		<?php
-			// Site title or logo.
-			bs_site_logo();
-		?>
-		<!--
-		<a class="site-title" href="/">
-			<img class="logo" src="/wp-content/themes/bS/assets/logo.png"/>
-		</a>
-	-->
-		<div class="lb_navi">
+	<?php echo get_skiplinks();?><div class="header_out">	
+	<div class="header"><?php bs_site_logo();?><div class="lb_navi">
 			<?php
 			// Site Navi.
 			if ( has_nav_menu( 'top-menu' ) ) {
@@ -19,8 +10,7 @@
 			    'theme_location' => 'top-menu', 'depth' => 1 ) ); 					    
 			}						
 			?>
-		</div>
-		<div class="desktop_navi mobile_hidden">
+		</div><div class="desktop_navi mobile_hidden">
 		<?php
 
 			if ( has_nav_menu( 'top-menu' ) ) {
@@ -29,8 +19,7 @@
 			}	
 
 		?>
-		</div>
-		<div class="nav-frame">
+		</div><div class="nav-frame">
 		<?php
 			// Site search
 			$enable_header_search = get_theme_mod( 'enable_header_search', true );
@@ -46,7 +35,13 @@
 			<!-- .nav-toggle -->	
 		</div>
 	</div>
+</div>
+<?php 
+			if ( true === $enable_header_search ) {
+				get_template_part( 'template-parts/modal-search' );
+			}
 
-<?php seo_breadcrumb(); ?>
+
+			get_template_part( 'template-parts/modal-menu' );
+seo_breadcrumb(); ?>
 <?php if (function_exists('nav_breadcrumb')) nav_breadcrumb(); 
-get_template_part( 'template-parts/modal-menu' );

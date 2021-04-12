@@ -26,7 +26,7 @@
 					$mobile_menu_location = 'expanded';
 				}
 
-
+echo $mobile_menu_location;
 				if ( has_nav_menu( 'expanded' ) ) {
 					$expanded_nav_classes = '';
 
@@ -57,11 +57,12 @@
 
 					<?php
 				}
-
+						$current_nav_item =  my_get_menu_item_name( 'top-menu' );
+						echo '<h2> ';
+						echo $current_nav_item;
+						echo '</h2>';
 				if ( 'expanded' !== $mobile_menu_location ) {
-
 					?>
-
 						<ul class="modal-menu reset-list-style">
 						<?php
 
@@ -97,6 +98,8 @@
 
 						</ul>
 						<?php 
+
+						/*
 						for ($m=1; $m < 10; $m++) { 
 							$menu_id = 'sub-menu'.$m;
 							if ( has_nav_menu( $menu_id ) ) 
@@ -118,6 +121,7 @@
 							<?php	
 							}
 						}
+						*/
 						?>
 					<?php
 				}
