@@ -22,6 +22,12 @@ attributes: {
   selector: 'img',
   attribute: 'src'
   },
+  mediaALT: {
+  type: 'string',
+  source: 'attribute',
+  selector: 'img',
+  attribute: 'alt'
+  }, 
   title: {
   type: 'text',
   selector: 'h3'
@@ -46,7 +52,8 @@ var attributes = props.attributes;
 var onSelectImage = function (media) {
 return props.setAttributes({
 mediaURL: media.url,
-mediaID: media.id
+mediaID: media.id,
+mediaALT: media.alt
 })
 };
 return [
@@ -129,6 +136,7 @@ return [
               onClick: obj.open
               },
               !attributes.mediaID ? i18n.__('Upload Image', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL,
+      alt: attributes.mediaALT,
       style:{height:'120px'}})
             )
           }
@@ -184,7 +192,8 @@ return (
       className: 'my-block-image'
       },
       el('img', {
-      src: attributes.mediaURL
+      src: attributes.mediaURL,
+      alt: attributes.mediaALT,
       })
     ),
     el(

@@ -14,7 +14,6 @@ echo $html;
 </main>
 <?php get_footer(); ?>
 <script>
-
 var slideshow_container =   document.getElementsByClassName("slideshow-container");
 
 
@@ -35,6 +34,15 @@ var slideshow_container =   document.getElementsByClassName("slideshow-container
       dots_node.setAttribute("class", "dots "+i);
       container.append(dots_node); 
 
+      var slide_navi_node   = document.createElement("div");      
+      slide_navi_node.setAttribute("id", "slide_navi_"+i);
+      slide_navi_node.setAttribute("class", "slide_navi "+i);
+
+
+
+
+      container.append(slide_navi_node);
+
       var prev = document.createElement('a'); 
       var prev_text = document.createTextNode("❮");
       prev.appendChild(prev_text);
@@ -46,10 +54,10 @@ var slideshow_container =   document.getElementsByClassName("slideshow-container
       next.appendChild(next_text);
       next.setAttribute("class", "next_slide");
       next.setAttribute("onclick", "plusSlides("+i+",+1)");
-
+/*
       container.append(prev); 
-      container.append(next); 
-
+      container.append(next); */
+slide_navi_node.appendChild(prev);slide_navi_node.appendChild(next);
     }
 
     var dots_navi     = document.getElementById("dots_"+i);

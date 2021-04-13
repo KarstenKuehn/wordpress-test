@@ -38,9 +38,10 @@
 .text-image .block_image, .image-text .block_image{
   position: absolute;
   top: 96px;
+  /*
   height: 456px;    
   background-size: cover;
-  width: 50%;
+  width: 50%;*/
   background-position: center;
 }
 .text-image .block_image{

@@ -329,17 +329,18 @@ function footer()
 function get_my_content()
 {
     $html = apply_filters('the_content', get_the_content());
+
     $html = str_replace(
         array(
             '<img src',
             ''
         ),
         array(
-            '<img wdith="473" height="305" src="/wp-content/themes/bS/assets/p.gif" data-src',
+            '<img class="block_image" width="473" height="305" src="/wp-content/themes/bS/assets/p.gif" data-src',
             ''
         ),
         $html
-    );
+    );    /**/
     preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
     $i = 0;
     foreach ($_headings[0] as $key => $value) {
@@ -374,13 +375,7 @@ function get_skiplinks()
 {
 $html = apply_filters('the_content', get_the_content());    
 
-    $skiplinks ='   <nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes">
-                <h2 class="is-visuallyhidden">Skiplinks
-</h2>
-                                        
-                    <ul>';
-
-
+    $skiplinks ='<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes"><h2 class="is-visuallyhidden">Skiplinks</h2><ul>';
 
     preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
     $i = 0;
