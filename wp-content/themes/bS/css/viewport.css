@@ -631,14 +631,16 @@ width: calc(100vw - 10px);
   top: 50%;
   height: 100px;  
   background-color: green;
-    max-width: 1256px;
+    max-width: 1224px;
     margin: auto;
     padding: 0 16px;
     width: 100%;
+
+}
+.slideshow-container.xx .slide_navi{
     left: calc((100vw - 1224px) / 2);
 
 }
-
 /* Next & previous buttons */
 .prev_slide, .next_slide {
       display: inline-block;
