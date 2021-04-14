@@ -2,11 +2,24 @@
   font-weight:400;}
 body {font-family: 'Lato', sans-serif; max-width: 2000px;}
 .wp-block-media-text__media img, .wp-block-media-text__media video {
-    max-width: unset;
+    max-width: 100%;
     width: auto;
     vertical-align: middle;
+    height: auto
 }
 
+.show-test{
+  /*
+  display: none;
+  */
+  background-color: red;
+}
+.show-test.active{
+  /*
+  display: block;
+  */
+  background-color: green;  
+}
 main{
     max-width: 1256px;
     margin: auto;
@@ -202,7 +215,6 @@ a.custom-logo-link {
 .mobile-menu
 {
   padding:32px 16px 0 16px;
-  height: calc( 100vh - 77px);
   background: red;
 }
 .mobile-menu li
@@ -210,7 +222,7 @@ a.custom-logo-link {
   border-bottom:1px solid #E3E5ED;
   margin:0 0 16px 0;
   font-size:24px;
-  line-height:24px;
+  line-height:2em;
 }
 
 .mobile-menu a, .mobile-menu a:visited
@@ -245,7 +257,8 @@ a.custom-logo-link {
     z-index: 1000;
     background-color: #ccc;
     width: 100%;
-    padding: 16px;    
+    padding: 0 16px;    
+    height: calc(100vh - 72px);
 }
 .mobile_hidden
 {
@@ -609,8 +622,12 @@ a.custom-logo-link {
 .text {
     position: absolute;
     bottom: 144px;    
-    left: calc( (100vw - 1224px ) / 2 );
-    width: 48%;
+    max-width: 1224px;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
 } 
 
 .slideshow-container.xx {
@@ -628,19 +645,17 @@ width: calc(100vw - 10px);
 
 .slide_navi{
   position: absolute;
-  top: 50%;
-  height: 100px;  
-  background-color: green;
+  top: calc(50% - 50px);
+  height: 100px;
     max-width: 1224px;
     margin: auto;
-    padding: 0 16px;
+    padding: 0;
     width: 100%;
+    left: 0;
+    right: 0;
 
 }
-.slideshow-container.xx .slide_navi{
-    left: calc((100vw - 1224px) / 2);
 
-}
 /* Next & previous buttons */
 .prev_slide, .next_slide {
       display: inline-block;

@@ -1,15 +1,19 @@
 <?php seo_header();?>
 
 <body <?php body_class(); ?>>
-	<?php echo get_skiplinks();?><div class="header_out"><div class="header"><?php bs_site_logo();?><div class="lb_navi">
-			<?php
-			// Site Navi.
-			if ( has_nav_menu( 'top-menu' ) ) {
-				wp_nav_menu( array( 
-			    'theme_location' => 'top-menu', 'depth' => 1 ) ); 					    
-			}						
-			?>
-		</div><div class="desktop_navi mobile_hidden">
+	<?php echo get_skiplinks();?>
+	<?php 
+
+$name_of_menu = 'Hauptnaviagtion';
+/*
+ $a = wp_get_menu_array($name_of_menu);    
+ echo '<pre>';                     
+ print_r($a); 
+ echo '</pre>';
+ */
+echo haupt_menu($name_of_menu);
+	?>
+	<div class="header_out"><div class="header"><?php bs_site_logo();?><div class="desktop_navi mobile_hidden">
 		<?php
 
 			if ( has_nav_menu( 'top-menu' ) ) {
@@ -27,7 +31,7 @@
 			<img src="/wp-content/themes/bS/assets/search.svg" class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" alt="search"/><span class="mobile_hidden label">Suche</span>
 								<!-- .search-toggle -->
 		<?php
-						}
+			}
 		?>
 			<img src="/wp-content/themes/bS/assets/menu.svg" class="mobile_menu_open_button desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" alt="menu"/>
 			<img src="/wp-content/themes/bS/assets/close.svg" class="mobile_menu_close_button desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" alt="menu_close">
@@ -35,7 +39,7 @@
 		</div>
 	</div>
 </div>
-<div class="sub_menu">
+<div class="sub_menu mobile_hidden">
 		<?php
 						$current_nav_item =  my_get_menu_item_name( 'top-menu' );
 						echo '<h2> ';

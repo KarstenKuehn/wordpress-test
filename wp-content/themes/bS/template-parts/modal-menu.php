@@ -47,7 +47,7 @@ echo $mobile_menu_location;
 										'container'      => '',
 										'items_wrap'     => '%3$s',
 										'show_toggles'   => true,
-										'theme_location' => 'expanded',
+										'theme_location' => 'expanded', 'depth' => 1
 									)
 								);
 							}
@@ -73,7 +73,7 @@ echo $mobile_menu_location;
 						$args = array(
 						    'theme_location' => 'top-menu', // the one used on register_nav_menus
 						    'submenu' => $current_nav_item , // could be used __() for translations
-						    'depth' => 2
+						    'depth' => 1
 						);
 
 						wp_nav_menu( $args );
