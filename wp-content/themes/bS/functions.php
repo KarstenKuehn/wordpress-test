@@ -169,7 +169,86 @@ function page_data()
 	return $data;
 }
 
+function buildTree( array &$elements, $parentId = 0 )
+{
+    $branch = array();
+    foreach ( $elements as &$element )
+    {
+        if ( $element->menu_item_parent == $parentId )
+        {
+            $children = buildTree( $elements, $element->ID );
+            if ( $children )
+                $element->wpse_children = $children;
+
+            $branch[$element->ID] = $element;
+            unset( $element );
+        }
+    }
+    return $branch;
+}
 // HEADER END 
+function wp_get_menu_array($current_menu) {
+    $array_menu = wp_get_nav_menu_items($current_menu);
+    $array_menu_sub = buildTree( $array_menu, 0 );    
+    return $array_menu_sub;
+}
+
+function sub_menu($current_menu,$current_menu_id) {
+
+    return $current_menu_id;
+}
+
+function haupt_menu($current_menu) {
+    $html ='';
+    
+    $a = wp_get_menu_array($current_menu);
+    $submenu_html='';
+    foreach ($a as $key => $value) {
+      $html .='<button class="button-text wp-block-button__link toggle" data-toggle-target=".show-test.id_'.$value->ID.'">'.$value->title.'</button>';  
+
+
+        if($value->wpse_children)
+        {
+            $submenu_html_liste='<ul class="menu">';
+            foreach ($value->wpse_children as $key => $child) {
+                $submenu_html_liste.='<li>'. $child->title.'['.$child->description.']';
+                if($child->wpse_children)
+                {
+                    $submenu_html_liste.='<ul class="sub-menu">';
+                    foreach ($child->wpse_children as $key => $sub_child) {
+                        $submenu_html_liste.='<li><a href="'. $sub_child->url.'">'. $sub_child->title.'['.$sub_child->description.']'.'</a></li>';
+                    }
+                    $submenu_html_liste.='</ul>';
+                } 
+                $submenu_html_liste.='</li>';
+            }
+            $submenu_html_liste.='</ul>';
+
+        }        
+
+      $submenu_html .='<div class="show-test id_'.$value->ID.' sub_menu mobile_hidden"><div class="menu-hauptnaviagtion-container">'.$value->title.sub_menu($current_menu,$value->ID).$submenu_html_liste.'</div></div>'; 
+
+
+/*
+
+        echo'___'. $value['title'];
+        echo $value['ID'].'___';        
+      $html .='<button class="button-text wp-block-button__link toggle" data-toggle-target=".show-test.id_'.$value['ID'].'">'.$value['title'].'</button>';  
+      $submenu_html .='<div class="show-test id_'.$value['ID'].'">'.$value['title'].sub_menu($current_menu,$value['ID']).'</div>';     
+
+
+        echo '<pre style="background:aqua">';                     
+        print_r($value); 
+        echo '</pre><br><hr><br>';
+  */
+  } 
+
+
+    //   $html =' <button class="button-text wp-block-button__link toggle" data-toggle-target=".show-test">aa</button><div class="show-test">aaaaaa</div>';
+    return $html.$submenu_html;
+}
+
+
 function wpb_custom_new_menu() {
   register_nav_menus(
     array(
@@ -329,17 +408,18 @@ function footer()
 function get_my_content()
 {
     $html = apply_filters('the_content', get_the_content());
+
     $html = str_replace(
         array(
             '<img src',
             ''
         ),
         array(
-            '<img wdith="473" height="305" src="/wp-content/themes/bS/assets/p.gif" data-src',
+            '<img class="block_image" width="473" height="305" src="/wp-content/themes/bS/assets/p.gif" data-src',
             ''
         ),
         $html
-    );
+    );    /**/
     preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
     $i = 0;
     foreach ($_headings[0] as $key => $value) {
@@ -374,13 +454,7 @@ function get_skiplinks()
 {
 $html = apply_filters('the_content', get_the_content());    
 
-    $skiplinks ='   <nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes">
-                <h2 class="is-visuallyhidden">Skiplinks
-</h2>
-                                        
-                    <ul>';
-
-
+    $skiplinks ='<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes"><h2 class="is-visuallyhidden">Skiplinks</h2><ul>';
 
     preg_match_all( '@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings );
     $i = 0;

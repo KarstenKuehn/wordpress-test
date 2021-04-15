@@ -1,3 +1,32 @@
+
+    .grid span{ height:10vh; display: inline-block; width:calc((100% - 11 * 24px) / 12);background: blue;
+      margin:0 12px;
+      color:#fff;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .grid span.colspan6{
+      width:calc(((100% - 11 * 24px) / 12 * 6 ) + 24px * 5);
+    }
+
+    .grid span.colspan4{
+      width:calc(((100% - 11 * 24px) / 12 * 4 ) + 24px * 3);
+    }
+
+    .grid span:first-of-type
+    {
+      background:red;
+      margin-left:0;
+    }
+    .grid span:last-of-type
+    {
+      margin-right:0;
+      background:green;
+    }
+
+
+
 .text-image, .image-text{
   position: relative;
   height: 504px;
@@ -9,8 +38,11 @@
 .text-image .block_image, .image-text .block_image{
   position: absolute;
   top: 96px;
-  height: 456px;
-  width: 708px;
+  /*
+  height: 456px;    
+  background-size: cover;
+  width: 50%;*/
+  background-position: center;
 }
 .text-image .block_image{
   right: 0;

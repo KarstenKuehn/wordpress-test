@@ -11,16 +11,7 @@
 
 <div class="menu-modal cover-modal header-footer-group" data-modal-target-string=".menu-modal">
 
-	<div class="menu-modal-inner modal-inner">
-
-		<div class="menu-wrapper section-inner">
-
-			<div class="menu-top">
-
-				<button class="toggle close-nav-toggle fill-children-current-color" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".menu-modal">
-					<span class="toggle-text"><?php _e( 'Close Menu', 'twentytwenty' ); ?></span>
-					<?php bs_the_theme_svg( 'cross' ); ?>
-				</button><!-- .nav-toggle -->
+			<div class="mobile-menu">
 
 				<?php
 
@@ -35,7 +26,7 @@
 					$mobile_menu_location = 'expanded';
 				}
 
-
+echo $mobile_menu_location;
 				if ( has_nav_menu( 'expanded' ) ) {
 					$expanded_nav_classes = '';
 
@@ -45,10 +36,10 @@
 
 					?>
 
-					<nav class="expanded-menu<?php echo esc_attr( $expanded_nav_classes ); ?>" aria-label="<?php echo esc_attr_x( 'Expanded', 'menu', 'twentytwenty' ); ?>" role="navigation">
+		
 
 						<ul class="modal-menu reset-list-style">
-							<li><b>1.</b></li>
+							<li><b></b></li>
 							<?php
 							if ( has_nav_menu( 'expanded' ) ) {
 								wp_nav_menu(
@@ -56,60 +47,38 @@
 										'container'      => '',
 										'items_wrap'     => '%3$s',
 										'show_toggles'   => true,
-										'theme_location' => 'expanded',
+										'theme_location' => 'expanded', 'depth' => 1
 									)
 								);
 							}
 							?>
 						</ul>
 
-					</nav>
 
 					<?php
 				}
-
+						$current_nav_item =  my_get_menu_item_name( 'top-menu' );
+						echo '<h2> ';
+						echo $current_nav_item;
+						echo '</h2>';
 				if ( 'expanded' !== $mobile_menu_location ) {
-
 					?>
-
-					<nav class="mobile-menu" aria-label="<?php echo esc_attr_x( 'Mobile', 'menu', 'twentytwenty' ); ?>" role="navigation">
-
 						<ul class="modal-menu reset-list-style">
 						<?php
 
 
 
 						if ( $mobile_menu_location ) {
-						/*
-							$m = wp_nav_menu(
-								array(
-									'container'      => '',
-									'items_wrap'     => '%3$s',
-									'show_toggles'   => true,
-									'theme_location' => 'top-menu1',
-  									'sub_menu'      => false,
-								)
-							);
-						*/
 
+						$args = array(
+						    'theme_location' => 'top-menu', // the one used on register_nav_menus
+						    'submenu' => $current_nav_item , // could be used __() for translations
+						    'depth' => 1
+						);
 
-echo '--------------------------- ';
-//$menu_items = wp_get_nav_menu_object('top-menu1' );
-$current_nav_item =  my_get_menu_item_name( 'top-menu1' );
-//print_r($menu_items);
-//$this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
-//echo $this_item->title;
-echo $current_nav_item;
-echo ' ---------------------------';
+						wp_nav_menu( $args );
 
-$args = array(
-    'theme_location' => 'top-menu1', // the one used on register_nav_menus
-    'submenu' => $current_nav_item , // could be used __() for translations
-);
-
-wp_nav_menu( $args );
-
-						?>bbbb
+						?>
 
 						<?php
 
@@ -129,6 +98,8 @@ wp_nav_menu( $args );
 
 						</ul>
 						<?php 
+
+						/*
 						for ($m=1; $m < 10; $m++) { 
 							$menu_id = 'sub-menu'.$m;
 							if ( has_nav_menu( $menu_id ) ) 
@@ -150,15 +121,13 @@ wp_nav_menu( $args );
 							<?php	
 							}
 						}
+						*/
 						?>
-					</nav>
 					<?php
 				}
 				?>
 
-			</div><!-- .menu-top -->
 
-		</div><!-- .menu-wrapper -->
 
 	</div><!-- .menu-modal-inner -->
 

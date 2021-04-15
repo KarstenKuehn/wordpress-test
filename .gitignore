@@ -6,3 +6,4 @@ wp-config.php
 /wp-admin
 /wp-includes
 .DS_Store
+/wp-content/languages

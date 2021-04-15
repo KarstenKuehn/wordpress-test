@@ -7,9 +7,9 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
-registerBlockType('my-first-gutenberg-block/img-text', {
-title: i18n.__('LB-Image-Text', 'my-first-gutenberg-block'),
-description: i18n.__('A custom block for displaying LB-ImageText ', 'my-first-gutenberg-block'),
+registerBlockType('my-first-gutenberg-block/image-with-text-block', {
+title: i18n.__('LB-SlideItem', 'my-first-gutenberg-block'),
+description: i18n.__('A custom block for displaying image with text section', 'my-first-gutenberg-block'),
 icon: 'id',
 category: 'common',
 attributes: {
@@ -27,7 +27,7 @@ attributes: {
   source: 'attribute',
   selector: 'img',
   attribute: 'alt'
-  },  
+  }, 
   title: {
   type: 'text',
   selector: 'h3'
@@ -84,6 +84,31 @@ return [
     }
     })
   ),
+  el(InspectorControls, {key: 'inspector'},
+  el(components.PanelBody, {
+  title: i18n.__('Block Content', 'my-first-gutenberg-block'),
+  className: 'block-content',
+  initialOpen: true
+  },
+  el('p', {}, i18n.__('Add custom meta options to your block', 'my-first-gutenberg-block')),
+  el(TextControl, {
+  type: 'text',
+  label: i18n.__('Button Text', 'my-first-gutenberg-block'),
+  value: attributes.buttonText,
+  onChange: function (newButtonText) {
+  props.setAttributes({ buttonText: newButtonText })
+  }
+  }),
+  el(TextControl, {
+  type: 'url',
+  label: i18n.__('Button URL', 'my-first-gutenberg-block'),
+  value: attributes.buttonURL,
+  onChange: function (newButtonUrl) {
+  props.setAttributes({ buttonURL: newButtonUrl })
+  }
+  })
+  )
+  ),
   el(
     'div', {
     className: props.className,
@@ -92,14 +117,13 @@ return [
       el(
         "div",
         null,
-        "Image Text"
-      ),    
-      el(
+        "Slide-Item"
+      ),    el(
       'div', {
-        className: 'wp-block-media-text__media',
-        style:{display:'inline-block',width:'40%',verticalAlign:'top'},
+      className: 'my-block-image',
+      style:{display:'inline-block',width:'40%'},
       },
-el(
+      el(
         MediaUpload, {
           onSelect: onSelectImage,
           type: 'image',
@@ -108,137 +132,90 @@ el(
             return el(
               components.Button, {
               className: attributes.mediaID ? 'image-button' : 'button button-large',
-              style:{height:'auto',width:'auto'},
+      style:{height:'120px'},
               onClick: obj.open
               },
-              !attributes.mediaID ? i18n.__('Upload Image', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL,alt: attributes.mediaALT,
-              style:{height:'auto',width:'auto'}})
+              !attributes.mediaID ? i18n.__('Upload Image', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL,
+      alt: attributes.mediaALT,
+      style:{height:'120px'}})
             )
           }
         }
-      )
+              )
   ),
   el('div', {
   className: 'my-block-content wp-block-media-text__content',
       style:{display:'inline-block',width:'40%'}
   },
-      el(
-        "span",
-        null,
-        "Headline"
-      ), 
   el(RichText, {
-  type: 'text',
-  label: i18n.__('Headline', 'my-first-gutenberg-block'),
-  value: attributes.title,    
   key: 'editable',
   tagName: 'h3',
-  className: 'my-block-text title',
-  placeholder: i18n.__('Headline', 'my-first-gutenberg-block'),
+  className: 'my-block-title',
+  placeholder: i18n.__('Title Text', 'my-first-gutenberg-block'),
   keepPlaceholderOnFocus: true,
   value: attributes.title,
   onChange: function (newTitle) {
   props.setAttributes({title: newTitle})
   }
   }),
-    el(RichText, {
-  type: 'text',
-  label: i18n.__('Content', 'my-first-gutenberg-block'),
-  value: attributes.title,    
+  el(RichText, {
   key: 'editable',
   tagName: 'p',
-  className: 'my-block-text content',
-  placeholder: i18n.__('Content', 'my-first-gutenberg-block'),
+  className: 'my-block-text text',
+  placeholder: i18n.__('Text', 'my-first-gutenberg-block'),
   keepPlaceholderOnFocus: true,
   value: attributes.text,
   onChange: function (newText) {
   props.setAttributes({text: newText})
   }
   }),
-      el(
-        "hr",
-        null
-      ),
-      el(
-        "span",
-        null,
-        "Button URL: "
-      ),    
-  el(RichText, {
-  type: 'url',
-  label: i18n.__('Button URL', 'my-first-gutenberg-block'),
-  value: attributes.buttonURL,    
-  key: 'editable',
-  tagName: 'p',
-  className: 'my-block-text url',
-  placeholder: i18n.__('TextURL', 'my-first-gutenberg-block'),
-  keepPlaceholderOnFocus: true,
-  value: attributes.buttonURL,
-  onChange: function (newURL) {
-  props.setAttributes({buttonURL: newURL})
-  }
-  }),
-      el(
-        "span",
-        null,
-        "Button Text: "
-      ),    
-  el(RichText, {
-  type: 'text',
-  label: i18n.__('Button Text', 'my-first-gutenberg-block'),
-  value: attributes.buttonText,    
-  key: 'editable',
-  tagName: 'p',
-  className: 'my-block-text url-text',
-  placeholder: i18n.__('ButtonText', 'my-first-gutenberg-block'),
-  keepPlaceholderOnFocus: true,
-  value: attributes.buttonText,
-  onChange: function (newbuttonText) {
-  props.setAttributes({buttonText: newbuttonText})
-  }
-  }),  )
+  el('button', {
+  className: 'my-block-button',
+  placeholder: i18n.__('Text', 'my-first-gutenberg-block'),
+  href: attributes.buttonURL
+  }, attributes.buttonText)
+  )
   )
 ];
 },
 save: function (props) {
 var attributes = props.attributes;
 return (
-
+  el(
+    'div', 
+    {
+      className: 'mySlides',
+      style: {textAlign: attributes.alignment}
+    },
     el(
       'div', {
-      className: 'wp-block-media-text__media image-text'
+      className: 'my-block-image'
       },
-      el(
-        'h3',{
-          className:'block_headline'
-        },
-        attributes.title
-
-      ) ,el('div', {
+      el('img', {
       src: attributes.mediaURL,
-      style:{backgroundImage:'url('+attributes.mediaURL+')'},
       alt: attributes.mediaALT,
-          className:'block_image'
+      })
+    ),
+    el(
+      'div', {
+      className: 'text'
+      },
+      el(RichText.Content, {
+      tagName: 'h3',
+      className: 'my-block-title',
+      value: attributes.title
       }),
-      el(
-        'p',{
-          className:'block_content'
-        },
-        attributes.text
-
-      ),      
+      el(RichText.Content, {
+      tagName: 'p',
+      className: 'my-block-text',
+      value: attributes.text
+      }),
       el('a', {
       className: 'my-block-button',
       href: attributes.buttonURL
-      },       
-      el(
-        'span',{
-          className:'button-text wp-block-button__link'
-        },
-        attributes.buttonText
-
-      ),      )
+      }, attributes.buttonText)
     )
+  )
 )
 }
 })

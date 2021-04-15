@@ -2,63 +2,63 @@
 
 <body <?php body_class(); ?>>
 	<?php echo get_skiplinks();?>
-	<div class="lb_header">
-		<div class="lb_logo">
+	<?php 
+
+$name_of_menu = 'Hauptnaviagtion';
+/*
+ $a = wp_get_menu_array($name_of_menu);    
+ echo '<pre>';                     
+ print_r($a); 
+ echo '</pre>';
+ */
+echo haupt_menu($name_of_menu);
+	?>
+	<div class="header_out"><div class="header"><?php bs_site_logo();?><div class="desktop_navi mobile_hidden">
 		<?php
-			// Site title or logo.
-			bs_site_logo();
-		?>
-		</div>
-		<div class="lb_navi">
-			<?php
-			// Site Navi.
+
 			if ( has_nav_menu( 'top-menu' ) ) {
 				wp_nav_menu( array( 
-			    'theme_location' => 'top-menu' ) ); 					    
-			}						
-			?>
-			
-		</div>
-		<div class="lb_search" id="lb-search">
+			    'theme_location' => 'top-menu', 'depth' => 1 ) ); 					    
+			}	
+
+		?>
+		</div><div class="nav-frame">
 		<?php
 			// Site search
 			$enable_header_search = get_theme_mod( 'enable_header_search', true );
 						if ( true === $enable_header_search ) {
 							?>
-
-								<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
-									<span class="toggle-inner">
-										<span class="toggle-icon">
-											<?php bs_the_theme_svg( 'search' ); ?>
-										</span>
-										<span class="toggle-text screen-reader-text"><?php _e( 'Suche', 'twentytwenty' ); ?></span>
-
-									</span>
-								</button><!-- .search-toggle -->
-
-							<?php
-						}
+			<img src="/wp-content/themes/bS/assets/search.svg" class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" alt="search"/><span class="mobile_hidden label">Suche</span>
+								<!-- .search-toggle -->
+		<?php
+			}
 		?>
+			<img src="/wp-content/themes/bS/assets/menu.svg" class="mobile_menu_open_button desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" alt="menu"/>
+			<img src="/wp-content/themes/bS/assets/close.svg" class="mobile_menu_close_button desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" alt="menu_close">
+			<!-- .nav-toggle -->	
 		</div>
-		<div class="lb_menu">
-			<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
-				<span class="toggle-inner">
-					<span class="toggle-icon">
-						<?php bs_the_theme_svg( 'menu','ui','red' ); ?>
-					</span>
-					<span class="toggle-text screen-reader-text"><?php _e( 'Menu', 'twentytwenty' ); ?></span>
-				</span>
-			</button><!-- .nav-toggle -->
-		</div>		
 	</div>
-	<?php
-	// Output the search modal (if it is activated in the customizer).
+</div>
+<div class="sub_menu mobile_hidden">
+		<?php
+						$current_nav_item =  my_get_menu_item_name( 'top-menu' );
+						echo '<h2> ';
+						echo $current_nav_item;
+						echo '</h2>';
+						$args = array(
+						    'theme_location' => 'top-menu', // the one used on register_nav_menus
+						    'submenu' => $current_nav_item , // could be used __() for translations
+						    'depth' => 2
+						);
+						if($current_nav_item!='')
+						wp_nav_menu( $args );
+
+		?>
+</div>
+<?php 
 	if ( true === $enable_header_search ) {
 		get_template_part( 'template-parts/modal-search' );
 	}
-	?>
-	
-<?php seo_breadcrumb(); ?>
-<?php if (function_exists('nav_breadcrumb')) nav_breadcrumb(); 
-
-get_template_part( 'template-parts/modal-menu' );
+	get_template_part( 'template-parts/modal-menu' );
+	//seo_breadcrumb(); 
+?>
