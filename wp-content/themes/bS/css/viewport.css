@@ -7,18 +7,24 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;}
     vertical-align: middle;
     height: auto
 }
-
-.show-test{
-  /*
+#back_navi{
   display: none;
-  */
+}
+.show-test{
+
+  display: none;
+  /*  */
   background-color: red;
+  padding: 20px;
+  margin: 10px;
+  position: relative;
+  z-index: 5000;
 }
 .show-test.active{
-  /*
+
   display: block;
-  */
-  background-color: green;  
+  /*  */
+  background-color: white;  
 }
 main{
     max-width: 1256px;
@@ -215,7 +221,7 @@ a.custom-logo-link {
 .mobile-menu
 {
   padding:32px 16px 0 16px;
-  background: red;
+  background: #fff;
 }
 .mobile-menu li
 {  
@@ -255,9 +261,8 @@ a.custom-logo-link {
     overflow: auto;
     position: absolute;
     z-index: 1000;
-    background-color: #ccc;
     width: 100%;
-    padding: 0 16px;    
+    padding: 0;    
     height: calc(100vh - 72px);
 }
 .mobile_hidden
@@ -503,6 +508,26 @@ a.custom-logo-link {
   width: 150px;
 }
 
+  button.main-navi_btn
+  {
+    width: 100%;
+    display: block;
+    margin: 0;
+    color: #091B30;
+    font-family: Lato;
+    font-size: 24px;
+    letter-spacing: 0;
+    border-bottom: 1px solid #E3E5ED;
+    text-align: left;
+
+  }
+  button.main-navi_btn.active{
+    color: #1F5DA6;
+  }
+*:focus {
+    outline: none;
+}
+
 @media(min-width:798px)
 {
   .mobile_hidden
@@ -514,7 +539,9 @@ a.custom-logo-link {
 {
   padding:32px 16px 0 16px;
   height: calc( 100vh - 116px);
-  background: red;
+  position: absolute;
+  top: 113px;
+  background-color: #fff;
 }  
   .header
   {
@@ -558,20 +585,28 @@ a.custom-logo-link {
     height:100%;
    /* margin:0 0 20px 0;*/
   }
-  .desktop_navi li
+
+  button.main-navi_btn
   {
     display: inline-block;
     height: 112px;
-    margin: 0 5px;
+    margin: 0 16px;
+    color: #091B30;
+    font-family: Lato;
+    font-size: 16px;
+    letter-spacing: 0;
+    border-bottom: 4px solid transparent;
+    width: auto;
   }
-  .desktop_navi .current-menu-item{
-    border-bottom: 2px solid #1F5DA6;  
+  button.main-navi_btn.active{
+    border-bottom: 4px solid #1F5DA6; 
+    color: #1F5DA6;
+    font-weight: bold; 
   }
-
+/*
   .desktop_navi a, .desktop_navi a:visited
   {
     color:#091B30;
-    /*margin-left:32px;*/
     line-height: 111px;
     padding:8px;
 
@@ -580,6 +615,8 @@ a.custom-logo-link {
     color: #1F5DA6;
     font-weight: bold;
   }
+
+  */
   .header .nav-frame
   {
     width:15%;

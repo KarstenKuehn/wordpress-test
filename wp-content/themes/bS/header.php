@@ -11,11 +11,11 @@ $name_of_menu = 'Hauptnaviagtion';
  print_r($a); 
  echo '</pre>';
  */
-echo haupt_menu($name_of_menu);
-	?>
-	<div class="header_out"><div class="header"><?php bs_site_logo();?><div class="desktop_navi mobile_hidden">
-		<?php
 
+	?>
+	<div class="header_out"><div class="header"><?php bs_site_logo();?><div class="desktop_navi mobile_hidden"><?php
+echo haupt_menu($name_of_menu,'d');
+			
 			if ( has_nav_menu( 'top-menu' ) ) {
 				wp_nav_menu( array( 
 			    'theme_location' => 'top-menu', 'depth' => 1 ) ); 					    
@@ -40,7 +40,12 @@ echo haupt_menu($name_of_menu);
 	</div>
 </div>
 <div class="sub_menu mobile_hidden">
-		<?php
+	<?php
+$a = wp_get_menu_array($name_of_menu);
+//echo sub_menu('d',$a,1346);
+
+
+
 						$current_nav_item =  my_get_menu_item_name( 'top-menu' );
 						echo '<h2> ';
 						echo $current_nav_item;
