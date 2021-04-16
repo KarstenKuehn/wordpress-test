@@ -7,11 +7,11 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
-registerBlockType('my-first-gutenberg-block/img-text', {
-title: i18n.__('LB-Image-Text', 'my-first-gutenberg-block'),
-description: i18n.__('A custom block for displaying LB-ImageText ', 'my-first-gutenberg-block'),
-icon: 'id',
-category: 'common',
+  blocks.registerBlockType( 'lb/img-text', {
+    title: 'UPLB-Image-Text', // The title of block in editor.
+    icon: 'id', // The icon of block in editor.
+    category: 'common', // The category of block in editor.
+
 attributes: {
   mediaID: {
   type: 'number'

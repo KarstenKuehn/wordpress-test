@@ -211,11 +211,20 @@ function sub_menu($view,$current_menu,$current_menu_id) {
                 $submenu_html_liste.='</li>';
             }
             $submenu_html_liste.='</ul>';
-            $submenu_html .='<div class="show-test '.$view.'_'.$current_menu->ID.' sub_menu" id="div_'.$current_menu->ID.'"><div class="menu-hauptnaviagtion-container"><img src="/wp-content/themes/bS/assets/close.svg" class="mobile_hidden" alt="menu_close" onclick="closeNavi()">'.$current_menu->title.$current_menu->ID.$submenu_html_liste.'</div></div>';
+            $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.' sub_menu" id="div_'.$view.'_'.$current_menu->ID.'"><div class="menu-hauptnaviagtion-container"><img src="/wp-content/themes/bS/assets/close.svg" class="mobile_hidden" alt="menu_close" onclick="closeNavi()">'.$current_menu->title.$current_menu->ID.$submenu_html_liste.'</div></div>';
         }   
 
-return $submenu_html;
+    return $submenu_html;
+}
 
+function getSubMenu($current_menu,$view) {
+    $a = wp_get_menu_array($current_menu);
+    $submenu_html='';
+    //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
+    foreach ($a as $key => $value) {
+        $submenu_html .= sub_menu($view,$value,$key);
+    } 
+return $submenu_html;
 }
 
 function haupt_menu($current_menu,$view) {
@@ -225,31 +234,11 @@ function haupt_menu($current_menu,$view) {
 
     //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
     foreach ($a as $key => $value) {
-        $html .='<button class="main-navi_btn toggle '.$view.'" data-toggle-target=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$value->ID.'">'.$value->title.'</button>';  
-        /*        
-        if($value->wpse_children)
-        {
-            $submenu_html_liste='<ul class="menu">';
-            foreach ($value->wpse_children as $key => $child) {
-                $submenu_html_liste.='<li>'. $child->title.'['.$child->description.']';
-                if($child->wpse_children)
-                {
-                    $submenu_html_liste.='<ul class="sub-menu">';
-                    foreach ($child->wpse_children as $key => $sub_child) {
-                        $submenu_html_liste.='<li><a href="'. $sub_child->url.'">'. $sub_child->title.'['.$sub_child->description.']'.'</a></li>';
-                    }
-                    $submenu_html_liste.='</ul>';
-                } 
-                $submenu_html_liste.='</li>';
-            }
-            $submenu_html_liste.='</ul>';
-            $submenu_html .='<div class="show-test id_'.$value->ID.' sub_menu mobile_hidden"><div class="menu-hauptnaviagtion-container">'.$value->title.$value->ID.$submenu_html_liste.'</div></div>';
-        }   
-        */     
-        $submenu_html .= sub_menu($view,$value,$key);
+        $html .='<button class="main-navi_btn toggle_x '.$view.'" data-toggle-target_x=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$view.'_'.$value->ID.'">'.$value->title.'</button>';      
+//        $submenu_html .= sub_menu($view,$value,$key);
     } 
     //$submenu_html .='<div class="show-test alle sub_menu"><div class="menu-hauptnaviagtion-container">[ALLE]</div></div>';
-    $html.=$submenu_html;
+//    $html.='<div class="main-sub-menu">'.$submenu_html.'</div>';
 
     return $html;
 }
@@ -808,3 +797,18 @@ function bs_get_color_for_area( $area = 'content', $context = 'text' ) {
     // Return false if the option doesn't exist.
     return false;
 }
+
+function kb_whitelist_blocks() {
+  return array(
+    'core/heading',
+    'core/paragraph',
+    'core/image',
+    'lb/text-img',
+    'lb/img-text',
+    'my-first-gutenberg-block/image-with-text-block',
+    'my-lb-block/accordion-item'
+  );
+}
+add_filter('allowed_block_types','kb_whitelist_blocks');
+
+/**/      

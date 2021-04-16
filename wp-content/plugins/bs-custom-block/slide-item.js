@@ -8,7 +8,7 @@ var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
 registerBlockType('my-first-gutenberg-block/image-with-text-block', {
-title: i18n.__('LB-SlideItem', 'my-first-gutenberg-block'),
+title: i18n.__('UPLB-SlideItem', 'my-first-gutenberg-block'),
 description: i18n.__('A custom block for displaying image with text section', 'my-first-gutenberg-block'),
 icon: 'id',
 category: 'common',

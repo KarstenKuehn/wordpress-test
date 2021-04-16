@@ -7,10 +7,10 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
-registerBlockType('aa/text-img', {
-title: i18n.__('LB-Text-Image', 'my-first-gutenberg-block'),
-description: i18n.__('A custom block for displaying LB-TextImage ', 'aa'),
-icon: 'edit',
+  blocks.registerBlockType( 'lb/text-img', {
+    title: 'UPLB-Text-Image', // The title of block in editor.
+    icon: 'id', // The icon of block in editor.
+    category: 'common', // The category of block in editor.
 category: 'common',
 attributes: {
   mediaID: {

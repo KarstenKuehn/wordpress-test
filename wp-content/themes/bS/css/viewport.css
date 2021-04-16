@@ -1,5 +1,6 @@
 *{box-sizing: border-box;margin: 0;padding: 0;
   font-weight:400;}
+  
 body {font-family: 'Lato', sans-serif; max-width: 2000px;}
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: 100%;
@@ -15,8 +16,6 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;}
   display: none;
   /*  */
   background-color: red;
-  padding: 20px;
-  margin: 10px;
   position: relative;
   z-index: 5000;
 }
@@ -108,8 +107,9 @@ li{
   margin: 5px;
 }
 button{
-    line-height: 48px;
+  line-height: 48px;
   margin: 5px;
+  cursor: pointer;
 }
 
 /* Screen Reader Text ------------------------ */
@@ -155,7 +155,6 @@ button{
   position: relative;
   display: block;
   width: 100%;
-  background: aliceblue;
 }
 button
 {
@@ -179,7 +178,7 @@ a.custom-logo-link {
     height: 72px;
     vertical-align: middle;
     line-height: 72px;
-    display: block;
+    display: inline-block;
 }
 .site-logo{
     display: inline-block;
@@ -200,10 +199,9 @@ a.custom-logo-link {
 
 .header .nav-frame
 {
-  width: 31%;
+  width: 32%;
   display: inline-block;
   vertical-align: middle;
- /* margin: 0 0 20px 0;*/
   text-align: right;
 }
 
@@ -262,8 +260,9 @@ a.custom-logo-link {
     position: absolute;
     z-index: 1000;
     width: 100%;
-    padding: 0;    
+    padding: 16px;    
     height: calc(100vh - 72px);
+    background-color: #fff;
 }
 .mobile_hidden
 {
@@ -328,13 +327,10 @@ a.custom-logo-link {
 /* Slideshow container */
 .slideshow-container {
   position: relative;
-  background: red;
-  /*min-height: 568px;*/
   margin: auto;
 }
 
 .slideshow-container.xx {
-    background: green;
     width: 100%;
 }
 
@@ -475,7 +471,7 @@ a.custom-logo-link {
 .navi-item{
   width: 100%;
  padding: 0.5rem 0;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #E3E5ED;
 }
 .navi-item img {
     /*width: 64px;*/
@@ -521,11 +517,19 @@ a.custom-logo-link {
     text-align: left;
 
   }
-  button.main-navi_btn.active{
+  button.main-navi_btn.active,.material-icons{
     color: #1F5DA6;
+    vertical-align: middle;
   }
 *:focus {
     outline: none;
+}
+
+.nav-toggle .material-icons:before {
+    content: "\e5d2"
+  }
+.nav-toggle.active .material-icons:before {
+    content: "\e5cd"
 }
 
 @media(min-width:798px)
@@ -603,20 +607,7 @@ a.custom-logo-link {
     color: #1F5DA6;
     font-weight: bold; 
   }
-/*
-  .desktop_navi a, .desktop_navi a:visited
-  {
-    color:#091B30;
-    line-height: 111px;
-    padding:8px;
 
-  }
-  .desktop_navi .current-menu-item a{  
-    color: #1F5DA6;
-    font-weight: bold;
-  }
-
-  */
   .header .nav-frame
   {
     width:15%;
@@ -629,8 +620,6 @@ a.custom-logo-link {
   {
     display: none;
   }
-
-
 
   /* Extra-Navi */
   .navi-item{
@@ -649,7 +638,6 @@ a.custom-logo-link {
   }
 
 .navi-item .my-block-button {
-    background: aliceblue;background: aliceblue;
     vertical-align: middle;
     width: 100%;
 }
@@ -668,9 +656,7 @@ a.custom-logo-link {
 } 
 
 .slideshow-container.xx {
-    background: green;
-    width: 100vw;
-width: calc(100vw - 10px);    
+    width: calc(100vw - 10px);    
     position: relative;
     left: 50%;
     right: 50%;
