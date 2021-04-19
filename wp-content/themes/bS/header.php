@@ -1,15 +1,16 @@
 <?php seo_header();?>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> id="myBody">
 	<?php echo get_skiplinks();?>
 	<?php 
 		$name_of_menu = 'Hauptnaviagtion';
 	?>
 	<div class="header_out"><div class="header">
 		<div class="site-logo">
-			<button class="desktop_hidden" onclick="backNavi()" id="back_navi">
+			<div class="desktop_hidden"><button onclick="backNavi()" id="back_navi">
 			<span class="material-icons">arrow_back_ios</span>
-			</button>
+			</button></div>
+			
 			<?php bs_site_logo();?>
 		</div><div class="desktop_navi mobile_hidden">
 		<?php
@@ -36,6 +37,7 @@
 	</div>
 </div>
 <div class="sub_menu mobile_hidden" id="sub_menu">
+	<div class="mobile_hidden menu_close"><span class="material-icons" onclick="closeNavi()">close</span></div>
 	<?php
 
 echo getSubMenu($name_of_menu,'d');	

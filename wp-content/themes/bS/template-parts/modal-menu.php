@@ -8,16 +8,13 @@
  */
 
 ?>
-
 <div class="menu-modal cover-modal header-footer-group" data-modal-target-string=".menu-modal">
+	<div class="menu-modal-inner modal-inner">
 	<?php
 	$name_of_menu = 'Hauptnaviagtion';
 	echo haupt_menu($name_of_menu,'m');				
 	echo getSubMenu($name_of_menu,'m');	
 ?>
 
-
-
 	</div><!-- .menu-modal-inner -->
-
 </div><!-- .menu-modal -->

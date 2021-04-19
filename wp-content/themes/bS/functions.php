@@ -194,25 +194,60 @@ function wp_get_menu_array($current_menu) {
 }
 
 function sub_menu($view,$current_menu,$current_menu_id) {
+    $submenu_html='';
     $submenu_html_liste='';
+        $xx='';
         if($current_menu->wpse_children)
         {
-            $submenu_html_liste='<ul class="menu">';
+            $submenu_html_liste.='<div class="mobile_hidden menu_close"><span class="material-icons" onclick="closeNavi()">close</span></div>';
+            $xx.='';
+
+            $submenu_html_liste.='<ul class="menu">';
+            $i = 0;
             foreach ($current_menu->wpse_children as $key => $child) {
-                $submenu_html_liste.='<li>'. $child->title.'['.$child->description.']';
+                $xx.='<div class="sub_menu_block">';
+                $xx.='<label>'.$child->description.'</label>';                
+                $submenu_html_liste.='<li>'.$current_menu->ID;
+                if($child->description!='')
+                {
+                    $submenu_html_liste.= '<label>'.$child->description.'</label>';
+
+                }
+                
                 if($child->wpse_children)
                 {
                     $submenu_html_liste.='<ul class="sub-menu">';
                     foreach ($child->wpse_children as $key => $sub_child) {
                         $submenu_html_liste.='<li><a href="'. $sub_child->url.'">'. $sub_child->title.'['.$sub_child->description.']'.'</a></li>';
+                        $xx.='<a href="'. $sub_child->url.'" class="sub_menu_item">'. $sub_child->title.'<span class="material-icons">arrow_forward_ios</span></a>';
                     }
                     $submenu_html_liste.='</ul>';
                 } 
+                else
+                {
+                    $submenu_html_liste.='<a href="'. $child->url.'">'. $child->title.'['.$child->description.']'.'</a>';
+                    $xx.='<a href="'. $child->url.'" class="sub_menu_item">'. $child->title.'<span class="material-icons">arrow_forward_ios</span></a>';
+                }
                 $submenu_html_liste.='</li>';
+                $xx.='</div>';
+                $i++;
+            }
+            $c=1;
+            for ($l=$i; $l < 3 ; $l++) { 
+                $xx.='<div class="sub_menu_block"><img src="http://lbup.local/wp-content/uploads/2021/04/post'.$c.'.png" alt=""><p>Lorem ipsum</p><button>zum Artikel</button></div>';
+                $c++;
             }
             $submenu_html_liste.='</ul>';
-            $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.' sub_menu" id="div_'.$view.'_'.$current_menu->ID.'"><div class="menu-hauptnaviagtion-container"><img src="/wp-content/themes/bS/assets/close.svg" class="mobile_hidden" alt="menu_close" onclick="closeNavi()">'.$current_menu->title.$current_menu->ID.$submenu_html_liste.'</div></div>';
+//            $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.' sub_menu" id="div_'.$view.'_'.$current_menu->ID.'"><div class="menu-hauptnaviagtion-container">'.$submenu_html_liste.'</div></div>';
+
+                    $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$xx.'</div>';
+                    ;
+
         }   
+        else
+        {
+            $xx=$current_menu_id.'_bb';
+        }
 
     return $submenu_html;
 }
@@ -220,7 +255,6 @@ function sub_menu($view,$current_menu,$current_menu_id) {
 function getSubMenu($current_menu,$view) {
     $a = wp_get_menu_array($current_menu);
     $submenu_html='';
-    //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
     foreach ($a as $key => $value) {
         $submenu_html .= sub_menu($view,$value,$key);
     } 
@@ -234,15 +268,41 @@ function haupt_menu($current_menu,$view) {
 
     //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
     foreach ($a as $key => $value) {
-        $html .='<button class="main-navi_btn toggle_x '.$view.'" data-toggle-target_x=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$view.'_'.$value->ID.'">'.$value->title.'</button>';      
-//        $submenu_html .= sub_menu($view,$value,$key);
-    } 
-    //$submenu_html .='<div class="show-test alle sub_menu"><div class="menu-hauptnaviagtion-container">[ALLE]</div></div>';
-//    $html.='<div class="main-sub-menu">'.$submenu_html.'</div>';
 
+        if($value->wpse_children)
+        {
+            $html .='<button class="main-navi_btn toggle_x '.$view.'" data-toggle-target_x=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$view.'_'.$value->ID.'">'.$value->title;  
+            $html .='<span class="material-icons desktop_hidden">arrow_forward_ios</span>';
+            $html .='</button>';        
+        }
+        else
+        {
+
+            $menu_items = wp_get_nav_menu_items( $current_menu );
+            $this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
+            $active='';
+            if($this_item->title == $value->title)
+            {
+                $active=' active';
+            }
+            $html .= '<a href="'.$value->url.'" class="main-navi_btn '.$view.$active.'">'.$value->title.'</a>';
+        }
+
+    } 
     return $html;
 }
 
+function back_haupt_menu($view) {
+    $html ='';
+    if ($view=='m')
+    {
+        $html='<button class="desktop_hidden" onclick="backNavi()" id="back_navi">
+            <span class="material-icons">arrow_back_ios</span>
+            </button>';
+    }
+
+    return $html;
+}
 
 function wpb_custom_new_menu() {
   register_nav_menus(

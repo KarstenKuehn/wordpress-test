@@ -1,14 +1,38 @@
 .sub_menu.mobile_hidden {
     position: absolute;
     width: 100%;
-    padding: 16px;
+    padding: 0 16px;
     background: #fff;
     z-index: 50000;
-    display: none
+    display: none;
+    height: calc(100vh - 112px);
+    overflow: auto;
 }
 
+.menu_close{
+    max-width: 1224px;
+  margin: auto
+}
+.show-test.active{
+  display: block;display: grid;
+    grid: auto / repeat(3, 1fr);
+    gap: 24px;
+}
+.sub_menu_block
+{
+  display: block;
+  width: 100%;
+  vertical-align: top;
+  margin: 0;
+}
 
-
+.mobile_hidden.menu_close {
+    line-height: 96px;
+    text-align: right;
+}
+.mobile_hidden.menu_close .material-icons {
+  cursor: pointer;
+}
     .grid span{ height:10vh; display: inline-block; width:calc((100% - 11 * 24px) / 12);background: blue;
       margin:0 12px;
       color:#fff;
