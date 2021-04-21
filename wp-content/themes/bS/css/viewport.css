@@ -104,6 +104,7 @@ button{
   line-height: 48px;
   margin: 5px;
   cursor: pointer;
+  min-width: 48px;
 }
 
 /* Screen Reader Text ------------------------ */
@@ -411,10 +412,6 @@ a.sub_menu_item .material-icons{
     position: relative;
     width: 100%;
     text-align: left;
-    /*height: calc(100% - 72px);*/
-    background: linear-gradient(
-45deg
-,red,white);
 }
 
 .slide_h1,.slide_h2{
@@ -600,6 +597,50 @@ a.sub_menu_item .material-icons{
   {
     display: none;
   }
+  .footer{
+    padding: 16px;
+    background: #F3F4F7;
+    color: #091B30;
+    font-family: Lato;
+  }
+  .footer1{
+    max-width: 1224px;
+    margin: auto;
+    border-bottom: 1px solid #E3E5ED;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+  }
+  .footer p{
+
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 8px;    
+  }
+.footer_item1{
+  height: 56px;
+  line-height:56px;
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.footer_item1 img{vertical-align: bottom;
+}
+.footer_item1.label{
+    color: #091B30;
+  font-family: Lato;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+.footer_item2{
+  color: #091B30;
+  display: block;
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
 
 @media(min-width:768px)
 {
@@ -730,6 +771,11 @@ a.main-navi_btn.active {
     width: 100%;
     left: 0;
     right: 0;
+    padding: 56px;    
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(116,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,0.2),10%,  transparent);
 } 
 
 .slideshow-container.xx {

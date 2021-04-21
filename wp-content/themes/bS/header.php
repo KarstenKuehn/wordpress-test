@@ -23,13 +23,13 @@
 			if ( true === $enable_header_search ) {
 		?>
 
-		<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+		<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" aria-label="suche">
 			<span class="material-icons">search</span><span class="mobile_hidden label">Suche</span>
 		</button>
 		<?php
 			}
 		?>
-		<button class="toggle nav-toggle mobile-nav-toggle desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" id="menu">				
+		<button class="toggle nav-toggle mobile-nav-toggle desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" id="menu" aria-label="menu">				
 			<span class="material-icons"></span>
 		</button>
 

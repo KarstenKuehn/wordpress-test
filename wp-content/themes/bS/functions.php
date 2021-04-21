@@ -234,7 +234,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
             }
             $c=1;
             for ($l=$i; $l < 3 ; $l++) { 
-                $xx.='<div class="sub_menu_block"><img src="http://lbup.local/wp-content/uploads/2021/04/post'.$c.'.png" alt=""><p>Lorem ipsum</p><button>zum Artikel</button></div>';
+                $xx.='<div class="sub_menu_block"><img src="http://lbup.local/wp-content/uploads/2021/04/post'.$c.'.png" alt=""><p>Lorem ipsum</p><button aria-label="zum Artikel '.$c.'">zum Artikel<span class="material-icons">arrow_right_alt</span></button></div>';
                 $c++;
             }
             $submenu_html_liste.='</ul>';
