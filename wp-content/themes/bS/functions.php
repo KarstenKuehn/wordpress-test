@@ -970,5 +970,6 @@ add_action('admin_head', 'j0e_add_admin_styles');
 function j0e_add_admin_styles() {
   echo '<style>.column-j0e_thumb {width: 60px;}</style>';
 }
+// Activate set featured image
 
 add_theme_support('post-thumbnails');
