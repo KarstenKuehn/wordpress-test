@@ -281,6 +281,22 @@ a.custom-logo-link {
 }
 
 
+.blog.m.show-test {
+    margin-top: 36px;
+}
+.sub_menu_block p {
+    font-size: 26px;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+.sub_menu_block.blog a {
+  color: #1F5DA6;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+}
 /*
 .sub_menu .menu{
   background: grey;
@@ -634,7 +650,7 @@ a.sub_menu_item .material-icons{
   letter-spacing: 0;
   line-height: 24px;
 }
-.footer_item2{
+.footer_item2, .footer_menu a{
   color: #091B30;
   display: block;
   text-align: center;

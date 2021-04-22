@@ -14,7 +14,7 @@
   margin: auto
 }
 .show-test.active{
-  display: block;display: grid;
+    display: grid;
     grid: auto / repeat(3, 1fr);
     gap: 24px;
 }
@@ -26,6 +26,11 @@
   margin: 0;
 }
 
+.sub_menu_block.blog {    
+    justify-self: end;
+    max-width: 288px;
+
+}
 .mobile_hidden.menu_close {
     line-height: 96px;
     text-align: right;
@@ -154,7 +159,7 @@
   margin-bottom: 16px;
   width: 148px;
 }
-.footer_item2{
+.footer_item2, .footer_menu a{
   color: #091B30;
   display: inline-block;
   text-align: center;

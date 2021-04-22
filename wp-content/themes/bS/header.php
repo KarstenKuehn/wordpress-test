@@ -40,8 +40,7 @@
 	<div class="mobile_hidden menu_close"><span class="material-icons" onclick="closeNavi()">close</span></div>
 	<?php
 
-echo getSubMenu($name_of_menu,'d');	
-
+echo getSubMenu($name_of_menu,'d');
 		?>
 </div>
 <?php 

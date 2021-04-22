@@ -13,39 +13,16 @@ Lotto Bayern verfüght über eine Erlaubnis der zuständigen Glückspielaufsicht
 <p>Alle Angaben ohne Gewähr.</p>
 </div>
 <p><a class="footer_item2" href="#">Impressum</a><a class="footer_item2" href="#">Datenschutz</a><a class="footer_item2" href="#">Barrierefreiheit</a><a class="footer_item2" href="#">Kontakt</a></p>
-</div>
 
-	<div class="footer-top footer-top-visible has-footer-menu has-social-menu">
 
-		<nav aria-label="Social-Media-Links" class="footer-social-wrapper">
-
-			<ul class="social-menu footer-social reset-list-style social-icons fill-children-current-color">
-
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location'  => 'social',
-						'container'       => '',
-						'container_class' => '',
-						'items_wrap'      => '%3$s',
-						'menu_id'         => '',
-						'menu_class'      => '',
-						'depth'           => 1,
-						'link_before'     => '<span class="screen-reader-text">',
-						'link_after'      => '</span>',
-						'fallback_cb'     => '',
-					)
-				);
-				?>
-
-			</ul><!-- .footer-social -->
-
-		</nav><!-- .footer-social-wrapper -->
-	</div>
 <?php
-wp_nav_menu( array( 
+/*wp_nav_menu( array( 
     'theme_location' => 'footer-menu', 
     'container_class' => 'footer-menu' ) ); 
-?>	
+    */
 
+
+    get_FooterMenu();
+?>	
+</div>
 <?php footer();?>

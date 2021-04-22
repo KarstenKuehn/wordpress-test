@@ -196,59 +196,55 @@ function wp_get_menu_array($current_menu) {
 function sub_menu($view,$current_menu,$current_menu_id) {
     $submenu_html='';
     $submenu_html_liste='';
-        $xx='';
-        if($current_menu->wpse_children)
-        {
-            $submenu_html_liste.='<div class="mobile_hidden menu_close"><span class="material-icons" onclick="closeNavi()">close</span></div>';
-            $xx.='';
+    if($current_menu->wpse_children)
+    {
 
-            $submenu_html_liste.='<ul class="menu">';
-            $i = 0;
-            foreach ($current_menu->wpse_children as $key => $child) {
-                $xx.='<div class="sub_menu_block">';
-                $xx.='<label>'.$child->description.'</label>';                
-                $submenu_html_liste.='<li>'.$current_menu->ID;
-                if($child->description!='')
-                {
-                    $submenu_html_liste.= '<label>'.$child->description.'</label>';
-
+        $i = 0;
+        foreach ($current_menu->wpse_children as $key => $child) {
+            $submenu_html_liste.='<div class="sub_menu_block">';
+            $submenu_html_liste.='<label>'.$child->description.'</label>';
+            if($child->wpse_children)
+            {
+                foreach ($child->wpse_children as $key => $sub_child) {
+                    $submenu_html_liste.='<a href="'. $sub_child->url.'" class="sub_menu_item">'. $sub_child->title.'<span class="material-icons">arrow_forward_ios</span></a>';
                 }
-                
-                if($child->wpse_children)
-                {
-                    $submenu_html_liste.='<ul class="sub-menu">';
-                    foreach ($child->wpse_children as $key => $sub_child) {
-                        $submenu_html_liste.='<li><a href="'. $sub_child->url.'">'. $sub_child->title.'['.$sub_child->description.']'.'</a></li>';
-                        $xx.='<a href="'. $sub_child->url.'" class="sub_menu_item">'. $sub_child->title.'<span class="material-icons">arrow_forward_ios</span></a>';
-                    }
-                    $submenu_html_liste.='</ul>';
-                } 
-                else
-                {
-                    $submenu_html_liste.='<a href="'. $child->url.'">'. $child->title.'['.$child->description.']'.'</a>';
-                    $xx.='<a href="'. $child->url.'" class="sub_menu_item">'. $child->title.'<span class="material-icons">arrow_forward_ios</span></a>';
-                }
-                $submenu_html_liste.='</li>';
-                $xx.='</div>';
-                $i++;
+            } 
+            else
+            {
+                $submenu_html_liste.='<a href="'. $child->url.'" class="sub_menu_item">'. $child->title.'<span class="material-icons">arrow_forward_ios</span></a>';
             }
-            $c=1;
-            for ($l=$i; $l < 3 ; $l++) { 
-                $xx.='<div class="sub_menu_block"><img src="http://lbup.local/wp-content/uploads/2021/04/post'.$c.'.png" alt=""><p>Lorem ipsum</p><button aria-label="zum Artikel '.$c.'">zum Artikel<span class="material-icons">arrow_right_alt</span></button></div>';
-                $c++;
-            }
-            $submenu_html_liste.='</ul>';
-//            $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.' sub_menu" id="div_'.$view.'_'.$current_menu->ID.'"><div class="menu-hauptnaviagtion-container">'.$submenu_html_liste.'</div></div>';
-
-                    $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$xx.'</div>';
-                    ;
-
-        }   
-        else
+            $submenu_html_liste.='</div>';
+            $i++;
+        }
+        if($view=='d')
         {
-            $xx=$current_menu_id.'_bb';
+
+            $k= 3 - $i;
+            $the_query = new WP_Query( array(
+                'category_name' => $current_menu->title,
+                'posts_per_page' => $k ,
+                )
+            ); 
+            if ( $the_query->have_posts() && $k>0) :
+                while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                $title  = get_the_title();
+                $excerpt = get_the_excerpt();
+                $post_image = get_the_post_thumbnail( $post);
+                $permalink = get_permalink( $post );
+                $submenu_html_liste.='<div class="sub_menu_block blog">'.$post_image.'<p>'.$title.'</p><a href="'.$permalink.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
+                endwhile; 
+                wp_reset_postdata(); 
+            else : 
+                 $submenu_html_liste.='<div class="sub_menu_block blog"><p>'.$current_menu->title.'</p></div>';               
+            endif;
         }
 
+
+        $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$submenu_html_liste.'</div>';
+    }   
+    $res = array('x' => $submenu_html ,'y'=>$i);
+
+    return $res;
     return $submenu_html;
 }
 
@@ -256,11 +252,45 @@ function getSubMenu($current_menu,$view) {
     $a = wp_get_menu_array($current_menu);
     $submenu_html='';
     foreach ($a as $key => $value) {
-        $submenu_html .= sub_menu($view,$value,$key);
+        $submenu_html .= sub_menu($view,$value,$key)['x'];
     } 
-return $submenu_html;
+    return $submenu_html;
 }
+function getArticelMenu($current_menu,$view) {
+    $a = wp_get_menu_array($current_menu);
+    $submenu_html='';
+    $submenu_html_liste='';
 
+    foreach ($a as $key => $value) {
+        $i = 3 - sub_menu($view,$value,$key)['y'];
+        $submenu_html_liste='';
+        $the_query = new WP_Query( array(
+            'category_name' => $value->title,
+            'posts_per_page' => $i,
+            )
+        ); 
+        if ( $the_query->have_posts() ) :
+            while ( $the_query->have_posts() ) : $the_query->the_post(); 
+            $title  = get_the_title();
+            $excerpt = get_the_excerpt();
+            $post_image = get_the_post_thumbnail( $post);
+            $permalink = get_permalink( $post );
+            $submenu_html_liste.='<div class="sub_menu_block blog">'.$post_image.'<p>'.$title.'</p><a href="'.$permalink.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
+            endwhile; 
+            wp_reset_postdata(); 
+        else : 
+        endif; 
+        if($i>0){
+            $submenu_html .='<div class="blog show-test '.$view.' '.$view.'_'.$value->ID.'" id="div_'.$view.'_'.$value->ID.'_blog">'.$submenu_html_liste.'</div>';
+        }
+        else
+        {
+
+            $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$value->ID.'" id="div_'.$view.'_'.$value->ID.'_blog"></div>';            
+        }
+    } 
+    return $submenu_html;
+}
 function haupt_menu($current_menu,$view) {
     $html ='';
     $a = wp_get_menu_array($current_menu);
@@ -457,7 +487,27 @@ function footer()
 	echo $html;
 }
 
+function get_FooterMenu()
+{
 
+                $menuParameters = array(
+                    'menu' => '',
+                    'before'               => '',
+                    'after'                => '',
+                    'link_before'          => '',
+                    'link_after'           => '',
+                    'container'       => false,
+                    'echo'            => false,
+                    'depth'           => 0,
+                    'items_wrap'           => '<div id="%1$s" class="footer_menu">%3$s</div>',
+
+                    'theme_location'       => 'footer-menu',
+                );
+
+               $footer_menu = strip_tags(wp_nav_menu( $menuParameters ), '<a><div>' );
+
+    return $footer_menu;
+}
 // FOOTER END 
 
 function get_my_content()
@@ -871,4 +921,54 @@ function kb_whitelist_blocks() {
 }
 add_filter('allowed_block_types','kb_whitelist_blocks');
 
-/**/      
+/**
+ * Add featured image column to WP admin panel - posts AND pages
+ * See: https://j0e.org/featured-image-admin/
+ */
+
+// Set thumbnail size
+add_image_size( 'j0e_admin-featured-image', 60, 60, false );
+
+// Add the posts and pages columns filter. Same function for both.
+add_filter('manage_posts_columns', 'j0e_add_thumbnail_column', 2);
+add_filter('manage_pages_columns', 'j0e_add_thumbnail_column', 2);
+function j0e_add_thumbnail_column($j0e_columns){
+  $j0e_columns['j0e_thumb'] = __('Image');
+  return $j0e_columns;
+}
+ 
+// Add featured image thumbnail to the WP Admin table.
+add_action('manage_posts_custom_column', 'j0e_show_thumbnail_column', 5, 2);
+add_action('manage_pages_custom_column', 'j0e_show_thumbnail_column', 5, 2);
+function j0e_show_thumbnail_column($j0e_columns, $j0e_id){
+  switch($j0e_columns){
+    case 'j0e_thumb':
+    if( function_exists('the_post_thumbnail') )
+      echo the_post_thumbnail( 'j0e_admin-featured-image' );
+    break;
+  }
+}
+
+// Move the new column at the first place.
+add_filter('manage_posts_columns', 'j0e_column_order');
+function j0e_column_order($columns) {
+  $n_columns = array();
+  $move = 'j0e_thumb'; // which column to move
+  $before = 'title'; // move before this column
+
+  foreach($columns as $key => $value) {
+    if ($key==$before){
+      $n_columns[$move] = $move;
+    }
+    $n_columns[$key] = $value;
+  }
+  return $n_columns;
+}
+
+// Format the column width with CSS
+add_action('admin_head', 'j0e_add_admin_styles');
+function j0e_add_admin_styles() {
+  echo '<style>.column-j0e_thumb {width: 60px;}</style>';
+}
+
+add_theme_support('post-thumbnails');
