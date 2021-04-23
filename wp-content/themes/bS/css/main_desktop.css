@@ -70,26 +70,56 @@
   position: relative;
   height: 504px;
   background-color: #F3F4F7;
-  border: 1px solid green; 
-  margin-bottom: 50px;
+  margin-bottom: 96px;
+
+    width: calc(100vw - 10px);
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding-top: 96px;
+
+
+}
+.text-image .content, .image-text .content{
+  background: lavender;
+      width: calc(50vw - 64px);
+      padding: 0 32px;
+      margin: 16px 0;
+      max-width: 588px;
+
+}
+.text-image .content {
+    position: relative;
+    z-index: 1;
+
+        left: calc( (1224px - 100vw ) / 2 - (( 1224px - 100vw ) + ( 100vw - 1224px ) / 2));
+    margin-left: 0;
 }
 
-.text-image .block_image, .image-text .block_image{
+
+.text-image .block_image_div, .image-text .block_image_div{
   position: absolute;
   top: 96px;
-  /*
   height: 456px;    
-  background-size: cover;
-  width: 50%;*/
+    background-size: cover;
+  width: 49.6vw;
   background-position: center;
+  overflow: hidden;
 }
-.text-image .block_image{
-  right: 0;
+.text-image .block_image_div{
+  left:50%;
 }
-.image-text .block_image{
-  left: 0;
+.image-text .block_image_div{
+  right: 50%;
 }
 
+.text-image img.block_image ,.image-text img.block_image{
+    height: 458px;
+    width: auto;
+    max-width: none;
+    display: none
+}
 .block_headline,.block_content,.my-block-button{
   position: relative;
   display: block;
@@ -106,7 +136,6 @@
 
 .block_headline{
   height: 48px;
-  width: 496px;
   color: #091B30;
   font-family: Lato;
   font-size: 42px;
@@ -114,12 +143,10 @@
   line-height: 48px;
   margin: 0;
   padding: 0;
-  margin-top: 96px;
 }
 
 .block_content{
   height: 144px;
-  width: 496px;
   color: #091B30;
   font-family: Lato;
   font-size: 16px;

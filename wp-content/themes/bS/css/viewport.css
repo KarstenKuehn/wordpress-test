@@ -146,6 +146,12 @@ button{
 }
 
 
+section {
+    margin-bottom: 32px;
+    background: pink;
+    padding-bottom: 16px;
+}
+
 .block_image,.block_headline,.block_content,.my-block-button{
   position: relative;
   display: block;

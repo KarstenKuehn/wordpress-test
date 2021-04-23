@@ -908,11 +908,14 @@ function bs_get_color_for_area( $area = 'content', $context = 'text' ) {
     return false;
 }
 
+
+/*
 function kb_whitelist_blocks() {
   return array(
     'core/heading',
     'core/paragraph',
     'core/image',
+    'lb/two_column_text',
     'lb/text-img',
     'lb/img-text',
     'my-first-gutenberg-block/image-with-text-block',
@@ -920,7 +923,7 @@ function kb_whitelist_blocks() {
   );
 }
 add_filter('allowed_block_types','kb_whitelist_blocks');
-
+*/
 /**
  * Add featured image column to WP admin panel - posts AND pages
  * See: https://j0e.org/featured-image-admin/

@@ -11,7 +11,6 @@ var TextControl = components.TextControl;
     title: 'UPLB-Text-Image', // The title of block in editor.
     icon: 'id', // The icon of block in editor.
     category: 'common', // The category of block in editor.
-category: 'common',
 attributes: {
   mediaID: {
   type: 'number'
@@ -204,31 +203,41 @@ return [
 save: function (props) {
 var attributes = props.attributes;
 return (
-
+    el(
+      'section', {
+      className: 'content_section'
+      },
     el(
       'div', {
       className: 'wp-block-media-text__media text-image'
       },
       el(
         'h3',{
-          className:'block_headline'
+          className:'block_headline content'
         },
         attributes.title
 
-      ),el('img', {
+      ),
+    el(
+      'div', {
+      className: 'block_image_div mobile_hidden',
+      style : {backgroundImage:'url('+attributes.mediaURL+')'}
+      },
+      ),
+      el('img', {
       src: attributes.mediaURL,
       alt: attributes.mediaALT,
-          className:'block_image'
-      }),
+          className:'block_image desktop_hidden'
+      }),      
       el(
         'p',{
-          className:'block_content'
+          className:'block_content content'
         },
         attributes.text
 
       ),      
       el('a', {
-      className: 'my-block-button',
+      className: 'my-block-button content',
       href: attributes.buttonURL
       },       
       el(
@@ -240,6 +249,7 @@ return (
       ),      )
     )
 )
+    )
 }
 })
 })(
