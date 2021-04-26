@@ -1,7 +1,7 @@
 *{box-sizing: border-box;margin: 0;padding: 0;
   font-weight:400;}
   
-body {font-family: 'Lato', sans-serif; max-width: 2000px;}
+body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: 100%;
     width: auto;
@@ -824,7 +824,7 @@ a.main-navi_btn.active {
     left: 0;
     right: 0;
     padding: 0 56px;    
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
 } 
 

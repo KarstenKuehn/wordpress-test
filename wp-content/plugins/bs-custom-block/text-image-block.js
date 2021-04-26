@@ -213,12 +213,12 @@ return (
       },
       el(
         'h3',{
-          className:'block_headline content'
+          className:'block_headline content desktop_hidden'
         },
         attributes.title
 
       ),
-    el(
+      el(
       'div', {
       className: 'block_image_div mobile_hidden',
       style : {backgroundImage:'url('+attributes.mediaURL+')'}
@@ -228,7 +228,19 @@ return (
       src: attributes.mediaURL,
       alt: attributes.mediaALT,
           className:'block_image desktop_hidden'
-      }),      
+      }),
+
+    el(
+      'div', {
+      className: 'block_text'
+      },
+      el(
+        'h3',{
+          className:'block_headline content mobile_hidden'
+        },
+        attributes.title
+
+      ),
       el(
         'p',{
           className:'block_content content'
@@ -237,20 +249,20 @@ return (
 
       ),      
       el('a', {
-      className: 'my-block-button content',
-      href: attributes.buttonURL
-      },       
-      el(
-        'span',{
-          className:'button-text wp-block-button__link'
-        },
-        attributes.buttonText
-
-      ),      )
+        className: 'my-block-button content',
+        href: attributes.buttonURL
+        },       
+        el(
+          'span',{
+            className:'button-text wp-block-button__link'
+          },
+          attributes.buttonText
+        ),      
+      )//end a
+      )
     )
-)
-    )
-}
+  )// end section
+)}// end save
 })
 })(
 window.wp.blocks,
