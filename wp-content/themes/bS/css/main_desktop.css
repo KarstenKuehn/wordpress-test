@@ -64,8 +64,26 @@
       background:green;
     }
 
+  /* Caption text */
+.text * {
+    display: block;
+    max-width: 558px;
+    margin: 0px;
+}
 
-
+  .text .my-block-button {
+border: 2px solid #FFFFFF;
+    background: none;
+    width: auto;
+    display: inline-block;
+}
+  .text .my-block-text {
+  color: #FFFFFF;
+  font-family: Lato;
+  font-size: 64px;
+  letter-spacing: 0;
+  line-height: 72px;
+}
 .text-image, .image-text{
   position: relative;
   height: 504px;
