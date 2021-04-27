@@ -176,7 +176,7 @@ button
   .header
   {
     height:72px;
-    padding: 0 16px
+    padding: 0 0 0 16px
   }
 .header_out{
   border-bottom: 1px solid #C7CCDB;
@@ -582,7 +582,7 @@ a.sub_menu_item .material-icons{
     margin: auto;
 }
 .navi-item .wp-block-media-text__media {
-    margin-left: 1rem;
+    margin-left: 0;
 }
 
 .navi-item .wp-block-media-text__content{
@@ -699,6 +699,11 @@ a.sub_menu_item .material-icons{
   text-align: center;
   margin-bottom: 8px;
   font-size: 12px;
+}
+
+.mySlides .my-block-image {
+    margin-right: -16px;
+    margin-left: -16px;
 }
 
 @media(min-width:768px)
