@@ -333,9 +333,8 @@ a.custom-logo-link {
 {
   background: #fff;
   display: block;
-  margin: 0;
+  margin: 0 16px;
   margin-bottom: 48px;
-  margin-right: 24px;
 
 }
 .sub_menu_block label
@@ -363,7 +362,7 @@ a.sub_menu_item{
 
 a.sub_menu_item .material-icons{
     position: absolute;
-    right: 32px;
+    right: 0;
     line-height: 48px;
 }
 
@@ -772,7 +771,7 @@ a.sub_menu_item .material-icons{
   {
     display: inline-block;
     height: 112px;
-    margin: 0 16px;
+    margin-right: 8px;
     color: #091B30;
     font-family: Lato;
     font-size: 16px;
