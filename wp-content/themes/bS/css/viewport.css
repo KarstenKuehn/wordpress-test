@@ -1,7 +1,41 @@
 *{box-sizing: border-box;margin: 0;padding: 0;
   font-weight:400;}
+
+html {
+    width: calc(100% + calc(100vw - 100%));
+    overflow-x: hidden;
+}
   
 body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
+
+.full-width{
+width: calc(100vw - 17px);
+    position: relative;
+    left: calc(50% + 8px);
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    min-height: 0;
+ 
+    padding: 24px 0; 
+background: aqua;
+
+
+}
+.full-width-inner{
+    width: min(2000px,100%);
+background: beige;
+max-width: 2000px;    
+    padding: 24px; 
+margin:auto; 
+
+}
+
+.content-width{
+  background: lavender;
+}
+
+
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: 100%;
     width: auto;
@@ -9,7 +43,7 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
     height: auto
 }
 #myBody.overlay{
-      overflow-y: scroll;
+    overflow-y: scroll;
     position: fixed;
     width: 100%;
     top: 0px;
@@ -419,6 +453,8 @@ a.sub_menu_item .material-icons{
 
 /* Hide the images by default */
 .mySlides {
+  max-width: 2000px;
+  margin: auto;
   display: none; 
   margin-bottom: -47px 
 }
@@ -827,17 +863,6 @@ a.main-navi_btn.active {
     top: 40%;
     transform: translateY(-50%);
 } 
-
-.slideshow-container.xx {
-    width: calc(100vw - 10px);    
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    min-height: 0;
-}
-
 
 .mySlides{
   margin-bottom: 0;
