@@ -8,29 +8,6 @@ html {
   
 body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
 
-.full-width{
-width: calc(100vw - 17px);
-    position: relative;
-    left: calc(50% + 8px);
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    min-height: 0;
- 
-    padding: 24px 0; 
-background: aqua;
-
-
-}
-.full-width-inner{
-    width: min(2000px,100%);
-background: beige;
-max-width: 2000px;    
-    padding: 24px; 
-margin:auto; 
-
-}
-
 .content-width{
   background: lavender;
 }
@@ -54,9 +31,9 @@ margin:auto;
 }
 
 main{
-    max-width: 1256px;
-    margin: auto;
-    padding: 0 16px;}
+  width: 100%;
+  padding: 0 16px;
+  }
 li
 {
   list-style-type: none;
@@ -440,12 +417,8 @@ a.sub_menu_item .material-icons{
 }
 
 .slideshow-container.xx {
-    width: 100vw;
+    width: 100%;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
     min-height: 0;
 }
 
@@ -471,7 +444,7 @@ a.sub_menu_item .material-icons{
     color: #f2f2f2;
     font-size: 16px;
     margin: 0;
-    padding: 0px 12px;
+    /*padding: 0px 12px;*/
     position: relative;
     width: 100%;
     text-align: left;
@@ -508,15 +481,6 @@ a.sub_menu_item .material-icons{
 
     margin-top: 48px;
     margin-bottom: 32px;
-}
-
-.text button{
-    background: #0061AB;
-    color: #fff;
-    border: 1px solid #fff;
-    text-decoration: none;
-    text-align: center;
-
 }
 
 .text .my-block-button {
@@ -684,6 +648,14 @@ a.sub_menu_item .material-icons{
   {
     display: none;
   }
+
+.block_image_div {
+    background-size: cover;
+    min-height: 300px;
+}
+
+
+
   .footer{
     padding: 16px;
     background: #F3F4F7;
@@ -860,9 +832,15 @@ a.main-navi_btn.active {
     left: 0;
     right: 0;
     padding: 0 56px;    
-    top: 40%;
-    transform: translateY(-50%);
+    top: 10%;
+
 } 
+
+.text * {
+    display: block;
+    max-width: 80%;
+    margin: 0px;
+}
 
 .mySlides{
   margin-bottom: 0;
@@ -874,7 +852,7 @@ a.main-navi_btn.active {
     max-width: 1224px;
     margin: auto;
     padding: 0;
-    width: 100%;
+    width: calc(100% - 32px);
     left: 0;
     right: 0;
 

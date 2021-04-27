@@ -4,11 +4,6 @@
 */
 get_header(); ?>
 <main class="mymain" id="mymain">
-<div class="full-width"><div class="full-width-inner">aa</div></div>
-
-<div class="content-width">bb</div>
-
-
 <?php
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 

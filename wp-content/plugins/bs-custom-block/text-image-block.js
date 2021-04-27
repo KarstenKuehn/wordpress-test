@@ -205,7 +205,7 @@ var attributes = props.attributes;
 return (
     el(
       'section', {
-      className: 'content_section'
+      className: 'content_section full-width'
       },
     el(
       'div', {
