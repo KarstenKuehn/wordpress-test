@@ -3,7 +3,7 @@
 <body <?php body_class(); ?> id="myBody">
 	<?php echo get_skiplinks();?>
 	<?php 
-		$name_of_menu = 'Hauptnaviagtion';
+		$name_of_menu = 'Hauptnavigation';
 	?>
 	<div class="header_out"><div class="header">
 		<div class="site-logo">

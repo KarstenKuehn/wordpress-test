@@ -20,7 +20,7 @@
 ?>
 
 <?php
-	$name_of_menu = 'Hauptnaviagtion';
+	$name_of_menu = 'Hauptnavigation';
 	echo haupt_menu($name_of_menu,'m');	
 	echo getArticelMenu($name_of_menu,'m');			
 	echo getSubMenu($name_of_menu,'m');	
