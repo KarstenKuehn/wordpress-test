@@ -6,7 +6,7 @@ html {
     overflow-x: hidden;
 }
   
-body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
+body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;overflow-y: scroll;min-height: 100vh;}
 
 .content-width{
   background: lavender;
