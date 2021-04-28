@@ -1,6 +1,6 @@
 <?php seo_header();?>
 
-<body <?php body_class(); ?> id="myBody">
+<body id="myBody">
 	<?php echo get_skiplinks();?>
 	<?php 
 		$name_of_menu = 'Hauptnavigation';

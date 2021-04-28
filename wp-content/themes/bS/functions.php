@@ -235,7 +235,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
                 endwhile; 
                 wp_reset_postdata(); 
             else : 
-                 $submenu_html_liste.='<div class="sub_menu_block blog"><p>'.$current_menu->title.'</p></div>';               
+                 $submenu_html_liste.='<div class="sub_menu_block blog"></div>';               
             endif;
         }
 
