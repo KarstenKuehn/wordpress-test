@@ -7,11 +7,16 @@
     display: none;
     height: calc(100vh - 112px);
     overflow: auto;
+
+    background: rgba(0,0,0,0.5);
+}
+
 }
 
 .menu_close{
-    max-width: 1224px;
-  margin: auto
+    max-width: 1272px;
+    margin: auto;
+    padding: 0 24px;
 }
 .show-test.active{
     display: grid;
@@ -34,6 +39,10 @@
 .mobile_hidden.menu_close {
     line-height: 96px;
     text-align: right;
+    background: #fff;
+    max-width: 1272px;
+    margin: auto;
+    padding: 0 24px;    
 }
 .mobile_hidden.menu_close .material-icons {
   cursor: pointer;

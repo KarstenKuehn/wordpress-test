@@ -3,10 +3,10 @@
 
 html {
     width: calc(100% + calc(100vw - 100%));
-    overflow-x: hidden;
+    overflow-x: hidden;overflow-y: scroll;min-height: 100vh;
 }
   
-body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;overflow-y: scroll;min-height: 100vh;}
+body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
 
 .content-width{
   background: lavender;
@@ -20,7 +20,6 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;overflow-y:
     height: auto
 }
 #myBody.overlay{
-    overflow-y: scroll;
     position: fixed;
     width: 100%;
     top: 0px;
@@ -286,8 +285,9 @@ a.custom-logo-link {
   position: relative;
   z-index: 5000;
   background-color: white;  
-  max-width: 1224px;
-  margin: auto
+    max-width: 1272px;
+    margin: auto;
+    padding: 0 24px 24px 24px;
 }
 .show-test.active{
 
