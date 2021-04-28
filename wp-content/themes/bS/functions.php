@@ -340,10 +340,6 @@ function wpb_custom_new_menu() {
       'top-menu' => __( 'MainNavigation' ),
       'footer-menu' => __( 'Footer Menu' ),
       'social' => __( 'Social Menu' ),
-      'sub-menu1' => __( 'Sub Menu1' ),
-      'sub-menu2' => __( 'Sub Menu2' ),
-      'sub-menu3' => __( 'Sub Menu3' ),
-      'sub-menu4' => __( 'Sub Menu4' )
     )
   );
 }

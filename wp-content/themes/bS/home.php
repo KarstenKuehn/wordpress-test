@@ -1,7 +1,7 @@
 <?php
 
 /* 
-	Template Name: Home Template
+	Template_x Name_x: Home Template
 */
 ?>
 <h1>HOME TEMPLATE</h1>
