@@ -100,6 +100,24 @@ margin:auto;
 }
 
 
+
+.main >*{
+  max-width: 1244px;
+  margin: auto;
+  padding-bottom: 24px;
+}
+
+.main >.full{
+  background: none;
+  max-width: 100%;
+  margin: auto;
+}
+
+
+.media-text{
+  padding-bottom: 72px;
+}
+/*
 .slideshow-container.xx {
     width: 100vw;
     position: relative;
@@ -109,6 +127,8 @@ margin:auto;
     margin-right: -50vw;
     min-height: 0;
 }
+
+*/
   /* Caption text */
   .text{    font-size:36px; 
     line-height: 48px;}

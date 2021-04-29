@@ -3,15 +3,16 @@
 	Template Name: Index-Slider Template
 */
 get_header(); ?>
-<main class="mymain" id="mymain">
+<div class="main">
 <?php
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
 echo $html;
 
-	//echo get_my_content();
+  //echo get_my_content();
 ?>
-</main>
+</div>
+
 <?php get_footer(); ?>
 <script>
 var slideshow_container =   document.getElementsByClassName("slideshow-container");

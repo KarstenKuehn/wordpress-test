@@ -2,8 +2,7 @@
   font-weight:400;}
 
 html {
-    width: calc(100% + calc(100vw - 100%));
-    overflow-x: hidden;overflow-y: scroll;min-height: 100vh;
+  overflow-x: hidden;overflow-y: scroll;min-height: 100vh;
 }
   
 body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
@@ -11,7 +10,6 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
 .content-width{
   background: lavender;
 }
-
 
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: 100%;
@@ -700,10 +698,6 @@ a.sub_menu_item .material-icons{
   font-size: 12px;
 }
 
-.mySlides .my-block-image {
-    margin-right: -16px;
-    margin-left: -16px;
-}
 
 @media(min-width:768px)
 {

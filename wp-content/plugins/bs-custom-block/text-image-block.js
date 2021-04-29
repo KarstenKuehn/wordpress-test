@@ -205,11 +205,11 @@ var attributes = props.attributes;
 return (
     el(
       'section', {
-      className: 'content_section full-width'
+      className: 'content_section media-text full'
       },
     el(
       'div', {
-      className: 'wp-block-media-text__media text-image'
+      className: 'text-image'
       },
       el(
         'h3',{

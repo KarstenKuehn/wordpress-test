@@ -205,11 +205,11 @@ blocks.registerBlockType( 'lb/img-text', {
 return (
     el(
       'section', {
-      className: 'content_section full-width'
+      className: 'content_section full media-text'
       },
     el(
       'div', {
-      className: 'wp-block-media-text__media image-text'
+      className: 'image-text'
       },
       el(
         'h3',{
