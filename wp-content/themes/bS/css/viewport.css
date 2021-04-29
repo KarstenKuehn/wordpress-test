@@ -742,6 +742,11 @@ a.sub_menu_item .material-icons{
     line-height:111px;
     display: inline-block;
     margin:0;
+    color: #091B30;
+    font-family: Lato;
+    font-size: 16px;
+    letter-spacing: 0;
+    
   }
 
   .header .logo
