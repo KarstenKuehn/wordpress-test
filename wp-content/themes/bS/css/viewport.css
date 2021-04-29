@@ -18,10 +18,12 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
     height: auto
 }
 #myBody.overlay{
-    position: fixed;
+    /*position: fixed;*/
     width: 100%;
     top: 0px;
     left: 0px;
+    height: 100vh;
+    overflow: hidden;
 }
 #back_navi{
   display: none;
@@ -294,9 +296,9 @@ a.custom-logo-link {
   position: relative;
   z-index: 5000;
   background-color: white;  
-    max-width: 1272px;
-    margin: auto;
-    padding: 0 24px 24px 24px;
+  max-width: 1272px;
+  margin: auto;
+  padding: 0;
 }
 .show-test.active{
 
@@ -322,27 +324,12 @@ a.custom-logo-link {
   letter-spacing: 0;
   line-height: 24px;
 }
-/*
-.sub_menu .menu{
-  background: grey;
-}
-
-.sub_menu .menu > li{
-  background: white;
-  display: block;
-  margin: 0;
-}
-.sub_menu .menu > li ul{
-  background: pink;
-}
-
-*/
 
 .sub_menu_block
 {
   background: #fff;
   display: block;
-  margin: 0 16px;
+  margin: 0;
   margin-bottom: 48px;
 
 }
@@ -457,6 +444,7 @@ a.sub_menu_item .material-icons{
     width: 100%;
     text-align: left;
     top: -47px;
+    padding: 0 16px;
 }
 
 .slide_h1,.slide_h2{

@@ -1,6 +1,6 @@
 .sub_menu.mobile_hidden {
     position: absolute;
-    width: 100%;
+    width: 100vw;
     padding: 0 16px;
     background: #fff;
     z-index: 50000;
@@ -9,6 +9,7 @@
     overflow: auto;
 
     background: rgba(0,0,0,0.5);
+    left: 0;
 }
 
 }
@@ -73,31 +74,6 @@
       background:green;
     }
 
-main{
-  max-width: 1256px;
-  margin: auto;
-  width: calc(100% - 32px);
-  padding: 0 16px;
-  display: block;
-  }
-
-.full-width{
-  width: calc(100vw);
-  position: relative;
-  left: calc(50%);
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  min-height: 0;
-  padding: 24px 0; 
-}
-.full-width-inner{
-    width: min(2000px,100%);
-max-width: 2000px;    
-    padding: 24px; 
-margin:auto; 
-
-}
 
 
 
@@ -118,18 +94,6 @@ padding: 0 24px;
 .media-text{
   padding-bottom: 72px;
 }
-/*
-.slideshow-container.xx {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    min-height: 0;
-}
-
-*/
   /* Caption text */
   .text{    font-size:36px; 
     line-height: 48px;}
