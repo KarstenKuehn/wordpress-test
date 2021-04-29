@@ -27,10 +27,21 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
   display: none;
 }
 
-main{
+.main{
   width: 100%;
-  padding: 0 16px;
   }
+
+.main >*{
+  max-width: 1244px;
+  margin: auto;
+   padding: 0 16px;
+  padding-bottom: 24px;
+}
+
+.main >.full{
+padding: 0;
+}
+
 li
 {
   list-style-type: none;

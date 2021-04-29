@@ -104,6 +104,7 @@ margin:auto;
 .main >*{
   max-width: 1244px;
   margin: auto;
+padding: 0 24px;
   padding-bottom: 24px;
 }
 
@@ -151,30 +152,25 @@ border: 2px solid #FFFFFF;
   font-size:100%;
   line-height:1.2em;
 }
+
+.media-text.full {
+    margin-bottom: 64px;
+}
 .text-image, .image-text{
   position: relative;
   height: 504px;
   background-color: #F3F4F7;
   margin-bottom: 96px;
-  /*
-    width: calc(100vw - 10px);
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-  */    
-    width: 100%;
-    padding-top: 96px;
-    max-width: 2000px;
-    margin: auto;
-
-
+  width: 100%;
+  padding-top: 96px;
+  max-width: 2000px;
+  margin: auto;
 }
 .text-image .content, .image-text .content{
       width: calc(50vw - 64px);
       padding: 0 32px;
       margin: 16px 0;
-      max-width: 612px;
+      max-width: 620px;
 
 }
 .text-image .content {
@@ -206,21 +202,8 @@ border: 2px solid #FFFFFF;
     max-width: none;
     display: none
 }
-/*
-.block_headline.mobile_hidden,.block_content,.my-block-button{
-  position: relative;
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding:0 ;
-  margin-bottom: 40px;
-} 
 
 
-.image-text .block_headline,.image-text .block_content, .image-text .my-block-button{
-  left: 50%;
-} 
-*/
 .block_text{
     width: 50%;
     display: grid;
