@@ -36,12 +36,8 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
 .main >*{
   max-width: 1244px;
   margin: auto;
-   padding: 0 16px;
-  padding-bottom: 24px;
-}
-
-.main >.full{
-padding: 0;
+   padding:16px;
+  margin-bottom:16px;
 }
 
 li
@@ -167,6 +163,10 @@ button{
 }
 
 
+.gray{
+  background: #F3F4F7;
+}
+
 section {
     margin-bottom: 32px;
     padding-bottom: 16px;
@@ -176,7 +176,27 @@ section {
   position: relative;
   display: block;
   width: 100%;
+  margin-bottom: 16px;
 }
+
+.my-block-button span.button-text {
+    color: #fff;
+    background-color: #0061AB;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: break-word;
+    width: 100%;
+    text-align: center;
+    line-height: 24px;
+    padding: 12px;
+}
+
+
 button
 {
   background: transparent;
@@ -415,6 +435,7 @@ a.sub_menu_item .material-icons{
     width: 100%;
     position: relative;
     min-height: 0;
+    padding: 0; 
 }
 
 
