@@ -1,8 +1,8 @@
 ( function( blocks, editor, element ) {
   var el = element.createElement;
 
-  blocks.registerBlockType( 'lb/zz', {
-    title: 'zzz', // The title of block in editor.
+  blocks.registerBlockType( 'lb/extranavi', {
+    title: 'UPLB-ExtraNavi', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'common', // The category of block in editor.
 attributes: {
@@ -17,7 +17,7 @@ attributes: {
 },
 edit: function( props ) {
   return (
-    el( 'div', { className: 'cc' , style:{display:'inline-block',width:'50%',verticalAlign:'top',border:'1px solid red'},},
+    el( 'div', { className: 'cc' , style:{display:'inline-block',width:'100%',verticalAlign:'top',border:'1px solid gray'},},
       el(
         editor.RichText,
         {
