@@ -205,7 +205,7 @@ blocks.registerBlockType( 'lb/img-text', {
 return (
     el(
       'section', {
-      className: 'content_section full media-text'
+      className: 'content_section full media-text gray'
       },
     el(
       'div', {

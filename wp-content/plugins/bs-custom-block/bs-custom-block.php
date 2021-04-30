@@ -164,20 +164,16 @@ function loadTwoColumnText() {
     true
   );
 }
-   
 
-   
 add_action('enqueue_block_editor_assets', 'loadTwoColumnText');
-/*
-function loadTwoColumnText() {
+
+function loadTwoColumnTextGray() {
   wp_enqueue_script(
-    'my-new-zz',
-    plugin_dir_url(__FILE__) . 'two-column-text-block.js',
+    'TwoColumnTextGray',
+    plugin_dir_url(__FILE__) . 'two_column_gray.js',
     array('wp-blocks','wp-editor'),
     true
   );
 }
-   
-add_action('enqueue_block_editor_assets', 'loadTwoColumnText');
 
-*/
+add_action('enqueue_block_editor_assets', 'loadTwoColumnTextGray');

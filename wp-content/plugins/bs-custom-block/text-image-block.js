@@ -205,7 +205,7 @@ var attributes = props.attributes;
 return (
     el(
       'section', {
-      className: 'content_section media-text full'
+      className: 'content_section media-text full gray'
       },
     el(
       'div', {
