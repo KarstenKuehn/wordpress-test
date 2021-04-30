@@ -36,6 +36,14 @@ attributes: {
   type: 'text',
   selector: 'p'
   },
+  text1: {
+  type: 'text',
+  selector: 'span'
+  },
+  text2: {
+  type: 'text',
+  selector: 'span'
+  },
   buttonText: {
   type: 'text'
   },
@@ -162,11 +170,22 @@ return [
   key: 'editable',
   tagName: 'p',
   className: 'my-block-text text',
-  placeholder: i18n.__('Text', 'my-first-gutenberg-block'),
+  placeholder: i18n.__('Zeile 1', 'my-first-gutenberg-block'),
   keepPlaceholderOnFocus: true,
-  value: attributes.text,
+  value: attributes.text1,
   onChange: function (newText) {
-  props.setAttributes({text: newText})
+  props.setAttributes({text1: newText+'&nbsp;'})
+  }
+  }),
+  el(RichText, {
+  key: 'editable',
+  tagName: 'p',
+  className: 'my-block-text text',
+  placeholder: i18n.__('Zeile2', 'my-first-gutenberg-block'),
+  keepPlaceholderOnFocus: true,
+  value: attributes.text2,
+  onChange: function (newText) {
+  props.setAttributes({text2: newText+' '})
   }
   }),
   el('button', {
@@ -205,11 +224,12 @@ return (
       className: 'my-block-title',
       value: attributes.title
       }),
-      el(RichText.Content, {
-      tagName: 'p',
+      el('span', {
       className: 'my-block-text',
-      value: attributes.text
-      }),
+      },attributes.text1), 
+      el('span', {
+      className: 'my-block-text',
+      },attributes.text2),
       el('a', {
       className: 'my-block-button',
       href: attributes.buttonURL

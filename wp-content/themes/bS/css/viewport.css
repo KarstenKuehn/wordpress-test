@@ -498,6 +498,8 @@ a.sub_menu_item .material-icons{
 
     margin-top: 48px;
     margin-bottom: 32px;
+    
+    display: inline-block;
 }
 
 .text .my-block-button {

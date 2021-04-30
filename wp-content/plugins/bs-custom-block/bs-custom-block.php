@@ -177,3 +177,15 @@ function loadTwoColumnTextGray() {
 }
 
 add_action('enqueue_block_editor_assets', 'loadTwoColumnTextGray');
+
+
+function load_extra_navi() {
+  wp_enqueue_script(
+    'extra_navi',
+    plugin_dir_url(__FILE__) . 'extra_navi.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_extra_navi');
