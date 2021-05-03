@@ -6,7 +6,8 @@ function seo_header()
 	$html = file_get_contents( get_template_directory().'/views/header.blade.html');
 
 	$page_data = page_data();
-    $css = file_get_contents(get_template_directory().'/css/main_min.css');
+    #$css = file_get_contents(get_template_directory().'/css/main_min.css');
+    $css = '';
     $css .= file_get_contents(get_template_directory().'/css/viewport.css');
 //    $css .= file_get_contents(get_template_directory().'/css/viewport_back_15-03-2021.css');
 	
