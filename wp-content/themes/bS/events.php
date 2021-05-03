@@ -31,13 +31,12 @@ echo '<div>';
 
 foreach (get_posts($args) as $key => $post) 
 {
-	echo '<a href="'.$post->guid.'">';
+	echo '<a class="event_short" href="'.$post->guid.'">';
+	echo '<span class="material-icons">east</span>';
 	echo '<h2>'.$post->post_title.'</h2>';
-	echo '<p>';
-	echo date('d.m.y',strtotime($post->post_date));
+	echo '<p>'.date('d.m.y',strtotime($post->post_date)).'</p>';
 	echo ' | ';
-	echo @get_the_category()[0]->cat_name;
-	echo '</p>';
+	echo '<p>'.@get_the_category()[0]->cat_name.'</p>';
 	echo '</a>';
 }
 echo '</div>';
