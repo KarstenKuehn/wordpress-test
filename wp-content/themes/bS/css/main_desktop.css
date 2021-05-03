@@ -12,8 +12,6 @@
     left: 0;
 }
 
-}
-
 .menu_close{
     max-width: 1272px;
     margin: auto;
@@ -50,34 +48,32 @@
   cursor: pointer;
   font-size: 32px;
 }
-    .grid span{ height:10vh; display: inline-block; width:calc((100% - 11 * 24px) / 12);background: blue;
-      margin:0 12px;
-      color:#fff;
-      text-align: center;
-      vertical-align: middle;
-    }
 
-    .grid span.colspan6{
-      width:calc(((100% - 11 * 24px) / 12 * 6 ) + 24px * 5);
-    }
+.grid span{ height:10vh; display: inline-block; width:calc((100% - 11 * 24px) / 12);background: blue;
+  margin:0 12px;
+  color:#fff;
+  text-align: center;
+  vertical-align: middle;
+}
 
-    .grid span.colspan4{
-      width:calc(((100% - 11 * 24px) / 12 * 4 ) + 24px * 3);
-    }
+.grid span.colspan6{
+  width:calc(((100% - 11 * 24px) / 12 * 6 ) + 24px * 5);
+}
 
-    .grid span:first-of-type
-    {
-      background:red;
-      margin-left:0;
-    }
-    .grid span:last-of-type
-    {
-      margin-right:0;
-      background:green;
-    }
+.grid span.colspan4{
+  width:calc(((100% - 11 * 24px) / 12 * 4 ) + 24px * 3);
+}
 
-
-
+.grid span:first-of-type
+{
+  background:red;
+  margin-left:0;
+}
+.grid span:last-of-type
+{
+  margin-right:0;
+  background:green;
+}
 
 .main >*{
   max-width: 936px;
@@ -98,21 +94,25 @@ padding: 0 24px;
   padding-bottom: 72px;
 }
   /* Caption text */
-  .text{    font-size:36px; 
-    line-height: 48px;}
+.text
+{    
+  font-size:36px; 
+  line-height: 48px;
+}
 
 
   .text .my-block-button {
-border: 2px solid #FFFFFF;
-    background: none;
-    width: auto;
-    display: inline-block;
+  border: 2px solid #FFFFFF;
+  background: none;
+  width: auto;
+  display: inline-block;
 }
-  .text .my-block-title,.text .my-block-button
-  {
-    font-size:35%;
-  }
-  .text .my-block-text {
+.text .my-block-title,.text .my-block-button
+{
+  font-size:35%;
+}
+
+.text .my-block-text {
   color: #FFFFFF;
   font-family: Lato;
   letter-spacing: 0;
@@ -272,6 +272,21 @@ border: 2px solid #FFFFFF;
     width: 50%;
 }
 
+
+a.event_short h2
+{
+  font-size:26px;
+  line-height:48px;
+  color:#000;
+}
+
+.event_short p
+{
+  font-size:12px;
+  line-height: 16px;
+}
+
+
 @media(min-width:900px)
 {
 
@@ -279,24 +294,24 @@ border: 2px solid #FFFFFF;
    margin: 0 8px; 
   }
 
-.text{    
-  color:red;
-  font-size:48px; 
-  line-height: 56px;
-}
+  .text{    
+    color:red;
+    font-size:48px; 
+    line-height: 56px;
+  }
 
-.text * {
-    max-width: 50%;
-    margin: 0px;
-}
+  .text * {
+      max-width: 50%;
+      margin: 0px;
+  }
 
 
-.text .my-block-title, .text .my-block-button {
-    font-size: 30%;
-}
-.text .my-block-button {
-    padding: 12px 24px;
-}
+  .text .my-block-title, .text .my-block-button {
+      font-size: 30%;
+  }
+  .text .my-block-button {
+      padding: 12px 24px;
+  }
 
 }
 
