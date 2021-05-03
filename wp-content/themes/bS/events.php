@@ -4,8 +4,13 @@
 */
 
 get_header();
+?>
+
+<h1>Veranstaltungen & Termine</h1>
 
 
+
+<?php
 $args = array(
         'posts_per_page' => 5,
         'category'       => array(7,8),
