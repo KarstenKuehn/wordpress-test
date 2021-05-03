@@ -18,14 +18,12 @@ echo '<h1>Veranstaltungen & Termine</h1>';
 $args = array(
         'posts_per_page' => 5,
         'category'       => array(7,8),
-        'post_status'    => 'publish',
     	'sort_order' 	 => 'desc'
     );
 
 // echo '<pre>';
 // var_dump(get_posts($args));
 // die;
-
 
 echo '<div>';
 
