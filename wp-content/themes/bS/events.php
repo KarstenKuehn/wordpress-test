@@ -22,11 +22,10 @@ $args = array(
     	'sort_order' 	 => 'desc'
     );
 
-$posts = get_posts($args);
 
-foreach ($posts as $key => $post) 
+foreach (get_posts($args) as $key => $post) 
 {
-	echo '<h2>'.$post->post_title.'</h2>';
+	echo '<h2>'.date('d.M.y',strtotime($post->post_date)).' | '.$post->post_title.'</h2>';
 	echo '<p>'.$post->post_content.'</p>';
 }
 
