@@ -6,11 +6,15 @@
 get_header();
 ?>
 
-<h1>Veranstaltungen & Termine</h1>
 
 
-
+<div class="main">
 <?php
+
+$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+
+echo '<h1>Veranstaltungen & Termine</h1>';
+
 $args = array(
         'posts_per_page' => 5,
         'category'       => array(7,8),
@@ -26,8 +30,14 @@ foreach ($posts as $key => $post)
 	echo '<p>'.$post->post_content.'</p>';
 }
 
+echo $html;
 
+?>
+</div>
 
+<?php get_footer(); ?>
+
+<?php
 
 
 
