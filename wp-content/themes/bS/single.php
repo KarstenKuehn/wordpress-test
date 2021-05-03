@@ -10,7 +10,6 @@ get_header();
 
 
 
-
 <div class="main">
 <?php
 		echo '<h1>'.get_the_title().'</h1>';

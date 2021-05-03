@@ -723,6 +723,13 @@ a.sub_menu_item .material-icons{
     font-size: 32px;
 }
 
+.events_header
+{
+  font-weight:200;
+  padding:16px 0;
+  border-bottom: 1px solid #C7CCDB;
+}
+
 a.event_short h2
 {
   font-size:16px;
@@ -758,7 +765,10 @@ a.event_short
 {
   padding-left:0;
 }
-
+.height50
+{
+  height:50px;
+}
 @media(min-width:768px)
 {
   .desktop_hidden

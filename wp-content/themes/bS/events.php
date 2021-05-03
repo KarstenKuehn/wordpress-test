@@ -13,7 +13,8 @@ get_header();
 
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
-echo '<h1>Veranstaltungen & Termine</h1>';
+echo '<div class="height50"></div>
+<h1>Veranstaltungen & Termine</h1>';
 
 $args = array(
         'posts_per_page' => 5,
@@ -24,10 +25,25 @@ $args = array(
 // echo '<pre>';
 // var_dump(get_posts($args));
 // die;
+$posts = get_posts($args);
 
-echo '<div>';
-
-foreach (get_posts($args) as $key => $post) 
+echo '<div class="events_overview">
+<p class="events_header">
+<span class="mobile_hidden">';
+if (count($posts) > 1)
+{
+	echo ''.count($posts).' Termine';
+}
+if (count($posts) == 0)
+{
+	echo 'Keine Termine';
+}
+if (count($posts) == 1)
+{
+	echo '1 Termin';
+}
+echo '</span></p>';
+foreach ($posts as $key => $post) 
 {
 	echo '<a class="event_short" href="'.$post->guid.'">';
 	echo '<span class="material-icons">east</span>';
