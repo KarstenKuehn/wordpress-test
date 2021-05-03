@@ -22,12 +22,25 @@ $args = array(
     	'sort_order' 	 => 'desc'
     );
 
+// echo '<pre>';
+// var_dump(get_posts($args));
+// die;
+
+
+echo '<div>';
 
 foreach (get_posts($args) as $key => $post) 
 {
-	echo '<h2>'.date('d.M.y',strtotime($post->post_date)).' | '.$post->post_title.'</h2>';
-	echo '<p>'.$post->post_content.'</p>';
+	echo '<a href="'.$post->guid.'">';
+	echo '<h2>'.$post->post_title.'</h2>';
+	echo '<p>';
+	echo date('d.m.y',strtotime($post->post_date));
+	echo ' | ';
+	echo @get_the_category()[0]->cat_name;
+	echo '</p>';
+	echo '</a>';
 }
+echo '</div>';
 
 echo $html;
 
