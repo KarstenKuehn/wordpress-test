@@ -722,7 +722,10 @@ a.sub_menu_item .material-icons{
   .header span.material-icons {
     font-size: 32px;
 }
-
+.height50
+{
+  height:50px;
+}
 .events_header
 {
   font-weight:200;
@@ -765,10 +768,15 @@ a.event_short
 {
   padding-left:0;
 }
-.height50
+.event_year
 {
-  height:50px;
+  border:0;
+  color:#1F5DA6;
+  font-size:16px;
+  line-height: 24px;
+  font-weight:700;
 }
+
 @media(min-width:768px)
 {
   .desktop_hidden

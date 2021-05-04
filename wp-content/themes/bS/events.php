@@ -29,9 +29,37 @@ $args = array(
 // die;
 $posts = get_posts($args);
 
+$years = array();
+foreach ($posts as $key => $post) 
+{
+	$years[] = '20'.preg_replace('@\d\d\.\d\d.@','',@get_field('datum'));
+}
+$years = array_unique($years);
+
+
 echo '<div class="events_overview">
-<p class="events_header">
-<span class="mobile_hidden">';
+<p class="events_header">';
+
+
+echo '<select class="event_year">';
+$i = 0;
+foreach ($years as $key => $year) 
+{
+	$i++;
+	if ($i == 1)
+	{
+		echo '<option selected>'.$year.'</option>';
+	}
+	else
+	{
+		echo '<option>'.$year.'</option>';
+	}
+
+}
+echo '</select>';
+
+
+echo '<span class="mobile_hidden">';
 if (count($posts) > 1)
 {
 	echo ''.count($posts).' Termine';
