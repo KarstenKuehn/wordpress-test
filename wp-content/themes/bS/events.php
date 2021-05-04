@@ -11,6 +11,8 @@ get_header();
 <div class="main">
 <?php
 
+
+
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
 echo '<div class="height50"></div>
@@ -45,12 +47,15 @@ if (count($posts) == 1)
 echo '</span></p>';
 foreach ($posts as $key => $post) 
 {
+
 	echo '<a class="event_short" href="'.$post->guid.'">';
 	echo '<span class="material-icons">east</span>';
 	echo '<h2>'.$post->post_title.'</h2>';
-	echo '<p>'.date('d.m.y',strtotime($post->post_date)).'</p>';
-	echo ' | ';
-	echo '<p>'.@get_the_category()[0]->cat_name.'</p>';
+	echo '<span>';
+	@the_field('datum');
+	echo '</span> | <span>';
+	@the_field('ort');
+	echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span';
 	echo '</a>';
 }
 echo '</div>';
