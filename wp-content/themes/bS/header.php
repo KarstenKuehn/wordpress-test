@@ -5,6 +5,48 @@
 	<?php 
 		$name_of_menu = 'Hauptnavigation';
 	?>
+
+
+
+<?php
+
+
+if( have_rows('navi') ):
+		$i=1;
+    while ( have_rows('navi') ) : the_row();
+        $sub_value = get_sub_field('navi-item');
+        echo '<li>...' . $sub_value . '......</li>';
+        $i++;
+    endwhile;
+else :
+    // no rows found
+endif;
+
+
+$values = get_field('test');
+if($values)
+{
+	echo '<ul>';
+
+	foreach($values as $value)
+	{
+		echo '<li>-------' . $value . '</li>';
+	}
+
+	echo '</ul>';
+}
+
+// always good to see exactly what you are working with
+var_dump($values);
+?>
+
+
+
+
+xx
+<p><?php the_field('test'); ?></p>
+
+xx
 	<div class="header_out"><div class="header">
 		<div class="site-logo">
 			<div class="desktop_hidden"><button onclick="backNavi()" id="back_navi">
