@@ -48,15 +48,14 @@ echo '</span></p>';
 foreach ($posts as $key => $post) 
 {
 
-
 	echo '<a class="event_short" href="'.$post->guid.'">';
 	echo '<span class="material-icons">east</span>';
 	echo '<h2>'.$post->post_title.'</h2>';
-	echo @the_field('datum');
-	echo ' | ';
-	echo @the_field('ort');
-	echo ' | ';
-	echo @get_the_category()[0]->cat_name;
+	echo '<span>';
+	@the_field('datum');
+	echo '</span> | <span>';
+	@the_field('ort');
+	echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span';
 	echo '</a>';
 }
 echo '</div>';

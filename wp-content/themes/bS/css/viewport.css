@@ -752,7 +752,7 @@ a.event_short
   padding-top: 7px;
 }
 
-.event_short p
+.event_short span
 {
   padding:5px 5px 0 5px;
   color:#1F5DA6;
@@ -761,7 +761,7 @@ a.event_short
   display:inline-block;
 }
 
-.event_short p:first-of-type
+.event_short span:first-of-type
 {
   padding-left:0;
 }
