@@ -8,7 +8,7 @@ get_header();
 
 
 
-<div class="main">
+<div class="main events">
 <?php
 
 

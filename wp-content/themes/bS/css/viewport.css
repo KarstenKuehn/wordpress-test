@@ -733,6 +733,12 @@ a.sub_menu_item .material-icons{
   height:50px;
 }
 
+.events h1
+{
+  color:#091B30;
+  margin-bottom:26px;
+}
+
 .events_header
 {
   font-weight:200;
@@ -744,7 +750,7 @@ a.event_short h2
 {
   font-size:16px;
   line-height:20px;
-  color:#000;
+  color:#091B30;
 }
 
 a.event_short
