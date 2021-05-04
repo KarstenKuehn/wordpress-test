@@ -719,13 +719,20 @@ a.sub_menu_item .material-icons{
   margin-bottom: 8px;
   font-size: 12px;
 }
-  .header span.material-icons {
+.header span.material-icons {
     font-size: 32px;
 }
+.mobile_width25
+{
+  display:inline-block;
+  width:25%;
+}
+
 .height50
 {
   height:50px;
 }
+
 .events_header
 {
   font-weight:200;
@@ -768,7 +775,7 @@ a.event_short
 {
   padding-left:0;
 }
-.event_year
+.events_header select
 {
   border:0;
   color:#1F5DA6;

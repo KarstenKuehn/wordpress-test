@@ -24,9 +24,6 @@ $args = array(
     	'sort_order' 	 => 'desc'
     );
 
-// echo '<pre>';
-// var_dump(get_posts($args));
-// die;
 $posts = get_posts($args);
 
 $years = array();
@@ -38,10 +35,10 @@ $years = array_unique($years);
 
 
 echo '<div class="events_overview">
-<p class="events_header">';
+<div class="events_header">';
 
-
-echo '<select class="event_year">';
+// -----------------------------------------------> YEAR FILTER
+echo '<div class="mobile_width25 desktop_width10"><select class="event_year">';
 $i = 0;
 foreach ($years as $key => $year) 
 {
@@ -56,10 +53,22 @@ foreach ($years as $key => $year)
 	}
 
 }
-echo '</select>';
+echo '</select></div>';
+// -----------------------------------------------> YEAR FILTER
+// -----------------------------------------------> TOPIC FILTER
+
+echo '<div class="mobile_width25">
+<select class="event_topic">
+<option selected>Alle Themen</selected>
+<option>Termine</selected>
+<option>Veranstaltungen</selected>
+</select></div>';
+// -----------------------------------------------> TOPIC FILTER
+echo '<div class="mobile_width25 desktop_width40">&nbsp;</div>';
 
 
-echo '<span class="mobile_hidden">';
+echo '<div class="mobile_width25">
+<span class="mobile_hidden">';
 if (count($posts) > 1)
 {
 	echo ''.count($posts).' Termine';
@@ -72,7 +81,7 @@ if (count($posts) == 1)
 {
 	echo '1 Termin';
 }
-echo '</span></p>';
+echo '</span></div></div>';
 foreach ($posts as $key => $post) 
 {
 

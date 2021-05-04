@@ -271,11 +271,19 @@ padding: 0 24px;
     display: inline-block;
     width: 50%;
 }
-.events_header
+
+.events_header .mobile_width25:last-child
 {
   text-align: right;
 }
-
+.desktop_width10
+{
+  width:10%;
+}
+.desktop_width40
+{
+  width:40%;
+}
 a.event_short h2
 {
   font-size:26px;
