@@ -283,14 +283,14 @@ a.event_short h2
   color:#000;
 }
 
-.event_short p
+.event_short span
 {
   font-size:12px;
-  line-height: 16px;
 }
+
 .event_short .material-icons
 {
-  padding-top:20px;
+  padding-top:25px;
 }
 
 @media(min-width:900px)
