@@ -271,11 +271,19 @@ padding: 0 24px;
     display: inline-block;
     width: 50%;
 }
-.events_header
+
+.events_header .mobile_width25:last-child
 {
   text-align: right;
 }
-
+.desktop_width10
+{
+  width:10%;
+}
+.desktop_width40
+{
+  width:40%;
+}
 a.event_short h2
 {
   font-size:26px;
@@ -283,14 +291,14 @@ a.event_short h2
   color:#000;
 }
 
-.event_short p
+.event_short span
 {
   font-size:12px;
-  line-height: 16px;
 }
+
 .event_short .material-icons
 {
-  padding-top:20px;
+  padding-top:25px;
 }
 
 @media(min-width:900px)
