@@ -271,7 +271,10 @@ padding: 0 24px;
     display: inline-block;
     width: 50%;
 }
-
+.events_header
+{
+  text-align: right;
+}
 
 a.event_short h2
 {
