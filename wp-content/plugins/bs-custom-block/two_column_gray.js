@@ -100,4 +100,4 @@
       );
     },
   } );
-} )( window.wp.blocks, window.wp.editor, window.wp.element );
+} )( window.wp.blocks, window.wp.blockEditor, window.wp.element );

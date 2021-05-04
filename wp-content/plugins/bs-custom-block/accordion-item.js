@@ -94,7 +94,7 @@
 })
 (
 window.wp.blocks,
-window.wp.editor,
+window.wp.blockEditor,
 window.wp.components,
 window.wp.i18n,
 window.wp.element
