@@ -53,9 +53,9 @@ foreach ($posts as $key => $post)
 	echo '<h2>'.$post->post_title.'</h2>';
 	echo '<span>';
 	@the_field('datum');
-	echo '</span> | <span>';
+	echo '</span> | <span>';
 	@the_field('ort');
-	echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span';
+	echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span';
 	echo '</a>';
 }
 echo '</div>';
