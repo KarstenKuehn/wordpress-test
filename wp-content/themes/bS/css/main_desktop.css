@@ -1,6 +1,6 @@
 .main
 {
-  min-height:calc(100vh - 380px);
+  min-height:calc(100vh - 400px);
 }
 .sub_menu.mobile_hidden {
     position: absolute;
