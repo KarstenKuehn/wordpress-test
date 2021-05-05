@@ -197,3 +197,15 @@ function load_extra_navi() {
 }
    
 add_action('enqueue_block_editor_assets', 'load_extra_navi');
+
+
+function load_hero_image() {
+  wp_enqueue_script(
+    'hero_image',
+    plugin_dir_url(__FILE__) . 'hero_image.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_hero_image');

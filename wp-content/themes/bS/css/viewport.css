@@ -680,6 +680,21 @@ a.sub_menu_item .material-icons{
 }
 
 
+.hero-image {
+    height: 264px;
+    background-position: right;
+    position: relative;
+}
+
+
+.hero-image-stairway {
+    position: absolute;
+    width: calc(100% / 12 * 9 - 6px);
+    height: 48px;
+    background: red;
+    bottom: 0;
+}
+
 
   .footer{
     padding: 16px;
