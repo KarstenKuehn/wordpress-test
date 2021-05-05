@@ -34,7 +34,7 @@ foreach ($posts as $key => $post)
 	// echo get_the_category()[0]->cat_name;
 	// die;
 
-	if (isset($_GET['etype']) && $_GET['etype'] == get_the_category()[0]->cat_name)
+	if (isset($_GET['etype']) && $_GET['etype'] == strtolower(get_the_category()[0]->cat_name))
 	{
 		$output_posts[] = $post;
 	}
