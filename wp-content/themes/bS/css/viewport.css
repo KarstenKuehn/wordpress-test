@@ -29,17 +29,6 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
   display: none;
 }
 
-.main{
-  width: 100%;
-  }
-
-.main >*{
-  max-width: 1244px;
-  margin: auto;
-   padding:16px;
-  margin-bottom:16px;
-}
-
 li
 {
   list-style-type: none;
