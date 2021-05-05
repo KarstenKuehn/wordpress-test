@@ -2,9 +2,81 @@
 /* 
 	Template Name: Index-Slider Template
 */
-get_header(); ?>
+get_header(); 
+$column_arr   = array('slide_img','slide_subline','slide_headline_zeile1','slide_headline_zeile2','slide_cta_btn_url' );
+$slide_count  = 0;
+
+/*
+  1. Mindestens 1 Slide definiert
+  2. Slide soll mindestens slide_img enthalten
+
+
+$slide_html='';
+for ($i=1; $i <= 3; $i++) 
+{ 
+  $field = get_field_object('slide_item'.$i);
+  $slide_ok = isset($field['value']['slide_img']) && !empty($field['value']['slide_img']);
+  if($slide_ok)
+  {
+    $slide_count++;
+    if( have_rows('slide_item'.$i) ):
+    while( have_rows('slide_item'.$i) ): the_row();
+      $slide_html.='<div class="mySlides">';
+        $slide_html.='<div class="my-block-image">';
+          $image = get_sub_field('slide_img');
+          $slide_html.='<img src="'.esc_url( $image['url'] ).'" alt="'.esc_attr( $image['alt'] ).'"/>';
+        $slide_html.='</div>';
+
+        $slide_html.='<div class="text">';
+
+          $slide_html.='
+          <span class="my-block-title">'.get_sub_field('slide_subline').'</span>
+          <span class="my-block-text">'.get_sub_field('slide_headline_zeile1').' </span>
+          <span class="my-block-text">'.get_sub_field('slide_headline_zeile2').'</span>';
+
+        $link = get_sub_field('slide_cta_btn_url');
+        if( $link ): 
+            $link_url = $link['url'];
+            $link_title = $link['title'];
+            $link_target = $link['target'] ? $link['target'] : '_self';
+
+          $slide_html.='<a class="my-block-button" href="'.esc_url( $link_url ).'" target="'.esc_attr( $link_target ).'">'.esc_html( $link_title ).'</a>';
+        endif;
+        $slide_html.='</div>';
+      $slide_html.='</div>';
+    endwhile;
+
+    endif;
+
+  }
+
+}    
+  if($slide_count>0)
+  {
+    $slider='<div class="slideshow-container xx full">'.$slide_html.'</div>';
+  }
+  echo $slider;*/
+?>
+
 <div class="main">
 <?php
+/*
+the_post();
+the_field('link1');
+echo '<img src="';
+the_field('image1');
+echo '" />';
+the_field('link2');
+$image = get_field('image2');
+echo '<img src="'. esc_url($image['url']).'" alt="'. esc_attr($image['alt']).'"/>';
+
+the_field('link3');
+$image = get_field('image3');
+echo '<img src="'. esc_url($image['url']).'" alt="'. esc_attr($image['alt']).'"/>';
+
+
+
+*/
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
 echo $html;

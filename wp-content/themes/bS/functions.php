@@ -980,3 +980,7 @@ function j0e_add_admin_styles() {
 // Activate set featured image
 
 add_theme_support('post-thumbnails');
+
+
+
+add_filter('acf/format_value/type=textarea', 'do_shortcode');

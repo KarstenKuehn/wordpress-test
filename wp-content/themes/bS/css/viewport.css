@@ -310,6 +310,10 @@ a.custom-logo-link {
   display: none;
 }
 
+.sub_menu_inner {
+  background: #fff;
+}
+
 
 .show-test{
   display: none;

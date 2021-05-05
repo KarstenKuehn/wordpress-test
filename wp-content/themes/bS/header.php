@@ -37,11 +37,13 @@
 	</div>
 </div>
 <div class="sub_menu mobile_hidden" id="sub_menu">
+	<div class="sub_menu_inner">
 	<div class="mobile_hidden menu_close"><span class="material-icons" onclick="closeNavi()">close</span></div>
 	<?php
 
 echo getSubMenu($name_of_menu,'d');
 		?>
+</div>
 </div>
 <?php 
 	if ( true === $enable_header_search ) {
