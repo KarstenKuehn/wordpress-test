@@ -31,12 +31,14 @@ $posts = get_posts($args);
 <?php
 foreach ($posts as $key => $post) 
 {
+
 	echo '<div class="news_container">';
-	echo '<img src="'.get_the_post_thumbnail_url().'" />';
+
+	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/></div>';
 	echo '<div class="news_frame">';
 	@the_field('datum');
 	echo '<h2>'.$post->post_title.'</h2>';
-	echo substr($post->post_content,0 ,75).'...';
+	echo substr($post->post_content,0 ,100).'...';
 	echo '</div>';
 	echo '<a href="#">'.get_the_category()[0]->name.'<span class="material-icons">east</span></a>';
 	echo '</div>';

@@ -288,7 +288,8 @@ a.event_short h2
 
 .news_container
 {
-  width:33%; 
+  width:31%;
+  margin-right:2%; 
   display: inline-block;
 }
 
