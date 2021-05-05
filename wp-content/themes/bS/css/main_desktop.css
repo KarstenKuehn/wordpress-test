@@ -75,27 +75,6 @@
   background:green;
 }
 
-.main >*{
-  max-width: 936px;
-  margin: auto;
-padding: 0 24px;
-  padding-bottom: 24px;
-}
-
-.main >.full{
-  max-width: 100%;
-  margin: auto;
-  margin-bottom: 24px;
-  padding: 0; 
-}
-
-.main > .medium{
-  max-width: 1256px;
-  margin: auto;
-padding: 0 24px;
-  padding-bottom: 24px;
-}
-
 .media-text{
   padding-bottom: 72px;
 }
