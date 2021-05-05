@@ -821,6 +821,8 @@ a.event_short
   color:#1F5DA6;
   font-weight:400;
   padding-left:20px;
+  width:100%;
+  display:block;
 }
 .news_container a span
 {
