@@ -8,7 +8,7 @@
   var InspectorControls = editor.InspectorControls;
   var TextControl = components.TextControl;
   registerBlockType('my-lb-block/accordion-item', {
-    title: i18n.__('LB-AccordionItem', 'my-lb-block'),
+    title: i18n.__('UPLB-AccordionItem', 'my-lb-block'),
     description: i18n.__('A custom block for displaying accordion-item', 'my-lb-block'),
     icon: 'id',
     category: 'common',

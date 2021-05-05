@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Index Template
+	Template_x Name: Index Template
 */
 get_header(); ?>
 <?php

@@ -7,11 +7,10 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
-registerBlockType('aa/text-img', {
-title: i18n.__('LB-Text-Image', 'my-first-gutenberg-block'),
-description: i18n.__('A custom block for displaying LB-TextImage ', 'aa'),
-icon: 'edit',
-category: 'common',
+  blocks.registerBlockType( 'lb/text-img', {
+    title: 'UPLB-Text-Image', // The title of block in editor.
+    icon: 'id', // The icon of block in editor.
+    category: 'common', // The category of block in editor.
 attributes: {
   mediaID: {
   type: 'number'
@@ -204,43 +203,66 @@ return [
 save: function (props) {
 var attributes = props.attributes;
 return (
-
+    el(
+      'section', {
+      className: 'content_section media-text full gray'
+      },
     el(
       'div', {
-      className: 'wp-block-media-text__media text-image'
+      className: 'text-image'
       },
       el(
         'h3',{
-          className:'block_headline'
+          className:'block_headline content desktop_hidden'
         },
         attributes.title
 
-      ),el('img', {
+      ),
+      el(
+      'div', {
+      className: 'block_image_div mobile_hidden',
+      style : {backgroundImage:'url('+attributes.mediaURL+')'}
+      },
+      ),
+      el('img', {
       src: attributes.mediaURL,
       alt: attributes.mediaALT,
-          className:'block_image'
+          className:'block_image desktop_hidden'
       }),
+
+    el(
+      'div', {
+      className: 'block_text'
+      },
+      el(
+        'h3',{
+          className:'block_headline content mobile_hidden'
+        },
+        attributes.title
+
+      ),
       el(
         'p',{
-          className:'block_content'
+          className:'block_content content'
         },
         attributes.text
 
       ),      
       el('a', {
-      className: 'my-block-button',
-      href: attributes.buttonURL
-      },       
-      el(
-        'span',{
-          className:'button-text wp-block-button__link'
-        },
-        attributes.buttonText
-
-      ),      )
+        className: 'my-block-button content',
+        href: attributes.buttonURL
+        },       
+        el(
+          'span',{
+            className:'button-text wp-block-button__link'
+          },
+          attributes.buttonText
+        ),      
+      )//end a
+      )
     )
-)
-}
+  )// end section
+)}// end save
 })
 })(
 window.wp.blocks,

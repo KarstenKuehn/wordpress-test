@@ -1,58 +1,46 @@
 <?php seo_header();?>
 
-<body <?php body_class(); ?>>
+<body id="myBody">
 	<?php echo get_skiplinks();?>
 	<?php 
-
-$name_of_menu = 'Hauptnaviagtion';
-/*
- $a = wp_get_menu_array($name_of_menu);    
- echo '<pre>';                     
- print_r($a); 
- echo '</pre>';
- */
-echo haupt_menu($name_of_menu);
+		$name_of_menu = 'Hauptnavigation';
 	?>
-	<div class="header_out"><div class="header"><?php bs_site_logo();?><div class="desktop_navi mobile_hidden">
+	<div class="header_out"><div class="header">
+		<div class="site-logo">
+			<div class="desktop_hidden"><button onclick="backNavi()" id="back_navi">
+			<span class="material-icons">arrow_back_ios</span>
+			</button></div>
+			
+			<?php bs_site_logo();?>
+		</div><div class="desktop_navi mobile_hidden">
 		<?php
-
-			if ( has_nav_menu( 'top-menu' ) ) {
-				wp_nav_menu( array( 
-			    'theme_location' => 'top-menu', 'depth' => 1 ) ); 					    
-			}	
-
+		echo haupt_menu($name_of_menu,'d');	
 		?>
 		</div><div class="nav-frame">
 		<?php
 			// Site search
 			$enable_header_search = get_theme_mod( 'enable_header_search', true );
-						if ( true === $enable_header_search ) {
-							?>
-			<img src="/wp-content/themes/bS/assets/search.svg" class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" alt="search"/><span class="mobile_hidden label">Suche</span>
-								<!-- .search-toggle -->
+			if ( true === $enable_header_search ) {
+		?>
+
+		<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" aria-label="suche">
+			<span class="material-icons">search</span><span class="mobile_hidden label">Suche</span>
+		</button>
 		<?php
 			}
 		?>
-			<img src="/wp-content/themes/bS/assets/menu.svg" class="mobile_menu_open_button desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" alt="menu"/>
-			<img src="/wp-content/themes/bS/assets/close.svg" class="mobile_menu_close_button desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" alt="menu_close">
-			<!-- .nav-toggle -->	
+		<button class="toggle nav-toggle mobile-nav-toggle desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" id="menu" aria-label="menu">				
+			<span class="material-icons"></span>
+		</button>
+
 		</div>
 	</div>
 </div>
-<div class="sub_menu mobile_hidden">
-		<?php
-						$current_nav_item =  my_get_menu_item_name( 'top-menu' );
-						echo '<h2> ';
-						echo $current_nav_item;
-						echo '</h2>';
-						$args = array(
-						    'theme_location' => 'top-menu', // the one used on register_nav_menus
-						    'submenu' => $current_nav_item , // could be used __() for translations
-						    'depth' => 2
-						);
-						if($current_nav_item!='')
-						wp_nav_menu( $args );
+<div class="sub_menu mobile_hidden" id="sub_menu">
+	<div class="mobile_hidden menu_close"><span class="material-icons" onclick="closeNavi()">close</span></div>
+	<?php
 
+echo getSubMenu($name_of_menu,'d');
 		?>
 </div>
 <?php 

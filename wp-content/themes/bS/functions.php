@@ -6,7 +6,8 @@ function seo_header()
 	$html = file_get_contents( get_template_directory().'/views/header.blade.html');
 
 	$page_data = page_data();
-    $css = file_get_contents(get_template_directory().'/css/main_min.css');
+    #$css = file_get_contents(get_template_directory().'/css/main_min.css');
+    $css = '';
     $css .= file_get_contents(get_template_directory().'/css/viewport.css');
 //    $css .= file_get_contents(get_template_directory().'/css/viewport_back_15-03-2021.css');
 	
@@ -193,61 +194,146 @@ function wp_get_menu_array($current_menu) {
     return $array_menu_sub;
 }
 
-function sub_menu($current_menu,$current_menu_id) {
+function sub_menu($view,$current_menu,$current_menu_id) {
+    $submenu_html='';
+    $submenu_html_liste='';
+    if($current_menu->wpse_children)
+    {
 
-    return $current_menu_id;
+        $i = 0;
+        foreach ($current_menu->wpse_children as $key => $child) {
+            $submenu_html_liste.='<div class="sub_menu_block">';
+            $submenu_html_liste.='<label>'.$child->description.'</label>';
+            if($child->wpse_children)
+            {
+                foreach ($child->wpse_children as $key => $sub_child) {
+                    $submenu_html_liste.='<a href="'. $sub_child->url.'" class="sub_menu_item">'. $sub_child->title.'<span class="material-icons">arrow_forward_ios</span></a>';
+                }
+            } 
+            else
+            {
+                $submenu_html_liste.='<a href="'. $child->url.'" class="sub_menu_item">'. $child->title.'<span class="material-icons">arrow_forward_ios</span></a>';
+            }
+            $submenu_html_liste.='</div>';
+            $i++;
+        }
+        if($view=='d')
+        {
+
+            $k= 3 - $i;
+            $the_query = new WP_Query( array(
+                'category_name' => $current_menu->title,
+                'posts_per_page' => $k ,
+                )
+            ); 
+            if ( $the_query->have_posts() && $k>0) :
+                while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                $title  = get_the_title();
+                $excerpt = get_the_excerpt();
+                $post_image = get_the_post_thumbnail( $post);
+                $permalink = get_permalink( $post );
+                $submenu_html_liste.='<div class="sub_menu_block blog">'.$post_image.'<p>'.$title.'</p><a href="'.$permalink.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
+                endwhile; 
+                wp_reset_postdata(); 
+            else : 
+                 $submenu_html_liste.='<div class="sub_menu_block blog"></div>';               
+            endif;
+        }
+
+
+        $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$submenu_html_liste.'</div>';
+    }   
+    $res = array('x' => $submenu_html ,'y'=>$i);
+
+    return $res;
+    return $submenu_html;
 }
 
-function haupt_menu($current_menu) {
-    $html ='';
-    
+function getSubMenu($current_menu,$view) {
     $a = wp_get_menu_array($current_menu);
     $submenu_html='';
     foreach ($a as $key => $value) {
-      $html .='<button class="button-text wp-block-button__link toggle" data-toggle-target=".show-test.id_'.$value->ID.'">'.$value->title.'</button>';  
+        $submenu_html .= sub_menu($view,$value,$key)['x'];
+    } 
+    return $submenu_html;
+}
+function getArticelMenu($current_menu,$view) {
+    $a = wp_get_menu_array($current_menu);
+    $submenu_html='';
+    $submenu_html_liste='';
 
+    foreach ($a as $key => $value) {
+        $i = 3 - sub_menu($view,$value,$key)['y'];
+        $submenu_html_liste='';
+        $the_query = new WP_Query( array(
+            'category_name' => $value->title,
+            'posts_per_page' => $i,
+            )
+        ); 
+        if ( $the_query->have_posts() ) :
+            while ( $the_query->have_posts() ) : $the_query->the_post(); 
+            $title  = get_the_title();
+            $excerpt = get_the_excerpt();
+            $post_image = get_the_post_thumbnail( $post);
+            $permalink = get_permalink( $post );
+            $submenu_html_liste.='<div class="sub_menu_block blog">'.$post_image.'<p>'.$title.'</p><a href="'.$permalink.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
+            endwhile; 
+            wp_reset_postdata(); 
+        else : 
+        endif; 
+        if($i>0){
+            $submenu_html .='<div class="blog show-test '.$view.' '.$view.'_'.$value->ID.'" id="div_'.$view.'_'.$value->ID.'_blog">'.$submenu_html_liste.'</div>';
+        }
+        else
+        {
+
+            $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$value->ID.'" id="div_'.$view.'_'.$value->ID.'_blog"></div>';            
+        }
+    } 
+    return $submenu_html;
+}
+function haupt_menu($current_menu,$view) {
+    $html ='';
+    $a = wp_get_menu_array($current_menu);
+    $submenu_html='';
+
+    //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
+    foreach ($a as $key => $value) {
 
         if($value->wpse_children)
         {
-            $submenu_html_liste='<ul class="menu">';
-            foreach ($value->wpse_children as $key => $child) {
-                $submenu_html_liste.='<li>'. $child->title.'['.$child->description.']';
-                if($child->wpse_children)
-                {
-                    $submenu_html_liste.='<ul class="sub-menu">';
-                    foreach ($child->wpse_children as $key => $sub_child) {
-                        $submenu_html_liste.='<li><a href="'. $sub_child->url.'">'. $sub_child->title.'['.$sub_child->description.']'.'</a></li>';
-                    }
-                    $submenu_html_liste.='</ul>';
-                } 
-                $submenu_html_liste.='</li>';
+            $html .='<button class="main-navi_btn toggle_x '.$view.'" data-toggle-target_x=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$view.'_'.$value->ID.'">'.$value->title;  
+            $html .='<span class="material-icons desktop_hidden">arrow_forward_ios</span>';
+            $html .='</button>';        
+        }
+        else
+        {
+
+            $menu_items = wp_get_nav_menu_items( $current_menu );
+            $this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
+            $active='';
+            if($this_item->title == $value->title)
+            {
+                $active=' active';
             }
-            $submenu_html_liste.='</ul>';
+            $html .= '<a href="'.$value->url.'" class="main-navi_btn '.$view.$active.'">'.$value->title.'</a>';
+        }
 
-        }        
-
-      $submenu_html .='<div class="show-test id_'.$value->ID.' sub_menu mobile_hidden"><div class="menu-hauptnaviagtion-container">'.$value->title.sub_menu($current_menu,$value->ID).$submenu_html_liste.'</div></div>'; 
-
-
-/*
-
-        echo'___'. $value['title'];
-        echo $value['ID'].'___';        
-      $html .='<button class="button-text wp-block-button__link toggle" data-toggle-target=".show-test.id_'.$value['ID'].'">'.$value['title'].'</button>';  
-      $submenu_html .='<div class="show-test id_'.$value['ID'].'">'.$value['title'].sub_menu($current_menu,$value['ID']).'</div>';     
-
-
-        echo '<pre style="background:aqua">';                     
-        print_r($value); 
-        echo '</pre><br><hr><br>';
-  */
-  } 
-
-
-    //   $html =' <button class="button-text wp-block-button__link toggle" data-toggle-target=".show-test">aa</button><div class="show-test">aaaaaa</div>';
-    return $html.$submenu_html;
+    } 
+    return $html;
 }
 
+function back_haupt_menu($view) {
+    $html ='';
+    if ($view=='m')
+    {
+        $html='<button class="desktop_hidden" onclick="backNavi()" id="back_navi">
+            <span class="material-icons">arrow_back_ios</span>
+            </button>';
+    }
+
+    return $html;
+}
 
 function wpb_custom_new_menu() {
   register_nav_menus(
@@ -255,10 +341,6 @@ function wpb_custom_new_menu() {
       'top-menu' => __( 'MainNavigation' ),
       'footer-menu' => __( 'Footer Menu' ),
       'social' => __( 'Social Menu' ),
-      'sub-menu1' => __( 'Sub Menu1' ),
-      'sub-menu2' => __( 'Sub Menu2' ),
-      'sub-menu3' => __( 'Sub Menu3' ),
-      'sub-menu4' => __( 'Sub Menu4' )
     )
   );
 }
@@ -402,7 +484,27 @@ function footer()
 	echo $html;
 }
 
+function get_FooterMenu()
+{
 
+                $menuParameters = array(
+                    'menu' => '',
+                    'before'               => '',
+                    'after'                => '',
+                    'link_before'          => '',
+                    'link_after'           => '',
+                    'container'       => false,
+                    'echo'            => false,
+                    'depth'           => 0,
+                    'items_wrap'           => '<div id="%1$s" class="footer_menu">%3$s</div>',
+
+                    'theme_location'       => 'footer-menu',
+                );
+
+               $footer_menu = strip_tags(wp_nav_menu( $menuParameters ), '<a><div>' );
+
+    return $footer_menu;
+}
 // FOOTER END 
 
 function get_my_content()
@@ -538,7 +640,14 @@ function cleanup_seo($post_ID) // GET'S CALLED WHEN TRASH IS BEING EMPTIED !!!
 
 function postChangedEmail($post_ID)
 {
-    // t.b.d.
+    $empfaenger = 'seo-cron@bluesummit.de';
+    $betreff = 'Wordpress Admin | Post Changed: '.$post_ID;
+    $nachricht = 'no message';
+    $header = 'From: noreply@bluesummit.de' . "\r\n" .
+        'Reply-To: noreply@bluesummit.de' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+    mail($empfaenger, $betreff, $nachricht, $header);
 }
 
 
@@ -802,3 +911,72 @@ function bs_get_color_for_area( $area = 'content', $context = 'text' ) {
     // Return false if the option doesn't exist.
     return false;
 }
+
+
+/*
+function kb_whitelist_blocks() {
+  return array(
+    'core/heading',
+    'core/paragraph',
+    'core/image',
+    'lb/two_column_text',
+    'lb/text-img',
+    'lb/img-text',
+    'my-first-gutenberg-block/image-with-text-block',
+    'my-lb-block/accordion-item'
+  );
+}
+add_filter('allowed_block_types','kb_whitelist_blocks');
+*/
+/**
+ * Add featured image column to WP admin panel - posts AND pages
+ * See: https://j0e.org/featured-image-admin/
+ */
+
+// Set thumbnail size
+add_image_size( 'j0e_admin-featured-image', 60, 60, false );
+
+// Add the posts and pages columns filter. Same function for both.
+add_filter('manage_posts_columns', 'j0e_add_thumbnail_column', 2);
+add_filter('manage_pages_columns', 'j0e_add_thumbnail_column', 2);
+function j0e_add_thumbnail_column($j0e_columns){
+  $j0e_columns['j0e_thumb'] = __('Image');
+  return $j0e_columns;
+}
+ 
+// Add featured image thumbnail to the WP Admin table.
+add_action('manage_posts_custom_column', 'j0e_show_thumbnail_column', 5, 2);
+add_action('manage_pages_custom_column', 'j0e_show_thumbnail_column', 5, 2);
+function j0e_show_thumbnail_column($j0e_columns, $j0e_id){
+  switch($j0e_columns){
+    case 'j0e_thumb':
+    if( function_exists('the_post_thumbnail') )
+      echo the_post_thumbnail( 'j0e_admin-featured-image' );
+    break;
+  }
+}
+
+// Move the new column at the first place.
+add_filter('manage_posts_columns', 'j0e_column_order');
+function j0e_column_order($columns) {
+  $n_columns = array();
+  $move = 'j0e_thumb'; // which column to move
+  $before = 'title'; // move before this column
+
+  foreach($columns as $key => $value) {
+    if ($key==$before){
+      $n_columns[$move] = $move;
+    }
+    $n_columns[$key] = $value;
+  }
+  return $n_columns;
+}
+
+// Format the column width with CSS
+add_action('admin_head', 'j0e_add_admin_styles');
+function j0e_add_admin_styles() {
+  echo '<style>.column-j0e_thumb {width: 60px;}</style>';
+}
+// Activate set featured image
+
+add_theme_support('post-thumbnails');

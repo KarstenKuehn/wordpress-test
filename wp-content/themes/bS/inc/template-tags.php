@@ -41,7 +41,8 @@ function bs_site_logo( $args = array(), $echo = true ) {
 		'title'       => '<a href="%1$s">%2$s</a>',
 		'title_class' => 'site-title',
 		'home_wrap'   => '<h1 class="%1$s">%2$s</h1>',
-		'single_wrap' => '<div class="%1$s faux-heading">%2$s</div>',
+//		'single_wrap' => '<div class="%1$s faux-heading">%2$s</div>',
+		'single_wrap' => '%2$s',
 		'condition'   => ( is_front_page() || is_home() ) && ! is_page(),
 	);
 
@@ -53,7 +54,7 @@ function bs_site_logo( $args = array(), $echo = true ) {
 	 * @param array  $args     Parsed arguments.
 	 * @param array  $defaults Function's default arguments.
 	 */
-	$args = apply_filters( 'twentytwenty_site_logo_args', $args, $defaults );
+	$args = apply_filters( 'bs_site_logo_args', $args, $defaults );
 
 	if ( has_custom_logo() ) {
 		$contents  = sprintf( $args['logo'], $logo, esc_html( $site_title ) );

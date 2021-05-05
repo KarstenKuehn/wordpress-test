@@ -1,14 +1,22 @@
 <?php
-
-/* 
-	Template Name: Home Template
-*/
+get_header();
 ?>
-<h1>HOME TEMPLATE</h1>
 
+
+
+
+
+<div class="main">
+<?php
+		echo '<h1>'.get_the_title().'</h1>';
+		$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+		echo $html;
+?>
+</div>
+<?php get_footer(); ?>
 
 <?php
-/*
-echo do_shortcode( '[qsm quiz=' . intval( $_GET['quiz_id'] ) . ']' );
-*/
+
+
+
 ?>

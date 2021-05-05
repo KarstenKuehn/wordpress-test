@@ -3,20 +3,19 @@
 	Template Name: Index-Slider Template
 */
 get_header(); ?>
-<main class="mymain" id="mymain">
+<div class="main">
 <?php
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
 echo $html;
 
-	//echo get_my_content();
+  //echo get_my_content();
 ?>
-</main>
+</div>
+
 <?php get_footer(); ?>
 <script>
 var slideshow_container =   document.getElementsByClassName("slideshow-container");
-
-
   for (i = 0; i < slideshow_container.length; i++) {
     var container = slideshow_container[i];
     // definierte Slider
@@ -75,26 +74,25 @@ slide_navi_node.appendChild(prev);slide_navi_node.appendChild(next);
   }
 
 function plusSlides(c,n) {
-   console.log('plusSlides('+c+','+n+')');
+  //console.log('plusSlides('+c+','+n+')');
   showSlides(c,slideIndex += n);
 }
 
 function currentSlide(c,n) {
-   console.log('currentSlide('+c+','+n+')');
+  //console.log('currentSlide('+c+','+n+')');
   showSlides(c,slideIndex = n);
 }
 
 function showSlides(c,n) {
-  console.log('showSlides('+c+','+n+')');
+  //console.log('showSlides('+c+','+n+')');
   var container = document.getElementsByClassName("slideshow-container")[c];
-  console.log(container);
+  //console.log(container);
   var i;
   var n_slides = container.getElementsByClassName("mySlides");
   var dots = container.getElementsByClassName("dot");
   if (n > n_slides.length) {slideIndex = 1}    
   if (n < 1) {slideIndex = n_slides.length}
-
-  console.log(slideIndex);
+  //console.log(slideIndex);
 
   for (i = 0; i < n_slides.length; i++) {
       n_slides[i].style.display = "none";  
@@ -120,31 +118,5 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
-
-/*
-
-        var accord_items = document.getElementsByClassName('accordion_head');
-        for(var i = 0; i < accord_items.length; i++) {
-            accord_item = accord_items[i];
-
-            accord_item.onclick = function(e) {console.log(accord_item );
-                //alert('ho ho ho');
-                accord_item.style.border = "1px solid red";
-                parent= accord_item.parentElement;
-                parent.style.border = "1px solid green";
-                item_content = parent.getElementsByClassName("accordion_content")[0];
-                item_content.style.border = "1px solid blue";
-                item_content.classList.toggle('fade');
-            }
-        }
-
-*/
-
-/*
-.accordion_head.onclick = function(){
-alert('aaaaaaaaaaa');
-};
-*/
-
 </script>
 <?php seo_structuredData();?>
