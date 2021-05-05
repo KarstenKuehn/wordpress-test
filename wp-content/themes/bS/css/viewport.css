@@ -826,11 +826,14 @@ a.event_short
 {
   padding-left:15px;
 }
-.news_frame {padding:15px 20px 23.5px 20px; 
+.news_frame {
+padding:15px 20px 23.5px 20px; 
 margin: 0 auto 23.5px 0; 
 border-bottom:1px solid #E1E5EE; 
 font-size:16px; 
-line-height: 24px;}
+line-height: 24px;
+}
+
 .news_frame p
 {
   font-size:16px;
