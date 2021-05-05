@@ -121,16 +121,18 @@ if (count($output_posts) == 1)
 	echo '1 Termin';
 }
 echo '</span></div></div>';
+
 foreach ($output_posts as $key => $post) 
 {
+	
 		echo '<a class="event_short" href="'.$post->guid.'">';
 		echo '<span class="material-icons">east</span>';
 		echo '<h2>'.$post->post_title.'</h2>';
 		echo '<span>';
-		@the_field('datum');
+		@get_field('datum');
 		echo '</span> | <span>';
-		@the_field('ort');
-		echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span';
+		@get_field('ort');
+		echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span>';
 		echo '</a>';
 }
 
