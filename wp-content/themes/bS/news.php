@@ -6,8 +6,7 @@
 get_header();
 ?>
 
-<div class="main">
-	<div class="medium">
+<div class="main news_feed">
 <?php
 
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
@@ -24,7 +23,7 @@ $args = array(
 $posts = get_posts($args);
 
 ?>
-<section class="news_feed">
+<section>
 <div class="events_header">
 
 
@@ -48,7 +47,6 @@ echo '</section>';
 echo $html;
 
 ?>
-</div>
 </div>
 
 <?php get_footer(); 

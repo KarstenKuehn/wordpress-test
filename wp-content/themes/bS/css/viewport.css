@@ -790,6 +790,12 @@ a.event_short
   line-height: 24px;
   font-weight:700;
 }
+.news_feed h1, .news_feed h2
+{
+  font-size:26px;
+  line-height:32px;
+  font-weight: 400;
+}
 .news_container
 {
   width:99%;
@@ -816,7 +822,12 @@ a.event_short
   padding-left:15px;
 }
 .news_frame {padding:0 5px 25px 5px; margin: 0 auto 25px 0; border-bottom:1px solid #E1E5EE;}
-
+.news_frame div
+{
+  font-size:16px;
+  line-height:24px;
+  font-weight:300;
+}
 @media(min-width:768px)
 {
   .desktop_hidden
