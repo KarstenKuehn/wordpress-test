@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Pressetermine
+	Template Name: Pressetermine Übersicht
 */
 
 get_header();
@@ -137,35 +137,11 @@ foreach ($output_posts as $key => $post)
 echo '</section>';
 // --------------------------------------> END EVENTS
 
-// --------------------------------------> START NEWS
 
-
-
-$args = array(
-        'posts_per_page' => 5,
-        'category'       => array(9),
-    	'sort_order' 	 => 'desc'
-    );
-$posts = get_posts($args);
-
-echo '<section>';
-
-foreach ($posts as $key => $post) 
-{
-	# code...
-}
-
-echo '</section>';
 
 echo $html;
 
 ?>
 </div>
 
-<?php get_footer(); ?>
-
-<?php
-
-
-
-?>
+<?php get_footer(); 
