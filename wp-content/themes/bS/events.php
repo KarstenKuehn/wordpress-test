@@ -25,9 +25,35 @@ $args = array(
     );
 
 $posts = get_posts($args);
+$output_posts = array();
+
+foreach ($posts as $key => $post) 
+{
+	// echo '<pre>';
+	// var_dump($post);
+	// echo get_the_category()[0]->cat_name;
+	// die;
+
+	if (isset($_GET['etype']) && $_GET['etype'] == get_the_category()[0]->cat_name)
+	{
+		$output_posts[] = $post;
+	}
+	
+	if(	isset($_GET['eyear']) && $_GET['eyear'] == '20'.preg_replace('@\d\d\.\d\d.@','',@get_field('datum')) )
+	{
+		$output_posts[] = $post;
+	}
+
+	if(!isset($_GET['etype']) && !isset($_GET['eyear']))
+	{
+		$output_posts[] = $post;
+	}
+}
+
+
 
 $years = array();
-foreach ($posts as $key => $post) 
+foreach ($output_posts as $key => $post) 
 {
 	$years[] = '20'.preg_replace('@\d\d\.\d\d.@','',@get_field('datum'));
 }
@@ -84,23 +110,21 @@ echo '<div class="mobile_width25 desktop_width40">&nbsp;</div>';
 
 echo '<div class="mobile_width25">
 <span class="mobile_hidden">';
-if (count($posts) > 1)
+if (count($output_posts) > 1)
 {
-	echo ''.count($posts).' Termine';
+	echo ''.count($output_posts).' Termine';
 }
-if (count($posts) == 0)
+if (count($output_posts) == 0)
 {
 	echo 'Keine Termine';
 }
-if (count($posts) == 1)
+if (count($output_posts) == 1)
 {
 	echo '1 Termin';
 }
 echo '</span></div></div>';
-foreach ($posts as $key => $post) 
+foreach ($output_posts as $key => $post) 
 {
-	if(!isset($_GET['etype']) && !isset($_GET['eyear']))
-	{
 		echo '<a class="event_short" href="'.$post->guid.'">';
 		echo '<span class="material-icons">east</span>';
 		echo '<h2>'.$post->post_title.'</h2>';
@@ -110,38 +134,8 @@ foreach ($posts as $key => $post)
 		@the_field('ort');
 		echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span';
 		echo '</a>';
-	}	
-
-	if(	isset($_GET['eyear']) && $_GET['eyear'] == '20'.preg_replace('@\d\d\.\d\d.@','',@get_field('datum')) )
-	{
-		echo '<a class="event_short" href="'.$post->guid.'">';
-		echo '<span class="material-icons">east</span>';
-		echo '<h2>'.$post->post_title.'</h2>';
-		echo '<span>';
-		@the_field('datum');
-		echo '</span> | <span>';
-		@the_field('ort');
-		echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span';
-		echo '</a>';
-	}	
-
-	if(	isset($_GET['etype']) && $_GET['etype'] == strtolower(@get_the_category()[0]->cat_name) )
-	{
-		if ($_GET['etype'])
-		echo '<a class="event_short" href="'.$post->guid.'">';
-		echo '<span class="material-icons">east</span>';
-		echo '<h2>'.$post->post_title.'</h2>';
-		echo '<span>';
-		@the_field('datum');
-		echo '</span> | <span>';
-		@the_field('ort');
-		echo '</span> | <span>'.@get_the_category()[0]->cat_name.'</span';
-		echo '</a>';
-	}
-
-
-
 }
+
 echo '</div>';
 
 echo $html;
