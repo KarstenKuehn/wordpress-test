@@ -154,11 +154,14 @@ button{
 
 .gray{
   background: #F3F4F7;
+  max-width: none;
+  width:100%;
 }
 
 section {
     margin-bottom: 32px;
     padding-bottom: 16px;
+    max-width:1456px;
 }
 
 .block_image,.block_headline,.block_content,.my-block-button{
