@@ -38,7 +38,7 @@ foreach ($posts as $key => $post)
 	echo '<div class="news_frame">';
 	@the_field('datum');
 	echo '<h2>'.$post->post_title.'</h2>';
-	echo substr($post->post_content,0 ,125).'...';
+	echo substr($post->post_content,0 ,75).'...';
 	echo '</div>';
 	echo '<a href="#">'.get_the_category()[0]->name.'<span class="material-icons">east</span></a>';
 	echo '</div>';
