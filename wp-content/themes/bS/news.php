@@ -31,8 +31,10 @@ $posts = get_posts($args);
 <?php
 foreach ($posts as $key => $post) 
 {
+
 	echo '<div class="news_container">';
-	echo '<img src="'.get_the_post_thumbnail_url().'" />';
+
+	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/></div>';
 	echo '<div class="news_frame">';
 	@the_field('datum');
 	echo '<h2>'.$post->post_title.'</h2>';
