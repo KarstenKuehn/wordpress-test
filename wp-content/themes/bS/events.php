@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Events Übersicht Template
+	Template Name: Pressetermine
 */
 
 get_header();
@@ -16,7 +16,10 @@ get_header();
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
 echo '<div class="height50"></div>
-<h1>Veranstaltungen & Termine</h1>';
+<h1>Pressetermine</h1>';
+
+// --------------------------------------> START EVENTS
+
 
 $args = array(
         'posts_per_page' => 5,
@@ -29,11 +32,6 @@ $output_posts = array();
 
 foreach ($posts as $key => $post) 
 {
-	// echo '<pre>';
-	// var_dump($post);
-	// echo get_the_category()[0]->cat_name;
-	// die;
-
 	if (isset($_GET['etype']) && $_GET['etype'] == strtolower(get_the_category()[0]->cat_name))
 	{
 		$output_posts[] = $post;
@@ -60,7 +58,7 @@ foreach ($output_posts as $key => $post)
 $years = array_unique($years);
 
 
-echo '<div class="events_overview">
+echo '<section class="events_overview">
 <div class="events_header">';
 
 // -----------------------------------------------> YEAR FILTER
@@ -136,7 +134,28 @@ foreach ($output_posts as $key => $post)
 		echo '</a>';
 }
 
-echo '</div>';
+echo '</section>';
+// --------------------------------------> END EVENTS
+
+// --------------------------------------> START NEWS
+
+
+
+$args = array(
+        'posts_per_page' => 5,
+        'category'       => array(9),
+    	'sort_order' 	 => 'desc'
+    );
+$posts = get_posts($args);
+
+echo '<section>';
+
+foreach ($posts as $key => $post) 
+{
+	# code...
+}
+
+echo '</section>';
 
 echo $html;
 
