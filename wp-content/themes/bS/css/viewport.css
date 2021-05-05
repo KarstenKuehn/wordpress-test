@@ -821,7 +821,7 @@ a.event_short
 {
   padding-left:15px;
 }
-.news_frame {padding:0 5px 25px 5px; margin: 0 auto 25px 0; border-bottom:1px solid #E1E5EE;}
+.news_frame {padding:20px 20px 25px 20px; margin: 0 auto 25px 0; border-bottom:1px solid #E1E5EE;}
 .news_frame p
 {
   font-size:16px;
