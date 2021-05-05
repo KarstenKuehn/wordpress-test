@@ -63,7 +63,7 @@
     },
     save: function( props ) {
       return (
-        el( 'section', { className: 'content_section' },
+        el( 'section', { className: 'content_section medium' },
           el('div',{
             className: 'two-column-text'
             },
