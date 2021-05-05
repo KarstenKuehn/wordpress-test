@@ -27,6 +27,20 @@ attributes: {
   selector: 'img',
   attribute: 'alt'
   },
+  title: {
+  type: 'text',
+  selector: 'h3'
+  },
+  text: {
+  type: 'text',
+  selector: 'p'
+  },
+  buttonText: {
+  type: 'text'
+  },
+  buttonURL: {
+  type: 'url'
+  },
   alignment: {
   type: 'string',
   default: 'center'
@@ -79,11 +93,10 @@ return [
         null,
         "Hero Image"
       ),    
-
   el(
       'div', {
         className: 'wp-block-media-text__media',
-        style:{display:'inline-block',width:'100%',verticalAlign:'top'},
+        style:{display:'inline-block',width:'90%',verticalAlign:'top'},
       },
       el(
         MediaUpload, {
@@ -119,12 +132,11 @@ return (
       className: 'hero-image',
       style : {backgroundImage:'url('+attributes.mediaURL+')'}
       },
-/*      el('img', {
+      el('img', {
       src: attributes.mediaURL,
       alt: attributes.mediaALT,
           className:'block_image desktop_hidden'
       }),
-      */
       el(
       'div', {
       className: 'hero-image-stairway'

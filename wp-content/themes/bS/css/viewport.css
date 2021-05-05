@@ -685,6 +685,9 @@ a.sub_menu_item .material-icons{
     background-position: right;
     position: relative;
 }
+.hero-image img {
+display: none;
+}
 
 
 .hero-image-stairway {
