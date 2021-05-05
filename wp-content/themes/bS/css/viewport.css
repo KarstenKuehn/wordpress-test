@@ -151,13 +151,17 @@ button{
     z-index: 100000;
 }
 
-
-section {
-    margin:auto;
-    margin-bottom: 32px;
-    padding-bottom: 16px;
+h1, section
+{
     max-width:1256px;
+    margin:0 auto 32px auto;
 }
+
+section 
+{
+    padding-bottom: 16px;
+}
+
 
 .gray{
   background: #F3F4F7;
