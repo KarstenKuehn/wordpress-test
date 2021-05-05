@@ -1,3 +1,7 @@
+.main
+{
+  min-height:calc(100vh - 380px);
+}
 .sub_menu.mobile_hidden {
     position: absolute;
     width: 100%;
