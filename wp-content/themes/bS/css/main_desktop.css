@@ -285,7 +285,12 @@ a.event_short h2
 {
   padding-top:25px;
 }
-.news_container{width:33%; display: inline-block;}
+
+.news_container
+{
+  width:33%; 
+  display: inline-block;
+}
 
 @media(min-width:900px)
 {
