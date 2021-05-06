@@ -196,15 +196,18 @@
 }
 
 .block_content{
-  height: 144px;
   color: #091B30;
   font-family: Lato;
   font-size: 16px;
   letter-spacing: 0;
   line-height: 24px;
-  margin: 0;
   padding: 0;
 }
+.media-text .block_content{
+  height: 144px;
+}
+
+
 .my-block-button span.button-text {
     color: #fff;
     background-color: #0061AB;
@@ -259,6 +262,7 @@
 .two-column-text div {
     display: inline-block;
     width: 50%;
+    vertical-align: top;
 }
 
 .events_header .mobile_width25:last-child

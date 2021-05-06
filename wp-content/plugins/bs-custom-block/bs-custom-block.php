@@ -34,7 +34,7 @@ function my_block_template() {
         'my_template/extranavi',
         array('categories'  => array('lb_vorlagen'),      
             'title'     => 'extraNavi',
-            'content'   => "<!-- wp:group {\"backgroundColor\":\"cyan-bluish-gray\",\"textColor\":\"cyan-bluish-gray\",\"className\":\"gray\"} -->\r\n<div class=\"wp-block-group gray has-cyan-bluish-gray-color has-cyan-bluish-gray-background-color has-text-color has-background\"><div class=\"wp-block-group__inner-container\"><!-- wp:columns {\"className\":\"content_section extranavi\"} -->\r\n<div class=\"wp-block-columns content_section extra_navi\"><!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column -->\r\n\r\n<!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column -->\r\n\r\n<!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column --></div>\r\n<!-- /wp:columns --></div></div>\r\n<!-- /wp:group -->",
+            'content'   => "<!-- wp:group {\"style\":{\"color\":{\"background\":\"#f3f4f7\"}},\"className\":\"gray extra_navi_wrapper\"} -->\r\n<div class=\"wp-block-group gray extra_navi_wrapper has-background\" style=\"background-color:#f3f4f7\"><div class=\"wp-block-group__inner-container\"><!-- wp:columns {\"className\":\"content_section extranavi\"} -->\r\n<div class=\"wp-block-columns content_section extra_navi\"><!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column -->\r\n\r\n<!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column -->\r\n\r\n<!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column --></div>\r\n<!-- /wp:columns --></div></div>\r\n<!-- /wp:group -->",
         )
     );
 
@@ -87,7 +87,7 @@ function loadMyAccordion() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadMyAccordion');
-
+/*
 function loadMyExtraNaviItem() {
   wp_enqueue_script(
     'my-new-extranavi',
@@ -111,6 +111,8 @@ function loadExtramenuItem() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadExtramenuItem');
+
+*/
 
 function loadImageText() {
   wp_enqueue_script(
