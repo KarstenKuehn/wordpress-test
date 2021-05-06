@@ -12,10 +12,8 @@
 Lotto Bayern verfüght über eine Erlaubnis der zuständigen Glückspielaufsichtsbehörde und steht unter deren Aufsicht.</p>
 <p>Alle Angaben ohne Gewähr.</p>
 </div>
-<p>
 <?php
     echo get_FooterMenu();
 ?>	
-</p>
 </div>
 <?php footer();?>

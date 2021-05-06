@@ -728,8 +728,6 @@ display: none;
   margin-bottom: 8px;    
   }
 .footer_item1{
-  height: 56px;
-  line-height:56px;
   display: block;
   text-align: center;
   margin-bottom: 16px;
@@ -883,6 +881,14 @@ line-height: 24px;
 
 .two-column-text {
     padding: 24px 0;
+}
+
+
+.my-block-button {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    margin-bottom: 16px;
 }
 
   .desktop_hidden

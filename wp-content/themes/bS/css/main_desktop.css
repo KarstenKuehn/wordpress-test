@@ -250,6 +250,10 @@
     padding: 8px 24px;
 }
 
+section {
+    padding-bottom: 16px;
+    padding: 0 24px;
+}
 .content_section >*{
   max-width: 936px;
   margin: auto;

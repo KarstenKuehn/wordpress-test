@@ -20,48 +20,39 @@
       },
       button: {
         type: 'string',
-        default: 'Join Today'
+        default: 'mehr erfahren'
       },
       buttonURL: {
       type: 'url'
-      },      
+      },    
+      button_right: {
+        type: 'string',
+        default: 'mehr erfahren'
+      },
+      buttonURL_right: {
+      type: 'url'
+      },         
     },
     edit: function( props ) {
       return (
-        el( 'div', { className: props.className,style:{border:'1px solid red'} },
-  el(editor.RichText, {
-  type: 'text',
-  label: i18n.__('Headline', 'lb'),
-  value: props.attributes.headline,    
-  key: 'editable',
-  tagName: 'h3',
-  className: 'my-block-text title',
-  placeholder: i18n.__('Headline', 'lb'),
-  keepPlaceholderOnFocus: true,
-  value: props.attributes.headline,
-  onChange: function (headline) {
-  props.setAttributes({headline: headline})
-  }
-  }),
+        el( 'div', { className: props.className,style:{border:'1px solid gray', padding:'32px'} },
+        el(editor.RichText, {
+        type: 'text',
+        label: i18n.__('Headline', 'lb'),
+        value: props.attributes.headline,    
+        key: 'editable',
+        tagName: 'h3',
+        className: 'my-block-text title',
+        placeholder: i18n.__('Headline', 'lb'),
+        keepPlaceholderOnFocus: true,
+        value: props.attributes.headline,
+        onChange: function (headline) {
+        props.setAttributes({headline: headline})
+        }
+        }),
 
-/*
-          !props.attributes.headline ?          el(
-          "h2",
-          null,i18n.__('headline', 'lb') ): el(
-            editor.RichText,
-            {
-              tagName: 'h2',
-              className: 'text',
-              value: props.attributes.headline,
-              onChange: function( headline ) {
-                props.setAttributes( { headline: headline } );
-              }
-            }
-          ),  
 
-*/
-
-        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top',border:'1px solid blue'} },      
+        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top'} },      
           el(
             editor.RichText,
             {
@@ -87,6 +78,7 @@
         key: 'editable',
         tagName: 'span',
         className: 'my-block-text url',
+        placeholder: i18n.__('Button-URl', 'lb'),
         value: props.attributes.buttonURL,
         onChange: function (newURL) {
         props.setAttributes({buttonURL: newURL})
@@ -98,39 +90,18 @@
             {
               tagName: 'p',
               className: 'button_x',
-              style:{display:'block',width:'50%',verticalAlign:'top',border:'1px solid blue',background:'#0061AB',color:'#fff'},
+              style:{display:'block',width:'50%',verticalAlign:'top',background:'#0061AB',color:'#fff',textAlign:'center'},
               value: props.attributes.button,
               onChange: function( content ) {
                 props.setAttributes( { button: content } );
               }
             }
-          ),
-
-
-
-
-     
+          ),  
         ),
 
 
-/*
 
-          el(
-            editor.RichText,
-            {
-              tagName: 'div',
-              className: 'content-block',
-              style:{display:'inline-block',width:'50%',verticalAlign:'top',border:'1px solid green'},
-              value: props.attributes.content,
-              onChange: function( content ) {
-                props.setAttributes( { content: content } );
-              }
-            }
-          ),
-
-*/
-
-        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top',border:'1px solid blue'} },      
+        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top'} },      
           el(
             editor.RichText,
             {
@@ -141,8 +112,42 @@
                 props.setAttributes( { content_right: content } );
               }
             }
-          ),          
-        )
+          ),             
+        el(
+          "hr",
+          null
+        ),          
+        el(
+          "span",
+          null,
+          "Button URL: "
+        ),    
+        el(editor.RichText, {
+        type: 'url', 
+        key: 'editable',
+        tagName: 'span',
+        className: 'my-block-text url',
+
+        placeholder: i18n.__('Button-URl', 'lb'),
+        value: props.attributes.buttonURL_right,
+        onChange: function (newURL) {
+        props.setAttributes({buttonURL_right: newURL})
+        }
+        }),          
+
+        el(
+            editor.RichText,
+            {
+              tagName: 'p',
+              className: 'button_x',
+              style:{display:'block',width:'50%',verticalAlign:'top',background:'#0061AB',color:'#fff',textAlign:'center',},
+              value: props.attributes.button_right,
+              onChange: function( content ) {
+                props.setAttributes( { button_right: content } );
+              }
+            }
+          ),  
+        ),
         )
       );
     },
@@ -164,7 +169,8 @@
                 className: 'block_content content',
                 },
                 props.attributes.content
-              ),// end p    
+              ),// end p   
+              !props.attributes.buttonURL ? '': 
               el('a', {
                 className: 'my-block-button content',
                 href: props.attributes.buttonURL
@@ -184,16 +190,19 @@
                 className: 'block_content content',
                 },
                 props.attributes.content_right
-              ),// end p   
+              ),// end p  
+
+
+              !props.attributes.buttonURL_right ? '': 
               el('a', {
                 className: 'my-block-button content',
-                href: props.attributes.buttonURL
+                href: props.attributes.buttonURL_right
                 },       
                 el(
                   'span',{
                     className:'button-text wp-block-button__link'
                   },
-                  props.attributes.button
+                  props.attributes.button_right
                 ),      
               )//end a
             )
