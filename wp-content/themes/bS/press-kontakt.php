@@ -12,15 +12,17 @@ get_header();
 
 
 
-<div class="main">
+<div class="main contact">
 <?php
 		
 		echo '<div class="height50"></div><h1>'.get_the_title().'</h1>';
-
+		echo '<section>';
 
 		echo @get_field('name').'<br>';
 		echo @get_field('e-mail').'<br>';
 		echo @get_field('telefon').'<br>';
+
+		echo '</section>';
 ?>
 </div>
 <?php get_footer(); ?>
