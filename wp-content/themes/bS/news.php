@@ -15,6 +15,8 @@ echo '<div class="height50"></div>
 <h1>Pressemitteilungen</h1>';
 
 
+echo $html;
+
 $args = array(
         'posts_per_page' => 5,
         'category'       => array(9),
@@ -46,7 +48,7 @@ foreach ($posts as $key => $post)
 
 echo '</section>';
 
-echo $html;
+
 
 ?>
 </div>
