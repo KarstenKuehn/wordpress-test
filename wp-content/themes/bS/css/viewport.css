@@ -679,6 +679,14 @@ a.sub_menu_item .material-icons{
     min-height: 300px;
 }
 
+.block_headline.desktop_hidden {
+    padding: 16px 16px 0px;
+}
+
+.block_text {
+    padding: 0 16px;
+}
+
 
 .hero-image {
     height: 264px;
