@@ -4,7 +4,7 @@
         $filename = "backup.sql";
 
 
-        $command = "mysqldump ~/ --user=lottobay --password='clPNxfwL!LSYIFmNgk!E71EyoFBC-ENB' --host=localhost lottobayern  > ~/" . $filename;
+        $command = "mysqldump  --no-tablespaces --user=lottobay --password='clPNxfwL!LSYIFmNgk!E71EyoFBC-ENB' --host=localhost lottobayern  > ~/" . $filename;
 
 
         $returnVar = NULL;
