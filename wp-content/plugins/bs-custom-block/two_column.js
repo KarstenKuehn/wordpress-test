@@ -78,7 +78,7 @@
         key: 'editable',
         tagName: 'span',
         className: 'my-block-text url',
-        placeholder: i18n.__('Button-URl', 'lb'),
+        placeholder: i18n.__('Button-URL', 'lb'),
         value: props.attributes.buttonURL,
         onChange: function (newURL) {
         props.setAttributes({buttonURL: newURL})
@@ -128,7 +128,7 @@
         tagName: 'span',
         className: 'my-block-text url',
 
-        placeholder: i18n.__('Button-URl', 'lb'),
+        placeholder: i18n.__('Button-URL', 'lb'),
         value: props.attributes.buttonURL_right,
         onChange: function (newURL) {
         props.setAttributes({buttonURL_right: newURL})
