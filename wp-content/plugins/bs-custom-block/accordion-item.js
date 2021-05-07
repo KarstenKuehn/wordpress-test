@@ -74,17 +74,17 @@
       var attributes = props.attributes;
       return (
         el(
-          'details', {
-            className: 'accordion-item'
+          'div', {
+            className: null
           },
           el(RichText.Content, {
-            tagName: 'summary',
-            className: 'accordion_head toggle',
-            value: '<span class="titel">'+attributes.accordion_head+'</span>'
+            tagName: 'div',
+            className: 'question',
+            value: ''+attributes.accordion_head+''
           }),
           el(RichText.Content, {
-            tagName: 'p',
-            className: 'accordion_content',
+            tagName: 'div',
+            className: 'answer',
             value: attributes.accordion_content
           })
         )

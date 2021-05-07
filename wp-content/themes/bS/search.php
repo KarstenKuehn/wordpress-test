@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template_x Name: Search Template
+	Template Name: Search Template
 */
 get_header(); ?>
 <?php
@@ -9,6 +9,7 @@ get_header(); ?>
 
 	if ( is_search() ) {
 ?>
+<h1>Hallo</h1>
 <main id="site-content" role="main">
 
 	<?php

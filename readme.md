@@ -63,8 +63,3 @@ parser
 
 ## DEV | SERVER
 There is an alias - just type "pull" from anywhere in the system
-
-
-##PHP MY ADMIN
-lottobay
-clPNxfwL!LSYIFmNgk!E71EyoFBC-ENB

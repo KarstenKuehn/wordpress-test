@@ -107,13 +107,12 @@ function showSlides(c,n) {
 
 /* accordion */
 
-var acc = document.getElementsByClassName("accordion");
+var acc = document.getElementsByClassName("wp-block-my-lb-block-accordion-item");
 var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
+    var panel = this.getElementsByTagName('div')[1]
     if (panel.style.display === "block") {
       panel.style.display = "none";
     } else {

@@ -1126,3 +1126,7 @@ a.main-navi_btn.active {
     bottom: 72px;
 }
 }
+.answer
+{
+  display:none;
+}
