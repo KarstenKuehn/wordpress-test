@@ -8,23 +8,34 @@
  */
 
 ?>
-<div class="search-modal cover-modal header-footer-group" data-modal-target-string=".search-modal">
+
+
+<?php 
+	$active_class = '';
+    if ( is_search() ) {
+    	$active_class = ' show-modal active';
+	}
+?>
+
+
+<div class="search-modal cover-modal header-footer-group<?php echo $active_class?>" data-modal-target-string=".search-modal">
 
 	<div class="search-modal-inner modal-inner">
 
 		<div class="section-inner">
-
+			<span class="material-icons search">search</span>
 			<?php
 			get_search_form(
 				array(
-					'label' => __( 'Search for:', 'twentytwenty' ),
+					'label' => __( 'Search for:', 'lb' ),
+					'placeholder' => __( 'Suchbegriff eingeben:', 'lb' ) 
 				)
 			);
 			?>
 
 			<button class="toggle search-untoggle close-search-toggle fill-children-current-color" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
-				<span class="screen-reader-text"><?php _e( 'Close search', 'twentytwenty' ); ?></span>
-				<?php bs_the_theme_svg( 'cross' ); ?>
+				<span class="screen-reader-text"><?php _e( 'Close search', 'lb' ); ?></span>
+				<span class="material-icons">close</span>
 			</button><!-- .search-toggle -->
 
 		</div><!-- .section-inner -->
