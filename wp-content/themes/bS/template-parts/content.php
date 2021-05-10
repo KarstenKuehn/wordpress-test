@@ -24,35 +24,37 @@
 	}
 
 	?>
-
 	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 
 		<div class="entry-content">
-
 			<?php
 			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
-				the_excerpt();
+				//the_excerpt();
+				$content = get_the_excerpt();
+				//echo $content;
+				$suchmuster = '#('.get_search_query().')#i';
+				$ersetzung = '<span class="marked">$1</span>';
+				echo preg_replace($suchmuster, $ersetzung, $content);
 			} else {
-				the_content( __( 'Continue reading', 'twentytwenty' ) );
+				the_content( __( 'Continue reading', 'uplb' ) );
 			}
 			?>
 
 		</div><!-- .entry-content -->
 
 	</div><!-- .post-inner -->
-
 	<div class="section-inner">
 		<?php
 		wp_link_pages(
 			array(
-				'before'      => '<nav class="post-nav-links bg-light-background" aria-label="' . esc_attr__( 'Page', 'twentytwenty' ) . '"><span class="label">' . __( 'Pages:', 'twentytwenty' ) . '</span>',
+				'before'      => '<nav class="post-nav-links bg-light-background" aria-label="' . esc_attr__( 'Page', 'uplb' ) . '"><span class="label">' . __( 'Pages:', 'uplb' ) . '</span>',
 				'after'       => '</nav>',
 				'link_before' => '<span class="page-number">',
 				'link_after'  => '</span>',
 			)
 		);
 
-		edit_post_link();
+		//edit_post_link();
 
 		// Single bottom post meta.
 		bs_the_post_meta( get_the_ID(), 'single-bottom' );
@@ -65,7 +67,6 @@
 		?>
 
 	</div><!-- .section-inner -->
-
 	<?php
 
 	if ( is_single() ) {
@@ -89,6 +90,31 @@
 
 		<?php
 	}
-	?>
+
+echo '<div class="bottom">';
+echo '<span class="material-icons">home</span>';
+echo ' <span class="material-icons">arrow_right_alt</span> ';
+the_title( '<a href="' . esc_url( get_permalink() ) . '">', '</a>' );
+echo '</div>';
+
+
+
+$current = $post->ID;
+//print_r($post);
+    $parent = $post->post_parent;
+
+    $grandparent_get = get_post($parent);
+
+    $grandparent = $grandparent_get->post_parent;
+
+    ?>
+
+    <?php 
+
+echo get_the_title($grandparent);
+echo get_the_title($parent);
+
+    if ($root_parent = get_the_title($grandparent) !== $root_parent = get_the_title($current)) {echo get_the_title($grandparent); }else {echo get_the_title($parent); }?>
+
 
 </article><!-- .post -->

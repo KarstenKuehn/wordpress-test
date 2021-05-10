@@ -984,3 +984,34 @@ add_theme_support('post-thumbnails');
 
 
 add_filter('acf/format_value/type=textarea', 'do_shortcode');
+
+
+/*
+
+function lt_html_excerpt($text) { // Fakes an excerpt if needed
+    global $post;
+    if ( '' == $text ) {
+        $text = get_the_content('');
+        $text = apply_filters('the_content', $text);
+        $text = str_replace('\]\]\>', ']]&gt;', $text);
+        //just add all the tags you want to appear in the excerpt -- be sure there are no white spaces in the string of allowed tags 
+        $text = strip_tags($text,'<h1><h2><h3><p><br><b><a><em><strong>');
+        // you can also change the length of the excerpt here, if you want 
+        $excerpt_length = 55; 
+        $words = explode(' ', $text, $excerpt_length + 1);
+        if (count($words)> $excerpt_length) {
+            array_pop($words);
+            array_push($words, '[...]');
+            $text = implode(' ', $words);
+        }
+    }
+    return $text;
+}
+
+
+// remove the default filter 
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+
+// now, add your own filter
+add_filter('get_the_excerpt', 'lt_html_excerpt');
+ */

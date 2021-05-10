@@ -368,6 +368,56 @@ input#s {
     font-size: 16px;
 }
 
+.marked{
+  color: #0061AB;
+  font-weight: 700;
+}
+
+.main.search{
+  width: 100%;
+  padding: 16px; 
+      max-width: 1256px;
+    margin: auto;
+}
+
+.main.search article .entry-title
+{
+  color: #091B30;
+  font-family: Lato;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 48px;  
+}
+
+.main.search article .entry-content
+{
+  color: #091B30;
+  font-family: Lato;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+.main.search article .entry-content h2
+{
+  color: #091B30;
+  font-family: Lato;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 48px;
+}
+
+.main.search .post-separator 
+{
+  margin: 16px 0;
+  border: 0; 
+  border-bottom : 1px solid #E3E5ED;
+}
+
+.main.search article .bottom .material-icons 
+{
+  color: #E3E5ED;
+}
+
 
 .search-modal .section-inner {
     display: grid;

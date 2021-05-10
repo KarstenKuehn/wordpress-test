@@ -9,8 +9,7 @@ get_header(); ?>
 
 	if ( is_search() ) {
 ?>
-<h1>Hallo</h1>
-<main id="site-content" role="main">
+<main id="site-content" role="main" class="main search">
 
 	<?php
 
@@ -21,7 +20,7 @@ get_header(); ?>
 		global $wp_query;
 		$archive_title = sprintf(
 			'%1$s %2$s',
-			'<span class="color-accent">' . __( 'Search:', 'twentytwenty' ) . '</span>',
+			'<span class="color-accent">' . __( 'Search:', 'uplb' ) . '</span>',
 			'&ldquo;' . get_search_query() . '&rdquo;'
 		);
 		if ( $wp_query->found_posts ) {
@@ -31,15 +30,15 @@ get_header(); ?>
 					'We found %s result for your search.',
 					'We found %s results for your search.',
 					$wp_query->found_posts,
-					'twentytwenty'
+					'uplb'
 				),
 				number_format_i18n( $wp_query->found_posts )
 			);
 		} else {
-			$archive_subtitle = __( 'We could not find any results for your search. You can give it another try through the search form below.', 'twentytwenty' );
+			$archive_subtitle = __( 'We could not find any results for your search. You can give it another try through the search form below.', 'uplb' );
 		}
 	} elseif ( is_archive() && ! have_posts() ) {
-		$archive_title = __( 'Nothing Found', 'twentytwenty' );
+		$archive_title = __( 'Nothing Found', 'uplb' );
 	} elseif ( ! is_home() ) {
 		$archive_title    = get_the_archive_title();
 		$archive_subtitle = get_the_archive_description();
@@ -87,7 +86,7 @@ get_header(); ?>
 			<?php
 			get_search_form(
 				array(
-					'label' => __( 'search again', 'twentytwenty' ),
+					'label' => __( 'search again', 'uplb' ),
 				)
 			);
 			?>
