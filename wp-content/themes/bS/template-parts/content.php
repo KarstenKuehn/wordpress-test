@@ -14,7 +14,6 @@
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
 	<?php
 
 	get_template_part( 'template-parts/entry-header' );
@@ -90,13 +89,24 @@
 
 		<?php
 	}
-
+ $homeLink = get_bloginfo('url');
 echo '<div class="bottom">';
-echo '<span class="material-icons">home</span>';
+echo '<a href="' . $homeLink . '" class="home">'.bs_get_theme_svg( 'home' ).'</a>';
+/*
+
+ echo '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="' . $homeLink . '"><span itemprop="name" class="screen-reader-text">'.$home.'</span> ' .bs_get_theme_svg( 'home' ).'</a> ' . $delimiter . ' <meta itemprop="position" content="1"></li>';
+
+*/
+
+
+if(has_category())
+{
+	the_category( ' ' );
+}
+
 echo ' <span class="material-icons">arrow_right_alt</span> ';
 the_title( '<a href="' . esc_url( get_permalink() ) . '">', '</a>' );
 echo '</div>';
-
 
 
 $current = $post->ID;
@@ -108,14 +118,4 @@ $current = $post->ID;
     $grandparent = $grandparent_get->post_parent;
 
     ?>
-
-    <?php 
-
-echo get_the_title($grandparent);
-echo '; ';
-echo get_the_title($parent);
-echo '; ';
-//    if ($root_parent = get_the_title($grandparent) !== $root_parent = get_the_title($current)) {echo get_the_title($grandparent); }else {echo get_the_title($parent); }?>
-
-
 </article><!-- .post -->

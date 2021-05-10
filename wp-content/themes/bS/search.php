@@ -81,23 +81,13 @@ get_header(); ?>
 	} elseif ( is_search() ) {
 		?>
 
-		<div class="no-search-results-form section-inner thin">
 
-			<?php
-			get_search_form(
-				array(
-					'label' => __( 'search again', 'uplb' ),
-				)
-			);
-			?>
-
-		</div><!-- .no-search-results -->
 
 		<?php
 	}
 	?>
 
-	<?php get_template_part( 'template-parts/pagination' ); ?>
+	<?php //get_template_part( 'template-parts/pagination' ); ?>
 
 </main><!-- #site-content -->
 <?php

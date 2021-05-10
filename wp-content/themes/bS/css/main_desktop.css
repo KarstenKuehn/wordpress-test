@@ -53,6 +53,12 @@
   font-size: 32px;
 }
 
+.archive-subtitle{
+  display: inline-block;
+}
+
+
+
 .grid span{ height:10vh; display: inline-block; width:calc((100% - 11 * 24px) / 12);background: blue;
   margin:0 12px;
   color:#fff;

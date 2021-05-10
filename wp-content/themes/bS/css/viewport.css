@@ -380,13 +380,38 @@ input#s {
     margin: auto;
 }
 
-.main.search article .entry-title
+.archive-title{
+  color: #091B30;
+  font-family: Lato;
+  font-size: 42px;
+  letter-spacing: 0;
+  line-height: 48px;
+  display: inline-block;
+  width: 60%;
+}
+
+.archive-subtitle{
+  display: none;
+    width: 40%;
+}
+
+.main.search article .bottom
+{padding-bottom: 16px;
+}
+
+
+.main.search article .entry-title a
 {
   color: #091B30;
   font-family: Lato;
   font-size: 26px;
   letter-spacing: 0;
   line-height: 48px;  
+}
+
+.main.search article .entry-title a:hover
+{
+ color: #0061AB; 
 }
 
 .main.search article .entry-content
@@ -396,6 +421,7 @@ input#s {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 24px;
+  padding-bottom: 16px;
 }
 .main.search article .entry-content h2
 {
@@ -417,6 +443,31 @@ input#s {
 {
   color: #E3E5ED;
 }
+
+.main.search article .bottom .home
+{
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right : 1px solid #E3E5ED;
+  color : #091B30;
+}
+
+.main.search article .bottom a
+{
+  color : #091B30;
+  font-size: small;
+}
+
+.main.search article .bottom a:last-child
+{
+  color : #1F5DA6;
+}
+
+.main.search article .bottom .home svg
+{
+  vertical-align: top
+}
+
 
 
 .search-modal .section-inner {
