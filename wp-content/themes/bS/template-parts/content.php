@@ -112,9 +112,10 @@ $current = $post->ID;
     <?php 
 
 echo get_the_title($grandparent);
+echo '; ';
 echo get_the_title($parent);
-
-    if ($root_parent = get_the_title($grandparent) !== $root_parent = get_the_title($current)) {echo get_the_title($grandparent); }else {echo get_the_title($parent); }?>
+echo '; ';
+//    if ($root_parent = get_the_title($grandparent) !== $root_parent = get_the_title($current)) {echo get_the_title($grandparent); }else {echo get_the_title($parent); }?>
 
 
 </article><!-- .post -->
