@@ -211,3 +211,15 @@ function load_hero_image() {
 }
    
 add_action('enqueue_block_editor_assets', 'load_hero_image');
+
+function load_section() {
+  wp_enqueue_script(
+    'section',
+    plugin_dir_url(__FILE__) . 'section.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_section');
+

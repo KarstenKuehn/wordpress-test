@@ -87,7 +87,7 @@ get_header(); ?>
 	}
 	?>
 
-	<?php //get_template_part( 'template-parts/pagination' ); ?>
+	<?php get_template_part( 'template-parts/pagination' ); ?>
 
 </main><!-- #site-content -->
 <?php

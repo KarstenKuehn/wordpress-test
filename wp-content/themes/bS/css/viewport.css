@@ -6,11 +6,34 @@ html {
 }
   
 body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
+.wp-block-columns {
+    display: flex;
+    margin-bottom: 1.75em;
+    flex-wrap: nowrap;
+}
+
+.wp-block-column {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+*::marker {
+  display: none;
+}
 
 .content-width{
   background: lavender;
 }
 
+.main > :not(section):not(.xx) {
+max-width: 1224px;
+margin: 0 auto;
+padding: 0 16px 16px;
+}
+
+p{
+  line-height: 1.5rem;
+}
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: 100%;
     width: auto;
@@ -762,6 +785,7 @@ a.sub_menu_item .material-icons{
 .extra_navi{
   background: #fff;
   border-top: 1px solid #E3E5ED;
+  display: block;
 }
 .navi-item{
   width: 100%;

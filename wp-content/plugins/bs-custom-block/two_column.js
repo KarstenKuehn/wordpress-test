@@ -31,7 +31,15 @@
       },
       buttonURL_right: {
       type: 'url'
-      },         
+      }, 
+      ingredients: {
+        type: 'string',
+        default: ''
+      },
+      block: {
+        type: 'string',
+        default: ''
+      }
     },
     edit: function( props ) {
       return (
@@ -101,7 +109,28 @@
 
 
 
-        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top'} },      
+        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top'} }, 
+
+
+        el( editor.RichText, {
+          tagName: 'ul',
+          multiline: 'li',
+          className: 'ingredients',
+          value: props.attributes.ingredients,
+          onChange: function( value ) {
+            props.setAttributes( { ingredients: value } );
+          },
+        } ),
+        el( editor.RichText, {
+          tagName: 'div',
+          multiline: 'p',
+          className: 'block',
+          value: props.attributes.block,
+          onChange: function( value ) {
+            props.setAttributes( { block: value } );
+          },
+        } ),
+
           el(
             editor.RichText,
             {
@@ -186,6 +215,16 @@
             el('div',{
               className: 'text_right'
               },
+        el( editor.RichText.Content, {
+          tagName: 'ul',
+          className: 'ingredients',
+          value: props.attributes.ingredients,
+        } ),
+        el( editor.RichText.Content, {
+          tagName: '',
+          className: '',
+          value: props.attributes.block,
+        } ),
               el( 'p', {
                 className: 'block_content content',
                 },

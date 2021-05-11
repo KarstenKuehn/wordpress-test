@@ -92,6 +92,51 @@
  $homeLink = get_bloginfo('url');
 echo '<div class="bottom">';
 echo '<a href="' . $homeLink . '" class="home">'.bs_get_theme_svg( 'home' ).'</a>';
+
+if(get_post_type() == 'post')
+{
+	if(has_category())
+	{
+		the_category( ' ' );
+		echo ' <span class="material-icons">arrow_right_alt</span> ';
+	}
+}
+if(get_post_type() == 'page')
+{
+	$current = $post->ID;
+	$parent = $post->post_parent;
+if($parent)
+{
+
+
+
+    $grandparent_get = get_post($parent);
+
+    $grandparent = $grandparent_get->post_parent;
+
+
+	if($grandparent)
+	{
+		echo get_the_title( $grandparent );
+		echo ' <span class="material-icons">arrow_right_alt</span> ';
+	}
+
+echo get_the_title( $parent );
+echo ' <span class="material-icons">arrow_right_alt</span> ';
+
+}
+else
+{
+	
+}
+
+	//print_r($post);
+    $parent = wp_get_single_post($post->post_parent);
+    //var_dump($parent);
+    $grandparent_get = get_post($parent);
+
+    $grandparent = $grandparent_get->post_parent;
+}
 /*
 
  echo '<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="' . $homeLink . '"><span itemprop="name" class="screen-reader-text">'.$home.'</span> ' .bs_get_theme_svg( 'home' ).'</a> ' . $delimiter . ' <meta itemprop="position" content="1"></li>';
@@ -99,23 +144,12 @@ echo '<a href="' . $homeLink . '" class="home">'.bs_get_theme_svg( 'home' ).'</a
 */
 
 
-if(has_category())
-{
-	the_category( ' ' );
-}
 
-echo ' <span class="material-icons">arrow_right_alt</span> ';
+
+
 the_title( '<a href="' . esc_url( get_permalink() ) . '">', '</a>' );
 echo '</div>';
 
 
-$current = $post->ID;
-//print_r($post);
-    $parent = $post->post_parent;
-
-    $grandparent_get = get_post($parent);
-
-    $grandparent = $grandparent_get->post_parent;
-
-    ?>
+   ?>
 </article><!-- .post -->

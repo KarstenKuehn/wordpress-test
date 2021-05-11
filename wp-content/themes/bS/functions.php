@@ -1015,3 +1015,8 @@ remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 // now, add your own filter
 add_filter('get_the_excerpt', 'lt_html_excerpt');
  */
+
+
+function the_current_page(){
+    return get_query_var('paged') == 0 ? 1 : get_query_var('paged');
+}
