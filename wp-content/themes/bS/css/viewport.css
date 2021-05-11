@@ -23,7 +23,26 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
 summary::-webkit-details-marker,  
 summary::marker {
   display: none;
+   color: transparent;  
 }
+details > div {
+  padding: .5em;
+  overflow: hidden;}
+
+details[open] > div {
+  animation: sliding 1s forwards; 
+}
+
+@keyframes sliding {
+  0% {
+    height: 0;
+  }  
+
+  100% {
+    height: 15em; 
+  }
+}
+
 .content-width{
   background: lavender;
 }
