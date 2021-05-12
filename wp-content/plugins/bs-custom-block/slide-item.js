@@ -174,7 +174,7 @@ return [
   keepPlaceholderOnFocus: true,
   value: attributes.text1,
   onChange: function (newText) {
-  props.setAttributes({text1: newText+'&nbsp;'})
+  props.setAttributes({text1: newText})
   }
   }),
   el(RichText, {
@@ -185,7 +185,7 @@ return [
   keepPlaceholderOnFocus: true,
   value: attributes.text2,
   onChange: function (newText) {
-  props.setAttributes({text2: newText+' '})
+  props.setAttributes({text2: newText})
   }
   }),
   el('button', {
@@ -226,7 +226,7 @@ return (
       }),
       el('span', {
       className: 'my-block-text',
-      },attributes.text1), 
+      },attributes.text1+'&nbsp;'), 
       el('span', {
       className: 'my-block-text',
       },attributes.text2),

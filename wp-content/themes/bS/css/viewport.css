@@ -17,8 +17,8 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
     flex-grow: 1;
 }
 
-*::marker {
-  display: none;
+::marker {
+  content:none;
 }
 details summary::-webkit-details-marker {
   display:none;
@@ -35,10 +35,12 @@ details > summary::marker {
   background: lavender;
 }
 
-.main > :not(section):not(.xx) {
-max-width: 1224px;
+
+.main > :not(section):not(.xx):not(.accordion-item){
+max-width: 1256px;
 margin: 0 auto;
 padding: 0 16px 16px;
+margin-bottom: 16px;
 }
 
 p{
@@ -139,6 +141,10 @@ li{
   line-height: 48px;
   margin: 5px;
 }
+.skiplinks li{
+  margin: 0;
+}
+
 #searchsubmit,button{
   line-height: 48px;
   margin: 5px;
@@ -187,7 +193,7 @@ li{
 h1, section
 {
     max-width:1224px;
-    margin:0 auto 32px auto;
+    margin:0 auto 16px auto;
 }
 
 section 
@@ -239,10 +245,8 @@ section
    /* padding: 0 0 0 16px*/
   }
 .header_out{
- /* border-bottom: 1px solid #C7CCDB;*/
+  border-bottom: 1px solid #C7CCDB;/**/
   padding: 0;
-  margin-top: -5px;
-
 }
 
 a.custom-logo-link {
@@ -878,6 +882,61 @@ a.sub_menu_item .material-icons{
     display: none;
   }
 
+
+h1{
+  font-size: 68px;
+  letter-spacing: 0;
+  line-height: 72px;
+}
+h2{
+  font-size: 42px;
+  letter-spacing: 0;
+  line-height: 48px;  
+}
+h3{
+    font-size: 26px;
+  letter-spacing: 0;
+  line-height: 48px;
+}
+h4{
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+/*accordion*/
+.accordion-item {
+  padding: 0 16px;
+}
+.question {
+    padding: 16px 48px 16px 0;
+    border-top: 1px solid #E3E5ED;
+    position: relative;
+    line-height: 1.5rem;  cursor: pointer;
+
+}
+.question:after {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 32px;
+    color: #0061AB;
+    position: absolute;
+    right: 0;
+    top: 16px;
+    content: "\e148";
+    line-height: 1.5rem;
+
+  font-weight: lighter;
+  }
+.question.active:after {
+    content: "\e15d";
+}
+
+.answer{
+  padding: 0 0 16px 0;
+  line-height: 1.5rem;
+}
+
 .block_image_div {
     background-size: cover;
     min-height: 300px;
@@ -885,6 +944,7 @@ a.sub_menu_item .material-icons{
 
 .block_headline.desktop_hidden {
     padding: 16px 16px 0px;
+    margin-bottom: 16px;
 }
 
 .block_text {

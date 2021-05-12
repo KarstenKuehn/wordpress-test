@@ -130,7 +130,7 @@
 .text-image .content, .image-text .content{
       width: calc(50vw - 64px);
       margin-bottom: 24px;
-      max-width: 620px;
+      max-width: 596px;
 
 }
 .text-image .content {

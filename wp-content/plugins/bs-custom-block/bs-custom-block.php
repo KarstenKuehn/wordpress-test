@@ -87,32 +87,7 @@ function loadMyAccordion() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadMyAccordion');
-/*
-function loadMyExtraNaviItem() {
-  wp_enqueue_script(
-    'my-new-extranavi',
-    plugin_dir_url(__FILE__) . 'extranaviitem-block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadMyExtraNaviItem');
 
-
-
-function loadExtramenuItem() {
-  wp_enqueue_script(
-    'my-new-test',
-    plugin_dir_url(__FILE__) . 'extramenu-item.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadExtramenuItem');
-
-*/
 
 function loadImageText() {
   wp_enqueue_script(
@@ -223,3 +198,13 @@ function load_section() {
    
 add_action('enqueue_block_editor_assets', 'load_section');
 
+function load_block_variations() {
+  wp_enqueue_script(
+    'block-variations',
+    plugin_dir_url(__FILE__) . 'block-variations.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_block_variations');

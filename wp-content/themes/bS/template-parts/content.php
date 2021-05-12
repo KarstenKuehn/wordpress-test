@@ -30,10 +30,14 @@
 			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
 				//the_excerpt();
 				$content = get_the_excerpt();
-				//echo $content;
-				$suchmuster = '#('.get_search_query().')#i';
-				$ersetzung = '<span class="marked">$1</span>';
-				echo preg_replace($suchmuster, $ersetzung, $content);
+
+				if(get_search_query()!='')
+				{
+					$suchmuster = '#('.get_search_query().')#i';
+					$ersetzung = '<span class="marked">$1</span>';
+					$content =  preg_replace($suchmuster, $ersetzung, $content);
+				}
+				echo $content;
 			} else {
 				the_content( __( 'Continue reading', 'uplb' ) );
 			}

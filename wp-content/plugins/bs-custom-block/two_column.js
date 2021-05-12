@@ -215,16 +215,16 @@
             el('div',{
               className: 'text_right'
               },
-        el( editor.RichText.Content, {
-          tagName: 'ul',
-          className: 'ingredients',
-          value: props.attributes.ingredients,
-        } ),
-        el( editor.RichText.Content, {
-          tagName: '',
-          className: '',
-          value: props.attributes.block,
-        } ),
+              !props.attributes.ingredients||props.attributes.ingredients=='<li></li>' ? '':el( editor.RichText.Content, {
+                tagName: 'ul',
+                className: 'ingredients aaa',
+                value: props.attributes.ingredients,
+              } ),
+              el( editor.RichText.Content, {
+                tagName: '',
+                className: '',
+                value: props.attributes.block,
+              } ),
               el( 'p', {
                 className: 'block_content content',
                 },

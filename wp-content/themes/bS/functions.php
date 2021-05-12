@@ -912,21 +912,25 @@ function bs_get_color_for_area( $area = 'content', $context = 'text' ) {
     return false;
 }
 
-
 /*
 function kb_whitelist_blocks() {
   return array(
     'core/heading',
     'core/paragraph',
     'core/image',
-    'lb/two_column_text',
+    'core/video',
+    'core/list',
+    'lb/two-column-text',
+    'lb/hero-img',
     'lb/text-img',
     'lb/img-text',
-    'my-first-gutenberg-block/image-with-text-block',
-    'my-lb-block/accordion-item'
+    //'my-first-gutenberg-block/image-with-text-block',
+    'my-lb-block/accordion-item',
+    'core/columns'
   );
 }
 add_filter('allowed_block_types','kb_whitelist_blocks');
+
 */
 /**
  * Add featured image column to WP admin panel - posts AND pages

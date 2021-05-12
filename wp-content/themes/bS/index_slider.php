@@ -112,6 +112,7 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
+    this.getElementsByTagName('div')[0].classList.toggle('active');
     var panel = this.getElementsByTagName('div')[1]
     if (panel.style.display === "block") {
       panel.style.display = "none";

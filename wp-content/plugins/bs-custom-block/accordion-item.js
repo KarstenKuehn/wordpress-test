@@ -28,7 +28,7 @@
         el(
           'div', {
             className: props.className,
-            style: { textAlign: attributes.alignment,border:'1px solid grey',paddingBottom:'10px' }
+            style: { textAlign: attributes.alignment,border:'1px solid grey',padding:'24px' }
           },
           el(
             "div",
@@ -38,8 +38,8 @@
           el(
             'div', 
             {
-              className: 'my-block-content wp-block-media-text__content',
-              style:{display:'inline-block',width:'40%'}
+              className: 'accordion-item',
+              style:{display:'inline-block',width:'100%'}
             },
             el(
               RichText, 
@@ -75,7 +75,7 @@
       return (
         el(
           'div', {
-            className: null
+            className: 'accordion-item'
           },
           el(RichText.Content, {
             tagName: 'div',
