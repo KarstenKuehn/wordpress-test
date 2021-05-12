@@ -884,24 +884,38 @@ a.sub_menu_item .material-icons{
 
 
 h1{
-  font-size: 68px;
-  letter-spacing: 0;
-  line-height: 72px;
+  font-size: 42px;
+  line-height: 48px;
+  padding: 16px;
 }
 h2{
-  font-size: 42px;
-  letter-spacing: 0;
-  line-height: 48px;  
+  font-size: 26px;
+  line-height: 32px; 
+  padding: 16px; 
 }
 h3{
-    font-size: 26px;
-  letter-spacing: 0;
-  line-height: 48px;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 16px;
+  font-weight: bold;
 }
 h4{
   font-size: 16px;
-  letter-spacing: 0;
   line-height: 24px;
+  padding: 16px;
+}
+
+p{
+  font-size: 16px;
+  line-height: 24px;
+  padding: 16px;
+}
+
+.text_left,.text_right{
+  padding: 0 16px;
+}
+.text_left p,.text_right p, p.content {
+  padding: 16px 0;
 }
 /*accordion*/
 .accordion-item {
@@ -1141,7 +1155,7 @@ line-height: 24px;
 }
 
 .two-column-text {
-    padding: 16px;
+ /*   padding: 16px;*/
 }
 
 #searchsubmit {
@@ -1152,6 +1166,25 @@ line-height: 24px;
 }
 @media(min-width:768px)
 {
+
+h1{
+  font-size: 64px;
+  line-height: 72px;
+}
+h2{
+  font-size: 42px;
+  line-height: 48px;  
+}
+h3{
+  font-size: 26px;
+  line-height: 48px;
+  font-weight: bold;
+}
+h4{
+  font-size: 16px;
+  line-height: 24px;
+}
+
 
 .two-column-text {
     padding: 24px 0;

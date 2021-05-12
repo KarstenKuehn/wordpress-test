@@ -29,7 +29,7 @@ attributes: {
   },
   title: {
   type: 'text',
-  selector: 'h3'
+  selector: 'h2'
   },
   text: {
   type: 'text',
@@ -108,7 +108,7 @@ return [
   label: i18n.__('Headline', 'my-first-gutenberg-block'),
   value: attributes.title,    
   key: 'editable',
-  tagName: 'h3',
+  tagName: 'h2',
   className: 'my-block-text title',
   placeholder: i18n.__('Headline', 'my-first-gutenberg-block'),
   keepPlaceholderOnFocus: true,
@@ -212,8 +212,8 @@ return (
       className: 'text-image'
       },
       el(
-        'h3',{
-          className:'block_headline content desktop_hidden'
+        'h2',{
+          className:'content desktop_hidden'
         },
         attributes.title
 
@@ -235,8 +235,8 @@ return (
       className: 'block_text'
       },
       el(
-        'h3',{
-          className:'block_headline content mobile_hidden'
+        'h2',{
+          className:'content mobile_hidden'
         },
         attributes.title
 

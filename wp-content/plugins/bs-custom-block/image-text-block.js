@@ -29,7 +29,7 @@ blocks.registerBlockType( 'lb/img-text', {
     },
     title: {
     type: 'text',
-    selector: 'h3'
+    selector: 'h2'
     },
     text: {
     type: 'text',
@@ -212,8 +212,8 @@ return (
       className: 'image-text'
       },
       el(
-        'h3',{
-          className:'block_headline content desktop_hidden'
+        'h2',{
+          className:'content desktop_hidden'
         },
         attributes.title
 
@@ -235,8 +235,8 @@ return (
       className: 'block_text'
       },
       el(
-        'h3',{
-          className:'block_headline content mobile_hidden'
+        'h2',{
+          className:'content mobile_hidden'
         },
         attributes.title
 
