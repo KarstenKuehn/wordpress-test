@@ -905,7 +905,9 @@ h4{
 }
 /*accordion*/
 .accordion-item {
-  padding: 0 16px;
+    padding: 0 16px;
+    max-width: 1256px;
+    margin: auto;
 }
 .question {
     padding: 16px 48px 16px 0;
