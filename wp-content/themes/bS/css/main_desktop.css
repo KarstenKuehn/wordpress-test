@@ -89,9 +89,18 @@
   padding: 0;
 }
   /* Caption text */
-.text
-{    
-  font-size:36px; 
+
+.text {
+    position: absolute;
+    max-width: 1224px;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 0 56px;    
+    top: 0;
+ font-size:36px; 
   line-height: 48px;
 }
 
@@ -264,11 +273,14 @@ section {
     padding-bottom: 16px;
     padding: 0 24px;
 }
-.content_section.medium >*{
+.content_section >*{
+    max-width: 1256px;
+  margin: auto;
+}
+ .medium{
   max-width: 936px;
   margin: auto;
 }
-
 .full .two-column-text {
   padding: 24px 0;
 }
@@ -363,7 +375,9 @@ a.event_short h2
    margin: 0 8px; 
   }
 
-  .text{    
+
+.text {
+    top: 10%;
     font-size:48px; 
     line-height: 56px;
   }

@@ -257,15 +257,15 @@ return (
           ), 
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'person_outline'),
-            el('span',{className:'content'},attributes.ansprechpartner),
+            el('span',null,attributes.ansprechpartner),
           ),
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'mail_outline'),
-            el('span',{className:'content'},attributes.mail),
+            el('span',null,attributes.mail),
             ),
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'phone'),
-            el('span',{className:'content'},attributes.phone),
+            el('span',null,attributes.phone),
           )
         )
       )
