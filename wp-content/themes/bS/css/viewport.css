@@ -36,13 +36,24 @@ details > summary::marker {
 }
 
 
-.main > :not(section):not(.xx):not(.accordion-item){
+.main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium){
 max-width: 1256px;
 margin: 0 auto;
 padding: 0 16px 16px;
 margin-bottom: 16px;
 }
 
+
+.main >.medium {
+    max-width: 936px;
+    margin: 0 auto;
+    margin-bottom: 16px;    
+}
+
+.kontakt span.material-icons {
+    color: #091B30;
+    margin-right: 8px;
+}
 p{
   line-height: 1.5rem;
 }
@@ -213,6 +224,7 @@ section
   display: block;
   width: 100%;
   margin-bottom: 16px;
+  height: auto
 }
 
 .my-block-button span.button-text {
@@ -685,9 +697,10 @@ a.sub_menu_item .material-icons{
     font-family: Lato;
     font-size: 14px;
     letter-spacing: 3px;
-    line-height: 47px;
+    line-height: 32px;
     text-transform: uppercase;
-    height: 47px;
+    height: 64px;
+    padding: 16px 0
 }
 
 .my-block-text {
@@ -911,8 +924,11 @@ p{
   padding: 16px;
 }
 
-.text_left,.text_right{
-  padding: 0 16px;
+.text_left{
+  padding-right: 16px;
+}
+.text_right{
+  padding-left: 16px;
 }
 .text_left p,.text_right p, p.content {
   padding: 16px 0;
@@ -1185,7 +1201,6 @@ h4{
   line-height: 24px;
 }
 
-
 .two-column-text {
     padding: 24px 0;
 }
@@ -1338,29 +1353,7 @@ a.main-navi_btn.active {
   }
 
   .extra_navi_wrapper {
-      padding-bottom: 32px;
-  }
-
-  .content_section >.navi-item {
-      margin-bottom: -72px;
-  }
-
-
-  .navi-item{
-    width: calc(100% / 3);
-    position: relative;
-    top: -72px;
-    background: #fff;
-    grid-template-columns: 1fr; 
-    grid-template-rows: 128px; 
-    -ms-grid-columns:128px 1fr;  
-    display: inline-grid;
-    display: -ms-inline-grid;
-    vertical-align: middle;
-    padding: 0;
-    align-items: center;
-   justify-items: center;
-    border-bottom: none;
+      margin-bottom: 16px;
   }
 
 .navi-item img {

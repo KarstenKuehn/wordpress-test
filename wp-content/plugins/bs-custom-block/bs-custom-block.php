@@ -112,6 +112,28 @@ function loadTextImage() {
 add_action('enqueue_block_editor_assets', 'loadTextImage');
 
 
+function loadPresseTextImage() {
+  wp_enqueue_script(
+    'presse_text-image-block',
+    plugin_dir_url(__FILE__) . 'presse_text-image-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadPresseTextImage');
+
+function loadPresseImageText() {
+  wp_enqueue_script(
+    'presse_image-text-block',
+    plugin_dir_url(__FILE__) . 'presse_image-text-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadPresseImageText');
+
 
 
 function load_yy() {

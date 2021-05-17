@@ -183,12 +183,12 @@
 }
 
 .text-image .content {
-    padding-right: calc( 100% / 6);
+    padding-right: calc( 100% / 6 - 24px);
 /*    padding-left: 24px; */
 }
 
 .image-text .content {
-    padding-left: calc( 100% / 6);
+    padding-left: calc( 100% / 6 - 24px);
     padding-right: 24px;
 }
 .block_headline{
@@ -214,7 +214,9 @@
 .media-text .block_content{
   height: 144px;
 }
-
+.media-text.kontakt .block_content{
+  height: auto;
+}
 
 .my-block-button span.button-text {
     color: #fff;
@@ -268,7 +270,7 @@ section {
 }
 
 .full .two-column-text {
-  padding: 24px;
+  padding: 24px 0;
 }
 
 .two-column-text div {
@@ -313,8 +315,49 @@ a.event_short h2
   display: inline-block;
 }
 
+
+
+
+  .content_section >.navi-item {
+      margin-bottom: -36px;
+  }
+
+
+  .navi-item{
+    width: calc(100% / 3);
+    position: relative;
+    top: -36px;
+    background: #fff;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 72px; 
+    -ms-grid-columns:72px 1fr;  
+    display: inline-grid;
+    display: -ms-inline-grid;
+    vertical-align: middle;
+    padding: 0;
+    align-items: center;
+    justify-items: center;
+    border-bottom: none;
+  }
+
+/* The dots/bullets/indicators */
+.dots{
+    height: 64px;
+    line-height: 64px;
+}
+
+.xx .dots{
+    bottom: 32px;
+}
+
+
+
 @media(min-width:900px)
 {
+
+.xx .dots{
+    bottom: 48px;
+}
 
   .main-navi_btn {
    margin: 0 8px; 
@@ -326,7 +369,7 @@ a.event_short h2
   }
 
   .text * {
-      max-width: 50%;
+      max-width: 80%;
       margin: 0px;
   }
 
@@ -338,10 +381,27 @@ a.event_short h2
       padding: 12px 24px;
   }
 
+  .content_section >.navi-item {
+      margin-bottom: -48px;
+  }
+
+
+  .navi-item{
+    top: -48px;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 96px; 
+    -ms-grid-columns:96px 1fr; 
+  }
+
 }
 
 @media(min-width:1100px)
 {
+
+.xx .dots{
+    bottom: 64px;
+}
+
     .text{    
       font-size:56px; 
     line-height: 64px;
@@ -350,6 +410,20 @@ a.event_short h2
 .text .my-block-title, .text .my-block-button {
     font-size: 25%;
 }
+
+  .content_section >.navi-item {
+      margin-bottom: -64px;
+  }
+
+
+  .navi-item{
+    top: -64px;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 128px; 
+    -ms-grid-columns:128px 1fr; 
+  }
+
+
 
 }
 
