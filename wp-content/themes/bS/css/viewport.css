@@ -1354,7 +1354,7 @@ a.main-navi_btn.active {
   /* Extra-Navi */
 
   .extra_navi {
-      max-width: 1254px;
+      max-width: 1224px;
       margin: auto;
   }
 
@@ -1394,7 +1394,6 @@ a.main-navi_btn.active {
     max-width: 1224px;
     margin: auto;
     padding: 0;
-    width: calc(100% - 32px);
     left: 0;
     right: 0;
 
@@ -1402,13 +1401,12 @@ a.main-navi_btn.active {
 
 /* Next & previous buttons */
 .prev_slide, .next_slide {
-      display: inline-block;
+  display: inline-block;
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
   margin-top: -22px;
-  padding: 16px;
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -1422,7 +1420,14 @@ a.main-navi_btn.active {
 /* Position the "next button" to the right */
 .next_slide {
   right: 0;
-  border-radius: 3px 0 0 3px;
+}
+
+.prev_slide .material-icons, .next_slide .material-icons {
+  font-size: 32px;
+  line-height: 48px;
+  width: 48px;
+  color: #fff;
+  text-align: center;
 }
 
 /* On hover, add a black background color with a little bit see-through */

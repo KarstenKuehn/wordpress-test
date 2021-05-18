@@ -46,20 +46,35 @@ var slideshow_container =   document.getElementsByClassName("slideshow-container
       container.appendChild(slide_navi_node);
 
       var prev = document.createElement('a'); 
+/*
       var prev_text = document.createTextNode("❮");
+*/
+     
+      var prev_text =  document.createElement("span"); 
+      prev_text.setAttribute("class", "material-icons");
+      var p_text = document.createTextNode("arrow_back_ios_new");
+
+      prev_text.appendChild(p_text);
       prev.appendChild(prev_text);
+
+
       prev.setAttribute("class", "prev_slide");
       prev.setAttribute("onclick", "plusSlides("+i+",-1)");
 
       var next = document.createElement('a'); 
+/*
       var next_text = document.createTextNode("❯");
-      next.appendChild(next_text);
+*/
+      var next_text =  document.createElement("span"); 
+      next_text.setAttribute("class", "material-icons");
+      var n_text = document.createTextNode("arrow_forward_ios");
+
+      next_text.appendChild(n_text);
+
       next.setAttribute("class", "next_slide");
       next.setAttribute("onclick", "plusSlides("+i+",+1)");
-/*
-      container.append(prev); 
-      container.append(next); */
-slide_navi_node.appendChild(prev);slide_navi_node.appendChild(next);
+      next.appendChild(next_text);
+      slide_navi_node.appendChild(prev);slide_navi_node.appendChild(next);
     }
 
     var dots_navi     = document.getElementById("dots_"+i);
