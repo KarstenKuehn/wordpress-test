@@ -429,6 +429,10 @@ input#s {
     margin: auto;
 }
 
+.main.search h2 {
+    padding: 16px 0;
+}
+/**/
 .archive-title{
   color: #091B30;
   font-family: Lato;
@@ -437,6 +441,11 @@ input#s {
   line-height: 48px;
   display: inline-block;
   width: 60%;
+  padding: 16px 0;
+}
+
+.archive-subtitle p{
+    padding: 16px 0;
 }
 
 .archive-subtitle{

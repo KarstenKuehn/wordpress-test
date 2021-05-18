@@ -10,7 +10,7 @@ get_header(); ?>
 	if ( is_search() ) {
 ?>
 <main id="site-content" role="main" class="main search">
-
+<div class="medium">
 	<?php
 
 	$archive_title    = '';
@@ -49,7 +49,7 @@ get_header(); ?>
 
 		<header class="archive-header has-text-align-center header-footer-group">
 
-			<div class="archive-header-inner section-inner medium">
+			<div class="archive-header-inner section-inner">
 
 				<?php if ( $archive_title ) { ?>
 					<h1 class="archive-title"><?php echo wp_kses_post( $archive_title ); ?></h1>
@@ -87,8 +87,8 @@ get_header(); ?>
 	}
 	?>
 
-	<?php get_template_part( 'template-parts/pagination' ); ?>
-
+	<?php //get_template_part( 'template-parts/pagination' ); ?>
+</div>
 </main><!-- #site-content -->
 <?php
 	}
