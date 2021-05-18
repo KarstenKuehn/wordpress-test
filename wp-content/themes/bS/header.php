@@ -14,7 +14,7 @@
 		?>
 
 		<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false" aria-label="suche">
-			<span class="material-icons">search</span><span class="mobile_hidden label">Suche</span>
+			<span class="material-icons">search</span><span class="mobile_hidden label">Suchen<?php echo  __( 'Search:', 'uplb' );?></span>
 		</button>
 		<?php
 			}

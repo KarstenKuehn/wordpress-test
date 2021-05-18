@@ -4,6 +4,34 @@
 html {
   overflow-x: hidden;overflow-y: scroll;min-height: 100vh;
 }
+
+
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+}
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
+}
   
 body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
 .wp-block-columns {
@@ -450,7 +478,9 @@ input#s {
 
 .archive-subtitle{
   display: none;
-    width: 40%;
+    width: 100%;
+    text-align: right;
+    border-bottom: 1px solid #E3E5ED;
 }
 
 .main.search article .bottom
