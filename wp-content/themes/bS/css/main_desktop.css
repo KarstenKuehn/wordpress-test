@@ -336,22 +336,30 @@ a.event_short h2
 
 
   .navi-item{
-    width: calc(100% / 3);
+    width: 33.333%;
     position: relative;
     top: -36px;
     background: #fff;
     grid-template-columns: 1fr; 
     grid-template-rows: 72px; 
-    -ms-grid-columns:72px 1fr;  
+    -ms-grid-columns:1fr; 
+    -ms-grid-rows:72px; 
     display: inline-grid;
     display: -ms-inline-grid;
     vertical-align: middle;
     padding: 0;
     align-items: center;
     justify-items: center;
-    border-bottom: none;
+    border-bottom: none; 
   }
 
+
+.navi-item figure.wp-block-image {
+}
+
+.navi-item img{
+  margin: 16px auto; 
+}
 /* The dots/bullets/indicators */
 .dots{
     height: 64px;
@@ -399,12 +407,16 @@ a.event_short h2
       margin-bottom: -48px;
   }
 
+  .navi-item img{
+  margin: 36px auto; 
+}
 
   .navi-item{
     top: -48px;
     grid-template-columns: 1fr; 
     grid-template-rows: 96px; 
-    -ms-grid-columns:96px 1fr; 
+    -ms-grid-columns:1fr; 
+    -ms-grid-rows:96px; 
   }
 
 }
@@ -434,9 +446,13 @@ a.event_short h2
     top: -64px;
     grid-template-columns: 1fr; 
     grid-template-rows: 128px; 
-    -ms-grid-columns:128px 1fr; 
+    -ms-grid-columns:1fr; 
+    -ms-grid-rows:128px;    
   }
 
+  .navi-item img{
+  margin: 42px auto; 
+}
 
 
 }

@@ -53,6 +53,7 @@ margin-bottom: 16px;
 .kontakt span.material-icons {
     color: #091B30;
     margin-right: 8px;
+    line-height: 32px;
 }
 p{
   line-height: 1.5rem;
@@ -925,11 +926,8 @@ p{
   padding: 16px;
 }
 
-.text_left{
-  padding-right: 16px;
-}
-.text_right{
-  padding-left: 16px;
+.text_left,.text_right{
+  padding: 0 16px;
 }
 .text_left p,.text_right p, p.content {
   padding: 16px 0;
@@ -1181,9 +1179,17 @@ line-height: 24px;
     top: 96px;
         font-size: 16px;
 }
+
+
+
 @media(min-width:768px)
 {
-
+.text_left{
+  padding-left: 0;
+}
+.text_right{
+  padding-right: 0;
+}
 h1{
   font-size: 64px;
   line-height: 72px;

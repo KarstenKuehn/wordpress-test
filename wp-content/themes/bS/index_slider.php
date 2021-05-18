@@ -34,7 +34,7 @@ var slideshow_container =   document.getElementsByClassName("slideshow-container
       
       dots_node.setAttribute("id", "dots_"+i);
       dots_node.setAttribute("class", "dots "+i);
-      container.append(dots_node); 
+      container.appendChild(dots_node); 
 
       var slide_navi_node   = document.createElement("div");      
       slide_navi_node.setAttribute("id", "slide_navi_"+i);
@@ -43,7 +43,7 @@ var slideshow_container =   document.getElementsByClassName("slideshow-container
 
 
 
-      container.append(slide_navi_node);
+      container.appendChild(slide_navi_node);
 
       var prev = document.createElement('a'); 
       var prev_text = document.createTextNode("❮");
