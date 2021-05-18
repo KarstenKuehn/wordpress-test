@@ -208,7 +208,7 @@
   letter-spacing: 0;
   line-height: 48px;
   margin: 0;
-  padding: 0;
+  padding: 0 16px;
   margin-bottom: 24px;
 }
 
@@ -271,7 +271,7 @@
 
 section {
     padding-bottom: 16px;
-    padding: 0 24px;
+    padding: 0 16px;
 }
 .content_section >*{
     max-width: 1224px;
@@ -282,7 +282,7 @@ section {
   margin: auto;
 }
 .full .two-column-text {
-  padding: 24px 0;
+  padding: 16px 0;
 }
 
 .two-column-text div {
@@ -290,7 +290,9 @@ section {
     width: 50%;
     vertical-align: top;
 }
-
+.two-column-text h2 {
+padding: 0;
+}
 .events_header .mobile_width25:last-child
 {
   text-align: right;
@@ -483,6 +485,12 @@ input#s {
 /**/
 @media(min-width:1224px)
 {
+
+.header {
+
+    padding: 0;
+}
+
 .main-navi_btn {
  margin: 0 16px; 
 }
