@@ -370,7 +370,30 @@ a.event_short h2
     bottom: 32px;
 }
 
+.searchform {
+    padding: 40px 0;
+}
 
+.searchform>div {
+    margin: auto;
+    margin-right: 32px;
+    position: relative;
+    border-right: 1px solid #C7CCDB;
+}
+
+
+input#s {
+    margin: 0;
+    line-height: 31px;
+    width: 100%;
+    padding: 0 4px; 
+    border: none ;
+    font-size: 16px;
+}
+#searchsubmit {
+    top: -8px;
+    right: 8px;
+}
 
 @media(min-width:900px)
 {
