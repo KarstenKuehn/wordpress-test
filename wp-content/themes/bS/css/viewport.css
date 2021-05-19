@@ -1012,6 +1012,11 @@ p{
     min-height: 300px;
 }
 
+
+.desktop_hidden.block_image_div {
+    display:block;
+}
+
 .block_headline.desktop_hidden {
     padding: 16px 16px 0px;
     margin-bottom: 16px;
