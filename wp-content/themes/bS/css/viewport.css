@@ -1184,9 +1184,10 @@ a.event_short
   display:block;
   border:1px solid #E3E5ED;
 }
-.news_container .bg-image
+.bg-image
 {
   width:100%;
+  max-height:264px;
   margin-bottom:10px;
   background-position: center;
   background-repeat: no-repeat;
