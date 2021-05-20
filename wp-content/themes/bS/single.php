@@ -6,18 +6,18 @@
 get_header();
 ?>
 
-
-
-<div class="main events">
 <?php
-
-
-
+echo '<div class="main event_detail">';
+get_the_post_thumbnail();
+echo '<h1>'.get_the_title().'</h1>';
+echo '<section>';
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 echo $html;
 
+echo '</section>';
 echo '<div class="height50"></div>
-<h1>Pressetermine</h1>';
+<div class="events">
+<h2>Pressetermine</h2>';
 
 // --------------------------------------> START EVENTS
 
@@ -145,6 +145,7 @@ echo '</section>';
 
 
 ?>
+</div>
 </div>
 
 <?php get_footer(); 

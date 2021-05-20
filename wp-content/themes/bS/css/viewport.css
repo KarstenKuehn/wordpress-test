@@ -1102,7 +1102,10 @@ display: none;
 {
   height:50px;
 }
-
+.event_detail section p
+{
+  padding:16px 0;
+}
 .events h1
 {
   color:#091B30;
