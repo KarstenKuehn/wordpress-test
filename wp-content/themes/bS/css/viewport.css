@@ -1160,18 +1160,19 @@ a.event_short
   line-height: 24px;
   font-weight:700;
 }
-.news_feed h1
+.news_feed h1,.events h1
 {
   font-size:42px;
   line-height:48px;
   font-weight: 400;
   padding-bottom:60px;
 }
-.news_feed h2
+.news_feed h2,.events h2
 {
   font-size:26px;
   line-height:32px;
   font-weight: 400;
+  padding-left:0;
 }
 .news_container
 {
