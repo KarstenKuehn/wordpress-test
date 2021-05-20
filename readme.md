@@ -63,3 +63,7 @@ parser
 
 ## DEV | SERVER
 There is an alias - just type "pull" from anywhere in the system
+
+
+## BACKUP
+There is a script that backups the db and the whole wp installation at 8:00.
