@@ -3,6 +3,13 @@
 	Template Name: Pressetermine Details
 */
 
+//OBSOLETE
+//OBSOLETE
+//OBSOLETE
+//OBSOLETE
+//OBSOLETE
+
+
 get_header();
 ?>
 
