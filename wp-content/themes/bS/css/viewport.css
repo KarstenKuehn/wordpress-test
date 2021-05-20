@@ -1192,6 +1192,7 @@ a.event_short
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
   aspect-ratio:1/1
 }
 .news_container h2
