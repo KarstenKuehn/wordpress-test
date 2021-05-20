@@ -7,7 +7,7 @@ var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
   blocks.registerBlockType( 'lb/extranavi', {
-    title: 'UPLB-ExtraNavi', // The title of block in editor.
+    title: 'ExtraNavi', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'common', // The category of block in editor.
 attributes: {

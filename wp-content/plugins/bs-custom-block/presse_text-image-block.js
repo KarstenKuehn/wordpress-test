@@ -8,7 +8,7 @@ var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
   blocks.registerBlockType( 'lb/presse-text-img', {
-    title: 'UPLB-Presse-Text-Image', // The title of block in editor.
+    title: 'Ansprechpartner-Text-Bild', // The title of block in editor.
     icon: 'id', // The icon of block in editor.
     category: 'common', // The category of block in editor.
 attributes: {
@@ -95,27 +95,24 @@ return [
       className: props.className,
       style: { textAlign: attributes.alignment,border:'1px solid grey',paddingBottom:'10px' }
     },
-    el(
-      "div",
-      null,
-      "Text Image"
-    ),    
+          el(
+        "div",{
+        style: { textAlign: attributes.alignment,borderBottom:'1px solid grey',margin:'10px',padding:'10px' }
+      },
+        "Ansprechpartner - Modul"
+      ),   
     el('div', {
       className: 'my-block-content wp-block-media-text__content',
       style:{display:'inline-block',width:'40%'}
       },
-      el(
-        "span",
-        null,
-        "Headline"
-      ), 
+
     el(RichText, {
       type: 'text',
-      label: i18n.__('Headline', 'my-first-gutenberg-block'),
+      label: i18n.__('Themengebiet', 'my-first-gutenberg-block'),
       key: 'editable',
       tagName: 'h2',
       className: 'my-block-text title',
-      placeholder: i18n.__('Headline', 'my-first-gutenberg-block'),
+      placeholder: i18n.__('Themengebiet', 'my-first-gutenberg-block'),
       keepPlaceholderOnFocus: true,
       value: attributes.title,
       onChange: function (newTitle) {
@@ -124,11 +121,11 @@ return [
     }),
     el(RichText, {
       type: 'text',
-      label: i18n.__('Content', 'my-first-gutenberg-block'),
+      label: i18n.__('Beschreibung', 'my-first-gutenberg-block'),
       key: 'editable',
       tagName: 'p',
       className: 'my-block-text content',
-      placeholder: i18n.__('Content', 'my-first-gutenberg-block'),
+      placeholder: i18n.__('Beschreibung', 'my-first-gutenberg-block'),
       keepPlaceholderOnFocus: true,
       value: attributes.text,
       onChange: function (newText) {
@@ -145,11 +142,11 @@ return [
     ),
     el(RichText, {
       type: 'text',
-      label: i18n.__('Ansprechpartner', 'my-first-gutenberg-block'),
+      label: i18n.__('Name', 'my-first-gutenberg-block'),
       key: 'editable',
       tagName: 'p',
       className: 'my-block-text content',
-      placeholder: i18n.__('Ansprechpartner', 'my-first-gutenberg-block'),
+      placeholder: i18n.__('Name', 'my-first-gutenberg-block'),
       keepPlaceholderOnFocus: true,
       value: attributes.ansprechpartner,
       onChange: function (newText) {
@@ -167,11 +164,11 @@ return [
 
     el(RichText, {
       type: 'text',
-      label: i18n.__('Mail-Adress', 'my-first-gutenberg-block'),
+      label: i18n.__('E-Mail', 'my-first-gutenberg-block'),
       key: 'editable',
       tagName: 'p',
       className: 'my-block-text content',
-      placeholder: i18n.__('Mail-Adress', 'my-first-gutenberg-block'),
+      placeholder: i18n.__('E-Mail', 'my-first-gutenberg-block'),
       keepPlaceholderOnFocus: true,
       value: attributes.mail,
       onChange: function (newText) {
@@ -190,11 +187,11 @@ return [
 
     el(RichText, {
       type: 'text',
-      label: i18n.__('Mail-Adress', 'my-first-gutenberg-block'),
+      label: i18n.__('Telefonnummer', 'my-first-gutenberg-block'),
       key: 'editable',
       tagName: 'p',
       className: 'my-block-text content',
-      placeholder: i18n.__('Phone', 'my-first-gutenberg-block'),
+      placeholder: i18n.__('Telefonnummer', 'my-first-gutenberg-block'),
       keepPlaceholderOnFocus: true,
       value: attributes.phone,
       onChange: function (newText) {
@@ -218,7 +215,7 @@ return [
             style:{height:'auto',width:'auto'},
             onClick: obj.open
             },
-            !attributes.mediaID ? i18n.__('Upload Image', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL,alt: attributes.mediaALT,
+            !attributes.mediaID ? i18n.__('Ansprechpartner-Bild', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL,alt: attributes.mediaALT,
             style:{height:'auto',width:'auto'}})
           )
         }

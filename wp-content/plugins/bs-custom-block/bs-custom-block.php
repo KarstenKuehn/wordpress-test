@@ -245,7 +245,7 @@ function load_section() {
 }
    
 add_action('enqueue_block_editor_assets', 'load_section');
-
+/*
 function load_block_variations() {
   wp_enqueue_script(
     'block-variations',
@@ -256,3 +256,4 @@ function load_block_variations() {
 }
    
 add_action('enqueue_block_editor_assets', 'load_block_variations');
+*/

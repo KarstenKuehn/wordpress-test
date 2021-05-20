@@ -8,7 +8,7 @@ var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
 blocks.registerBlockType( 'lb/img-text', {
-  title: 'UPLB-Image-Text', // The title of block in editor.
+  title: 'Bild-Text', // The title of block in editor.
   icon: 'id', // The icon of block in editor.
   category: 'common', // The category of block in editor.
   attributes: {
@@ -88,15 +88,16 @@ blocks.registerBlockType( 'lb/img-text', {
       className: props.className,
       style: { textAlign: attributes.alignment,border:'1px solid grey',paddingBottom:'10px' }
       },
-        el(
-          "div",
-          null,
-          "Image Text"
-        ),    
+          el(
+        "div",{
+        style: { textAlign: attributes.alignment,borderBottom:'1px solid grey',margin:'10px',padding:'10px' }
+      },
+        "Bild-Text-Modul "
+      ),     
           el(
         'div', {
           className: 'wp-block-media-text__media',
-          style:{display:'inline-block',width:'40%',verticalAlign:'top'},
+          style:{display:'inline-block',width:'50%',verticalAlign:'top', padding:'10px'},
         },
         el(
           MediaUpload, {
@@ -119,21 +120,17 @@ blocks.registerBlockType( 'lb/img-text', {
     ),
     el('div', {
     className: 'my-block-content wp-block-media-text__content',
-        style:{display:'inline-block',width:'40%'}
+        style:{display:'inline-block',width:'50%', padding:'10px'}
     },
-        el(
-          "span",
-          null,
-          "Headline"
-        ), 
+
     el(RichText, {
     type: 'text',
-    label: i18n.__('Headline', 'my-first-gutenberg-block'),
+    label: i18n.__('Überschrift <H2>', 'my-first-gutenberg-block'),
     value: attributes.title,    
     key: 'editable',
-    tagName: 'h3',
+    tagName: 'h2',
     className: 'my-block-text title',
-    placeholder: i18n.__('Headline', 'my-first-gutenberg-block'),
+    placeholder: i18n.__('Überschrift <H2>', 'my-first-gutenberg-block'),
     keepPlaceholderOnFocus: true,
     value: attributes.title,
     onChange: function (newTitle) {
@@ -142,12 +139,12 @@ blocks.registerBlockType( 'lb/img-text', {
     }),
       el(RichText, {
     type: 'text',
-    label: i18n.__('Content', 'my-first-gutenberg-block'),
+    label: i18n.__('Inhalt', 'my-first-gutenberg-block'),
     value: attributes.title,    
     key: 'editable',
     tagName: 'p',
     className: 'my-block-text content',
-    placeholder: i18n.__('Content', 'my-first-gutenberg-block'),
+    placeholder: i18n.__('Inhalt', 'my-first-gutenberg-block'),
     keepPlaceholderOnFocus: true,
     value: attributes.text,
     onChange: function (newText) {
@@ -159,8 +156,8 @@ blocks.registerBlockType( 'lb/img-text', {
           null
         ),
         el(
-          "span",
-          null,
+          "div",
+          {style:{display:'inline-block',width:'30%', padding:'10px',textAlign:'left'}},
           "Button URL: "
         ),    
     el(RichText, {
@@ -168,9 +165,10 @@ blocks.registerBlockType( 'lb/img-text', {
     label: i18n.__('Button URL', 'my-first-gutenberg-block'),
     value: attributes.buttonURL,    
     key: 'editable',
-    tagName: 'p',
+    tagName: 'div',
+    style:{display:'inline-block',width:'70%', padding:'10px',textAlign:'left'},
     className: 'my-block-text url',
-    placeholder: i18n.__('TextURL', 'my-first-gutenberg-block'),
+    placeholder: i18n.__('URL', 'my-first-gutenberg-block'),
     keepPlaceholderOnFocus: true,
     value: attributes.buttonURL,
     onChange: function (newURL) {
@@ -178,17 +176,19 @@ blocks.registerBlockType( 'lb/img-text', {
     }
     }),
         el(
-          "span",
-          null,
+          "div",
+          {style:{display:'inline-block',width:'30%', padding:'10px',textAlign:'left'}},
           "Button Text: "
-        ),    
+        ),     
     el(RichText, {
     type: 'text',
     label: i18n.__('Button Text', 'my-first-gutenberg-block'),
     value: attributes.buttonText,    
     key: 'editable',
-    tagName: 'p',
+    tagName: 'div',
     className: 'my-block-text url-text',
+    style:{display:'inline-block',width:'70%', padding:'10px',textAlign:'left'},
+    
     placeholder: i18n.__('ButtonText', 'my-first-gutenberg-block'),
     keepPlaceholderOnFocus: true,
     value: attributes.buttonText,

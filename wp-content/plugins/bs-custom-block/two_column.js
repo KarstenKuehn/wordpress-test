@@ -2,7 +2,7 @@
   var el = element.createElement;
 
   blocks.registerBlockType( 'lb/two-column-text', {
-    title: 'UPLB-Two-Column-Text', // The title of block in editor.
+    title: '2-Spalten-Text', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'common', // The category of block in editor.
     attributes: {
@@ -12,11 +12,11 @@
       },
       content: {
         type: 'string',
-        default: 'Collaboratively customize web-enabled supply chains and turnkey collaboration and idea-sharing Assertively cultivate.'
+        default: ''
       },
       content_right: {
         type: 'string',
-        default: 'Collaboratively customize web-enabled supply chains and turnkey collaboration and idea-sharing Assertively cultivate.'
+        default: ''
       },
       button: {
         type: 'string',
@@ -32,7 +32,11 @@
       buttonURL_right: {
       type: 'url'
       }, 
-      ingredients: {
+      ingredients_l: {
+        type: 'string',
+        default: ''
+      },
+            ingredients_r: {
         type: 'string',
         default: ''
       },
@@ -60,18 +64,29 @@
         }),
 
 
-        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top'} },      
-          el(
-            editor.RichText,
-            {
-              tagName: 'p',
-              className: 'text',
-              value: props.attributes.content,
-              onChange: function( content ) {
-                props.setAttributes( { content: content } );
-              }
-            }
-          ),             
+        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top', padding:'32px'} },      
+
+        el( editor.RichText, {
+          tagName: 'ul',
+           placeholder: i18n.__('Liste', 'lb'),
+          multiline: 'li',
+          className: 'ingredients',
+          value: props.attributes.ingredients_l,
+          onChange: function( value ) {
+            props.setAttributes( { ingredients_l: value } );
+          },
+        } ),
+        el( editor.RichText, {
+          tagName: 'div',
+          multiline: 'p',
+          className: 'block',
+           placeholder: i18n.__('Inhalt Spalte-links', 'lb'),
+          value: props.attributes.content,
+          onChange: function( value ) {
+            props.setAttributes( { content: value } );
+          },
+        } ),
+        
         el(
           "hr",
           null
@@ -109,39 +124,29 @@
 
 
 
-        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top'} }, 
+        el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top', padding:'32px'} }, 
 
 
         el( editor.RichText, {
           tagName: 'ul',
+           placeholder: i18n.__('Liste', 'lb'),
           multiline: 'li',
           className: 'ingredients',
-          value: props.attributes.ingredients,
+          value: props.attributes.ingredients_r,
           onChange: function( value ) {
-            props.setAttributes( { ingredients: value } );
+            props.setAttributes( { ingredients_r: value } );
           },
         } ),
         el( editor.RichText, {
           tagName: 'div',
           multiline: 'p',
           className: 'block',
+           placeholder: i18n.__('Inhalt Spalte-rechts', 'lb'),
           value: props.attributes.block,
           onChange: function( value ) {
             props.setAttributes( { block: value } );
           },
-        } ),
-
-          el(
-            editor.RichText,
-            {
-              tagName: 'p',
-              className: 'text',
-              value: props.attributes.content_right,
-              onChange: function( content ) {
-                props.setAttributes( { content_right: content } );
-              }
-            }
-          ),             
+        } ),           
         el(
           "hr",
           null
@@ -194,10 +199,11 @@
             el('div',{
               className: 'text_left'
               },
-              el( 'p', {
+              el( editor.RichText.Content, {
+                tagName: '',
                 className: 'block_content content',
+                value: props.attributes.content,
                 },
-                props.attributes.content
               ),// end p   
               !props.attributes.buttonURL ? '': 
               el('a', {
@@ -215,22 +221,16 @@
             el('div',{
               className: 'text_right'
               },
-              !props.attributes.ingredients||props.attributes.ingredients=='<li></li>' ? '':el( editor.RichText.Content, {
+              !props.attributes.ingredients_r||props.attributes.ingredients_r=='<li></li>' ? '':el( editor.RichText.Content, {
                 tagName: 'ul',
                 className: 'ingredients aaa',
-                value: props.attributes.ingredients,
+                value: props.attributes.ingredients_r,
               } ),
               el( editor.RichText.Content, {
                 tagName: '',
                 className: '',
                 value: props.attributes.block,
               } ),
-              el( 'p', {
-                className: 'block_content content',
-                },
-                props.attributes.content_right
-              ),// end p  
-
 
               !props.attributes.buttonURL_right ? '': 
               el('a', {
