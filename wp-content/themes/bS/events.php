@@ -124,8 +124,7 @@ echo '</span></div></div>';
 
 foreach ($output_posts as $key => $post) 
 {
-	
-		echo '<a class="event_short" href="'.$post->guid.'">';
+		echo '<a class="event_short" href="'.get_permalink().'">';
 		echo '<span class="material-icons">east</span>';
 		echo '<h2>'.$post->post_title.'</h2>';
 		echo '<span>';
