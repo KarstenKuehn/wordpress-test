@@ -39,7 +39,10 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
     margin-bottom: 1.75em;
     flex-wrap: nowrap;
 }
-
+strong
+{
+  font-weight:700;
+}
 .wp-block-column {
     flex-basis: 0;
     flex-grow: 1;
