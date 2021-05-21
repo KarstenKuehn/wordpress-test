@@ -10,6 +10,7 @@ html {
 @font-face {
   font-family: 'Lato';
   font-style: normal;
+  font-display:swap;
   font-weight: 400;
   src: url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-regular.eot'); /* IE9 Compat Modes */
   src: local(''),
@@ -23,6 +24,7 @@ html {
 @font-face {
   font-family: 'Lato';
   font-style: normal;
+  font-display:swap;
   font-weight: 700;
   src: url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.eot'); /* IE9 Compat Modes */
   src: local(''),
