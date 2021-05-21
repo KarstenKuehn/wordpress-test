@@ -33,7 +33,7 @@ html {
        url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
 }
   
-body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
+body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto; color:#091B30;}
 .wp-block-columns {
     display: flex;
     margin-bottom: 1.75em;
