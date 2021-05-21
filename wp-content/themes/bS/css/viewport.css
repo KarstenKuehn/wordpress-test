@@ -1522,7 +1522,7 @@ a.main-navi_btn.active {
   display:none;
 }
 
-h1,h2,h3,h4,p
+.main>h1,.main>h2,.main>h3,.main>h4,.main>p
 {
   padding:16px 0;
 }
