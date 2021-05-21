@@ -34,6 +34,7 @@ echo $html;
 
 		echo '</section>';*/
 ?>
-<div class="height50"></div>
+
 </div>
+<div class="height50"></div>
 <?php get_footer(); ?>
