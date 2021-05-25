@@ -9,7 +9,7 @@ get_header(); ?>
 
 	if ( is_search() ) {
 ?>
-<main id="site-content main" role="main">
+<main id="site-content" role="main">
 
 	<?php
 
@@ -110,8 +110,9 @@ get_header(); ?>
 <main>
 <?php
 		//the_content();
+		echo '<div class="main">';
 		echo get_my_content();
-
+		echo '</div>';
 ?>
 </main>
 <?php		
