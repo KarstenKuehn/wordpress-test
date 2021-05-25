@@ -119,22 +119,5 @@ function showSlides(c,n) {
   n_slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active_dot";
 }
-
-/* accordion */
-
-var acc = document.getElementsByClassName("wp-block-my-lb-block-accordion-item");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.getElementsByTagName('div')[0].classList.toggle('active');
-    var panel = this.getElementsByTagName('div')[1]
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
 </script>
 <?php seo_structuredData();?>
