@@ -111,7 +111,9 @@ get_header(); ?>
 <?php
 		//the_content();
 		echo '<div class="main">';
-		echo get_my_content();
+				echo '<h1>'.get_the_title().'</h1>';
+		$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+		echo $html;
 		echo '</div>';
 ?>
 </main>
