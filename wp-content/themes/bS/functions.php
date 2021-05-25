@@ -929,6 +929,7 @@ function kb_whitelist_blocks() {
     'core/latest-posts',
     'core/more',
     'core/buttons',
+    'core/html',
     'lb/two-column-text',
     'lb/hero-img',
     'lb/text-img',
