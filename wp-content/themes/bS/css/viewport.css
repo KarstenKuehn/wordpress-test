@@ -111,7 +111,32 @@ p{
 li
 {
   list-style-type: none;
+
 }
+
+.main ul{
+  padding-bottom: 16px;
+}
+
+.main li{
+  position: relative;
+  line-height: 1.5em;
+  margin: 0;
+  margin-bottom: 2px;
+  padding-left: 2em
+}
+
+li::before {content: "\e15b"; color: #C7CCDB;
+  display: inline-block; width: 2em;line-height: 1.5em; text-align: left;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: bottom;
+    position: absolute;
+    left: 0;
+    top: 2px
+}
+
 a
 {
   text-decoration: none;
@@ -1265,6 +1290,8 @@ width: auto;
   aspect-ratio:1/1;
   margin: auto
 }
+
+/*
 .benefits ul {
     margin-bottom: 16px;
 }
@@ -1272,7 +1299,7 @@ width: auto;
     line-height: 1.5em;
     margin: 0;
 }
-
+*/
 @media(min-width:768px)
 {
 .text_left{

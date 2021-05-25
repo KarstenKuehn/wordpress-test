@@ -1,6 +1,10 @@
 (function (blocks, editor, components, i18n, element) {
   var el = element.createElement;
 var MediaUpload = editor.MediaUpload;
+
+var InnerBlocks = editor.InnerBlocks;
+var createElement = element.createElement;
+
   blocks.registerBlockType( 'lb/benefits-text', {
     title: 'Benefits-Text', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
@@ -110,11 +114,11 @@ mediaALT: media.alt
                 props.setAttributes( { content: value } );
               },
             } ),
-            
-            el(
-              "hr",
-              null
-            ),          
+
+            el('div',{style:{border:'1px solid #dcdcde'}},
+createElement(InnerBlocks),  
+),          
+        
             el(
               "span",
               null,
@@ -247,7 +251,7 @@ mediaALT: media.alt
                 value: props.attributes.content,
                 },
               ),// end p   
-
+      createElement( InnerBlocks.Content ),
               !props.attributes.buttonURL ? '': 
               el('a', {
                 className: 'my-block-button content',
