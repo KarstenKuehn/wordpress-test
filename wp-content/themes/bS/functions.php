@@ -925,6 +925,8 @@ function kb_whitelist_blocks() {
     'core/video',
     'core/list',
     'core/table',
+    'core/latest-posts',
+        'core/more',
     'lb/two-column-text',
     'lb/hero-img',
     'lb/text-img',
@@ -941,6 +943,13 @@ function kb_whitelist_blocks() {
   );
 }
 add_filter('allowed_block_types','kb_whitelist_blocks');
+
+
+add_action( 'init', 'kb_page_excerpts' );
+
+function kb_page_excerpts() {
+  add_post_type_support( 'page', 'excerpt' );
+}
 
 /**/
 /**

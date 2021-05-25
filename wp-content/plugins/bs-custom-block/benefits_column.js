@@ -114,10 +114,14 @@ mediaALT: media.alt
                 props.setAttributes( { content: value } );
               },
             } ),
-
-            el('div',{style:{border:'1px solid #dcdcde'}},
-createElement(InnerBlocks),  
-),          
+            el(
+              "span",
+              {style:{color:' #dcdcde'}},
+              "Benefits-Inhalt: "
+            ),
+            el('div',{style:{border:'1px solid #dcdcde',padding:'16px'}},
+            createElement(InnerBlocks),  
+            ),          
         
             el(
               "span",
@@ -172,7 +176,7 @@ createElement(InnerBlocks),
               )
             }
           }
-        ),
+        ),        /*
         el( editor.RichText, {
           tagName: 'ul',
            placeholder: i18n.__('Liste', 'lb'),
@@ -202,6 +206,7 @@ createElement(InnerBlocks),
           null,
           "Button URL: "
         ),    
+
         el(editor.RichText, {
         type: 'url', 
         key: 'editable',
@@ -213,8 +218,7 @@ createElement(InnerBlocks),
         onChange: function (newURL) {
         props.setAttributes({buttonURL_right: newURL})
         }
-        }),          
-
+        }),   
         el(
             editor.RichText,
             {
@@ -226,7 +230,7 @@ createElement(InnerBlocks),
                 props.setAttributes( { button_right: content } );
               }
             }
-          ),  
+          ),  */
         ),
         )
       );
@@ -272,7 +276,9 @@ createElement(InnerBlocks),
                 src: props.attributes.mediaURL,
                 alt: props.attributes.mediaALT,
                 className:'block_image benefits_image'
-              }),              
+              }),   
+/*
+                         
               !props.attributes.ingredients_r||props.attributes.ingredients_r=='<li></li>' ? '':el( editor.RichText.Content, {
                 tagName: 'ul',
                 className: 'ingredients aaa',
@@ -296,6 +302,8 @@ createElement(InnerBlocks),
                   props.attributes.button_right
                 ),      
               )//end a
+
+              */
             )
           )
         )// end section

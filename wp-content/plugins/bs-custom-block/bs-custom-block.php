@@ -7,6 +7,9 @@ Author: BS-Lottobayern
 
 // Funktion Registrieren der Block Vorlage
 function my_block_template() {
+
+/*
+
     register_block_pattern(
         'my_template/example-block-template',
         array('categories'  => array('lb_vorlagen'),      
@@ -37,7 +40,7 @@ function my_block_template() {
             'content'   => "<!-- wp:group {\"style\":{\"color\":{\"background\":\"#f3f4f7\"}},\"className\":\"gray extra_navi_wrapper\"} -->\r\n<div class=\"wp-block-group gray extra_navi_wrapper has-background\" style=\"background-color:#f3f4f7\"><div class=\"wp-block-group__inner-container\"><!-- wp:columns {\"className\":\"content_section extranavi\"} -->\r\n<div class=\"wp-block-columns content_section extra_navi\"><!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column -->\r\n\r\n<!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column -->\r\n\r\n<!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column --></div>\r\n<!-- /wp:columns --></div></div>\r\n<!-- /wp:group -->",
         )
     );
-
+*/
     register_block_pattern(
         'my_template/slider-new',
         array('categories'  => array('lb_vorlagen'),      
@@ -146,22 +149,6 @@ function load_yy() {
 }
    
 add_action('enqueue_block_editor_assets', 'load_yy');
-/*
-
-function load_xx() {
-  wp_enqueue_script(
-    'my-new-xx',
-    plugin_dir_url(__FILE__) . 'two_column.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-
-
-add_action('enqueue_block_editor_assets', 'load_xx');
-
-*/
 
 function loadTwoColumnText() {
   wp_enqueue_script(
