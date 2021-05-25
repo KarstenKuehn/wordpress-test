@@ -1,14 +1,25 @@
 (function (blocks, editor, components, i18n, element) {
   var el = element.createElement;
-
-  blocks.registerBlockType( 'lb/two-column-text', {
-    title: '2-Spalten-Text', // The title of block in editor.
+var MediaUpload = editor.MediaUpload;
+  blocks.registerBlockType( 'lb/benefits-text', {
+    title: 'Benefits-Text', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'common', // The category of block in editor.
     attributes: {
-      headline: {
-        type: 'string',
-        default: 'Lorem ipsum dolor sit amet.',
+      mediaID: {
+      type: 'number'
+      },
+      mediaURL: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'src'
+      },
+      mediaALT: {
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'alt'
       },
       content: {
         type: 'string',
@@ -50,6 +61,14 @@
   }
     },
     edit: function( props ) {
+
+var onSelectImage = function (media) {
+return props.setAttributes({
+mediaURL: media.url,
+mediaID: media.id,
+mediaALT: media.alt
+})
+};      
       return (
         el( 'div', { 
           className: props.className,
@@ -61,7 +80,7 @@
               borderBottom:'1px solid grey',
               margin:'10px',padding:'10px' }
             },
-            "Zwei Spalten Text Modul"
+            "Benefits Text Modul"
           ),
           el( 'div', { 
             className: 'content-block',
@@ -73,7 +92,7 @@
             },      
             el( editor.RichText, {
               tagName: 'ul',
-               placeholder: i18n.__('Liste', 'lb'),
+               placeholder: i18n.__('Benefits-Liste', 'lb'),
               multiline: 'li',
               className: 'ingredients',
               value: props.attributes.ingredients_l,
@@ -85,7 +104,7 @@
               tagName: 'div',
               multiline: 'p',
               className: 'block',
-               placeholder: i18n.__('Inhalt Spalte-links', 'lb'),
+               placeholder: i18n.__('Benefits-Inhalt', 'lb'),
               value: props.attributes.content,
               onChange: function( value ) {
                 props.setAttributes( { content: value } );
@@ -132,6 +151,24 @@
         el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top', padding:'32px'} }, 
 
 
+        el(
+          MediaUpload, {
+            onSelect: onSelectImage,
+            type: 'image',
+            value: props.attributes.mediaID,
+            render: function (obj) {
+              return el(
+                components.Button, {
+                className: props.attributes.mediaID ? 'image-button' : 'button button-large',
+                style:{height:'auto',width:'auto'},
+                onClick: obj.open
+                },
+                !props.attributes.mediaID ? i18n.__('Benefits-Icon', 'lb') : el('img', {src: props.attributes.mediaURL,alt: props.attributes.mediaALT,
+                style:{height:'auto',width:'auto'}})
+              )
+            }
+          }
+        ),
         el( editor.RichText, {
           tagName: 'ul',
            placeholder: i18n.__('Liste', 'lb'),
@@ -194,17 +231,23 @@
       return (
         el( 'section', { className: 'content_section' },
           el('div',{
-            className: 'two-column-text'
+            className: 'two-column-text benefits'
             },
             el('div',{
               className: 'text_left'
               },
+              !props.attributes.ingredients_l||props.attributes.ingredients_l=='<li></li>' ? '':el( editor.RichText.Content, {
+                tagName: 'ul',
+                className: 'ingredients aaa',
+                value: props.attributes.ingredients_l,
+              } ),              
               el( editor.RichText.Content, {
                 tagName: '',
                 className: 'block_content content',
                 value: props.attributes.content,
                 },
               ),// end p   
+
               !props.attributes.buttonURL ? '': 
               el('a', {
                 className: 'my-block-button content',
@@ -221,6 +264,11 @@
             el('div',{
               className: 'text_right'
               },
+              el('img', {
+                src: props.attributes.mediaURL,
+                alt: props.attributes.mediaALT,
+                className:'block_image benefits_image'
+              }),              
               !props.attributes.ingredients_r||props.attributes.ingredients_r=='<li></li>' ? '':el( editor.RichText.Content, {
                 tagName: 'ul',
                 className: 'ingredients aaa',

@@ -937,7 +937,7 @@ function kb_whitelist_blocks() {
     'lb/presse-text-img',
     'lb/section',
     'lb/text-media',
-    'lb_vorlagen',
+    'lb/benefits-text',
   );
 }
 add_filter('allowed_block_types','kb_whitelist_blocks');

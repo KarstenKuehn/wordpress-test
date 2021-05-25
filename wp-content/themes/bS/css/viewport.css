@@ -47,10 +47,9 @@ body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
 
 ::marker {
   content:none;
+    display: none;
 }
-details summary::-webkit-details-marker {
-  display:none;
-}
+
 
 details > summary {
   list-style: none;
@@ -67,7 +66,7 @@ details > summary::marker {
 .main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium){
 max-width: 1224px;
 margin: 0 auto;
-padding: 0 16px 16px;
+padding: 0 16px;
 margin-bottom: 16px;
 }
 
@@ -969,7 +968,7 @@ p{
   padding: 0 16px;
 }
 .text_left p,.text_right p, p.content {
-  padding: 16px 0;
+  padding: 0 0 16px 0;
 }
 /*accordion*/
 .accordion-item {
@@ -1087,6 +1086,7 @@ display: none;
   text-align: center;
   margin-bottom: 8px;
   font-size: 12px;
+  padding: 16px;
 }
 .header span.material-icons {
     font-size: 32px;
@@ -1231,9 +1231,7 @@ color:#091B30;
   padding:16px 0 23.5px 0;
 }
 
-.two-column-text {
- /*   padding: 16px;*/
-}
+
 
 #searchsubmit {
     left: -56px;
@@ -1242,7 +1240,33 @@ color:#091B30;
         font-size: 16px;
 }
 
+img.block_image {
+    margin-bottom: 16px;
+}
+.two-column-text {
+ /*   padding: 16px;*/
+}
 
+.two-column-text .text_left {
+    margin-bottom: 16px;
+}
+
+.two-column-text.benefits {
+    padding: 0;
+}
+.benefits .text_right img{
+ height: 100px;
+width: auto;
+  aspect-ratio:1/1;
+  margin: auto
+}
+.benefits ul {
+    margin-bottom: 16px;
+}
+.benefits li {
+    line-height: 1.5em;
+    margin: 0;
+}
 
 @media(min-width:768px)
 {
@@ -1273,6 +1297,7 @@ h4{
 
 .two-column-text {
     padding: 24px 0;
+    display: flex;
 }
 
 .search-modal .search{

@@ -6,6 +6,27 @@
 get_header();
 ?>
 
+<style type="text/css">
+	
+.news {
+    display: grid;
+    grid-gap: 24px;
+    justify-content: space-between;
+    grid: auto 1fr auto / repeat(3, 1fr)
+}
+.news_container {
+    display: inline-grid;
+    grid-template-rows: auto 1fr auto;
+    width: 100%;
+    margin: 0;
+}
+.news_container .news_frame{
+    display: inline-grid;
+    grid-template-rows: auto 1fr 1fr;
+}
+</style>
+
+
 <div class="main news_feed">
 <?php
 
@@ -19,7 +40,7 @@ echo '<div class="height50"></div>
 
 $args = array(
         'posts_per_page' => 5,
-        'category'       => array(9),
+        'category'       => array(10),
     	'sort_order' 	 => 'desc'
     );
 $posts = get_posts($args);
@@ -30,6 +51,7 @@ $posts = get_posts($args);
 
 
 </div>
+<div class="news">
 <?php
 foreach ($posts as $key => $post) 
 {
@@ -46,11 +68,9 @@ foreach ($posts as $key => $post)
 	echo '</div>';
 }
 
-echo '</section>';
-
-
-
 ?>
+</div>
+</section>
 </div>
 
 <?php get_footer(); 

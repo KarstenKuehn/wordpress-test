@@ -234,6 +234,16 @@ function loadVideoText() {
 add_action('enqueue_block_editor_assets', 'loadVideoText');
 
 
+function load_benefits_column() {
+  wp_enqueue_script(
+    'benefis_column',
+    plugin_dir_url(__FILE__) . 'benefits_column.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_benefits_column');
 
 function load_section() {
   wp_enqueue_script(
