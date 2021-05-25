@@ -339,6 +339,7 @@ function wpb_custom_new_menu() {
   register_nav_menus(
     array(
       'top-menu' => __( 'MainNavigation' ),
+      'teaser-menu' => __( 'TeaserNavigation' ),      
       'footer-menu' => __( 'Footer Menu' ),
       'social' => __( 'Social Menu' ),
     )
