@@ -236,7 +236,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
                 endwhile; 
                 wp_reset_postdata(); 
             else : 
-                 $submenu_html_liste.='<div class="sub_menu_block blog"></div>';               
+                 $submenu_html_liste.='<div class="sub_menu_block blog">xxxx</div>';               
             endif;
         }
 
@@ -926,7 +926,8 @@ function kb_whitelist_blocks() {
     'core/list',
     'core/table',
     'core/latest-posts',
-        'core/more',
+    'core/more',
+    'core/buttons',
     'lb/two-column-text',
     'lb/hero-img',
     'lb/text-img',
