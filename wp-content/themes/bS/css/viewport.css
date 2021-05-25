@@ -412,6 +412,7 @@ a.custom-logo-link {
     position: absolute;
     z-index: 1000;
     width: 100%;
+    width: 100vw;
     padding: 0 16px; 
     height: calc(100vh - 72px);
     background-color: #fff;
@@ -629,6 +630,11 @@ input#s {
   font-weight: bold;
   letter-spacing: 0;
   line-height: 24px;
+}
+
+.sub_menu_block.blog img {
+  max-width: 100%;
+  height: auto;
 }
 
 .sub_menu_block
