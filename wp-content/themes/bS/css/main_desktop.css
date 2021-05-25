@@ -327,6 +327,7 @@ a.event_short h2
   width:31%;
   margin-right:2%; 
   display: inline-block;
+  vertical-align: top;
 }
 
 

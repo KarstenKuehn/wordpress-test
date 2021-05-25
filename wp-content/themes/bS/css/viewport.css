@@ -10,6 +10,7 @@ html {
 @font-face {
   font-family: 'Lato';
   font-style: normal;
+  font-display:swap;
   font-weight: 400;
   src: url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-regular.eot'); /* IE9 Compat Modes */
   src: local(''),
@@ -23,6 +24,7 @@ html {
 @font-face {
   font-family: 'Lato';
   font-style: normal;
+  font-display:swap;
   font-weight: 700;
   src: url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.eot'); /* IE9 Compat Modes */
   src: local(''),
@@ -33,13 +35,16 @@ html {
        url('/wp-content/themes/bS/assets/fonts/Lato/lato-v17-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
 }
   
-body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto;}
+body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto; color:#091B30;}
 .wp-block-columns {
     display: flex;
     margin-bottom: 1.75em;
     flex-wrap: nowrap;
 }
-
+strong
+{
+  font-weight:700;
+}
 .wp-block-column {
     flex-basis: 0;
     flex-grow: 1;
@@ -110,6 +115,7 @@ li
 a
 {
   text-decoration: none;
+  color:#1F5DA6;
 }
 
 
@@ -177,7 +183,7 @@ a
 }
 
 li{
-  line-height: 48px;
+  line-height: 32px;
   margin: 5px;
 }
 .skiplinks li{
@@ -939,29 +945,27 @@ a.sub_menu_item .material-icons{
 h1{
   font-size: 42px;
   line-height: 48px;
-  padding: 16px;
 }
 h2{
   font-size: 26px;
   line-height: 32px; 
-  padding: 16px; 
 }
 h3{
   font-size: 16px;
   line-height: 24px;
-  padding: 16px;
-  font-weight: bold;
 }
 h4{
   font-size: 16px;
   line-height: 24px;
-  padding: 16px;
 }
 
 p{
   font-size: 16px;
   line-height: 24px;
-  padding: 16px;
+}
+h1,h2,h3,h4,p
+{
+  padding:0 16px 16px;
 }
 
 .text_left,.text_right{
@@ -1042,6 +1046,7 @@ display: none;
     height: 48px;
     background: #fff;
     bottom: 0;
+    left:0;
 }
 
 

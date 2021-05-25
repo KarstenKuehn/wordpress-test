@@ -64,7 +64,7 @@ foreach ($posts as $key => $post)
 	echo '<h2>'.$post->post_title.'</h2>';
 	echo substr($post->post_content,0 ,100).'...';
 	echo '</div>';
-	echo '<a href="'.$post->guid.'">'.get_the_category()[0]->name.'<span class="material-icons">east</span></a>';
+	echo '<a href="'.get_permalink().'">'.get_the_category()[0]->name.'<span class="material-icons">east</span></a>';
 	echo '</div>';
 }
 
