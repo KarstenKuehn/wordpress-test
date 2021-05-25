@@ -622,6 +622,7 @@ input#s {
     font-size: 26px;
     letter-spacing: 0;
     line-height: 32px;
+    padding: 16px 0
 }
 .sub_menu_block.blog a {
   color: #1F5DA6;
