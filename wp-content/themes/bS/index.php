@@ -9,7 +9,7 @@ get_header(); ?>
 
 	if ( is_search() ) {
 ?>
-<main id="site-content" role="main">
+<main id="site-content main" role="main">
 
 	<?php
 
