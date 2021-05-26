@@ -1037,7 +1037,7 @@ p
 }
 /*accordion*/
 .accordion-item {
-    padding: 0 16px;
+    padding: 0;
     max-width: 1224px;
     margin: auto;
 }
