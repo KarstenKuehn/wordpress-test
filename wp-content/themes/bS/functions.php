@@ -197,8 +197,34 @@ function wp_get_menu_array($current_menu) {
 function sub_menu($view,$current_menu,$current_menu_id) {
     $submenu_html='';
     $submenu_html_liste='';
+    $bild_navigation='';
     if($current_menu->wpse_children)
     {
+
+/*
+
+        echo '<strong>'.$current_menu->title.'</strong><br>';
+        $test = wp_get_menu_array('TeaserNavigation');
+
+        foreach ($test as $key => $teaser_child) {
+            if($current_menu->title == $teaser_child->title)
+            {
+                echo $teaser_child->title.'<br>';
+                if($teaser_child->wpse_children)
+                {
+                    echo 'a<br>';
+                    foreach ($teaser_child->wpse_children as $key => $sub_child) {
+                        $bild_navigation.= $sub_child->title.'<br>';
+                        echo '<pre>';
+                        print_r($sub_child);
+                        echo '</pre>';
+
+                    }
+                }
+            }
+
+        }
+*/
 
         $i = 0;
         foreach ($current_menu->wpse_children as $key => $child) {
@@ -216,7 +242,8 @@ function sub_menu($view,$current_menu,$current_menu_id) {
             }
             $submenu_html_liste.='</div>';
             $i++;
-        }
+
+        }// end foreach ($current_menu->wpse_children...)
         if($view=='d')
         {
 
@@ -241,8 +268,12 @@ function sub_menu($view,$current_menu,$current_menu_id) {
         }
 
 
-        $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$submenu_html_liste.'</div>';
-    }   
+        $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$menu_list.$submenu_html_liste.$bild_navigation.'</div>';
+
+
+
+
+    }   // end  if($current_menu->wpse_children)
     $res = array('x' => $submenu_html ,'y'=>$i);
 
     return $res;

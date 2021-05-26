@@ -14,8 +14,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 100;
-  src: local(''),
-       url('/wp-content/themes/bS/assets/Lato/Lato-Thin.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: url('/wp-content/themes/bS/assets/Lato/Lato-Thin.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /* lato-light - latin */
@@ -24,8 +23,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 300;
-  src: local(''),
-       url('/wp-content/themes/bS/assets/Lato/Lato-Light.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: url('/wp-content/themes/bS/assets/Lato/Lato-Light.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /* lato-regular - latin */
@@ -34,8 +32,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 400;
-  src: local(''),
-       url('/wp-content/themes/bS/assets/Lato/Lato-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: url('/wp-content/themes/bS/assets/Lato/Lato-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /* lato-bold - latin */
@@ -44,8 +41,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 700;
-  src: local(''),
-       url('/wp-content/themes/bS/assets/Lato/Lato-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: url('/wp-content/themes/bS/assets/Lato/Lato-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /* lato-black - latin */
@@ -54,13 +50,12 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 900;
-  src: local(''),
-       url('/wp-content/themes/bS/assets/Lato/Lato-Black.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: url('/wp-content/themes/bS/assets/Lato/Lato-Black.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 
   
-body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto; color:#091B30;}
+body {font-family: 'Lato', sans-serif; max-width: 2000px;margin:auto; color:#091B30;font-size: 16px;}
 .wp-block-columns {
     display: flex;
     margin-bottom: 1.75em;
