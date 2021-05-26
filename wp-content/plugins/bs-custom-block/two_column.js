@@ -216,13 +216,12 @@
     save: function( props ) {
       return (
         el( 'section', { className: 'content_section' },
-      el(
-        'h2',{
-          className:'content'
-        },
-        props.attributes.headline
-
-      ),          el('div',{
+          !props.attributes.headline ? '':el( editor.RichText.Content, {
+              tagName: 'h2',
+                className: 'content',
+                value: props.attributes.headline,
+              } ),          
+          el('div',{
             className: 'two-column-text'
             },
 
