@@ -36,7 +36,7 @@
         type: 'string',
         default: ''
       },
-            ingredients_r: {
+      ingredients_r: {
         type: 'string',
         default: ''
       },
@@ -63,6 +63,24 @@
             },
             "Zwei Spalten Text Modul"
           ),
+          el(editor.RichText, {
+            style: { 
+              textAlign: props.attributes.alignment,
+              margin:'10px',padding:'0 10px' 
+            },            
+          type: 'text',
+          label: i18n.__('Überschrift <H2>', 'lb'),
+          key: 'editable',
+          tagName: 'h2',
+          className: 'my-block-text title',
+          placeholder: i18n.__('Überschrift <H2>', 'lb'),
+          keepPlaceholderOnFocus: true,
+          value: props.attributes.headline,
+          onChange: function (newTitle) {
+          props.setAttributes({headline: newTitle})
+          }
+          }),
+
           el( 'div', { 
             className: 'content-block',
             style:{
@@ -71,6 +89,16 @@
               verticalAlign:'top', 
               padding:'32px'} 
             },      
+            el( editor.RichText, {
+              tagName: 'div',
+              multiline: 'p',
+              className: 'block',
+               placeholder: i18n.__('Inhalt Spalte-links', 'lb'),
+              value: props.attributes.content,
+              onChange: function( value ) {
+                props.setAttributes( { content: value } );
+              },
+            } ),            
             el( editor.RichText, {
               tagName: 'ul',
                placeholder: i18n.__('Liste', 'lb'),
@@ -81,16 +109,7 @@
                 props.setAttributes( { ingredients_l: value } );
               },
             }),
-            el( editor.RichText, {
-              tagName: 'div',
-              multiline: 'p',
-              className: 'block',
-               placeholder: i18n.__('Inhalt Spalte-links', 'lb'),
-              value: props.attributes.content,
-              onChange: function( value ) {
-                props.setAttributes( { content: value } );
-              },
-            } ),
+
             
             el(
               "hr",
@@ -101,6 +120,7 @@
               null,
               "Button URL: "
             ),    
+         
             el(editor.RichText, {
             type: 'url', 
             key: 'editable',
@@ -111,8 +131,7 @@
             onChange: function (newURL) {
             props.setAttributes({buttonURL: newURL})
             }
-            }),          
-
+            }), 
             el(
                 editor.RichText,
                 {
@@ -125,12 +144,26 @@
                   }
                 }
               ),  
+
+
           ),
 
 
 
         el( 'div', { className: 'content-block',style:{display:'inline-block',width:'50%',verticalAlign:'top', padding:'32px'} }, 
 
+
+
+        el( editor.RichText, {
+          tagName: 'div',
+          multiline: 'p',
+          className: 'block',
+           placeholder: i18n.__('Inhalt Spalte-rechts', 'lb'),
+          value: props.attributes.block,
+          onChange: function( value ) {
+            props.setAttributes( { block: value } );
+          },
+        } ),   
 
         el( editor.RichText, {
           tagName: 'ul',
@@ -141,17 +174,7 @@
           onChange: function( value ) {
             props.setAttributes( { ingredients_r: value } );
           },
-        } ),
-        el( editor.RichText, {
-          tagName: 'div',
-          multiline: 'p',
-          className: 'block',
-           placeholder: i18n.__('Inhalt Spalte-rechts', 'lb'),
-          value: props.attributes.block,
-          onChange: function( value ) {
-            props.setAttributes( { block: value } );
-          },
-        } ),           
+        } ),                
         el(
           "hr",
           null
@@ -193,9 +216,16 @@
     save: function( props ) {
       return (
         el( 'section', { className: 'content_section' },
-          el('div',{
+      el(
+        'h2',{
+          className:'content'
+        },
+        props.attributes.headline
+
+      ),          el('div',{
             className: 'two-column-text'
             },
+
             el('div',{
               className: 'text_left'
               },
@@ -204,7 +234,12 @@
                 className: 'block_content content',
                 value: props.attributes.content,
                 },
-              ),// end p   
+              ),// end p 
+              !props.attributes.ingredients_l||props.attributes.ingredients_l=='<li></li>' ? '':el( editor.RichText.Content, {
+                tagName: 'ul',
+                className: 'ingredients aaa',
+                value: props.attributes.ingredients_l,
+              } ),
               !props.attributes.buttonURL ? '': 
               el('a', {
                 className: 'my-block-button content',
@@ -221,17 +256,17 @@
             el('div',{
               className: 'text_right'
               },
-              !props.attributes.ingredients_r||props.attributes.ingredients_r=='<li></li>' ? '':el( editor.RichText.Content, {
-                tagName: 'ul',
-                className: 'ingredients aaa',
-                value: props.attributes.ingredients_r,
-              } ),
+
               el( editor.RichText.Content, {
                 tagName: '',
                 className: '',
                 value: props.attributes.block,
               } ),
-
+              !props.attributes.ingredients_r||props.attributes.ingredients_r=='<li></li>' ? '':el( editor.RichText.Content, {
+                tagName: 'ul',
+                className: 'ingredients aaa',
+                value: props.attributes.ingredients_r,
+              } ),
               !props.attributes.buttonURL_right ? '': 
               el('a', {
                 className: 'my-block-button content',
