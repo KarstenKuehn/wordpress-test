@@ -16,7 +16,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 100;
-  src: url('/wp-content/themes/bS/assets/Lato/Lato-Thin.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: local('/wp-content/themes/bS/assets/Lato/Lato-Thin.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /* lato-light - latin */
@@ -25,7 +25,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 300;
-  src: url('/wp-content/themes/bS/assets/Lato/Lato-Light.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: local('/wp-content/themes/bS/assets/Lato/Lato-Light.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /* lato-regular - latin */
@@ -34,7 +34,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 400;
-  src: url('/wp-content/themes/bS/assets/Lato/Lato-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: local('/wp-content/themes/bS/assets/Lato/Lato-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /* lato-bold - latin */
@@ -43,7 +43,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 700;
-  src: url('/wp-content/themes/bS/assets/Lato/Lato-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: local('/wp-content/themes/bS/assets/Lato/Lato-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /* lato-black - latin */
@@ -52,7 +52,7 @@ html {
   font-style: normal;
   font-display:swap;
   font-weight: 900;
-  src: url('/wp-content/themes/bS/assets/Lato/Lato-Black.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: local('/wp-content/themes/bS/assets/Lato/Lato-Black.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 
