@@ -254,3 +254,15 @@ function load_block_variations() {
    
 add_action('enqueue_block_editor_assets', 'load_block_variations');
 */
+
+
+function load_button_link() {
+  wp_enqueue_script(
+    'button_link',
+    plugin_dir_url(__FILE__) . 'button_link.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_button_link');
