@@ -2,6 +2,10 @@
 {
   min-height:calc(100vh - 400px);
 }
+h1,h2,h3,h4,p
+{
+  padding: 0 0 16px 0;
+}
 .sub_menu.mobile_hidden {
     position: absolute;
     width: 100vw;
