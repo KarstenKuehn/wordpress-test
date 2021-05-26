@@ -6,27 +6,6 @@
 get_header();
 ?>
 
-<style type="text/css">
-	
-.news {
-    display: grid;
-    grid-gap: 24px;
-    justify-content: space-between;
-    grid: auto 1fr auto / repeat(3, 1fr)
-}
-.news_container {
-    display: inline-grid;
-    grid-template-rows: auto 1fr auto;
-    width: 100%;
-    margin: 0;
-}
-.news_container .news_frame{
-    display: inline-grid;
-    grid-template-rows: auto 1fr 1fr;
-}
-</style>
-
-
 <div class="main news_feed">
 <?php
 
