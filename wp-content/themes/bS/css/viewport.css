@@ -315,6 +315,7 @@ section
     text-align: center;
     line-height: 24px;
     padding: 12px;
+    font-weight: 200;
 }
 
 #searchsubmit,button
