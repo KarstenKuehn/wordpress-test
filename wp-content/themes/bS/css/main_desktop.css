@@ -2,7 +2,7 @@
 {
   min-height:calc(100vh - 400px);
 }
-p
+h1,h2,h3,h4,p
 {
   padding: 16px 0;
 }

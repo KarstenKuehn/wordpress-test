@@ -1007,9 +1007,9 @@ h4{
 }
 
 
-h1,h2,h3,h4
+h1,h2,h3,h4,p
 {
-  padding:0 16px 16px;
+  padding:16px 16px;
   font-weight: 200;
 }
 
@@ -1024,7 +1024,7 @@ p
   font-size: 16px;
   line-height: 24px;
   font-weight: 100;
-  padding:16px 16px;
+
 }
 
 
