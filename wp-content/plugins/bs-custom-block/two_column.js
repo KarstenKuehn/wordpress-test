@@ -236,7 +236,7 @@
               ),// end p 
               !props.attributes.ingredients_l||props.attributes.ingredients_l=='<li></li>' ? '':el( editor.RichText.Content, {
                 tagName: 'ul',
-                className: 'ingredients aaa',
+                className: 'ingredients',
                 value: props.attributes.ingredients_l,
               } ),
               !props.attributes.buttonURL ? '': 
@@ -263,7 +263,7 @@
               } ),
               !props.attributes.ingredients_r||props.attributes.ingredients_r=='<li></li>' ? '':el( editor.RichText.Content, {
                 tagName: 'ul',
-                className: 'ingredients aaa',
+                className: 'ingredients',
                 value: props.attributes.ingredients_r,
               } ),
               !props.attributes.buttonURL_right ? '': 
