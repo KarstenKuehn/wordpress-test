@@ -1064,6 +1064,11 @@ p
     content: "\e15d";
 }
 
+.accordion-item:last-of-type
+{
+  margin-bottom: 80px;
+}
+
 .answer{
   padding: 0 0 16px 0;
   line-height: 1.5rem;
@@ -1280,7 +1285,7 @@ img.block_image {
 }
 
 .benefits .text_right img{
- height: 100px;
+ height: 144px;
 width: auto;
   aspect-ratio:1/1;
   margin: auto

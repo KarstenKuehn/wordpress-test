@@ -1,9 +1,10 @@
 <?php
-/* 
-	Template Name: Pressekontakt
 
-	This is the template for the single "Presse & News" articles
-*/
+// OBSOLETE
+// OBSOLETE
+// OBSOLETE
+// OBSOLETE
+
 
 get_header();
 
