@@ -311,7 +311,7 @@ section
     text-align: center;
     text-decoration: none;
     overflow-wrap: break-word;
-    width: 100%;
+    width: auto;
     text-align: center;
     line-height: 24px;
     padding: 12px;
