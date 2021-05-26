@@ -138,13 +138,14 @@ p{
 
 .main ul{
   padding-bottom: 16px;
+  margin-left: 1em;
 }
 
 .main li{
   position: relative;
   line-height: 1.5em;
   display: list-item;
-  margin: 0;
+  margin: 0 0 0 1em;
   margin-bottom: 2px;
   padding-left: 2em;
   font-weight: 100;
