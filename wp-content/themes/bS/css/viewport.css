@@ -300,7 +300,7 @@ section
   height: auto
 }
 
-.my-block-button span.button-text {
+.my-block-button span.button-text, .button {
     color: #fff;
     background-color: #0061AB;
     border: 0;
