@@ -201,30 +201,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
     if($current_menu->wpse_children)
     {
 
-/*
-
-        echo '<strong>'.$current_menu->title.'</strong><br>';
-        $test = wp_get_menu_array('TeaserNavigation');
-
-        foreach ($test as $key => $teaser_child) {
-            if($current_menu->title == $teaser_child->title)
-            {
-                echo $teaser_child->title.'<br>';
-                if($teaser_child->wpse_children)
-                {
-                    echo 'a<br>';
-                    foreach ($teaser_child->wpse_children as $key => $sub_child) {
-                        $bild_navigation.= $sub_child->title.'<br>';
-                        echo '<pre>';
-                        print_r($sub_child);
-                        echo '</pre>';
-
-                    }
-                }
-            }
-
-        }
-*/
+/**/
 
         $i = 0;
         foreach ($current_menu->wpse_children as $key => $child) {
@@ -244,11 +221,31 @@ function sub_menu($view,$current_menu,$current_menu_id) {
             $i++;
 
         }// end foreach ($current_menu->wpse_children...)
+            $k= 3 - $i;
+        $test = wp_get_menu_array('TeaserNavigation');
+
+        foreach ($test as $key => $teaser_child) {
+            if($current_menu->title == $teaser_child->title)
+            {
+                if($arr = $teaser_child->wpse_children)
+                {
+
+                    $arr = array_slice($arr,0,$k);
+                    foreach ($arr as $key => $sub_child) {
+                    $bild_navigation.='<div class="sub_menu_block blog">'.get_the_post_thumbnail($sub_child->object_id).'<p>'.$sub_child->title.'</p><a href="'.$sub_child->url.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
+
+
+                    }
+                }
+            }
+
+        }        
+
         if($view=='d')
         {
 
-            $k= 3 - $i;
-            $the_query = new WP_Query( array(
+
+/*            $the_query = new WP_Query( array(
                 'category_name' => $current_menu->title,
                 'posts_per_page' => $k ,
                 )
@@ -265,15 +262,26 @@ function sub_menu($view,$current_menu,$current_menu_id) {
             else : 
                  $submenu_html_liste.='<div class="sub_menu_block blog"></div>';               
             endif;
+
+*/
+
+        $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$menu_list.$submenu_html_liste.$bild_navigation.'</div>';
+
+        }
+
+        if($view=='m')
+        {
+        $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$menu_list.$bild_navigation.$submenu_html_liste.'</div>';            
         }
 
 
-        $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$menu_list.$submenu_html_liste.$bild_navigation.'</div>';
 
 
 
 
     }   // end  if($current_menu->wpse_children)
+
+
     $res = array('x' => $submenu_html ,'y'=>$i);
 
     return $res;
@@ -312,6 +320,8 @@ function getArticelMenu($current_menu,$view) {
             wp_reset_postdata(); 
         else : 
         endif; 
+        $submenu_html_liste='';
+
         if($i>0){
             $submenu_html .='<div class="blog show-test '.$view.' '.$view.'_'.$value->ID.'" id="div_'.$view.'_'.$value->ID.'_blog">'.$submenu_html_liste.'</div>';
         }
