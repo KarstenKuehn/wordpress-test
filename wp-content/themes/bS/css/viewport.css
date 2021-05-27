@@ -1266,6 +1266,11 @@ a.event_short
 img.block_image {
     margin-bottom: 16px;
 }
+
+.slideshow-container img.block_image {
+    margin-bottom: 0px;
+}
+
 .two-column-text {
  /*   padding: 16px;*/
 }
