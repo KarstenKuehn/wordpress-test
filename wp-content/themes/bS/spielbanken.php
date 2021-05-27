@@ -24,7 +24,6 @@ background-color: gray!important;
 
 	}
 .slideshow-container.column_2, .slideshow-container.column_3 {
-background-color: gray!important;
 margin-bottom: 49px!important;
     overflow: hidden;
 }
@@ -38,7 +37,7 @@ margin-bottom: 49px!important;
 .slide_navi {
     position: absolute;
     bottom: 0;
-    top: calc(100% - 50px);
+    top: calc(100% - 100px);
     height: 50px;
 	max-width: 2000px;
 }
@@ -49,10 +48,9 @@ margin-bottom: 49px!important;
 
 .mySlides  {background-color: none;
 	padding-bottom: 24px;
-}
-.mySlides.current  {background-color: pink;
-}
+  border: 2px solid #E3E5ED;
 
+}
 .text .my-block-text {
     display: none;
 }
@@ -71,7 +69,7 @@ margin-bottom: 49px!important;
 .column_2 .mySlides  ,.column_3 .mySlides  {
 margin: 0 12px;
 display: inline-block;
-position: absolute;
+/*position: absolute;*/
 
 }
 
@@ -168,6 +166,18 @@ var slideshow_container =   document.getElementsByClassName("slideshow-container
       dots_navi.innerHTML   += dots_html;
     } 
 
+
+/*
+	if(c_slides.length<=2)
+	{
+		next.style.display = "none";  
+	}
+
+
+
+
+	prev.style.display = "none"; 
+*/
   // start with first Slide
   var slideIndex = 1;
   showSlides(i,slideIndex);
@@ -195,11 +205,21 @@ function showSlides(c,n) {
   //console.log(slideIndex);
 
   for (i = 0; i < n_slides.length; i++) {
-      n_slides[i].style.display = "inline-block";  
+      n_slides[i].style.display = "none";  
       n_slides[i].classList.remove("current");
       dots[i].className = dots[i].className.replace(" active_dot", "");
   }
+/*
+if(slideIndex>1)
+{
+	prev.style.display = "block"; 
+}
 
+if(slideIndex==(c_slides.length - 1))
+{
+	next.style.display = "none"; 
+}
+*/
   n_slides[slideIndex-1].classList.add("current");
 
 
