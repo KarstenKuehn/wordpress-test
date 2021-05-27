@@ -51,10 +51,6 @@ margin-bottom: 49px!important;
   border: 2px solid #E3E5ED;
 
 }
-.text .my-block-text {
-    display: none;
-}
-
 
 @media(min-width:768px)
 {
