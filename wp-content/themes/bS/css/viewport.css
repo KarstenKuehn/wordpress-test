@@ -1364,7 +1364,10 @@ color:#091B30;
     grid-template-rows: auto 1fr 1fr;
 
 }
-
+.content-slider .mySlides
+{
+  width: 600px;
+}
 .content-slider .text 
 {
   top: 0;
