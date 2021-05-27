@@ -232,8 +232,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
 
                     $arr = array_slice($arr,0,$k);
                     foreach ($arr as $key => $sub_child) {
-                    $bild_navigation.='<div class="sub_menu_block blog">'.get_the_post_thumbnail($sub_child->object_id).'<p>'.$sub_child->title.'</p><a href="'.$sub_child->url.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
-
+                    $bild_navigation.='<div class="sub_menu_block blog"><a href="'.$sub_child->url.'"><div class="menu_teaser_bild" style="background-image: url('.get_the_post_thumbnail_url($sub_child->object_id).')"></div></a><p>'.$sub_child->title.'</p><a href="'.$sub_child->url.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
 
                     }
                 }
@@ -243,27 +242,6 @@ function sub_menu($view,$current_menu,$current_menu_id) {
 
         if($view=='d')
         {
-
-
-/*            $the_query = new WP_Query( array(
-                'category_name' => $current_menu->title,
-                'posts_per_page' => $k ,
-                )
-            ); 
-            if ( $the_query->have_posts() && $k>0) :
-                while ( $the_query->have_posts() ) : $the_query->the_post(); 
-                $title  = get_the_title();
-                $excerpt = get_the_excerpt();
-                $post_image = get_the_post_thumbnail( $post);
-                $permalink = get_permalink( $post );
-                $submenu_html_liste.='<div class="sub_menu_block blog">'.$post_image.'<p>'.$title.'</p><a href="'.$permalink.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
-                endwhile; 
-                wp_reset_postdata(); 
-            else : 
-                 $submenu_html_liste.='<div class="sub_menu_block blog"></div>';               
-            endif;
-
-*/
 
         $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$menu_list.$submenu_html_liste.$bild_navigation.'</div>';
 
@@ -971,6 +949,7 @@ function kb_whitelist_blocks() {
     'core/more',
     'core/buttons',
     'core/html',
+    'lb/slide-item-content',
     'lb/two-column-text',
     'lb/hero-img',
     'lb/text-img',
