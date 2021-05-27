@@ -47,6 +47,16 @@ margin-bottom: 49px!important;
 	background-color: #1F5DA6;
 }
 
+.mySlides  {background-color: none;
+	padding-bottom: 24px;
+}
+.mySlides.current  {background-color: pink;
+}
+
+.text .my-block-text {
+    display: none;
+}
+
 
 @media(min-width:768px)
 {
@@ -186,8 +196,13 @@ function showSlides(c,n) {
 
   for (i = 0; i < n_slides.length; i++) {
       n_slides[i].style.display = "inline-block";  
+      n_slides[i].classList.remove("current");
       dots[i].className = dots[i].className.replace(" active_dot", "");
   }
+
+  n_slides[slideIndex-1].classList.add("current");
+
+
   n_slides[slideIndex-1].style.display = "inline-block";  
   n_slides[slideIndex].style.display = "inline-block";  
 
