@@ -155,7 +155,6 @@ h1,h2,h3,h4,p
 .text-image .block_image_div, .image-text .block_image_div{
   position: absolute;
   top: 96px;
-  height: 456px;    
     background-size: cover;
   width: 49.6vw;
   background-position: center;
@@ -225,7 +224,7 @@ h1,h2,h3,h4,p
   padding: 0;
 }
 .media-text .block_content{
-  height: 144px;
+  height: auto;
 }
 .media-text.kontakt .block_content{
   height: auto;

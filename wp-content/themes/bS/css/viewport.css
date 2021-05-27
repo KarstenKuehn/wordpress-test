@@ -1070,8 +1070,9 @@ p
 }
 
 .block_image_div {
-    background-size: cover;
-    min-height: 300px;
+  background-size: cover;
+  min-height: 300px;
+  height: calc(100% - 48px );
 }
 
 
