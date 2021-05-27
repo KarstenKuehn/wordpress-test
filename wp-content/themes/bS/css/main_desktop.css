@@ -133,11 +133,11 @@ h1,h2,h3,h4,p
 }
 .content_section .text-image, .content_section .image-text{
   position: relative;
-  height: 504px;
+  min-height: 504px;
   margin-bottom: 96px;
   width: 100%;
   padding-top: 96px;
-  max-width: 2000px;
+  /*max-width: 2000px;*/
   margin: auto;
 }
 .text-image .content, .image-text .content{
@@ -180,7 +180,7 @@ h1,h2,h3,h4,p
     width: 50%;
     display: grid;
     grid: auto / repeat(auto-fill, calc(100%));
-    justify-items: end;
+    /*justify-items: end;*/
 }
 
 .image-text .block_text {
