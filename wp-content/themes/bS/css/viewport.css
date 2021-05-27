@@ -129,11 +129,10 @@ p{
     height: 100vh;
     overflow: hidden;
 }
+
 #back_navi{
   display: none;
 }
-
-
 
 .main ul{
   padding-bottom: 16px;
