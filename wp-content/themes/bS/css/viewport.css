@@ -1365,6 +1365,14 @@ color:#091B30;
 
 }
 
+.content-slider .text 
+{
+  top: 0;
+}
+.content-slider .my-block-image
+{
+  margin-bottom: 32px;
+}
 .content-slider .text .my-block-text
 {
   display: block;
@@ -1374,6 +1382,7 @@ color:#091B30;
 {
   font-size: 26px;
   line-height: 32px;
+  margin-bottom: 16px;
 }
 .content-slider .text .my-block-text:last-of-type
 {
