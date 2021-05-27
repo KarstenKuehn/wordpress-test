@@ -1599,7 +1599,7 @@ a.main-navi_btn.active {
   }
 
   .extra_navi_wrapper {
-      margin-bottom: 16px;
+      padding-bottom: 16px;
   }
 
 .navi-item img {

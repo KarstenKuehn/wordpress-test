@@ -32,7 +32,7 @@ function my_block_template() {
             'content'   => "<!-- wp:group {\"className\":\"slideshow-container\",\"backgroundColor\":\"cyan-bluish-gray\",\"textColor\":\"black\"} -->\r\n<div class=\"wp-block-group slideshow-container has-black-color has-cyan-bluish-gray-background-color has-text-color has-background\"><div class=\"wp-block-group__inner-container\"><!-- wp:media-text {\"className\":\"mySlides fade block\"} -->\r\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile mySlides fade block\"><figure class=\"wp-block-media-text__media\"></figure><div class=\"wp-block-media-text__content\"><!-- wp:paragraph {\"placeholder\":\"Inhalt\u2026\",\"className\":\"text\",\"fontSize\":\"large\"} -->\r\n<p class=\"text has-large-font-size\"></p>\r\n<!-- /wp:paragraph --></div></div>\r\n<!-- /wp:media-text -->\r\n\r\n<!-- wp:media-text {\"className\":\"mySlides fade\"} -->\r\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile mySlides fade\"><figure class=\"wp-block-media-text__media\"></figure><div class=\"wp-block-media-text__content\"><!-- wp:paragraph {\"placeholder\":\"Inhalt\u2026\",\"className\":\"text\",\"fontSize\":\"large\"} -->\r\n<p class=\"text has-large-font-size\"></p>\r\n<!-- /wp:paragraph --></div></div>\r\n<!-- /wp:media-text -->\r\n\r\n<!-- wp:media-text {\"className\":\"mySlides fade\"} -->\r\n<div class=\"wp-block-media-text alignwide is-stacked-on-mobile mySlides fade\"><figure class=\"wp-block-media-text__media\"></figure><div class=\"wp-block-media-text__content\"><!-- wp:paragraph {\"placeholder\":\"Inhalt\u2026\",\"className\":\"text\",\"fontSize\":\"large\"} -->\r\n<p class=\"text has-large-font-size\"></p>\r\n<!-- /wp:paragraph --></div></div>\r\n<!-- /wp:media-text --></div></div>\r\n<!-- /wp:group -->",
         )
     );
-
+*/
     register_block_pattern(
         'my_template/extranavi',
         array('categories'  => array('lb_vorlagen'),      
@@ -40,7 +40,7 @@ function my_block_template() {
             'content'   => "<!-- wp:group {\"style\":{\"color\":{\"background\":\"#f3f4f7\"}},\"className\":\"gray extra_navi_wrapper\"} -->\r\n<div class=\"wp-block-group gray extra_navi_wrapper has-background\" style=\"background-color:#f3f4f7\"><div class=\"wp-block-group__inner-container\"><!-- wp:columns {\"className\":\"content_section extranavi\"} -->\r\n<div class=\"wp-block-columns content_section extra_navi\"><!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column -->\r\n\r\n<!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column -->\r\n\r\n<!-- wp:column {\"className\":\"navi-item\"} -->\r\n<div class=\"wp-block-column navi-item\"><!-- wp:image -->\r\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\r\n<!-- /wp:image --></div>\r\n<!-- /wp:column --></div>\r\n<!-- /wp:columns --></div></div>\r\n<!-- /wp:group -->",
         )
     );
-*/
+
     register_block_pattern(
         'my_template/slider-new',
         array('categories'  => array('lb_vorlagen'),      
