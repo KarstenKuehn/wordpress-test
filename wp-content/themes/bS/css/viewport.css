@@ -663,7 +663,7 @@ input#s {
   letter-spacing: 0;
   line-height: 24px;  
   height: 40px;
-  /*font-weight: 200;*/
+  font-weight: 400;
 }
 a.sub_menu_item{
     color: #091B30;
@@ -956,7 +956,7 @@ button
     border-bottom: 1px solid #E3E5ED;
     text-align: left;
     line-height: 72px;
-    /*font-weight: 100;*/
+    font-weight: 300;
   }
 
 .main-navi_btn .material-icons {
@@ -994,6 +994,7 @@ button
 h1{
   font-size: 42px;
   line-height: 48px;
+  font-weight: 400;
 }
 h2{
   font-size: 26px;
