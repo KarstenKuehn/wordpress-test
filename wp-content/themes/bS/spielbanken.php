@@ -5,227 +5,140 @@
 
 get_header();
 ?>
+<div class="main event_detail">
+	<?php
+	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
+	$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+	echo $html;
+	$base_args = array(
+    	'hierarchical' => 0
+  	);
+	if (has_children()):
+    	$args = array(
+      		'child_of' => $post->ID,
+      		'parent' => $post->ID
+    	);
+  	else:
+    	if (is_top_level()):
+      		$args = array(
+        		'parent' => $post->post_parent
+      		);
+    	else:
+      		$args = array(
+        		'parent' => 0
+      		);
+    	endif;
+  	endif;
+    $args = array_merge($base_args, $args);
+    $pages = get_pages($args);
+	?>
+    <!-- Swiper -->
+    <div class="slideshow-container content-slider">
+      <div class="swiper-wrapper">
+		<?php
+			foreach ($pages as $page):
+				$page_image = get_the_post_thumbnail( $page->ID );
+				echo '<div class="swiper-slide mySlides">';
+				echo '<div class="my-block-image">';
+				//echo 'Image';
+				echo $page_image;
+				echo '</div>';
+				echo '<a href="' . get_permalink($page->ID) . '">' . $page->post_title . '</a>';
+				//$excerpt = get_the_excerpt(0,20);
 
-<?php
-echo '<div class="main event_detail">';
-echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
-#echo '<h1>'.get_the_title().'</h1>';
-$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
-echo $html;
-
-?>
+				echo '<div class="text cs">';
+				echo '<span class="my-block-text">';
+				echo $page->post_title;
+				echo '</span>';
+				echo '<span class="my-block-text">';
+				echo wp_trim_words(strip_tags($page->post_content),10, ' […]'  );   	
+				echo '</span>';
+				echo '<a class="button_more" href="' . get_permalink($page->ID) . '"><span>Spielbanken '.$page->post_title.'</span><img class="icons" src="/wp-content/uploads/LB_Icons_export/cta_arrow.svg" alt="weiter" />';
+				echo '</a>';
+				echo '</div>';
+				echo '</div>';
+			endforeach;
+		?>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
 </div>
+    <!-- Swiper JS -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".slideshow-container", {
+		slidesPerView: 3,
+        spaceBetween: 30,   
+        dots: true,   	
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
 
-
-<style type="text/css">
-	.your-class{
-background-color: gray!important;	
+    <style type="text/css">
+    	
+      .swiper-container {
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+      }
+	.mySlides {
+	    display: block;
+	    border: 1px solid #E3E5ED; 
+	    background-color: transparent;
+	    height: 100%;
+	}
+	.text.cs{
+		position: relative;
+    padding:	16px;
+    max-width: 100%
 
 	}
-.slideshow-container.column_2, .slideshow-container.column_3 {
-margin-bottom: 49px!important;
-    overflow: hidden;
+
+	.mySlides img{
+	    background: none;
+	}
+
+.text.cs *{
+    max-width: 100%}
+
+a.button_more {
+	width: auto;
+	display: flex;
+	justify-content: flex-end;
 }
 
-
-
-.text {
-    position: relative;
+a.button_more, a.button_more span {
+	font-size: 16px;
+	line-height: 48px;
 }
 
-.slide_navi {
-    position: absolute;
-    bottom: 0;
-    top: calc(100% - 100px);
-    height: 50px;
-	max-width: 2000px;
+a.button_more img.icons {
+	height: 16px;
+	display: inline-block;
+	width: auto;
+	margin: auto 0 auto 16px;
 }
 
-.prev_slide, .next_slide {
-	background-color: #1F5DA6;
+.my-block-image{
+
+object-fit: contain
 }
-
-.mySlides  {background-color: none;
-	padding-bottom: 24px;
-  border: 2px solid #E3E5ED;
-
-}
-
-@media(min-width:768px)
-{
-
-.slideshow-container .wp-block-group__inner-container
-{
-    max-width: 1224px;
-    margin: auto;
-    padding-bottom: 50px;
-}
-
-.column_2 .mySlides  ,.column_3 .mySlides  {
-margin: 0 12px;
-display: inline-block;
-/*position: absolute;*/
-
-}
-
-.column_2 .mySlides  {
-width: calc(100% / 2 - 24px);
-max-width: 588px;
-}
-
-.column_3 .mySlides  {
-width: calc(100% / 3 - 24px);
-}
-}
-
-
 </style>
 
 
 
 
 
-
-
-<script>
-
-
-
-
-
-var slideshow_container =   document.getElementsByClassName("slideshow-container");
-  for (i = 0; i < slideshow_container.length; i++) {
-    var container = slideshow_container[i];
-    // definierte Slider
-    var c_slides    = container.getElementsByClassName("mySlides");
-
-
-    if(c_slides.length>0)
-    {
-      // Slider Pagination als Dots
-      // Slider Navigation prev| next
-
-      var dots_node   = document.createElement("div");
-      
-      dots_node.setAttribute("id", "dots_"+i);
-      dots_node.setAttribute("class", "desktop_hidden dots "+i);
-      container.appendChild(dots_node); 
-
-      var slide_navi_node   = document.createElement("div");      
-      slide_navi_node.setAttribute("id", "slide_navi_"+i);
-      slide_navi_node.setAttribute("class", "slide_navi "+i);
-
-
-
-
-      container.appendChild(slide_navi_node);
-
-      var prev = document.createElement('a'); 
-/*
-      var prev_text = document.createTextNode("❮");
-*/
-     
-      var prev_text =  document.createElement("span"); 
-      prev_text.setAttribute("class", "material-icons");
-      var p_text = document.createTextNode("arrow_back_ios_new");
-
-      prev_text.appendChild(p_text);
-      prev.appendChild(prev_text);
-
-
-      prev.setAttribute("class", "prev_slide");
-      prev.setAttribute("onclick", "plusSlides("+i+",-1)");
-
-      var next = document.createElement('a'); 
-/*
-      var next_text = document.createTextNode("❯");
-*/
-      var next_text =  document.createElement("span"); 
-      next_text.setAttribute("class", "material-icons");
-      var n_text = document.createTextNode("arrow_forward_ios");
-
-      next_text.appendChild(n_text);
-
-      next.setAttribute("class", "next_slide");
-      next.setAttribute("onclick", "plusSlides("+i+",+1)");
-      next.appendChild(next_text);
-      slide_navi_node.appendChild(prev);slide_navi_node.appendChild(next);
-    }
-
-    var dots_navi     = document.getElementById("dots_"+i);
-    dots_navi.innerHTML   = '';
-    for (s = 1; s <= c_slides.length; s++) {
-      slide = c_slides[s];
-      //console.log(s);
-      dots_html   = '<span class="dot" onclick="currentSlide('+i+','+s+')"></span>';
-      dots_navi.innerHTML   += dots_html;
-    } 
-
-
-/*
-	if(c_slides.length<=2)
-	{
-		next.style.display = "none";  
-	}
-
-
-
-
-	prev.style.display = "none"; 
-*/
-  // start with first Slide
-  var slideIndex = 1;
-  showSlides(i,slideIndex);
-  }
-
-function plusSlides(c,n) {
-  //console.log('plusSlides('+c+','+n+')');
-  showSlides(c,slideIndex += n);
-}
-
-function currentSlide(c,n) {
-  //console.log('currentSlide('+c+','+n+')');
-  showSlides(c,slideIndex = n);
-}
-
-function showSlides(c,n) {
-  //console.log('showSlides('+c+','+n+')');
-  var container = document.getElementsByClassName("slideshow-container")[c];
-  //console.log(container);
-  var i;
-  var n_slides = container.getElementsByClassName("mySlides");
-  var dots = container.getElementsByClassName("dot");
-  if (n > n_slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = n_slides.length}
-  //console.log(slideIndex);
-
-  for (i = 0; i < n_slides.length; i++) {
-      n_slides[i].style.display = "none";  
-      n_slides[i].classList.remove("current");
-      dots[i].className = dots[i].className.replace(" active_dot", "");
-  }
-/*
-if(slideIndex>1)
-{
-	prev.style.display = "block"; 
-}
-
-if(slideIndex==(c_slides.length - 1))
-{
-	next.style.display = "none"; 
-}
-*/
-  n_slides[slideIndex-1].classList.add("current");
-
-
-  n_slides[slideIndex-1].style.display = "inline-block";  
-  n_slides[slideIndex].style.display = "inline-block";  
-
-  n_slides[slideIndex-1].style.position = "relative";  
-  n_slides[slideIndex].style.position = "relative"; 
-
-  dots[slideIndex-1].className += " active_dot";
-}
-</script>
 <?php get_footer(); 

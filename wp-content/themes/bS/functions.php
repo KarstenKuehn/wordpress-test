@@ -1068,3 +1068,34 @@ add_filter('get_the_excerpt', 'lt_html_excerpt');
 function the_current_page(){
     return get_query_var('paged') == 0 ? 1 : get_query_var('paged');
 }
+
+
+function has_parent( $post, $post_id ) {
+    if ($post->ID == $post_id)
+        return true;
+    elseif ($post->post_parent == 0)
+        return false;
+    else
+        return has_parent( get_post($post->post_parent), $post_id );
+}
+
+
+function has_children() {
+  global $post;
+  
+  $pages = get_pages('child_of=' . $post->ID);
+  
+  if (count($pages) > 0):
+    return true;
+  else:
+    return false;
+  endif;
+}
+
+function is_top_level() {
+  global $post, $wpdb;
+  
+  $current_page = $wpdb->get_var("SELECT post_parent FROM $wpdb->posts WHERE ID = " . $post->ID);
+  
+  return $current_page;
+}

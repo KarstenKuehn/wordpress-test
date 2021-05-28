@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Navigation/-List" transform="translate(-302.000000, -8.000000)">
+            <g id="arrow" transform="translate(318.000000, 24.000000) rotate(-270.000000) translate(-318.000000, -24.000000) translate(302.000000, 8.000000)">
+                <rect id="Rectangle" x="-2.50111043e-12" y="0" width="32" height="32"></rect>
+                <polygon id="Path" fill="#1F5DA6" fill-rule="nonzero" points="25.3722526 20.1685412 16.2037114 11 7.0351 20.1686114 8.5242526 21.657764 15.1679806 15.014036 16.2036763 13.9672654 17.2739806 15.0485744 23.8831 21.657764"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

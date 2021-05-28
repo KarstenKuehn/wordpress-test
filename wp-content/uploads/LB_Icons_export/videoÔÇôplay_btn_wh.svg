@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Video Play Button</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Image-&amp;-VIdeo/Video-S" transform="translate(-164.000000, -97.000000)">
+            <g id="button" transform="translate(164.000000, 97.000000)">
+                <path d="M32,1 C40.525,1 48.2743631,4.48857666 53.8928932,10.1071068 C59.5114233,15.7256369 63,23.475 63,32 C63,40.525 59.5114233,48.2743631 53.8928932,53.8928932 C48.2743631,59.5114233 40.525,63 32,63 C23.475,63 15.7256369,59.5114233 10.1071068,53.8928932 C4.48857666,48.2743631 1,40.525 1,32 C1,23.475 4.48857666,15.7256369 10.1071068,10.1071068 C15.7256369,4.48857666 23.475,1 32,1 Z" id="Shape" stroke="#FFFFFF" stroke-width="2" fill-rule="nonzero"></path>
+                <polygon id="Path" fill="#FFFFFF" points="26 42 26 21 43 31.5"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
