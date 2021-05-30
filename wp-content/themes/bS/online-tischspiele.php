@@ -28,9 +28,6 @@ $pages = get_pages($args);
 				//echo 'Image';
 				echo $page_image;
 				echo '</div>';
-				echo '<a href="' . get_permalink($page->ID) . '">' . $page->post_title . '</a>';
-				//$excerpt = get_the_excerpt(0,20);
-
 				echo '<div class="text cs">';
 				echo '<span class="my-block-text">';
 				echo $page->post_title;
@@ -38,7 +35,7 @@ $pages = get_pages($args);
 				echo '<span class="my-block-text">';
 				echo wp_trim_words(strip_tags($page->post_content),10, ' […]'  );   	
 				echo '</span>';
-				echo '<a class="button_more" href="' . get_permalink($page->ID) . '"><span>Spielbanken '.$page->post_title.'</span><img class="icons" src="/wp-content/uploads/LB_Icons_export/cta_arrow.svg" alt="weiter" />';
+				echo '<a class="button_more" href="' . get_permalink($page->ID) . '"><img class="icons" src="/wp-content/uploads/LB_Icons_export/cta_arrow.svg" alt="weiter" />';
 				echo '</a>';
 				echo '</div>';
 				echo '</div>';
