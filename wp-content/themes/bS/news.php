@@ -18,7 +18,6 @@ echo '<div class="height50"></div>
 
 
 $args = array(
-        'posts_per_page' => 5,
         'category'       => array(10,9),
     	'sort_order' 	 => 'desc'
     );

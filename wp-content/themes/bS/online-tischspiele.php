@@ -1,36 +1,21 @@
 <?php
 /* 
-	Template Name: Spielbanken Übersicht
+	Template Name: Online Tischspiele
 */
 
 get_header();
 ?>
-<div class="main event_detail">
+<div class="main tischspiele">
 	<?php
 	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
 	$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 	echo $html;
-	$base_args = array(
-    	'hierarchical' => 0
-  	);
-	if (has_children()):
-    	$args = array(
-      		'child_of' => $post->ID,
-      		'parent' => $post->ID
-    	);
-  	else:
-    	if (is_top_level()):
-      		$args = array(
-        		'parent' => $post->post_parent
-      		);
-    	else:
-      		$args = array(
-        		'parent' => 0
-      		);
-    	endif;
-  	endif;
-    $args = array_merge($base_args, $args);
-    $pages = get_pages($args);
+
+$args = array(
+    'parent'       			=> 100,
+    'posts_per_page'   => -1,
+);
+$pages = get_pages($args);
 	?>
     <!-- Swiper -->
     <div class="slideshow-container content-slider">
@@ -62,7 +47,6 @@ get_header();
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
     </div>
 </div>
     <!-- Swiper JS -->
@@ -85,6 +69,9 @@ get_header();
         },
       });
     </script>
+
+
+
 
     <style type="text/css">
     	
@@ -136,9 +123,5 @@ a.button_more img.icons {
 object-fit: contain
 }
 </style>
-
-
-
-
 
 <?php get_footer(); 
