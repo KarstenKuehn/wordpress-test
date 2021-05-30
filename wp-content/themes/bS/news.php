@@ -70,6 +70,7 @@ function sortDesc( $a, $b ) {
 }
 
 $selectedYear = date('Y');
+
 foreach($years as $key => $year)
 {
 	if ($year == $selectedYear)
