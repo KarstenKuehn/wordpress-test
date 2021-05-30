@@ -22,11 +22,9 @@ $pages = get_pages($args);
       <div class="swiper-wrapper">
 		<?php
 			foreach ($pages as $page):
-				$page_image = get_the_post_thumbnail( $page->ID );
+				$url = get_the_post_thumbnail_url($page->ID);
 				echo '<div class="swiper-slide mySlides">';
-				echo '<div class="my-block-image">';
-				//echo 'Image';
-				echo $page_image;
+				echo '<div class="my-block-image" style="background-image:url(\''.$url.'\')";>';
 				echo '</div>';
 				echo '<div class="text cs">';
 				echo '<span class="my-block-text">';
@@ -82,18 +80,18 @@ $pages = get_pages($args);
 	    border: 1px solid #E3E5ED; 
 	    background-color: transparent;
 	    height: 100%;
+	    width: 600px;
 	}
 	.text.cs{
 		position: relative;
     padding:	16px;
     max-width: 100%
-
+    
 	}
-
-	.mySlides img{
-	    background: none;
+	.my-block-text:last-of-type
+	{
+		min-height: 3rem;
 	}
-
 .text.cs *{
     max-width: 100%}
 
@@ -116,7 +114,8 @@ a.button_more img.icons {
 }
 
 .my-block-image{
-
+height: 391px;
+width: 600px;
 object-fit: contain
 }
 </style>
