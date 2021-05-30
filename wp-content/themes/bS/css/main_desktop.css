@@ -331,16 +331,24 @@ a.event_short h2
 {
   padding-top:25px;
 }
-/*
-.news_container
-{
-  width:31%;
-  margin-right:2%; 
-  display: inline-block;
-  vertical-align: top;
-}
-*/
 
+
+  .news_container
+  {
+    display: none;
+    width: calc(33% - 12px);
+    margin: 0 24px 24px 0;
+  }
+  .news_frame h2
+  {
+    color: inherit;
+    line-height: 32px;
+    height: 69px;
+  }
+  .active
+  {
+    display: inline-block;
+  }
   .content_section >.navi-item {
       margin-bottom: -36px;
   }

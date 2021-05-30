@@ -1231,13 +1231,7 @@ a.event_short
   line-height:32px;
   padding-left:0;
 }
-.news_container
-{
-  width:99%;
-  margin:0 auto 50px auto;
-  display:block;
-  border:1px solid #E3E5ED;
-}
+
 .bg-image
 {
   width:100%;
@@ -1312,59 +1306,74 @@ width: auto;
 .wp-block-latest-posts li::before{content: ''
   }
 
-
-.news_container h2
+.news button
 {
-  margin:16px 0 16px 0;
-  padding:0;
+  border: 1px solid #1F5DA6;
+  color: #1F5DA6;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin: 24px auto;
+  width: 169px;
+  text-align: center;
+  display: block;
+  height: 56px;
+  margin-bottom: 120px;
+}
+.news_container
+{
+  border:  1px solid #E3E5ED;
+  width: calc(100% - 60px);
+  margin: 0 30px 24px 30px;
+  display: none;
+  vertical-align: top;
+  padding:0 0 24px 0;
+  color: #091B30;
+}
+.news_container:nth-child(3n+3)
+{
+  margin-right: 0;
+}
+.news_container .bg-image
+{
+  margin-bottom: 25px !important;
+}
+.news_frame
+{
+  color: #091B30;
+  font-size: 16px;
+  padding: 0 30px 23.5px 30px;
+  border-bottom:  1px solid #E3E5ED;
+  margin-bottom: 23.5px;
+}
+.news_frame h2
+{
+  color: inherit;
+  line-height: 32px;
+  height: 79px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 26px;
+  font-weight: 300;
+  margin: 16px 0;
+  color: #091B30;
 }
 .news_container a
 {
-  color:#091B30;
-  padding:24px 0 24px 32px;
-  width:100%;
-  display:block;
+  display: block;
+  padding: 0 30px;
 }
-.news_container a span
+.news_container a .material-icons
 {
-  float:right;
-  color:#1F5DA6;
-  padding-right:20px;
+  float: right;
 }
-.news_frame {
-padding:25px 32px 0 32px; 
-margin: 0 auto 0 0; 
-border-bottom:1px solid #E1E5EE; 
-font-size:16px; 
-line-height: 24px;
-color:#091B30;
-}
-
-.news_frame p
+.active
 {
-  font-size:16px;
-  line-height:24px;
-  padding:16px 0 23.5px 0;
+  display: block;
 }
 
-.news {
-    display: grid;
-    grid-gap: 24px;
-    justify-content: space-between;
-    grid: auto / 1fr;
-}
-.news_container {
-    display: inline-grid;
-    grid-template-rows: auto 1fr auto;
-    width: 100%;
-    margin: 0;
-}
-.news_container .news_frame{
-    width: 100%;
-    display: inline-grid;
-    grid-template-rows: auto 1fr 1fr;
-
-}
 .content-slider .mySlide
 {
   width: 600px;
@@ -1447,10 +1456,11 @@ margin-bottom: 120px;
 
 @media(min-width:768px)
 {
-
+/*
 .news {
     grid: auto / repeat(3, 1fr);
 }  
+*/
 
 .wp-block-latest-posts {
     display: grid;

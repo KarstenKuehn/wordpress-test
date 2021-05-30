@@ -19,36 +19,114 @@ echo '<div class="height50"></div>
 
 $args = array(
         'category'       => array(10,9),
-    	'sort_order' 	 => 'desc'
+    	'sort_order' 	 => 'desc',
+    	'posts_per_page'   => -1,
     );
 $posts = get_posts($args);
 
 ?>
+
+<?php
+
+$year = 2021;
+
+foreach ($posts as $key => $post) 
+{
+	$date = DateTime::createFromFormat('d.m.y', @get_field('datum'))->format('Y-m-d');
+	if (strlen($post->post_title) > 1)
+	{
+		$pages[] = array(
+			'ID' => $post->ID,
+			'post_title' => $post->post_title,
+			'date' => $date,
+			'excerpt'	=> substr(get_the_excerpt(),0 ,100),
+			'link'		=> get_permalink(),
+			'category'	=> get_the_category()[0]->name,
+			'thumb'		=> get_the_post_thumbnail_url(),
+
+		);
+		$years[] = date('Y',strtotime($date));
+	}
+}
+$years = array_unique($years);
+?>
+
 <section>
 <div class="events_header">
+<select>
 
+<?php
+
+function sortDesc( $a, $b ) {
+	if (isset($b["date"]) && isset($a["date"]))
+	{
+		return strtotime($b["date"]) - strtotime($a["date"]);	
+	} 
+}function sortAsc( $a, $b ) {
+	if (isset($b["date"]) && isset($a["date"]))
+	{
+		return strtotime($a["date"]) - strtotime($b["date"]);	
+	} 
+}
+
+$selectedYear = date('Y');
+foreach($years as $key => $year)
+{
+	if ($year == $selectedYear)
+	{
+		echo '<option selected>'.$year.'</option>';
+	}
+	else
+	{
+		echo '<option>'.$year.'</option>';
+	}
+	
+}
+
+
+?>
+</select>
 
 </div>
 <div class="news">
-<?php
-foreach ($posts as $key => $post) 
+
+
+<?
+
+usort($pages, "sortDesc");
+
+$i = 1;
+foreach ($pages as $key => $post) 
 {
-
-	echo '<div class="news_container">';
-
-	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/></div>';
-	echo '<div class="news_frame">';
-	@the_field('datum');
-	echo '<h2>'.$post->post_title.'</h2>';
-	echo substr($post->post_content,0 ,100).'...';
-	echo '</div>';
-	echo '<a href="'.get_permalink().'">'.get_the_category()[0]->name.'<span class="material-icons">east</span></a>';
-	echo '</div>';
+	if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category']) )
+	{
+		if (preg_match('@'.$year.'@',$post['date']))
+		{
+			if ($i++ <= 6)
+			{
+				echo '<div class="news_container active">';	
+			}
+			else
+			{
+				echo '<div class="news_container">';
+			}
+			echo '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
+			echo '<div class="news_frame">';
+			echo date('d.m.y',strtotime($post['date']));
+			echo '<h2>'.$post['post_title'].'...'.'</h2>';
+			echo $post['excerpt'].'[...]';
+			echo '</div>';
+			echo '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
+			echo '</div>';
+		}
+	}
 }
 
 ?>
+<button onclick="showAllNews()">+ mehr laden</button>
 </div>
 </section>
 </div>
+<script>function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active")}</script>
 
 <?php get_footer(); 
