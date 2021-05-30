@@ -278,6 +278,15 @@ h1,h2,h3,h4,p
   margin-left: auto;
   margin-right: auto;
 }
+
+.text_left
+{
+  padding-right: 52px;
+} 
+.text_right
+{
+  padding-left: 52px;
+}
  .medium{
   max-width: 936px;
   margin: auto;
