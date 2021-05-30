@@ -92,7 +92,7 @@ foreach($years as $key => $year)
 <div class="news">
 
 
-<?
+<?php
 
 usort($pages, "sortDesc");
 
