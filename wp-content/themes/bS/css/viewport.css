@@ -279,12 +279,6 @@ h1, section
     margin:0 auto 16px auto;
 }
 
-section 
-{
-    padding-bottom: 16px;
-}
-
-
 .gray{
   background: #F3F4F7;
   max-width: none;
@@ -895,7 +889,6 @@ a.sub_menu_item .material-icons{
 }
 
 .mySlides img{
-    background: beige;
     margin: auto;
     width: 100%;
     height: auto;
@@ -1254,7 +1247,8 @@ a.event_short
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  aspect-ratio:1/1
+  aspect-ratio:1/1;
+  margin-bottom: 39px !important;
 }
 #searchsubmit {
     left: -56px;
