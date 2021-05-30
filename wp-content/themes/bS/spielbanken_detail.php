@@ -5,6 +5,9 @@
 
 get_header();
 ?>
+
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <div class="main spielbanken_details">
 	<?php
 	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
@@ -34,7 +37,7 @@ get_header();
     $pages = get_pages($args);
 	?>
     <!-- Swiper -->
-    <h2 style="margin-top:120px">Standorte:</h2>
+    <h2 style="margin-top:120px">Standorte</h2>
     <div class="slideshow-container content-slider spielbankendetails">
       <div class="swiper-wrapper">
       	
@@ -55,12 +58,9 @@ get_header();
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
     </div>
 </div>
-    <!-- Swiper JS -->
-	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
     <!-- Initialize Swiper -->
     <script>
@@ -78,7 +78,9 @@ get_header();
         },
       });
     </script>
+<style>
 
+</style>
 
 
 

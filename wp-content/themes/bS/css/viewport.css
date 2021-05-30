@@ -1433,11 +1433,25 @@ font-weight: 700;
 font-size: 16px;
 margin-bottom: 120px;
 }
-.spielbankendetails .swiper-pagination
-{
-  display: none;
-}
 
+  .spielbankendetails .swiper-button-next,.spielbankendetails .swiper-button-prev
+  {
+    width: 72px;
+    height: 72px;
+    color: #FFF;
+    background: #1F5DA6;
+    border: 0;
+    position: absolute;
+    top: 240px;
+  }
+  .spielbankendetails .swiper-button-next
+  {
+        right: 0;
+  }
+  .spielbankendetails .swiper-button-prev
+  {
+    left: 0;
+  }
 
 @media(min-width:768px)
 {
