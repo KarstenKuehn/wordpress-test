@@ -39,12 +39,17 @@ get_header();
       <div class="swiper-wrapper">
       	
 		<?php
+			$overall_id = get_the_ID();
+
 			foreach ($pages as $page)
 			{
-				$url = get_the_post_thumbnail_url($page->ID);
-				echo '<a href="' . get_permalink($page->ID) . '" class="swiper-slide mySlides" style="background-image:url(\''.$url.'\');">';
-				echo get_the_title($page->ID);
-				echo '</a>';
+				if ( $page->ID != $overall_id)
+				{
+					$url = get_the_post_thumbnail_url($page->ID);
+					echo '<a href="' . get_permalink($page->ID) . '" class="swiper-slide mySlides" style="background-image:url(\''.$url.'\');">';
+					echo get_the_title($page->ID);
+					echo '</a>';
+				}
 			}
 		?>
       </div>
