@@ -74,41 +74,6 @@ get_header();
       });
     </script>
 
-    <style type="text/css">
-    	
-      .swiper-container {
-        width: 100%;
-        height: 100%;
-        min-height: 300px;
-      }
-	.mySlides {
-	    display: block;
-	    border: 1px solid #E3E5ED; 
-	    background-color: transparent;
-	    height: 100%;
-	}
-
-	.spielbankendetails .mySlides
-	{
-		  height: 257px;
-  width: 392px;
-  color: #FFF;
-    background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-  padding: 16px 0 0 16px;
-  color: #FFF;
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 120px;
-	}
-.spielbankendetails .swiper-pagination
-{
-	display: none;
-}
-</style>
-
-
 
 
 
