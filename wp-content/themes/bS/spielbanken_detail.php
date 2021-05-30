@@ -5,11 +5,12 @@
 
 get_header();
 ?>
-<div class="main event_detail">
+<div class="main spielbanken_details">
 	<?php
 	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
+
 	$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
-	echo $html;
+	echo '<div class="medium">'.$html.'</div>';
 	$base_args = array(
     	'hierarchical' => 0
   	);
@@ -33,31 +34,18 @@ get_header();
     $pages = get_pages($args);
 	?>
     <!-- Swiper -->
-    <div class="slideshow-container content-slider">
+    <h2 style="margin-top:120px">Standorte:</h2>
+    <div class="slideshow-container content-slider spielbankendetails">
       <div class="swiper-wrapper">
+      	
 		<?php
-			foreach ($pages as $page):
-				$page_image = get_the_post_thumbnail( $page->ID );
-				echo '<div class="swiper-slide mySlides">';
-				echo '<div class="my-block-image">';
-				//echo 'Image';
-				echo $page_image;
-				echo '</div>';
-				echo '<a href="' . get_permalink($page->ID) . '">' . $page->post_title . '</a>';
-				//$excerpt = get_the_excerpt(0,20);
-
-				echo '<div class="text cs">';
-				echo '<span class="my-block-text">';
-				echo $page->post_title;
-				echo '</span>';
-				echo '<span class="my-block-text">';
-				echo wp_trim_words(strip_tags($page->post_content),10, ' […]'  );   	
-				echo '</span>';
-				echo '<a class="button_more" href="' . get_permalink($page->ID) . '"><span>Spielbanken '.$page->post_title.'</span><img class="icons" src="/wp-content/uploads/LB_Icons_export/cta_arrow.svg" alt="weiter" />';
+			foreach ($pages as $page)
+			{
+				$url = get_the_post_thumbnail_url($page->ID);
+				echo '<a href="' . get_permalink($page->ID) . '" class="swiper-slide mySlides" style="background-image:url(\''.$url.'\');">';
+				echo get_the_title($page->ID);
 				echo '</a>';
-				echo '</div>';
-				echo '</div>';
-			endforeach;
+			}
 		?>
       </div>
       <div class="swiper-button-next"></div>
@@ -99,41 +87,24 @@ get_header();
 	    background-color: transparent;
 	    height: 100%;
 	}
-	.text.cs{
-		position: relative;
-    padding:	16px;
-    max-width: 100%
 
+	.spielbankendetails .mySlides
+	{
+		  height: 257px;
+  width: 392px;
+  color: #FFF;
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  padding: 16px 0 0 16px;
+  color: #FFF;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 120px;
 	}
-
-	.mySlides img{
-	    background: none;
-	}
-
-.text.cs *{
-    max-width: 100%}
-
-a.button_more {
-	width: auto;
-	display: flex;
-	justify-content: flex-end;
-}
-
-a.button_more, a.button_more span {
-	font-size: 16px;
-	line-height: 48px;
-}
-
-a.button_more img.icons {
-	height: 16px;
-	display: inline-block;
-	width: auto;
-	margin: auto 0 auto 16px;
-}
-
-.my-block-image{
-
-object-fit: contain
+.spielbankendetails .swiper-pagination
+{
+	display: none;
 }
 </style>
 
