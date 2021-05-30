@@ -1434,7 +1434,7 @@ font-size: 16px;
 margin-bottom: 120px;
 }
 
-  .spielbankendetails .swiper-button-next,.spielbankendetails .swiper-button-prev
+ .content-slider .swiper-button-next, .content-slider .swiper-button-prev
   {
     width: 72px;
     height: 72px;
@@ -1444,11 +1444,11 @@ margin-bottom: 120px;
     position: absolute;
     top: 240px;
   }
-  .spielbankendetails .swiper-button-next
+  .content-slider .swiper-button-next
   {
         right: 0;
   }
-  .spielbankendetails .swiper-button-prev
+  .content-slider .swiper-button-prev
   {
     left: 0;
   }
