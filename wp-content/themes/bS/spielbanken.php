@@ -5,11 +5,15 @@
 
 get_header();
 ?>
-<div class="main">
+
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<div class="main spielbanken_details">
 	<?php
 	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
+
 	$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
-	echo $html;
+	echo '<div class="medium">'.$html.'</div>';
 	$base_args = array(
     	'hierarchical' => 0
   	);
@@ -33,12 +37,23 @@ get_header();
     $pages = get_pages($args);
 	?>
     <!-- Swiper -->
-    <div class="slideshow-container content-slider">
+    <h2 style="margin-top:120px">Standorte</h2>
+    <div class="slideshow-container content-slider spielbanken">
       <div class="swiper-wrapper">
+      	
 		<?php
-			foreach ($pages as $page):
+			$overall_id = get_the_ID();
+
+			foreach ($pages as $page)
+			{
+				if ( $page->ID != $overall_id)
+				{
 				$page_image = get_the_post_thumbnail( $page->ID );
+				$url = get_the_post_thumbnail_url($page->ID);
 				echo '<div class="swiper-slide mySlides">';
+
+				echo '<div class="slide_image" style="background-image:url(\''.$url.'\');"></div>';
+
 				echo '<div class="my-block-image">';
 				//echo 'Image';
 				echo $page_image;
@@ -57,17 +72,16 @@ get_header();
 				echo '</a>';
 				echo '</div>';
 				echo '</div>';
-			endforeach;
+
+				}
+			}
 		?>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
     </div>
 </div>
-    <!-- Swiper JS -->
-	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
     <!-- Initialize Swiper -->
     <script>
@@ -85,59 +99,9 @@ get_header();
         },
       });
     </script>
+<style>
 
-    <style type="text/css">
-    	
-      .swiper-container {
-        width: 100%;
-        height: 100%;
-        min-height: 300px;
-      }
-	.mySlides {
-	    display: block;
-	    border: 1px solid #E3E5ED; 
-	    background-color: transparent;
-	    height: 100%;
-	}
-	.text.cs{
-		position: relative;
-    padding:	16px;
-    max-width: 100%
-
-	}
-
-	.mySlides img{
-	    background: none;
-	}
-
-.text.cs *{
-    max-width: 100%}
-
-a.button_more {
-	width: auto;
-	display: flex;
-	justify-content: flex-end;
-}
-
-a.button_more, a.button_more span {
-	font-size: 16px;
-	line-height: 48px;
-}
-
-a.button_more img.icons {
-	height: 16px;
-	display: inline-block;
-	width: auto;
-	margin: auto 0 auto 16px;
-}
-
-.my-block-image{
-
-object-fit: contain
-}
 </style>
-
-
 
 
 
