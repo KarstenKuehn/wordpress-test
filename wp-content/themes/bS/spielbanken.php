@@ -5,7 +5,7 @@
 
 get_header();
 ?>
-<div class="main spielbanken_details">
+<div class="main spielbanken">
 	<?php
 	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
 
@@ -35,6 +35,7 @@ get_header();
 	?>
     <!-- Swiper -->
     <h2 style="margin-top:120px">Standorte</h2>
+    <section class="full">
     <div class="slideshow-container content-slider spielbanken">
       <div class="swiper-wrapper">
       	
@@ -52,14 +53,14 @@ get_header();
 				echo '<div class="slide_image" style="background-image:url(\''.$url.'\');"></div>';
 
 				echo '<div class="text cs">';
-				echo '<span class="my-block-text">';
+				echo '<span class="my-block-text headline">';
 				echo $page->post_title;
 				echo '</span>';
 				echo '<span class="my-block-text">';
-				echo wp_trim_words(strip_tags($page->post_content),10, ' […]'  );   	
+				echo wp_trim_words(strip_tags($page->post_content),20, ' […]'  );   	
 				echo '</span>';
-				echo '<a class="button_more" href="' . get_permalink($page->ID) . '"><span>Spielbanken '.$page->post_title.'</span><img class="icons" src="/wp-content/uploads/LB_Icons_export/cta_arrow.svg" alt="weiter" />';
-				echo '</a>';
+				echo '<div class="button_more"><a href="' . get_permalink($page->ID) . '"><img class="icons" src="/wp-content/uploads/LB_Icons_export/cta_arrow.svg" alt="weiter" />';
+				echo '</a></div>';
 				echo '</div>';
 				echo '</div>';
 
@@ -67,9 +68,15 @@ get_header();
 			}
 		?>
       </div>
+  <div class="swiper-pagination desktop_hidden"></div>
+    </div>
+    <div class="swiper-button mobile_hidden">
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-    </div>
+  </div>
+
+</section>
+
 </div>
 
 
@@ -78,10 +85,9 @@ get_header();
       var swiper = new Swiper(".slideshow-container", {
 		slidesPerView: 1,
         spaceBetween: 24,   
-        dots: true,   	
         pagination: {
           el: ".swiper-pagination",
-          type: "fraction",
+          clickable: true,
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -91,17 +97,17 @@ get_header();
 		 breakpoints: {
 
 		    1100: {
-		   slidesPerView: 3,
+		   slidesPerView: 2,
 		   spaceBetween: 24
 		  },
 		    900: {
 		   slidesPerView: 2,
 		   spaceBetween: 24
-		  },  
+		  }, 
 		  768: {
-		   slidesPerView: 1,
-		   spaceBetween: 0
-		  },
+		   slidesPerView: 2,
+		   spaceBetween: 24
+		  }, 
 		},
 
       });

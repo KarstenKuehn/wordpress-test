@@ -9,6 +9,7 @@ get_header();
 	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 -->
+
 <div class="main spielbanken_details">
 	<?php
 	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
@@ -38,7 +39,8 @@ get_header();
     $pages = get_pages($args);
 	?>
     <!-- Swiper -->
-    <h2 style="margin-top:120px">Standorte</h2>
+    <h2 style="margin-top:120px">Standorte</h2>    
+    <section class="full">
     <div class="slideshow-container content-slider spielbankendetails">
       <div class="swiper-wrapper">
       	
@@ -57,21 +59,23 @@ get_header();
 			}
 		?>
       </div>
+  <div class="swiper-pagination desktop_hidden"></div>
+    </div>
+    <div class="swiper-button mobile_hidden">
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-    </div>
+  </div>
+
+</section>
 </div>
-
-
     <!-- Initialize Swiper -->
     <script>
       var swiper = new Swiper(".slideshow-container", {
 		slidesPerView: 1,
-        spaceBetween: 30,   
-        dots: true,   	
+        spaceBetween: 24,   
         pagination: {
           el: ".swiper-pagination",
-          type: "fraction",
+          clickable: true,
         },
         navigation: {
           nextEl: ".swiper-button-next",
@@ -89,8 +93,8 @@ get_header();
        spaceBetween: 24
       },  
       768: {
-       slidesPerView: 1,
-       spaceBetween: 0
+       slidesPerView: 2,
+       spaceBetween: 24
       },
     },
 
