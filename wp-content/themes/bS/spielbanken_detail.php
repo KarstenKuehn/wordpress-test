@@ -5,9 +5,10 @@
 
 get_header();
 ?>
-
+<!--
 	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+-->
 <div class="main spielbanken_details">
 	<?php
 	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
@@ -65,7 +66,7 @@ get_header();
     <!-- Initialize Swiper -->
     <script>
       var swiper = new Swiper(".slideshow-container", {
-		slidesPerView: 3,
+		slidesPerView: 1,
         spaceBetween: 30,   
         dots: true,   	
         pagination: {
@@ -76,6 +77,23 @@ get_header();
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+
+     breakpoints: {
+
+        1100: {
+       slidesPerView: 3,
+       spaceBetween: 24
+      },
+        900: {
+       slidesPerView: 2,
+       spaceBetween: 24
+      },  
+      768: {
+       slidesPerView: 1,
+       spaceBetween: 0
+      },
+    },
+
       });
     </script>
 <style>

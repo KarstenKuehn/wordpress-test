@@ -5,9 +5,6 @@
 
 get_header();
 ?>
-
-	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <div class="main spielbanken_details">
 	<?php
 	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
@@ -54,13 +51,6 @@ get_header();
 
 				echo '<div class="slide_image" style="background-image:url(\''.$url.'\');"></div>';
 
-				echo '<div class="my-block-image">';
-				//echo 'Image';
-				echo $page_image;
-				echo '</div>';
-				echo '<a href="' . get_permalink($page->ID) . '">' . $page->post_title . '</a>';
-				//$excerpt = get_the_excerpt(0,20);
-
 				echo '<div class="text cs">';
 				echo '<span class="my-block-text">';
 				echo $page->post_title;
@@ -86,8 +76,8 @@ get_header();
     <!-- Initialize Swiper -->
     <script>
       var swiper = new Swiper(".slideshow-container", {
-		slidesPerView: 3,
-        spaceBetween: 30,   
+		slidesPerView: 1,
+        spaceBetween: 24,   
         dots: true,   	
         pagination: {
           el: ".swiper-pagination",
@@ -97,12 +87,23 @@ get_header();
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+
+		 breakpoints: {
+
+		    1100: {
+		   slidesPerView: 3,
+		   spaceBetween: 24
+		  },
+		    900: {
+		   slidesPerView: 2,
+		   spaceBetween: 24
+		  },  
+		  768: {
+		   slidesPerView: 1,
+		   spaceBetween: 0
+		  },
+		},
+
       });
     </script>
-<style>
-
-</style>
-
-
-
 <?php get_footer(); 
