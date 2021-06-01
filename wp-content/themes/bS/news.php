@@ -35,6 +35,12 @@ foreach ($posts as $key => $post)
 	$date = DateTime::createFromFormat('d.m.y', @get_field('datum'))->format('Y-m-d');
 	if (strlen($post->post_title) > 1)
 	{
+		$img = '/wp-content/uploads/2021/06/news-fallback.png';
+		if (strlen(get_the_post_thumbnail_url()) > 0)
+		{
+			$img = get_the_post_thumbnail_url();
+		}
+		
 		$pages[] = array(
 			'ID' => $post->ID,
 			'post_title' => $post->post_title,
