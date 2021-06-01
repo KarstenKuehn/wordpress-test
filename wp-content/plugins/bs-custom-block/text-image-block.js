@@ -218,49 +218,82 @@ return (
         attributes.title
 
       ),
-      el(
-      'div', {
-      className: 'block_image_div mobile_hidden',
-      style : {backgroundImage:'url('+attributes.mediaURL+')'}
-      },
-      ),
-      el('img', {
-      src: attributes.mediaURL,
-      alt: attributes.mediaALT,
-          className:'block_image desktop_hidden'
-      }),
-
-    el(
-      'div', {
-      className: 'block_text'
-      },
-      el(
-        'h2',{
-          className:'content mobile_hidden'
-        },
-        attributes.title
-
-      ),
-      el(
-        'p',{
-          className:'block_content content'
-        },
-        attributes.text
-
-      ),      
-      el('a', {
-        className: 'my-block-button content',
-        href: attributes.buttonURL
-        },       
-        el(
-          'span',{
-            className:'button-text wp-block-button__link'
+      attributes.buttonURL ? 
+      (
+        el('a', {
+          href: attributes.buttonURL
           },
-          attributes.buttonText
-        ),      
-      )//end a
+
+         el(
+          'div', {
+          className: 'block_image_div mobile_hidden',
+          style : {backgroundImage:'url('+attributes.mediaURL+')'}
+          },
+          )         
+        )        
       )
-    )
+      :
+      (
+        el(
+          'div', {
+            className: 'block_image_div mobile_hidden',
+            style : {backgroundImage:'url('+attributes.mediaURL+')'}
+          }
+        )
+      ),
+
+      attributes.buttonURL ? 
+      (
+        el('a', {
+          href: attributes.buttonURL
+          },
+          el('img', {
+            src: attributes.mediaURL,
+            alt: attributes.mediaALT,
+            className:'block_image desktop_hidden'
+          }),
+        )
+      )
+      :
+      (
+        el('img', {
+          src: attributes.mediaURL,
+          alt: attributes.mediaALT,
+          className:'block_image desktop_hidden'
+        })
+      ),
+      el(
+        'div', {
+        className: 'block_text'
+        },
+        el(
+          'h2',{
+            className:'content mobile_hidden'
+          },
+          attributes.title
+
+        ),
+        el(
+          'p',{
+            className:'block_content content'
+          },
+          attributes.text
+
+        ),  
+        !attributes.buttonURL ? '':    
+        el('a', {
+          className: 'my-block-button content',
+          href: attributes.buttonURL
+          },       
+          el(
+            'span',{
+              className:'button-text wp-block-button__link'
+            },
+            attributes.buttonText
+          ),      
+        )// end a
+      )// end block_text
+    )// end text-image
   )// end section
 )}// end save
 })

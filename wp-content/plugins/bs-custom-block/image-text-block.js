@@ -218,17 +218,50 @@ return (
         attributes.title
 
       ),
-      el(
-      'div', {
-      className: 'block_image_div mobile_hidden',
-      style : {backgroundImage:'url('+attributes.mediaURL+')'}
-      },
+      attributes.buttonURL ? 
+      (
+        el('a', {
+          href: attributes.buttonURL
+          },
+
+         el(
+          'div', {
+          className: 'block_image_div mobile_hidden',
+          style : {backgroundImage:'url('+attributes.mediaURL+')'}
+          },
+          )         
+        )        
+      )
+      :
+      (
+        el(
+          'div', {
+            className: 'block_image_div mobile_hidden',
+            style : {backgroundImage:'url('+attributes.mediaURL+')'}
+          }
+        )
       ),
-      el('img', {
-      src: attributes.mediaURL,
-      alt: attributes.mediaALT,
+
+      attributes.buttonURL ? 
+      (
+        el('a', {
+          href: attributes.buttonURL
+          },
+          el('img', {
+            src: attributes.mediaURL,
+            alt: attributes.mediaALT,
+            className:'block_image desktop_hidden'
+          }),
+        )
+      )
+      :
+      (
+        el('img', {
+          src: attributes.mediaURL,
+          alt: attributes.mediaALT,
           className:'block_image desktop_hidden'
-      }),
+        })
+      ),
 
     el(
       'div', {
