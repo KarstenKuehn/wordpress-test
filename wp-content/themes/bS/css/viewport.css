@@ -1064,6 +1064,10 @@ p
     line-height: 1.5rem;
     font-weight: lighter;
   }
+  .question.active
+  {
+    display: block;
+  }
 .question.active:after {
     content: "\e15d";
 }
