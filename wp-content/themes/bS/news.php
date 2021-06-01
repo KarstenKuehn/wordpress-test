@@ -48,7 +48,7 @@ foreach ($posts as $key => $post)
 			'excerpt'	=> substr(get_the_excerpt(),0 ,100),
 			'link'		=> get_permalink(),
 			'category'	=> get_the_category()[0]->name,
-			'thumb'		=> get_the_post_thumbnail_url(),
+			'thumb'		=> $img,
 
 		);
 		$years[] = date('Y',strtotime($date));
