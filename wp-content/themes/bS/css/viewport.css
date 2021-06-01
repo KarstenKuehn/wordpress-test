@@ -1208,7 +1208,10 @@ a.event_short
   font-size:24px;
   padding-top: 7px;
 }
-
+.news_details
+{
+  margin-top: 30px;
+}
 .event_short span
 {
   padding:5px 5px 0 5px;
