@@ -949,6 +949,7 @@ function kb_whitelist_blocks() {
     'core/video',
     'core/list',
     'core/table',
+    'core/quote',
     'core/latest-posts',
     'core/more',
     'core/buttons',
