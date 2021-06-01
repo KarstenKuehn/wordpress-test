@@ -93,7 +93,7 @@ details > summary::marker {
 }
 
 
-.main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full){
+.main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1){
 max-width: 1224px;
 margin: 0 auto;
 padding: 0 16px;
