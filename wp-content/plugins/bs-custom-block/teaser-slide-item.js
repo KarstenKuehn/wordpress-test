@@ -7,9 +7,9 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
-registerBlockType('my-first-gutenberg-block/image-with-text-block', {
-title: i18n.__('Slide-Element', 'my-first-gutenberg-block'),
-description: i18n.__('A custom block for displaying image with text section', 'my-first-gutenberg-block'),
+registerBlockType('lb/teaser-slide-item', {
+title: i18n.__('TeaserSlide-Element', 'lb'),
+description: i18n.__('A custom block for displaying image with text section', 'lb'),
 icon: 'id',
 category: 'common',
 attributes: {
@@ -94,11 +94,11 @@ return [
   ),
   el(InspectorControls, {key: 'inspector'},
   el(components.PanelBody, {
-  title: i18n.__('Block Content', 'my-first-gutenberg-block'),
+  title: i18n.__('Block Content', 'lb'),
   className: 'block-content',
   initialOpen: true
   },
-  el('p', {}, i18n.__('Add custom meta options to your block', 'my-first-gutenberg-block')),
+  el('p', {}, i18n.__('Add custom meta options to your block', 'lb')),
   el(TextControl, {
   type: 'text',
   label: i18n.__('Button Text', 'my-first-gutenberg-block'),
@@ -109,7 +109,7 @@ return [
   }),
   el(TextControl, {
   type: 'url',
-  label: i18n.__('Button URL', 'my-first-gutenberg-block'),
+  label: i18n.__('Button URL', 'lb'),
   value: attributes.buttonURL,
   onChange: function (newButtonUrl) {
   props.setAttributes({ buttonURL: newButtonUrl })
@@ -143,7 +143,7 @@ return [
       style:{height:'120px'},
               onClick: obj.open
               },
-              !attributes.mediaID ? i18n.__('Upload Image', 'my-first-gutenberg-block') : el('img', {src: attributes.mediaURL,
+              !attributes.mediaID ? i18n.__('Upload Image', 'lb') : el('img', {src: attributes.mediaURL,
       alt: attributes.mediaALT,
       style:{height:'120px'}})
             )
@@ -159,7 +159,7 @@ return [
   key: 'editable',
   tagName: 'h3',
   className: 'my-block-title',
-  placeholder: i18n.__('Title Text', 'my-first-gutenberg-block'),
+  placeholder: i18n.__('Title Text', 'lb'),
   keepPlaceholderOnFocus: true,
   value: attributes.title,
   onChange: function (newTitle) {
@@ -170,7 +170,7 @@ return [
   key: 'editable',
   tagName: 'p',
   className: 'my-block-text text',
-  placeholder: i18n.__('Zeile 1', 'my-first-gutenberg-block'),
+  placeholder: i18n.__('Zeile 1', 'lb'),
   keepPlaceholderOnFocus: true,
   value: attributes.text1,
   onChange: function (newText) {
@@ -181,7 +181,7 @@ return [
   key: 'editable',
   tagName: 'p',
   className: 'my-block-text text',
-  placeholder: i18n.__('Zeile2', 'my-first-gutenberg-block'),
+  placeholder: i18n.__('Zeile2', 'lb'),
   keepPlaceholderOnFocus: true,
   value: attributes.text2,
   onChange: function (newText) {
@@ -190,7 +190,7 @@ return [
   }),
   el('button', {
   className: 'my-block-button',
-  placeholder: i18n.__('Text', 'my-first-gutenberg-block'),
+  placeholder: i18n.__('Text', 'lb'),
   href: attributes.buttonURL
   }, attributes.buttonText)
   )
@@ -203,7 +203,7 @@ return (
   el(
     'div', 
     {
-      className: 'swiper-slide mySlides',
+      className: 'swiper-slide',
       style: {textAlign: attributes.alignment}
     },
     el(

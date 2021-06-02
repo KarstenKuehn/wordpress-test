@@ -968,6 +968,8 @@ function kb_whitelist_blocks() {
     'lb/presse-img-text',
     'lb/presse-text-img',
     'lb/section',
+    'lb/teaser-slide-frame',
+    'lb/teaser-slide-item',
     'lb/text-media',
     'lb/benefits-text',
   );
