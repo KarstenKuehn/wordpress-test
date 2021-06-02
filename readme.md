@@ -74,8 +74,6 @@ because the systems wants to update the plugin's language.
           className:'customClass',
           value:  attributes.[customAttributes]
           },
-         
-
         ), 
 4) functions.php 
 	function kb_whitelist_blocks() {
