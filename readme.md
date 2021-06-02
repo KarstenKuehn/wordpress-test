@@ -68,7 +68,7 @@ because the systems wants to update the plugin's language.
 	add_action('enqueue_block_editor_assets', 'load_custom-block-xy');
 
 3) im gleichen Ordner 'custom-block-xy.js erstellen
-	// Hinweis: HTML berücksichtigen
+	// Hinweis: HTML berücksichtigen => save() - Bereich
 		el( **editor.RichText.Content**, {
           tagName:'p',
           className:'customClass',
