@@ -273,11 +273,12 @@ return (
           attributes.title
 
         ),
-        el(
-          'p',{
-            className:'block_content content'
+        el( editor.RichText.Content, {
+          tagName:'p',
+          className:'block_content content',
+          value:  attributes.text
           },
-          attributes.text
+         
 
         ),  
         !attributes.buttonURL ? '':    

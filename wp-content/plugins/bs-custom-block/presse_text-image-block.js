@@ -274,7 +274,9 @@ return (
           */
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'mail_outline'),
-            el('span',null,attributes.mail),
+            el( editor.RichText.Content, {
+                tagName:'',
+                value:attributes.mail}),
             ),
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'phone'),

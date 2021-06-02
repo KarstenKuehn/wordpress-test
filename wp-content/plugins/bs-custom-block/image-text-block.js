@@ -274,13 +274,14 @@ return (
         attributes.title
 
       ),
-      el(
-        'p',{
-          className:'block_content content'
-        },
-        attributes.text
+        el( editor.RichText.Content, {
+          tagName:'p',
+          className:'block_content content',
+          value:  attributes.text
+          },
+         
 
-      ),      
+        ),     
       el('a', {
         className: 'my-block-button content',
         href: attributes.buttonURL

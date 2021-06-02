@@ -48,6 +48,12 @@ attributes: {
   type: 'text',
   selector: 'p'
   },
+
+      content: {
+        type: 'string',
+        default: ''
+      },
+
   alignment: {
   type: 'string',
   default: 'center'
@@ -203,7 +209,7 @@ return [
       }
     }),      
       
-    el(
+   el(
       "hr",
       null
     ),
@@ -274,8 +280,11 @@ return (
           */
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'mail_outline'),
-            el('span',null,attributes.mail),
-            ),
+            el( editor.RichText.Content, {
+                tagName:'',
+                value:attributes.mail}),              
+              ),// end p 
+
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'phone'),
             el('span',null,attributes.phone),
