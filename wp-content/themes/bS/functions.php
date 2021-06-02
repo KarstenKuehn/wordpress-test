@@ -971,6 +971,10 @@ function kb_whitelist_blocks() {
     'lb/text-media',
     'lb/benefits-text',
   );
+
+
+
+
 }
 add_filter('allowed_block_types','kb_whitelist_blocks');
 
@@ -1105,3 +1109,13 @@ function is_top_level() {
   
   return $current_page;
 }
+
+
+function my_theme_embed_list_blocks() {
+    wp_enqueue_script(
+        'embed-list-blocks',
+        get_template_directory_uri() . '/assets/js/embed-list-blocks.js',
+        array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
+    );
+}
+add_action( 'enqueue_block_editor_assets', 'my_theme_embed_list_blocks' );
