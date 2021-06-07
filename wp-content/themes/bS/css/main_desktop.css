@@ -370,6 +370,7 @@ a.event_short h2
     align-items: center;
     justify-items: center;
     border-bottom: none; 
+    z-index: 10;
   }
 
 

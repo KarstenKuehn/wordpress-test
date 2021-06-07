@@ -1762,6 +1762,16 @@ a.main-navi_btn.active {
   display:none;
 }
 
+.teaser_image{display: none;
+
+}
+
+.teaser_image_div{
+  aspect-ratio:1440 / 570;
+    background-size: cover;
+    background-position: center;
+
+}
 
 .slideshow-container.spielbankendetails,.slideshow-container.spielbanken {
   width: 100%;
@@ -1798,7 +1808,7 @@ margin: 0;
 .spielbanken .slide_image
 {
   width: 100%;
-  aspect-ratio:3/2;
+  /*aspect-ratio:3/2;*/
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
@@ -1852,10 +1862,6 @@ margin: 0;
   top: -80px;
 }
 
-.spielbanken{
-}
-
-
 .spielbanken .swiper-button-next, .spielbanken .swiper-button-prev {
     top: auto;
     bottom: 24px
@@ -1883,12 +1889,26 @@ margin: 0;
     left: 0;
 }
 
+
+.teaserSwiper .swiper-button-next, .teaserSwiper .swiper-button-prev {
+  background: none;
+}
+.teaserSwiper .swiper-button {
+    position: absolute;
+    top: 50%;
+}
+
 .swiper-pagination {
     position: relative!important;
+    bottom: 40px!important;
+  }
+
+.spielbanken .swiper-pagination {
     bottom: 120px!important;
 }
+
+/**/
 .spielbankendetails .swiper-pagination {
-    position: relative!important;
     bottom: 56px!important;
 }
 

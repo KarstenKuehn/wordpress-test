@@ -125,7 +125,7 @@ return [
       el(
         "div",
         null,
-        "Slide-Item"
+        "TeaserSlide-Element"
       ),    el(
       'div', {
       className: 'my-block-image',
@@ -210,27 +210,36 @@ return (
       'div', {
       className: 'my-block-image'
       },
+         el(
+          'div', {
+          className: 'teaser_image_div',
+          style : {backgroundImage:'url('+attributes.mediaURL+')'}
+          },
+          )  ,
+
       el('img', {
+      className: 'teaser_image',
       src: attributes.mediaURL,
       alt: attributes.mediaALT,
       })
+/*      */
     ),
     el(
       'div', {
       className: 'text'
       },
-      el(RichText.Content, {
+      !attributes.title ? '': el(RichText.Content, {
       tagName: 'h3',
       className: 'my-block-title',
       value: attributes.title
       }),
-      el('span', {
+      !attributes.text1 ? '':el('span', {
       className: 'my-block-text',
       },attributes.text1+'&nbsp;'), 
-      el('span', {
+      !attributes.text2 ? '':el('span', {
       className: 'my-block-text',
       },attributes.text2),
-      el('a', {
+      !attributes.buttonURL ? '':el('a', {
       className: 'my-block-button',
       href: attributes.buttonURL
       }, attributes.buttonText)

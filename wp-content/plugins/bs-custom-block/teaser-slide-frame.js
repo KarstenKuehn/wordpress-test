@@ -37,7 +37,7 @@ var createElement = wp.element.createElement;
         el(
           "span",
           null,
-          "Beliebiger Inhalt: "
+          "Teaser-Slide-Frame: "
         ),         
         el(
           "hr",
@@ -52,7 +52,7 @@ var createElement = wp.element.createElement;
       //return createElement('section', { className: 'content_section' }, createElement( InnerBlocks.Content ));
 
       return createElement('div', { 
-        className: 'swiper-container teaserSwiper' }, 
+        className: 'swiper-container teaserSwiper slideshow-container xx' }, 
         createElement( 'div',{
           className: 'swiper-wrapper'},
           createElement( InnerBlocks.Content ),
