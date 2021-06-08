@@ -970,6 +970,8 @@ function kb_whitelist_blocks() {
     'lb/section',
     'lb/teaser-slide-frame',
     'lb/teaser-slide-item',
+    'lb/teaser-slide-thumbs-frame',
+'lb/teaser-slide-thumb-item',    
     'lb/text-media',
     'lb/benefits-text',
   );

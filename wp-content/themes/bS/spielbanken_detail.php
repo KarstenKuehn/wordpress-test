@@ -59,9 +59,9 @@ get_header();
 			}
 		?>
       </div>
-  <div class="swiper-pagination desktop_hidden"></div>
+
     </div>
-    <div class="swiper-button mobile_hidden">
+  <div class="swiper-pagination desktop_hidden"></div>    <div class="swiper-button mobile_hidden">
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
   </div>

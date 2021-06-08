@@ -289,3 +289,25 @@ function loadTeaserSlide() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTeaserSlide');
+
+function load_TeaserThumbsSlideFrame() {
+  wp_enqueue_script(
+    'Teaser-Slide-Thumbs-Frame',
+    plugin_dir_url(__FILE__) . 'teaser-slide-thumbs-frame.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+
+add_action('enqueue_block_editor_assets', 'load_TeaserThumbsSlideFrame');
+
+function loadTeaserThumbSlide() {
+  wp_enqueue_script(
+    'teaser-slide-thumb-item',
+    plugin_dir_url(__FILE__) . 'teaser-slide-thumb-item.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadTeaserThumbSlide');
