@@ -6,81 +6,6 @@
 get_header();
 ?>
 
-<style type="text/css">
-
-</style>
-
-<!--
-
-<div class="gallery-container">
-
-<div class="swiper-pagination test desktop_hidden"></div>
-  <div class="swiper-container gallery-main">
-  	    <div class="swiper-button_x mobile_hidden">
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-</div>
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-		<div class="my-block-image"><div class="teaser_image_div" style="background-image:url(https://picsum.photos/seed/slide1/600/300)"></div><img class="teaser_image" src="https://picsum.photos/seed/slide1/600/300" alt="slide1"></div>
-		<div class="text"><h3>test1</h3><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><a class="my-block-button" href="/">zum Artikel 1</a></div>
-		<div class="thumb desktop_hidden">
-			<div class="swiper-slide">		
-      			<div class="my-block-image">
-      				<div class="teaser_image_div" style="background-image:url(https://picsum.photos/seed/slide1/600/300)"></div>
-      				</div>
-			</div>
-		</div>
-      </div>
-      <div class="swiper-slide">
-		<div class="my-block-image"><div class="teaser_image_div" style="background-image:url(https://picsum.photos/seed/slide2/600/300)"></div><img class="teaser_image" src="https://picsum.photos/seed/slide2/600/300" alt="slide2"></div>
-		<div class="text"><h3>test2</h3><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><a class="my-block-button" href="/">zum Artikel 2</a></div>
-		<div class="thumb desktop_hidden">
-			<div class="swiper-slide">		
-      			<div class="my-block-image">
-      				<div class="teaser_image_div" style="background-image:url(https://picsum.photos/seed/slide2/600/300)"></div>
-      				</div>
-			</div>
-		</div>
-      </div>
-      <div class="swiper-slide">
-		<div class="my-block-image"><div class="teaser_image_div" style="background-image:url(https://picsum.photos/seed/slide3/600/300)"></div><img class="teaser_image" src="https://picsum.photos/seed/slide3/600/300" alt="slide3"></div>
-		<div class="text"><h3>test3</h3><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><a class="my-block-button" href="/">zum Artikel 3</a></div>
-		<div class="thumb desktop_hidden">
-			<div class="swiper-slide">		
-      			<div class="my-block-image">
-      				<div class="teaser_image_div" style="background-image:url(https://picsum.photos/seed/slide3/600/300)"></div>
-      				</div>
-			</div>
-		</div>
-      </div>
-      <div class="swiper-slide">
-		<div class="my-block-image"><div class="teaser_image_div" style="background-image:url(https://picsum.photos/seed/slide4/600/300)"></div><img class="teaser_image" src="https://picsum.photos/seed/slide4/600/300" alt="slide4"></div>
-		<div class="text"><h3>test4</h3><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><a class="my-block-button" href="/">zum Artikel 4</a></div>
-		<div class="thumb desktop_hidden">
-			<div class="swiper-slide">		
-      			<div class="my-block-image">
-      				<div class="teaser_image_div" style="background-image:url(https://picsum.photos/seed/slide4/600/300)"></div>
-      			</div>
-			</div>
-		</div>
-      </div>
-      </div>
-    </div>
-
-  </div>
-  <div class="swiper-container gallery-thumbs">
-    <div class="swiper-wrapper">
-
-    </div>
- <div class="thumbs"></div>
-  </div>
-
-
-</div>
-
--->
-
 <div class="main spielbanken">
 	<?php
 //	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
@@ -188,7 +113,10 @@ thumbs_div.innerHTML += thumbs_html;
         },
 
 		 breakpoints: {
-
+        1440: {
+       slidesPerView: 3,
+       spaceBetween: 24
+      },
 		    1100: {
 		   slidesPerView: 2,
 		   spaceBetween: 24
