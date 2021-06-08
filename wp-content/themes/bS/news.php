@@ -121,7 +121,7 @@ foreach ($pages as $key => $post)
 			echo '<div class="news_frame">';
 			echo date('d.m.y',strtotime($post['date']));
 			echo '<h2>'.$post['post_title'].'...'.'</h2>';
-			echo $post['excerpt'].'[...]';
+			echo '<p>'.$post['excerpt'].'[...]</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
 			echo '</div>';
