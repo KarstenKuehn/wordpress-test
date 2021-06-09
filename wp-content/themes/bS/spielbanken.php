@@ -4,15 +4,23 @@
 */
 
 get_header();
-?>
 
+  $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+echo $html;
+?>
+<style type="text/css">
+  
+</style>
 <div class="main spielbanken">
 	<?php
 //	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
 
-	$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+
 //$html='';  
-	echo '<div class="medium">'.$html.'</div>';
+
+
+
+//	echo '<div class="medium_x">'.$html.'</div>';
 	$base_args = array(
     	'hierarchical' => 0
   	);
