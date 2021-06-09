@@ -2005,7 +2005,7 @@ margin: 0;
   .gallery-main .text h3{
     color: #f2f2f2;
   }
-  .gallery-thumbs
+  .swiper-container.gallery-thumbs
   {
     max-width: 1016px;
     margin: auto;
@@ -2018,7 +2018,6 @@ margin: 0;
   .gallery-thumbs .swiper-wrapper
   {
     display: flex;
-
   }
 
   .gallery-main .text{
