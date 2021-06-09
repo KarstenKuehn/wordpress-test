@@ -98,7 +98,8 @@ foreach($years as $key => $year)
 </select>
 
 </div>
-<div class="news">
+<!-- spalten_3 || spalten_2 -->
+<div class="news spalten_3">
 
 
 <?php

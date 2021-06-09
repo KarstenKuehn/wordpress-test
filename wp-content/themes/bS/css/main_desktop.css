@@ -176,6 +176,10 @@ h1,h2,h3,h4,p
     display: none
 }
 
+.image-text.std img.block_image{
+  display: block;
+}
+
 
 .block_text{
     width: 50%;
@@ -332,12 +336,24 @@ a.event_short h2
   padding-top:25px;
 }
 
+.news{
+  margin-right: -24px;
+}
 
   .news_container
   {
     display: none;
-    width: calc(33% - 12px);
+    width: calc(100% / 3 - 24px);
     margin: 0 24px 24px 0;
+  }
+
+.spalten_3 .news_container
+  {
+    width: calc(100% / 3 - 24px);
+  }
+.spalten_2 .news_container
+  {
+    width: calc(100% / 2 - 24px);    
   }
   .news_frame h2
   {
