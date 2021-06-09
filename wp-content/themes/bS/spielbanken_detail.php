@@ -40,7 +40,7 @@ get_header();
 	?>
     <!-- Swiper -->
     <h2 style="margin-top:120px">Standorte</h2>    
-    <section class="full">
+    <section class="full-limit">
     <div class="slideshow-container content-slider spielbankendetails">
       <div class="swiper-wrapper">
       	
@@ -84,7 +84,7 @@ get_header();
 
      breakpoints: {
         1440: {
-       slidesPerView: 4,
+       slidesPerView: 3,
        spaceBetween: 24
       },
         1100: {
