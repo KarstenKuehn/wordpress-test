@@ -92,22 +92,6 @@ echo $html;
     <!-- Initialize Swiper -->
     <script>
 
-var thumbs_arr = document.querySelector(".thumb")
-
-var thumbs_html='';
-
-//var thumbs_div= document.querySelector(".thumbs");
-var thumbs_div= document.querySelector(".swiper-container.gallery-thumbs .swiper-wrapper");
-
-var divs = document.querySelectorAll('.thumb'), i;
-
-for (i = 0; i < divs.length; ++i) {
-  divs[i].style.color = "white";
-  thumbs_html+=divs[i].innerHTML;
-}
-
-thumbs_div.innerHTML += thumbs_html;
-
       var swiper = new Swiper(".slideshow-container", {
 		slidesPerView: 1,
         spaceBetween: 24,   
@@ -141,7 +125,21 @@ thumbs_div.innerHTML += thumbs_html;
 
     <script>
 
+var thumbs_arr = document.querySelector(".thumb")
 
+var thumbs_html='';
+
+//var thumbs_div= document.querySelector(".thumbs");
+var thumbs_div= document.querySelector(".swiper-container.gallery-thumbs .swiper-wrapper");
+
+var divs = document.querySelectorAll('.thumb'), i;
+
+for (i = 0; i < divs.length; ++i) {
+  divs[i].style.color = "white";
+  thumbs_html+=divs[i].innerHTML;
+}
+
+thumbs_div.innerHTML += thumbs_html;
 
         var galleryThumbs = new Swiper('.gallery-thumbs', { 
             direction: 'horizontal', 

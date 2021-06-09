@@ -343,7 +343,7 @@ a.event_short h2
   {
     color: inherit;
     line-height: 32px;
-    height: 69px;
+    /*height: 69px;*/
   }
   .active
   {
