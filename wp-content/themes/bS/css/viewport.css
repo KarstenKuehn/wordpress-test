@@ -2032,7 +2032,12 @@ margin: 0;
 } 
 }
 
-
+.verlinkungen .text_left, .verlinkungen .text_right {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
 
 
 

@@ -415,6 +415,17 @@ input#s {
     right: 8px;
 }
 
+
+
+
+.verlinkungen .text_left {
+  margin-right: 12px;
+}
+
+.verlinkungen .text_left, .verlinkungen .text_right {
+  margin-left: 12px;
+}
+
 @media(min-width:900px)
 {
 

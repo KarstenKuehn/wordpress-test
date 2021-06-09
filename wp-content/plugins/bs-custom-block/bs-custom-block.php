@@ -311,3 +311,16 @@ function loadTeaserThumbSlide() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTeaserThumbSlide');
+
+
+
+function load_VerlinkungenFrame() {
+  wp_enqueue_script(
+    'Verlinkungen-Frame',
+    plugin_dir_url(__FILE__) . 'verlinkungen-frame.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+
+add_action('enqueue_block_editor_assets', 'load_VerlinkungenFrame');
