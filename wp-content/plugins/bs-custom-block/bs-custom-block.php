@@ -324,3 +324,16 @@ function load_VerlinkungenFrame() {
 }
 
 add_action('enqueue_block_editor_assets', 'load_VerlinkungenFrame');
+
+
+
+function loadTextCTASImage() {
+  wp_enqueue_script(
+    'text-image-2cta-block',
+    plugin_dir_url(__FILE__) . 'text-image-2cta-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadTextCTASImage');

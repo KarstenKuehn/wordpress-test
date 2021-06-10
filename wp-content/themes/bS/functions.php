@@ -974,6 +974,7 @@ function kb_whitelist_blocks() {
 'lb/teaser-slide-thumb-item',    
     'lb/text-media',
     'lb/benefits-text',
+    'lb/text-two-cta-img', 
    // 'lb/verlinkungen-frame'
   );
 

@@ -1,3 +1,120 @@
+( function() {
+  var registerBlockType = wp.blocks.registerBlockType;
+  var el = wp.element.createElement;
+  var InnerBlocks = wp.editor.InnerBlocks;
+
+  registerBlockType( 'lb/verlinkungen-frame', {
+    title: 'Verlinkungen-Frame', // The title of block in editor.
+    icon: 'admin-comments', // The icon of block in editor.
+    category: 'layout', // The category of block in editor.
+    edit: function() {
+      return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
+        el( 'span', {}, 'Parent' ),
+        el(
+          InnerBlocks,
+          {
+            template:  [
+              [ 'test/child' ],
+            ],
+            templateLock: 'all',
+          }
+        )
+      );
+    },
+
+    save: function() {
+      return el( 'div', { className:'verlinkungen' },
+        el( InnerBlocks.Content, {} )
+      );
+    },
+  } );
+
+  registerBlockType( 'test/child', {
+    title: 'Test Child',
+    icon: 'cart',
+    category: 'common',
+    parent: [ 'test/parent' ],
+
+    edit: function() {
+      return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
+        el( 'span', {}, 'Child' ),
+        el(
+          InnerBlocks,
+          {
+            template: [
+              ['core/columns',{},
+                [
+                  ['core/column',{},
+                    [
+                    ['core/heading',{'placeholder':'Überschrift'}],
+                      ['core/image',{'placeholder':'Verlinkung-Bild'}],
+                      ['core/paragraph',{'placeholder':'Inhalt linke Spalte'}]
+                    ]
+                  ],
+                  ['core/column',{},
+                    [
+                    ['core/heading',{'placeholder':'Überschrift'}],
+                    ['core/image',{'placeholder':'Verlinkung-Bild'}],
+                      ['core/paragraph',{'placeholder':'Inhalt rechte Spalte'}]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            templateLock: "all",
+            allowedBlocks: ['core/columns'],
+          }
+        )
+      );
+    },
+
+    save: function() {
+      return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
+        el( InnerBlocks.Content, {} )
+      );
+    },
+    } );
+/*    
+    registerBlockType( 'test/grandchild', {
+    title: 'Test Grandchild',
+    icon: 'product',
+    category: 'common',
+    parent: [ 'test/child' ],
+
+    edit: function() {
+      return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
+        el( 'span', {}, 'Grandchild' ),
+        el(
+          InnerBlocks,
+          {
+            template:  [
+              [ 'core/video' ],
+              [ 'core/paragraph' ],
+              [ 'core/audio' ],
+            ],
+          }
+        )
+      );
+    },
+
+    save: function() {
+      return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
+        el( InnerBlocks.Content, {} )
+      );
+    },
+
+
+
+  } );*/
+} )();
+
+
+
+
+
+
+
+/*
 (function (blocks, editor, components, i18n, element) {
 var el = element.createElement;
 var registerBlockType = blocks.registerBlockType;
@@ -343,3 +460,4 @@ window.wp.element
 
 
 
+*/
