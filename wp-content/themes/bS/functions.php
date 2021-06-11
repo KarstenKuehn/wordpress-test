@@ -895,7 +895,6 @@ function bS_theme_support() {
     );
 }
 
-
 /**
  * Get accessible color for an area.
  *
