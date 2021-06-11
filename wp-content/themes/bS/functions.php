@@ -35,7 +35,6 @@ function seo_header()
 		$page_data->meta_description,
 	),
 	$html);
-
 	
     #echo minify_html($html);
 	echo $html;
@@ -971,7 +970,7 @@ function kb_whitelist_blocks() {
     'lb/teaser-slide-frame',
     'lb/teaser-slide-item',
     'lb/teaser-slide-thumbs-frame',
-'lb/teaser-slide-thumb-item',    
+    'lb/teaser-slide-thumb-item',    
     'lb/text-media',
     'lb/benefits-text',
     'lb/text-two-cta-img', 

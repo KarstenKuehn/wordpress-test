@@ -105,8 +105,7 @@ return [
   className: 'my-block-content wp-block-media-text__content',
       style:{display:'inline-block',width:'50%'}
   },
- 
-    el(RichText, {
+     el(RichText, {
     type: 'text',
     label: i18n.__('Überschrift <H2>', 'lb'),
     value: attributes.title,    

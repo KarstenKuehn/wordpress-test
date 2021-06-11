@@ -326,7 +326,6 @@ function load_VerlinkungenFrame() {
 add_action('enqueue_block_editor_assets', 'load_VerlinkungenFrame');
 
 
-
 function loadTextCTASImage() {
   wp_enqueue_script(
     'text-image-2cta-block',
