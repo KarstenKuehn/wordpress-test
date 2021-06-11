@@ -556,6 +556,7 @@ input#s {
     background-size: contain;
     background-position: top;
     background-repeat: no-repeat;
+        height: calc(100% - 96px);
 }
 .appbtn {
     display: inline-block;
