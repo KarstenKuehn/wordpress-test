@@ -331,8 +331,6 @@ return (
           className:'block_content content',
           value:  attributes.text
           },
-         
-
         ), 
       el(
         'div', {
