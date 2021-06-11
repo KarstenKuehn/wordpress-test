@@ -1920,6 +1920,7 @@ margin: 0;
 
 .my-block-image {
     max-height: 648px;
+    overflow: hidden;
 }
 
 /*thumbs-gallerie*/
@@ -2038,6 +2039,23 @@ margin: 0;
     margin: 0;
     border: 0;
 }
+.app_info.text-image .block_image_div, .app_info.image-text .block_image_div{
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+}
 
+.appbtn {
+    display: block;
+    width: 40%;
+    height: auto;
+    margin-right: 24px;
+    text-align: center;
+    margin: auto;
+}
 
-
+.appbtn img.block_image {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}

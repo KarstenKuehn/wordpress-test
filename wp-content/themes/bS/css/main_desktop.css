@@ -551,3 +551,21 @@ input#s {
 
 
 }
+
+.app_info.text-image .block_image_div, .app_info.image-text .block_image_div{
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+.appbtn {
+    display: inline-block;
+    width: 40%;
+    height: auto;
+    margin-right: 24px;
+}
+
+.appbtn img.block_image {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}

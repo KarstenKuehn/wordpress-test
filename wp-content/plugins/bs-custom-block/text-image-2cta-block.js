@@ -262,7 +262,7 @@ return (
       },
     el(
       'div', {
-      className: 'text-image'
+      className: 'text-image app_info'
       },
       el(
         'h2',{
@@ -334,30 +334,49 @@ return (
          
 
         ), 
+      el(
+        'div', {
+        className: 'app_btns'
+        },
+
         !attributes.buttonURL ? '':    
         el('a', {
-          className: 'my-block-button content',
+          className: 'appbtn',
           href: attributes.buttonURL
           },       
+        el('img', {
+          src: 'https://lbup.local/wp-content/uploads/2021/06/AppStore.png',
+          alt: 'GooglePlay',
+          className:'google_btn'
+        }),
+        /*
           el(
             'span',{
               className:'button-text wp-block-button__link'
             },
             attributes.buttonText
           ),      
+          */
         ),// end a 
         !attributes.buttonURL_google ? '':    
         el('a', {
-          className: 'my-block-button content',
-          href: attributes.buttonURL_google
-          },       
+          className: 'appbtn',
+          href: attributes.buttonURL_google},
+        el('img', {
+          src: 'https://lbup.local/wp-content/uploads/2021/06/GooglePlay.png',
+          alt: 'GooglePlay',
+          className:'google_btn'
+        }),   
+        /*   
           el(
             'span',{
               className:'button-text wp-block-button__link'
             },
             attributes.buttonText_google
           ),      
+          */
         )// end a
+        )
       )// end block_text
     )// end text-image
   )// end section
