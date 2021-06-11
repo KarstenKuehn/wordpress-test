@@ -345,7 +345,7 @@ return (
           href: attributes.buttonURL
           },       
         el('img', {
-          src: 'https://lbup.local/wp-content/uploads/2021/06/AppStore.png',
+          src: 'https://lotterie-spielbank-bayern.de/wp-content/uploads/2021/06/AppStore.png',
           alt: 'GooglePlay',
           className:'google_btn'
         }),
@@ -363,7 +363,7 @@ return (
           className: 'appbtn',
           href: attributes.buttonURL_google},
         el('img', {
-          src: 'https://lbup.local/wp-content/uploads/2021/06/GooglePlay.png',
+          src: 'https://lotterie-spielbank-bayern.de/wp-content/uploads/2021/06/GooglePlay.png',
           alt: 'GooglePlay',
           className:'google_btn'
         }),   
