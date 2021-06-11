@@ -94,7 +94,7 @@ return [
     className: props.className,
     style: { textAlign: attributes.alignment,border:'1px solid grey',paddingBottom:'10px' }
     },
-          el(
+    el(
         "div",{
         style: { textAlign: attributes.alignment,borderBottom:'1px solid grey',margin:'10px',padding:'10px' }
       },
