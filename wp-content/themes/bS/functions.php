@@ -953,7 +953,7 @@ function kb_whitelist_blocks() {
     'core/buttons',
     'core/html',
     'core/embed',
-    //'lb/slide-item-content',
+    'lb/slide-item-content',
     'lb/two-column-text',
     'lb/hero-img',
 /*    'lb/text-img',
