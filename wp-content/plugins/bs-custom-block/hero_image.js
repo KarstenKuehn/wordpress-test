@@ -47,6 +47,7 @@ attributes: {
   }
 },
 edit: function (props) {
+  
 var attributes = props.attributes;
 var onSelectImage = function (media) {
 return props.setAttributes({
