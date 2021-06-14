@@ -1388,13 +1388,14 @@ width: auto;
 }
 .active
 {
-  display: block;
+  display: inline-block;
 }
-
+/*
 .mobile-nav-toggle.active
 {
   display: inline-block;
 }
+*/
 .content-slider .mySlide
 {
   width: 600px;
