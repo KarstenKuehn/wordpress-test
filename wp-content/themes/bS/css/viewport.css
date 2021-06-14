@@ -308,7 +308,7 @@ h1, section
     border-radius: 0;
     box-shadow: none;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     text-align: center;
     text-decoration: none;
     overflow-wrap: break-word;
@@ -1475,6 +1475,10 @@ font-size: 16px;
 
 @media(min-width:768px)
 {
+.my-block-button span.button-text, .button {
+    display: inline-block;
+}
+
 /*
 .news {
     grid: auto / repeat(3, 1fr);
