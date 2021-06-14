@@ -80,6 +80,17 @@ function loadMySlide() {
    
 add_action('enqueue_block_editor_assets', 'loadMySlide');
 
+function loadContentSlide() {
+  wp_enqueue_script(
+    'slide-item_content',
+    plugin_dir_url(__FILE__) . 'slide-item_content.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadContentSlide');
+
 function loadMyAccordion() {
   wp_enqueue_script(
     'my-new-accordion',
