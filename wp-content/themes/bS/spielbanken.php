@@ -43,7 +43,7 @@ echo $html;
     $args = array_merge($base_args, $args);
     $pages = get_pages($args);
 	?>
-    <!-- Swiper -->
+    <!-- Swiper
     <h2 style="margin-top:120px">Standorte</h2>
     <section class="full-limit">
     <div class="slideshow-container content-slider spielbanken">
@@ -85,8 +85,7 @@ echo $html;
       <div class="swiper-button-prev standorte"></div>
   </div>
 
-</section>
-
+</section> -->
 </div>
 
     <!-- Initialize Swiper -->
