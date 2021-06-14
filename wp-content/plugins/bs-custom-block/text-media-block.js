@@ -14,11 +14,10 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
-
 var InnerBlocks = editor.InnerBlocks;
 var createElement = element.createElement;
 
-  blocks.registerBlockType( 'lb/text-media', {
+blocks.registerBlockType( 'lb/text-media', {
     title: 'Text-Media', // The title of block in editor.
     icon: 'id', // The icon of block in editor.
     category: 'common', // The category of block in editor.

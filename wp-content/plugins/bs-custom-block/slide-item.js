@@ -7,6 +7,7 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
+
 registerBlockType('my-first-gutenberg-block/image-with-text-block', {
 title: i18n.__('Slide-Element', 'my-first-gutenberg-block'),
 description: i18n.__('A custom block for displaying image with text section', 'my-first-gutenberg-block'),

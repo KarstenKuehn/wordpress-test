@@ -7,6 +7,7 @@
   var MediaUpload = editor.MediaUpload;
   var InspectorControls = editor.InspectorControls;
   var TextControl = components.TextControl;
+  
   registerBlockType('my-lb-block/accordion-item', {
     title: i18n.__('Akkordeon-Element', 'my-lb-block'),
     description: i18n.__('A custom block for displaying accordion-item', 'my-lb-block'),

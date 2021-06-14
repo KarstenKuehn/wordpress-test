@@ -20,8 +20,9 @@ var createElement = wp.element.createElement;
 
 ( function( blocks, editor, element ) {
   var el = element.createElement;
-var InnerBlocks = wp.editor.InnerBlocks;
-var createElement = wp.element.createElement;
+  var InnerBlocks = wp.editor.InnerBlocks;
+  var createElement = wp.element.createElement;
+  
   blocks.registerBlockType( 'lb/teaser-slide-frame', {
     title: 'Teaser-Slide-Frame', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.

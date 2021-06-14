@@ -8,6 +8,7 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
+
 registerBlockType('extranavi-block/extraNaviItem', {
 title: i18n.__('ExtraNaviItem', 'extranavi-block'),
 description: i18n.__('A custom block for displaying image with text section', 'extranavi-block'),

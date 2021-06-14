@@ -7,6 +7,7 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
+
   blocks.registerBlockType( 'lb/button', {
     title: 'Button', // The title of block in editor.
     icon: 'id', // The icon of block in editor.

@@ -6,6 +6,7 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
+
   blocks.registerBlockType( 'lb/extranavi', {
     title: 'ExtraNavi', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.

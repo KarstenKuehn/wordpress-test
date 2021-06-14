@@ -1,7 +1,6 @@
 (function (blocks, editor, components, i18n, element) {
   var el = element.createElement;
 var MediaUpload = editor.MediaUpload;
-
 var InnerBlocks = editor.InnerBlocks;
 var createElement = element.createElement;
 

@@ -7,6 +7,7 @@ var AlignmentToolbar = editor.AlignmentToolbar;
 var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
+
 registerBlockType('lb/teaser-slide-item', {
 title: i18n.__('TeaserSlide-Element', 'lb'),
 description: i18n.__('A custom block for displaying image with text section', 'lb'),
