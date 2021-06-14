@@ -953,7 +953,7 @@ function kb_whitelist_blocks() {
     'core/buttons',
     'core/html',
     'core/embed',
-    'lb/slide-item-content',
+/*    'lb/slide-item-content',
     'lb/two-column-text',
     'lb/hero-img',
     'lb/text-img',
@@ -972,6 +972,7 @@ function kb_whitelist_blocks() {
     'lb/teaser-slide-thumb-item',    
     'lb/text-media',
     'lb/benefits-text',
+    */
     //'lb/text-two-cta-img', 
    // 'lb/verlinkungen-frame'
   );
