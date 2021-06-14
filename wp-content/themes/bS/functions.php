@@ -956,7 +956,7 @@ function kb_whitelist_blocks() {
     'lb/slide-item-content',
     'lb/two-column-text',
     'lb/hero-img',
-/*    'lb/text-img',
+    'lb/text-img',
     'lb/img-text',
     'my-first-gutenberg-block/image-with-text-block',
     'my-lb-block/accordion-item',
@@ -972,7 +972,6 @@ function kb_whitelist_blocks() {
     'lb/teaser-slide-thumb-item',    
     'lb/text-media',
     'lb/benefits-text',
-    */
     'lb/text-two-cta-img',
     'lb/img-text-two-cta', 
    // 'lb/verlinkungen-frame'
