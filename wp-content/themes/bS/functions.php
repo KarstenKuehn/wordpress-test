@@ -954,7 +954,7 @@ function kb_whitelist_blocks() {
     'core/html',
     'core/embed',
     //'lb/slide-item-content',
-    //'lb/two-column-text',
+    'lb/two-column-text',
     'lb/hero-img',
 /*    'lb/text-img',
     'lb/img-text',

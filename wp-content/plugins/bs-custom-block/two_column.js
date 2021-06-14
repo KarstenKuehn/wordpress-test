@@ -1,6 +1,5 @@
 (function (blocks, editor, components, i18n, element) {
   var el = element.createElement;
-
   blocks.registerBlockType( 'lb/two-column-text', {
     title: '2-Spalten-Text', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
