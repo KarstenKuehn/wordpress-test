@@ -973,7 +973,8 @@ function kb_whitelist_blocks() {
     'lb/text-media',
     'lb/benefits-text',
     */
-    'lb/text-two-cta-img', 
+    'lb/text-two-cta-img',
+    'lb/img-text-two-cta', 
    // 'lb/verlinkungen-frame'
   );
 }

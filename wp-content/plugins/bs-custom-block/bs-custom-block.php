@@ -336,3 +336,14 @@ function loadTextCTASImage() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTextCTASImage');
+
+function loadImageTextCTAS() {
+  wp_enqueue_script(
+    'image-text-2cta-block',
+    plugin_dir_url(__FILE__) . 'image-2cta-text-block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadImageTextCTAS');
