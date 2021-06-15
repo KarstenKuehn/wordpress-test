@@ -135,6 +135,10 @@ var thumbs_div= document.querySelector(".swiper-container.gallery-thumbs .swiper
 
 var divs = document.querySelectorAll('.thumb'), i;
 
+if(divs.length>0)
+
+{
+
 for (i = 0; i < divs.length; ++i) {
   divs[i].style.color = "white";
   thumbs_html+=divs[i].innerHTML;
@@ -169,7 +173,7 @@ thumbs_div.innerHTML += thumbs_html;
 
 
 
-
+}
       var swiper = new Swiper(".mySwiper", {
         spaceBetween: 10,
         slidesPerView: 4,
