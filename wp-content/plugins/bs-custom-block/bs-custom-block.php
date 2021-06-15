@@ -334,9 +334,6 @@ $args = array(
       'posts_per_page'   => 5,
     );
 $posts = get_posts($args);
-
-print_r($posts);
-
   wp_enqueue_script(
     'Verlinkungen-Frame',
     plugin_dir_url(__FILE__) . 'verlinkungen-frame.js',

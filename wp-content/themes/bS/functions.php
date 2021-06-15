@@ -1137,12 +1137,12 @@ function sortDesc( $a, $b ) {
 
 
 function shortcode_posts_function(){
-
+    $content = '';
     $catname = 'News';
     //Parameter für Posts
     $args = array(
         'category-name' => $catname,
-        'numberposts' => 3
+        'numberposts' => -1
     );
     
     //Posts holen
@@ -1150,9 +1150,11 @@ function shortcode_posts_function(){
 
 foreach ($posts as $key => $post) 
 {
+    $today = date('Y-m-d',time());
+    $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
 
-   $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
-    if (strlen($post->post_title) > 1)
+
+    if (strlen($post->post_title) > 1 && ($date==$today))
     {
         $img='wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
         if (strlen(get_the_post_thumbnail_url()) > 0)
@@ -1173,7 +1175,8 @@ foreach ($posts as $key => $post)
         $years[] = date('Y',strtotime($date));
     }
 }
-
+if($pages)
+{
 usort($pages, "sortDesc");
     //Inhalte sammeln
     $content = '<div class="news spalten_3">';
@@ -1223,6 +1226,8 @@ foreach ($pages as $key => $post)
 
     */
     $content .= '</div>';
+
+}
     //Inhalte übergeben
     return $content;
 }
