@@ -943,6 +943,7 @@ function kb_whitelist_blocks() {
     'core/groups',
     'core/heading',
     'core/paragraph',
+    'core/media-text',
     'core/image',
     'core/video',
     'core/list',
