@@ -50,6 +50,14 @@ attributes: {
   selector: 'p'
   },
 
+      standort: {
+        type: 'string',
+        default: ''
+      },
+      anschrift: {
+        type: 'string',
+        default: ''
+      },
       content: {
         type: 'string',
         default: ''
@@ -232,6 +240,44 @@ return [
         props.setAttributes({phone: newText})
       }
     }),  
+
+
+    el('svg',{ width: 24, height: 24 },
+      el('path',{d:"M0 0h24v24H0z",fill:"none"}),
+      el('path',{d:"M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"}),
+    ),
+
+    el(RichText, {
+      type: 'text',
+      label: i18n.__('standort ', 'my-first-gutenberg-block'),
+      key: 'editable',
+      tagName: 'p',
+      className: 'my-block-text content',
+      placeholder: i18n.__('Standort ', 'my-first-gutenberg-block'),
+      keepPlaceholderOnFocus: true,
+      value: attributes.standort,
+      onChange: function (newText) {
+        props.setAttributes({standort: newText})
+      }
+    }), 
+        el('svg',{ width: 24, height: 24 },
+      el('path',{d:"M0 0h24v24H0z",fill:"none"}),
+      el('path',{d:"M21.99 8c0-.72-.37-1.35-.94-1.7L12 1 2.95 6.3C2.38 6.65 2 7.28 2 8v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2l-.01-10zM12 13L3.74 7.84 12 3l8.26 4.84L12 13z"}),
+    ),
+    el(RichText, {
+      type: 'text',
+      label: i18n.__('Postanschrift ', 'my-first-gutenberg-block'),
+      key: 'editable',
+      tagName: 'p',
+      className: 'my-block-text content',
+      placeholder: i18n.__('Postanschrift ', 'my-first-gutenberg-block'),
+      keepPlaceholderOnFocus: true,
+      value: attributes.anschrift,
+      onChange: function (newText) {
+        props.setAttributes({anschrift: newText})
+      }
+    }), 
+
   )
 )
 ];
@@ -289,7 +335,22 @@ return (
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'phone'),
             el('span',null,attributes.phone),
+          ),// end p 
+
+       attributes.standort ? 
+      (         el('div',{className:'block_content content'},
+            el('span',{className:'material-icons'},'location_on'),
+            el('span',null,attributes.standort),
+            )
+          ):(''),// end p 
+      attributes.anschrift ? 
+      (
+          el('div',{className:'block_content content'},
+            el('span',{className:'material-icons'},'drafts'),
+            el('span',null,attributes.anschrift),
           )
+):(''),// end p 
+
         )
       )
     )// end section
