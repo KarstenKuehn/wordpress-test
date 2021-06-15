@@ -96,33 +96,6 @@ details > summary::marker {
 }
 
 
-.main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
-max-width: 1224px;
-/*max-width: 912px;*/
-margin: auto;
-margin-bottom: 16px;
-}
-
-.bg-image{
-max-width: 1224px;
-margin: 0 auto;
-}
-
-
-/*
-.main.standard > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
-max-width: calc(100% / 12 * 9 - 6px);
-margin: unset;
-padding-right: 24px;
-}
-*/
-
-.main >.medium {
-    max-width: 936px;
-    margin: 0 auto;
-    margin-bottom: 16px;    
-}
-
 .main{
   overflow: hidden;
 }
@@ -1497,6 +1470,35 @@ font-size: 16px;
 
 @media(min-width:768px)
 {
+
+.main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
+max-width: 1224px;
+/*max-width: 912px;*/
+margin: auto;
+margin-bottom: 16px;
+}
+
+.bg-image{
+max-width: 1224px;
+margin: 0 auto;
+}
+
+
+/*
+.main.standard > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
+max-width: calc(100% / 12 * 9 - 6px);
+margin: unset;
+padding-right: 24px;
+}
+*/
+
+.main >.medium {
+    max-width: 936px;
+    margin: 0 auto;
+    margin-bottom: 16px;    
+}
+
+  
 .my-block-button span.button-text, .button {
     display: inline-block;
 }
