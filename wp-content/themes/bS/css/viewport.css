@@ -1498,7 +1498,7 @@ padding-right: 24px;
     margin-bottom: 16px;    
 }
 
-  
+
 .my-block-button span.button-text, .button {
     display: inline-block;
 }
@@ -1806,7 +1806,9 @@ a.main-navi_btn.active {
   width: 100%;
   height: 100%;
   min-height: 300px;
-  max-width: 1224px;
+  /*max-width: 1224px;*/
+  max-width: 2000px;
+
 }
 
 .slideshow-container.content-slider.spielbanken {
@@ -1816,9 +1818,9 @@ a.main-navi_btn.active {
 
 .spielbankendetails .swiper-wrapper, .spielbanken .swiper-wrapper {
     width: 100%;
-    max-width: 1224px;
     margin: auto;
     margin-bottom: 120px;
+    max-width: 2000px;
 }
 
 
