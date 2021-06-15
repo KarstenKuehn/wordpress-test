@@ -96,12 +96,26 @@ details > summary::marker {
 }
 
 
-.main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container){
+.main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
 max-width: 1224px;
-margin: 0 auto;
+/*max-width: 912px;*/
+margin: auto;
 margin-bottom: 16px;
 }
 
+.bg-image{
+max-width: 1224px;
+margin: 0 auto;
+}
+
+
+/*
+.main.standard > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
+max-width: calc(100% / 12 * 9 - 6px);
+margin: unset;
+padding-right: 24px;
+}
+*/
 
 .main >.medium {
     max-width: 936px;
@@ -2079,4 +2093,35 @@ margin: 0;
 
 .wp-block-latest-posts a {
     display: block;
+}
+
+
+p.person ,p.group{
+    position: relative;
+}
+
+
+.group:before,.person:before {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-size: 24px;
+    color: #091B30;
+    position: relative;
+    vertical-align: middle;
+    line-height: 1.5rem;
+    font-weight: lighter;
+    padding: 0 8px 16px 0;
+  }
+.person:before {
+    content: "\e7ff";
+  }
+.group:before {
+    content: "\e7fc";
+  }  
+
+  .block_content {
+    padding: 24px;
+}
+.text_left p, .text_right p, p.content {
+    padding: 0 24px 16px 24px;
 }
