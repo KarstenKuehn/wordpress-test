@@ -61,23 +61,16 @@ var createElement = wp.element.createElement;
         createElement( 'div',{
           className: 'swiper-wrapper'},
           createElement( InnerBlocks.Content ),
-                      createElement( 'div',{
-              className: 'swiper-button-next teaser'},'' ),
-            createElement( 'div',{
-              className: 'swiper-button-prev teaser'},'' ) 
-          ) 
         ),
-/*           createElement( 'div',{
+           createElement( 'div',{
             className: 'swiper-button_x mobile_hidden'},
             createElement( 'div',{
               className: 'swiper-button-next teaser'},'' ),
             createElement( 'div',{
               className: 'swiper-button-prev teaser'},'' ) 
           )       
-
-
       ),
-*/
+
       createElement('div', { 
         className: 'swiper-container gallery-thumbs' },
         createElement( 'div',{
