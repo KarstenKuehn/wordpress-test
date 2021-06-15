@@ -1,4 +1,4 @@
-( function() {
+( function(blocks, editor, components, i18n, element) {
   var registerBlockType = wp.blocks.registerBlockType;
   var el = wp.element.createElement;
   var InnerBlocks = wp.editor.InnerBlocks;
@@ -106,7 +106,13 @@
 
 
   } );*/
-} )();
+} )(
+window.wp.blocks,
+window.wp.blockEditor,
+window.wp.components,
+window.wp.i18n,
+window.wp.element
+);
 
 
 

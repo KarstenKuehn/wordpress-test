@@ -326,6 +326,17 @@ add_action('enqueue_block_editor_assets', 'loadTeaserThumbSlide');
 
 
 function load_VerlinkungenFrame() {
+
+
+$args = array(
+        'category-name'       => 'news',
+      'sort_order'   => 'desc',
+      'posts_per_page'   => 5,
+    );
+$posts = get_posts($args);
+
+print_r($posts);
+
   wp_enqueue_script(
     'Verlinkungen-Frame',
     plugin_dir_url(__FILE__) . 'verlinkungen-frame.js',

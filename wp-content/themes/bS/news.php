@@ -38,7 +38,9 @@ foreach ($posts as $key => $post)
 	$date = DateTime::createFromFormat('d.m.y', @get_field('datum'))->format('Y-m-d');
 	if (strlen($post->post_title) > 1)
 	{
-		$img = '/wp-content/uploads/2021/06/news-fallback.png';
+	//	$img = '/wp-content/uploads/2021/06/news-fallback.png';
+		$img='/wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
+
 		if (strlen(get_the_post_thumbnail_url()) > 0)
 		{
 			$img = get_the_post_thumbnail_url();
@@ -65,18 +67,6 @@ $years = array_unique($years);
 <select>
 
 <?php
-
-function sortDesc( $a, $b ) {
-	if (isset($b["date"]) && isset($a["date"]))
-	{
-		return strtotime($b["date"]) - strtotime($a["date"]);	
-	} 
-}function sortAsc( $a, $b ) {
-	if (isset($b["date"]) && isset($a["date"]))
-	{
-		return strtotime($a["date"]) - strtotime($b["date"]);	
-	} 
-}
 
 $selectedYear = date('Y');
 

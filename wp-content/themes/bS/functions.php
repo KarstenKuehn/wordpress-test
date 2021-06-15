@@ -974,7 +974,8 @@ function kb_whitelist_blocks() {
     'lb/benefits-text',
     'lb/text-two-cta-img',
     'lb/img-text-two-cta', 
-   // 'lb/verlinkungen-frame'
+    'lb/verlinkungen-frame',
+    'core/shortcode'
   );
 }
 
@@ -1121,3 +1122,108 @@ function my_theme_embed_list_blocks() {
     );
 }
 add_action( 'enqueue_block_editor_assets', 'my_theme_embed_list_blocks' );
+
+function sortDesc( $a, $b ) {
+    if (isset($b["date"]) && isset($a["date"]))
+    {
+        return strtotime($b["date"]) - strtotime($a["date"]);   
+    } 
+}function sortAsc( $a, $b ) {
+    if (isset($b["date"]) && isset($a["date"]))
+    {
+        return strtotime($a["date"]) - strtotime($b["date"]);   
+    } 
+}
+
+
+function shortcode_posts_function(){
+
+    $catname = 'News';
+    //Parameter für Posts
+    $args = array(
+        'category-name' => $catname,
+        'numberposts' => 3
+    );
+    
+    //Posts holen
+    $posts = get_posts($args);
+
+foreach ($posts as $key => $post) 
+{
+
+   $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
+    if (strlen($post->post_title) > 1)
+    {
+        $img='wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
+        if (strlen(get_the_post_thumbnail_url()) > 0)
+        {
+            $img = get_the_post_thumbnail_url();
+        }
+        $x=
+        $pages[] = array(
+            'ID' => $post->ID,
+            'post_title' => $post->post_title,
+            'date' => $date,
+            'excerpt'   => str_replace($post->post_title,'',$post->post_content),
+            'link'      => get_permalink($post->ID),
+            'category'  => $catname,
+            'thumb'     => $img,
+
+        );
+        $years[] = date('Y',strtotime($date));
+    }
+}
+
+usort($pages, "sortDesc");
+    //Inhalte sammeln
+    $content = '<div class="news spalten_3">';
+
+
+foreach ($pages as $key => $post) 
+{
+
+ /*   echo '<pre>';
+    print_r($post);
+    echo '</pre>';
+
+    */
+   if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category']) )
+    {
+        if (preg_match('@'.$year.'@',$post['date']))
+        {
+                $content .= '<div class="news_container active">';
+            $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
+            $content .= '<div class="news_frame">';
+            $content .= date('d.m.y',strtotime($post['date']));
+            $content .= '<h2>'.$post['post_title'].'...'.'</h2>';
+            $content .= wp_trim_words(strip_tags($post['excerpt']),20, ' […]'  );   
+            $content .= 'test';
+            $content .= '</div>';
+            $content .= '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
+            $content .= '</div>';
+        }
+    }
+}
+  /*  
+    foreach ($posts as $post) {
+        $content .= '<div class="news_container active">';
+
+        $img='wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
+
+        if (strlen(get_the_post_thumbnail_url()) > 0)
+        {
+            $img = get_the_post_thumbnail_url();
+        }
+        $content .= '<div class="bg-image" style="background-image:url(\''.$img.'\');"/></div>';
+        $content .= '<a href="'.get_permalink($post->ID).'"><div class="title">'.$post->post_title.'</div></a>';
+        $content .= '<p>'.$post['excerpt'].'[...]</p>';
+        $content .= '<a href="'.get_permalink($post->ID).'"><img src="'.get_the_post_thumbnail_url($post->ID, 'full').'" class="thumb"></a>';
+        $content .= '</div>';
+    }
+
+    */
+    $content .= '</div>';
+    //Inhalte übergeben
+    return $content;
+}
+add_shortcode('posts', 'shortcode_posts_function');

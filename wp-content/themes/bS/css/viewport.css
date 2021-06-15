@@ -75,11 +75,14 @@ strong
     max-width: 100%;
     height: auto;
 }
+
+
+/*
 ::marker {
   content:none;
     display: none;
 }
-
+*/
 
 details > summary {
   list-style: none;
@@ -2067,4 +2070,13 @@ margin: 0;
     display: inline-block;
     width: 100%;
     height: auto;
+}
+
+.wp-block-latest-posts li {
+    list-style: none;
+    margin: 0;
+}
+
+.wp-block-latest-posts a {
+    display: block;
 }
