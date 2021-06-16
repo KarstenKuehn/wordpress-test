@@ -1034,10 +1034,18 @@ p
     padding: 0 16px;
     max-width: 1224px;
     margin: auto;
+
+    border-top: 1px solid #E3E5ED;
+
+   border-bottom: 1px solid #E3E5ED;
+   margin-bottom: -1px;
+
 }
+
+
 .question {
     padding: 16px 48px 16px 0;
-    border-top: 1px solid #E3E5ED;
+    /*border-top: 1px solid #E3E5ED;*/
     position: relative;
     line-height: 1.5rem;  cursor: pointer;
 
