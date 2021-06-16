@@ -58,51 +58,10 @@ foreach ($posts as $key => $post)
 	}
 }
 $years = array_unique($years);
-
 ?>
 
 <section>
 <div class="events_header">
-<?php
-
-$selectedYear = date('Y');
-
-
-$selectedYear = 2020;
-
-?>
-<input type="hidden" id="original_price" value="<?php echo $selectedYear?>" />
-Price: <input type="text" id="calculated_price" value="<?php echo $selectedYear?>" />
-<select onchange="updatePrice(this.value)">
-<?php
-
-
-
-foreach($years as $key => $year)
-{
-	if ($year == $selectedYear)
-	{
-		echo '<option selected>'.$year.'</option>';
-	}
-	else
-	{
-		echo '<option>'.$year.'</option>';
-	}
-	
-}
-
-?>
-
-
-</select>
-
-
-<?php
-
-$year = '<script>document.write(document.getElementById("calculated_price").value)</script>';
-echo $year;
-?>
-
 <select>
 
 <?php
@@ -119,7 +78,7 @@ function sortDesc( $a, $b ) {
 	} 
 }
 */
-//$selectedYear = date('Y');
+$selectedYear = date('Y');
 
 foreach($years as $key => $year)
 {
@@ -179,14 +138,6 @@ foreach ($pages as $key => $post)
 </div>
 </section>
 </div>
-<script>
-
-function updatePrice(val) {
-    p = document.getElementById("original_price").value;
-    newp = p * val;
-    document.getElementById("calculated_price").value = val;
-}
-
-	function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active")}</script>
+<script>function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active")}</script>
 
 <?php get_footer(); 
