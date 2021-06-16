@@ -2137,7 +2137,7 @@ p.person ,p.group{
     color: green;
 }
 
-.main a.button ,.main a.button:visited {
+.main a.button ,.main a.button:visited,.main a.button:hover {
     color: #fff;
 }
 
