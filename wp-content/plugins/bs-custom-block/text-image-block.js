@@ -36,6 +36,11 @@ attributes: {
   type: 'text',
   selector: 'p'
   },
+  buttonTarget: {
+  type: 'text',
+  default:'',
+  },
+
   buttonText: {
   type: 'text'
   },
@@ -153,6 +158,27 @@ return [
     props.setAttributes({buttonURL: newURL})
     }
     }),
+
+        el(
+          "div",
+          {style:{display:'inline-block',width:'30%', padding:'10px',textAlign:'left'}},
+          "Button-Target: "
+        ),     
+    el(RichText, {
+    type: 'text',
+    value: attributes.buttonTarget,    
+    key: 'editable',
+    tagName: 'div',
+    className: 'my-block-text url-target',
+    style:{display:'inline-block',width:'70%', padding:'10px',textAlign:'left'},
+    placeholder: i18n.__('_blank', 'my-first-gutenberg-block'),
+    keepPlaceholderOnFocus: true,
+    onChange: function (newButtonTarget) {
+    props.setAttributes({buttonTarget: newButtonTarget})
+    }
+    }),
+
+
         el(
           "div",
           {style:{display:'inline-block',width:'30%', padding:'10px',textAlign:'left'}},
@@ -219,10 +245,26 @@ return (
         attributes.title
 
       ),
+
+        el('a', {
+          'href': attributes.buttonURL,
+
+          },
+
+         el(
+          'div', {
+          className: 'block_image_div mobile_hidden',
+          style : {backgroundImage:'url('+attributes.mediaURL+')'}
+          },
+          )         
+        )  ,
+
       attributes.buttonURL ? 
       (
         el('a', {
-          href: attributes.buttonURL
+
+          'href': attributes.buttonURL,
+          /*target: attributes.buttonTarget*/
           },
 
          el(
@@ -246,7 +288,7 @@ return (
       attributes.buttonURL ? 
       (
         el('a', {
-          href: attributes.buttonURL
+          href: attributes.buttonURL,
           },
           el('img', {
             src: attributes.mediaURL,
@@ -285,7 +327,7 @@ return (
         !attributes.buttonURL ? '':    
         el('a', {
           className: 'my-block-button content',
-          href: attributes.buttonURL
+          href: attributes.buttonURL,
           },       
           el(
             'span',{

@@ -38,9 +38,7 @@ foreach ($posts as $key => $post)
 	$date = DateTime::createFromFormat('d.m.y', @get_field('datum'))->format('Y-m-d');
 	if (strlen($post->post_title) > 1)
 	{
-	//	$img = '/wp-content/uploads/2021/06/news-fallback.png';
-		$img='/wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
-
+		$img = '/wp-content/uploads/2021/06/news-fallback.png';
 		if (strlen(get_the_post_thumbnail_url()) > 0)
 		{
 			$img = get_the_post_thumbnail_url();
@@ -60,15 +58,68 @@ foreach ($posts as $key => $post)
 	}
 }
 $years = array_unique($years);
+
 ?>
 
 <section>
 <div class="events_header">
-<select>
-
 <?php
 
 $selectedYear = date('Y');
+
+
+$selectedYear = 2020;
+
+?>
+<input type="hidden" id="original_price" value="<?php echo $selectedYear?>" />
+Price: <input type="text" id="calculated_price" value="<?php echo $selectedYear?>" />
+<select onchange="updatePrice(this.value)">
+<?php
+
+
+
+foreach($years as $key => $year)
+{
+	if ($year == $selectedYear)
+	{
+		echo '<option selected>'.$year.'</option>';
+	}
+	else
+	{
+		echo '<option>'.$year.'</option>';
+	}
+	
+}
+
+?>
+
+
+</select>
+
+
+<?php
+
+$year = '<script>document.write(document.getElementById("calculated_price").value)</script>';
+echo $year;
+?>
+
+<select>
+
+<?php
+/*
+function sortDesc( $a, $b ) {
+	if (isset($b["date"]) && isset($a["date"]))
+	{
+		return strtotime($b["date"]) - strtotime($a["date"]);	
+	} 
+}function sortAsc( $a, $b ) {
+	if (isset($b["date"]) && isset($a["date"]))
+	{
+		return strtotime($a["date"]) - strtotime($b["date"]);	
+	} 
+}
+*/
+//$selectedYear = date('Y');
 
 foreach($years as $key => $year)
 {
@@ -128,6 +179,14 @@ foreach ($pages as $key => $post)
 </div>
 </section>
 </div>
-<script>function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active")}</script>
+<script>
+
+function updatePrice(val) {
+    p = document.getElementById("original_price").value;
+    newp = p * val;
+    document.getElementById("calculated_price").value = val;
+}
+
+	function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active")}</script>
 
 <?php get_footer(); 

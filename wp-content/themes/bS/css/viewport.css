@@ -2040,9 +2040,75 @@ margin: 0;
         overflow: hidden;
 }
 
+.zitat{
+  border-bottom: 1px solid #E3E5ED;
+  margin-bottom: 24px;
+      padding: 16px;
+}
+.zitat .wp-block-columns{
+  display: block;
+  position: relative;
+    margin-bottom: 0;
+}
+
+.zitat .wp-block-column{
+  flex-basis: unset;
+  flex-grow: unset;
+} 
+.wp-block-column.testimonial-image{
+margin-right: 32px;
+width: 116px;
+height: 116px;
+vertical-align: middle;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+.zitate{
+  color: #293038;
+  font-family: Lato;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+.author{
+  color: #1F5DA6;
+  font-family: Lato;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: absolute;
+  left: 144px;
+  top: 0px;
+    height: 112px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
 @media(min-width:768px)
 {
 
+.zitat .wp-block-columns{
+  display: flex;
+  margin-bottom: 0;
+}
+.testimonial-content{
+  width: calc(100% - 144px);;
+}
+
+.zitat{
+  border-bottom: none;
+}
+.author{
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  padding: 0;
+  height: auto;
+}
 
   .gallery-main .text h3{
     color: #f2f2f2;
@@ -2185,3 +2251,4 @@ color: #1F5DA6;
 
     margin-bottom: -8px;
 }
+

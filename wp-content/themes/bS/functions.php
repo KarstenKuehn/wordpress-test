@@ -976,6 +976,7 @@ function kb_whitelist_blocks() {
     'lb/text-two-cta-img',
     'lb/img-text-two-cta', 
     'lb/verlinkungen-frame',
+    'lb/testimonial',
     'core/shortcode'
   );
 }
