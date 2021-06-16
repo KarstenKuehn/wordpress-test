@@ -902,9 +902,12 @@ a.sub_menu_item .material-icons{
 }
 .navi-item{
   width: 100%;
- padding: 27px 0;
+
   border-bottom: 1px solid #E3E5ED;
   text-align: center;
+}
+.navi-item a{ padding: 27px 0;
+  display: block;
 }
 .navi-item img {
     margin: auto;

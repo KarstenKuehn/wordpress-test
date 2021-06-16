@@ -394,7 +394,7 @@ a.event_short h2
 }
 
 .navi-item img{
-  margin: 16px auto; 
+  margin: 0; 
 }
 /* The dots/bullets/indicators */
 .dots{
@@ -474,11 +474,6 @@ input#s {
   .content_section >.navi-item {
       margin-bottom: -48px;
   }
-
-  .navi-item img{
-  margin: 36px auto; 
-}
-
   .navi-item{
     top: -48px;
     grid-template-columns: 1fr; 
@@ -517,12 +512,6 @@ input#s {
     -ms-grid-columns:1fr; 
     -ms-grid-rows:128px;    
   }
-
-  .navi-item img{
-  margin: 42px auto; 
-}
-
-
 }
 
 /**/
