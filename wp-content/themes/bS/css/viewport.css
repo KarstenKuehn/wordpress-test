@@ -2137,8 +2137,10 @@ p.person ,p.group{
     color: green;
 }
 
-.main a.button ,.main a.button:visited,.main a.button:hover {
+.main a.button ,.main a.button:visited,.main a.button:hover,
+.main a.my-block-button ,.main a.my-block-button:visited,.main a.my-block-button:hover {
     color: #fff;
+    text-decoration: none;
 }
 
 .main>blockquote {
