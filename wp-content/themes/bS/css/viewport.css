@@ -2211,7 +2211,7 @@ p.person ,p.group{
     text-decoration: underline;
 }
 .main a:visited {
-    color: green;
+    color: #293038;
 }
 
 .main a.button ,.main a.button:visited,.main a.button:hover,
