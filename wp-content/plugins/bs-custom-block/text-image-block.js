@@ -246,25 +246,13 @@ return (
 
       ),
 
-        el('a', {
-          'href': attributes.buttonURL,
-
-          },
-
-         el(
-          'div', {
-          className: 'block_image_div mobile_hidden',
-          style : {backgroundImage:'url('+attributes.mediaURL+')'}
-          },
-          )         
-        )  ,
-
       attributes.buttonURL ? 
       (
         el('a', {
 
           'href': attributes.buttonURL,
-          /*target: attributes.buttonTarget*/
+          target: attributes.buttonTarget,
+          rel:'noopener',
           },
 
          el(
@@ -288,7 +276,9 @@ return (
       attributes.buttonURL ? 
       (
         el('a', {
-          href: attributes.buttonURL,
+          href: attributes.buttonURL,          
+          target: attributes.buttonTarget,
+          rel:'noopener',
           },
           el('img', {
             src: attributes.mediaURL,
@@ -328,6 +318,8 @@ return (
         el('a', {
           className: 'my-block-button content',
           href: attributes.buttonURL,
+          target: attributes.buttonTarget,
+          rel:'noopener',
           },       
           el(
             'span',{
