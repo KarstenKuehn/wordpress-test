@@ -325,6 +325,29 @@ add_action('enqueue_block_editor_assets', 'loadTeaserThumbSlide');
 
 
 
+function load_ContentSlideFrame() {
+  wp_enqueue_script(
+    'Content-Slide-Frame',
+    plugin_dir_url(__FILE__) . 'content-slide-frame.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+
+add_action('enqueue_block_editor_assets', 'load_ContentSlideFrame');
+
+
+function load_LotterieSlideItem() {
+  wp_enqueue_script(
+    'Lotterie-Slide-Item',
+    plugin_dir_url(__FILE__) . 'lotterie-slide-item.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+
+add_action('enqueue_block_editor_assets', 'load_LotterieSlideItem');
+
 function load_VerlinkungenFrame() {
 
 
