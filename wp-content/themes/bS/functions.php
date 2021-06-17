@@ -1214,7 +1214,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
                     $content .= date('d.m.y',strtotime($post['date']));
                     $content .= '<h2>'.$post['post_title'].'...'.'</h2>';
                     $content .= wp_trim_words(strip_tags($post['excerpt']),20, ' […]'  );   
-                    $content .= 'test';
+                    $content .= '';
                     $content .= '</div>';
                     $content .= '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
                     $content .= '</div>';
