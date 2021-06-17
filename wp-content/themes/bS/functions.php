@@ -1139,78 +1139,88 @@ function sortDesc( $a, $b ) {
     } 
 }
 
+function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
 
-function shortcode_posts_function(){
+
+    $post_count=$atts['count'];
     $content = '';
-    $catname = 'News';
+    $catname = $atts['cat'];
+    $category = get_category_by_slug($atts['cat']); 
+    $id = $category->term_id;
+
     //Parameter für Posts
     $args = array(
-        'category-name' => $catname,
-        'numberposts' => -1
+        'category' => $id ,
+        'numberposts' =>  -1
     );
     
     //Posts holen
     $posts = get_posts($args);
 
-foreach ($posts as $key => $post) 
-{
-    $today = date('Y-m-d',time());
-    $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
 
-
-    if (strlen($post->post_title) > 1 && ($date==$today))
-    {
-        $img='wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
-        if (strlen(get_the_post_thumbnail_url()) > 0)
+        foreach ($posts as $key => $post) 
         {
-            $img = get_the_post_thumbnail_url();
+            $today = date('Y-m-d',time());
+            $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
+            if (strlen($post->post_title) > 1 && ($date==$today))
+            {
+                $img='wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
+                if (strlen(get_the_post_thumbnail_url()) > 0)
+                {
+                    $img = get_the_post_thumbnail_url();
+                }
+                $x=
+                $pages[] = array(
+                    'ID' => $post->ID,
+                    'post_title' => $post->post_title,
+                    'date' => $date,
+                    'excerpt'   => str_replace($post->post_title,'',$post->post_content),
+                    'link'      => get_permalink($post->ID),
+                    'category'  => $catname,
+                    'thumb'     => $img,
+
+                );
+                $years[] = date('Y',strtotime($date));
+            }
         }
-        $x=
-        $pages[] = array(
-            'ID' => $post->ID,
-            'post_title' => $post->post_title,
-            'date' => $date,
-            'excerpt'   => str_replace($post->post_title,'',$post->post_content),
-            'link'      => get_permalink($post->ID),
-            'category'  => $catname,
-            'thumb'     => $img,
 
-        );
-        $years[] = date('Y',strtotime($date));
-    }
-}
-if($pages)
-{
-usort($pages, "sortDesc");
-    //Inhalte sammeln
-    $content = '<div class="news spalten_3">';
-
-
-foreach ($pages as $key => $post) 
-{
-
- /*   echo '<pre>';
-    print_r($post);
-    echo '</pre>';
-
-    */
-   if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category']) )
-    {
-        if (preg_match('@'.$year.'@',$post['date']))
+        if($pages)
         {
-                $content .= '<div class="news_container active">';
-            $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
-            $content .= '<div class="news_frame">';
-            $content .= date('d.m.y',strtotime($post['date']));
-            $content .= '<h2>'.$post['post_title'].'...'.'</h2>';
-            $content .= wp_trim_words(strip_tags($post['excerpt']),20, ' […]'  );   
-            $content .= 'test';
-            $content .= '</div>';
-            $content .= '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
-            $content .= '</div>';
+        usort($pages, "sortDesc");
+        if(count($pages)>$post_count)
+        {
+            $pages = array_slice($pages, 0, $post_count);
         }
-    }
-}
+
+            //Inhalte sammeln
+            $content = '<div class="news spalten_3">';
+
+
+        foreach ($pages as $key => $post) 
+        {
+
+         /*   echo '<pre>';
+            print_r($post);
+            echo '</pre>';
+
+            */
+           if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category']) )
+            {
+                if (preg_match('@'.$year.'@',$post['date']))
+                {
+                        $content .= '<div class="news_container active">';
+                    $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
+                    $content .= '<div class="news_frame">';
+                    $content .= date('d.m.y',strtotime($post['date']));
+                    $content .= '<h2>'.$post['post_title'].'...'.'</h2>';
+                    $content .= wp_trim_words(strip_tags($post['excerpt']),20, ' […]'  );   
+                    $content .= 'test';
+                    $content .= '</div>';
+                    $content .= '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
+                    $content .= '</div>';
+                }
+            }
+        }
   /*  
     foreach ($posts as $post) {
         $content .= '<div class="news_container active">';
