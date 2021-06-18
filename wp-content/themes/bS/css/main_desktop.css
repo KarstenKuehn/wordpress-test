@@ -559,3 +559,23 @@ input#s {
     width: 100%;
     height: auto;
 }
+
+
+
+
+.desktop_navi {
+    padding-right: 40px;
+}
+
+.sub_menu_item {
+    width: 328px;
+    height: 49px;
+}
+
+.show-test .active {
+    grid-template-columns: 1fr 1fr auto;
+}
+.show-test .sub_menu_block a.sub_menu_item { margin-right: 90px; width: 392px;}
+
+.show-test .sub_menu_block.blog { padding-left: 100px; width: 388px; max-width: 388px; border-left: 1px solid #E3E5ED; }
+.show-test .sub_menu_block.blog ~ .sub_menu_block.blog { padding-left: 0; border : none;}
