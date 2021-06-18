@@ -9,7 +9,7 @@
 <a href="https://www.spielbanken-bayern.de/" target="_blank"><img width="109" height="56" src="/wp-content/uploads/SpielbankenBayern.png" alt="spielbanken"></a>
 </label>
 <p>Spielteilnahme erst ab 18 Jahren. Glückspiel kann süchtig machen. Infos und Hilfe unter www.bzga.de.<br>
-Lotto Bayern verfüght über eine Erlaubnis der zuständigen Glückspielaufsichtsbehörde und steht unter deren Aufsicht.</p>
+Lotto Bayern verfügt über eine Erlaubnis der zuständigen Glückspielaufsichtsbehörde und steht unter deren Aufsicht.</p>
 <p>Alle Angaben ohne Gewähr.</p>
 </div>
 <?php

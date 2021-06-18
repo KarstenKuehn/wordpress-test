@@ -1193,7 +1193,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
         }
 
             //Inhalte sammeln
-            $content = '<div class="news spalten_3">';
+            $content = '<h2>Aktuelle News</h2><div class="news spalten_3">';
 
 
         foreach ($pages as $key => $post) 
@@ -1212,8 +1212,8 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
                     $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
                     $content .= '<div class="news_frame">';
                     $content .= date('d.m.y',strtotime($post['date']));
-                    $content .= '<h2>'.$post['post_title'].'...'.'</h2>';
-                    $content .= wp_trim_words(strip_tags($post['excerpt']),20, ' […]'  );   
+                    $content .= '<h2 class="news_headline">'. substr(strip_tags($post['post_title']),0 ,50).'</h2>';
+                    $content .= wp_trim_words(strip_tags($post['excerpt']),10, ' […]'  );   
                     $content .= '';
                     $content .= '</div>';
                     $content .= '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
