@@ -1162,7 +1162,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
         {
             $today = date('Y-m-d',time());
             $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
-            if (strlen($post->post_title) > 1 && ($date==$today))
+            if (strlen($post->post_title) > 1 && ($date<=$today))
             {
                 $img='wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
                 if (strlen(get_the_post_thumbnail_url()) > 0)
