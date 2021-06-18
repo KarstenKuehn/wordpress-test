@@ -2252,3 +2252,108 @@ color: #1F5DA6;
     margin-bottom: -8px;
 }
 
+.verlinkungen{
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+}
+
+.verlinkungen .block_head {
+    max-width: 1224px;
+    margin: auto;
+    padding: 8px 24px;
+}
+.verlinkungen .wp-block-columns {
+    display: block;
+    margin: 0 24px;
+}
+
+.verlinkungen .wp-block-columns.verlinkungen_head {
+    padding: 8px;
+    margin: 0;
+    display: flex;
+}
+
+
+.wp-block-column.verlinkung {
+    margin-top: 24px;
+}
+
+.wp-block-column.verlinkungen_head_head h3 {
+  color: #091B30;
+  font-family: Lato;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+.verlinkungen .wp-block-column {
+    background: white;
+}
+
+.verlinkungen .wp-block-image img {
+    width: 100%;
+}
+
+
+.verlinkungen_content{
+  padding: 0 24px 24px 24px;
+}
+.wp-block-column.verlinkungen_head_href {
+    text-align: right;
+    align-self: center;
+    flex-grow: 0;
+}
+.wp-block-column.verlinkungen_head_href p{
+  padding: 0;
+  margin: 0;    
+  padding-right: 16px;
+}
+
+.verlinkungen_head_href a {
+    color: transparent;
+    position: relative;
+
+}
+.verlinkungen_head_href a:after {
+    content: "\e895";
+    color: #0061AB;
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-size: 32px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+@media(min-width:768px)
+{
+  .verlinkungen{
+      margin-top: 0;
+  }
+
+  .verlinkungen .block_head {
+      max-width: 1224px;
+      margin: auto;
+      padding: 40px 0;
+  }
+
+  .verlinkungen .wp-block-columns {
+      display: flex;
+  }
+
+  .verlinkungen .wp-block-columns.verlinkungen_head{
+    padding: 24px 24px 0 24px;
+  }
+
+  /* Verlinkungen - Modul */
+  .verlinkungen .wp-block-columns {
+      column-gap: 24px;
+      max-width: 1224px;
+      margin: auto;
+  }
+.wp-block-column.verlinkungen_head_href p{
+  padding: 0;
+}
+
+}

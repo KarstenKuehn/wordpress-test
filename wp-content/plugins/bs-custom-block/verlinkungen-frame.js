@@ -40,9 +40,10 @@
           InnerBlocks,
           {
             template: [
+              ['core/heading',{className:'block_head','placeholder':'Block Überschrift'}],
               ['core/columns',{},
                 [
-                  ['core/column',{},
+                  ['core/column',{className:'verlinkung',},
                     [
                       ['core/image',{'placeholder':'Verlinkung-Bild'}],
 
@@ -60,10 +61,10 @@
                           ],                          
                         ],
                       ],
-                      ['core/paragraph',{'placeholder':'Inhalt linke Spalte'}]
+                      ['core/paragraph',{className:'verlinkungen_content','placeholder':'Verlinkung Text'}]
                     ]
                   ],
-                  ['core/column',{},
+                  ['core/column',{className:'verlinkung',},
                     [
                       ['core/image',{'placeholder':'Verlinkung-Bild'}],
                       ['core/columns',{className:'verlinkungen_head'},
@@ -80,7 +81,7 @@
                           ],                          
                         ],
                       ],
-                      ['core/paragraph',{'placeholder':'Inhalt rechte Spalte'}]
+                      ['core/paragraph',{className:'verlinkungen_content','placeholder':'Verlinkung Text'}]
                     ]
                   ]
                 ]

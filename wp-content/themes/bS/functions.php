@@ -208,7 +208,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
 
         $i = 0;
         foreach ($current_menu->wpse_children as $key => $child) {
-            $submenu_html_liste.='<div class="sub_menu_block">';
+            $submenu_html_liste.='<div class="sub_menu_block navi">';
             $submenu_html_liste.='<label>'.$child->description.'</label>';
             if($child->wpse_children)
             {
