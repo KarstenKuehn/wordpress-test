@@ -22,7 +22,7 @@
     },
 
     save: function() {
-      return el( 'div', { className:'verlinkungen gray full' },
+      return el( 'section', { className:'verlinkungen gray full' },
         el( InnerBlocks.Content, {} )
       );
     },

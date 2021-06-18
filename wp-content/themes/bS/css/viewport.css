@@ -2255,7 +2255,7 @@ color: #1F5DA6;
 .verlinkungen{
     margin-top: 24px;
     margin-bottom: 24px;
-    padding-bottom: 24px;
+    padding-bottom: 72px;
 }
 
 .verlinkungen .block_head {
@@ -2317,7 +2317,7 @@ color: #1F5DA6;
 }
 .verlinkungen_head_href a:after {
     content: "\e895";
-    color: #0061AB;
+    color: #1F5DA6;
     font-family: 'Material Icons';
     font-style: normal;
     font-size: 32px;
