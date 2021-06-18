@@ -2335,7 +2335,7 @@ color: #1F5DA6;
   .verlinkungen .block_head {
       max-width: 1224px;
       margin: auto;
-      padding: 40px 0;
+      padding: 64px 0 16px 0;
   }
 
   .verlinkungen .wp-block-columns {
