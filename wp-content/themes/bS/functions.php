@@ -235,7 +235,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
 
                     $arr = array_slice($arr,0,$k);
                     foreach ($arr as $key => $sub_child) {
-                    $bild_navigation.='<div class="sub_menu_block blog"><a href="'.$sub_child->url.'"><div class="menu_teaser_bild" style="background-image: url('.get_the_post_thumbnail_url($sub_child->object_id).')"></div></a><p>'.$sub_child->title.'</p><a href="'.$sub_child->url.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
+                    $bild_navigation.='<div class="sub_menu_block blog"><a href="'.$sub_child->url.'"><div class="menu_teaser_bild" style="background-image: url('.get_the_post_thumbnail_url($sub_child->object_id).')"></div></a><div class="menu_teaser_content"><p>'.$sub_child->title.'</p><a href="'.$sub_child->url.'">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div></div>';
 
                     }
                 }

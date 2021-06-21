@@ -10,8 +10,11 @@ $posts = get_posts($args);
 ?>
 
 <?php
+if(isset($_GET['selected_year']))
+	$year = $_GET['selected_year'];
+else
 
-$year = 2021;
+$year = date('Y');
 
 foreach ($posts as $key => $post) 
 {
@@ -42,9 +45,10 @@ $years = array_unique($years);
 
 <section>
 <div class="events_header">
-<select>
+<select id="select_year">
 
 <?php
+
 /*
 function sortDesc( $a, $b ) {
 	if (isset($b["date"]) && isset($a["date"]))
@@ -58,17 +62,19 @@ function sortDesc( $a, $b ) {
 	} 
 }
 */
-$selectedYear = date('Y');
+//$selectedYear = date('Y');
 
-foreach($years as $key => $year)
+$selectedYear = $year;
+
+foreach($years as $key => $year_select)
 {
-	if ($year == $selectedYear)
+	if ($year_select == $selectedYear)
 	{
-		echo '<option selected>'.$year.'</option>';
+		echo '<option selected>'.$year_select.'</option>';
 	}
 	else
 	{
-		echo '<option>'.$year.'</option>';
+		echo '<option>'.$year_select.'</option>';
 	}
 	
 }
@@ -85,7 +91,6 @@ foreach($years as $key => $year)
 <?php
 
 usort($pages, "sortDesc");
-
 $i = 1;
 foreach ($pages as $key => $post) 
 {
@@ -118,4 +123,17 @@ foreach ($pages as $key => $post)
 </div>
 </section>
 </div>
-<script>function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active")}</script>
+<script>
+  var elem = document.getElementById('select_year');
+  elem.addEventListener('change', Auswählen);
+
+function Auswählen() {
+    var x = document.getElementById('select_year').value;
+var url = new URL(location.href);
+var c = url.searchParams.get("selected_year");
+location.href = location.pathname + "?selected_year=" + x;
+
+
+}
+
+	function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active")}</script>
