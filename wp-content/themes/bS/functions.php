@@ -1211,12 +1211,12 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
                         $content .= '<div class="news_container active">';
                     $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
                     $content .= '<div class="news_frame">';
-                    $content .= date('d.m.y',strtotime($post['date']));
+                    $content .= '<span class="category">'.$post['category'].'</span>'.date('d.m.y',strtotime($post['date']));
                     $content .= '<h2 class="news_headline">'. substr(strip_tags($post['post_title']),0 ,50).'</h2>';
                     $content .= wp_trim_words(strip_tags($post['excerpt']),10, ' […]'  );   
                     $content .= '';
                     $content .= '</div>';
-                    $content .= '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
+                    $content .= '<a href="'.$post['link'].'" class="list"><span class="material-icons">east</span></a>';
                     $content .= '</div>';
                 }
             }

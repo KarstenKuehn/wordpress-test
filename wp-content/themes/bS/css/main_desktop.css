@@ -371,7 +371,7 @@ a.event_short h2
 
 
   .navi-item{
-    width: 33.333%;
+   /* width: 33.333%;*/
     position: relative;
     top: -36px;
     background: #fff;
