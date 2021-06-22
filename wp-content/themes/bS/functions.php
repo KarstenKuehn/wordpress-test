@@ -1139,6 +1139,12 @@ function sortDesc( $a, $b ) {
     } 
 }
 
+function ungerade($var,$cat_id)
+{
+    // Gibt zurück, ob der Eingabewert ungerade ist
+    return $var['category_parent'] == $cat_id;
+}
+
 function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
 
 
@@ -1146,20 +1152,88 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
     $content = '';
     $catname = $atts['cat'];
     $category = get_category_by_slug($atts['cat']); 
-    $id = $category->term_id;
+    $cat_id = $category->term_id;
 
     //Parameter für Posts
     $args = array(
-        'category' => $id ,
+        'category' => $cat_id ,
         'numberposts' =>  -1
     );
     
-    //Posts holen
+        //Posts holen
     $posts = get_posts($args);
+
+    
+
+
+
+
 
 
         foreach ($posts as $key => $post) 
         {
+
+
+
+/*
+$id = $post->ID;
+echo $id;
+echo $cat_id;
+
+echo '<br>';
+$cat = get_the_category($id);
+
+
+$loc = get_the_terms($id, 'category');
+
+echo '<pre style="color:red;">';
+print_r($cat);
+echo '</pre>';
+
+
+echo "Ungerade :\n";
+print_r(array_filter($cat, "ungerade"));
+
+echo '<pre>';
+print_r($loc);
+echo '</pre>';
+
+
+echo $cat[0]->term_id;
+echo $cat[0]->name;
+
+echo '<br>';
+
+echo $loc[0]->term_id;
+echo $loc[0]->name;
+
+
+echo '<hr>';
+
+*/
+
+/*
+
+$posts = get_posts(
+array('post_type' => 'post',
+    'post_status' => 'publish', 
+    'posts_per_page' => -1, 
+    'category' => $cat[0]->term_id, 
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'category',
+            'field' => 'id',
+            'terms' => $loc[0]->term_id,
+        )
+    )
+)
+);
+
+echo '<pre>';
+print_r($posts);
+echo '</pre>';
+
+*/
             $today = date('Y-m-d',time());
             $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
             if (strlen($post->post_title) > 1 && ($date<=$today))

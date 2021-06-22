@@ -273,11 +273,11 @@ h1,h2,h3,h4,p
 
 .text_left
 {
-  padding-right: 52px;
+  padding-right: 32px;
 } 
 .text_right
 {
-  padding-left: 52px;
+  padding-left: 32px;
 }
  .medium{
   max-width: 936px;
@@ -287,6 +287,12 @@ h1,h2,h3,h4,p
   padding: 16px 0;
 }
 
+.wp-block-lb-two-column-text.content_section h2,
+.wp-block-lb-two-column-text.content_section .two-column-text {
+    max-width: 816px;
+}
+
+
 .two-column-text div {
     display: inline-block;
     width: 50%;
@@ -295,6 +301,11 @@ h1,h2,h3,h4,p
 .two-column-text h2 {
 padding: 0;
 }
+
+.two-column-text p {
+    padding: 0 0 16px 0;
+}
+
 .events_header .mobile_width25:last-child
 {
   text-align: right;
@@ -464,58 +475,6 @@ border-left: none;
 .menu_teaser_content p{
       font-size: 20px;
 }
-
-
-/*
-.blog .menu_teaser_bild
-{
-  min-width: 196px;
-  max-width: 100%;
-}
-*/
-/*
-.sub_menu_block
-{
-  display: block;
-  width: 100%;
-  vertical-align: top;
-  margin: 0;
-}
-
-.sub_menu_block.blog {    
-    justify-self: end;
-    max-width: 288px;
-
-}
-
-
-
-.sub_menu_item {
-    width: 328px;
-    height: 49px;
-}
-
-a.sub_menu_item{
-    color: rgb(9,27,48);
-    font-family: Lato;
-    font-size: 24px;
-    font-weight: normal;
-    letter-spacing: 0;
-    line-height: 56px;
-}
-
-
-
-#div_d_106.show-test .sub_menu_block.blog { padding-left: 100px; width: 388px; max-width: 388px; border-left: 1px solid #E3E5ED; }
-
-#div_d_107.show-test .sub_menu_block a.sub_menu_item { margin-right: 90px; width: 392px;}
-#div_d_107.show-test .sub_menu_block.blog { padding-left: 115px; padding-bottom: 50px; width: 405px; max-width: 405px; border-left: 1px solid #E3E5ED; }
-#div_d_107.show-test .sub_menu_block.blog ~ .sub_menu_block.blog { padding-left: 0; margin-left: 0; width: 288px; max-width: 288px; border: none; }
-
-#div_d_109.show-test .sub_menu_block a.sub_menu_item { margin-right: 90px; width: 392px;}
-#div_d_109.show-test .sub_menu_block.blog { padding-left: 115px; padding-bottom: 50px; width: 405px; max-width: 405px; border-left: 1px solid #E3E5ED;}
-#div_d_109.show-test .sub_menu_block.blog ~ .sub_menu_block.blog { padding-left: 0; margin-left: 0; width: 288px; max-width: 288px; border: none; }
-*/
 
 
 @media(min-width:900px)
