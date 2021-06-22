@@ -434,27 +434,31 @@ input#s {
 .show-test.active{
     display: grid;
     grid: auto / repeat(3, 1fr);
-    gap: 24px;
+    gap: 16px;
     padding: 0px 24px 24px 24px; 
 }
 
 
 .show-test.active {
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr auto auto;
 }
 
 a.sub_menu_item {
     font-size: 20px;
+    padding-right: 32px;
 }
 
 
 .blog{
-  padding-left: 24px;    
-  width: 210px;
+  padding-left: 16px;    
+  width: 203px;
   justify-self: end;
+border-left: 1px solid #E3E5ED;
+
 }
 .blog ~ .blog { padding-left: 0;
    width: 186px;
+border-left: none;   
 
 }
 .menu_teaser_content p{
@@ -566,12 +570,16 @@ a.sub_menu_item {
 @media(min-width:1100px)
 {
 
+  .show-test.active{
+    gap: 32px; 
+}
+
 .blog{
   padding-left: 24px;    
-  width: 262px;
+  width: 312px;
 }
 .blog ~ .blog { padding-left: 0;
-   width: 238px;
+   width: 288px;
 
 }
 
@@ -606,12 +614,16 @@ a.sub_menu_item {
 @media(min-width:1224px)
 {
 
+
+.sub_menu_block.navi {
+    padding-right: 80px;
+}
 .blog{
-  padding-left: 24px;    
-  width: 236px;
+  padding-left: 112px;    
+  width: 401px;
 }
 .blog ~ .blog { padding-left: 0;
-   width: 212px;
+   width: 288px;
 
 }
 .main>:not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium) {

@@ -4,8 +4,26 @@ $args = array(
         'category'       => array(10,9),
     	'sort_order' 	 => 'desc',
     	'posts_per_page'   => -1,
+    	'depth'   => 5,
     );
 $posts = get_posts($args);
+/*
+
+
+			//print_r($posts);
+
+
+
+        $children = wp_list_categories( array(
+            'child_of' => 9,
+            'depth'   => 5,
+            'echo'     => 0,
+            'orderby' => 'id',
+            'title_li' => '',
+        ) );
+        echo '<ul>' . $children . '</ul>';
+
+*/
 
 ?>
 
@@ -29,7 +47,7 @@ foreach ($posts as $key => $post)
 		
 		$pages[] = array(
 			'ID' => $post->ID,
-			'post_title' => $post->post_title,
+			'post_title' => wp_trim_words($post->post_title,10, ' […]'  ), 
 			'date' => $date,
 			'excerpt'	=> substr(get_the_excerpt($post->ID),0 ,100),
 			'link'		=> get_permalink(),
@@ -96,7 +114,8 @@ foreach ($pages as $key => $post)
 {
 	if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category']) )
 	{
-		if (preg_match('@'.$year.'@',$post['date']))
+		$search_text='';
+		if (preg_match('@'.$year.'@',$post['date']) && ( (preg_match('@'.$search_text.'@',$post['post_title']))  || (preg_match('@'.$search_text.'@',$post['excerpt']))))
 		{
 			if ($i++ <= 6)
 			{
@@ -109,7 +128,7 @@ foreach ($pages as $key => $post)
 			echo '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
 			echo '<div class="news_frame">';
 			echo date('d.m.y',strtotime($post['date']));
-			echo '<h2>'.$post['post_title'].'...'.'</h2>';
+			echo '<h2>'.$post['post_title'].'</h2>';
 			echo '<p>'.$post['excerpt'].'[...]</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
