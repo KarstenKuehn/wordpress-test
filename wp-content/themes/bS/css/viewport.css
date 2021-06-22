@@ -331,6 +331,12 @@ a.custom-logo-link {
     line-height: 72px;
     display: inline-block;
 }
+
+.custom-logo {
+    padding: 8px;
+    width: auto;
+}
+
 .site-logo{
     display: inline-block;
     width:68%;
@@ -1509,6 +1515,12 @@ font-size: 16px;
 
 @media(min-width:768px)
 {
+
+.custom-logo {
+    padding: 0px;
+    width: auto;
+}
+
 
 .main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
 max-width: 1224px;

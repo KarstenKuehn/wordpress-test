@@ -857,7 +857,6 @@ function bS_theme_support() {
         $logo_width  = floor( $logo_width * 2 );
         $logo_height = floor( $logo_height * 2 );
     }
-
     add_theme_support(
         'custom-logo',
         array(
@@ -1176,6 +1175,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
 
 
 /*
+
 $id = $post->ID;
 echo $id;
 echo $cat_id;
@@ -1190,9 +1190,6 @@ echo '<pre style="color:red;">';
 print_r($cat);
 echo '</pre>';
 
-
-echo "Ungerade :\n";
-print_r(array_filter($cat, "ungerade"));
 
 echo '<pre>';
 print_r($loc);
@@ -1209,7 +1206,6 @@ echo $loc[0]->name;
 
 
 echo '<hr>';
-
 */
 
 /*
