@@ -2249,9 +2249,6 @@ p.person ,p.group{
 .main a:visited {
     color: #293038;
 }
-.main a:focus {
-    border: 1px dotted #000;
-}
 
 .main a.button ,.main a.button:visited,.main a.button:hover,
 .main a.my-block-button ,.main a.my-block-button:visited,.main a.my-block-button:hover {
