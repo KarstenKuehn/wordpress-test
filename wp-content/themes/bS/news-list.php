@@ -47,7 +47,7 @@ foreach ($posts as $key => $post)
 		}	
 		$pages[] = array(
 			'ID' => $post->ID,
-			'post_title' => wp_trim_words($post->post_title,10, ' […]'  ), 
+			'post_title' => wp_trim_words(substr($post->post_title,0 ,100),7, ' […]'), 
 			'date' => $date,
 			'excerpt'	=> substr(get_the_excerpt($post->ID),0 ,100),
 			'link'		=> get_permalink(),

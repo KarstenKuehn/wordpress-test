@@ -1233,16 +1233,19 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
                 $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
                 $content .= '<div class="news_frame">';
                 $content .= '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
-                $content .= '<h2 class="news_headline">'. substr(strip_tags($post['post_title']),0 ,50).'</h2>';
-                $content .= wp_trim_words(strip_tags($post['excerpt']),10, ' […]'  );   
+                $content .= '<h2 class="news_headline">'. wp_trim_words(substr(strip_tags($post['post_title']),0 ,100),5, ' […]').'</h2>';
+                $content .= wp_trim_words(substr(strip_tags($post['excerpt']),0 ,150),15, ' […]'  );   
                 $content .= '';
                 $content .= '</div>';
-                $content .= '<a href="'.$post['link'].'" class="list">Mehr erfahren <span class="material-icons">east</span></a>';
+                $content .= '<a href="'.$post['link'].'" class="list">mehr erfahren <span class="material-icons">east</span></a>';
                 $content .= '</div>';
             }
         }
     }
   /*  
+
+substr(get_the_excerpt($post->ID),0 ,100)
+
     foreach ($posts as $post) {
         $content .= '<div class="news_container active">';
 
