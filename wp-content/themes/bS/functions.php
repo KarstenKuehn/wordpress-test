@@ -1146,7 +1146,6 @@ function ungerade($var,$cat_id)
 
 function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
 
-
     $post_count=$atts['count'];
     $content = '';
     $catname = $atts['cat'];
@@ -1174,8 +1173,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
             {
                 $sub_cat = $value->name;
             }
-        }    
-
+        }   
         $today = date('Y-m-d',time());
         $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
         if (strlen($post->post_title) > 1 && ($date<=$today))
@@ -1185,11 +1183,10 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
             $img='/wp-content/uploads/2021/06/Presse-Unternehmens-News_2000x1100.jpg';
             if($sub_cat=='Gewinner News')
             $img='/wp-content/uploads/2021/06/Presse-News_Gewinnernews_2000x1100.jpg';            
-            if (strlen(get_the_post_thumbnail_url()) > 0)
+            if (strlen(get_the_post_thumbnail_url($id)) > 0)
             {
-                $img = get_the_post_thumbnail_url();
+                $img = get_the_post_thumbnail_url($id);
             }
-            $x=
             $pages[] = array(
                 'ID' => $post->ID,
                 'post_title' => $post->post_title,
