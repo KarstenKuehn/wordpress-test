@@ -52,6 +52,7 @@ foreach ($posts as $key => $post)
 			'excerpt'	=> substr(get_the_excerpt($post->ID),0 ,100),
 			'link'		=> get_permalink(),
 			'category'	=> get_the_category()[0]->name,
+			'sub_category'  => $sub_cat,
 			'thumb'		=> $img,
 
 		);
@@ -132,7 +133,7 @@ foreach ($pages as $key => $post)
 			echo '<h2>'.$post['post_title'].'</h2>';
 			echo '<p>'.$post['excerpt'].'[...]</p>';
 			echo '</div>';
-			echo '<a href="'.$post['link'].'">'.$post['category'].'<span class="material-icons">east</span></a>';
+			echo '<a href="'.$post['link'].'">'.$post['sub_category'].'<span class="material-icons">east</span></a>';
 			echo '</div>';
 		}
 	}
