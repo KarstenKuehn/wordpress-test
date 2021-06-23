@@ -49,7 +49,7 @@ foreach ($posts as $key => $post)
 			'ID' => $post->ID,
 			'post_title' => wp_trim_words(substr($post->post_title,0 ,100),7, ' […]'), 
 			'date' => $date,
-			'excerpt'	=> substr(get_the_excerpt($post->ID),0 ,100),
+			'excerpt'	=> wp_trim_words(substr(get_the_excerpt($post->ID),0 ,150),15, ' […]'  ),
 			'link'		=> get_permalink(),
 			'category'	=> get_the_category()[0]->name,
 			'sub_category'  => $sub_cat,
@@ -131,7 +131,7 @@ foreach ($pages as $key => $post)
 			echo '<div class="news_frame">';
 			echo date('d.m.y',strtotime($post['date']));
 			echo '<h2>'.$post['post_title'].'</h2>';
-			echo '<p>'.$post['excerpt'].'[...]</p>';
+			echo '<p>'.$post['excerpt'].'</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'" class="list">'.$post['sub_category'].'<span class="material-icons">east</span></a>';
 			echo '</div>';
