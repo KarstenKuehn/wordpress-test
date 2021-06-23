@@ -38,9 +38,9 @@ foreach ($posts as $key => $post)
 	{
         $img='/wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
         if($sub_cat=='Unternehmen News')
-        $img='/wp-content/uploads/2021/06/AdobeStock_158071825_Preview_Unternehmensnews_Teaser-1.jpeg';
+        $img='/wp-content/uploads/2021/06/Preview_Unternehmensnews_Teaser.jpeg';
         if($sub_cat=='Gewinner News')
-        $img='/wp-content/uploads/2021/06/gettyimages-181011589-170667a_Gewinnernews_Teaser.jpg';
+        $img='/wp-content/uploads/2021/06/Gewinnernews_Teaser.jpg';
   		if (strlen(get_the_post_thumbnail_url()) > 0)
 		{
 			$img = get_the_post_thumbnail_url();
