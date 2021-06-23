@@ -1162,135 +1162,86 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
         //Posts holen
     $posts = get_posts($args);
 
-    
+    foreach ($posts as $key => $post) 
+    {
 
+        $sub_cat = $catname;
+        $id = $post->ID;
+        $cat = get_the_category($id);
+        foreach ($cat as $key => $value) {
 
-
-
-
-
-        foreach ($posts as $key => $post) 
-        {
-
-
-
-/*
-
-$id = $post->ID;
-echo $id;
-echo $cat_id;
-
-echo '<br>';
-$cat = get_the_category($id);
-
-
-$loc = get_the_terms($id, 'category');
-
-echo '<pre style="color:red;">';
-print_r($cat);
-echo '</pre>';
-
-
-echo '<pre>';
-print_r($loc);
-echo '</pre>';
-
-
-echo $cat[0]->term_id;
-echo $cat[0]->name;
-
-echo '<br>';
-
-echo $loc[0]->term_id;
-echo $loc[0]->name;
-
-
-echo '<hr>';
-*/
-
-/*
-
-$posts = get_posts(
-array('post_type' => 'post',
-    'post_status' => 'publish', 
-    'posts_per_page' => -1, 
-    'category' => $cat[0]->term_id, 
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'category',
-            'field' => 'id',
-            'terms' => $loc[0]->term_id,
-        )
-    )
-)
-);
-
-echo '<pre>';
-print_r($posts);
-echo '</pre>';
-
-*/
-            $today = date('Y-m-d',time());
-            $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
-            if (strlen($post->post_title) > 1 && ($date<=$today))
+            if($cat_id == $value->category_parent)
             {
-                $img='wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
-                if (strlen(get_the_post_thumbnail_url()) > 0)
-                {
-                    $img = get_the_post_thumbnail_url();
-                }
-                $x=
-                $pages[] = array(
-                    'ID' => $post->ID,
-                    'post_title' => $post->post_title,
-                    'date' => $date,
-                    'excerpt'   => str_replace($post->post_title,'',$post->post_content),
-                    'link'      => get_permalink($post->ID),
-                    'category'  => $catname,
-                    'thumb'     => $img,
+                $sub_cat = $value->name;
+            }
+        }    
 
-                );
-                $years[] = date('Y',strtotime($date));
+        $today = date('Y-m-d',time());
+        $date = DateTime::createFromFormat('d.m.y', @get_field('datum',$post->ID))->format('Y-m-d');
+        if (strlen($post->post_title) > 1 && ($date<=$today))
+        {
+            $img='/wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
+            if($sub_cat=='Unternehmen News')
+            $img='/wp-content/uploads/2021/06/AdobeStock_158071825_Preview_Unternehmensnews_Teaser-1.jpeg';
+            if($sub_cat=='Gewinner News')
+            $img='/wp-content/uploads/2021/06/gettyimages-181011589-170667a_Gewinnernews_Teaser.jpg';            
+            if (strlen(get_the_post_thumbnail_url()) > 0)
+            {
+                $img = get_the_post_thumbnail_url();
+            }
+            $x=
+            $pages[] = array(
+                'ID' => $post->ID,
+                'post_title' => $post->post_title,
+                'date' => $date,
+                'excerpt'   => str_replace($post->post_title,'',$post->post_content),
+                'link'      => get_permalink($post->ID),
+                'category'  => $catname,
+                'sub_category'  => $sub_cat,
+                'thumb'     => $img,
+
+            );
+            $years[] = date('Y',strtotime($date));
+        }
+    }
+
+    if($pages)
+    {
+    usort($pages, "sortDesc");
+    if(count($pages)>$post_count)
+    {
+        $pages = array_slice($pages, 0, $post_count);
+    }
+
+        //Inhalte sammeln
+        $content = '<h2>Aktuelle News</h2><div class="news spalten_3">';
+
+
+    foreach ($pages as $key => $post) 
+    {
+
+     /*   echo '<pre>';
+        print_r($post);
+        echo '</pre>';
+
+        */
+       if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category']) )
+        {
+            if (preg_match('@'.$year.'@',$post['date']))
+            {
+                    $content .= '<div class="news_container active">';
+                $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
+                $content .= '<div class="news_frame">';
+                $content .= '<span class="category">'.$post['category'].'=> '.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
+                $content .= '<h2 class="news_headline">'. substr(strip_tags($post['post_title']),0 ,50).'</h2>';
+                $content .= wp_trim_words(strip_tags($post['excerpt']),10, ' […]'  );   
+                $content .= '';
+                $content .= '</div>';
+                $content .= '<a href="'.$post['link'].'" class="list"><span class="material-icons">east</span></a>';
+                $content .= '</div>';
             }
         }
-
-        if($pages)
-        {
-        usort($pages, "sortDesc");
-        if(count($pages)>$post_count)
-        {
-            $pages = array_slice($pages, 0, $post_count);
-        }
-
-            //Inhalte sammeln
-            $content = '<h2>Aktuelle News</h2><div class="news spalten_3">';
-
-
-        foreach ($pages as $key => $post) 
-        {
-
-         /*   echo '<pre>';
-            print_r($post);
-            echo '</pre>';
-
-            */
-           if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category']) )
-            {
-                if (preg_match('@'.$year.'@',$post['date']))
-                {
-                        $content .= '<div class="news_container active">';
-                    $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
-                    $content .= '<div class="news_frame">';
-                    $content .= '<span class="category">'.$post['category'].'</span>'.date('d.m.y',strtotime($post['date']));
-                    $content .= '<h2 class="news_headline">'. substr(strip_tags($post['post_title']),0 ,50).'</h2>';
-                    $content .= wp_trim_words(strip_tags($post['excerpt']),10, ' […]'  );   
-                    $content .= '';
-                    $content .= '</div>';
-                    $content .= '<a href="'.$post['link'].'" class="list"><span class="material-icons">east</span></a>';
-                    $content .= '</div>';
-                }
-            }
-        }
+    }
   /*  
     foreach ($posts as $post) {
         $content .= '<div class="news_container active">';

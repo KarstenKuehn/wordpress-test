@@ -1,29 +1,15 @@
 <div class="main news_feed">
 <?php
+
+    $catname = 'News';
+    $category = get_category_by_slug($catname); 
+    $cat_id = $category->term_id;
 $args = array(
-        'category'       => array(10,9),
+        'category'       => $cat_id,
     	'sort_order' 	 => 'desc',
-    	'posts_per_page'   => -1,
-    	'depth'   => 5,
+    	'posts_per_page'   => -1
     );
 $posts = get_posts($args);
-/*
-
-
-			//print_r($posts);
-
-
-
-        $children = wp_list_categories( array(
-            'child_of' => 9,
-            'depth'   => 5,
-            'echo'     => 0,
-            'orderby' => 'id',
-            'title_li' => '',
-        ) );
-        echo '<ul>' . $children . '</ul>';
-
-*/
 
 ?>
 
@@ -36,15 +22,29 @@ $year = date('Y');
 
 foreach ($posts as $key => $post) 
 {
+
+    $sub_cat = $catname;
+    $id = $post->ID;
+    $cat = get_the_category($id);
+    foreach ($cat as $key => $value) {
+
+        if($cat_id == $value->category_parent)
+        {
+            $sub_cat = $value->name;
+        }
+    } 
 	$date = DateTime::createFromFormat('d.m.y', @get_field('datum'))->format('Y-m-d');
 	if (strlen($post->post_title) > 1)
 	{
-		$img = '/wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
-		if (strlen(get_the_post_thumbnail_url()) > 0)
+        $img='/wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
+        if($sub_cat=='Unternehmen News')
+        $img='/wp-content/uploads/2021/06/AdobeStock_158071825_Preview_Unternehmensnews_Teaser-1.jpeg';
+        if($sub_cat=='Gewinner News')
+        $img='/wp-content/uploads/2021/06/gettyimages-181011589-170667a_Gewinnernews_Teaser.jpg';
+  		if (strlen(get_the_post_thumbnail_url()) > 0)
 		{
 			$img = get_the_post_thumbnail_url();
-		}
-		
+		}	
 		$pages[] = array(
 			'ID' => $post->ID,
 			'post_title' => wp_trim_words($post->post_title,10, ' […]'  ), 
@@ -58,6 +58,7 @@ foreach ($posts as $key => $post)
 		$years[] = date('Y',strtotime($date));
 	}
 }
+
 $years = array_unique($years);
 ?>
 
