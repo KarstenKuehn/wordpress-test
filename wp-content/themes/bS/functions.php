@@ -1237,7 +1237,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
                 $content .= wp_trim_words(strip_tags($post['excerpt']),10, ' […]'  );   
                 $content .= '';
                 $content .= '</div>';
-                $content .= '<a href="'.$post['link'].'" class="list"><span class="material-icons">east</span></a>';
+                $content .= '<a href="'.$post['link'].'" class="list">Mehr erfahren <span class="material-icons">east</span></a>';
                 $content .= '</div>';
             }
         }

@@ -133,7 +133,7 @@ foreach ($pages as $key => $post)
 			echo '<h2>'.$post['post_title'].'</h2>';
 			echo '<p>'.$post['excerpt'].'[...]</p>';
 			echo '</div>';
-			echo '<a href="'.$post['link'].'">'.$post['sub_category'].'<span class="material-icons">east</span></a>';
+			echo '<a href="'.$post['link'].'" class="list">'.$post['sub_category'].'<span class="material-icons">east</span></a>';
 			echo '</div>';
 		}
 	}
