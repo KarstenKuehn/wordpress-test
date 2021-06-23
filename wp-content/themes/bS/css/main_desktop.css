@@ -627,3 +627,16 @@ a.sub_menu_item {
 }
 
 
+.filter_word{
+  display: inline-block;
+}
+
+.events_header {
+    padding: 16px 0;
+    border-bottom: 1px solid #C7CCDB;
+    margin-bottom: 26px;
+}
+
+.news_filter{
+  display: flex;
+}

@@ -17,8 +17,36 @@ $posts = get_posts($args);
 if(isset($_GET['selected_year']))
 	$year = $_GET['selected_year'];
 else
-
 $year = date('Y');
+
+
+$cat_filter=0;
+$sub_cat1 = '';
+$cat1_checked = '';
+if(isset($_GET['sub_cat1']))
+{	
+	$sub_cat1 = 'Gewinner News';
+	$cat_filter=1;
+	$cat1_checked = ' checked';
+}
+$sub_cat2 = '';
+$cat2_checked = '';
+if(isset($_GET['sub_cat2']))
+{
+	$sub_cat2 = 'Unternehmen News';
+	$cat_filter=1;
+	$cat2_checked =  ' checked';
+}
+
+$filter_word = '';
+if(isset($_GET['filter_word']))
+{
+	$filter_word = $_GET['filter_word'];
+	$cat_filter=0;
+	$cat1_checked = '';
+	$cat2_checked = '';
+}
+
 
 foreach ($posts as $key => $post) 
 {
@@ -45,17 +73,69 @@ foreach ($posts as $key => $post)
 		{
 			$img = get_the_post_thumbnail_url();
 		}	
-		$pages[] = array(
-			'ID' => $post->ID,
-			'post_title' => wp_trim_words(substr($post->post_title,0 ,100),7, ' […]'), 
-			'date' => $date,
-			'excerpt'	=> wp_trim_words(substr(get_the_excerpt($post->ID),0 ,150),15, ' […]'  ),
-			'link'		=> get_permalink(),
-			'category'	=> get_the_category()[0]->name,
-			'sub_category'  => $sub_cat,
-			'thumb'		=> $img,
+		if($cat_filter==0)
+		{
+			$title=$post->post_title;
+			$excerpt = get_the_excerpt($post->ID);
 
-		);
+
+
+			if($filter_word!='')
+			{
+
+				if((stripos($title, $filter_word)===false) && (stripos($excerpt, $filter_word)===false))
+				{
+					//echo '<br>-----'.' '.$filter_word;
+				}
+				else
+				{
+					$pages[] = array(
+					'ID' => $post->ID,
+					'post_title' => wp_trim_words(substr($post->post_title,0 ,100),7, ' […]'), 
+					'date' => $date,
+					'excerpt'	=> wp_trim_words(substr(get_the_excerpt($post->ID),0 ,150),15, ' […]'  ),
+					'link'		=> get_permalink(),
+					'category'	=> get_the_category()[0]->name,
+					'sub_category'  => $sub_cat,
+					'thumb'		=> $img,
+	
+				);
+
+				}
+
+			}
+			else
+			{		$pages[] = array(
+					'ID' => $post->ID,
+					'post_title' => wp_trim_words(substr($post->post_title,0 ,100),7, ' […]'), 
+					'date' => $date,
+					'excerpt'	=> wp_trim_words(substr(get_the_excerpt($post->ID),0 ,150),15, ' […]'  ),
+					'link'		=> get_permalink(),
+					'category'	=> get_the_category()[0]->name,
+					'sub_category'  => $sub_cat,
+					'thumb'		=> $img,
+	
+				);
+			}
+
+		}
+		else
+		{
+			if(($sub_cat==$sub_cat1)|| ($sub_cat==$sub_cat2))
+			{
+				$pages[] = array(
+					'ID' => $post->ID,
+					'post_title' => wp_trim_words(substr($post->post_title,0 ,100),7, ' […]'), 
+					'date' => $date,
+					'excerpt'	=> wp_trim_words(substr(get_the_excerpt($post->ID),0 ,150),15, ' […]'  ),
+					'link'		=> get_permalink(),
+					'category'	=> get_the_category()[0]->name,
+					'sub_category'  => $sub_cat,
+					'thumb'		=> $img,
+
+				);
+			}
+		}
 		$years[] = date('Y',strtotime($date));
 	}
 }
@@ -64,7 +144,8 @@ $years = array_unique($years);
 ?>
 
 <section>
-<div class="events_header">
+<div class="events_header news_filter">
+<div id="filter">
 <select id="select_year">
 
 <?php
@@ -102,7 +183,21 @@ foreach($years as $key => $year_select)
 
 ?>
 </select>
+<div class="cat_check">
+  <label for="cat1">Gewinner</label>
+  <input type="checkbox" id="cat1" name="sub_cat1" class="cat_check_box"<?php echo $cat1_checked; ?>>
 
+</div>
+<div class="cat_check">
+  <label for="cat2">Unternehmens News</label>
+  <input type="checkbox" id="cat2" name="sub_cat2" class="cat_check_box"<?php echo $cat2_checked; ?>>
+</div>
+
+</div>
+<div id="seach-filter">
+	<input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" />
+	<button onclick="searchStart()"><span class="material-icons">search</span><label for="filter_word" class="filter_word">Suchen</label></button>
+</div>
 </div>
 <!-- spalten_3 || spalten_2 -->
 <div class="news spalten_3">
@@ -112,6 +207,7 @@ foreach($years as $key => $year_select)
 
 usort($pages, "sortDesc");
 $i = 1;
+
 foreach ($pages as $key => $post) 
 {
 	if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category']) )
@@ -145,14 +241,49 @@ foreach ($pages as $key => $post)
 </section>
 </div>
 <script>
-  var elem = document.getElementById('select_year');
-  elem.addEventListener('change', Auswählen);
+
+var filter = document.getElementById('filter');
+filter.onchange = function() {
+	year="selected_year="+document.getElementById('select_year').value;
+	cat1='sub_cat1=1';
+	cat2='sub_cat2=1';
+	var parameters_arr = [];
+	parameters_arr.push(year);
+
+	if (document.getElementById('cat1').checked) {
+	parameters_arr.push(cat1);
+	} 
+
+	if (document.getElementById('cat2').checked) {
+	parameters_arr.push(cat2);
+	}
+	var parameters = parameters_arr.join('&');
+	location.href = location.pathname + "?"+parameters;
+}
+
+function searchStart()
+{
+	year="selected_year="+document.getElementById('select_year').value;
+	var parameters_arr = [];
+	parameters_arr.push(year);
+	filter_word = "filter_word="+document.getElementById('filter_word').value;
+	parameters_arr.push(filter_word);
+
+	var parameters = parameters_arr.join('&');
+	location.href = location.pathname + "?"+parameters;
+}
+
+
+var elem = document.getElementById('select_year');
+elem.addEventListener('change', Auswählen);
 
 function Auswählen() {
+	/*
     var x = document.getElementById('select_year').value;
 var url = new URL(location.href);
 var c = url.searchParams.get("selected_year");
 location.href = location.pathname + "?selected_year=" + x;
+*/
 
 
 }
