@@ -1147,11 +1147,10 @@ function ungerade($var,$cat_id)
 function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
 
     $post_count=$atts['count'];
-    $content = '';
     $catname = $atts['cat'];
     $category = get_category_by_slug($atts['cat']); 
     $cat_id = $category->term_id;
-
+    $content = '';
     //Parameter für Posts
     $args = array(
         'category' => $cat_id ,
@@ -1234,7 +1233,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
                 $content .= wp_trim_words(substr(strip_tags($post['excerpt']),0 ,150),15, ' […]'  );   
                 $content .= '';
                 $content .= '</div>';
-                $content .= '<a href="'.$post['link'].'" class="list">mehr erfahren <span class="material-icons">east</span></a>';
+                $content .= '<a href="'.$post['link'].'" class="list">Mehr erfahren <span class="material-icons">east</span></a>';
                 $content .= '</div>';
             }
         }
