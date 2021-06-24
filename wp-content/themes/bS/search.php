@@ -20,22 +20,13 @@ get_header(); ?>
 		global $wp_query;
 		$archive_title = sprintf(
 			'%1$s %2$s',
-			'<span class="color-accent">' . __( 'Search:', 'bS' ) . '</span>',
+			'<span class="color-accent">Sucherergebnisse für </span>',
 			'&ldquo;' . get_search_query() . '&rdquo;'
 		);
 		if ( $wp_query->found_posts ) {
-			$archive_subtitle = sprintf(
-				/* translators: %s: Number of search results. */
-				_n(
-					'We found %s result for your search.',
-					'We found %s results for your search.',
-					$wp_query->found_posts,
-					'bS'
-				),
-				number_format_i18n( $wp_query->found_posts )
-			);
+			$archive_subtitle = number_format_i18n( $wp_query->found_posts ).' Treffer';
 		} else {
-			$archive_subtitle = __( 'We could not find any results for your search. You can give it another try through the search form below.', 'uplb' );
+			$archive_subtitle ='Es konnten keine Ergebnisse für deine Suche gefunden werden.';
 		}
 	} elseif ( is_archive() && ! have_posts() ) {
 		$archive_title = __( 'Nothing Found', 'bS' );

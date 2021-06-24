@@ -490,6 +490,7 @@ input#s {
 
 .marked{
   color: #0061AB;
+  font-weight: 700;
 }
 
 .main.search{
@@ -510,7 +511,7 @@ input#s {
   letter-spacing: 0;
   line-height: 48px;
   display: inline-block;
-  width: 60%;
+  width: 100%;
   padding: 16px 0;
 }
 
@@ -519,7 +520,7 @@ input#s {
 }
 
 .archive-subtitle{
-  display: none;
+  /*display: none;*/
     width: 100%;
     text-align: right;
     border-bottom: 1px solid #E3E5ED;
