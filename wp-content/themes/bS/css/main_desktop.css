@@ -8,7 +8,9 @@ h1,h2,h3,h4,p, ul, table, figure ,main~.wp-block-columns,.news-div,.accordion-it
   padding: 0 24px 16px 24px;
   margin: auto;
 }
-
+.main ul{
+  padding: 0 24px 24px 24px;
+}
 .my-block-button{
   padding: 0 24px 16px 24px;
 }
@@ -16,6 +18,9 @@ h1,h2,h3,h4,p, ul, table, figure ,main~.wp-block-columns,.news-div,.accordion-it
     padding-right: 40px;
 }
 
+.verlinkung h3, .verlinkung figure {
+    padding: 0;
+}
 .sub_menu.mobile_hidden {
     position: absolute;
     width: 100vw;
@@ -577,6 +582,11 @@ a.sub_menu_item {
 /**/
 @media(min-width:1225px)
 {
+
+    .verlinkungen .block_head {
+
+      padding: 64px 0 16px 0;
+  }
 section.news-liste {
  padding: 0;
 }
