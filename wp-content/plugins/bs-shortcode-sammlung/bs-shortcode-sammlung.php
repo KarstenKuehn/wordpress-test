@@ -23,6 +23,7 @@ Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
 </form>';
 return $form_html;
 }
+
 //add_shortcode('meinshortcode', 'meinshortcode_function' );
 
 function register_shortcodes(){
