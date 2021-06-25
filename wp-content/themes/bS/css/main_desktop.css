@@ -8,6 +8,15 @@ h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, blockqu
     margin: auto;
     margin-bottom: 24px;
 }
+
+.news-div ,.news-div h2{
+    max-width: 1272px;
+}
+
+.news-div h2{
+    padding-left: 0;
+}
+
 section p{
   padding: 0;
 }
@@ -91,7 +100,7 @@ section p{
   padding: 0;
 }
 
-.text_left p, .text_right p, p.content {
+.text_left p, .text_right p, p.content ,.text_left a.my-block-button{
     padding: 0 24px 16px 24px;
 }
 
