@@ -308,7 +308,10 @@ h1, section
     padding: 12px;
     font-weight: 400;
 }
-
+button.desktop_hidden{
+  margin-top: 16px;
+  width: 100%;
+}
 #searchsubmit,button
 {
   background: transparent;
@@ -2498,7 +2501,7 @@ option {
     margin:0;
     height: 56px;
     margin-left: 16px;
-    padding-right: 48px;
+    padding-right: 0px;
 }
 
 
@@ -2516,7 +2519,7 @@ option {
 }
 .searchformfld input:focus + label,.searchformfld input:not(:placeholder-shown) + label{
     opacity:1;
-    transform: scale(.8) translateY(-24px) translateX(-4px);
+    transform: scale(.8) translateY(-24px) translateX(-16px);
     color:#000;
 }
 .searchformfld input:hover,.searchformfld input:focus{

@@ -647,3 +647,7 @@ a.sub_menu_item {
 .cat{
   display: inline-block;
 }
+
+.searchformfld{
+  padding-right: 48px;
+}
