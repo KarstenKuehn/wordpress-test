@@ -2088,12 +2088,12 @@ margin: 0;
 .zitat{
   border-bottom: 1px solid #E3E5ED;
   margin-bottom: 24px;
-      padding: 16px;
+  padding: 16px;
 }
 .zitat .wp-block-columns{
   display: block;
   position: relative;
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .zitat .wp-block-column{
@@ -2102,13 +2102,15 @@ margin: 0;
 } 
 .wp-block-column.testimonial-image{
 margin-right: 32px;
-width: 116px;
-height: 116px;
+width: 115px;
+height: 115px;
 vertical-align: middle;
     border-radius: 50%;
     overflow: hidden;
 }
-
+.testimonial-image figure{
+  padding: 0;
+}
 
 .zitate{
   color: #293038;
@@ -2116,6 +2118,7 @@ vertical-align: middle;
   font-size: 26px;
   letter-spacing: 0;
   line-height: 32px;
+  padding: 0;
 }
 .author{
   color: #1F5DA6;

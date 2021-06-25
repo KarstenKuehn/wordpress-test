@@ -2,11 +2,11 @@
 {
   min-height:calc(100vh - 400px);
 }
-h1,h2,h3,h4,p, ul, table, figure ,main~.wp-block-columns,.news-div,.accordion-item
-{
-  max-width: 856px;
-  padding: 0 24px 16px 24px;
-  margin: auto;
+h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, .accordion-item, blockquote,.zitat {
+    max-width: 856px;
+    padding: 0 24px 16px 24px;
+    margin: auto;
+    margin-bottom: 24px;
 }
 .main ul{
   padding: 0 24px 24px 24px;
