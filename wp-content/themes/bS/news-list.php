@@ -238,13 +238,6 @@ echo '<option'.$s2.' name="sort" value="asc">Nachrichten aufsteigend</option>';
             <label for="filter_word">Suche</label>
             <button onclick="searchStart()"><span class="material-icons">search</span></button>
         </div>
-
-        <!--
-<div id="seach-filter" class="">
-	<input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" class="text-field" onClick="this.select()"/>
-	<button onclick="searchStart()"><span class="material-icons">search</span><label for="filter_word" class="filter_word">Suche</label></button>
-</div>
--->
 </div>
 <!-- spalten_3 || spalten_2 -->
 <div class="news spalten_3">
