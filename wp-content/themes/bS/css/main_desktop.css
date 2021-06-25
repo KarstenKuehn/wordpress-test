@@ -640,3 +640,11 @@ a.sub_menu_item {
 .news_filter{
   display: flex;
 }
+
+#filter, .cat_check, div#seach-filter {
+    display: inline-block;
+}
+
+.cat{
+  display: inline-block;
+}

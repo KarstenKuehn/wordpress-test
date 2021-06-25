@@ -4,21 +4,21 @@
     $catname = 'News';
     $category = get_category_by_slug($catname); 
     $cat_id = $category->term_id;
-$args = array(
-        'category'       => $cat_id,
-    	'sort_order' 	 => 'desc',
-    	'posts_per_page'   => -1
-    );
-$posts = get_posts($args);
+	$args = array(
+	        'category'       => $cat_id,
+	    	'sort_order' 	 => 'desc',
+	    	'posts_per_page'   => -1
+	    );
+	$posts = get_posts($args);
 
 ?>
 
 <?php
+
+
+$year = date('Y');
 if(isset($_GET['selected_year']))
 	$year = $_GET['selected_year'];
-else
-$year = date('Y');
-
 
 $cat_filter=0;
 $sub_cat1 = '';
@@ -146,8 +146,10 @@ $years = array_unique($years);
 <section>
 <div class="events_header news_filter">
 <div id="filter">
-<select id="select_year">
 
+<div class="custom-select" >
+<select id="select_year">
+<option value="0">Select Year:</option>
 <?php
 
 /*
@@ -183,6 +185,42 @@ foreach($years as $key => $year_select)
 
 ?>
 </select>
+</div>
+<?php
+$s1=' selected';
+$s2='';
+$sortierung = "sortDesc";
+
+if(isset($_GET['sort']))
+{
+	$sort = $_GET['sort'];
+	if($sort=='desc')
+	{
+		$s1=' selected';
+		$s2='';
+		$sortierung = "sortDesc";
+	}
+	if($sort=='asc')
+	{
+		$s1='';
+		$s2=' selected';
+		$sortierung = "sortAsc";
+	}	
+}
+
+?>
+
+<div class="custom-select" >
+
+<select id="select_sort">
+	    <option value="0">Select car:</option>
+	<?php
+echo '<option'.$s1.' name="sort" value="desc">Nachrichten absteigend</option>';
+echo '<option'.$s2.' name="sort" value="asc">Nachrichten aufsteigend</option>';
+?>
+</select>
+</div>
+<div class="cat">
 <div class="cat_check">
   <label for="cat1">Gewinner</label>
   <input type="checkbox" id="cat1" name="sub_cat1" class="cat_check_box"<?php echo $cat1_checked; ?>>
@@ -192,12 +230,21 @@ foreach($years as $key => $year_select)
   <label for="cat2">Unternehmens News</label>
   <input type="checkbox" id="cat2" name="sub_cat2" class="cat_check_box"<?php echo $cat2_checked; ?>>
 </div>
+</div>
+</div>
 
+<div class="searchformfld" id="seach-filter">
+            <input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" class="text-field" onClick="this.select()" placeholder=" "/>
+            <label for="filter_word">Suche</label>
+            <button onclick="searchStart()"><span class="material-icons">search</span></button>
+        </div>
+
+        <!--
+<div id="seach-filter" class="">
+	<input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" class="text-field" onClick="this.select()"/>
+	<button onclick="searchStart()"><span class="material-icons">search</span><label for="filter_word" class="filter_word">Suche</label></button>
 </div>
-<div id="seach-filter">
-	<input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" />
-	<button onclick="searchStart()"><span class="material-icons">search</span><label for="filter_word" class="filter_word">Suchen</label></button>
-</div>
+-->
 </div>
 <!-- spalten_3 || spalten_2 -->
 <div class="news spalten_3">
@@ -205,7 +252,10 @@ foreach($years as $key => $year_select)
 
 <?php
 
-usort($pages, "sortDesc");
+//usort($pages, "sortDesc");
+
+
+usort($pages, $sortierung);
 $i = 1;
 
 foreach ($pages as $key => $post) 
@@ -242,14 +292,99 @@ foreach ($pages as $key => $post)
 </div>
 <script>
 
+var x, i, j, l, ll, selElmnt, a, b, c;
+/* Look for any elements with the class "custom-select": */
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /* For each element, create a new DIV that will act as the selected item: */
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /* For each element, create a new DIV that will contain the option list: */
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /* For each option in the original select element,
+    create a new DIV that will act as an option item: */
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /* When an item is clicked, update the original select box,
+        and the selected item: */
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+
+
+
+
 var filter = document.getElementById('filter');
 filter.onchange = function() {
 	year="selected_year="+document.getElementById('select_year').value;
+	sort="sort="+document.getElementById('select_sort').value;
 	cat1='sub_cat1=1';
 	cat2='sub_cat2=1';
 	var parameters_arr = [];
 	parameters_arr.push(year);
-
+	parameters_arr.push(sort);
 	if (document.getElementById('cat1').checked) {
 	parameters_arr.push(cat1);
 	} 

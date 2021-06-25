@@ -2375,7 +2375,9 @@ color: #1F5DA6;
     right: 0;
     top: 10px;
 }
-
+.cat{
+  display: block;
+}
 @media(min-width:768px)
 {
   .verlinkungen{
@@ -2406,6 +2408,7 @@ color: #1F5DA6;
   padding: 0;
 }
 
+
 }
 
 .news_frame p {
@@ -2422,19 +2425,202 @@ div#seach-filter button{
     margin-left: 8px;
 }
 .cat_check{
-  margin-left: 32px;
+  margin-right: 32px;
 }
 .cat_check label{
   padding-right: 8px;
+  line-height: 32px;
 }
 
 #filter{
   color: #0061AB;
   font-weight: 700;
 }
-#filter, .cat_check, div#seach-filter {
+.cat_check {
     display: inline-block;
 }
 .filter_word{
   display: none;
+}
+
+
+/* FORM */
+
+select {
+    font-weight: 700;
+    height: 56px;
+    background: pink;
+    margin-right: 32px;
+  color: #091B30;
+  font-family: Lato;
+
+cursor: pointer;
+
+}
+
+option {
+    background: red;
+    line-height: 56px;
+    height: 56px;
+  color: #091B30;
+  font-family: Lato;
+  font-size: 16px;
+
+}
+
+
+.text-field {
+    color: #091B30;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 56px;
+    border: none;
+    border-bottom: 2px solid #E3E5ED;
+}
+.text-field:hover {
+    border-bottom: 2px solid #091B30;
+}
+.text-field:focus {
+    border-bottom: 2px solid #091B30;
+    cursor:text;
+}
+.text-field:disabled {
+    color: #C7CCDB;
+    border-bottom: 2px solid #E3E5ED;
+    background: #fff;
+}
+
+
+.searchformfld{
+    position: relative;
+    padding: 0;
+    margin:0;
+    height: 56px;
+    margin-left: 16px;
+    padding-right: 48px;
+}
+
+
+.searchformfld label{
+    position: absolute;
+    line-height: 56px;
+    cursor: text;
+    left: 0;
+        padding-top: 8px;
+}
+.searchformfld button{
+    position: absolute;
+    top:0px;
+    right: 0;
+}
+.searchformfld input:focus + label,.searchformfld input:not(:placeholder-shown) + label{
+    opacity:1;
+    transform: scale(.8) translateY(-24px) translateX(-4px);
+    color:#000;
+}
+.searchformfld input:hover,.searchformfld input:focus{
+    outline-color: #000;
+    border-bottom: 2px solid #091B30;
+}
+
+.searchformfld input{
+    width:100%;
+    padding-left: 0px;
+    height: 56px;
+    padding-top: 16px;
+    line-height: 24px;
+    border: none;
+    font-size: 16px;
+    color: #091B30;
+    border-bottom: 2px solid #E3E5ED;
+}
+.searchformfld label,.searchformfld input{
+    transition: all 0.2s;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+
+
+
+
+
+
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+  font-family: Lato;
+    color: #1F5DA6;
+    font-size: 16px;
+      display: inline-block;
+      margin-right: 32px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  font-family: Lato;
+    color: #1F5DA6;
+    font-size: 16px;
+
+  padding: 24px 40px 8px 0px;
+  border: 2px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+
+
+}
+#filter .select-selected {
+  border-color: transparent;
+  }
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "\e5cf";  
+  top: 24px;
+  right: 0;
+  width: 32px;
+  height: 32px;
+font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 300;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  content: "\e5ce";
+}
+
+/* style the items (options), including the selected item: */
+.select-items div {
+  padding: 16px;
+  border: 2px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;  
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border:1px solid #E3E5ED ;
+  font-weight: 400;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
 }
