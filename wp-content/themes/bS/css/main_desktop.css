@@ -2,7 +2,7 @@
 {
   min-height:calc(100vh - 400px);
 }
-h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, .accordion-item, blockquote,.zitat {
+h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, blockquote,.zitat {
     max-width: 856px;
     padding: 0 24px 16px 24px;
     margin: auto;
@@ -485,7 +485,9 @@ border-left: none;
 section.news-liste {
     padding: 24px;
 }
-
+section .button {
+    margin: 0;
+}
 @media(min-width:900px)
 {
 
@@ -581,6 +583,7 @@ a.sub_menu_item {
 /**/
 @media(min-width:1225px)
 {
+
 
 .text-image .block_text p , .text-image .block_text h2 {
    padding-left: 0;

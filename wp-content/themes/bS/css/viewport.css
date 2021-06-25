@@ -1041,7 +1041,7 @@ p
 /*accordion*/
 .accordion-item {
     padding: 0 16px;
-    max-width: 1224px;
+    max-width: 856px;
     margin: auto;
 
     border-top: 1px solid #E3E5ED;
@@ -2255,12 +2255,21 @@ p.person ,p.group{
   .block_content {
     padding: 24px;
 }
+section .button {
+    margin: 0 16px;
+}
+p.content {
+    padding: 0 16px 16px 16px;
+}
 
-
-.text_left p, .text_right p, p.content {
-    padding: 0 24px 16px 24px;
+.text_left ul, .text_right ul,.text_left p, .text_right p {
+    padding: 0 16px 16px 0;
 }
 /*
+.text_right p {
+    padding: 0 16px 0 0;
+}
+
 */
 
 .main a:hover {
