@@ -1210,7 +1210,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
     }
 
         //Inhalte sammeln
-        $content = '<h2>Aktuelle News</h2><div class="news spalten_3">';
+        $content = '<h2>Aktuelle News</h2><div class="news-div"><div class="news spalten_3">';
 
 
     foreach ($pages as $key => $post) 
@@ -1259,7 +1259,7 @@ substr(get_the_excerpt($post->ID),0 ,100)
     }
 
     */
-    $content .= '</div>';
+    $content .= '</div></div>';
 
 }
     //Inhalte übergeben

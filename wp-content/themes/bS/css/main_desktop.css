@@ -651,3 +651,13 @@ a.sub_menu_item {
 .searchformfld{
   padding-right: 48px;
 }
+
+form .button{
+  margin: 16px auto;
+  width: auto;
+}
+
+.kontakt-form
+{
+  max-width: 808px;
+}

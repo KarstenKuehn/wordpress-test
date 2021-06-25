@@ -14,7 +14,7 @@ return "<h2>aaa</h2><p><b>Hey, das ist mein Shortcode_xxxxxxxxxxxxxxxxxxx!</b></
 }
 
 function kontaktform_shortcode(){
-   $form_html='<form action="" method="post">
+   $form_html='<form action="" method="post" class="kontakt-form">
    <div class="searchformfld">
       <input type="text" name="first_name" value="" id="first_name" class="text-field" onClick="this.select()" placeholder=" "/>
       <label for="first_name">First Name</label>
