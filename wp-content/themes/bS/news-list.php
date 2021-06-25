@@ -143,7 +143,7 @@ foreach ($posts as $key => $post)
 $years = array_unique($years);
 ?>
 
-<section>
+<section class="news-liste">
 <div class="events_header news_filter">
 <div id="filter">
 

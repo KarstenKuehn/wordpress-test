@@ -128,7 +128,6 @@ p{
 
 .main ul{
   padding-bottom: 16px;
-  margin-left: 1em;
 }
 
 .main li{
@@ -1133,7 +1132,6 @@ display: none;
     /*font-family: Lato;*/
   }
   .footer1{
-    max-width: 1224px;
     margin: auto;
     border-bottom: 1px solid #E3E5ED;
     padding-bottom: 16px;
@@ -1524,7 +1522,7 @@ font-size: 16px;
 }
 
 
-.main > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
+.main ~ :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image):not(.footer){
 max-width: 1224px;
 /*max-width: 912px;*/
 margin: auto;
@@ -2253,9 +2251,13 @@ p.person ,p.group{
   .block_content {
     padding: 24px;
 }
+
+/*
 .text_left p, .text_right p, p.content {
     padding: 0 24px 16px 24px;
 }
+
+*/
 
 .main a:hover {
     text-decoration: underline;
@@ -2450,7 +2452,6 @@ div#seach-filter button{
 select {
     font-weight: 700;
     height: 56px;
-    background: pink;
     margin-right: 32px;
   color: #091B30;
   font-family: Lato;
@@ -2460,7 +2461,6 @@ cursor: pointer;
 }
 
 option {
-    background: red;
     line-height: 56px;
     height: 56px;
   color: #091B30;
