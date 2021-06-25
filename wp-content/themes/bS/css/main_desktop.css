@@ -146,7 +146,6 @@ h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, .accord
 .text-image .content, .image-text .content{
       width: calc(50vw - 64px);
       margin-bottom: 24px;
-      max-width: 596px;
 
 }
 .text-image .content {
@@ -582,6 +581,18 @@ a.sub_menu_item {
 /**/
 @media(min-width:1225px)
 {
+
+.text-image .block_text p , .text-image .block_text h2 {
+   padding-left: 0;
+}
+
+/*
+
+.text_left p, .text_right p, p.content {
+    padding: 0 24px 16px 24px;
+        padding-right: 24px;
+}
+*/
 
     .verlinkungen .block_head {
 

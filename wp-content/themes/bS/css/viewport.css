@@ -2256,11 +2256,11 @@ p.person ,p.group{
     padding: 24px;
 }
 
-/*
+
 .text_left p, .text_right p, p.content {
     padding: 0 24px 16px 24px;
 }
-
+/*
 */
 
 .main a:hover {
