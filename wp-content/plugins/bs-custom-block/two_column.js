@@ -173,11 +173,17 @@
           onChange: function( value ) {
             props.setAttributes( { ingredients_r: value } );
           },
-        } ),                
+        } ),      
+
+
+/*
+
         el(
           "hr",
           null
-        ),          
+        ),  
+
+
         el(
           "span",
           null,
@@ -194,8 +200,9 @@
         onChange: function (newURL) {
         props.setAttributes({buttonURL_right: newURL})
         }
-        }),          
-
+        }),         
+        */ 
+/*
         el(
             editor.RichText,
             {
@@ -207,7 +214,7 @@
                 props.setAttributes( { button_right: content } );
               }
             }
-          ),  
+          ),  */
         ),
         )
       );
@@ -240,7 +247,7 @@
               } ),
               !props.attributes.buttonURL ? '': 
               el('a', {
-                className: 'my-block-button content',
+                className: 'my-block-button content mobile_hidden',
                 href: props.attributes.buttonURL
                 },       
                 el(
@@ -265,6 +272,8 @@
                 className: 'ingredients',
                 value: props.attributes.ingredients_r,
               } ),
+/*
+
               !props.attributes.buttonURL_right ? '': 
               el('a', {
                 className: 'my-block-button content',
@@ -276,7 +285,21 @@
                   },
                   props.attributes.button_right
                 ),      
+              ),//end a
+*/
+              !props.attributes.buttonURL ? '': 
+              el('a', {
+                className: 'my-block-button content desktop_hidden',
+                href: props.attributes.buttonURL
+                },       
+                el(
+                  'span',{
+                    className:'button-text wp-block-button__link'
+                  },
+                  props.attributes.button
+                ),      
               )//end a
+
             )
           )
         )// end section

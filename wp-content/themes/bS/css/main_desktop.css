@@ -14,9 +14,7 @@ section p{
 .main ul{
   padding: 0 24px 24px 24px;
 }
-.my-block-button{
-  padding: 0 24px 16px 24px;
-}
+
 .desktop_navi {
     padding-right: 40px;
 }
@@ -491,6 +489,8 @@ section.news-liste {
 section .button {
     margin: 0;
 }
+
+
 @media(min-width:900px)
 {
 
@@ -587,6 +587,10 @@ a.sub_menu_item {
 @media(min-width:1225px)
 {
 
+
+.block_text .my-block-button {
+  margin-left : 0;
+}
 
 .text-image .block_text p , .text-image .block_text h2 {
    padding-left: 0;
