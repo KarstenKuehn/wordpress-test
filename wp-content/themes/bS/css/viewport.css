@@ -308,10 +308,7 @@ h1, section
     padding: 12px;
     font-weight: 400;
 }
-button.desktop_hidden{
-  margin-top: 16px;
-  width: 100%;
-}
+
 #searchsubmit,button
 {
   background: transparent;
@@ -2378,9 +2375,7 @@ color: #1F5DA6;
     right: 0;
     top: 10px;
 }
-.cat{
-  display: block;
-}
+
 @media(min-width:768px)
 {
   .verlinkungen{
@@ -2411,7 +2406,6 @@ color: #1F5DA6;
   padding: 0;
 }
 
-
 }
 
 .news_frame p {
@@ -2439,8 +2433,7 @@ div#seach-filter button{
   color: #0061AB;
   font-weight: 700;
 }
-
-.cat_check {
+#filter, .cat_check, div#seach-filter {
     display: inline-block;
 }
 .filter_word{
@@ -2501,7 +2494,7 @@ option {
     margin:0;
     height: 56px;
     margin-left: 16px;
-    padding-right: 0px;
+    padding-right: 48px;
 }
 
 
@@ -2519,7 +2512,7 @@ option {
 }
 .searchformfld input:focus + label,.searchformfld input:not(:placeholder-shown) + label{
     opacity:1;
-    transform: scale(.8) translateY(-24px) translateX(-16px);
+    transform: scale(.8) translateY(-24px) translateX(-4px);
     color:#000;
 }
 .searchformfld input:hover,.searchformfld input:focus{
@@ -2569,7 +2562,7 @@ option {
     color: #1F5DA6;
     font-size: 16px;
 
-  padding: 24px 40px 8px 0px;
+  padding: 24px 32px 8px 16px;
   border: 2px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
@@ -2617,7 +2610,6 @@ font-family: 'Material Icons';
   right: 0;
   z-index: 99;
   border:1px solid #E3E5ED ;
-  font-weight: 400;
 }
 
 /* Hide the items when the select box is closed: */

@@ -15,11 +15,23 @@ return "<h2>aaa</h2><p><b>Hey, das ist mein Shortcode_xxxxxxxxxxxxxxxxxxx!</b></
 
 function kontaktform_shortcode(){
    $form_html='<form action="" method="post">
-First Name: <input type="text" name="first_name"><br>
-Last Name: <input type="text" name="last_name"><br>
-Email: <input type="text" name="email"><br>
-Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
-<input type="submit" name="submit" value="Submit">
+   <div class="searchformfld">
+      <input type="text" name="first_name" value="" id="first_name" class="text-field" onClick="this.select()" placeholder=" "/>
+      <label for="first_name">First Name</label>
+   </div><br>
+   <div class="searchformfld">
+      <input type="text" name="last_name" value="" id="last_name" class="text-field" onClick="this.select()" placeholder=" "/>
+      <label for="last_name">Last Name</label>
+   </div><br>
+   <div class="searchformfld">
+      <input type="text" name="email" value="" id="email" class="text-field" onClick="this.select()" placeholder=" "/>
+      <label for="email">Email</label>
+   </div><br>
+   <div class="searchformfld">
+      <textarea rows="5" name="message" cols="30" class="text-field" id="message" placeholder=" "></textarea>
+      <label for="message">Message</label>
+   </div><br>
+   <input type="submit" name="submit" value="Submit" class="button">
 </form>';
 return $form_html;
 }
