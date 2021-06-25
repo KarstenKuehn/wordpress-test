@@ -1543,8 +1543,9 @@ padding-right: 24px;
 }
 */
 
-.main >.medium {
-    max-width: 936px;
+.main .medium {
+    max-width: 856px;
+    padding: 0 24px;
     margin: 0 auto;
     margin-bottom: 16px;    
 }
