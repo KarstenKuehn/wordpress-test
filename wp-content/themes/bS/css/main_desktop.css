@@ -500,6 +500,11 @@ section .button {
     margin: 0;
 }
 
+/*accordion*/
+.accordion-item {
+    padding: 0 24px;
+
+}
 
 @media(min-width:900px)
 {
