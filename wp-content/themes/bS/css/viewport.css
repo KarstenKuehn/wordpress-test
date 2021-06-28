@@ -2662,3 +2662,13 @@ form .button,.news_filter button.desktop_hidden{
     margin: 16px;
     width: calc(100% - 32px);
 }
+
+section.events_overview {
+    max-width: 856px;
+    padding: 0 24px;
+}
+
+section.wp-block-lb-benefits-text.content_section {
+    margin: auto;
+    max-width: 856px;
+}

@@ -20,7 +20,7 @@ get_header(); ?>
 		global $wp_query;
 		$archive_title = sprintf(
 			'%1$s %2$s',
-			'<span class="color-accent">Sucherergebnisse für </span>',
+			'<span class="color-accent">Suchergebnisse für </span>',
 			'&ldquo;' . get_search_query() . '&rdquo;'
 		);
 		if ( $wp_query->found_posts ) {
