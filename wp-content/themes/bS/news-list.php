@@ -279,9 +279,10 @@ foreach ($pages as $key => $post)
 		}
 	}
 }
-
+if(count($pages)>6)
+echo '<button onclick="showAllNews()" id="mehr">+ mehr laden</button>';
 ?>
-<button onclick="showAllNews()">+ mehr laden</button>
+<!--<button onclick="showAllNews()" id="mehr">+ mehr laden</button>-->
 </div>
 </section>
 </div>
@@ -425,4 +426,7 @@ location.href = location.pathname + "?selected_year=" + x;
 
 }
 
-	function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active")}</script>
+	function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active");
+
+document.getElementById('mehr').style.display='none';
+	 }</script>
