@@ -147,9 +147,9 @@ $years = array_unique($years);
 <div class="events_header news_filter">
 <div id="filter">
 
-<div class="custom-select" >
+<div class="custom-select_x" >
 <select id="select_year">
-<option value="0">Select Year:</option>
+<!--<option value="0">Select Year:</option>-->
 <?php
 
 /*
@@ -173,7 +173,7 @@ foreach($years as $key => $year_select)
 {
 	if ($year_select == $selectedYear)
 	{
-		echo '<option selected>'.$year_select.'</option>';
+		echo '<option selected="selected">'.$year_select.'</option>';
 	}
 	else
 	{
@@ -196,24 +196,24 @@ if(isset($_GET['sort']))
 	$sort = $_GET['sort'];
 	if($sort=='desc')
 	{
-		$s1=' selected';
+		$s1=' selected="selected"';
 		$s2='';
 		$sortierung = "sortDesc";
 	}
 	if($sort=='asc')
 	{
 		$s1='';
-		$s2=' selected';
+		$s2=' selected="selected"';
 		$sortierung = "sortAsc";
 	}	
 }
 
 ?>
 
-<div class="custom-select" >
+<div class="custom-select_x" >
 
 <select id="select_sort">
-	    <option value="0">Select car:</option>
+	<!--    <option value="0">Select car:</option>-->
 	<?php
 echo '<option'.$s1.' name="sort" value="desc">Nachrichten absteigend</option>';
 echo '<option'.$s2.' name="sort" value="asc">Nachrichten aufsteigend</option>';
@@ -233,7 +233,7 @@ echo '<option'.$s2.' name="sort" value="asc">Nachrichten aufsteigend</option>';
 </div>
 </div>
 
-<div class="searchformfld" id="seach-filter">
+<div class="searchformfld" id="search-filter">
             <input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" class="text-field" onClick="this.select()" placeholder=" "/>
             <label for="filter_word">Suchbegriff eingeben</label>
             <button onclick="searchStart()" class="mobile_hidden"><span class="material-icons">search</span></button>
@@ -314,9 +314,16 @@ for (i = 0; i < l; i++) {
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
         h = this.parentNode.previousSibling;
+          	console.log(s);
+
         for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
+        	  s.selectedIndex = -1;
+          if (s.options[i].innerHTML == this.innerHTML) {              
+          	console.log(s);
             s.selectedIndex = i;
+                      	
+            console.log(i);
+						s.options[i].setAttribute("selected","selected");                      	
             h.innerHTML = this.innerHTML;
             y = this.parentNode.getElementsByClassName("same-as-selected");
             yl = y.length;

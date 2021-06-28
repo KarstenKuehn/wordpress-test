@@ -120,5 +120,25 @@ get_header(); ?>
 <?php		
 	}
 ?>
+
+
+    <script>
+        var galleryTop = new Swiper('.gallery-main', { 
+            direction: 'horizontal',
+
+        pagination: {
+          el: ".swiper-pagination.teaser",
+          clickable: true,
+        },
+            effect:'slide',
+            slidesPerView: 3,
+        spaceBetween: 24,
+        navigation: {
+          nextEl: ".swiper-button-next.teaser",
+          prevEl: ".swiper-button-prev.teaser",
+        }, 
+            });
+    </script>
+
 <?php get_footer(); ?>
 <?php seo_structuredData();?>

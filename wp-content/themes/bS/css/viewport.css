@@ -2567,7 +2567,7 @@ option {
 
 
 /* The container must be positioned relative: */
-.custom-select {
+.custom-select_x, .custom-select {
   position: relative;
   font-family: Lato;
     color: #1F5DA6;
@@ -2647,6 +2647,7 @@ font-family: 'Material Icons';
 
 
 form .button,.news_filter button.desktop_hidden{
+  margin: 0;
   margin-top: 16px;
   width: 100%;
 }

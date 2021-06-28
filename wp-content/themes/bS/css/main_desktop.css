@@ -685,7 +685,22 @@ section.news-liste {
   display: flex;
 }
 
-#filter, .cat_check, div#seach-filter {
+div#search-filter {
+    min-width: 208px;
+    height: 58px;
+    border-bottom: 2px solid #E3E5ED;
+}
+
+div#search-filter:hover,div#search-filter:focus  {
+    border-bottom: 2px solid #091B30;
+}
+
+
+div#search-filter.searchformfld input {
+    border-bottom: none;
+}
+
+#filter, .cat_check, div#search-filter {
     display: inline-block;
 }
 
@@ -696,6 +711,7 @@ section.news-liste {
 .searchformfld{
   padding-right: 48px;
 }
+
 
 form .button{
   margin: 16px auto;
