@@ -1161,12 +1161,15 @@ display: none;
   line-height: 24px;
 }
 .footer_item2, .footer_menu a{
-  color: #091B30;
+
   display: block;
   text-align: center;
   margin-bottom: 8px;
   font-size: 12px;
-  padding: 16px;
+  padding: 16px;  
+  color: #1F5DA6;
+  font-size: 14px;
+  font-weight: 700;
 }
 .header span.material-icons {
     font-size: 32px;
@@ -1492,7 +1495,6 @@ font-weight: 700;
 font-size: 16px;
 /*margin-bottom: 120px;*/
 }
-
 
 
  .content-slider .swiper-button-next, .content-slider .swiper-button-prev
@@ -2012,15 +2014,23 @@ margin: 0;
 }
 
 /*thumbs-gallerie*/
-
+.test{
+    margin: auto;
+    max-width: 1224px;      position: relative;
+}
 .gallery-container {
-    position: relative;
+
     margin-bottom: 24px;
+    max-width: 808px;
 }
 
 .gallery-thumbs .my-block-image
 {
   margin: 2px;
+}
+
+.lotterie-image {
+    padding: 0;
 }
 .thumb {
 

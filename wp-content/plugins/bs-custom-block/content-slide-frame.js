@@ -18,7 +18,7 @@
         el(
           "span",
           null,
-          "Teaser-Slide-Frame: "
+          "Content-Slide-Frame: "
         ),         
         el(
           "hr",
@@ -32,8 +32,15 @@
     save: function() {
       //return createElement('section', { className: 'content_section' }, createElement( InnerBlocks.Content ));
 
-      return createElement('div', { 
-        className: 'slideshow-container xx gallery-container content-slider' },
+      return createElement('div',{className:'test'},
+           createElement( 'div',{
+            className: 'swiper-button mobile_hidden'},
+            createElement( 'div',{
+              className: 'swiper-button-next teaser'},'' ),
+            createElement( 'div',{
+              className: 'swiper-button-prev teaser'},'' ) 
+          ),createElement('div', { 
+        className: 'slideshow-container gallery-container content-slider' },
             createElement( 'div',{
               className: 'swiper-pagination teaser desktop_hidden'},'' )  , 
         createElement('div', { 
@@ -41,16 +48,10 @@
         createElement( 'div',{
           className: 'swiper-wrapper'},
           createElement( InnerBlocks.Content ),
-        ),
-           createElement( 'div',{
-            className: 'swiper-button mobile_hidden'},
-            createElement( 'div',{
-              className: 'swiper-button-next teaser'},'' ),
-            createElement( 'div',{
-              className: 'swiper-button-prev teaser'},'' ) 
-          )       
+        )       
       ),
     )
+      )
     },
   } );
 } )( window.wp.blocks, window.wp.editor, window.wp.element );

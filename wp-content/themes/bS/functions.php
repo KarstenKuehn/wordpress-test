@@ -1225,7 +1225,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
         {
             if (preg_match('@'.$year.'@',$post['date']))
             {
-                    $content .= '<div class="news_container active">';
+                $content .= '<div class="news_container active">';
                 $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
                 $content .= '<div class="news_frame">';
                 $content .= '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));

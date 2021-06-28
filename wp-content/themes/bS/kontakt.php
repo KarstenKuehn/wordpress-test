@@ -34,7 +34,7 @@ echo '</div>';
 
 
 if(isset($_POST['submit'])){
-echo 'senden';
+echo 'Ihre Nachricht wurde verschickt';
 
     $to = "tatjana.funkner@bluesummit.de"; // this is your Email address
     $from = $_POST['email']; // this is the sender's Email address
