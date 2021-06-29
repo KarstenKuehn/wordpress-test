@@ -18,7 +18,7 @@
         el(
           "span",
           null,
-          "Teaser-Slide-Frame: "
+          "Content-Slide-Frame: "
         ),         
         el(
           "hr",
