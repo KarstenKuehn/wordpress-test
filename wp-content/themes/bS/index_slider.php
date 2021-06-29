@@ -46,13 +46,33 @@ echo $html;
           el: ".swiper-pagination.teaser",
           clickable: true,
         },
+        centeredSlides: true,
             effect:'slide',
-            slidesPerView: 4,
         spaceBetween: 24,
         navigation: {
           nextEl: ".swiper-button-next.teaser",
           prevEl: ".swiper-button-prev.teaser",
         }, 
+
+     breakpoints: {
+        1100: {
+       slidesPerView: 6,
+
+        slidesPerGroup: 1,
+       spaceBetween: 24
+      },
+        900: {
+       slidesPerView: 4,
+       spaceBetween: 24,
+        centeredSlides: false,
+      }, 
+      768: {
+       slidesPerView: 3,
+       spaceBetween: 24,
+        centeredSlides: false,
+      }, 
+    },
+
             });
     </script>
 
