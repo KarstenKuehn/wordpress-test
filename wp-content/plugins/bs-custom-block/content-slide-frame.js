@@ -33,7 +33,7 @@
       //return createElement('section', { className: 'content_section' }, createElement( InnerBlocks.Content ));
 
       return createElement('div', { 
-        className: 'slideshow-container xx gallery-container content-slider' },
+        className: 'slideshow-container gallery-container content-slider' },
             createElement( 'div',{
               className: 'swiper-pagination teaser desktop_hidden'},'' )  , 
         createElement('div', { 
