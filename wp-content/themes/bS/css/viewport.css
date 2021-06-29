@@ -1516,6 +1516,10 @@ font-size: 16px;
     left: 0;
   }
 
+.gallery-main .swiper-wrapper{
+    max-width: 800px;
+    margin: auto;
+}
 @media(min-width:768px)
 {
 

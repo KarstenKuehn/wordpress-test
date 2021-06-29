@@ -43,7 +43,7 @@ echo $html;
             direction: 'horizontal',
 
         pagination: {
-          el: ".swiper-pagination_teaser",
+          el: ".swiper-pagination.teaser",
           clickable: true,
         },
             effect:'slide',
