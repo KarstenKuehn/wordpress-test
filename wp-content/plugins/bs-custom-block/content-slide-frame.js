@@ -32,7 +32,7 @@
     save: function() {
       //return createElement('section', { className: 'content_section' }, createElement( InnerBlocks.Content ));
 
-      return createElement('div',{className:'test'},
+      return createElement('div',{className:'slide-frame'},
            createElement( 'div',{
             className: 'swiper-button mobile_hidden'},
             createElement( 'div',{
