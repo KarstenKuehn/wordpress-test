@@ -31,8 +31,14 @@
     },
     save: function() {
       //return createElement('section', { className: 'content_section' }, createElement( InnerBlocks.Content ));
-
-      return createElement('div', { 
+      return createElement('div',{className:'slide-frame'},
+           createElement( 'div',{
+            className: 'swiper-button mobile_hidden'},
+            createElement( 'div',{
+              className: 'swiper-button-next teaser'},'' ),
+            createElement( 'div',{
+              className: 'swiper-button-prev teaser'},'' ) 
+          ),createElement('div', { 
         className: 'slideshow-container gallery-container content-slider' },
             createElement( 'div',{
               className: 'swiper-pagination teaser desktop_hidden'},'' )  , 
@@ -41,16 +47,10 @@
         createElement( 'div',{
           className: 'swiper-wrapper'},
           createElement( InnerBlocks.Content ),
-        ),
-           createElement( 'div',{
-            className: 'swiper-button mobile_hidden'},
-            createElement( 'div',{
-              className: 'swiper-button-next teaser'},'' ),
-            createElement( 'div',{
-              className: 'swiper-button-prev teaser'},'' ) 
-          )       
+        )       
       ),
     )
+      )
     },
   } );
 } )( window.wp.blocks, window.wp.editor, window.wp.element );
