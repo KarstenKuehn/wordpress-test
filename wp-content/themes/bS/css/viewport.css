@@ -860,6 +860,7 @@ a.sub_menu_item .material-icons{
 
 .gallery-main .text .my-block-button {
 margin: auto;
+color: #fff;
 }
 #searchsubmit{
     background: #0061AB;
@@ -2211,10 +2212,9 @@ margin: 0;
 
 
   .gallery-main .text{
-    color: #091B30;
-    /*margin-bottom: 32px;
-    top: 32px;*/
-    bottom:  111px;
+    color: #fff;
+    bottom: 111px;
+    text-align: center;
   }
 
 .gallery-container .swiper-pagination {
