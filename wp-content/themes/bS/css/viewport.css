@@ -107,6 +107,26 @@ details > summary::marker {
 p{
   line-height: 1.5rem;
 }
+
+p a{
+   color: #1F5DA6;
+}
+
+p a: hover{
+   color: #1F5DA6;
+   text-decoration: underline;
+}
+p a: visited{
+   color: #293038;
+   text-decoration: none;
+}
+
+p a: focus{
+   color: #1F5DA6;
+   text-decoration: none;
+   border: 3px dotted #000;
+
+}
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: 100%;
     width: auto;
@@ -284,6 +304,9 @@ h1, section
   padding-bottom: 24px;
 }
 
+.bg_white{
+    background: #FFF;
+}
 #searchsubmit,.block_image,.block_headline,.block_content,.my-block-button{
   position: relative;
   display: block;
@@ -762,18 +785,35 @@ a.sub_menu_item .material-icons{
 .mySlides .my-block-image {
 }
 
-/* Caption text */
+/* Caption text 
 .text {
     color: #f2f2f2;
     font-size: 16px;
     margin: 0;
-    /*padding: 0px 12px;*/
     position: relative;
     width: 100%;
     text-align: left;
     top: -64px;
     padding: 0 16px;
 }
+*/
+  /* Caption text */
+
+.text {
+    position: absolute;
+    max-width: 1224px;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 0 16px;    
+    bottom: 111px;
+    font-size:36px; 
+    line-height: 48px;
+    text-align: left;
+}
+
 
 .slide_h1,.slide_h2{
         display: block;
@@ -788,30 +828,40 @@ a.sub_menu_item .material-icons{
 
 .my-block-title {
     color: #FFFFFF;
-    /*font-family: Lato;*/
     font-size: 14px;
     letter-spacing: 3px;
-    line-height: 32px;
+    line-height: 24px;
     text-transform: uppercase;
-    height: 64px;
-    padding: 16px 0;
-    margin-bottom: 48px
+    padding: 24px 0;
 }
 
 .my-block-text {
-  color: #091B30;
-  /*font-family: Lato;*/
-  font-size: 26px;
+  color: #FFFFFF;
+  font-family: Lato;
+  font-size: 42px;
   letter-spacing: 0;
-  line-height: 32px;
-/*
-    margin-top: 48px;
-    margin-bottom: 32px;
- */   
+  line-height: 48px;
     display: inline-block;
 }
 
-#searchsubmit,.text .my-block-button {
+  .text .my-block-button {
+  border: 2px solid #FFFFFF;
+  background: none;
+  width: auto;
+  display: table;
+    font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.gallery-main .text .my-block-button {
+margin: auto;
+}
+#searchsubmit{
     background: #0061AB;
     color: #fff;
     text-decoration: none;
@@ -845,21 +895,24 @@ a.sub_menu_item .material-icons{
 .swiper-pagination-bullets,.dots{
   position: relative;
     text-align: center;
-    height: 72px;
-    line-height: 72px;
+    height: 56px;
+    line-height: 56px;
     bottom: 0;
     width: 100%;
 }
-.swiper-pagination-bullet,.dot {
-  cursor: pointer;
-  height: 8px;
-  width: 8px;
-  margin: 0 2px;
+
+.swiper-pagination.desktop_hidden.swiper-pagination-clickable.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 8px;
+}
+
+
+
+.swiper-pagination-bullets .swiper-pagination-bullet,.dot {
+  margin: 0 8px;
   background-color: #C7CCDB;
-  border-radius: 50%;
-  display: inline-block;
   transition: background-color 0.6s ease;
   margin: 16px;
+  opacity: 1;
 }
 .dots.d_text{
     left: 10.9%;
@@ -876,7 +929,12 @@ a.sub_menu_item .material-icons{
     border-radius: 0;
     height: calc( 100% - 3px );
 }
-.swiper-pagination-bullet-active, .swiper-pagination-bullet:hover,.active_dot, .dot:hover {
+.swiper-pagination-bullets .swiper-pagination-bullet-active, .swiper-pagination-bullet:hover,.active_dot, .dot:hover {
+
+    background-color: #FFF;
+}
+
+.content-slider .swiper-pagination-bullets .swiper-pagination-bullet-active, .content-slider .swiper-pagination-bullet:hover,.content-slider .active_dot, .content-slider .dot:hover {
   background-color: #0061AB;
 }
 
@@ -1519,6 +1577,12 @@ font-size: 16px;
     left: 0;
   }
 
+  .swiper-container.gallery-main {
+    height: 500px;
+}
+.content-slider .swiper-container.gallery-main {
+    height: auto;
+}
   .slide-frame .swiper-container.gallery-main {
     width: 100%;
     margin-right: 0;
@@ -1532,7 +1596,6 @@ font-size: 16px;
 
 .slide-frame {
     position: relative;
-    max-width: 1224px;
     margin: auto;
 }
 .slide-frame .swiper-button {
@@ -1674,6 +1737,15 @@ input#s {
     display: block;
   }
 
+
+  .desktop_hidden.swiper-pagination
+  {
+    display: block;
+  }
+  .gallery-container .desktop_hidden.swiper-pagination
+  {
+    display: none;
+  }
 .mobile-menu
 {
   padding:32px 16px 0 16px;
@@ -1808,6 +1880,7 @@ a.main-navi_btn.active {
 .text * {
     display: block;
     margin: 0px;
+    max-width: 100%;
 }
 
 .mySlides{
@@ -1884,16 +1957,25 @@ a.main-navi_btn.active {
   display:none;
 }
 
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+    display: none;
+}
+
 .teaser_image{display: none;
 
 }
 
 .teaser_image_div{
-  aspect-ratio:1440 / 570;
-    background-size: cover;
     background-position: center;
     position: relative;
+    height: 500px;
+    width: 100%;
+}
 
+.gallery-thumbs .teaser_image_div {
+    height: 111px;
+    width: 100%;
 }
 
 .teaser_image_div:after{
@@ -1985,10 +2067,13 @@ margin: 0;
 
 .swiper-button{
   position: relative;
-  max-width:2000px;
+  max-width:1272px;
   width: 100%;
   height: 72px;
   top: -156px;
+  margin: auto;
+    left: 0;
+    right: 0;
 }
 
 
@@ -2001,7 +2086,7 @@ margin: 0;
     bottom: 24px
 }
 
-
+.swiper-button_x  .swiper-button-next, .swiper-button_x  .swiper-button-prev,
 .swiper-button  .swiper-button-next, .swiper-button  .swiper-button-prev {
     width: 72px;
     height: 72px;
@@ -2012,7 +2097,9 @@ margin: 0;
     top: 22px
 }
 
-
+.swiper-button_x  .swiper-button-next, .swiper-button_x  .swiper-button-prev {
+    background: rgba(52,47,42,.5);
+}
 
 .swiper-button  .swiper-button-next {
     right: 0;
@@ -2026,16 +2113,15 @@ margin: 0;
 
 .teaserSwiper .swiper-button-next, .teaserSwiper .swiper-button-prev {
   background: none;
+  background: rgba(52,47,42,.5);
 }
 .teaserSwiper .swiper-button {
     position: absolute;
-    top: 50%;
+    top: calc(50% - 72px);
 }
-
-.swiper-pagination {
-    position: relative!important;
-    bottom: 40px!important;
-  }
+.swiper-pagination.desktop_hidden.swiper-pagination-clickable.swiper-pagination-bullets {
+    bottom: 0px;
+}
 
 .spielbanken .swiper-pagination {
     bottom: 120px!important;
@@ -2091,6 +2177,10 @@ margin: 0;
     height: 100px;
     z-index: 1000;
     top: calc(50% - 75px);
+    max-width: 1272px;
+    right: 0;
+    left: 0;
+    margin: auto;
 }
 
 
@@ -2122,21 +2212,21 @@ margin: 0;
 
   .gallery-main .text{
     color: #091B30;
-    margin-bottom: 32px;
-    top: 32px;
+    /*margin-bottom: 32px;
+    top: 32px;*/
+    bottom:  111px;
   }
 
 .gallery-container .swiper-pagination {
     position: absolute!important;
     bottom: 0;
-    top: 216px;
-    height: 40px;
-    line-height: 40px;
+    height: 56px;
+    line-height: 56px;
   }
 
   .gallery-container .my-block-image {
-    max-height: 216px;
-        overflow: hidden;
+    max-height: 500px;
+    overflow: hidden;
 }
 
 .zitat{
@@ -2222,6 +2312,7 @@ vertical-align: middle;
     padding: 24px; 
     top: -80px;
     background-color: #fff;
+    margin-bottom: -80px;
   }
 
 
@@ -2232,7 +2323,7 @@ vertical-align: middle;
 
   .gallery-main .text{
     text-align: center;
-    bottom: 72px;
+    bottom: 111px;
     top: unset;
     height: auto;
     color: #f2f2f2;

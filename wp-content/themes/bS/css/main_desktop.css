@@ -105,7 +105,7 @@ section p{
     padding: 0 24px 16px 24px;
 }
 
-  /* Caption text */
+  /* Caption text 
 
 .text {
     position: absolute;
@@ -121,17 +121,27 @@ section p{
   line-height: 48px;
 }
 
-
+*/
+/*
   .text .my-block-button {
   border: 2px solid #FFFFFF;
   background: none;
   width: auto;
   display: inline-block;
+    font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+      padding: 16px 24px;
 }
+
 .text .my-block-title,.text .my-block-button
 {
   font-size:35%;
 }
+*/
+
 
 .text .my-block-text {
   color: #FFFFFF;
@@ -282,11 +292,11 @@ section p{
   margin-bottom: 8px;
   padding: 0 24px;
 }
-
+/*
 .text .my-block-button {
     padding: 8px 24px;
 }
-
+*/
 .content_section >*{
     max-width: 1224px;
   margin-left: auto;
@@ -410,6 +420,8 @@ a.event_short h2
 .navi-item img{
   margin: 0; 
 }
+
+
 /* The dots/bullets/indicators */
 .dots{
     height: 64px;
@@ -515,8 +527,35 @@ section .button {
     margin: auto;
 }
 
+.swiper-pagination.desktop_hidden.swiper-pagination-clickable.swiper-pagination-bullets {
+    bottom: 39px;
+}
+
+.content-slider .swiper-pagination.desktop_hidden.swiper-pagination-clickable.swiper-pagination-bullets {
+        top: calc(100% + 8px);
+}
+
+.text{    
+    font-size:64px; 
+    line-height: 72px;
+    top:17%;
+    padding: 0 72px;
+}
+
 @media(min-width:900px)
 {
+  .swiper-container.gallery-main {
+    height: 570px;
+}
+.gallery-thumbs .teaser_image_div{
+    height: 111px;
+    width: 100%;
+}
+
+.teaser_image_div{
+    height: 570px;
+    width: 100%;
+}
 
 a.sub_menu_item {
     font-size: 24px;
@@ -532,11 +571,12 @@ a.sub_menu_item {
   .main-navi_btn {
    margin: 0 8px; 
   }
-
+/*
 
 .text {
-    font-size:48px; 
-    line-height: 56px;
+    font-size:56px; 
+    line-height: 64px;
+    top: 17%;
   }
 
   .text * {
@@ -550,7 +590,7 @@ a.sub_menu_item {
   .text .my-block-button {
       padding: 12px 24px;
   }
-
+*/
   .content_section >.navi-item {
       margin-bottom: -48px;
   }
@@ -590,16 +630,17 @@ a.sub_menu_item {
 .xx .dots{
     bottom: 64px;
 }
-
-    .text{    
-      font-size:56px; 
+/*
+.text{    
+    font-size:56px; 
     line-height: 64px;
-  }
+    padding: 0 72px;
+}
 
 .text .my-block-title, .text .my-block-button {
     font-size: 25%;
 }
-
+*/
   .content_section >.navi-item {
       margin-bottom: -64px;
   }
@@ -664,14 +705,22 @@ section.news-liste {
 .main-navi_btn {
  margin: 0 16px; 
 }
-
+/*
     .text{    
       font-size:64px; 
     line-height: 72px;
     top:17%;
   }
+*/
 
+}
 
+@media(min-width:1441px)
+{
+.desktop_hidden.swiper-pagination
+  {
+    display: none;
+  }
 }
 
 .app_info.text-image .block_image_div, .app_info.image-text .block_image_div{
