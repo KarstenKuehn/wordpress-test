@@ -1977,6 +1977,7 @@ a.main-navi_btn.active {
 .gallery-thumbs .teaser_image_div {
     height: 111px;
     width: 100%;
+    background-size: 100% auto ;
 }
 
 .teaser_image_div:after{
