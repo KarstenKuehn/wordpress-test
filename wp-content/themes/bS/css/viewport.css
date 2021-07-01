@@ -2425,8 +2425,13 @@ p.content {
 .main a.my-block-button ,.main a.my-block-button:visited,.main a.my-block-button:hover {
     color: #fff;
     text-decoration: none;
-    background-color: #0061AB;
 }
+
+p a.button:hover, a.my-block-button:hover {
+    text-decoration: none;
+    color: #1F5DA6;
+}
+
 
 .main>blockquote {
     border-left: 2px solid #1F5DA6;
