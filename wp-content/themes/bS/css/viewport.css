@@ -1635,15 +1635,6 @@ max-width: 1224px;
 margin: 0 auto;
 }
 
-
-/*
-.main.standard > :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image){
-max-width: calc(100% / 12 * 9 - 6px);
-margin: unset;
-padding-right: 24px;
-}
-*/
-
 .main .medium {
     max-width: 856px;
     padding: 0 24px;
@@ -2434,6 +2425,7 @@ p.content {
 .main a.my-block-button ,.main a.my-block-button:visited,.main a.my-block-button:hover {
     color: #fff;
     text-decoration: none;
+    background-color: #0061AB;
 }
 
 .main>blockquote {
