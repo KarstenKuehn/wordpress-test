@@ -2427,7 +2427,7 @@ p.content {
     text-decoration: none;
 }
 
-p a.button:hover, a.my-block-button:hover {
+.main section a.button:hover, .main section a.my-block-button:hover {
     text-decoration: none;
     color: #1F5DA6;
 }
