@@ -257,16 +257,7 @@ section p{
 }
 
 .my-block-button span.button-text {
-    color: #fff;
-    background-color: #0061AB;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    cursor: pointer;
     display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
     line-height: 56px;
     margin: 0;
     padding:0 16px ;
@@ -275,6 +266,10 @@ section p{
 .my-block-button {
   width: auto !important;
 }
+.my-block-button.mobile_hidden {
+  display: inline-block;
+}
+
 .footer{
   text-align: center
 }
