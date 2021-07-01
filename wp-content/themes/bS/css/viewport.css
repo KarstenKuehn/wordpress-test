@@ -833,7 +833,7 @@ a.sub_menu_item .material-icons{
     letter-spacing: 3px;
     line-height: 24px;
     text-transform: uppercase;
-    padding: 24px 0;
+    padding: 8px 0;
 }
 
 .my-block-text {
@@ -1642,6 +1642,9 @@ margin: 0 auto;
     margin-bottom: 16px;    
 }
 
+.my-block-title {
+    padding: 24px 0;
+}
 
   .text .my-block-button {
   border: 2px solid #FFFFFF;
