@@ -108,25 +108,60 @@ p{
   line-height: 1.5rem;
 }
 
-p a{
+
+/*
+
+a{
    color: #1F5DA6;
 }
 
-p a: hover{
-   color: #1F5DA6;
-   text-decoration: underline;
-}
-p a: visited{
-   color: #293038;
-   text-decoration: none;
-}
 
-p a: focus{
+a:focus{
    color: #1F5DA6;
    text-decoration: none;
    border: 3px dotted #000;
 
 }
+a:visited{
+   color: #293038;
+   text-decoration: none;
+}
+a:hover{
+   color: #1F5DA6;
+   text-decoration: underline;
+}
+
+p a{
+   color: #1F5DA6;
+}
+
+p a:focus{
+   color: #1F5DA6;
+   text-decoration: none;
+   border: 3px dotted #000;
+
+}
+p a:visited{
+   color: #293038;
+   text-decoration: none;
+}
+p a:hover{
+   color: #1F5DA6;
+   text-decoration: underline;
+}
+
+*/
+
+
+p a:link { color: #1F5DA6; }
+p a:visited {    color: #293038;   text-decoration: none; }
+p a:hover {    color: #1F5DA6;
+   text-decoration: underline; } 
+p a:focus {    color: #1F5DA6;
+   text-decoration: none;
+   border: 3px dotted #000; }
+   
+
 .wp-block-media-text__media img, .wp-block-media-text__media video {
     max-width: 100%;
     width: auto;
@@ -2415,7 +2450,7 @@ p.content {
     padding: 0 16px 0 0;
 }
 
-*/
+
 
 .main a:hover {
     text-decoration: underline;
@@ -2423,7 +2458,7 @@ p.content {
 .main a:visited {
     color: #293038;
 }
-
+*/
 .main a.button ,.main a.button:visited,.main a.button:hover,
 .main a.my-block-button ,.main a.my-block-button:visited,.main a.my-block-button:hover {
     color: #fff;
