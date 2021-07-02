@@ -1463,7 +1463,7 @@ width: auto;
 {
   color: #091B30;
   font-size: 16px;
-  padding: 0 30px 16px 30px;
+  padding: 0 0px 16px 0px;
  /* border-bottom:  1px solid #E3E5ED;*/
   margin-bottom: 16px;
 }
@@ -1474,8 +1474,8 @@ width: auto;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 26px;
-  margin: 16px 0;
-  padding: 16px 0;
+  margin: 8px 0 16px 0;
+  padding: 0;
   color: #091B30;
 }
 .news_container a
