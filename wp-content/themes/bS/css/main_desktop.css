@@ -21,6 +21,36 @@ h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, blockqu
 section p{
   padding: 0;
 }
+
+section.section-left, section.section-right{
+    display: flex;
+    flex-direction: column;
+}
+section.section-left p, section.section-right p{
+    padding: 0 24px 16px 24px;
+}
+section.section-left *, section.section-right *{
+    max-width: 856px;
+    text-align: left;
+    margin-left: 0;
+    margin-right:0;
+}
+
+section.section-left{
+    justify-content: flex-start 
+}
+section.section-right{
+    justify-content: flex-end 
+}
+
+.section-left.hews-head {
+    padding: 0;
+}
+.section-left.hews-head .back,.section-left.hews-head .detail_info {
+  width: 50%;
+}
+
+
 .main ul{
   padding: 0 24px 24px 24px;
 }
@@ -536,6 +566,9 @@ section .button {
     top:17%;
     padding: 0 72px;
 }
+.section-left.hews-head {
+    padding: 0 24px;
+}
 
 @media(min-width:900px)
 {
@@ -654,7 +687,9 @@ a.sub_menu_item {
 {
 
 
-
+.section-left.hews-head {
+    padding: 0;
+}
 
 .block_text .my-block-button {
   margin-left : 0;

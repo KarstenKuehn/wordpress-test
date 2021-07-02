@@ -1695,7 +1695,7 @@ border-right: 1px solid #E3E5ED;
 }
 
 h1{
-  font-size: 64px;
+  font-size: 68px;
   line-height: 72px;
 }
 h2{
@@ -2840,4 +2840,20 @@ section.events_overview {
 section.wp-block-lb-benefits-text.content_section {
     margin: auto;
     max-width: 856px;
+}
+
+
+.section-left.hews-head {
+    flex-direction: row;
+    padding: 0 16px;
+}
+
+
+.section-left.hews-head .back,.section-left.hews-head .detail_info {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.section-left.hews-head .detail_info {
+  text-align: right;
 }
