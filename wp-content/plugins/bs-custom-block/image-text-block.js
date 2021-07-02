@@ -313,6 +313,7 @@ return (
          
 
         ),     
+      !attributes.buttonURL ? '':
       el('a', {
         className: 'my-block-button content',
         href: attributes.buttonURL,
