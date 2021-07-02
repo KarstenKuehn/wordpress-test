@@ -1480,8 +1480,8 @@ width: auto;
 }
 .news_container a
 {
-  display: block;
-  padding: 0 30px;
+  display: inline-block;
+  padding: 0;
 }
 .news_container a .material-icons
 {
