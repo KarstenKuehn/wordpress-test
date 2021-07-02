@@ -307,7 +307,7 @@ h1, section
 .my-block-button:link span.button-text, .button:link {
     color: #fff;
     background-color: #0061AB;
-    border: 2px solid #1F5DA6;
+    border: none;
     border-radius: 0;
     box-shadow: none;
     cursor: pointer;
@@ -325,8 +325,7 @@ h1, section
 
 
 .my-block-button:visited span.button-text, .button:visited {    color: #fff; }
-.my-block-button:hover span.button-text, .button:hover {    color: #1F5DA6; background: #fff;
-  border: 2px solid #1F5DA6;
+.my-block-button:hover span.button-text, .button:hover {    color: #FFF; background: #143C6B;
    } 
 .my-block-button:focus span.button-text, .button:focus {  background-color: #0061AB;  color: #fff; }
 
@@ -863,7 +862,7 @@ a.sub_menu_item .material-icons{
 margin: auto;
 color: #fff;
 }
-#searchsubmit{
+#searchsubmit,#searchsubmit: active, #searchsubmit: visited, #searchsubmit: focus{
     background: #0061AB;
     color: #fff;
     text-decoration: none;
@@ -871,6 +870,9 @@ color: #fff;
     line-height: 24px;
     padding: 12px;
     margin-top: 32px;
+}
+#searchsubmit: hover{
+    background: #143C6B;
 }
 
 #searchsubmit {
