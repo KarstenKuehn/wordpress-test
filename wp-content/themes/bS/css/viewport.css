@@ -1183,7 +1183,7 @@ display: none;
 
 .hero-image-stairway {
     position: absolute;
-    width: calc(100% / 12 * 9 - 6px);
+    width: calc(100% / 12 * 10 + 20px);
     height: 48px;
     background: #fff;
     bottom: 0;
@@ -1715,6 +1715,7 @@ h4{
 .two-column-text {
     padding: 24px 0;
     display: flex;
+    grid-gap: 24px;
 }
 
 .search-modal .search{
@@ -2263,6 +2264,7 @@ margin: 0;
 .zitat .wp-block-column{
   flex-basis: unset;
   flex-grow: unset;
+  flex: 1 auto ;
 } 
 .wp-block-column.testimonial-image{
 margin-right: 32px;
@@ -2392,7 +2394,7 @@ vertical-align: middle;
 
 p.person ,p.group{
     position: relative;
-    padding-left: 32px;
+    padding-left: 56px;
 }
 
 
@@ -2407,7 +2409,7 @@ p.person ,p.group{
     font-weight: lighter;
     padding: 0 8px 16px 0;
     top: 3px;
-    left: 0;
+    left: 24px;
   }
 .person:before {
     content: "\e7ff";

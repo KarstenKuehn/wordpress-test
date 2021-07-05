@@ -571,6 +571,16 @@ section .button {
     padding: 0 24px;
 }
 
+
+
+.witout_line .text_left, .witout_line .text_right {
+    border: 0;
+    padding: 0;
+}
+.site-header {
+    min-height: 120px;
+}
+
 @media(min-width:900px)
 {
   .swiper-container.gallery-main {
@@ -639,7 +649,7 @@ a.sub_menu_item {
 .slide-frame .gallery-main .swiper-wrapper {
     width: 1224px;
     margin: auto;
-        margin-left: calc( (593px - 100%) / 2);
+/*        margin-left: calc( (593px - 100%) / 2);*/
 }
 
 
