@@ -1446,6 +1446,7 @@ width: auto;
   vertical-align: top;
   padding:0 0 24px 0;
   color: #091B30;
+  background: #fff;
 }
 .spalten_3 .news_container:nth-child(3n+3)
 {
@@ -1465,7 +1466,7 @@ width: auto;
 {
   color: #091B30;
   font-size: 16px;
-  padding: 0 0px 16px 0px;
+  padding: 0 16px 16px 16px;
  /* border-bottom:  1px solid #E3E5ED;*/
   margin-bottom: 16px;
 }
@@ -1483,7 +1484,7 @@ width: auto;
 .news_container a
 {
   display: inline-block;
-  padding: 0;
+  padding: 0 16px;
 }
 .news_container a .material-icons
 {
