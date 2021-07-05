@@ -51,7 +51,6 @@ var divs = document.querySelectorAll('.thumb'), i;
 if(divs.length>0)
 
 {
-
 for (i = 0; i < divs.length; ++i) {
   divs[i].style.color = "white";
   thumbs_html+=divs[i].innerHTML;
