@@ -2641,12 +2641,18 @@ color: #1F5DA6;
   padding: 0;
   margin: 0;    
   padding-right: 16px;
+  margin-bottom: 24px;
 }
 
-.verlinkungen_head_href a {
+p.verlinkungen_head_href a {
     color: transparent;
     position: relative;
-
+    line-height: 32px;
+}
+p.verlinkungen_head_href a:link {
+    color: transparent;
+    position: relative;
+    line-height: 32px;
 }
 .verlinkungen_head_href a:after {
     content: "\e895";
@@ -2656,7 +2662,7 @@ color: #1F5DA6;
     font-size: 32px;
     position: absolute;
     right: 0;
-    top: 10px;
+    top: 0;
 }
 .cat{
   display: block;
