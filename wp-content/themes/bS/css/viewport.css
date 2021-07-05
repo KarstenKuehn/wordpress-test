@@ -2644,12 +2644,12 @@ color: #1F5DA6;
   margin-bottom: 24px;
 }
 
-p.verlinkungen_head_href a {
+.verlinkungen_head_href a {
     color: transparent;
     position: relative;
     line-height: 32px;
 }
-p.verlinkungen_head_href a:link {
+.verlinkungen_head_href a:link {
     color: transparent;
     position: relative;
     line-height: 32px;
