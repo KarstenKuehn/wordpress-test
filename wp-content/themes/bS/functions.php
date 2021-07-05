@@ -957,6 +957,7 @@ function kb_whitelist_blocks() {
     'core/latest-posts',
     'core/more',
     'core/buttons',
+    'core_tabs',
     'core/html',
     'core/embed',
     'lb/slide-item-content',
@@ -1236,7 +1237,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
                 $content .= '<div class="news_frame">';
                 $content .= '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
                 $content .= '<h2 class="news_headline">'. wp_trim_words(substr(strip_tags($post['post_title']),0 ,100),5, ' […]').'</h2>';
-                $content .= wp_trim_words(substr(strip_tags($post['excerpt']),0 ,150),15, ' […]'  );   
+                $content .= '<p>'.wp_trim_words(substr(strip_tags($post['excerpt']),0 ,150),15, ' […]'  ).'</p>';   
                 $content .= '';
                 $content .= '</div>';
                 $content .= '<a href="'.$post['link'].'" class="list">Mehr erfahren <span class="material-icons">east</span></a>';
