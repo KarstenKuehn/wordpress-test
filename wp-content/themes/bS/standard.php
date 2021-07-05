@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Standard Text Template
+  Template Name: Standard Text Template
 */
 
 get_header();
@@ -26,16 +26,21 @@ get_header();
 
 -->
 <div class="main standard">
-	<?php
-	echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
-	$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
-	echo $html;
-echo '</div>';
-
-?>
-
-    <!-- Initialize Swiper -->
-    <script>
+  <div class="site-header">
+  <?php
+    if(get_the_post_thumbnail_url()!='')
+    { 
+        echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
+    }
+  ?>
+  </div>
+  <?php
+  $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+  echo $html;
+  echo '</div>';
+  ?>
+  <!-- Initialize Swiper -->
+  <script>
 
 
 
@@ -51,6 +56,7 @@ var divs = document.querySelectorAll('.thumb'), i;
 if(divs.length>0)
 
 {
+
 for (i = 0; i < divs.length; ++i) {
   divs[i].style.color = "white";
   thumbs_html+=divs[i].innerHTML;
