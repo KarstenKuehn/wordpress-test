@@ -573,7 +573,7 @@ section .button {
 
 
 
-.witout_line .text_left, .witout_line .text_right {
+.without_line .text_left, .without_line .text_right {
     border: 0;
     padding: 0;
 }
