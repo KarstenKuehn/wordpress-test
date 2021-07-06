@@ -269,14 +269,16 @@ foreach ($pages as $key => $post)
 				echo '<div class="news_container">';
 			}
 
-			echo '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
+			echo '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/><a href="'.$post['link'].'" class="image-list" title="'.$post['post_title'].'"> </a></div>';
 			echo '<div class="news_frame">';
 			echo '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
-			echo '<h2>'.$post['post_title'].'</h2>';
+			echo '<h2><a href="'.$post['link'].'" class="list headline" title="'.$post['post_title'].'">'.$post['post_title'].'</a></h2>';
 			echo '<p>'.$post['excerpt'].'</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'" class="list" title="'.$post['post_title'].'">Mehr erfahren <span class="material-icons">east</span></a>';
 			echo '</div>';
+
+
 		}
 	}
 }
