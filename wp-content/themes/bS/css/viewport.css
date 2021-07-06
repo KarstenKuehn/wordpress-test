@@ -338,6 +338,7 @@ h1, section
   border:0;
   margin:0;
 }
+
   .header
   {
     min-height:72px;
@@ -628,6 +629,9 @@ input#s {
 
   display: grid;
   grid-template-columns: auto 1fr auto;  
+margin: 0 -3px;
+width: calc(100% - 6px);
+
 }
 
 .show-test{
@@ -893,15 +897,41 @@ color: #fff;
     padding: 12px;
     margin-top: 32px;
 }
-#searchsubmit: hover{
-    background: #143C6B;
-}
 
 #searchsubmit {
     padding: 12px 24px;
     margin: 0 24px;
     position: absolute;
 }
+
+#searchsubmit:focus{
+  border:3px dotted #091B30;
+  margin-top:0;
+  padding: 9px 21px;
+}
+
+.close-search-toggle{
+      margin: 27px 0;
+    border: 3px dotted transparent;
+}
+
+.close-search-toggle:focus{
+    margin: 27px 0;
+    border: 3px dotted #091B30;
+}
+
+button.search-toggle: focus{
+    border: 3px dotted #091B30;
+    line-height: 42px;
+     margin: -3px;
+}
+
+
+#searchsubmit: hover{
+    background: #143C6B;
+}
+
+
 
 
 .text button svg{
@@ -1003,6 +1033,11 @@ color: #fff;
 .navi-item a{ padding: 27px 0;
   display: block;
 }
+
+.navi-item a: focus, .swiper-pagination-bullet: focus{
+  background: red;
+}
+
 .navi-item img {
     margin: auto;
     max-width: 327px;
@@ -1942,7 +1977,10 @@ a.main-navi_btn.active {
   {
     color: #1F5DA6;
     font-weight: bold;  
-    border: 4px dotted #1F5DA6;  
+    /*border: 4px dotted #1F5DA6;  */
+        text-decoration: underline;
+    text-decoration-style: dotted;
+
   }  
 
 
@@ -1969,6 +2007,7 @@ a.main-navi_btn.active {
     margin: 0 0 0 0;
     border-left:1px solid #E3E5ED;
     line-height: 48px;
+    padding-right: 3px;
   }
 .header span.material-icons {
     font-size: 32px;
@@ -2974,3 +3013,12 @@ section.wp-block-lb-benefits-text.content_section {
 .section-left.hews-head .detail_info {
   text-align: right;
 }
+/*
+.Rich_Web_Tabs_tt_tab1 {
+    visibility: hidden;
+}
+.Rich_Web_Tabs_tt_tab1.active {
+    visibility: visible;
+}
+
+*/

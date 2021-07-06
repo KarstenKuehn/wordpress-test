@@ -9,6 +9,13 @@ h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, blockqu
     margin-bottom: 24px;
 }
 
+.content_section >*{
+    max-width: 1224px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 .news-div ,.news-div h2{
     max-width: 1272px;
 }
@@ -22,9 +29,12 @@ section p{
   padding: 0;
 }
 
+
+
 section.section-left, section.section-right{
     display: flex;
     flex-direction: column;
+    max-width: 1272px;
 }
 section.section-left p, section.section-right p{
     padding: 0 24px 16px 24px;
@@ -135,6 +145,18 @@ section.section-right{
     padding: 0 24px 16px 24px;
 }
 
+.text_left, .text_right {
+     padding: 0;
+     border: 0; 
+}
+.two-column-text .text_left p{
+    padding: 0 0 16px 24px;
+}
+
+ .two-column-text .text_right p{
+    padding: 0 24px 16px 0;
+}
+
   /* Caption text 
 
 .text {
@@ -212,7 +234,8 @@ section.section-right{
   width: 49.6vw;
   background-position: center;
   overflow: hidden;
-  max-width: 800px;
+  max-width: 710px;
+    max-height: 458px;
 }
 .text-image .block_image_div{
   left:50%;
@@ -322,12 +345,7 @@ section.section-right{
     padding: 8px 24px;
 }
 */
-.content_section >*{
-    max-width: 1224px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
+/*
 .text_left
 {
   padding-right: 32px;
@@ -336,6 +354,7 @@ section.section-right{
 {
   padding-left: 32px;
 }
+*/
  .medium{
   max-width: 856px;
   margin: auto;
