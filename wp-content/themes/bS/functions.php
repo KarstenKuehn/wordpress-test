@@ -986,11 +986,16 @@ function kb_whitelist_blocks() {
     'lb/verlinkungen-frame',
     'lb/testimonial',
     'core/shortcode',
+    'core/editor',
+    'core/block-editor',
     'ub/tabbed-content-block',
+    "core/bold", "core/italic",
+    'ub/tabbed-content',
+    'ub/tab'
   );
 }
 
-add_filter('allowed_block_types','kb_whitelist_blocks');
+//add_filter('allowed_block_types','kb_whitelist_blocks');
 
 
 add_action( 'init', 'kb_page_excerpts' );
