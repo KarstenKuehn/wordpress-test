@@ -327,7 +327,7 @@ h1, section
 .my-block-button:visited span.button-text, .button:visited {    color: #fff; }
 .my-block-button:hover span.button-text, .button:hover {    color: #FFF; background: #143C6B;
    } 
-.my-block-button:focus span.button-text, .button:focus {  background-color: #0061AB;  color: #fff; }
+.my-block-button:focus span.button-text, .button:focus {  background-color: #143C6B;  color: #fff; border: 3px dotted; margin: -3px; }
 
 
 
@@ -715,6 +715,15 @@ a.sub_menu_item{
     /*font-weight: 200;*/
 }
 
+a.sub_menu_item: focus{
+    color: #143C6B;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+a.sub_menu_item: hover{
+    color: #1F5DA6              ;
+}
 
 a.sub_menu_item .material-icons{
     position: absolute;
@@ -1035,7 +1044,7 @@ button.search-toggle: focus{
 }
 
 .navi-item a: focus, .swiper-pagination-bullet: focus{
-  background: red;
+  background: #143C6B;
 }
 
 .navi-item img {
@@ -2595,6 +2604,11 @@ p.content {
 */
 .main a.button ,.main a.button:visited,.main a.button:hover,
 .main a.my-block-button ,.main a.my-block-button:visited,.main a.my-block-button:hover {
+    text-decoration: none;
+}
+
+
+.main section a.button:focus, .main section a.my-block-button:focus {
     text-decoration: none;
 }
 

@@ -92,6 +92,7 @@ section.section-right{
     padding: 0 24px;
 }
 
+
 .mobile_hidden.menu_close {
     line-height: 96px;
     text-align: right;
@@ -100,6 +101,14 @@ section.section-right{
     margin: auto;
     padding: 0 16px;    
 }
+
+.menu_close: focus{background-color: green;
+}
+.menu_close button: focus{background-color: red;
+}
+.menu_close button: hover{background-color: blue;
+}
+
 .mobile_hidden.menu_close .material-icons {
   cursor: pointer;
   font-size: 32px;
