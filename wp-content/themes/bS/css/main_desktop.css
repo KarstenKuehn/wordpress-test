@@ -7,6 +7,7 @@ h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, blockqu
     padding: 0 24px 16px 24px;
     margin: auto;
     margin-bottom: 24px;
+    width: 100%;
 }
 
 .content_section >*{
@@ -15,6 +16,9 @@ h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, blockqu
   margin-right: auto;
 }
 
+.section-left >*{
+  margin-left: 0;
+}
 
 .news-div ,.news-div h2{
     max-width: 1272px;
@@ -31,26 +35,24 @@ section p{
 
 
 
-section.section-left, section.section-right{
+.section-left{
     display: flex;
     flex-direction: column;
-    max-width: 1272px;
+    max-width: 856px;
+    width: 100%;
 }
-section.section-left p, section.section-right p{
+.section-left p{
     padding: 0 24px 16px 24px;
+    flex-basis: 100%;
+        max-width: 856px;
 }
-section.section-left *, section.section-right *{
+p.section-left{
     max-width: 856px;
     text-align: left;
-    margin-left: 0;
-    margin-right:0;
 }
 
-section.section-left{
+.section-left{
     justify-content: flex-start 
-}
-section.section-right{
-    justify-content: flex-end 
 }
 
 .section-left.hews-head {
@@ -375,6 +377,7 @@ section.section-right{
 .wp-block-lb-two-column-text.content_section h2,
 .wp-block-lb-two-column-text.content_section .two-column-text {
     max-width: 856px;
+    width: 100%;
 }
 
 
@@ -725,6 +728,10 @@ a.sub_menu_item {
 @media(min-width:1225px)
 {
 
+
+.section-left {
+    margin-left:calc( (100% - 1270px) / 2) ;
+}
 
 .section-left.hews-head {
     padding: 0;

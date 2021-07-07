@@ -985,7 +985,8 @@ function kb_whitelist_blocks() {
     'lb/img-text-two-cta', 
     'lb/verlinkungen-frame',
     'lb/testimonial',
-    'core/shortcode'
+    'core/shortcode',
+    'ub/tabbed-content-block',
   );
 }
 
