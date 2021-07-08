@@ -312,6 +312,7 @@ p.section-left{
   text-align: center;
   margin-bottom: 8px;
   padding: 0 24px;
+  width: auto;
 }
  .medium{
   max-width: 856px;
