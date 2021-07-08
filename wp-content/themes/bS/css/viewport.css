@@ -2023,13 +2023,13 @@ a.main-navi_btn.active {
   }
   .header .nav-frame
   {
-    width:12%;
+    width:13%;
     vertical-align: middle;
     height:48px;
     margin: 0 0 0 0;
     border-left:1px solid #E3E5ED;
     line-height: 48px;
-    padding-right: 3px;
+    padding-right: 8px;
   }
 .header span.material-icons {
     font-size: 32px;
