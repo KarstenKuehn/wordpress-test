@@ -1242,8 +1242,8 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
                 $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/><a href="'.$post['link'].'" class="image-list" title="'.$post['post_title'].'"> </a></div>';
                 $content .= '<div class="news_frame">';
                 $content .= '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
-                $content .= '<h2 class="news_headline"><a href="'.$post['link'].'" class="list headline" title="'.$post['post_title'].'">'. wp_trim_words(substr(strip_tags($post['post_title']),0 ,100),5, ' […]').'</a></h2>';
-                $content .= '<p>'.wp_trim_words(substr(strip_tags($post['excerpt']),0 ,150),15, ' […]'  ).'</p>';   
+                $content .= '<h2 class="news_headline"><a href="'.$post['link'].'" class="list headline" title="'.$post['post_title'].'">'. substr(strip_tags($post['post_title']),0 ,100).'</a></h2>';
+                $content .= '<p>'.substr(strip_tags($post['excerpt']),0 ,150).'</p>';   
                 $content .= '';
                 $content .= '</div>';
                 $content .= '<a href="'.$post['link'].'" class="list">Mehr erfahren <span class="material-icons">east</span></a>';
