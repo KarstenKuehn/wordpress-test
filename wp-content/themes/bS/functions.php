@@ -968,6 +968,7 @@ function kb_whitelist_blocks() {
     'my-first-gutenberg-block/image-with-text-block',
     'my-lb-block/accordion-item',
     'lb/button',
+    'lb/more-link',
     'lb/extranavi',
     'lb/media-text',
     'lb/presse-img-text',

@@ -268,6 +268,18 @@ function load_button_link() {
 add_action('enqueue_block_editor_assets', 'load_button_link');
 
 
+function load_more_link() {
+  wp_enqueue_script(
+    'more_link',
+    plugin_dir_url(__FILE__) . 'more_link.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_more_link');
+
+
 function load_TeaserSlideFrame() {
   wp_enqueue_script(
     'Teaser-Slide-Frame',
