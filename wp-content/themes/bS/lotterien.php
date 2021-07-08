@@ -36,8 +36,7 @@ get_header();
 
 </script>
 
-<script src='\wp-content\plugins\ultimate-blocks\src\blocks\tabbed-content\front.js?ver=1.6' id='bS-js-js' async></script>
-
+<!---->
 
 <?php
 get_footer(); 

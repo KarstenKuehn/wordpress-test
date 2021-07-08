@@ -172,17 +172,6 @@ function loadTwoColumnText() {
 
 add_action('enqueue_block_editor_assets', 'loadTwoColumnText');
 
-function loadTwoColumnTextGray() {
-  wp_enqueue_script(
-    'TwoColumnTextGray',
-    plugin_dir_url(__FILE__) . 'two_column_gray.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-
-add_action('enqueue_block_editor_assets', 'loadTwoColumnTextGray');
-
 
 function load_extra_navi() {
   wp_enqueue_script(
@@ -387,8 +376,8 @@ function loadImageTextCTAS() {
     true
   );
 }
-   
-add_action('enqueue_block_editor_assets', 'loadImageTextCTAS');
+  
+ add_action('enqueue_block_editor_assets', 'loadImageTextCTAS');
 
 
 
@@ -403,15 +392,17 @@ function loadTestimonial() {
    
 add_action('enqueue_block_editor_assets', 'loadTestimonial');
 
-
+/*
 
 function loadTabbedContent() {
   wp_enqueue_script(
     'tabbedContent',
-    '\wp-content\plugins\ultimate-blocks\src\blocks\tabbed-content\block.js',
+    '/wp-content/plugins/ultimate-blocks/src/blocks/tabbed-content/block.js',
     array('wp-blocks','wp-editor'),
     true
   );
 }
    
 add_action('enqueue_block_editor_assets', 'loadTabbedContent');
+
+*/
