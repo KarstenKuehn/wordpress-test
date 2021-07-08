@@ -68,7 +68,7 @@ p.section-left{
 }
 
 .desktop_navi {
-    padding-right: 40px;
+    padding-right: 16px;
 }
 
 .verlinkung h3, .verlinkung figure {
@@ -569,6 +569,9 @@ section .button {
 @media(min-width:900px)
 {
 
+.desktop_navi {
+    padding-right: 40px;
+}
 .wp-block-ub-tabbed-content .wp-block-ub-tabbed-content-tab-title-wrap {
     font-size: 24px;
     margin: 0 24px;
