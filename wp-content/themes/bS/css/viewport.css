@@ -108,7 +108,7 @@ p{
   line-height: 1.5rem;
 }
 
-p a:link { color: #1F5DA6; font-weight: bold; }
+p a:link { color: #1F5DA6; font-weight: bold; padding: 0; }
 p a:visited {    color: #143C6B;   text-decoration: none; }
 p a:hover {    color: #143C6B;
    text-decoration: underline; } 
@@ -1981,7 +1981,8 @@ input#s {
     border: 4px solid transparent;
     width: auto;
     line-height: 108px;
-    vertical-align: top;    
+    vertical-align: top;  
+    padding: 0;  
   }
   .main-navi_btn.active{
     border-bottom: 4px solid #1F5DA6; 
