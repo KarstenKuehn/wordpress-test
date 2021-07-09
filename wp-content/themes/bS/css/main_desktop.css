@@ -319,7 +319,7 @@ p.section-left{
   display: inline-block;
   text-align: center;
   margin-bottom: 8px;
-  padding: 0 24px;
+  padding: 0 8px;
   width: auto;
 }
  .medium{
@@ -618,26 +618,7 @@ a.sub_menu_item {
   .main-navi_btn {
    margin: 0 8px; 
   }
-/*
 
-.text {
-    font-size:56px; 
-    line-height: 64px;
-    top: 17%;
-  }
-
-  .text * {
-      margin: 0px;
-  }
-
-
-  .text .my-block-title, .text .my-block-button {
-      font-size: 30%;
-  }
-  .text .my-block-button {
-      padding: 12px 24px;
-  }
-*/
   .content_section >.navi-item {
       margin-bottom: -48px;
   }
@@ -654,6 +635,9 @@ a.sub_menu_item {
   margin-right: 16px;
 }
 
+.footer_menu a{
+  padding: 0 24px;
+}
 
 }
 
