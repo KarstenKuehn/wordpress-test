@@ -199,6 +199,9 @@ p.section-left{
     z-index: 1;
 }
 
+.image-text .block_text a, .text-image .block_text a{
+   margin: 8px 0;
+}
 
 .text-image .block_image_div, .image-text .block_image_div{
   position: absolute;
@@ -294,6 +297,11 @@ p.section-left{
 }
 .my-block-button.mobile_hidden {
   display: inline-block;
+}
+
+
+.lotterie-image a{
+    padding: 0;
 }
 
 .footer{
@@ -565,7 +573,9 @@ section .button {
     font-size: 24px;
     margin: 0 16px;
 }
-
+.section-left{
+    margin-left: 0;
+}
 @media(min-width:900px)
 {
 
@@ -704,7 +714,7 @@ a.sub_menu_item {
   margin-left : 0;
 }
 
-.text-image .block_text p , .text-image .block_text h2 {
+.text-image .block_text p , .text-image .block_text h2 , .text-image .block_text a{
    padding-left: 0;
 }
 
