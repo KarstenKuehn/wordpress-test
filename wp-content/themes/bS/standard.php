@@ -108,26 +108,42 @@ thumbs_div.innerHTML += thumbs_html;
         keyboard: true,
       });
     </script>
-
-
-    <!-- Initialize Swiper -->
     <script>
-      var swiper = new Swiper(".mySwiper", {
-        cssMode: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination_x",
+        var galleryTop = new Swiper('.gallery-main', { 
+            direction: 'horizontal',
 
+        pagination: {
+          el: ".swiper-pagination.teaser",
           clickable: true,
         },
-        mousewheel: true,
-        keyboard: true,
-      });
+       // centeredSlides: true,
+            effect:'slide',
+        spaceBetween: 24,
+        navigation: {
+          nextEl: ".swiper-button-next.teaser",
+          prevEl: ".swiper-button-prev.teaser",
+        }, 
+
+     breakpoints: {
+        1100: {
+       slidesPerView: 6,
+
+        slidesPerGroup: 1,
+       spaceBetween: 24
+      },
+        900: {
+       slidesPerView: 4,
+       spaceBetween: 24,
+        centeredSlides: false,
+      }, 
+      768: {
+       slidesPerView: 3,
+       spaceBetween: 24,
+        centeredSlides: false,
+      }, 
+    },
+
+            });
     </script>
-
-
 <?php
 get_footer(); 
