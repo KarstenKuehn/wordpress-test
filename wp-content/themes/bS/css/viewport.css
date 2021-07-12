@@ -2156,13 +2156,11 @@ a.main-navi_btn.active {
   display:none;
 }
 
-
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
     display: none;
 }
 
 .teaser_image{display: none;
-
 }
 
 .teaser_image_div{
@@ -2170,6 +2168,12 @@ a.main-navi_btn.active {
     position: relative;
     height: 500px;
     width: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.gallery-container .teaser_image_div {
+    height: 648px;
 }
 
 .gallery-thumbs .teaser_image_div {
