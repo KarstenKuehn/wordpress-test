@@ -1,5 +1,7 @@
 (function (blocks, editor, components, i18n, element) {
   var el = element.createElement;
+
+  var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'lb/two-column-text', {
     title: '2-Spalten-Text', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
@@ -62,6 +64,19 @@
             },
             "Zwei Spalten Text Modul"
           ),
+
+          el( 'div', { style: { padding: '10px' } },
+            el(
+              InnerBlocks,
+              {
+                template: [
+                  ['core/heading',{className:'block_head','placeholder':'Block Überschrift'}],
+                ],
+                templateLock: 'all',
+              }
+            )
+          ),
+/*
           el(editor.RichText, {
             style: { 
               textAlign: props.attributes.alignment,
@@ -79,7 +94,7 @@
           props.setAttributes({headline: newTitle})
           }
           }),
-
+*/
           el( 'div', { 
             className: 'content-block',
             style:{
@@ -222,11 +237,16 @@
     save: function( props ) {
       return (
         el( 'section', { className: 'content_section' },
+          el( 'div', {},
+            el( InnerBlocks.Content, {} )
+          ),
+/*
           !props.attributes.headline ? '':el( editor.RichText.Content, {
               tagName: 'h2',
                 className: 'content',
                 value: props.attributes.headline,
-              } ),          
+              } ),    
+              */      
           el('div',{
             className: 'two-column-text'
             },
