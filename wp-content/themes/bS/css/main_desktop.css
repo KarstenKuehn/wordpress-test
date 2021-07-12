@@ -528,6 +528,13 @@ section .button {
     margin: 0;
 }
 
+section .button {
+    /* margin: 0 16px; */
+    margin: 0 24px 24px 24px;
+}
+
+
+
 /*accordion*/
 .accordion-item {
     padding: 0 24px;
