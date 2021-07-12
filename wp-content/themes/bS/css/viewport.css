@@ -326,11 +326,15 @@ h1, section
     font-size: 16px;
 }
 
+.my-block-button span.button-text, .button, .my-block-button:link span.button-text, .button:link {
+ display: inline-block; 
+ border: 3px dotted transparent;
+}
 
 .my-block-button:visited span.button-text, .button:visited {    color: #fff; }
 .my-block-button:hover span.button-text, .button:hover {    color: #FFF; background: #143C6B;
    } 
-.my-block-button:focus span.button-text, .button:focus {  background-color: #143C6B;  color: #fff; border: 3px dotted; margin: -3px; }
+.my-block-button:focus span.button-text, .button:focus {  background-color: #143C6B;  color: #fff; border: 3px dotted #FFF; }
 
 
 
@@ -1820,10 +1824,6 @@ margin: 0 auto;
     display: inline-block;
 }
 
-
-.my-block-button span.button-text, .button, .my-block-button:link span.button-text, .button:link {
- display: inline-block; 
-}
 
 /*
 .news {
