@@ -109,19 +109,19 @@ thumbs_div.innerHTML += thumbs_html;
       });
     </script>
     <script>
-        var galleryTop = new Swiper('.gallery-main', { 
+        var galleryTop = new Swiper('.slide-frame .gallery-main', { 
             direction: 'horizontal',
 
         pagination: {
-          el: ".swiper-pagination.teaser",
+          el: ".slide-frame .swiper-pagination.teaser",
           clickable: true,
         },
        // centeredSlides: true,
             effect:'slide',
         spaceBetween: 24,
         navigation: {
-          nextEl: ".swiper-button-next.teaser",
-          prevEl: ".swiper-button-prev.teaser",
+          nextEl: ".slide-frame .swiper-button-next.teaser",
+          prevEl: ".slide-frame .swiper-button-prev.teaser",
         }, 
 
      breakpoints: {
