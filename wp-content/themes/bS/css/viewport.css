@@ -1122,7 +1122,9 @@ button
 *:focus-visible {
     outline: none;
 }
-
+*:focus {
+    outline: none;
+}
 .nav-toggle .material-icons:before {
     content: "\e5d2"
   }
