@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Pressekontakt
+	Template_x Name: Pressekontakt
 
 	This is the template for the single "Presse & News" articles
 */

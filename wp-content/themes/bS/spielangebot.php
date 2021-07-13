@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Spielangebot
+	Template_x Name: Spielangebot
 */
 
 get_header();

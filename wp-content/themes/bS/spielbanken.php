@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Spielbanken Übersicht
+	Template_x Name: Spielbanken Übersicht
 */
 
 get_header();

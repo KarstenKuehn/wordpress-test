@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Lotterien Übersicht
+	Template_x Name: Lotterien Übersicht
 */
 
 get_header();
