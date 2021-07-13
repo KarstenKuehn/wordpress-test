@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Pressetermine Details
+	Template_x Name: Pressetermine Details
 */
 
 get_header();
@@ -53,16 +53,26 @@ else{
 
 echo '<div class="bg-image" style="background-image:url(\''.$img.'\');"/><div class="hero-image-stairway"></div></div>';
 
+$back_url='';
+if ($category == 'news')
+{
+        $back_url='/presse-news/pressemitteilungen/';
+}
+if ($category == 'events' || $category == 'veranstaltungen')
+{
+        $back_url='/presse-news/pressetermine/';
+}
 ?>
 
 
-<section class="section-left hews-head"><div class="back"><a href="/presse-news/pressemitteilungen/" class="home"><span class="material-icons">arrow_back_ios</span> Zurück zur Übersicht</a> </div><div class="detail_info"><?php echo $sub_cat_display; ?> vom <?php echo $news_date; ?></div></section>
+<section class="section-left hews-head"><div class="back"><a href="<?php echo $back_url?>" class="home"><span class="material-icons">arrow_back_ios</span> Zurück zur Übersicht</a> </div><div class="detail_info"><?php echo $sub_cat_display; ?> vom <?php echo $news_date; ?></div></section>
 <?php
 echo '<h1>'.get_the_title().'</h1>';
 
 
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 echo $html;
+
 
 /*
 

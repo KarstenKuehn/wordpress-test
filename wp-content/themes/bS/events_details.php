@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template Name: Pressetermine Details
+	Template_x Name: Pressetermine Details
 */
 
 //OBSOLETE

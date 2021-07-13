@@ -125,9 +125,9 @@ foreach ($posts as $key => $post)
 			{
 				$pages[] = array(
 					'ID' => $post->ID,
-					'post_title' => wp_trim_words(substr($post->post_title,0 ,100),7, ' […]'), 
+					'post_title' => substr($post->post_title,0 ,100), 
 					'date' => $date,
-					'excerpt'	=> wp_trim_words(substr(get_the_excerpt($post->ID),0 ,150),15, ' […]'  ),
+					'excerpt'	=> substr(get_the_excerpt($post->ID),0 ,150),
 					'link'		=> get_permalink(),
 					'category'	=> get_the_category()[0]->name,
 					'sub_category'  => $sub_cat,
