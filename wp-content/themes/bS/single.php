@@ -21,7 +21,7 @@ $news_date = DateTime::createFromFormat('d.m.y', @get_field('datum'))->format('d
         foreach ($cat as $key => $value) {
         	if($value->category_parent==0)
         	{
-        		$main_cat = $value->name;
+        		$main_cat = $value->slug;
         	}
         	if($value->category_parent<>0)
         	{
