@@ -65,7 +65,7 @@ if ($category == 'events' || $category == 'veranstaltungen')
 ?>
 
 
-<section class="section-left hews-head"><div class="back"><a href="<?php echo $back_url?>" class="home"><span class="material-icons">arrow_back_ios</span> Zurück zur Übersichtaaa</a> </div><div class="detail_info"><?php echo $sub_cat_display; ?> vom <?php echo $news_date; ?></div></section>
+<section class="section-left hews-head"><div class="back"><a href="<?php echo $back_url?>" class="home"><span class="material-icons">arrow_back_ios</span> Zurück zur Übersicht</a> </div><div class="detail_info"><?php echo $sub_cat_display; ?> vom <?php echo $news_date; ?></div></section>
 <?php
 echo '<h1>'.get_the_title().'</h1>';
 
