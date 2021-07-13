@@ -25,7 +25,7 @@ $sub_cat1 = '';
 $cat1_checked = '';
 if(isset($_GET['sub_cat1']))
 {	
-	$sub_cat1 = 'Gewinner News';
+	$sub_cat1 = 'Gewinner-News';
 	$cat_filter=1;
 	$cat1_checked = ' checked';
 }
@@ -33,7 +33,7 @@ $sub_cat2 = '';
 $cat2_checked = '';
 if(isset($_GET['sub_cat2']))
 {
-	$sub_cat2 = 'Unternehmen News';
+	$sub_cat2 = 'Unternehmens-News';
 	$cat_filter=1;
 	$cat2_checked =  ' checked';
 }
@@ -222,12 +222,12 @@ echo '<option'.$s2.' name="sort" value="asc">Nachrichten aufsteigend</option>';
 </div>
 <div class="cat">
 <div class="cat_check">
-  <label for="cat1">Gewinner</label>
+  <label for="cat1">Gewinner-News</label>
   <input type="checkbox" id="cat1" name="sub_cat1" class="cat_check_box"<?php echo $cat1_checked; ?>>
 
 </div>
 <div class="cat_check">
-  <label for="cat2">Unternehmens News</label>
+  <label for="cat2">Unternehmens-News</label>
   <input type="checkbox" id="cat2" name="sub_cat2" class="cat_check_box"<?php echo $cat2_checked; ?>>
 </div>
 </div>

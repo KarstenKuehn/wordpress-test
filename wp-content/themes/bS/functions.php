@@ -1191,9 +1191,9 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
         if (strlen($post->post_title) > 1 && ($date<=$today))
         {
             $img='/wp-content/uploads/2021/06/SpielbankenBayern_allgemeines-PM-Motiv.png';
-            if($sub_cat=='Unternehmen News')
+            if($sub_cat=='Unternehmens-News')
             $img='/wp-content/uploads/2021/06/Presse-Unternehmens-News_2000x1100.jpg';
-            if($sub_cat=='Gewinner News')
+            if($sub_cat=='Gewinner-News')
             $img='/wp-content/uploads/2021/06/Presse-News_Gewinnernews_2000x1100.jpg';            
             if (strlen(get_the_post_thumbnail_url($id)) > 0)
             {
