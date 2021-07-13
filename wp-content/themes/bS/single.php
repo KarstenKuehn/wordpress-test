@@ -33,6 +33,8 @@ $news_date = DateTime::createFromFormat('d.m.y', @get_field('datum'))->format('d
 
 
 $category = $cat[0]->slug;
+//echo $category;
+//echo $main_cat;
 if($sub_cat_display=='')
 {
         $sub_cat_display= $cat[0]->name;
@@ -52,7 +54,7 @@ else{
 
 echo '<div class="bg-image" style="background-image:url(\''.$img.'\');"/><div class="hero-image-stairway"></div></div>';
 $back_url='';
-if ($category == 'news')
+if ($category == 'news' || $category == 'gewinner-news' || $category == 'unternehmens-news')
 {
         $back_url='/presse-news/pressemitteilungen/';
 }
@@ -63,7 +65,7 @@ if ($category == 'events' || $category == 'veranstaltungen')
 ?>
 
 
-<section class="section-left hews-head"><div class="back"><a href="<?php echo $back_url?>" class="home"><span class="material-icons">arrow_back_ios</span> Zurück zur Übersicht</a> </div><div class="detail_info"><?php echo $sub_cat_display; ?> vom <?php echo $news_date; ?></div></section>
+<section class="section-left hews-head"><div class="back"><a href="<?php echo $back_url?>" class="home"><span class="material-icons">arrow_back_ios</span> Zurück zur Übersichtaaa</a> </div><div class="detail_info"><?php echo $sub_cat_display; ?> vom <?php echo $news_date; ?></div></section>
 <?php
 echo '<h1>'.get_the_title().'</h1>';
 
