@@ -2747,6 +2747,9 @@ color: #1F5DA6;
     text-align: right;
     align-self: center;
     flex-grow: 0;
+margin: 0;
+    padding: 0;
+    align-self: flex-start;
 }
 .wp-block-column.verlinkungen_head_href p{
   padding: 0;
@@ -2759,6 +2762,8 @@ color: #1F5DA6;
     color: transparent;
     position: relative;
     line-height: 32px;
+    font-size: 0;
+    display: block;
 }
 .verlinkungen_head_href a:link {
     color: transparent;
