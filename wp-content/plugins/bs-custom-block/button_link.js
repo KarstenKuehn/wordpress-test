@@ -115,14 +115,14 @@ var attributes = props.attributes;
 
 
 return (
-
-  el('a', {
-    className: 'button',
-    href: attributes.buttonURL
-    },   
-    attributes.buttonText  
+  el('section', {className: 'content_section',},
+    el('a', {
+      className: 'button',
+      href: attributes.buttonURL
+      },   
+      attributes.buttonText  
+    )
   )
-
 )// end return
 }
 })

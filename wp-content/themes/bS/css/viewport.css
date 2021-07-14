@@ -279,6 +279,7 @@ h1, section
     max-width:1224px;
     margin:0 auto 16px auto;
 }
+
 .content_section
 {
     max-width:856px;
@@ -3057,13 +3058,13 @@ section.events_overview {
     max-width: 856px;
     padding: 0 24px;
 }
-
+/*
 section.wp-block-lb-benefits-text.content_section {
     margin: auto;
     max-width: 856px;
 }
 
-
+*/
 .section-left.hews-head {
     flex-direction: row;
     padding: 0 16px;

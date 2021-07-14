@@ -33,6 +33,13 @@ echo $html;
         },
         mousewheel: true,
         keyboard: true,
+        a11y: {
+          prevSlideMessage: 'Vorheriger Slide',
+          nextSlideMessage: 'Nächster Slide',
+    firstSlideMessage: 'Dies ist der erste Slide.',
+    lastSlideMessage: 'Dies ist der letzte Slide.',
+    paginationBulletMessage: 'Gehe zu slide {{index}}',          
+        },
       });
     </script>
 
