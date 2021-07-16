@@ -110,6 +110,13 @@ $pages = get_pages($args);
           nextEl: ".swiper-button-next.aa",
           prevEl: ".swiper-button-prev.aa",
         },
+        a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',          
+        },
       });
 
 /*

@@ -351,6 +351,157 @@ function haupt_menu($current_menu,$view) {
     return $html;
 }
 
+function getSubMenuList($current_menu,$current_id='',$view) {
+    $a = wp_get_menu_array($current_menu);
+    $submenu_html='';
+if($current_id!='')
+
+{
+$submenu_html .= sub_menu_list($view,$a[$current_id],$current_id)['x'];
+}
+
+/*
+    foreach ($a as $key => $value) {    echo $key;
+        $submenu_html .= sub_menu_list($view,$value,$key)['x'];
+    }
+*/
+
+    return $submenu_html;
+}
+
+function haupt_menu_list($current_menu,$view) {
+    //$html ='<ul>';
+    $a = wp_get_menu_array($current_menu);
+    $submenu_html='';
+
+    //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
+    foreach ($a as $key => $value) {
+    $html .='<li>';
+    $html .= '<a href="'.$value->url.'">'.$value->title.'</a>';
+    if($value->wpse_children)
+    {
+
+
+$html .='<div class="submenu">'. getSubMenuList($current_menu,$value->ID,$view).'</div>';
+/*
+    $html.='<ul>';            
+        foreach ($value->wpse_children as $subkey => $subvalue) {
+            $html .='<li>';
+            $html .= '<a href="'.$subvalue->url.'">'.$subvalue->title.'</a>';
+            $html .='</li>';
+        }
+        $html.='</ul>';
+  
+*/
+
+    }
+        /*
+                if($value->wpse_children)
+                {
+                    $html .='<button class="main-navi_btn toggle_x '.$view.'" data-toggle-target_x=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$view.'_'.$value->ID.'">'.$value->title;  
+                    $html .='<span class="material-icons desktop_hidden">arrow_forward_ios</span>';
+                    $html .='</button>';        
+                }
+                else
+                {
+
+                    $menu_items = wp_get_nav_menu_items( $current_menu );
+                    $this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
+                    $active='';
+                    if($this_item->title == $value->title)
+                    {
+                        $active=' active';
+                    }
+                    $html .= '<a href="'.$value->url.'" class="main-navi_btn '.$view.$active.'">'.$value->title.'</a>';
+                }
+        */
+
+        $html .='</li>';
+    } 
+    //$html .='</ul>';
+    return $html;
+}
+
+
+function sub_menu_list($view,$current_menu,$current_menu_id) {
+    $submenu_html='';
+    $submenu_html_liste='';
+    $bild_navigation='';
+    if($current_menu->wpse_children)
+    {
+
+/**/
+
+        $i = 0;
+        foreach ($current_menu->wpse_children as $key => $child) {
+            $submenu_html_liste.='<ul class="sub_menu_block navi">';
+            $submenu_html_liste.='<label>'.$child->description.'</label>';
+            if($child->wpse_children)
+            {
+                foreach ($child->wpse_children as $key => $sub_child) {
+                    $submenu_html_liste.='<li><a href="'. $sub_child->url.'" class="sub_menu_item">'. $sub_child->title.'<span class="material-icons">arrow_forward_ios</span></a></li>';
+                }
+            } 
+            else
+            {
+                $submenu_html_liste.='<li><a href="'. $child->url.'" class="sub_menu_item">'. $child->title.'<span class="material-icons">arrow_forward_ios</span></a></li>';
+            }
+            $submenu_html_liste.='</ul>';
+            $i++;
+
+        }// end foreach ($current_menu->wpse_children...)
+            $k= 3 - $i;
+        $test = wp_get_menu_array('TeaserNavigation');
+
+        foreach ($test as $key => $teaser_child) {
+            if($current_menu->title == $teaser_child->title)
+            {
+                if($arr = $teaser_child->wpse_children)
+                {
+
+                    $arr = array_slice($arr,0,$k);
+                    foreach ($arr as $key => $sub_child) {
+
+                        $link_text='zum Artikel';
+                        if(isset($sub_child->description) && $sub_child->description!='')
+                        {
+                             $link_text=$sub_child->description;
+                        }
+                    $bild_navigation.='<ul class="sub_menu_block blog"><li><a href="'.$sub_child->url.'"><div class="menu_teaser_bild" style="background-image: url('.get_the_post_thumbnail_url($sub_child->object_id).')"></div></a><div class="menu_teaser_content"><p>'.$sub_child->title.'</p><a href="'.$sub_child->url.'">'.$link_text.'<span class="material-icons">arrow_right_alt</span></a></div></li></ul>';
+
+                    }
+                }
+            }
+
+        }        
+
+        if($view=='d')
+        {
+
+        $submenu_html .=$menu_list.$submenu_html_liste.$bild_navigation;
+
+        }
+
+        if($view=='m')
+        {
+        $submenu_html .='<div class="show-test '.$view.' '.$view.'_'.$current_menu->ID.'" id="div_'.$view.'_'.$current_menu->ID.'">'.$menu_list.$bild_navigation.$submenu_html_liste.'</div>';            
+        }
+
+
+
+
+
+
+    }   // end  if($current_menu->wpse_children)
+
+
+    $res = array('x' => $submenu_html ,'y'=>$i);
+
+    return $res;
+    return $submenu_html;
+}
+
+
 function back_haupt_menu($view) {
     $html ='';
     if ($view=='m')
@@ -1279,3 +1430,12 @@ substr(get_the_excerpt($post->ID),0 ,100)
     return $content;
 }
 add_shortcode('posts', 'shortcode_posts_function');
+
+
+/**
+ * Add HTML5 theme support.
+ */
+function wpdocs_after_setup_theme() {
+    add_theme_support( 'html5', array( 'search-form' ) );
+}
+//add_action( 'after_setup_theme', 'wpdocs_after_setup_theme' );

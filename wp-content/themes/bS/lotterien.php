@@ -31,6 +31,13 @@ get_header();
         navigation: {
           nextEl: ".swiper-button-next.teaser",
           prevEl: ".swiper-button-prev.teaser",
+        },
+        a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',          
         }, 
             });
 

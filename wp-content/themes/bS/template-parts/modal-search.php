@@ -23,19 +23,20 @@
 	<div class="search-modal-inner modal-inner">
 
 		<div class="section-inner">
-			<span class="material-icons search">search</span>
+			<div class="suche_svg_icon">
+				<?php echo bs_get_theme_svg( 'suche','ui','#1F5DA6' ); ?>
+			</div>
 			<?php
 			get_search_form(
 				array(
-					'label' => __( 'Search for:', 'lb' ),
-					'placeholder' => __( 'Suchbegriff eingeben:', 'lb' ) 
+					'label' => __( 'Search for:', 'bS' ),
+					'placeholder' => __( 'Suchbegriff eingeben:', 'bS' ) 
 				)
 			);
 			?>
 
 			<button class="toggle search-untoggle close-search-toggle fill-children-current-color" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
-				<span class="screen-reader-text"><?php _e( 'Close search', 'lb' ); ?></span>
-				<span class="material-icons">close</span>
+				<span class="screen-reader-text"><?php _e( 'Close search', 'bS' ); ?></span><?php echo bs_get_theme_svg( 'cross','ui','#1F5DA6' ); ?>
 			</button><!-- .search-toggle -->
 
 		</div><!-- .section-inner -->

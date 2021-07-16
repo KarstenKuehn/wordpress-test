@@ -447,7 +447,7 @@ a.event_short h2
 }
 
 .searchform {
-    padding: 31px 0;
+    padding: 27px 0;
 }
 
 .searchform>div {
@@ -463,12 +463,12 @@ input#s {
     line-height: 48px;
     width: calc(100% - 150px );
     padding: 0 4px;
-    border: none;
+/*    border: none;*/
     font-size: 16px;
     margin-right: 150px;
 }
 #searchsubmit {
-    top: 0;
+    top: 4px;
     right: 8px;
 }
 

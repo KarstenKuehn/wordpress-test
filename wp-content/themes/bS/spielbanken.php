@@ -105,6 +105,13 @@ echo $html;
           prevEl: ".swiper-button-prev.standorte",
         },
 
+        a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',          
+        },
 		 breakpoints: {
 		    1100: {
 		   slidesPerView: 2,
@@ -168,7 +175,15 @@ thumbs_div.innerHTML += thumbs_html;
           nextEl: ".swiper-button-next.teaser",
           prevEl: ".swiper-button-prev.teaser",
         },
-        thumbs: { swiper: galleryThumbs, }, 
+
+        a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',          
+        },
+                thumbs: { swiper: galleryThumbs, }, 
             });
 
 
@@ -186,6 +201,14 @@ thumbs_div.innerHTML += thumbs_html;
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
+        },
+
+        a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',          
         },
         thumbs: {
           swiper: swiper,

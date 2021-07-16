@@ -34,11 +34,11 @@ echo $html;
         mousewheel: true,
         keyboard: true,
         a11y: {
-          prevSlideMessage: 'Vorheriger Slide',
-          nextSlideMessage: 'Nächster Slide',
-    firstSlideMessage: 'Dies ist der erste Slide.',
-    lastSlideMessage: 'Dies ist der letzte Slide.',
-    paginationBulletMessage: 'Gehe zu slide {{index}}',          
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',          
         },
       });
     </script>
@@ -59,8 +59,14 @@ echo $html;
         navigation: {
           nextEl: ".swiper-button-next.teaser",
           prevEl: ".swiper-button-prev.teaser",
-        }, 
-
+        },
+        a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zm Bild {{index}}',          
+        },
      breakpoints: {
         1100: {
        slidesPerView: 6,
