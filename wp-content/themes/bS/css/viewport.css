@@ -1936,6 +1936,7 @@ h4{
     height: auto;
     padding: 0;
     max-width: 1224px;
+    width: 100%;
 }
 
 input#s {
