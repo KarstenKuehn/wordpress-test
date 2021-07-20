@@ -941,7 +941,7 @@ color: #fff;
 #searchsubmit:focus-visible{
   border:3px dotted #091B30;
   margin-top:0;
-  padding: 9px 21px;
+  padding: 9px 24px;
 }
 
 .close-search-toggle{
@@ -3267,8 +3267,12 @@ font-weight: bold;
 hr.wp-block-separator {
   border-color: transparent;
     border-bottom: 1px solid #C7CCDB;
-    max-width: 808px;
+    max-width: 1224px;
     margin: auto;
-    padding-bottom: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 40px;
+}
+
+hr.wp-block-separator.medium {
+    max-width: 808px;
+        margin-bottom: 40px;
 }
