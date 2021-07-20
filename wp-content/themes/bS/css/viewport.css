@@ -1814,6 +1814,9 @@ font-size: 16px;
     background: white;
     text-align: center;
   }
+.wp-block-lb-lotterie-slide-item {
+    background: transparent;
+  }
 
 @media(min-width:768px)
 {
