@@ -2428,10 +2428,13 @@ margin: 0;
     margin-bottom: 0;
 }
 .lotterie-image img {
-    border: 2px solid #F3F4F7;
+    border: 2px solid #E3E5ED;
     margin-bottom: 0;
     vertical-align: bottom;
     background: #fff;
+}
+.gray .lotterie-image img {
+    border: 2px solid transparent;
 }
 .thumb {
 
