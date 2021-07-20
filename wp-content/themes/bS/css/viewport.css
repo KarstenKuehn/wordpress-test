@@ -2422,6 +2422,12 @@ margin: 0;
 
 .lotterie-image {
     padding: 0;
+    margin-bottom: 0;
+}
+.lotterie-image img {
+    border: 2px solid #F3F4F7;
+    margin-bottom: 0;
+    vertical-align: bottom;
 }
 .thumb {
 
@@ -2484,6 +2490,7 @@ margin: 0;
     bottom: 0;
     height: 56px;
     line-height: 56px;
+    top: 100%;
   }
 
   .gallery-container .my-block-image {
