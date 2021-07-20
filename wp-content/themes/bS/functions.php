@@ -1111,6 +1111,7 @@ function kb_whitelist_blocks() {
     'core_tabs',
     'core/html',
     'core/embed',
+    'core/separator',
     'lb/slide-item-content',
     'lb/two-column-text',
     'lb/hero-img',
