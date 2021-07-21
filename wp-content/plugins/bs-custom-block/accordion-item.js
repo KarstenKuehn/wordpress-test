@@ -79,8 +79,10 @@
             className: 'accordion-item'
           },
           el(RichText.Content, {
-            tagName: 'div',
+            tagName: 'button',
             className: 'question',
+            'aria-label':attributes.accordion_head,
+            'aria-expanded':false,
             value: ''+attributes.accordion_head+''
           }),
           el(RichText.Content, {

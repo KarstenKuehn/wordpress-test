@@ -206,12 +206,13 @@ p.section-left{
 .text-image .block_image_div, .image-text .block_image_div{
   position: absolute;
   top: 96px;
-    background-size: cover;
+    background-size: contain;
   width: 49.6vw;
   background-position: center;
   overflow: hidden;
   max-width: 710px;
     max-height: 458px;
+    background-repeat: no-repeat;
 }
 .text-image .block_image_div{
   left:50%;
@@ -539,11 +540,6 @@ section .button {
     margin-right: auto;
 }
 
-/*accordion*/
-.accordion-item {
-    padding: 0 24px;
-
-}
 
 .slide-frame .swiper-container.gallery-main {
     width: 100%;

@@ -1215,8 +1215,8 @@ p
 }
 /*accordion*/
 .accordion-item {
-    padding: 0 16px;
-    max-width: 856px;
+    padding: 0;
+    max-width: 808px;
     margin: auto;
 
     border-top: 1px solid #E3E5ED;
@@ -1228,11 +1228,13 @@ p
 
 
 .question {
-    padding: 16px 48px 16px 0;
+    padding: 16px 48px 16px 16px;
     /*border-top: 1px solid #E3E5ED;*/
     position: relative;
     line-height: 1.5rem;  cursor: pointer;
-
+    display: block;
+    width: 100%;
+    text-align: left;
 }
 .question:after {
     font-family: 'Material Icons';
@@ -1240,7 +1242,7 @@ p
     font-size: 32px;
     color: #0061AB;
     position: absolute;
-    right: 0;
+    right: 8px;
     top: 16px;
     content: "\e148";
     line-height: 1.5rem;
@@ -1248,7 +1250,7 @@ p
   }
 
   .question:focus-visible{
-    background: pink;
+    background: #F3F4F7;
   }
   .question.active
   {
@@ -1259,7 +1261,7 @@ p
 }
 
 .answer{
-  padding: 0 0 16px 0;
+  padding: 0 16px 16px 16px;
   line-height: 1.5rem;
 }
 
