@@ -38,7 +38,8 @@ echo $html;
           nextSlideMessage: 'Nächstes Bild',
     firstSlideMessage: 'Dies ist das erste Bild.',
     lastSlideMessage: 'Dies ist das letzte Bild.',
-    paginationBulletMessage: 'Gehe zum Bild {{index}}',          
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
         },
       });
     </script>
