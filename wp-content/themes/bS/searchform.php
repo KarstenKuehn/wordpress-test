@@ -31,5 +31,5 @@ $bs_aria_label = ! empty( $args['label'] ) ? 'aria-label="' . esc_attr_x( $args[
 <div class="searchformfld"><input type="text" name="s" value="<?php echo get_search_query(); ?>" id="s" class="text-field" onclick="this.select()" placeholder=" "><label for="s"><?php echo esc_attr_x( $args['placeholder'],'bS' ); ?></label>
 
 
-	<input type="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'bS' ); ?>" class ="html5_btn" /></div>
+	<input type="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Suchen', 'submit button', 'bS' ); ?>" class ="html5_btn" /></div>
 </form>
