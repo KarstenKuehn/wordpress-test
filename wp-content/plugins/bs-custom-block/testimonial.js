@@ -14,9 +14,6 @@
           InnerBlocks,
           {
             template: [
-            ['core/heading',{className:'headline','placeholder':'Überschrift'}],
-            ['core/paragraph',{className:'testtext','placeholder':'Text'}],
-            ['core/pullquote',{className:'pullquote','placeholder':'pullquote'}],
               ['core/columns',{},
                 [
                   ['core/column',{className:'testimonial-image',},
