@@ -1264,11 +1264,15 @@ p
 }
 
 .block_image_div {
-  background-size: cover;
+  background-size: contain;
   min-height: 300px;
   height: calc(100% - 48px );
+  border: 2px solid transparent;
 }
 
+.bg_white .block_image_div {
+  border: 2px solid #E3E5ED;
+}
 
 .desktop_hidden.block_image_div {
     display:block;
