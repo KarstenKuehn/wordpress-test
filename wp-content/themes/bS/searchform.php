@@ -17,7 +17,7 @@
  */
 $bs_unique_id = bs_unique_id( 'search-form-' );
 
-$bs_aria_label = ! empty( $args['label'] ) ? 'aria-label="' . esc_attr_x( $args['label'],'bS' ) . '"' : '';
+$bs_aria_label = ! empty( $args['label'] ) ? 'aria-label="' . esc_attr_x( 'Seitensuche Formular','bS' ) . '"' : '';
 
 ?>
 <form role="search" <?php echo $bs_aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. ?> method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
