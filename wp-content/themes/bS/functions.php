@@ -1391,14 +1391,13 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
             if (preg_match('@'.$year.'@',$post['date']))
             {
                 $content .= '<div class="news_container active">';
-                $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/><a href="'.$post['link'].'" class="image-list" title="'.$post['post_title'].'"> </a></div>';
+                $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');" aria-label="'.$post['post_title'].'"/></div>';
                 $content .= '<div class="news_frame">';
                 $content .= '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
                 $content .= '<h2 class="news_headline"><a href="'.$post['link'].'" class="list headline" title="'.$post['post_title'].'">'. substr(strip_tags($post['post_title']),0 ,100).'</a></h2>';
-                $content .= '<p>'.substr(strip_tags($post['excerpt']),0 ,150).'</p>';   
-                $content .= '';
+                $content .= '<p>'.substr(strip_tags($post['excerpt']),0 ,150).'</p>';
                 $content .= '</div>';
-                $content .= '<a href="'.$post['link'].'" class="list">Mehr erfahren <span class="material-icons">east</span></a>';
+                $content .= '<a href="'.$post['link'].'" class="list" title="'.$post['post_title'].'">Mehr erfahren <span class="material-icons">east</span></a>';
                 $content .= '</div>';
             }
         }
