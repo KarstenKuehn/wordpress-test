@@ -1393,7 +1393,8 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
             if (preg_match('@'.$year.'@',$post['date']))
             {
                 $content .= '<div class="news_container active">';
-                $content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');" aria-label="'.$post['post_title'].'"/></div>';
+                #$content .= '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');" aria-label="'.$post['post_title'].'"/></div>';
+                $content .= '<img class="bg-image" src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
                 $content .= '<div class="news_frame">';
                 $content .= '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
                 $content .= '<h2 class="news_headline"><a href="'.$post['link'].'" class="list headline" title="'.$post['post_title'].'">'. substr(strip_tags($post['post_title']),0 ,100).'</a></h2>';
