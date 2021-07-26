@@ -1143,7 +1143,9 @@ function kb_whitelist_blocks() {
     'core/block-editor',
     'ub/tabbed-content-block',
     'ub/tabbed-content',
-    'ub/tab-block'
+    'ub/tab-block',
+    /*******BITV****/
+    'bitv/testimonial',
   );
 }
 
