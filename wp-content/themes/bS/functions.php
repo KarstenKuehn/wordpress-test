@@ -242,7 +242,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
                         {
                              $link_text=$sub_child->description;
                         }
-                    $bild_navigation.='<div class="sub_menu_block blog"><a href="'.$sub_child->url.'"><div class="menu_teaser_bild" style="background-image: url('.get_the_post_thumbnail_url($sub_child->object_id).')"></div></a><div class="menu_teaser_content"><p>'.$sub_child->title.'</p><a href="'.$sub_child->url.'">'.$link_text.'<span class="material-icons">arrow_right_alt</span></a></div></div>';
+                    $bild_navigation.='<div class="sub_menu_block blog"><div class="menu_teaser_bild" style="background-image: url('.get_the_post_thumbnail_url($sub_child->object_id).')"></div><div class="menu_teaser_content"><h3>'.$sub_child->title.'</h3><a href="'.$sub_child->url.'">'.$link_text.'<span class="material-icons">arrow_right_alt</span></a></div></div>';
 
                     }
                 }
