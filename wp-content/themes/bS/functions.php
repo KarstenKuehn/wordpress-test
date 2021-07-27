@@ -24,6 +24,7 @@ function seo_header()
 		'{{viewport_css}}',
 		'{{meta_index}}',
 		'{{meta_description}}',
+        '{{ETRACKER_CODE}}'
 	),
 	array(
 		'de',
@@ -33,9 +34,9 @@ function seo_header()
 		minify_css($css),
 		$page_data->meta_index,
 		$page_data->meta_description,
+        code_head_etracker()
 	),
 	$html);
-	
     #echo minify_html($html);
 	echo $html;
 }
@@ -1443,3 +1444,30 @@ function wpdocs_after_setup_theme() {
     add_theme_support( 'html5', array( 'search-form' ) );
 }
 //add_action( 'after_setup_theme', 'wpdocs_after_setup_theme' );
+
+if(!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
+    #add_action('wp_head', 'code_head_etracker');
+    function code_head_etracker(){
+        if($_SERVER['HTTP_HOST'] == WP_LIVE_HOST) {
+            return '
+                <!-- Copyright (c) 2000-2021 etracker GmbH. All rights reserved. -->
+                <!-- This material may not be reproduced, displayed, modified or distributed -->
+                <!-- without the express prior written permission of the copyright holder. -->
+                <!-- etracker tracklet 5.0 -->
+                <script type="text/javascript">
+                // var et_pagename = "";
+                // var et_areas = "";
+                // var et_tval = 0;
+                // var et_tsale = 0;
+                // var et_tonr = "";
+                // var et_basket = "";
+                </script>
+                <script id="_etLoader" type="text/javascript" charset="UTF-8" data-block-cookies="true" data-respect-dnt="true" data-secure-code="iVbDSE" src="//code.etracker.com/code/e.js" async></script>
+                <!-- etracker tracklet 5.0 end -->
+            ';
+        }
+        return '';
+    }
+}
+
+
