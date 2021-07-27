@@ -210,7 +210,7 @@ function sub_menu($view,$current_menu,$current_menu_id) {
         $i = 0;
         foreach ($current_menu->wpse_children as $key => $child) {
             $submenu_html_liste.='<div class="sub_menu_block navi">';
-            $submenu_html_liste.='<label>'.$child->description.'</label>';
+            $submenu_html_liste.= (strlen(trim($child->description)) > 0) ? '<label>'.$child->description.'</label>' : '';
             if($child->wpse_children)
             {
                 foreach ($child->wpse_children as $key => $sub_child) {
@@ -436,7 +436,7 @@ function sub_menu_list($view,$current_menu,$current_menu_id) {
         $i = 0;
         foreach ($current_menu->wpse_children as $key => $child) {
             $submenu_html_liste.='<ul class="sub_menu_block navi">';
-            $submenu_html_liste.='<label>'.$child->description.'</label>';
+            $submenu_html_liste.= (strlen(trim($child->description)) > 0) ? '<label>'.$child->description.'</label>' : '';
             if($child->wpse_children)
             {
                 foreach ($child->wpse_children as $key => $sub_child) {
