@@ -148,6 +148,7 @@ $years = array_unique($years);
 <div id="filter">
 
 <div class="custom-select_x" >
+<label for="select_year" aria-label="Nach Jahr sortieren">
 <select id="select_year">
 <!--<option value="0">Select Year:</option>-->
 <?php
@@ -185,6 +186,7 @@ foreach($years as $key => $year_select)
 
 ?>
 </select>
+</label>
 </div>
 <?php
 $s1=' selected';
@@ -211,7 +213,7 @@ if(isset($_GET['sort']))
 ?>
 
 <div class="custom-select_x" >
-
+<label for="select_sort" aria-label="Nachrichten sortieren">
 <select id="select_sort">
 	<!--    <option value="0">Select car:</option>-->
 	<?php
@@ -219,16 +221,18 @@ echo '<option'.$s1.' name="sort" value="desc">Nachrichten absteigend</option>';
 echo '<option'.$s2.' name="sort" value="asc">Nachrichten aufsteigend</option>';
 ?>
 </select>
+</label>
 </div>
 <div class="cat">
 <div class="cat_check">
-  <label for="cat1">Gewinner-News</label>
+  <label for="cat1" aria-label="Filter Gewinner-News">Gewinner-News</label>
   <input type="checkbox" id="cat1" name="sub_cat1" class="cat_check_box"<?php echo $cat1_checked; ?>>
 
 </div>
 <div class="cat_check">
-  <label for="cat2">Unternehmens-News</label>
+  <label for="cat2" aria-label="Filter Unternehmens-News">Unternehmens-News</label>
   <input type="checkbox" id="cat2" name="sub_cat2" class="cat_check_box"<?php echo $cat2_checked; ?>>
+    </label>
 </div>
 </div>
 </div>
@@ -269,10 +273,10 @@ foreach ($pages as $key => $post)
 				echo '<div class="news_container">';
 			}
 
-			echo '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/><a href="'.$post['link'].'" class="image-list" title="'.$post['post_title'].'"> </a></div>';
+			echo '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
 			echo '<div class="news_frame">';
 			echo '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
-			echo '<h2><a href="'.$post['link'].'" class="list headline" title="'.$post['post_title'].'">'.$post['post_title'].'</a></h2>';
+			echo '<h2>'.$post['post_title'].'</h2>';
 			echo '<p>'.$post['excerpt'].'</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'" class="list" title="'.$post['post_title'].'">Mehr erfahren <span class="material-icons">east</span></a>';
