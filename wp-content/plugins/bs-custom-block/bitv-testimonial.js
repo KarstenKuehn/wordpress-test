@@ -14,6 +14,9 @@
           InnerBlocks,
           {
             template: [
+['core/image',{className:'testimonial-image','placeholder':'Verlinkung-Bild'}],
+['core/quote',{className:'testimonial-quote','placeholder':'Zitate','ariaLabel':'hjsabvuhwsedbf'}],
+/*
               ['core/columns',{},
                 [
                   ['core/column',{className:'testimonial-image',},
@@ -27,17 +30,17 @@
                     ]
                   ]
                 ]
-              ]
+              ]*/
             ],
             templateLock: "all",
-            allowedBlocks: ['core/columns'],
+            //allowedBlocks: ['core/columns'],
           }
         )
       );
     },
 
     save: function() {
-      return el( 'div', { className:'zitat' },
+      return el( 'section', { className:'testimonial' },
         el( InnerBlocks.Content, {} )
       );
     },

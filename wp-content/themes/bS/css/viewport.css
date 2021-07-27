@@ -54,9 +54,64 @@ html {
   src: url('/wp-content/themes/bS/assets/Lato/Lato-Black.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
+/* reset */
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+body {
+    line-height: 1;
+    color: black;
+    background: white;
+}
+ol, ul {
+    list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: "";
+}
+blockquote, q {
+    quotes: "" "";
+}
+
+
+.wp-block-image.is-style-rounded img {
+    border-radius: 9999px;
+}
   
 body {font-family: 'Lato';/* max-width: 2000px;*/margin:auto; color:#091B30;font-size: 16px;font-weight: 400;}
+
+
+
 .wp-block-columns {
     display: flex;
     margin-bottom: 1.75em;
@@ -277,15 +332,26 @@ li{
     z-index: 100000;
 }
 
+/*
+
 h1, section
 {
     max-width:1224px;
     margin:0 auto 16px auto;
 }
 
+
+
+
+section{
+  background: pink;
+}
+*/
 .content_section
 {
     max-width:856px;
+    margin: auto;
+    margin-bottom: 32px;
 }
 .full{
   max-width: none;
@@ -1275,7 +1341,7 @@ p
   border: 2px solid transparent;
 }
 
-.bg_white .block_image_div {
+.bg_white.lotterie .block_image_div {
   border: 2px solid #E3E5ED;
 }
 
@@ -1331,6 +1397,7 @@ display: none;
   letter-spacing: 0;
   line-height: 24px;
   text-align: center;
+  padding: 0;
   margin-bottom: 8px;    
   }
 .footer_item1{
@@ -1365,7 +1432,7 @@ display: none;
 
   color: #091B30;
   border: 4px solid transparent;
-  display: inline-block;
+
 
 }
 
@@ -2541,8 +2608,7 @@ margin-right: 32px;
 width: 115px;
 height: 115px;
 vertical-align: middle;
-    border-radius: 50%;
-    overflow: hidden;
+overflow: hidden;
 }
 .testimonial-image figure{
   padding: 0;
@@ -2579,7 +2645,7 @@ vertical-align: middle;
   margin-bottom: 0;
 }
 .testimonial-content{
-  width: calc(100% - 144px);;
+  width: calc(100% - 144px);
 }
 
 .zitat{
@@ -3199,7 +3265,6 @@ margin: 0 4px;
 
 
 header.main-head {
-    background: pink;    
     display: flex;
     width: 100%;    
     max-width: 1224px;
@@ -3227,7 +3292,6 @@ header.main-head {
     display: block;
     opacity: 1;
     position: absolute;
-    background: pink;
     width: 100%;
     left: 0;
     z-index: 1000;
@@ -3305,3 +3369,99 @@ hr.wp-block-separator.medium {
     max-width: 808px;
         margin-bottom: 40px;
 }
+
+
+.wp-block-columns {
+    margin: 0;
+}
+.wp-block-columns.extra_navi {
+    margin: auto;
+}
+
+.site-header {
+    min-height: 90px;
+}
+
+/* Modul Testimonial */
+
+.testimonial{
+  position: relative;
+  max-width: 808px;
+  margin:48px 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.testimonial .testimonial-image{
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 32px;
+}
+.testimonial .testimonial-image img{
+    width: 100%;
+    height: auto;
+
+}
+
+.testimonial .testimonial-quote{
+    padding: 0;  
+    flex: 1;
+}
+
+.testimonial .testimonial-quote p{
+    font-size: 26px;
+    letter-spacing: 0;
+    line-height: 32px;  
+    padding: 0;
+}
+.testimonial .testimonial-quote.is-style-large p{
+    color: red;
+    font-size: 32px;
+}
+.testimonial .testimonial-quote cite{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: calc(100% - 112px);
+    padding: 0;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+}
+.testimonial .testimonial-quote.is-style-large cite{
+    color: red;
+    font-size: 24px;
+}
+@media(min-width:768px)
+{
+.testimonial{
+  margin:48px 0px;
+}
+
+.testimonial .testimonial-image{
+  width: 115px;
+  height: 115px;
+  margin: 0;
+  padding: 0;
+}
+
+.testimonial .testimonial-quote{
+    padding: 0 32px;  
+    flex: 1;
+}
+
+.testimonial .testimonial-quote cite{
+  position: relative;
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+}
+
