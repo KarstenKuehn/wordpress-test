@@ -3420,6 +3420,7 @@ hr.wp-block-separator.medium {
 .testimonial .testimonial-quote.is-style-large p{
     color: red;
     font-size: 32px;
+    line-height: 40px;
 }
 .testimonial .testimonial-quote cite{
     position: absolute;
@@ -3437,6 +3438,7 @@ hr.wp-block-separator.medium {
 .testimonial .testimonial-quote.is-style-large cite{
     color: red;
     font-size: 24px;
+    line-height: 32px;
 }
 @media(min-width:768px)
 {

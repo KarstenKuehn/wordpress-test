@@ -14,23 +14,8 @@
           InnerBlocks,
           {
             template: [
-['core/image',{className:'testimonial-image','placeholder':'Verlinkung-Bild'}],
-['core/quote',{className:'testimonial-quote','placeholder':'Zitate','ariaLabel':'hjsabvuhwsedbf'}],
-/*
-              ['core/columns',{},
-                [
-                  ['core/column',{className:'testimonial-image',},
-                    [
-                      ['core/image',{'placeholder':'Verlinkung-Bild'}],
-                    ]
-                  ],
-                  ['core/column',{className:'testimonial-content'},
-                    [
-                      ['core/quote',{'placeholder':'Zitate','ariaLabel':'hjsabvuhwsedbf'}],
-                    ]
-                  ]
-                ]
-              ]*/
+              ['core/image',{className:'testimonial-image','placeholder':'Verlinkung-Bild'}],
+              ['core/quote',{className:'testimonial-quote','placeholder':'Zitate','ariaLabel':'hjsabvuhwsedbf'}],
             ],
             templateLock: "all",
             //allowedBlocks: ['core/columns'],
