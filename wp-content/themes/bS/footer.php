@@ -1,7 +1,7 @@
 <?php //wp_footer();?>
 <div class="footer">
 <div class="footer1">
-<!--<label class="footer_item1 label">Unsere Marken</label>-->
+<h4 class="footer_item1 label">Unsere Marken</h4>
 <label class="footer_item1">
 <a href="https://www.lotto-bayern.de/" target="_blank" rel="noreferrer"><img width="53" height="56" src="https://lotterien-spielbanken-bayern.de/wp-content/uploads/2021/07/LB_LOGO.svg" alt="zu LottoBayern"></a>
 </label>	
