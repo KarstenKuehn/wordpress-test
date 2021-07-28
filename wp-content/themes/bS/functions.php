@@ -1479,6 +1479,9 @@ function use_amazon_ses( $phpmailer ) {
     $phpmailer->Password = 'BGDiFOHpHVb3x8jrDxUwqJV5X4V3M9HBl7qDLJM3r9Io';
     $phpmailer->Host = 'email-smtp.eu-central-1.amazonaws.com';
     $phpmailer->Port = 587;
-    $phpmailer->SMTPSecure = 'tls';
+    $phpmailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+
+    $phpmailer->setFrom('info@lotterien-spielbanken-bayern.de', 'info@lotterien-spielbanken-bayern.de');
+    $phpmailer->addAddress('info@lotterien-spielbanken-bayern.de', 'Info Lotterien-Spielbanken-Bayern.de');
 }
 
