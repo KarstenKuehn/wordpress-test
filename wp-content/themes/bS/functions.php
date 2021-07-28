@@ -1470,4 +1470,15 @@ if(!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
     }
 }
 
+// Amazon SES instead PHP mail.
+add_action( 'phpmailer_init', 'use_amazon_ses' );
+function use_amazon_ses( $phpmailer ) {
+    $phpmailer->isSMTP();
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Username = 'AKIAUKPW5KMVNCWDWKUN';
+    $phpmailer->Password = 'BGDiFOHpHVb3x8jrDxUwqJV5X4V3M9HBl7qDLJM3r9Io';
+    $phpmailer->Host = 'email-smtp.eu-central-1.amazonaws.com';
+    $phpmailer->Port = 587;
+    $phpmailer->SMTPSecure = 'tls';
+}
 
