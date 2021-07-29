@@ -391,3 +391,25 @@ function loadTestimonialBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTestimonialBITV');
+
+function loadTwoColumnBITV() {
+  wp_enqueue_script(
+    'bitv-zwei-spalten',
+    plugin_dir_url(__FILE__) . 'bitv-two_column.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadTwoColumnBITV');
+
+function loadButtonBITV() {
+  wp_enqueue_script(
+    'bitv-button',
+    plugin_dir_url(__FILE__) . 'bitv-button_link.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadButtonBITV');

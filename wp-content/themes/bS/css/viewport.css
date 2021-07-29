@@ -349,7 +349,7 @@ section{
 */
 .content_section
 {
-    max-width:856px;
+    max-width:808px;
     margin: auto;
     margin-bottom: 32px;
 }
@@ -1248,31 +1248,28 @@ h2{
   line-height: 32px; 
   font-weight: 400;
 }
-
-h4{
-  font-size: 16px;
-  line-height: 24px;
-}
-
-
-h1,h2,h3,h4,p
-{
-  padding:16px 16px;
-  /*font-weight: 200;*/
-}
-
 h3{
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 }
+h4{
+  font-size: 16px;
+  line-height: 24px;
+}
+/*
+
+h1,h2,h3,h4,p
+{
+  padding:16px 16px;
+}
+*/
+
 
 p
 {
   font-size: 16px;
   line-height: 24px;
-  /*font-weight: 100;*/
-
 }
 
 
@@ -1420,10 +1417,9 @@ display: none;
   display: block;
   text-align: center;
   margin-bottom: 8px;
-  font-size: 12px;
   padding: 16px;  
   color: #091B30;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 
 }
@@ -1437,7 +1433,8 @@ display: none;
 
 }
 
-
+.footer_item2, .footer .footer_menu a:link {  display: block;
+}
 
 
  .footer_menu a: visited{
@@ -1734,7 +1731,7 @@ width: auto;
 }
 .more-link
 {
-  padding: 0 16px;
+  padding: 0;
 }
 .news_container a.list.headline
 {
@@ -1927,7 +1924,7 @@ margin: 0 auto;
 }
 
 .main .medium {
-    max-width: 856px;
+    max-width: 808px;
     padding: 0 24px;
     margin: 0 auto;
     margin-bottom: 16px;    
@@ -2797,38 +2794,43 @@ p.content {
     color: #FFF;
 }
 
-
-.main>blockquote {
+/*
+blockquote {
     border-left: 2px solid #1F5DA6;
-    padding: 50px;
+    margin-bottom: 24px;
 }
 
 blockquote p {
   padding: 0 24px;
-  color: #091B30;
-  font-family: Lato;
-  font-size: 42px;
-  letter-spacing: 0;
-  line-height: 48px;
-}
-
-blockquote.kleiner p {
+  color: #293038;
   font-size: 26px;
   letter-spacing: 0;
   line-height: 32px;
+
 }
 
 blockquote cite {
-    padding: 16px 24px 0 24px;
-color: #1F5DA6;
+  padding: 16px 24px 0 24px;
+  color: #1F5DA6;
   font-family: Lato;
   font-size: 18px;
   letter-spacing: 0;
   line-height: 24px;    
   display: block;
-
-    margin-bottom: -8px;
 }
+
+
+blockquote.is-style-large p{
+  font-size: 42px;
+  letter-spacing: 0;
+  line-height: 48px;
+}
+blockquote.is-style-large cite{
+    font-size: 24px;
+    line-height: 32px;
+}
+
+*/
 
 .verlinkungen{
     margin-top: 24px;
@@ -3194,13 +3196,13 @@ form .button,.news_filter button.desktop_hidden{
 }
 
 section.events_overview {
-    max-width: 856px;
+    max-width: 808px;
     padding: 0 24px;
 }
 /*
 section.wp-block-lb-benefits-text.content_section {
     margin: auto;
-    max-width: 856px;
+    max-width: 808px;
 }
 
 */
@@ -3383,7 +3385,207 @@ hr.wp-block-separator.medium {
     min-height: 90px;
 }
 
+
+/* Headline Definition */
+
+/* h1-style */
+.e_headline.has-huge-font-size{
+  font-size: 42px;
+  letter-spacing: 0;
+  line-height: 48px;
+}
+
+
+/* h2-style */
+.e_headline.has-large-font-size{
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+/* h3-style */
+.e_headline.has-medium-font-size{  
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+/* h4-style */
+.e_headline.has-normal-font-size{
+  font-size: 14px;
+  letter-spacing: 3px;
+  line-height: 24px; 
+}
+
+/* h5-style */
+.e_headline.has-small-font-size{
+  font-size: 12px;
+  letter-spacing: 3px;
+  line-height: 24px;
+}
+
+
+
+
+
+/* Section Definition */
+.content_section.bitv{
+  border: 2px solid green;
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.content_section.gray.bitv{
+    border: 2px solid red;
+  margin-bottom: 24px;
+}
+
+/* Modul Definition */
+.modul{
+  background: pink;
+  max-width: 808px;
+  margin: auto;
+  margin: 0 16px 24px 16px;
+}
+
+.modul .modul{
+  margin: 0 0 24px 0;
+}
+
 /* Modul Testimonial */
+
+.testimonial{
+  position: relative;
+
+}
+
+.testimonial .testimonial-image{
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+
+.testimonial .testimonial-quote{
+    border-left: 2px solid #1F5DA6;  
+    padding-left: 24px;  
+}
+
+.testimonial figure + .testimonial-quote{
+border-left: none;
+}
+        
+
+
+.testimonial figure + .testimonial-quote cite{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: calc(100% - 112px);
+    padding: 0;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+}
+.testimonial .testimonial-quote cite{
+    position: relative;    
+    display: block;
+    width: 100%;
+    height: auto;
+    color: #1F5DA6;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;    
+}
+
+.testimonial .testimonial-quote p{
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+
+
+.testimonial .testimonial-quote.is-style-large cite{
+  font-size: 16px;
+  line-height: 24px;    
+}
+
+.testimonial .testimonial-quote.is-style-large p{
+  font-size: 42px;
+  line-height: 48px;
+}
+
+@media(min-width:768px)
+{
+  .modul{
+    margin: 0 auto 24px auto;
+  }
+
+  .wp-block-columns.testimonial-block {
+      flex-direction: row;
+  }
+
+  .testimonial{
+    display: flex;
+  }
+
+  .testimonial .testimonial-image{
+    width: 115px;
+    height: 115px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .testimonial figure +  .testimonial-quote{
+      padding: 0 32px;  
+      flex: 1;
+  }
+
+  .testimonial figure + .testimonial-quote cite{
+    position: relative;
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+}
+
+/* Zwei Spalten Text */
+
+.wp-block-columns.two-column-text {
+      flex-direction: column;
+  }
+
+
+
+.modul.zwei_spalten .text_left, .modul.zwei_spalten .text_right, .modul.zwei_spalten .button {
+    padding: 0;
+    margin: 0;
+}
+
+@media(min-width:768px)
+{
+
+.footer_item2, .footer .footer_menu a:link {
+display: inline-block;
+}
+
+.wp-block-columns.two-column-text {
+      flex-direction: row;
+      padding: 0;
+  }
+}
+
+
+/* Modul Testimonial 
 
 .testimonial{
   position: relative;
@@ -3410,19 +3612,13 @@ hr.wp-block-separator.medium {
 .testimonial .testimonial-quote{
     padding: 0;  
     flex: 1;
+    border-left: none;    
 }
 
-.testimonial .testimonial-quote p{
-    font-size: 26px;
-    letter-spacing: 0;
-    line-height: 32px;  
+.testimonial .testimonial-quote p{ 
     padding: 0;
 }
-.testimonial .testimonial-quote.is-style-large p{
-    color: red;
-    font-size: 32px;
-    line-height: 40px;
-}
+
 .testimonial .testimonial-quote cite{
     position: absolute;
     top: 0;
@@ -3436,35 +3632,34 @@ hr.wp-block-separator.medium {
     align-items: center;
 
 }
-.testimonial .testimonial-quote.is-style-large cite{
-    color: red;
-    font-size: 24px;
-    line-height: 32px;
-}
-@media(min-width:768px)
-{
-.testimonial{
-  margin:48px 0px;
+
+.wp-block-columns.testimonial-block {
+    flex-direction: column;
+    position: relative;
+    border: 3px solid red;
 }
 
-.testimonial .testimonial-image{
-  width: 115px;
-  height: 115px;
-  margin: 0;
-  padding: 0;
+.wp-block-column.testimonial-image-block {
+    flex-grow: 0;
 }
 
-.testimonial .testimonial-quote{
-    padding: 0 32px;  
-    flex: 1;
+
+
+
+
+
+
+
+
+.is-style-fancy-quote p{
+    color: tomato;
 }
 
-.testimonial .testimonial-quote cite{
-  position: relative;
-  width: 100%;
-  display: block;
-  height: auto;
+
+.is-style-ohne-bild figure.testimonial-image{
+  display: none;
 }
 
-}
-
+.testimonial.is-style-ohne-bild .testimonial-quote{
+  border-left: 3px solid red;}
+*/

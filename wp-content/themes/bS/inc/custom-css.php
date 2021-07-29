@@ -1,13 +1,13 @@
 <?php
 /**
- * Twenty Twenty Custom CSS
+ * bS Custom CSS
  *
  * @package WordPress
  * @subpackage Twenty_Twenty
  * @since Twenty Twenty 1.0
  */
 
-if ( ! function_exists( 'twentytwenty_generate_css' ) ) {
+if ( ! function_exists( 'bs_generate_css' ) ) {
 
 	/**
 	 * Generate CSS.
@@ -19,7 +19,7 @@ if ( ! function_exists( 'twentytwenty_generate_css' ) ) {
 	 * @param string $suffix The CSS suffix.
 	 * @param bool   $echo Echo the styles.
 	 */
-	function twentytwenty_generate_css( $selector, $style, $value, $prefix = '', $suffix = '', $echo = true ) {
+	function bs_generate_css( $selector, $style, $value, $prefix = '', $suffix = '', $echo = true ) {
 
 		$return = '';
 
@@ -44,7 +44,7 @@ if ( ! function_exists( 'twentytwenty_generate_css' ) ) {
 	}
 }
 
-if ( ! function_exists( 'twentytwenty_get_customizer_css' ) ) {
+if ( ! function_exists( 'bs_get_customizer_css' ) ) {
 
 	/**
 	 * Get CSS Built from Customizer Options.
@@ -52,7 +52,7 @@ if ( ! function_exists( 'twentytwenty_get_customizer_css' ) ) {
 	 *
 	 * @param string $type Whether to return CSS for the "front-end", "block-editor" or "classic-editor".
 	 */
-	function twentytwenty_get_customizer_css( $type = 'front-end' ) {
+	function bs_get_customizer_css( $type = 'front-end' ) {
 
 		// Get variables.
 		$body              = sanitize_hex_color( twentytwenty_get_color_for_area( 'content', 'text' ) );

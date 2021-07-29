@@ -1126,6 +1126,8 @@ function kb_whitelist_blocks()
         'ub/tab-block',
         /*******BITV****/
         'bitv/testimonial',
+        'bitv/two-column-text',
+        'bitv/button',
     );
 }
 

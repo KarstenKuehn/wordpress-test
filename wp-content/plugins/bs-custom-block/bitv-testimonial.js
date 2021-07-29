@@ -5,7 +5,7 @@
 
   registerBlockType( 'bitv/testimonial', {
     title: 'BITV-Testimonal', // The title of block in editor.
-    icon: 'zitat', // The icon of block in editor.
+    icon: 'carrot', // The icon of block in editor.
     category: 'layout', // The category of block in editor.
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
@@ -17,7 +17,7 @@
               ['core/image',{className:'testimonial-image','placeholder':'Verlinkung-Bild'}],
               ['core/quote',{className:'testimonial-quote','placeholder':'Zitate','ariaLabel':'hjsabvuhwsedbf'}],
             ],
-            templateLock: "all",
+            //templateLock: "all",
             //allowedBlocks: ['core/columns'],
           }
         )
@@ -25,7 +25,7 @@
     },
 
     save: function() {
-      return el( 'section', { className:'testimonial' },
+      return el( 'div', { className:'modul testimonial' },
         el( InnerBlocks.Content, {} )
       );
     },
