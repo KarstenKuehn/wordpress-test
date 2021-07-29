@@ -202,12 +202,14 @@ function sub_menu($view,$current_menu,$current_menu_id) {
     $submenu_html='';
     $submenu_html_liste='';
     $bild_navigation='';
+    $menu_list = '';
+    $i = 0;
     if($current_menu->wpse_children)
     {
 
 /**/
 
-        $i = 0;
+
         foreach ($current_menu->wpse_children as $key => $child) {
             $submenu_html_liste.='<div class="sub_menu_block navi">';
             $submenu_html_liste.= (strlen(trim($child->description)) > 0) ? '<label>'.$child->description.'</label>' : '';
@@ -341,7 +343,7 @@ function haupt_menu($current_menu,$view) {
             $menu_items = wp_get_nav_menu_items( $current_menu );
             $this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
             $active='';
-            if($this_item->title == $value->title)
+            if(isset($value->title) && (isset($this_item->title)) && $this_item->title == $value->title)
             {
                 $active=' active';
             }
@@ -710,7 +712,7 @@ function get_my_content()
         preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
         $str_2 = $value;
 
-        if(!$_html[0][0] or $_html[0][0]=='')
+        if(!isset($_html[0]) or !isset($_html[0][0]))
         {
             preg_match_all( '@<([^\s]+).*?>(.+?)</\1>@', $value, $_html );
             $tag = 'headline_'.$_html[1][0].'_'.$i;
@@ -746,7 +748,7 @@ $html = apply_filters('the_content', get_the_content());
         preg_match_all( '@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html );
         $str_2 = $value;
 
-        if(!$_html[0][0] or $_html[0][0]=='')
+        if(!isset($_html[0]) or !isset($_html[0][0]) )
         {
             preg_match_all( '@<([^\s]+).*?>(.+?)</\1>@', $value, $_html );
             $tag = 'headline_'.$_html[1][0].'_'.$i;
@@ -1381,6 +1383,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
         //Inhalte sammeln
         $content = '<div class="news-div"><h2>Aktuelle News</h2><div class="news spalten_3">';
 
+    $year = date('Y');
 
     foreach ($pages as $key => $post) 
     {
