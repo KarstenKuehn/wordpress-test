@@ -1472,8 +1472,8 @@ function use_amazon_ses($phpmailer)
     $phpmailer->Port = AMAZON_SES_PORT;
     $phpmailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
 
-    $phpmailer->setFrom(AMAZON_SES_FROM_EMAIL, AMAZON_SES_FROM_NAME);
-    $phpmailer->addAddress(AMAZON_SES_TO_EMAIL, AMAZON_SES_TO_NAME);
+    // $phpmailer->setFrom(AMAZON_SES_FROM_EMAIL, AMAZON_SES_FROM_NAME);
+    // $phpmailer->addAddress(AMAZON_SES_TO_EMAIL, AMAZON_SES_TO_NAME);
 }
 
 function bs_wp_mail_with_amazon_ses($replyToEmail, $replyToName, $subject, $body)
