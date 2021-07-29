@@ -1466,14 +1466,14 @@ function use_amazon_ses($phpmailer)
 {
     $phpmailer->isSMTP();
     $phpmailer->SMTPAuth = true;
-    $phpmailer->Username = 'AKIAUKPW5KMVNCWDWKUN';
-    $phpmailer->Password = 'BGDiFOHpHVb3x8jrDxUwqJV5X4V3M9HBl7qDLJM3r9Io';
-    $phpmailer->Host = 'email-smtp.eu-central-1.amazonaws.com';
-    $phpmailer->Port = 587;
+    $phpmailer->Username = AMAZON_SES_USER;
+    $phpmailer->Password = AMAZON_SES_PASSWORD;
+    $phpmailer->Host = AMAZON_SES_HOST;
+    $phpmailer->Port = AMAZON_SES_PORT;
     $phpmailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
 
-    $phpmailer->setFrom('info@lotterien-spielbanken-bayern.de', 'info@lotterien-spielbanken-bayern.de');
-    $phpmailer->addAddress('info@lotterien-spielbanken-bayern.de', 'Info Lotterien-Spielbanken-Bayern.de');
+    $phpmailer->setFrom(AMAZON_SES_FROM_EMAIL, AMAZON_SES_FROM_NAME);
+    $phpmailer->addAddress(AMAZON_SES_TO_EMAIL, AMAZON_SES_TO_NAME);
 }
 
 function bs_wp_mail_with_amazon_ses($replyToEmail, $replyToName, $subject, $body)
