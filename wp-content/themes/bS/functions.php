@@ -1461,7 +1461,7 @@ if (!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
 }
 
 // Amazon SES instead PHP mail.
-// add_action('phpmailer_init', 'use_amazon_ses');
+add_action('phpmailer_init', 'use_amazon_ses');
 function use_amazon_ses($phpmailer)
 {
     $phpmailer->isSMTP();
