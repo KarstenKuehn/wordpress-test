@@ -1327,6 +1327,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
     
         //Posts holen
     $posts = get_posts($args);
+    $pages = [];
 
     foreach ($posts as $key => $post) 
     {
@@ -1374,7 +1375,7 @@ function shortcode_posts_function( $atts = [], $content = null, $tag = '' ){
     usort($pages, "sortDesc");
     if(count($pages)>$post_count)
     {
-        $pages = array_slice($pages, 0, $post_count);
+        $pages = array_slice($pages, 0, (int)$post_count);
     }
 
         //Inhalte sammeln
@@ -1471,7 +1472,7 @@ if(!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
 }
 
 // Amazon SES instead PHP mail.
-#add_action( 'phpmailer_init', 'use_amazon_ses' );
+add_action( 'phpmailer_init', 'use_amazon_ses' );
 function use_amazon_ses( $phpmailer ) {
     $phpmailer->isSMTP();
     $phpmailer->SMTPAuth = true;
@@ -1483,4 +1484,38 @@ function use_amazon_ses( $phpmailer ) {
 
     $phpmailer->setFrom('info@lotterien-spielbanken-bayern.de', 'info@lotterien-spielbanken-bayern.de');
     $phpmailer->addAddress('info@lotterien-spielbanken-bayern.de', 'Info Lotterien-Spielbanken-Bayern.de');
+}
+
+function bs_wp_mail_with_amazon_ses($replyToEmail, $replyToName, $subject, $body) {
+
+    $phpmailer = new PHPMailer\PHPMailer\PHPMailer(true);
+
+    try {
+
+        $phpmailer->isSMTP();
+        $phpmailer->SMTPAuth = true;
+        $phpmailer->Host = AMAZON_SES_HOST;
+        $phpmailer->Port = AMAZON_SES_PORT;
+        $phpmailer->SMTPSecure = AMAZON_SES_SECURE;
+        $phpmailer->Username = AMAZON_SES_USER;
+        $phpmailer->Password = AMAZON_SES_PASSWORD;
+
+        $phpmailer->setFrom(AMAZON_SES_FROM_EMAIL, AMAZON_SES_FROM_NAME);
+        $phpmailer->addAddress(AMAZON_SES_TO_EMAIL, AMAZON_SES_TO_NAME);
+        $phpmailer->addReplyTo($replyToEmail, $replyToName);
+
+        $phpmailer->Subject = $subject;
+
+        $phpmailer->Body = $body;
+
+        $phpmailer->AltBody = preg_replace('/<\/?[a-zA-Z0-9]+( .+(=\".+?\")?)*\/?>/', '', $body);
+
+        $phpmailer->send();
+
+    } catch (Exception $e) {
+
+
+
+    }
+
 }
