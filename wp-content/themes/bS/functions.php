@@ -658,13 +658,13 @@ function get_FooterMenu()
         'container' => false,
         'echo' => false,
         'depth' => 0,
-        'items_wrap' => '<div id="%1$s" class="footer_menu">%3$s</div>',
-
+//        'items_wrap' => '<div id="%1$s" class="footer_menu">%3$s</div>',
+        'items_wrap' => '<ul id="%1$s" class="footer_menu">%3$s</ul>',
         'theme_location' => 'footer-menu',
     );
 
-    $footer_menu = strip_tags(wp_nav_menu($menuParameters), '<a><div>');
-
+    //$footer_menu = strip_tags(wp_nav_menu($menuParameters), '<a><div>');
+    $footer_menu = wp_nav_menu($menuParameters);
     return $footer_menu;
 }
 

@@ -343,6 +343,13 @@ section.news-liste {
   margin-bottom: 16px;
   width: 148px;
 }
+
+.footer_menu li{
+  display: inline-block;
+
+}
+
+
 .footer_item2, .footer_menu a{
   display: inline-block;
   text-align: center;
