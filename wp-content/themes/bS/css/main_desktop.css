@@ -26,6 +26,12 @@ a,h1, h2, h3, h4, p, ul, table, figure, .news-div, .zitat {
     margin-bottom: 24px;
     width: 100%;
 }
+
+h1,h2,h3,h4,p
+{
+  padding:0;
+}
+
 /*
 .section-left >*{
   margin-left: 0;
@@ -72,6 +78,7 @@ p.section-left{
 .news-div ,.news-div h2{
     max-width: 1224px;
     margin: auto;
+    padding: 0 16px;
 }
 .news-div h2{
     padding-left: 0;
@@ -264,8 +271,8 @@ p.section-left{
 }
 
 .text-image .content {
-    padding-right: calc( 100% / 6 - 24px);
-/*    padding-left: 24px; */
+    padding-right: calc( 100% / 6 - 16px);
+    padding-left: 16px; 
 }
 
 .image-text .content {
@@ -599,8 +606,10 @@ section.news-liste {
 {
 
 .section-left{
-        padding: 0 16px;
+   padding: 0 16px;
+    margin-left: 0;
 }
+
 .desktop_navi {
     padding-right: 40px;
 }
@@ -645,7 +654,6 @@ a.sub_menu_item {
     -ms-grid-columns:1fr; 
     -ms-grid-rows:96px; 
   }
-
 .news .category{
   padding-right: 16px;
   margin-right: 16px;
@@ -666,7 +674,17 @@ a.sub_menu_item {
 
 .section-left{
         padding: 0 24px;
+    margin-left: 0;        
 }
+.text-image .content {
+    padding-right: calc( 100% / 6 - 24px);
+    padding-left: 24px; 
+}
+
+.news-div {
+    padding: 0 24px;
+}
+
 .slide-frame .gallery-main .swiper-wrapper {
     width: 1224px;
     margin: auto;
@@ -721,7 +739,9 @@ a.sub_menu_item {
 {
   padding: 0 16px;
 }
-
+.news-div, .news-div h2 {
+    padding: 0;
+}
 .news_container a.list {
     padding: 0 16px;
 }
