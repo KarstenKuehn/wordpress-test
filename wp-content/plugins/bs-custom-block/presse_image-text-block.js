@@ -329,7 +329,7 @@ return (
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'mail_outline'),
             el( editor.RichText.Content, {
-                tagName:'',
+                tagName:'span',
                 value:attributes.mail}),              
               ),// end p 
         attributes.phone ? 
