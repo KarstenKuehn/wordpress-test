@@ -314,11 +314,12 @@ return (
           alt: attributes.mediaALT,
           className:'block_image desktop_hidden'
         }),
-          el('p',{
-            className:'block_content content'
-            },
-            attributes.text
-          ), 
+        el( editor.RichText.Content, {
+          tagName:'p',
+          className:'block_content content',
+          value:  attributes.text
+          },        ),
+
           /*
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'person_outline'),
@@ -331,25 +332,41 @@ return (
                 tagName:'',
                 value:attributes.mail}),              
               ),// end p 
-
+        attributes.phone ? 
+        (         
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'phone'),
-            el('span',null,attributes.phone),
-          ),// end p 
+            el( editor.RichText.Content, {
+                tagName:'span',
+                value:  attributes.phone
+              },
+           ),  
+          )
+        ):(''),// end p 
 
-       attributes.standort ? 
-      (         el('div',{className:'block_content content'},
+
+        attributes.standort ? 
+        (         
+          el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'location_on'),
-            el('span',null,attributes.standort),
-            )
-          ):(''),// end p 
-      attributes.anschrift ? 
-      (
+            el( editor.RichText.Content, {
+                tagName:'span',
+                value:  attributes.standort
+              },
+           ),  
+          )
+        ):(''),// end p 
+        attributes.anschrift ? 
+        (
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'drafts'),
-            el('span',null,attributes.anschrift),
+            el( editor.RichText.Content, {
+              tagName:'span',
+              value:  attributes.anschrift
+            },            
+            ),
           )
-):(''),// end p 
+        ):(''),// end p 
 
         )
       )

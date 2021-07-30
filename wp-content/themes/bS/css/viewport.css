@@ -161,6 +161,13 @@ details > summary::marker {
     margin-right: 8px;
     line-height: 32px;
 }
+
+.kontakt span {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
 p{
   line-height: 1.5rem;
 }
