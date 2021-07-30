@@ -20,7 +20,7 @@ a,h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, block
 
 */
 
-a,h1, h2, h3, h4, p, ul, table, figure {
+a,h1, h2, h3, h4, p, ul, table, figure, .news-div, .zitat {
     max-width: 808px;
     margin: auto;
     margin-bottom: 24px;
@@ -61,6 +61,10 @@ p.section-left{
 }
 
 */
+
+.block_head{
+  padding: 0 0 24px 0;
+}
 
 .section-left.hews-head .back,.section-left.hews-head .detail_info {
   width: 50%;

@@ -102,7 +102,9 @@ q:before, q:after {
 blockquote, q {
     quotes: "" "";
 }
-
+.block_head{
+  padding: 0 16px 24px 16px;
+}
 
 .wp-block-image.is-style-rounded img {
     border-radius: 9999px;
@@ -3563,14 +3565,33 @@ border-left: none;
 .wp-block-columns.two-column-text {
       flex-direction: column;
   }
-
-
-
-.modul.zwei_spalten .text_left, .modul.zwei_spalten .text_right, .modul.zwei_spalten .button {
-    padding: 0;
-    margin: 0;
+.modul.zwei_spalten {
+border: 3px solid green;
+display: flex;
+flex-direction: column;
 }
 
+
+.modul.zwei_spalten .text_left, .modul.zwei_spalten .text_right, .modul.zwei_spalten .text-button{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 24px;
+
+}
+
+.modul.zwei_spalten .e_headline{
+  order: 1;
+}
+.modul.zwei_spalten .text_left{
+  order: 2;
+}
+.modul.zwei_spalten .text_right{
+  order: 3;
+}
+.modul.zwei_spalten .text-button{
+  order: 4;
+  width: 100%;
+}
 @media(min-width:768px)
 {
 
@@ -3582,84 +3603,33 @@ display: inline-block;
       flex-direction: row;
       padding: 0;
   }
-}
-
-
-/* Modul Testimonial 
-
-.testimonial{
-  position: relative;
-  max-width: 808px;
-  margin:48px 0px;
+.modul.zwei_spalten {
+border: 3px solid green;
   display: flex;
-  flex-direction: column;
-  padding: 0 16px;
+  flex-flow: row wrap;
 }
 
-.testimonial .testimonial-image{
-    width: 80px;
-    height: 80px;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 32px;
-}
-.testimonial .testimonial-image img{
-    width: 100%;
-    height: auto;
-
+.modul.zwei_spalten > * {
+  flex: 1 100%;
 }
 
-.testimonial .testimonial-quote{
-    padding: 0;  
-    flex: 1;
-    border-left: none;    
+.modul.zwei_spalten .e_headline{
+  order: 1;
 }
 
-.testimonial .testimonial-quote p{ 
-    padding: 0;
+.modul.zwei_spalten .block-left{
+  background: beige;
+flex: 1 auto;  
+}
+.modul.zwei_spalten .text_left{
+  order: 2;
+}
+.modul.zwei_spalten .text_right{
+  order: 4;
+}
+.modul.zwei_spalten .text-button{
+  order: 3;
+  width: 100%;
 }
 
-.testimonial .testimonial-quote cite{
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    width: calc(100% - 112px);
-    padding: 0;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-
 }
-
-.wp-block-columns.testimonial-block {
-    flex-direction: column;
-    position: relative;
-    border: 3px solid red;
-}
-
-.wp-block-column.testimonial-image-block {
-    flex-grow: 0;
-}
-
-
-
-
-
-
-
-
-
-.is-style-fancy-quote p{
-    color: tomato;
-}
-
-
-.is-style-ohne-bild figure.testimonial-image{
-  display: none;
-}
-
-.testimonial.is-style-ohne-bild .testimonial-quote{
-  border-left: 3px solid red;}
-*/
