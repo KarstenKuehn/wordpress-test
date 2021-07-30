@@ -72,6 +72,12 @@ p.section-left{
   padding: 0 0 24px 0;
 }
 
+section.news-liste {
+    max-width: 1224px;
+    margin: auto;
+}
+
+
 .section-left.hews-head .back,.section-left.hews-head .detail_info {
   width: 50%;
 }
