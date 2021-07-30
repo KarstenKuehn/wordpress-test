@@ -631,12 +631,14 @@ function footer()
             '{{canonical}}',
             '{{title}}',
             '{{meta_description}}',
+            '{{WPFORMS_SCRIPTS}}'
         ),
         array(
             'de',
             (strlen($page_data->canonical) > 0) ? $page_data->canonical : get_permalink(),
             (strlen($page_data->meta_title) > 0) ? $page_data->meta_title : get_the_title(),
             $page_data->meta_description,
+            wpforms_footer_scripts()
         ),
         $html);
     #echo minify_html($html);
@@ -1462,6 +1464,7 @@ if (!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
     }
 }
 
+
 // Amazon SES instead PHP mail.
 add_action('phpmailer_init', 'use_amazon_ses');
 function use_amazon_ses($phpmailer)
@@ -1473,41 +1476,75 @@ function use_amazon_ses($phpmailer)
     $phpmailer->Host = AMAZON_SES_HOST;
     $phpmailer->Port = AMAZON_SES_PORT;
     $phpmailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-
-    // $phpmailer->setFrom(AMAZON_SES_FROM_EMAIL, AMAZON_SES_FROM_NAME);
-    // $phpmailer->addAddress(AMAZON_SES_TO_EMAIL, AMAZON_SES_TO_NAME);
 }
 
-function bs_wp_mail_with_amazon_ses($replyToEmail, $replyToName, $subject, $body)
+add_action( 'wp_footer', 'wpforms_footer_scripts' );
+function wpforms_footer_scripts()
 {
+    $host = $_SERVER['HTTP_HOST'];
+    return <<<EOF
+    <script src='/wp-includes/js/wp-embed.min.js?ver=5.7.2' id='wp-embed-js'></script>
+    <script src='/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+    <script src='/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+    <script src='/wp-content/plugins/wpforms-lite/assets/js/text-limit.min.js?ver=1.6.8.1' id='wpforms-text-limit-js'></script>
+    <script src='/wp-content/plugins/wpforms-lite/assets/js/jquery.validate.min.js?ver=1.19.0' id='wpforms-validation-js'></script>
+    <script src='/wp-content/plugins/wpforms-lite/assets/js/mailcheck.min.js?ver=1.1.2' id='wpforms-mailcheck-js'></script>
+    <script src='/wp-content/plugins/wpforms-lite/assets/js/wpforms.js?ver=1.6.8.1' id='wpforms-js'></script>
+    <script src='https://www.google.com/recaptcha/api.js?onload=wpformsRecaptchaLoad&#038;render=explicit' id='wpforms-recaptcha-js'></script>
+    <script id='wpforms-recaptcha-js-after'>
+        if (!Element.prototype.matches) {
+            Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+        }
+        if (!Element.prototype.closest) {
+            Element.prototype.closest = function (s) {
+                var el = this;
+                do {
+                    if (Element.prototype.matches.call(el, s)) { return el; }
+                    el = el.parentElement || el.parentNode;
+                } while (el !== null && el.nodeType === 1);
+                return null;
+            };
+        }
 
-    $phpmailer = new PHPMailer\PHPMailer\PHPMailer(true);
+        var wpformsDispatchEvent = function (el, ev, custom) {
+            var e = document.createEvent(custom ? "CustomEvent" : "HTMLEvents");
+            custom ? e.initCustomEvent(ev, true, true, false) : e.initEvent(ev, true, true);
+            el.dispatchEvent(e);
+        };
 
-    try {
+        var wpformsRecaptchaLoad = function () {
+            Array.prototype.forEach.call(document.querySelectorAll(".g-recaptcha"), function (el) {
+                try {
+                    var recaptchaID = grecaptcha.render(el, {
+                        callback: function () {
+                            wpformsRecaptchaCallback(el);
+                        }
+                    }, true);
+                    el.closest("form").querySelector("button[type=submit]").recaptchaID = recaptchaID;
+                } catch (error) {}
+            });
+            wpformsDispatchEvent(document, "wpformsRecaptchaLoaded", true);
+        };
+        var wpformsRecaptchaCallback = function (el) {
+            var wp_form = el.closest("form");
+            if (typeof wpforms.formSubmit === "function") {
+                wpforms.formSubmit(wp_form);
+            } else {
+                wp_form.querySelector("button[type=submit]").recaptchaID = false;
+                wp_form.submit();
+            }
+        };
 
-        $phpmailer->isSMTP();
-        $phpmailer->SMTPAuth = true;
-        $phpmailer->Host = AMAZON_SES_HOST;
-        $phpmailer->Port = AMAZON_SES_PORT;
-        $phpmailer->SMTPSecure = AMAZON_SES_SECURE;
-        $phpmailer->Username = AMAZON_SES_USER;
-        $phpmailer->Password = AMAZON_SES_PASSWORD;
-
-        $phpmailer->setFrom(AMAZON_SES_FROM_EMAIL, AMAZON_SES_FROM_NAME);
-        $phpmailer->addAddress(AMAZON_SES_TO_EMAIL, AMAZON_SES_TO_NAME);
-        $phpmailer->addReplyTo($replyToEmail, $replyToName);
-
-        $phpmailer->Subject = $subject;
-
-        $phpmailer->Body = $body;
-
-        $phpmailer->AltBody = preg_replace('/<\/?[a-zA-Z0-9]+( .+(=\".+?\")?)*\/?>/', '', $body);
-
-        $phpmailer->send();
-
-    } catch (Exception $e) {
-
-
-    }
+    </script>
+    <script>
+        /(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+    </script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var wpforms_settings = {"val_required":"This field is required.","val_email":"Please enter a valid email address.","val_email_suggestion":"Did you mean {suggestion}?","val_email_suggestion_title":"Click to accept this suggestion.","val_email_restricted":"This email address is not allowed.","val_number":"Please enter a valid number.","val_number_positive":"Please enter a valid positive number.","val_confirm":"Field values do not match.","val_checklimit":"You have exceeded the number of allowed selections: {#}.","val_limit_characters":"{count} of {limit} max characters.","val_limit_words":"{count} of {limit} max words.","val_recaptcha_fail_msg":"Google reCAPTCHA verification failed, please try again later.","val_empty_blanks":"Please fill out all blanks.","uuid_cookie":"","locale":"de","wpforms_plugin_url":"https:\/\/lotterie-spielbank-bayern.test\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"https:\/\/$host\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1"}
+        /* ]]> */
+    </script>
+    
+EOF;
 
 }
