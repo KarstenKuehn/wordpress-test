@@ -3115,6 +3115,7 @@ option {
 .searchformfld textarea{
 
     height: auto;
+    height: 112px;
 }
 .searchformfld label,.searchformfld input,.searchformfld textarea{
     transition: all 0.2s;
