@@ -3613,6 +3613,8 @@ display: inline-block;
 .wp-block-columns.two-column-text {
       flex-direction: row;
       padding: 0;
+      display: inline-flex;
+      order: 2;
 
   }
 .modul.zwei_spalten {
@@ -3637,6 +3639,10 @@ display: inline-block;
 .modul.zwei_spalten .text-button{
   order: 4;
   width: auto;
+}
+
+.modul.zwei_spalten .two-column-text p{
+  padding: 0;
 }
 
 }
