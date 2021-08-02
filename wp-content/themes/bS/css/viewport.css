@@ -3126,8 +3126,12 @@ option {
 
 
 
-.kontakt-form .wpforms-error{
-
+.kontakt-form label.wpforms-error{
+right: 0;
+    top: 17px;
+    line-height: 16px;
+    text-align: right;
+    color: red!important;
 }
 
 .kontakt-form .wpforms-error textarea,.kontakt-form .wpforms-error input{
