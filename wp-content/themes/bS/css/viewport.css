@@ -3126,7 +3126,7 @@ option {
 
 
 
-.kontakt-form label.wpforms-error{
+.kontakt-form .searchformfld label.wpforms-error{
 right: 0;
     top: 17px;
     line-height: 16px;
@@ -3134,7 +3134,7 @@ right: 0;
     color: red!important;
 }
 
-.kontakt-form .wpforms-error textarea,.kontakt-form .wpforms-error input{
+.kontakt-form .searchformfld .wpforms-error textarea,.kontakt-form .searchformfld .wpforms-error input{
     border-bottom: 2px solid red;
 }
 
