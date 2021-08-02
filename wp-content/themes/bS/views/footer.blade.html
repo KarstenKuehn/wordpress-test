@@ -16,7 +16,9 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
 	acc[i].getElementsByTagName('button')[0].setAttribute('id','accordion-h-'+i);
-		acc[i].getElementsByTagName('div')[0].setAttribute('id','accordion-p-'+i);
+	acc[i].getElementsByTagName('button')[0].setAttribute('aria-controls','accordion-p-'+i);
+
+	acc[i].getElementsByTagName('div')[0].setAttribute('id','accordion-p-'+i);
   acc[i].addEventListener("click", function() {
     this.getElementsByTagName('div')[0].classList.toggle('active');
     this.getElementsByTagName('button')[0].classList.toggle('active');
