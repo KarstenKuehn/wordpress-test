@@ -1939,7 +1939,9 @@ max-width: 1224px;
 margin: auto;
 margin-bottom: 16px;
 }
-
+footer{
+  margin: 0;
+}
 .bg-image{
 max-width: 1224px;
 margin: 0 auto;
