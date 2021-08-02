@@ -673,7 +673,7 @@ a.sub_menu_item {
 }
 
 .footer_menu a{
-  padding: 0 24px;
+  padding: 0;
 }
 
 }
@@ -682,7 +682,7 @@ a.sub_menu_item {
 {
 
 .header{
-        padding: 0 24px;
+        padding: 0 px;
 }
 
 .section-left{
