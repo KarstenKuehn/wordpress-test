@@ -385,7 +385,7 @@ section{
   width: 100%;
   height: auto
 }
-.my-block-button span.button-text, .button,
+.modul .text-button a,.my-block-button span.button-text, .button,
 .my-block-button:link span.button-text, .button:link {
     color: #fff;
     background-color: #0061AB;
@@ -403,17 +403,14 @@ section{
     padding: 12px;
     font-weight: bold;
     font-size: 16px;
-}
-
-.my-block-button span.button-text, .button, .my-block-button:link span.button-text, .button:link {
  display: inline-block; 
  border: 3px dotted transparent;
 }
 
-.my-block-button:visited span.button-text, .button:visited {    color: #fff; }
-.my-block-button:hover span.button-text, .button:hover {    color: #FFF; background: #143C6B;
+.modul .text-button a:visited, .my-block-button:visited span.button-text, .button:visited {    color: #fff; }
+.modul .text-button a:hover, .my-block-button:hover span.button-text, .button:hover {    color: #FFF; background: #143C6B;
    } 
-.my-block-button:focus-visible span.button-text, .button:focus-visible {  background-color: #143C6B;  color: #fff; border: 3px dotted #FFF; }
+.modul .text-button a:focus-visible, .my-block-button:focus-visible span.button-text, .button:focus-visible {  background-color: #143C6B;  color: #fff; border: 3px dotted #FFF; }
 
 
 
@@ -3450,21 +3447,19 @@ hr.wp-block-separator.medium {
 
 /* Section Definition */
 .content_section.bitv{
-  border: 2px solid green;
   width: 100%;
   max-width: 100%;
   padding-bottom: 0;
   margin-bottom: 0;
+    overflow: auto;  
 }
 
 .content_section.gray.bitv{
-    border: 2px solid red;
   margin-bottom: 24px;
 }
 
 /* Modul Definition */
 .modul{
-  background: pink;
   max-width: 808px;
   margin: auto;
   margin: 0 16px 24px 16px;
@@ -3584,11 +3579,9 @@ border-left: none;
       flex-direction: column;
   }
 .modul.zwei_spalten {
-border: 3px solid green;
 display: flex;
 flex-direction: column;
 }
-
 
 .modul.zwei_spalten .text_left, .modul.zwei_spalten .text_right, .modul.zwei_spalten .text-button{
     padding: 0;
@@ -3620,34 +3613,30 @@ display: inline-block;
 .wp-block-columns.two-column-text {
       flex-direction: row;
       padding: 0;
+
   }
 .modul.zwei_spalten {
-border: 3px solid green;
   display: flex;
   flex-flow: row wrap;
-}
-
-.modul.zwei_spalten > * {
-  flex: 1 100%;
+  align-items: flex-start;
 }
 
 .modul.zwei_spalten .e_headline{
   order: 1;
+  flex: 1 100%;
 }
 
-.modul.zwei_spalten .block-left{
-  background: beige;
-flex: 1 auto;  
-}
 .modul.zwei_spalten .text_left{
   order: 2;
+  width: 50%;
 }
 .modul.zwei_spalten .text_right{
-  order: 4;
+  order: 3;
+  width: 50%;
 }
 .modul.zwei_spalten .text-button{
-  order: 3;
-  width: 100%;
+  order: 4;
+  width: auto;
 }
 
 }

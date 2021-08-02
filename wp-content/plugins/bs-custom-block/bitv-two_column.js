@@ -67,7 +67,7 @@
                   ['core/column',{className:'text_left',},
                     [
                       ['core/paragraph',{className:'text1_content','placeholder':'Spalte1'}],
-                      ['bitv/button',{className:'text-button','placeholder':'Button'}],
+                      ['core/button',{className:'text-button','placeholder':'Button'}],
                     ]
                   ],
                   ['core/column',{className:'text_right'},
