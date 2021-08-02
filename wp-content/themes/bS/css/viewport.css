@@ -3134,7 +3134,7 @@ right: 0;
     color: red!important;
 }
 
-.kontakt-form .searchformfld .wpforms-error textarea,.kontakt-form .searchformfld .wpforms-error input{
+.kontakt-form .searchformfld textarea.wpforms-error ,.kontakt-form .searchformfld input.wpforms-error {
     border-bottom: 2px solid red;
 }
 
