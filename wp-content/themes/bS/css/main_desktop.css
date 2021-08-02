@@ -354,7 +354,7 @@ section.news-liste {
   display: inline-block;
   text-align: center;
   margin-bottom: 8px;
-  padding: 0 8px;
+  padding: 0;
   width: auto;
 }
  .medium{
