@@ -1933,7 +1933,7 @@ font-size: 16px;
 }
 
 
-.main ~ :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image):not(.footer){
+.main ~ :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image):not(.footer):not(footer){
 max-width: 1224px;
 /*max-width: 912px;*/
 margin: auto;
