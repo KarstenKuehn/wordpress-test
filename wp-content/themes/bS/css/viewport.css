@@ -3112,11 +3112,11 @@ option {
     color: #091B30;
     border-bottom: 2px solid #E3E5ED;
 }
-.searchformfld textarea{
+.kontakt-form .searchformfld textarea{
 
     height: auto;
     height: 112px;
-    padding-top: 21px;
+    padding-top: 24px;
 }
 .searchformfld label,.searchformfld input,.searchformfld textarea{
     transition: all 0.2s;
@@ -3126,9 +3126,13 @@ option {
 
 
 
+.kontakt-form .wpforms-error{
 
+}
 
-
+.kontakt-form .wpforms-error textarea,.kontakt-form .wpforms-error input{
+    border-bottom: 2px solid red;
+}
 
 /* The container must be positioned relative: */
 .custom-select_x, .custom-select {
