@@ -1389,6 +1389,7 @@ display: none;
     background: #F3F4F7;
     color: #091B30;
     /*font-family: Lato;*/
+    margin-bottom: 0;
   }
   .footer1{
     margin: auto;
