@@ -1515,18 +1515,30 @@ function wpforms_footer_scripts()
         var wpformsRecaptchaLoad = function () {
             Array.prototype.forEach.call(document.querySelectorAll(".g-recaptcha"), function (el) {
                 try {
+
                     var recaptchaID = grecaptcha.render(el, {
-                        callback: function () {
+                        callback: function () {                            
                             wpformsRecaptchaCallback(el);
                         }
                     }, true);
+                    
+                    /******************
+                    * WCAG - Properties
+                    * */
+                    el.querySelector('#g-recaptcha-response').setAttribute("aria-hidden", "true");
+                    el.querySelector('#g-recaptcha-response').setAttribute("aria-label", "do not use");
+                    el.querySelector('#g-recaptcha-response').setAttribute("aria-readonly", "true");
+
                     el.closest("form").querySelector("button[type=submit]").recaptchaID = recaptchaID;
+                    
                 } catch (error) {}
             });
+            
             wpformsDispatchEvent(document, "wpformsRecaptchaLoaded", true);
         };
         var wpformsRecaptchaCallback = function (el) {
-            var wp_form = el.closest("form");
+            
+            var wp_form = el.closest("form");            
             if (typeof wpforms.formSubmit === "function") {
                 wpforms.formSubmit(wp_form);
             } else {
@@ -1534,7 +1546,7 @@ function wpforms_footer_scripts()
                 wp_form.submit();
             }
         };
-
+        
     </script>
     <script>
         /(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
