@@ -1558,15 +1558,15 @@ function wpforms_footer_scripts()
         * Kontakt Formular autocomplete
         *******************************/
         var prefix = document.getElementById('wpforms-3127-field_2');
-        prefix.setAttribute('autocomplete', 'honorific-prefix');        
+        if(prefix) prefix.setAttribute('autocomplete', 'honorific-prefix');        
         var first_name = document.getElementById('wpforms-3127-field_3');
-        first_name.setAttribute('autocomplete', 'given-name');
+        if(first_name) first_name.setAttribute('autocomplete', 'given-name');
         var last_name = document.getElementById('wpforms-3127-field_4');
-        last_name.setAttribute('autocomplete', 'family-name');
+        if(last_name) last_name.setAttribute('autocomplete', 'family-name');
         var email = document.getElementById('wpforms-3127-field_5');
-        email.setAttribute('autocomplete', 'email');
+        if(email )email.setAttribute('autocomplete', 'email');
         var tel = document.getElementById('wpforms-3127-field_6');
-        tel.setAttribute('autocomplete', 'tel');        
+        if(tel) tel.setAttribute('autocomplete', 'tel');     
         /* ]]> */
     </script>
     
