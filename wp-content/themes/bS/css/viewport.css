@@ -3613,7 +3613,7 @@ padding: 0; margin-bottom: 40px;
 
 .testimonial figure + .testimonial-quote p + cite {
     margin-top: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 
