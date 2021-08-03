@@ -1383,18 +1383,21 @@ display: none;
     left:-1;
 }
 
-
+footer{
+  margin: 0;
+}
   .footer{
-    padding: 16px;
+    padding: 24px 24px 20px;
     background: #F3F4F7;
     color: #091B30;
     /*font-family: Lato;*/
+    margin-bottom: 0;
   }
   .footer1{
     margin: auto;
     border-bottom: 1px solid #E3E5ED;
-    padding-bottom: 16px;
-    margin-bottom: 32px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
   }
   .footer p{
 
@@ -1403,7 +1406,7 @@ display: none;
   line-height: 24px;
   text-align: center;
   padding: 0;
-  margin-bottom: 8px;    
+  margin: 8px auto;    
   }
 .footer_item1{
   display: block;
@@ -1417,15 +1420,17 @@ display: none;
   /*font-family: Lato;*/
   font-size: 16px;
   letter-spacing: 0;
-  line-height: 24px;
+  line-height: 56px;
   width: auto;
+  vertical-align: top;
+  padding:  0;
 }
 label.footer_item1 a{
 display: block;
 }
 
 .footer_menu li{
-
+margin: 0 5px;
 }
 
 
@@ -1928,13 +1933,15 @@ font-size: 16px;
 }
 
 
-.main ~ :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image):not(.footer){
+.main ~ :not(section):not(.xx):not(.accordion-item):not(.extra_navi_wrapper):not(.medium):not(.medium):not(.full):not(h1):not(.gallery-container):not(.bg-image):not(.footer):not(footer){
 max-width: 1224px;
 /*max-width: 912px;*/
 margin: auto;
 margin-bottom: 16px;
 }
-
+footer{
+  margin: 0;
+}
 .bg-image{
 max-width: 1224px;
 margin: 0 auto;
@@ -3082,6 +3089,13 @@ option {
     transform: scale(.8) translateY(-24px) translateX(-8px);
     color:#091B30;
 }
+
+.kontakt-form label.wpforms-field-label {
+    font-size: 13px;
+    top: 0px;
+    line-height: 13px;
+}
+
 .searchformfld textarea:hover,.searchformfld textarea:focus-visible,.searchformfld input:hover,.searchformfld input:focus-visible{
     outline-color: #000;
     border-bottom: 2px solid #091B30;
@@ -3098,9 +3112,11 @@ option {
     color: #091B30;
     border-bottom: 2px solid #E3E5ED;
 }
-.searchformfld textarea{
+.kontakt-form .searchformfld textarea{
 
     height: auto;
+    height: 112px;
+    padding-top: 24px;
 }
 .searchformfld label,.searchformfld input,.searchformfld textarea{
     transition: all 0.2s;
@@ -3110,9 +3126,17 @@ option {
 
 
 
+.kontakt-form .searchformfld label.wpforms-error{
+right: 0;
+    top: 17px;
+    line-height: 16px;
+    text-align: right;
+    color: red!important;
+}
 
-
-
+.kontakt-form .searchformfld textarea.wpforms-error ,.kontakt-form .searchformfld input.wpforms-error {
+    border-bottom: 2px solid red;
+}
 
 /* The container must be positioned relative: */
 .custom-select_x, .custom-select {
