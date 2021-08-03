@@ -3481,6 +3481,7 @@ hr.wp-block-separator.medium {
   padding-bottom: 0;
   margin-bottom: 0;
     overflow: auto;  
+  border: 2px solid red;
 }
 
 .content_section.gray.bitv{
@@ -3500,6 +3501,13 @@ hr.wp-block-separator.medium {
 
 /* Modul Testimonial */
 
+
+.modul.testimonial{
+ border-bottom: 1px solid #E3E5ED;
+ margin-bottom: 40px;
+ background: aliceblue_x;
+}
+
 .testimonial{
   position: relative;
 
@@ -3517,10 +3525,13 @@ hr.wp-block-separator.medium {
 .testimonial .testimonial-quote{
     border-left: 2px solid #1F5DA6;  
     padding-left: 24px;  
+    margin-bottom: 40px;
 }
 
 .testimonial figure + .testimonial-quote{
 border-left: none;
+padding: 0;
+
 }
         
 
@@ -3553,7 +3564,8 @@ border-left: none;
   font-size: 26px;
   letter-spacing: 0;
   line-height: 32px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  padding: 0;
 }
 
 
@@ -3573,10 +3585,14 @@ border-left: none;
     margin: 0 auto 24px auto;
   }
 
+
+
   .wp-block-columns.testimonial-block {
       flex-direction: row;
   }
-
+.modul.testimonial{
+ border: none;
+}
   .testimonial{
     display: flex;
   }
@@ -3621,6 +3637,9 @@ flex-direction: column;
 
 .modul.zwei_spalten .e_headline{
   order: 1;
+}
+.modul.zwei_spalten .two-column-text{
+  order: 2;
 }
 .modul.zwei_spalten .text_left{
   order: 2;
