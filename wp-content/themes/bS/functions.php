@@ -718,7 +718,8 @@ function get_skiplinks()
 {
     $html = apply_filters('the_content', get_the_content());
 
-    $skiplinks = '<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes"><h2 class="is-visuallyhidden">Skiplinks</h2><ul>';
+    #$skiplinks = '<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes"><h2 class="is-visuallyhidden" >Skiplinks</h2><ul>';
+    $skiplinks = '<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes" aria-label="zur Navigation"><ul>';
 
     preg_match_all('@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings);
     $i = 0;
@@ -736,7 +737,7 @@ function get_skiplinks()
         $skiplinks .= ' <li class="skiplink"><a accesskey="' . $i . '" href="#' . $tag . '" title="ALT + ' . $i . '">' . $_html[2][0] . '</a></li>';
         $i++;
     }
-    $skiplinks .= '<li class="skiplink"><a accesskey="' . $i . '" href="#lb-search" title="[ALT + ' . $i . ']">Skip to search</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="' . $i . '" href="#s" title="[ALT + ' . $i . ']">Skip to search</a></li>';
     $skiplinks .= '</ul></nav>';
     return $skiplinks;
 }
