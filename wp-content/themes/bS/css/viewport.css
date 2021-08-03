@@ -3480,8 +3480,7 @@ hr.wp-block-separator.medium {
   max-width: 100%;
   padding-bottom: 0;
   margin-bottom: 0;
-    overflow: auto;  
-  border: 2px solid red;
+    overflow: auto; 
 }
 
 .content_section.gray.bitv{
@@ -3524,13 +3523,14 @@ hr.wp-block-separator.medium {
 
 .testimonial .testimonial-quote{
     border-left: 2px solid #1F5DA6;  
-    padding-left: 24px;  
-    margin-bottom: 40px;
+    padding-left: 24px;  margin-bottom: 40px;
+   
 }
 
 .testimonial figure + .testimonial-quote{
 border-left: none;
-padding: 0;
+padding: 0; margin-bottom: 40px;
+
 
 }
         
@@ -3564,10 +3564,17 @@ padding: 0;
   font-size: 26px;
   letter-spacing: 0;
   line-height: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 0px;
   padding: 0;
 }
 
+.testimonial .testimonial-quote p + cite {
+     margin-top: 24px;
+    margin-bottom: 0px;
+}
+.testimonial figure + .testimonial-quote p + cite{
+    margin-top: 0px;
+}
 
 .testimonial .testimonial-quote.is-style-large cite{
   font-size: 16px;
@@ -3603,6 +3610,12 @@ padding: 0;
     margin: 0;
     padding: 0;
   }
+
+.testimonial figure + .testimonial-quote p + cite {
+    margin-top: 24px;
+    margin-bottom: 40px;
+}
+
 
   .testimonial figure +  .testimonial-quote{
       padding: 0 32px;  
