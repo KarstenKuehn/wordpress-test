@@ -5,25 +5,6 @@
     <?php 
         $name_of_menu = 'Hauptnavigation';
     ?>
-<!--
-
-    <header class="main-head">
-    
-<div class="logo"><?php bs_site_logo();?></div>
-<div id="branding">
-  <nav id="mainnav">
-
-    <ul class="navbar-nav mr-auto">
-    <?php 
-$name_of_menu = 'Hauptnavigation';
-echo haupt_menu_list($name_of_menu,'d');
-    ?> 
-</ul>
-</nav>
-</div>
-<div class='seitensuche'>suche + mobilenavi</div>
-</header>
--->
     <div class="header_out"><div class="header"><div class="site-logo"><div class="desktop_hidden"><button onclick="backNavi()" id="back_navi"><span class="material-icons">arrow_back_ios</span></button></div><?php bs_site_logo();?></div><div class="desktop_navi mobile_hidden"><?php echo haupt_menu($name_of_menu,'d');
         ?></div><div class="nav-frame">
         <?php
