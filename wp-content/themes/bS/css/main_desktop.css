@@ -907,6 +907,15 @@ form .button{
   margin: auto;
   padding: 0 0 24px 0;
 }
+.kontakt-form .searchformfld label.wpforms-error {
+    right: -38px;
+    top: 17px;
+    left: 0;
+    line-height: 16px;
+    text-align: right;
+    display: block;
+    color: red!important;
+}
 
 /* h1-style */
 .e_headline.has-huge-font-size{
