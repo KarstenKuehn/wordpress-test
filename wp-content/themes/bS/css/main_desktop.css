@@ -907,8 +907,11 @@ form .button{
   margin: auto;
   padding: 0 0 24px 0;
 }
+.kontakt-form .wpforms-field {
+    padding: 0;
+}
 .kontakt-form .searchformfld label.wpforms-error {
-    right: -38px;
+    right: -96px;
     top: 17px;
     left: 0;
     line-height: 16px;

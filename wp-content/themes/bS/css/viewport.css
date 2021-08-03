@@ -3126,11 +3126,16 @@ option {
 
 
 
-.kontakt-form .searchformfld label.wpforms-error{
-right: 0;
+.kontakt-form .wpforms-field {
+    padding: 0;
+}
+.kontakt-form .searchformfld label.wpforms-error {
+    right: -96px;
     top: 17px;
+    left: 0;
     line-height: 16px;
     text-align: right;
+    display: block;
     color: red!important;
 }
 
