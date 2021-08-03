@@ -719,7 +719,7 @@ function get_skiplinks()
     $html = apply_filters('the_content', get_the_content());
 
     #$skiplinks = '<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes"><h2 class="is-visuallyhidden" >Skiplinks</h2><ul>';
-    $skiplinks = '<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes" aria-label="zur Navigation"><ul>';
+    $skiplinks = '<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" data-has-module="yes" aria-label="zur Navigation"><ul>';
 
     preg_match_all('@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings);
     $i = 0;
@@ -1528,9 +1528,9 @@ function wpforms_footer_scripts()
                     el.querySelector('#g-recaptcha-response').setAttribute("aria-hidden", "true");
                     el.querySelector('#g-recaptcha-response').setAttribute("aria-label", "do not use");
                     el.querySelector('#g-recaptcha-response').setAttribute("aria-readonly", "true");
-
-                    el.closest("form").querySelector("button[type=submit]").recaptchaID = recaptchaID;
                     
+                    el.closest("form").querySelector("button[type=submit]").recaptchaID = recaptchaID;
+
                 } catch (error) {}
             });
             
@@ -1554,6 +1554,19 @@ function wpforms_footer_scripts()
     <script type='text/javascript'>
         /* <![CDATA[ */
         var wpforms_settings = {"val_required":"Dieses Feld wird benötigt.","val_email":"Bitte geben Sie eine gültige E-Mail-Adresse ein.","val_email_suggestion":"Meinten Sie {suggestion}?","val_email_suggestion_title":"Klicken Sie hier, um diesen Vorschlag zu akzeptieren.","val_email_restricted":"Diese E-Mail-Adresse ist nicht zulässig.","val_number":"Bitte geben Sie eine gültige Nummer ein.","val_number_positive":"Bitte geben Sie eine gültige positive Zahl ein.","val_confirm":"Feldwerte stimmen nicht überein.","val_checklimit":"Sie haben die Anzahl der zulässigen Auswahlen überschritten: {#}.","val_limit_characters":"{count} von {limit} maximale Zeichen.","val_limit_words":"{count} von {limit} maximale Wörter.","val_recaptcha_fail_msg":"Google reCAPTCHA-Bestätigung fehlgeschlagen. Bitte versuchen Sie es später erneut.","val_empty_blanks":"Bitte alle Felder ausfüllen.","uuid_cookie":"","locale":"de","wpforms_plugin_url":"$siteurl\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"$siteurl\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1"}
+        /*******************************
+        * Kontakt Formular autocomplete
+        *******************************/
+        var prefix = document.getElementById('wpforms-3127-field_2');
+        prefix.setAttribute('autocomplete', 'honorific-prefix');        
+        var first_name = document.getElementById('wpforms-3127-field_3');
+        first_name.setAttribute('autocomplete', 'given-name');
+        var last_name = document.getElementById('wpforms-3127-field_4');
+        last_name.setAttribute('autocomplete', 'family-name');
+        var email = document.getElementById('wpforms-3127-field_5');
+        email.setAttribute('autocomplete', 'email');
+        var tel = document.getElementById('wpforms-3127-field_6');
+        tel.setAttribute('autocomplete', 'tel');        
         /* ]]> */
     </script>
     
