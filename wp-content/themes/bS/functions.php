@@ -626,20 +626,8 @@ function footer()
     $page_data = page_data();
 
     $html = str_replace(
-        array(
-            '{{language}}',
-            '{{canonical}}',
-            '{{title}}',
-            '{{meta_description}}',
-            '{{WPFORMS_SCRIPTS}}'
-        ),
-        array(
-            'de',
-            (strlen($page_data->canonical) > 0) ? $page_data->canonical : get_permalink(),
-            (strlen($page_data->meta_title) > 0) ? $page_data->meta_title : get_the_title(),
-            $page_data->meta_description,
-            wpforms_footer_scripts()
-        ),
+        array(),
+        array(),
         $html);
     #echo minify_html($html);
 
@@ -1479,7 +1467,7 @@ function use_amazon_ses($phpmailer)
     $phpmailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
 }
 
-add_action( 'wp_footer', 'wpforms_footer_scripts' );
+//add_action( 'wp_footer', 'wpforms_footer_scripts' );
 function wpforms_footer_scripts()
 {
     $siteurl = str_replace('"', '',  json_encode(get_option('siteurl')));
