@@ -1954,10 +1954,6 @@ margin: 0 auto;
     margin-bottom: 16px;    
 }
 
-.my-block-title {
-    padding: 24px 0;
-}
-
   .text .my-block-button {
   border: 2px solid #FFFFFF;
   background: none;
@@ -1969,7 +1965,7 @@ margin: 0 auto;
   line-height: 24px;
   text-align: center;
   padding: 16px 24px;
-  margin-top: 24px;
+  margin-top: 32px;
 }
 
 
@@ -3530,7 +3526,7 @@ hr.wp-block-separator.medium {
 
 .testimonial .testimonial-image{
     width: 80px;
-    height: 80px;
+    height: auto;
     margin: 0;
     padding: 0;
     margin-bottom: 24px;
@@ -3618,6 +3614,7 @@ padding: 0; margin-bottom: 40px;
   }
 .modul.testimonial{
  border: none;
+ margin-bottom: 64px;
 }
   .testimonial{
     display: flex;
@@ -3629,6 +3626,11 @@ padding: 0; margin-bottom: 40px;
     margin: 0;
     padding: 0;
   }
+.testimonial .testimonial-quote{
+    margin-bottom: 0;
+   
+}
+
 
 .testimonial figure + .testimonial-quote p + cite {
     margin-top: 24px;
@@ -3689,7 +3691,10 @@ flex-direction: column;
 .footer_item2, .footer .footer_menu a:link {
 display: inline-block;
 }
-
+.two-column-text ul {
+    padding: 0;
+    margin: 0;
+}
 .wp-block-columns.two-column-text {
       flex-direction: row;
       padding: 0;
