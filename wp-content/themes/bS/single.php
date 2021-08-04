@@ -5,6 +5,7 @@
 
 get_header();
 ?>
+<main>
     <div class="main news_details">
         <?php
 
@@ -85,4 +86,5 @@ get_header();
 
         ?>
     </div>
+</main>
 <?php get_footer(); 
