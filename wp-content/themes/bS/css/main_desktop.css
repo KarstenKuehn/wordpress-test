@@ -626,6 +626,12 @@ section.news-liste {
 .swiper-container.gallery-main {
     height: 648px;
 }
+
+
+section .button {
+    margin: 0;
+}
+
 @media(min-width:900px)
 {
 
