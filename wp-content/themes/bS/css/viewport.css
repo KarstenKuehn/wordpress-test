@@ -3514,6 +3514,15 @@ hr.wp-block-separator.medium {
  background: aliceblue_x;
 }
 
+.modul.testimonial:last-of-type {
+ border-bottom: none;
+ margin-bottom: 24px;
+}
+.modul.testimonial:last-of-type .testimonial-quote {
+  margin-bottom: 0;
+}
+
+
 .testimonial{
   position: relative;
 
