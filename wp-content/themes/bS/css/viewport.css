@@ -3536,7 +3536,10 @@ hr.wp-block-separator.medium {
     margin-bottom: 24px;
 }
 
-
+.modul.testimonial figcaption {
+    font-size: 12px;
+    line-height: 16px;
+}
 .testimonial .testimonial-quote{
     border-left: 2px solid #1F5DA6;  
     padding-left: 24px;  margin-bottom: 40px;
