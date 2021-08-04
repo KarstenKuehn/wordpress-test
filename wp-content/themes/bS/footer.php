@@ -4,7 +4,7 @@
 <div class="footer1">
 <h3 class="footer_item1 label" tabindex="0">Unsere Marken</h3>
 <label class="footer_item1">
-<a href="https://www.lotto-bayern.de/" target="_blank" rel="noreferrer"><img width="53" height="56" src="https://lotterien-spielbanken-bayern.de/wp-content/uploads/2021/07/LB_LOGO.svg" alt="zu LottoBayern"></a>
+<a href="https://www.lotto-bayern.de/" target="_blank" rel="noreferrer"><img width="53" height="56" src="https://lotterien-spielbanken-bayern.de/wp-content/uploads/2021/07/LB_LOGO.svg" alt="zu LOTTO Bayern"></a>
 </label>	
 <label class="footer_item1">
 <a href="https://www.spielbanken-bayern.de/" target="_blank" rel="noreferrer"><img width="109" height="56" src="https://lotterien-spielbanken-bayern.de/wp-content/uploads/2021/07/SPB-Logo.svg" alt="zu Spielbanken Bayern"></a>
