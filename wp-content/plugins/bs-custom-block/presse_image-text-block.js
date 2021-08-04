@@ -174,7 +174,7 @@ return [
       "hr",
       null
     ),
-/*
+
 
     el('svg',{ width: 24, height: 24 },
       el('path',{d:"M0 0h24v24H0z",fill:"none"}),
@@ -197,7 +197,7 @@ return [
       "hr",
       null
     ),
-*/
+/**/
 
     el('svg',{ width: 24, height: 24 },
       el('path',{d:"M0 0h24v24H0V0z",fill:"none"}),
@@ -320,12 +320,17 @@ return (
           value:  attributes.text
           },        ),
 
-          /*
+        attributes.ansprechpartner ? 
+        ( 
           el('div',{className:'block_content content'},
-            el('span',{className:'material-icons'},'person_outline'),
-            el('span',null,attributes.ansprechpartner),
-          ),
-          */
+            el('span',{className:'material-icons'},'person_outline'),            
+            el( editor.RichText.Content, {
+                tagName:'span',
+                value:  attributes.ansprechpartner
+              },
+           ),
+          )
+        ):(''),// end p 
           el('div',{className:'block_content content'},
             el('span',{className:'material-icons'},'mail_outline'),
             el( editor.RichText.Content, {
