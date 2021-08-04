@@ -5,21 +5,22 @@
 
 get_header();
 ?>
-
-<div class="main standard">
-  <div class="site-header">
-  <?php
-    if(get_the_post_thumbnail_url()!='')
-    { 
-        echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
-    }
-  ?>
-  </div>
-  <?php
-  $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
-  echo $html;
-  echo '</div>';
-  ?>
+<main>
+    <div class="main standard">
+        <div class="site-header">
+        <?php
+            if(get_the_post_thumbnail_url()!='')
+            {
+                echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
+            }
+          ?>
+        </div>
+      <?php
+          $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
+          echo $html;
+      ?>
+    </div>
+</main>
   <!-- Initialize Swiper -->
   <script>
 
