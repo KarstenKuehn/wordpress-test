@@ -1,4 +1,4 @@
-<div class="main news_feed">
+<!--<div class="main news_feed">-->
 <?php
 
     $catname = 'News';
@@ -292,7 +292,7 @@ echo '<button onclick="showAllNews()" id="mehr">+ mehr laden</button>';
 <!--<button onclick="showAllNews()" id="mehr">+ mehr laden</button>-->
 </div>
 </section>
-</div>
+<!--</div>-->
 <script>
 
 var x, i, j, l, ll, selElmnt, a, b, c;
