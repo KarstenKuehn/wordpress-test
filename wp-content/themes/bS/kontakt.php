@@ -4,16 +4,14 @@
 */
 get_header();
 ?>
-    <div class="main">
+    <main>
         <?php
         echo '<h1 tabindex="0">'.get_the_title().'</h1>';
         $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
         echo $html;
         ?>
-    </div>
-
+    </main>
 <?php
-get_footer();
 $siteurl = str_replace('"', '',  json_encode(get_option('siteurl')));
 ?>
 <!-- KONTAKT-FORM JS -->
@@ -180,3 +178,4 @@ $siteurl = str_replace('"', '',  json_encode(get_option('siteurl')));
 
     /* ]]> */
 </script>
+<?php get_footer(); ?>
