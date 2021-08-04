@@ -5,6 +5,7 @@
     <?php 
         $name_of_menu = 'Hauptnavigation';
     ?>
+<header>
     <div class="header_out"><div class="header"><div class="site-logo"><div class="desktop_hidden"><button onclick="backNavi()" id="back_navi"><span class="material-icons">arrow_back_ios</span></button></div><?php bs_site_logo();?></div><div class="desktop_navi mobile_hidden"><?php echo haupt_menu($name_of_menu,'d');
         ?></div><div class="nav-frame">
         <?php
@@ -23,24 +24,19 @@
         </button>
 
         </div>
-
-<?php 
-    if ( true === $enable_header_search ) {
-        get_template_part( 'template-parts/modal-search' );
-    }
-    ?>
-
-    </div>
-</div>
-<div class="sub_menu mobile_hidden" id="sub_menu">
-    <div class="sub_menu_inner">
-    <div class="mobile_hidden menu_close"><button onclick="closeNavi()"><span class="material-icons">close</span></button></div>
     <?php
-
-echo getSubMenu($name_of_menu,'d');
-        ?>
-</div>
-</div>
+        if ( true === $enable_header_search ) {
+            get_template_part( 'template-parts/modal-search' );
+        }
+    ?>
+        </div>
+    </div>
+    <div class="sub_menu mobile_hidden" id="sub_menu">
+        <div class="sub_menu_inner">
+        <div class="mobile_hidden menu_close"><button onclick="closeNavi()"><span class="material-icons">close</span></button></div>
+        <?php echo getSubMenu($name_of_menu,'d'); ?>
+        </div>
+    </div>
 <?php 
     if ( true === $enable_header_search ) {
         //get_template_part( 'template-parts/modal-search' );
@@ -48,7 +44,7 @@ echo getSubMenu($name_of_menu,'d');
     get_template_part( 'template-parts/modal-menu' );
     //seo_breadcrumb(); 
 ?>
-
+</header>
 
 <script type="text/javascript">
 ( function() {
