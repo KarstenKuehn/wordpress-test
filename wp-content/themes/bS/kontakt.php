@@ -4,7 +4,7 @@
 */
 get_header();
 ?>
-<main>
+<main id="maincontent">
     <div class="main">
         <?php
         echo '<h1 tabindex="0">'.get_the_title().'</h1>';
