@@ -6,7 +6,7 @@
         $name_of_menu = 'Hauptnavigation';
     ?>
 <header>
-    <div class="header_out"><div class="header"><div class="site-logo"><div class="desktop_hidden"><button onclick="backNavi()" id="back_navi"><span class="material-icons">arrow_back_ios</span></button></div><?php bs_site_logo();?></div><div class="desktop_navi mobile_hidden"><?php echo haupt_menu($name_of_menu,'d');
+    <div class="header_out"><div class="header"><div class="site-logo"><a id="navigation"></a> <div class="desktop_hidden"><button onclick="backNavi()" id="back_navi"><span class="material-icons">arrow_back_ios</span></button></div><?php bs_site_logo();?></div><div class="desktop_navi mobile_hidden"><?php echo haupt_menu($name_of_menu,'d');
         ?></div><div class="nav-frame">
         <?php
             // Site search
