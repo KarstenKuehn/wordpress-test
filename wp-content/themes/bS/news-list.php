@@ -11,19 +11,14 @@
 	    );
 	$posts = get_posts($args);
 
-?>
-
-<?php
-
-
 $year = date('Y');
-if(isset($_GET['selected_year']))
-	$year = $_GET['selected_year'];
+if(isset($_POST['select_year']))
+	$year = $_POST['select_year'];
 
 $cat_filter=0;
 $sub_cat1 = '';
 $cat1_checked = '';
-if(isset($_GET['sub_cat1']))
+if(isset($_POST['sub_cat1']))
 {	
 	$sub_cat1 = 'Gewinner-News';
 	$cat_filter=1;
@@ -31,7 +26,7 @@ if(isset($_GET['sub_cat1']))
 }
 $sub_cat2 = '';
 $cat2_checked = '';
-if(isset($_GET['sub_cat2']))
+if(isset($_POST['sub_cat2']))
 {
 	$sub_cat2 = 'Unternehmens-News';
 	$cat_filter=1;
@@ -39,9 +34,9 @@ if(isset($_GET['sub_cat2']))
 }
 
 $filter_word = '';
-if(isset($_GET['filter_word']))
+if(isset($_POST['filter_word']))
 {
-	$filter_word = $_GET['filter_word'];
+	$filter_word = $_POST['filter_word'];
 	$cat_filter=0;
 	$cat1_checked = '';
 	$cat2_checked = '';
@@ -142,17 +137,16 @@ foreach ($posts as $key => $post)
 
 $years = array_unique($years);
 ?>
-
+<a id="newsliste" aria-label="Pressemitteilungen" tabindex="0"></a>
 <section class="news-liste">
 <div class="events_header news_filter">
 <div id="filter">
-
+<form name="FilterForm" method="post" action="#newsliste">
 <div class="custom-select_x" >
 <label for="select_year" aria-label="Nach Jahr sortieren">
-<select id="select_year">
+<select id="select_year" name="select_year" onchange="this.form.submit()">
 <!--<option value="0">Select Year:</option>-->
 <?php
-
 /*
 function sortDesc( $a, $b ) {
 	if (isset($b["date"]) && isset($a["date"]))
@@ -174,7 +168,7 @@ foreach($years as $key => $year_select)
 {
 	if ($year_select == $selectedYear)
 	{
-		echo '<option selected="selected">'.$year_select.'</option>';
+		echo '<option selected="selected">'.$selectedYear.'</option>';
 	}
 	else
 	{
@@ -193,9 +187,9 @@ $s1=' selected';
 $s2='';
 $sortierung = "sortDesc";
 
-if(isset($_GET['sort']))
+if(isset($_POST['select_sort']))
 {
-	$sort = $_GET['sort'];
+	$sort = $_POST['select_sort'];
 	if($sort=='desc')
 	{
 		$s1=' selected="selected"';
@@ -211,14 +205,15 @@ if(isset($_GET['sort']))
 }
 
 ?>
-
 <div class="custom-select_x" >
 <label for="select_sort" aria-label="Nachrichten sortieren">
-<select id="select_sort">
+<select id="select_sort" name="select_sort" onchange="this.form.submit()">
 	<!--    <option value="0">Select car:</option>-->
+    <option <?php echo $s1 ?> value="desc">Nachrichten absteigend</option>
+    <option <?php echo $s2 ?> value="asc">Nachrichten aufsteigend</option>
 	<?php
-echo '<option'.$s1.' name="sort" value="desc">Nachrichten absteigend</option>';
-echo '<option'.$s2.' name="sort" value="asc">Nachrichten aufsteigend</option>';
+#echo '<option'.$s1.' value="desc">Nachrichten absteigend</option>';
+#echo '<option'.$s2.' value="asc">Nachrichten aufsteigend</option>';
 ?>
 </select>
 </label>
@@ -226,33 +221,27 @@ echo '<option'.$s2.' name="sort" value="asc">Nachrichten aufsteigend</option>';
 <div class="cat">
 <div class="cat_check">
   <label for="cat1" aria-label="Filter Gewinner-News">Gewinner-News</label>
-  <input type="checkbox" id="cat1" name="sub_cat1" class="cat_check_box"<?php echo $cat1_checked; ?>>
+  <input type="checkbox" id="cat1" name="sub_cat1" class="cat_check_box"<?php echo $cat1_checked; ?> onchange="this.form.submit()">
 
 </div>
 <div class="cat_check">
   <label for="cat2" aria-label="Filter Unternehmens-News">Unternehmens-News</label>
-  <input type="checkbox" id="cat2" name="sub_cat2" class="cat_check_box"<?php echo $cat2_checked; ?>>
-    </label>
+  <input type="checkbox" id="cat2" name="sub_cat2" class="cat_check_box"<?php echo $cat2_checked; ?> onchange="this.form.submit()">
 </div>
 </div>
-</div>
-
-<form class="searchformfld" id="search-filter">
-      <input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" class="text-field" onClick="this.select()" placeholder=" "/>
-      <label for="filter_word">Suchbegriff eingeben</label>
-      <button onclick="searchStart()" class="mobile_hidden"><span class="material-icons">search</span></button>
     </form>
-  <button onclick="searchStart()" class="button desktop_hidden">Suche</button>
 </div>
 
+    <form class="searchformfld" id="search-filter" method="post" action="#newsliste">
+        <input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" class="text-field" onClick="this.select()" placeholder=" "/>
+        <label for="filter_word">Suchbegriff eingeben</label>
+        <button onclick="this.form.submit()" class="mobile_hidden"><span class="material-icons">search</span></button>
+    </form>
+  <button onclick="this.form.submit()" class="button desktop_hidden">Suche</button>
+</div>
 <!-- spalten_3 || spalten_2 -->
 <div class="news spalten_3">
-
-
 <?php
-
-//usort($pages, "sortDesc");
-
 
 usort($pages, $sortierung);
 $i = 1;
@@ -383,10 +372,8 @@ function closeAllSelect(elmnt) {
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
 
+/*var filter = document.getElementById('filter');
 
-
-
-var filter = document.getElementById('filter');
 filter.onchange = function() {
 	year="selected_year="+document.getElementById('select_year').value;
 	sort="sort="+document.getElementById('select_sort').value;
@@ -403,8 +390,8 @@ filter.onchange = function() {
 	parameters_arr.push(cat2);
 	}
 	var parameters = parameters_arr.join('&');
-	location.href = location.pathname + "?"+parameters;
-}
+	//location.href = location.pathname + "#newsliste?"+parameters;
+}*/
 
 function searchStart()
 {
@@ -415,14 +402,14 @@ function searchStart()
 	parameters_arr.push(filter_word);
 
 	var parameters = parameters_arr.join('&');
-	location.href = location.pathname + "?"+parameters;
+	location.href = location.pathname + "#newsliste?"+parameters;
 }
 
 
 var elem = document.getElementById('select_year');
-elem.addEventListener('change', Auswählen);
+elem.addEventListener('change', Auswaehlen);
 
-function Auswählen() {
+function Auswaehlen() {
 	/*
     var x = document.getElementById('select_year').value;
 var url = new URL(location.href);
@@ -433,7 +420,9 @@ location.href = location.pathname + "?selected_year=" + x;
 
 }
 
-	function showAllNews(){var e,s=document.getElementsByClassName("news_container");for(e=0;e<s.length;e++)s[e].classList.add("active");
-
-document.getElementById('mehr').style.display='none';
-	 }</script>
+function showAllNews(){
+    var e,s=document.getElementsByClassName("news_container");
+    for(e=0;e<s.length;e++)s[e].classList.add("active");
+    document.getElementById('mehr').style.display='none';
+}
+</script>
