@@ -704,29 +704,15 @@ function get_my_content()
 
 function get_skiplinks()
 {
-    $html = apply_filters('the_content', get_the_content());
+    $skiplinks = '<a id="top" aria-label="Seitenanfang"></a><nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" data-has-module="yes" aria-label="Sprunglinks"><ul>';
+    $skiplinks .= '<li class="skiplink" accesskey="0"><a href="#navigation">zur Haupt-Navigation</a></li>';
+    $skiplinks .= '<li class="skiplink" accesskey="1"><a href="#seitensuche">zur Seitensuche</a></li>';
+    $skiplinks .= '<li class="skiplink" accesskey="2"><a href="#maincontent">zum Inhalt</a></li>';
+    $skiplinks .= '<li class="skiplink" accesskey="3"><a href="#footer">zum Seitenende</a></li>';
+    $skiplinks .= '<li class="skiplink" accesskey="4"><a href="#footer-navigation">Informationen zum Webseiten-Betreiber</a></li>';
 
-    #$skiplinks = '<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" role="navigation" data-has-module="yes"><h2 class="is-visuallyhidden" >Skiplinks</h2><ul>';
-    $skiplinks = '<nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" data-has-module="yes" aria-label="zur Navigation"><ul>';
-
-    preg_match_all('@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings);
-    $i = 0;
-    foreach ($_headings[0] as $key => $value) {
-        // is ID defined for headline?  
-        preg_match_all('@<([^\s]+).*?id="([^"]*?)".*?>(.+?)</\1>@', $value, $_html);
-        $str_2 = $value;
-
-        if (!isset($_html[0]) or !isset($_html[0][0])) {
-            preg_match_all('@<([^\s]+).*?>(.+?)</\1>@', $value, $_html);
-            $tag = 'headline_' . $_html[1][0] . '_' . $i;
-        }
-
-        $html = str_replace($value, $str_2, $html);
-        $skiplinks .= ' <li class="skiplink"><a accesskey="' . $i . '" href="#' . $tag . '" title="ALT + ' . $i . '">' . $_html[2][0] . '</a></li>';
-        $i++;
-    }
-    $skiplinks .= '<li class="skiplink"><a accesskey="' . $i . '" href="#s" title="[ALT + ' . $i . ']">Skip to search</a></li>';
     $skiplinks .= '</ul></nav>';
+
     return $skiplinks;
 }
 
