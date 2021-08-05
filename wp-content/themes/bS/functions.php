@@ -213,10 +213,10 @@ function sub_menu($view, $current_menu, $current_menu_id)
             $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label>' . $child->description . '</label>' : '';
             if ($child->wpse_children) {
                 foreach ($child->wpse_children as $key => $sub_child) {
-                    $submenu_html_liste .= '<a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons">arrow_forward_ios</span></a>';
+                    $submenu_html_liste .= '<a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a>';
                 }
             } else {
-                $submenu_html_liste .= '<a href="' . $child->url . '" class="sub_menu_item">' . $child->title . '<span class="material-icons">arrow_forward_ios</span></a>';
+                $submenu_html_liste .= '<a href="' . $child->url . '" class="sub_menu_item">' . $child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a>';
             }
             $submenu_html_liste .= '</div>';
             $i++;
@@ -236,7 +236,7 @@ function sub_menu($view, $current_menu, $current_menu_id)
                         if (isset($sub_child->description) && $sub_child->description != '') {
                             $link_text = $sub_child->description;
                         }
-                        $bild_navigation .= '<div class="sub_menu_block blog"><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div><div class="menu_teaser_content"><h3>' . $sub_child->title . '</h3><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons">arrow_right_alt</span></a></div></div>';
+                        $bild_navigation .= '<div class="sub_menu_block blog"><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div><div class="menu_teaser_content"><h3>' . $sub_child->title . '</h3><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div></div>';
 
                     }
                 }
@@ -294,7 +294,7 @@ function getArticelMenu($current_menu, $view)
                 $excerpt = get_the_excerpt();
                 $post_image = get_the_post_thumbnail($post);
                 $permalink = get_permalink($post);
-                $submenu_html_liste .= '<div class="sub_menu_block blog">' . $post_image . '<p>' . $title . '</p><a href="' . $permalink . '">zum Artikel<span class="material-icons">arrow_right_alt</span></a></div>';
+                $submenu_html_liste .= '<div class="sub_menu_block blog">' . $post_image . '<p>' . $title . '</p><a href="' . $permalink . '">zum Artikel<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div>';
             endwhile;
             wp_reset_postdata();
         else :
@@ -322,7 +322,7 @@ function haupt_menu($current_menu, $view)
 
         if ($value->wpse_children) {
             $html .= '<button class="main-navi_btn toggle_x ' . $view . '" data-toggle-target_x=".show-test.' . $view . '_' . $value->ID . '"  onclick="updateNavi_' . $view . '(' . $value->ID . ')" id="btn_' . $view . '_' . $value->ID . '">' . $value->title;
-            $html .= '<span class="material-icons desktop_hidden">arrow_forward_ios</span>';
+            $html .= '<span class="material-icons desktop_hidden" aria-hidden="true">arrow_forward_ios</span>';
             $html .= '</button>';
         } else {
 
@@ -425,10 +425,10 @@ function sub_menu_list($view, $current_menu, $current_menu_id)
             $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label>' . $child->description . '</label>' : '';
             if ($child->wpse_children) {
                 foreach ($child->wpse_children as $key => $sub_child) {
-                    $submenu_html_liste .= '<li><a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons">arrow_forward_ios</span></a></li>';
+                    $submenu_html_liste .= '<li><a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a></li>';
                 }
             } else {
-                $submenu_html_liste .= '<li><a href="' . $child->url . '" class="sub_menu_item">' . $child->title . '<span class="material-icons">arrow_forward_ios</span></a></li>';
+                $submenu_html_liste .= '<li><a href="' . $child->url . '" class="sub_menu_item">' . $child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a></li>';
             }
             $submenu_html_liste .= '</ul>';
             $i++;
@@ -448,7 +448,7 @@ function sub_menu_list($view, $current_menu, $current_menu_id)
                         if (isset($sub_child->description) && $sub_child->description != '') {
                             $link_text = $sub_child->description;
                         }
-                        $bild_navigation .= '<ul class="sub_menu_block blog"><li><a href="' . $sub_child->url . '"><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div></a><div class="menu_teaser_content"><p>' . $sub_child->title . '</p><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons">arrow_right_alt</span></a></div></li></ul>';
+                        $bild_navigation .= '<ul class="sub_menu_block blog"><li><a href="' . $sub_child->url . '"><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div></a><div class="menu_teaser_content"><p>' . $sub_child->title . '</p><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div></li></ul>';
 
                     }
                 }
@@ -482,7 +482,7 @@ function back_haupt_menu($view)
     $html = '';
     if ($view == 'm') {
         $html = '<button class="desktop_hidden" onclick="backNavi()" id="back_navi">
-            <span class="material-icons">arrow_back_ios</span>
+            <span class="material-icons" aria-hidden="true">arrow_back_ios</span>
             </button>';
     }
 
@@ -1367,7 +1367,7 @@ function shortcode_posts_function($atts = [], $content = null, $tag = '')
                     $content .= '<h2 class="news_headline">' . substr(strip_tags($post['post_title']), 0, 100) . '</h2>';
                     $content .= '<p>' . substr(strip_tags($post['excerpt']), 0, 150) . '</p>';
                     $content .= '</div>';
-                    $content .= '<a href="' . $post['link'] . '" class="list">Mehr erfahren <span class="material-icons">east</span></a>';
+                    $content .= '<a href="' . $post['link'] . '" class="list">Mehr erfahren <span class="material-icons" aria-hidden="true">east</span></a>';
                     $content .= '</div>';
                 }
             }
