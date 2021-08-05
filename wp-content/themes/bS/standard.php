@@ -5,7 +5,7 @@
 
 get_header();
 ?>
-<main>
+<main id="maincontent">
     <div class="main standard">
         <div class="site-header">
         <?php

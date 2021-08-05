@@ -7,7 +7,7 @@ get_header();
 
 @include_once('events´-list.php');
 ?>
-<main>
+<main id="maincontent">
 <div class="main events">
 <?php
 

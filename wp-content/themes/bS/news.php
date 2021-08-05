@@ -5,7 +5,7 @@
 
 get_header();
 ?>
-<main>
+<main id="maincontent">
     <div class="main news_feed">
     <?php
 

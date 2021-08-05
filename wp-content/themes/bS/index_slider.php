@@ -6,7 +6,7 @@ get_header();
 
 $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 ?>
-    <main>
+    <main id="maincontent">
         <div class="main">
             <?php echo $html; ?>
         </div>
