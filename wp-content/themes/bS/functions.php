@@ -705,11 +705,11 @@ function get_my_content()
 function get_skiplinks()
 {
     $skiplinks = '<a id="top" aria-label="Seitenanfang"></a><nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" data-has-module="yes" aria-label="Sprunglinks"><ul>';
-    $skiplinks .= '<li class="skiplink" accesskey="0"><a href="#navigation">zur Haupt-Navigation</a></li>';
-    $skiplinks .= '<li class="skiplink" accesskey="1"><a href="#seitensuche">zur Seitensuche</a></li>';
-    $skiplinks .= '<li class="skiplink" accesskey="2"><a href="#maincontent">zum Inhalt</a></li>';
-    $skiplinks .= '<li class="skiplink" accesskey="3"><a href="#footer">zum Seitenende</a></li>';
-    $skiplinks .= '<li class="skiplink" accesskey="4"><a href="#footer-navigation">Informationen zum Webseiten-Betreiber</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="0" href="#navigation">zur Haupt-Navigation</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="1" href="#seitensuche">zur Seitensuche</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="2" href="#maincontent">zum Inhalt</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="3" href="#footer">zum Seitenende</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="4" href="#footer-navigation">Informationen zum Webseiten-Betreiber</a></li>';
 
     $skiplinks .= '</ul></nav>';
 
