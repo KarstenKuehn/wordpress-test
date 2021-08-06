@@ -210,7 +210,7 @@ function sub_menu($view, $current_menu, $current_menu_id)
 
         foreach ($current_menu->wpse_children as $key => $child) {
             $submenu_html_liste .= '<div class="sub_menu_block navi">';
-            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label>' . $child->description . '</label>' : '';
+            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label role="heading" aria-level="3">' . $child->description . '</label>' : '';
             if ($child->wpse_children) {
                 foreach ($child->wpse_children as $key => $sub_child) {
                     $submenu_html_liste .= '<a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a>';
@@ -332,7 +332,7 @@ function haupt_menu($current_menu, $view)
             if (isset($value->title) && (isset($this_item->title)) && $this_item->title == $value->title) {
                 $active = ' active';
             }
-            $html .= '<a href="' . $value->url . '" class="main-navi_btn ' . $view . $active . '">' . $value->title . '</a>';
+            $html .= '<a href="' . $value->url . '" class="main-navi_btn ' . $view . $active . '">HM' . $value->title . '</a>';
         }
 
     }
@@ -422,7 +422,7 @@ function sub_menu_list($view, $current_menu, $current_menu_id)
         $i = 0;
         foreach ($current_menu->wpse_children as $key => $child) {
             $submenu_html_liste .= '<ul class="sub_menu_block navi">';
-            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label>' . $child->description . '</label>' : '';
+            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label role="heading" aria-level="3">' . $child->description . '</label>' : '';
             if ($child->wpse_children) {
                 foreach ($child->wpse_children as $key => $sub_child) {
                     $submenu_html_liste .= '<li><a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a></li>';
