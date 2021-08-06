@@ -33,7 +33,7 @@
     </div>
     <div class="sub_menu mobile_hidden" id="sub_menu">
         <div class="sub_menu_inner">
-        <div class="mobile_hidden menu_close"><button onclick="closeNavi()"><span class="material-icons">close</span></button></div>
+        <div class="mobile_hidden menu_close"><button tabindex="0" onclick="closeNavi()"><span class="material-icons">close</span></button></div>
         <?php echo getSubMenu($name_of_menu,'d'); ?>
         </div>
     </div>
