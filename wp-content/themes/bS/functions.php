@@ -210,7 +210,7 @@ function sub_menu($view, $current_menu, $current_menu_id)
 
         foreach ($current_menu->wpse_children as $key => $child) {
             $submenu_html_liste .= '<div class="sub_menu_block navi">';
-            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label>' . $child->description . '</label>' : '';
+            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label role="heading" aria-level="3">' . $child->description . '</label>' : '';
             if ($child->wpse_children) {
                 foreach ($child->wpse_children as $key => $sub_child) {
                     $submenu_html_liste .= '<a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a>';
@@ -332,7 +332,7 @@ function haupt_menu($current_menu, $view)
             if (isset($value->title) && (isset($this_item->title)) && $this_item->title == $value->title) {
                 $active = ' active';
             }
-            $html .= '<a href="' . $value->url . '" class="main-navi_btn ' . $view . $active . '">' . $value->title . '</a>';
+            $html .= '<a href="' . $value->url . '" class="main-navi_btn ' . $view . $active . '">HM' . $value->title . '</a>';
         }
 
     }
@@ -422,7 +422,7 @@ function sub_menu_list($view, $current_menu, $current_menu_id)
         $i = 0;
         foreach ($current_menu->wpse_children as $key => $child) {
             $submenu_html_liste .= '<ul class="sub_menu_block navi">';
-            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label>' . $child->description . '</label>' : '';
+            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label role="heading" aria-level="3">' . $child->description . '</label>' : '';
             if ($child->wpse_children) {
                 foreach ($child->wpse_children as $key => $sub_child) {
                     $submenu_html_liste .= '<li><a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a></li>';
@@ -705,11 +705,11 @@ function get_my_content()
 function get_skiplinks()
 {
     $skiplinks = '<a id="top" aria-label="Seitenanfang"></a><nav class="skiplinks l-site-width js-skiplinks" id="skiplinks" data-has-module="yes" aria-label="Sprunglinks"><ul>';
-    $skiplinks .= '<li class="skiplink" accesskey="0"><a href="#navigation">zur Haupt-Navigation</a></li>';
-    $skiplinks .= '<li class="skiplink" accesskey="1"><a href="#seitensuche">zur Seitensuche</a></li>';
-    $skiplinks .= '<li class="skiplink" accesskey="2"><a href="#maincontent">zum Inhalt</a></li>';
-    $skiplinks .= '<li class="skiplink" accesskey="3"><a href="#footer">zum Seitenende</a></li>';
-    $skiplinks .= '<li class="skiplink" accesskey="4"><a href="#footer-navigation">Informationen zum Webseiten-Betreiber</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="0" href="#navigation">zur Haupt-Navigation</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="1" href="#seitensuche">zur Seitensuche</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="2" href="#maincontent">zum Inhalt</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="3" href="#footer">zum Seitenende</a></li>';
+    $skiplinks .= '<li class="skiplink"><a accesskey="4" href="#footer-navigation">Informationen zum Webseiten-Betreiber</a></li>';
 
     $skiplinks .= '</ul></nav>';
 
