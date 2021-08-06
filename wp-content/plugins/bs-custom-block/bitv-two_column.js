@@ -64,13 +64,13 @@
 */
               ['core/columns',{className:'two-column-text'},
                 [
-                  ['core/column',{className:'text_left',},
+                  ['core/column',{className:'block-text text_left',},
                     [
                       ['core/paragraph',{className:'text1_content','placeholder':'Spalte1'}],
                       
                     ]
                   ],
-                  ['core/column',{className:'text_right'},
+                  ['core/column',{className:'block-text text_right'},
                     [
                       ['core/paragraph',{className:'text2-content','placeholder':'Spalte2'}],
                     ]

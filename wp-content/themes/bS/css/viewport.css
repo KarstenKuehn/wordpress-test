@@ -103,7 +103,7 @@ blockquote, q {
     quotes: "" "";
 }
 .block_head{
-  padding: 0 16px 24px 16px;
+  padding: 0;
 }
 
 .wp-block-image.is-style-rounded img {
@@ -146,10 +146,6 @@ details > summary {
 }
 details > summary::marker {
   display: none;
-}
-
-.content-width{
-  background: lavender;
 }
 
 
@@ -411,7 +407,7 @@ section{
 .modul .text-button a:hover, .my-block-button:hover span.button-text, .button:hover {    color: #FFF; background: #143C6B;
    } 
 .modul .text-button a:focus-visible, .my-block-button:focus-visible span.button-text, .button:focus-visible {  
-  background-color: #143C6B;  color: #fff; outline: 3px dotted #FFF; }
+  background-color: #143C6B;  color: #fff; outline: 3px dotted #000; }
 
 
 
@@ -2465,10 +2461,6 @@ margin: 0;
     border: 2px solid transparent;
 }
 .thumb {
-
-    background: red;
-
-
 }
 .thumbs {
    display: flex
@@ -3216,14 +3208,14 @@ header.main-head {
     align-items: stretch;
 }
 .logo{
-  background: beige;align-self: center;
+  align-self: center;
   height: 112px;
 }
 .hauptnavigation{
   align-self: center;
 }
 .seitensuche{
-  background: beige;align-self: center;
+  align-self: center;
 }
 #branding{
   height: 112px;flex-grow: 10;
@@ -3243,7 +3235,6 @@ header.main-head {
 #mainnav .nav-menu {
 margin: 0;
     padding: 0;
-    /* background: lavenderblush; */
     height: 100%;
     width: 100%;
     max-width: 100%;
@@ -3379,18 +3370,29 @@ hr.wp-block-separator.medium {
 }
 
 .content_section.gray.bitv{
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 /* Modul Definition */
 .modul{
   max-width: 808px;
   margin: auto;
-  margin: 0 16px 24px 16px;
+  margin: 0 16px 16px 16px;
+  padding-bottom: 1px;
 }
 
+
+.modul h1,.modul h2,.modul h3,.modul h4,.modul p, .modul ul
+{
+  padding:0;
+  margin: 0;
+}
+.modul p, .modul ul
+{
+  padding-bottom: 16px ;
+}
 .modul .modul{
-  margin: 0 0 24px 0;
+  margin: 0 0 16px 0;
 }
 
 /* Modul Testimonial */
@@ -3399,12 +3401,11 @@ hr.wp-block-separator.medium {
 .modul.testimonial{
  border-bottom: 1px solid #E3E5ED;
  margin-bottom: 40px;
- background: aliceblue_x;
 }
 
 .modul.testimonial:last-of-type {
  border-bottom: none;
- margin-bottom: 24px;
+ margin-bottom: 16px;
 }
 .modul.testimonial:last-of-type .testimonial-quote {
   margin-bottom: 0;
@@ -3430,7 +3431,8 @@ hr.wp-block-separator.medium {
 }
 .testimonial .testimonial-quote{
     border-left: 2px solid #1F5DA6;  
-    padding-left: 24px;  margin-bottom: 40px;
+    padding-left: 24px;  
+    margin-bottom: 40px;
    
 }
 
@@ -3543,25 +3545,35 @@ padding: 0; margin-bottom: 40px;
   }
 
 }
+/* Eine Spalte Text */
+
+.modul.eine_spalte {
+}
 
 /* Zwei Spalten Text */
 
 .wp-block-columns.two-column-text {
-      flex-direction: column;
-  }
-.modul.zwei_spalten {
-display: flex;
-flex-direction: column;
+  flex-direction: column;
 }
 
-.modul.zwei_spalten .text_left, .modul.zwei_spalten .text_right, .modul.zwei_spalten .text-button{
+.modul.zwei_spalten {
+  display: flex;
+  flex-direction: column;
+}
+
+.modul .block-text, 
+.modul .text-button{
     padding: 0;
     margin: 0;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 
 }
-
-.modul.zwei_spalten .e_headline{
+.modul .text-button a{
+  margin: 0;
+  width: 100%;
+}
+.modul .e_headline{
+  margin-bottom: 16px;
   order: 1;
 }
 .modul.zwei_spalten .two-column-text{
@@ -3570,19 +3582,32 @@ flex-direction: column;
 }
 .modul.zwei_spalten .text_left{
   order: 2;
+  margin: 0;
 }
 .modul.zwei_spalten .text_right{
   order: 3;
 }
-.modul.zwei_spalten .text-button{
+.modul.zwei_spalten .text-button, .modul.zwei_spalten .wp-block-buttons{
   order: 4;
   width: 100%;
 }
+
+.modul p{
+  padding-bottom: 16px;
+}
+
+.modul .wp-block-buttons {
+    width: auto;
+    display: block;
+}
 @media(min-width:768px)
 {
-
+.modul .wp-block-buttons {
+    width: auto;
+    display: inline-block;
+}
 .footer_item2, .footer .footer_menu a:link {
-display: inline-block;
+  display: inline-block;
 }
 .two-column-text ul {
     padding: 0;
@@ -3595,6 +3620,14 @@ display: inline-block;
       order: 2;
 
   }
+
+.modul .block-text, 
+.modul .text-button,
+.modul .e_headline{
+    margin-bottom: 24px;
+
+}
+
 .modul.zwei_spalten {
   display: flex;
   flex-flow: row wrap;
@@ -3619,8 +3652,10 @@ display: inline-block;
   width: auto;
 }
 
-.modul.zwei_spalten .two-column-text p{
-  padding: 0;
+.modul p,.modul ul {
+    padding-bottom: 16px;
 }
-
+.modul .text-button{
+  width: auto;
+}
 }

@@ -9,7 +9,7 @@ var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
 
   blocks.registerBlockType( 'lb/button', {
-    title: 'Button', // The title of block in editor.
+    title: 'Link Button', // The title of block in editor.
     icon: 'id', // The icon of block in editor.
     category: 'common', // The category of block in editor.
 

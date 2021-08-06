@@ -60,9 +60,9 @@ function kb_whitelist_blocks()
         'ub/tabbed-content',
         'ub/tab-block',
         /*******BITV****/
+        'bitv/button',
         'bitv/testimonial',
         'bitv/two-column-text',
-        'bitv/button',
         'bitv/one-column-text',
     );
 }
