@@ -3264,8 +3264,9 @@ ul.sub_menu_block {
 height: 100%;
 margin: 0 5px;
     padding: 0;
+    vertical-align: top;
 }
-
+/*
 #branding #mainnav ul li a
 {
   height: 100%;
@@ -3278,12 +3279,10 @@ margin: 0 5px;
   transition: text-shadow .3s;  
 
 }
+*/
 #branding #mainnav ul li a:hover
 {
 font-weight: bold;
-  text-shadow: 0 0 .65px #333, 0 0 .65px #333;
-
-
 }
 #branding #mainnav ul li a:focus,
 #branding #mainnav ul li a.focus {
@@ -3659,3 +3658,40 @@ padding: 0; margin-bottom: 40px;
   width: auto;
 }
 }
+
+/*
+
+#branding #mainnav ul div:not(.menu_teaser_content) {
+    display: block;
+    opacity: 1;
+    position: absolute;
+    background: pink;
+    width: 100%;
+    left: 0;
+}
+
+ul.sub_menu_block {
+    display: inline-block;
+    vertical-align: top;
+}
+#branding #mainnav ul ul li{
+    display: block;
+}
+
+#branding #mainnav ul li:not(.focus):not(:hover) > div:not(.menu_teaser_content) {
+    position: absolute;
+    left: -999em !important;
+    opacity: 0 !important;
+}
+
+#branding #mainnav ul li {
+  display: inline-block;
+      vertical-align: top;
+}
+
+#branding #mainnav ul li a:focus,
+#branding #mainnav ul li a.focus {
+    background:#F0F0F0;
+    color: #999;
+}
+*/

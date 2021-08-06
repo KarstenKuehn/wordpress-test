@@ -2,17 +2,18 @@
 /* 
 	Template Name: Test Template
 */	
+get_header();
 ?>
+
+
+<!--
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!-- Auch das meta-Tag zum Zeichensatz wurde vereinfacht.-->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!--[if lt IE 9]>
-<script language="javascript" type="text/javascript" src="[Pfadangabe]/html5shiv.js"></script>
-<![endif]-->     
     <style>
 
 #branding #mainnav ul div:not(.menu_teaser_content) {
@@ -53,6 +54,8 @@ ul.sub_menu_block {
     </style>
 
 </head>
+
+-->
 <body>
 <main>
 <header>

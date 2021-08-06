@@ -365,21 +365,25 @@ function haupt_menu_list($current_menu, $view)
     //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
     foreach ($a as $key => $value) {
         $html .= '<li>';
-        $html .= '<a href="' . $value->url . '">' . $value->title . '</a>';
+        //$html .= 'xx<a href="' . $value->url . '">' . $value->title . '</a>';
         if ($value->wpse_children) {
-
+            $html .='<button class="main-navi_btn toggle_x '.$view.'" data-toggle-target_x=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$view.'_'.$value->ID.'">'.$value->title;  
+                    $html .='<span class="material-icons desktop_hidden">arrow_forward_ios</span>';
+                    $html .='</button>';
 
             $html .= '<div class="submenu">' . getSubMenuList($current_menu, $value->ID, $view) . '</div>';
-            /*
-                $html.='<ul>';
-                    foreach ($value->wpse_children as $subkey => $subvalue) {
-                        $html .='<li>';
-                        $html .= '<a href="'.$subvalue->url.'">'.$subvalue->title.'</a>';
-                        $html .='</li>';
+        }
+        else
+        {
+                    $menu_items = wp_get_nav_menu_items( $current_menu );
+                    $this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
+                    $active='';
+                    if($this_item->title == $value->title)
+                    {
+                        $active=' active';
                     }
-                    $html.='</ul>';
-
-            */
+                    $html .= '<a href="'.$value->url.'" class="main-navi_btn '.$view.$active.'">'.$value->title.'</a>';
+            $html .= '<div class="submenu">' . getSubMenuList($current_menu, $value->ID, $view) . '</div>';
 
         }
         /*
