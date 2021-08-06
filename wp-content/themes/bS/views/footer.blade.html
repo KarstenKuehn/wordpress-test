@@ -145,8 +145,7 @@ button.setAttribute('aria-expanded',true);
         if(event.key === "Escape"){
             var submenu = document.getElementById('sub_menu');
             if(!submenu.hidden) {
-                submenu.setAttribute('style', 'display: none');
-                submenu.focus({preventScroll: true});
+                closeNavi();
             }
             console.log(submenu.hidden);
         }
