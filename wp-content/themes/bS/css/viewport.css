@@ -3363,8 +3363,7 @@ section.content_section: first-of-type{
 
 section.content_section{
   margin-bottom: 96px;
-  padding-top: 0px;    
-  border: 3px solid red;
+  padding-top: 0px;
 }
 
 
@@ -3389,7 +3388,6 @@ section.content_section{
   margin: auto;
   margin: 0 16px 16px 16px;
   padding-bottom: 1px;
-  border: 3px solid green;
 }
 
 

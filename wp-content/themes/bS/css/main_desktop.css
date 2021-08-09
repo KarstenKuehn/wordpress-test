@@ -789,6 +789,7 @@ a.sub_menu_item {
 }
 .news-div, .news-div h2 {
     padding: 0;
+    margin-bottom: 24px;
 }
 .news_container a.list {
     padding: 0 16px;
