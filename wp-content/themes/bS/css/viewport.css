@@ -3411,7 +3411,7 @@ section.content_section{
  margin-bottom: 40px;
 }
 
-
+.modul:only-of-type,
 .modul:last-of-type {
  border-bottom: none;
  margin-bottom: 96px;
