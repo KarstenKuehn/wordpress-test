@@ -3512,12 +3512,6 @@ padding: 0; margin-bottom: 40px;
 
 @media(min-width:768px)
 {
-  .modul{
-    margin: 0 auto 24px auto;
-  }
-
-
-
   .wp-block-columns.testimonial-block {
       flex-direction: row;
   }

@@ -452,7 +452,7 @@ function sub_menu_list($view, $current_menu, $current_menu_id)
                         if (isset($sub_child->description) && $sub_child->description != '') {
                             $link_text = $sub_child->description;
                         }
-                        $bild_navigation .= '<ul class="sub_menu_block blog"><li><a href="' . $sub_child->url . '"><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div></a><div class="menu_teaser_content"><p>' . $sub_child->title . '</p><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div></li></ul>';
+                        $bild_navigation .= '<ul class="sub_menu_block blog"><li><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div><div class="menu_teaser_content"><p>' . $sub_child->title . '</p><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div></li></ul>';
 
                     }
                 }
