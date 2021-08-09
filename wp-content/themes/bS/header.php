@@ -6,8 +6,9 @@
         $name_of_menu = 'Hauptnavigation';
     ?>
 <header>
-    <div class="header_out"><div class="header"><div class="site-logo"><a id="navigation"></a> <div class="desktop_hidden"><button onclick="backNavi()" id="back_navi"><span class="material-icons">arrow_back_ios</span></button></div><?php bs_site_logo();?></div><div class="desktop_navi mobile_hidden"><div id="branding"><nav id="mainnav"><ul class="navbar-nav mr-auto"><?php echo haupt_menu_list($name_of_menu,'d');//echo haupt_menu($name_of_menu,'d');
-        ?></ul></nav></div></div><div class="nav-frame">
+    <div class="header_out"><div class="header"><div class="site-logo"><a id="navigation"></a> <div class="desktop_hidden"><button onclick="backNavi()" id="back_navi"><span class="material-icons">arrow_back_ios</span></button></div><?php bs_site_logo();?></div><div class="desktop_navi mobile_hidden"><?php echo haupt_menu($name_of_menu,'d');
+        ?><!--<div id="branding"><nav id="mainnav"><ul class="navbar-nav mr-auto" id="d_navigation"><?php echo haupt_menu_list($name_of_menu,'d');//echo haupt_menu($name_of_menu,'d');
+        ?></ul></nav></div>--></div><div class="nav-frame">
         <?php
             // Site search
             $enable_header_search = get_theme_mod( 'enable_header_search', true );
@@ -19,7 +20,7 @@
         <?php
             }
         ?>
-        <button class="toggle nav-toggle mobile-nav-toggle desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" id="menu" aria-label="menu">              
+        <button class="toggle nav-toggle mobile-nav-toggle desktop_hidden" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle" aria-label="menu" id="m_navigation">              
             <span class="material-icons"></span>
         </button>
 
@@ -31,14 +32,14 @@
     ?>
         </div>
     </div>
-    <!--
-    <div class="sub_menu mobile_hidden" id="sub_menu">
+
+   <div class="sub_menu mobile_hidden" id="sub_menu" role="menu">
         <div class="sub_menu_inner">
-        <div class="mobile_hidden menu_close"><button tabindex="0" onclick="closeNavi()" class="close-sub-menu"><span class="material-icons">close</span></button></div>
+        <div class="mobile_hidden menu_close"><button aria-label="Menü schliessen" tabindex="0" onclick="closeNavi()" class="close-sub-menu"><span class="material-icons" aria-hidden="true">close</span></button></div>
         <?php echo getSubMenu($name_of_menu,'d'); ?>
         </div>
     </div>
--->
+    <!---->
 <?php 
     if ( true === $enable_header_search ) {
         //get_template_part( 'template-parts/modal-search' );
