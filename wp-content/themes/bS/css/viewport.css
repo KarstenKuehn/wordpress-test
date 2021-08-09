@@ -3515,10 +3515,7 @@ padding: 0; margin-bottom: 40px;
   .wp-block-columns.testimonial-block {
       flex-direction: row;
   }
-.modul.testimonial{
- /*border: none;*/
- margin-bottom: 64px;
-}
+
   .testimonial{
     display: flex;
   }
