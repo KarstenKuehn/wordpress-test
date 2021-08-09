@@ -1236,7 +1236,8 @@ h4{
 
 h1,h2,h3,h4,p
 {
-  padding:16px 16px;
+  padding:0 16px;
+  margin-bottom: 24px;
 }
 /**/
 
@@ -3356,7 +3357,13 @@ hr.wp-block-separator.medium {
 }
 
 
+section.content_section: first-of-type{
+  margin-top: 96px;
+}
 
+section.content_section{
+  margin-bottom: 96px;
+}
 
 
 /* Section Definition */

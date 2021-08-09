@@ -105,13 +105,13 @@ get_header(); ?>
 //	else
 	{
 
-	echo seo_index_slider();
+//	echo seo_index_slider();
 ?>
-<main>
+<main id="maincontent">
 <?php
 		//the_content();
 		echo '<div class="main">';
-				echo '<h1>'.get_the_title().'</h1>';
+				echo '<section class="wp-block-lb-section content_section bitv"><h1>'.get_the_title().'</h1></section>';
 		$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 		echo $html;
 		echo '</div>';
