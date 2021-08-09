@@ -111,7 +111,8 @@ get_header(); ?>
 <?php
 		//the_content();
 		echo '<div class="main">';
-				echo '<section class="wp-block-lb-section content_section bitv"><h1>'.get_the_title().'</h1></section>';
+				echo '<section class="wp-block-lb-section content_section bitv"><h1 class="modul">'.get_the_title().'</h1></section>';
+				echo '<section class="wp-block-lb-section content_section bitv gray"><h1 class="modul">'.get_the_title().'</h1></section>';
 		$html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 		echo $html;
 		echo '</div>';
