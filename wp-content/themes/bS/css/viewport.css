@@ -3378,7 +3378,6 @@ section.content_section{
 
 .content_section.gray.bitv{
   margin-bottom: 96px;
-  padding-top: 96px;
 }
 
 /* Modul Definition */
@@ -3414,7 +3413,7 @@ section.content_section{
 .modul:only-of-type,
 .modul:last-of-type {
  border-bottom: none;
- margin-bottom: 96px;
+ margin-bottom: 0px;
 }
 
 /*
