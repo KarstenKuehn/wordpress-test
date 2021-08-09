@@ -3594,6 +3594,7 @@ padding: 0; margin-bottom: 40px;
 .modul.zwei_spalten .text-button, .modul.zwei_spalten .wp-block-buttons{
   order: 4;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .modul p{
