@@ -3358,11 +3358,13 @@ hr.wp-block-separator.medium {
 
 
 section.content_section: first-of-type{
-  margin-top: 96px;
+  margin-top: 0px;
 }
 
 section.content_section{
   margin-bottom: 96px;
+  padding-top: 0px;    
+  border: 3px solid red;
 }
 
 
@@ -3371,12 +3373,14 @@ section.content_section{
   width: 100%;
   max-width: 100%;
   padding-bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: 96px;
     overflow: auto; 
+
 }
 
 .content_section.gray.bitv{
-  margin-bottom: 16px;
+  margin-bottom: 96px;
+  padding-top: 96px;
 }
 
 /* Modul Definition */
@@ -3385,6 +3389,7 @@ section.content_section{
   margin: auto;
   margin: 0 16px 16px 16px;
   padding-bottom: 1px;
+  border: 3px solid green;
 }
 
 
@@ -3405,14 +3410,23 @@ section.content_section{
 
 
 .modul.testimonial{
- border-bottom: 1px solid #E3E5ED;
+ border-bottom: 1px solid #E3E5ED;/**/
  margin-bottom: 40px;
 }
 
+
+.modul:last-of-type {
+ border-bottom: none;
+ margin-bottom: 96px;
+}
+
+/*
 .modul.testimonial:last-of-type {
  border-bottom: none;
  margin-bottom: 16px;
 }
+
+*/
 .modul.testimonial:last-of-type .testimonial-quote {
   margin-bottom: 0;
 }
@@ -3513,7 +3527,7 @@ padding: 0; margin-bottom: 40px;
       flex-direction: row;
   }
 .modul.testimonial{
- border: none;
+ /*border: none;*/
  margin-bottom: 64px;
 }
   .testimonial{
