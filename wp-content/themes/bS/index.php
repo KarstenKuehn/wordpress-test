@@ -109,15 +109,12 @@ get_header(); ?>
 ?>
 <main id="maincontent">
 
-        <div class="site-header">
         <?php
             if(get_the_post_thumbnail_url()!='')
             {
                 echo '<div class="bg-image" style="background-image:url(\''.get_the_post_thumbnail_url().'\');"/><div class="hero-image-stairway"></div></div>';
             }
           ?>
-        </div>
-	
 <?php
 		//the_content();
 		echo '<div class="main">';
