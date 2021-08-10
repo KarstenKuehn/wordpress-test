@@ -382,7 +382,7 @@ section{
   width: 100%;
   height: auto
 }
-.modul .text-button a,.my-block-button span.button-text, .button,
+.modul .modul-button a,.modul .text-button a,.my-block-button span.button-text, .button,
 .my-block-button:link span.button-text, .button:link {
     color: #fff;
     background-color: #0061AB;
@@ -404,10 +404,10 @@ section{
  border: 3px dotted transparent;
 }
 
-.modul .text-button a:visited, .my-block-button:visited span.button-text, .button:visited {    color: #fff; }
-.modul .text-button a:hover, .my-block-button:hover span.button-text, .button:hover {    color: #FFF; background: #143C6B;
+.modul .modul-button a:visited,.modul .text-button a:visited, .my-block-button:visited span.button-text, .button:visited {    color: #fff; }
+.modul .modul-button a:hover,.modul .text-button a:hover, .my-block-button:hover span.button-text, .button:hover {    color: #FFF; background: #143C6B;
    } 
-.modul .text-button a:focus-visible, .my-block-button:focus-visible span.button-text, .button:focus-visible {  
+.modul .modul-button a:focus-visible,.modul .text-button a:focus-visible, .my-block-button:focus-visible span.button-text, .button:focus-visible {  
   background-color: #143C6B;  color: #fff; outline: 3px dotted #000; }
 
 
@@ -1948,7 +1948,6 @@ h4{
 .two-column-text {
     padding: 24px 0;
     display: flex;
-    grid-gap: 24px;
 }
 
 .search-modal .search{
@@ -3508,6 +3507,8 @@ padding: 0; margin-bottom: 40px;
   line-height: 48px;
 }
 
+
+
 @media(min-width:768px)
 {
   .wp-block-columns.testimonial-block {
@@ -3587,9 +3588,12 @@ padding: 0; margin-bottom: 40px;
 .modul.zwei_spalten .text_left{
   order: 2;
   margin: 0;
+  padding-right: 0;
+  border-right: 1px solid #E3E5ED;
 }
 .modul.zwei_spalten .text_right{
   order: 3;
+    padding-left: 0;
 }
 .modul.zwei_spalten .text-button, .modul.zwei_spalten .wp-block-buttons{
   order: 4;
@@ -3614,13 +3618,16 @@ padding: 0; margin-bottom: 40px;
 .modul.image-text p.modul-text {
   order: 3;
 }
-.modul.image-text figure.modul-image {
+.modul.image-text > figure.modul-image,
+.modul.image-text .wp-block-image {
   order: 2;
   margin: 0;
+  margin-bottom: 24px;
 }
 
 .modul.image-text .modul-button {
   order: 10;
+  width: 100%;
 }
 
 @media(min-width:768px)
@@ -3665,10 +3672,12 @@ padding: 0; margin-bottom: 40px;
 .modul.zwei_spalten .text_left{
   order: 2;
   width: 50%;
+  padding-right: 48px;
 }
 .modul.zwei_spalten .text_right{
   order: 3;
   width: 50%;
+  padding-left: 48px;
 }
 .modul.zwei_spalten .text-button{
   order: 4;
@@ -3735,6 +3744,7 @@ padding: 0; margin-bottom: 40px;
 
 .modul.image-text .modul-button {
   order: 10;
+  width: auto;
 }
 
 }
