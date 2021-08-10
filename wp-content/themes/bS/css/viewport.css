@@ -3692,6 +3692,9 @@ padding: 0; margin-bottom: 40px;
   order: 2;
   width: 50%;
 }
+
+/*
+
 .modul.image-text figure.modul-image {
     order: 3;
     margin: 0;
@@ -3707,6 +3710,28 @@ padding: 0; margin-bottom: 40px;
     border: 1px solid red;
     width: auto;
 }
+
+
+*/
+
+
+.modul.image-text > figure.modul-image,
+.modul.image-text .wp-block-image {
+    order: 3;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    height: 456px;
+    overflow: hidden;
+}
+
+.modul.image-text figure.modul-image img {
+    height: 456px;
+    border: 1px solid red;
+    width: auto;
+}
+
 
 .modul.image-text .modul-button {
   order: 10;
