@@ -332,7 +332,7 @@ function haupt_menu($current_menu, $view)
             if (isset($value->title) && (isset($this_item->title)) && $this_item->title == $value->title) {
                 $active = ' active';
             }
-            $html .= '<a href="' . $value->url . '" class="main-navi_btn ' . $view . $active . '">HM' . $value->title . '</a>';
+            $html .= '<a href="' . $value->url . '" class="main-navi_btn ' . $view . $active . '">' . $value->title . '</a>';
         }
 
     }
