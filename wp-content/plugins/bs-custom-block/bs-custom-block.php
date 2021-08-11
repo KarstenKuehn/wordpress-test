@@ -70,7 +70,7 @@ function kb_whitelist_blocks()
     );
 }
 
-//add_filter('allowed_block_types', 'kb_whitelist_blocks');
+add_filter('allowed_block_types', 'kb_whitelist_blocks');
 
 
 // Funktion Registrieren der Block Vorlage
