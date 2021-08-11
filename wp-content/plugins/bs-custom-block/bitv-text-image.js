@@ -2,57 +2,14 @@
   var el = element.createElement;
 
   var InnerBlocks = wp.editor.InnerBlocks;
-  blocks.registerBlockType( 'bitv/image-text', {
-    title: 'BITV-Image-Text', // The title of block in editor.
+  blocks.registerBlockType( 'bitv/text-image', {
+    title: 'BITV-Text-Image', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'common', // The category of block in editor.
-    attributes: {
-      headline: {
-        type: 'string',
-        default: 'Lorem ipsum dolor sit amet.',
-      },
-      content: {
-        type: 'string',
-        default: ''
-      },
-      content_right: {
-        type: 'string',
-        default: ''
-      },
-      button: {
-        type: 'string',
-        default: 'mehr erfahren'
-      },
-      buttonURL: {
-      type: 'url'
-      },    
-      button_right: {
-        type: 'string',
-        default: 'mehr erfahren'
-      },
-      buttonURL_right: {
-      type: 'url'
-      }, 
-      ingredients_l: {
-        type: 'string',
-        default: ''
-      },
-      ingredients_r: {
-        type: 'string',
-        default: ''
-      },
-      block: {
-        type: 'string',
-        default: ''
-      },
-      alignment: {
-        type: 'string',
-        default: 'center'
-      }
-    },    
+   
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, 'Image-Text' ),
+        el( 'span', {}, 'Text-Image-Modul' ),
         el(
           InnerBlocks,
           {
@@ -76,7 +33,7 @@
     },
 
     save: function() {
-      return el( 'div', { className:'modul image-text' },
+      return el( 'div', { className:'modul text-image' },
         el( InnerBlocks.Content, {} )
       );
     },

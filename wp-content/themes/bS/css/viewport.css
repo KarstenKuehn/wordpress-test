@@ -102,6 +102,7 @@ q:before, q:after {
 blockquote, q {
     quotes: "" "";
 }
+
 .block_head{
   padding: 0;
 }
@@ -3578,7 +3579,7 @@ padding: 0; margin-bottom: 40px;
   width: 100%;
 }
 .modul .e_headline{
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   order: 1;
 }
 .modul.zwei_spalten .two-column-text{
@@ -3606,26 +3607,29 @@ padding: 0; margin-bottom: 40px;
     display: block;
 }
 
-.wp-block-bitv-image-text.modul.image-text {
+.wp-block-bitv-image-text.modul.image-text,.modul.text-image {
     min-height: 408px;
     display: flex;
     flex-direction: column;
 }
-.modul.image-text p.modul-text {
+.modul.image-text p.modul-text ,.modul.image-text .block-text,
+.modul.text-image p.modul-text ,.modul.text-image .block-text {
   order: 3;
 }
-
 .modul.image-text .modul-image,
 .modul.image-text > figure.modul-image,
-.modul.image-text .wp-block-image {
+.modul.image-text .wp-block-image,
+.modul.text-image .modul-image,
+.modul.text-image > figure.modul-image,
+.modul.text-image .wp-block-image {
   order: 2;
   margin: 0;
   margin-bottom: 24px;
 }
 
-.modul.image-text .modul-button {
+.modul.image-text .modul-button,.modul.text-image .modul-button {
   order: 10;
-  width: 100%;
+  width: 50%;
 }
 .modul .text-button {
   margin-top: 24px;
@@ -3704,57 +3708,53 @@ margin-bottom: 0;
 .modul.image-text .e_headline {
   order: 1;
   width: 50%;
+  align-self: flex-end;
 }
 
-.modul.image-text p.modul-text {
+.modul.image-text p.modul-text,.modul.image-text .block-text {
   order: 2;
   width: 50%;
+  align-self: flex-end;
 }
-
-/*
-
-.modul.image-text figure.modul-image {
-    order: 3;
-    margin: 0;
-    position: absolute;
-    left: 50%;
-    width: 50%;
-    height: 456px;
-    overflow: hidden;
+.modul.image-text .modul-button {
+  order: 10;
+  width: 50%;
+  align-self: flex-end;
 }
-
-.modul.image-text figure.modul-image img {
-    height: 456px;
-    border: 1px solid red;
-    width: auto;
-}
-
-
-*/
-
 
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image,
 .modul.image-text .wp-block-image {
     order: 3;
     margin: 0;
     position: absolute;
+    right: 50%;
+    width: 50%;
+    height: 456px;
+    overflow: hidden;
+    display: inline-flex;
+}
+
+.modul.text-image .modul-image,.modul.text-image > figure.modul-image,
+.modul.text-image .wp-block-image {
+    order: 3;
+    margin: 0;
+    position: absolute;
     left: 50%;
     width: 50%;
     height: 456px;
     overflow: hidden;
+    display: inline-flex;
 }
 
-.modul.image-text .modul-image img,.modul.image-text figure.modul-image img {
+.modul.image-text .modul-image img,.modul.image-text figure.modul-image img,
+.modul.text-image .modul-image img,.modul.text-image figure.modul-image img {
     height: 456px;
-    border: 1px solid red;
     width: auto;
+    max-width: unset;
 }
 
 
-.modul.image-text .modul-button {
-  order: 10;
-  width: auto;
-}
+
 
 }
 
@@ -3794,3 +3794,7 @@ ul.sub_menu_block {
     color: #999;
 }
 */
+
+p:empty, ul:empty, li:empty, .modul-button a:empty {
+    display: none;
+}

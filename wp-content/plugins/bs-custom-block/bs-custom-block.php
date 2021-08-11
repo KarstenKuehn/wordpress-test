@@ -65,6 +65,7 @@ function kb_whitelist_blocks()
         'bitv/two-column-text',
         'bitv/one-column-text',
         'bitv/image-text',
+        'bitv/text-image',
     );
 }
 
@@ -501,3 +502,14 @@ function loadImageTextBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadImageTextBITV');
+
+function loadTextImageBITV() {
+  wp_enqueue_script(
+    'bitv-text-image',
+    plugin_dir_url(__FILE__) . 'bitv-text-image.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadTextImageBITV');
