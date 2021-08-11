@@ -638,6 +638,20 @@ section .button {
     margin: 0;
 }
 
+
+.content_section .modul.image-text{
+    margin: 0 auto;
+    padding: 0;
+}
+.modul.image-text figure{
+    margin: 0;
+    padding: 0;
+}
+
+.gray>.wp-block-bitv-image-text.modul.image-text {
+
+    margin-bottom: -96px;
+}
 @media(min-width:900px)
 {
 

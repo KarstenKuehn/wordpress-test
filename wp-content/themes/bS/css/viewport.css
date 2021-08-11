@@ -3524,9 +3524,10 @@ padding: 0; margin-bottom: 40px;
     height: 115px;
     margin: 0;
     padding: 0;
+    margin-bottom: 40px;
   }
 .testimonial .testimonial-quote{
-    margin-bottom: 0;
+    margin-bottom: 40px;
    
 }
 
@@ -3606,13 +3607,15 @@ padding: 0; margin-bottom: 40px;
 }
 
 .wp-block-bitv-image-text.modul.image-text {
-    min-height: 504px;
+    min-height: 408px;
     display: flex;
     flex-direction: column;
 }
 .modul.image-text p.modul-text {
   order: 3;
 }
+
+.modul.image-text .modul-image,
 .modul.image-text > figure.modul-image,
 .modul.image-text .wp-block-image {
   order: 2;
@@ -3730,7 +3733,7 @@ margin-bottom: 0;
 */
 
 
-.modul.image-text > figure.modul-image,
+.modul.image-text .modul-image,.modul.image-text > figure.modul-image,
 .modul.image-text .wp-block-image {
     order: 3;
     margin: 0;
@@ -3741,7 +3744,7 @@ margin-bottom: 0;
     overflow: hidden;
 }
 
-.modul.image-text figure.modul-image img {
+.modul.image-text .modul-image img,.modul.image-text figure.modul-image img {
     height: 456px;
     border: 1px solid red;
     width: auto;
