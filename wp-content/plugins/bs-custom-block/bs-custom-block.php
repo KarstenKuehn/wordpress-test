@@ -60,6 +60,7 @@ function kb_whitelist_blocks()
         'ub/tabbed-content',
         'ub/tab-block',
         /*******BITV****/
+        'bitv/section',
         'bitv/button',
         'bitv/testimonial',
         'bitv/two-column-text',
@@ -69,7 +70,7 @@ function kb_whitelist_blocks()
     );
 }
 
-add_filter('allowed_block_types', 'kb_whitelist_blocks');
+//add_filter('allowed_block_types', 'kb_whitelist_blocks');
 
 
 // Funktion Registrieren der Block Vorlage
@@ -513,3 +514,28 @@ function loadTextImageBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTextImageBITV');
+
+function loadSectionBITV() {
+  wp_enqueue_script(
+    'bitv-section',
+    plugin_dir_url(__FILE__) . 'bitv-section.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadSectionBITV');
+
+
+function custom_block_categories( $categories ) {
+  return array_merge(
+    $categories,
+    [
+      [
+        'slug'  => 'bitv-blocks',
+        'title' => 'BITV Blocks',
+      ],
+    ]
+  );
+}
+add_action( 'block_categories', 'custom_block_categories', 10, 2 );

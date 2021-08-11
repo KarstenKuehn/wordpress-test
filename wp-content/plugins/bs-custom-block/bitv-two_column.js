@@ -5,7 +5,7 @@
   blocks.registerBlockType( 'bitv/two-column-text', {
     title: 'BITV-2-Spalten-Text', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
-    category: 'common', // The category of block in editor.
+    category: 'bitv-blocks', // The category of block in editor.
     attributes: {
       headline: {
         type: 'string',

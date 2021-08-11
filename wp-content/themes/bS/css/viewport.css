@@ -3590,11 +3590,10 @@ padding: 0; margin-bottom: 40px;
   order: 2;
   margin: 0;
   padding-right: 0;
-  border-right: 1px solid #E3E5ED;
 }
 .modul.zwei_spalten .text_right{
   order: 3;
-    padding-left: 0;
+  padding-left: 0;
 }
 .modul.zwei_spalten .text-button, .modul.zwei_spalten .wp-block-buttons{
   order: 4;
@@ -3607,7 +3606,7 @@ padding: 0; margin-bottom: 40px;
     display: block;
 }
 
-.wp-block-bitv-image-text.modul.image-text,.modul.text-image {
+.wp-block-bitv-image-text.modul.image-text,.wp-block-bitv-text-image.modul.text-image {
     min-height: 408px;
     display: flex;
     flex-direction: column;
@@ -3686,11 +3685,13 @@ margin-bottom: 0;
   order: 2;
   width: 50%;
   padding-right: 48px;
+  border-right: 1px solid #E3E5ED;
 }
 .modul.zwei_spalten .text_right{
   order: 3;
   width: 50%;
   padding-left: 48px;
+  margin: 0;
 }
 .modul.zwei_spalten .text-button{
   order: 4;
@@ -3716,45 +3717,38 @@ margin-bottom: 0;
   width: 50%;
   align-self: flex-end;
 }
+.modul.image-text .modul-button,
+.modul.image-text .modul-button {
+  order: 10;
+  width: 50%;
+  flex: 1;
+}
+
 .modul.image-text .modul-button {
   order: 10;
   width: 50%;
   align-self: flex-end;
 }
 
-.modul.image-text .modul-image,.modul.image-text > figure.modul-image,
-.modul.image-text .wp-block-image {
+.modul.image-text .modul-image,.modul.image-text > figure.modul-image,.modul.image-text .wp-block-image,
+.modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image {
     order: 3;
     margin: 0;
     position: absolute;
     right: 50%;
     width: 50%;
-    height: 456px;
-    overflow: hidden;
-    display: inline-flex;
 }
 
-.modul.text-image .modul-image,.modul.text-image > figure.modul-image,
-.modul.text-image .wp-block-image {
-    order: 3;
-    margin: 0;
-    position: absolute;
+.modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image {
     left: 50%;
-    width: 50%;
-    height: 456px;
-    overflow: hidden;
-    display: inline-flex;
 }
 
 .modul.image-text .modul-image img,.modul.image-text figure.modul-image img,
 .modul.text-image .modul-image img,.modul.text-image figure.modul-image img {
-    height: 456px;
-    width: auto;
+    height: auto;
+    width: 100%;
     max-width: unset;
 }
-
-
-
 
 }
 

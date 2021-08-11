@@ -45,7 +45,10 @@ because the systems wants to update the plugin's language.
 3) BS SEO PLUGIN
 => DO NOT FORGET TO UPLOAD DB from plugin folder (!)
 
-##EIGENE VORLAGEN
+## Eigene Kategorie für Gutenberblocks definieren
+ => https://wholesomecode.ltd/blog/custom-block-category-wordpress-block-inserter-gutenberg/
+
+## EIGENE VORLAGEN
 1) im Folder ...\wp-content\themes\MyTHEMES Datei block-patterns.php erstellen
 2) hier eigene Kategorie registrieren => register_block_pattern_category( ... );
 3) in ...\wp-content\themes\MyTHEMES\functions.php 
@@ -53,7 +56,7 @@ because the systems wants to update the plugin's language.
 4) eigenen Plugin für eigene Vorlagen definieren => \wp-content\plugins\MyPLUGIN\myPlugin.php
 5) eigene block-patterns registrieren => register_block_pattern( ... ) 
 
-##EIGENE BLÖCKE
+## EIGENE BLÖCKE
 1) im Folder ...\wp-content\Plugins\bs-custom-block bs-custom-block.php Datei editieren
 2) für neuen Block neue Funktion definieren: 
 	function load_custom-block-xy() {

@@ -232,6 +232,13 @@ section.news-liste {
       margin-bottom: 24px;
 
 }
+
+.modul.text-image .content, .modul.image-text .content{
+      width: 50%;
+      margin-bottom: 24px;
+
+}
+
 .text-image .content {
     position: relative;
     z-index: 1;
@@ -300,6 +307,11 @@ section.news-liste {
 .modul.image-text .content {
     padding-left: calc( 50% / 6 - 24px);
     padding-right: 24px;
+}
+
+.modul.text-image .content {
+    padding-right: calc( 50% / 6 - 24px);
+    padding-left: 24px;
 }
 
 .block_headline{
@@ -644,16 +656,15 @@ section .button {
 }
 
 
-.content_section .modul.image-text{
+.content_section .modul.image-text,.content_section .modul.text-image{
     margin: 0 auto;
     padding: 0;
 }
-.modul.image-text figure{
+.modul.image-text figure,.modul.text-image figure{
     margin: 0;
     padding: 0;
 }
-
-.gray>.wp-block-bitv-image-text.modul.image-text {
+.gray>.wp-block-bitv-image-text.modul.image-text,.gray>.wp-block-bitv-text-image.modul.text-image {
 
     margin-bottom: -96px;
 }
@@ -841,6 +852,11 @@ a.sub_menu_item {
 }
 */
 
+.modul.text-image .content {
+    padding-left: 0;
+}
+
+
     .verlinkungen .block_head {
 
       padding: 64px 0 16px 0;
@@ -876,6 +892,24 @@ section.news-liste {
     top:17%;
   }
 */
+
+.modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image,
+.modul.text-image .modul-image,.modul.text-image > figure.modul-image, .modul.text-image .wp-block-image {
+    height: 456px;
+    /*overflow: hidden;*/
+    display: inline-flex;
+}
+
+.modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image {
+    justify-content: flex-end;
+}
+
+.modul.image-text .modul-image img,.modul.image-text figure.modul-image img,
+.modul.text-image .modul-image img,.modul.text-image figure.modul-image img {
+    height: 456px;
+    width: auto;
+    max-width: unset;
+}
 
 }
 

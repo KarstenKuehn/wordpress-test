@@ -1,11 +1,14 @@
 (function (blocks, editor, components, i18n, element) {
   var el = element.createElement;
-
+const iconEl = el('svg', { width: 20, height: 20 },
+  el('path', { d: "M14,17H7v-2h7V17z M17,13H7v-2h10V13z M17,9H7V7h10V9z" } )
+);
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'bitv/one-column-text', {
     title: 'BITV-1-Spalte-Text', // The title of block in editor.
-    icon: 'admin-comments', // The icon of block in editor.
-    category: 'common', // The category of block in editor.
+// Specifying a custom svg for the block
+icon: 'editor-alignleft',
+    category: 'bitv-blocks', 
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
         el( 'span', {}, 'Modul 1-Spalte-Text' ),

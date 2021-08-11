@@ -10,8 +10,8 @@ var TextControl = components.TextControl;
 
   blocks.registerBlockType( 'bitv/button', {
     title: 'BITV-Button', // The title of block in editor.
-    icon: 'id', // The icon of block in editor.
-    category: 'common', // The category of block in editor.
+    icon: 'button', // The icon of block in editor.
+    category: 'bitv-blocks', // The category of block in editor.
 
 attributes: {
   mediaID: {
