@@ -4,7 +4,7 @@
   var InnerBlocks = wp.editor.InnerBlocks;
 
   registerBlockType( 'bitv/testimonial', {
-    title: 'BITV-Testimonal', // The title of block in editor.
+    title: 'BITV-Testimonial', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     edit: function() {
@@ -14,7 +14,7 @@
           InnerBlocks,
           {
             template: [
-              ['core/image',{className:'testimonial-image','placeholder':'Verlinkung-Bild'}],
+              ['core/image',{className:'testimonial-image','placeholder':'Testimonial-Bild'}],
               ['core/quote',{className:'testimonial-quote','placeholder':'Zitate','ariaLabel':'hjsabvuhwsedbf'}],
             ],
             //templateLock: "all",

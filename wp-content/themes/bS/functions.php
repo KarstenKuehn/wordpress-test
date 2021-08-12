@@ -622,6 +622,32 @@ require get_template_directory() . '/inc/structureddata-content.php';
 require get_template_directory() . '/inc/index_slider-content.php';
 
 // FOOTER START 
+if (!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
+    #add_action('wp_head', 'code_head_etracker');
+    function code_head_etracker()
+    {
+        if ($_SERVER['HTTP_HOST'] == WP_LIVE_HOST) {
+            return '
+                <!-- Copyright (c) 2000-2021 etracker GmbH. All rights reserved. -->
+                <!-- This material may not be reproduced, displayed, modified or distributed -->
+                <!-- without the express prior written permission of the copyright holder. -->
+                <!-- etracker tracklet 5.0 -->
+                <script type="text/javascript">
+                // var et_pagename = "";
+                // var et_areas = "";
+                // var et_tval = 0;
+                // var et_tsale = 0;
+                // var et_tonr = "";
+                // var et_basket = "";
+                </script>
+                <script id="_etLoader" type="text/javascript" charset="UTF-8" data-block-cookies="true" data-respect-dnt="true" data-secure-code="iVbDSE" src="//code.etracker.com/code/e.js" async></script>
+                <!-- etracker tracklet 5.0 end -->
+            ';
+        }
+        return '';
+    }
+}
+
 
 function footer()
 {

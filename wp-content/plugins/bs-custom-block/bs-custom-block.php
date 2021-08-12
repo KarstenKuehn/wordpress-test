@@ -59,6 +59,10 @@ function kb_whitelist_blocks()
         'ub/tabbed-content-block',
         'ub/tabbed-content',
         'ub/tab-block',
+        "ub/content-toggle-block",        
+        "ub/content-toggle",
+        "ub/content-toggle-panel",
+        'ub/content-toggle-panel-block',
         /*******BITV****/
         'bitv/section',
         'bitv/button',
@@ -67,6 +71,8 @@ function kb_whitelist_blocks()
         'bitv/one-column-text',
         'bitv/image-text',
         'bitv/text-image',
+        //'bitv/accordion',
+        'bitv/benefits-text',
     );
 }
 
@@ -471,6 +477,18 @@ function loadTwoColumnBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadTwoColumnBITV');
 
+
+function loadBenefitsTextBITV() {
+  wp_enqueue_script(
+    'bitv-benefits-text',
+    plugin_dir_url(__FILE__) . 'bitv-benefits-text.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadBenefitsTextBITV');
+
 function loadButtonBITV() {
   wp_enqueue_script(
     'bitv-button',
@@ -526,6 +544,27 @@ function loadSectionBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadSectionBITV');
 
+function loadAccordionBITV() {
+  wp_enqueue_script(
+    'bitv-accordion',
+    plugin_dir_url(__FILE__) . 'bitv-accordion.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadAccordionBITV');
+
+function loadAccordionItemBITV() {
+  wp_enqueue_script(
+    'bitv-accordion-item',
+    plugin_dir_url(__FILE__) . 'bitv-accordion_item.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadAccordionItemBITV');
 
 function custom_block_categories( $categories ) {
   return array_merge(

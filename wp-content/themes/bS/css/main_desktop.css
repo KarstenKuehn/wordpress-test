@@ -236,6 +236,7 @@ section.news-liste {
 .modul.text-image .content, .modul.image-text .content{
       width: 50%;
       margin-bottom: 24px;
+      flex: 0;
 
 }
 
@@ -673,11 +674,12 @@ section .button {
  .modul{
     margin: 0 auto 24px auto;
   }
-.modul .block-text, 
-.modul .text-button,
 .modul .e_headline{
     margin-bottom: 24px;
+}
 
+.modul .text-button,.modul .modul-button{
+    margin-top: 24px;
 }
 .modul p,.modul ul {
     padding: 0;
@@ -688,6 +690,10 @@ section .button {
     margin-bottom: 0;
 }
 
+
+.modul .block-text.content {
+    margin: 0;
+}
 @media(min-width:900px)
 {
 
