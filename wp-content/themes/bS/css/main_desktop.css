@@ -668,6 +668,27 @@ section .button {
 
     margin-bottom: -96px;
 }
+
+
+ .modul{
+    margin: 0 auto 24px auto;
+  }
+.modul .block-text, 
+.modul .text-button,
+.modul .e_headline{
+    margin-bottom: 24px;
+
+}
+.modul p,.modul ul {
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.modul p:last-of-type,.modul ul:last-of-type,.modul li:last-of-type {
+    padding: 0;
+    margin-bottom: 0;
+}
+
 @media(min-width:900px)
 {
 
@@ -729,20 +750,6 @@ a.sub_menu_item {
   padding: 0;
 }
 
-
-  .modul{
-    margin: 0 auto 24px auto;
-  }
-.modul .block-text, 
-.modul .text-button,
-.modul .e_headline{
-    margin-bottom: 24px;
-
-}
-.modul p,.modul ul {
-    padding: 0;
-    margin-bottom: 24px;
-}
 }
 
 @media(min-width:1100px)
