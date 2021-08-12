@@ -685,7 +685,6 @@ section .button {
 }
 
 .modul p:last-of-type,.modul ul:last-of-type,.modul li:last-of-type {
-    padding: 0;
     margin-bottom: 0;
 }
 
