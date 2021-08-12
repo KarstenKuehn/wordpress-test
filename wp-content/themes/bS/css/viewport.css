@@ -3322,7 +3322,7 @@ hr.wp-block-separator.medium {
 
 /* Headline Definition */
 
-/* h1-style */
+/* h1-style Riesig*/
 .e_headline.has-huge-font-size{
   font-size: 42px;
   letter-spacing: 0;
@@ -3330,33 +3330,35 @@ hr.wp-block-separator.medium {
 }
 
 
-/* h2-style */
+/* h2-style Groß*/
 .e_headline.has-large-font-size{
   font-size: 26px;
   letter-spacing: 0;
   line-height: 32px;
 }
 
-/* h3-style */
+/* h3-style Mittel*/
 .e_headline.has-medium-font-size{  
-  font-size: 16px;
+  font-size: 26px;
+  line-height: 32px;
   letter-spacing: 0;
-  line-height: 24px;
 }
 
-/* h4-style */
+/* h4-style Normal Fett*/
 .e_headline.has-normal-font-size{
-  font-size: 14px;
-  letter-spacing: 3px;
-  line-height: 24px; 
+  font-size: 16px;
+  line-height: 24px;
   font-weight: bold;
 }
 
-/* h5-style */
+/* h5-style Standard*/
+
+/* h6-style Klein*/
 .e_headline.has-small-font-size{
-  font-size: 12px;
-  letter-spacing: 3px;
+  font-size: 14px;
   line-height: 24px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 
