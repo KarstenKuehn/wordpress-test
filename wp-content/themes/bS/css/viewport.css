@@ -3606,10 +3606,12 @@ margin-bottom: 64px;
   order: 2;
   margin: 0;
   padding-right: 0;
+    width: 100%;
 }
 .modul.benefits .text_right ,.modul.zwei_spalten .text_right{
   order: 3;
   padding-left: 0;
+    width: 100%;
 }
 .modul.benefits .text-button,.modul.zwei_spalten .text-button, .modul.zwei_spalten .wp-block-buttons{
   order: 4;
