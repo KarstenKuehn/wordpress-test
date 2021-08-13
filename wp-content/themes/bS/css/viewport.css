@@ -3519,6 +3519,12 @@ padding: 0; margin-bottom: 40px;
 
 @media(min-width:768px)
 {
+
+/* Modul Definition */
+.modul{
+margin-bottom: 64px;
+}
+
   .wp-block-columns.testimonial-block {
       flex-direction: row;
   }
