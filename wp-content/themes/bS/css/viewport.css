@@ -1215,27 +1215,6 @@ vertical-align: middle;
   outline: 3px dotted #091B30;
 }
 
-h1{
-  font-size: 42px;
-  line-height: 48px;
-  font-weight: 400;
-}
-h2{
-  font-size: 26px;
-  line-height: 32px; 
-  font-weight: 400;
-}
-h3{
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-}
-h4{
-  font-size: 16px;
-  line-height: 24px;
-}
-
-
 h1,h2,h3,h4,p
 {
   padding:0 16px;
@@ -1244,9 +1223,7 @@ h1,h2,h3,h4,p
 /**/
 
 .e_headline{
-  padding: 0;
-  font-size: 16px;
-line-height: 24px;
+padding: 0;
 margin: 0;
 max-width: none; width: 100%;
 }
@@ -1931,23 +1908,6 @@ border-right: 1px solid #E3E5ED;
 }
 .text_right{
   padding-right: 0;
-}
-
-h1{
-  font-size: 64px;
-  line-height: 72px;
-}
-h2{
-  font-size: 42px;
-  line-height: 48px;  
-}
-h3{
-  font-size: 26px;
-  line-height: 48px;
-}
-h4{
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .two-column-text {
@@ -3322,47 +3282,6 @@ hr.wp-block-separator.medium {
 }
 
 
-/* Headline Definition */
-
-/* h1-style Riesig*/
-.e_headline.has-huge-font-size{
-  font-size: 42px;
-  letter-spacing: 0;
-  line-height: 48px;
-}
-
-
-/* h2-style Groß*/
-.e_headline.has-large-font-size{
-  font-size: 26px;
-  letter-spacing: 0;
-  line-height: 32px;
-}
-
-/* h3-style Mittel*/
-.e_headline.has-medium-font-size{  
-  font-size: 26px;
-  line-height: 32px;
-  letter-spacing: 0;
-}
-
-/* h4-style Normal Fett*/
-.e_headline.has-normal-font-size{
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: bold;
-}
-
-/* h5-style Standard*/
-
-/* h6-style Klein*/
-.e_headline.has-small-font-size{
-  font-size: 14px;
-  line-height: 24px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
 
 section.content_section: first-of-type{
   margin-top: 96px;
@@ -3847,4 +3766,71 @@ ul.sub_menu_block {
 
 p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
     display: none;
+}
+
+
+h1{
+  font-size: 64px;
+  line-height: 72px;
+}
+h2{
+  font-size: 42px;
+  line-height: 48px;  
+}
+h3{
+  font-size: 26px;
+  line-height: 48px;
+}
+h4{
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.e_headline{
+padding: 0;
+font-size: 16px;
+line-height: 24px;
+margin: 0;
+max-width: none; width: 100%;
+}
+
+/* Headline Definition */
+
+/* h1-style Riesig*/
+.e_headline.has-huge-font-size{
+  font-size: 42px;
+  letter-spacing: 0;
+  line-height: 48px;
+}
+
+
+/* h2-style Groß*/
+.e_headline.has-large-font-size{
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+/* h3-style Mittel*/
+.e_headline.has-medium-font-size{  
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: 0;
+}
+
+/* h4-style Normal Fett*/
+.e_headline.has-normal-font-size{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+/* h5-style Standard*/
+
+/* h6-style Klein*/
+.e_headline.has-small-font-size{
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }

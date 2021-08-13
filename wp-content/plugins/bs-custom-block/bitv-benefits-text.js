@@ -13,7 +13,7 @@
           InnerBlocks,
           {
             template: [
-              ['core/heading',{className:'e_headline','placeholder':'Block Überschrift',style: { outline: '1px solid red', padding: 5 }}],
+              ['core/heading',{className:'e_headline','placeholder':'Block Überschrift',fontSize: 'large'}],
               ['core/columns',{className:'benefits-text'},
                 [
                   ['core/column',{className:'block-text text_left',},

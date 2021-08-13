@@ -16,7 +16,7 @@ icon: 'editor-alignleft',
           InnerBlocks,
           {
             template: [
-              ['core/heading',{className:'e_headline','placeholder':'Block Überschrift',style: { outline: '1px solid red', padding: 5 }}],
+              ['core/heading',{className:'e_headline',fontSize: 'large','placeholder':'Block Überschrift',style: { outline: '1px solid red', padding: 5 }}],
               ['core/paragraph',{className:'modul_content','placeholder':'Inhalt'}],
             ],
           }

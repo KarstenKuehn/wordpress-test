@@ -59,7 +59,7 @@ const iconEl = el('svg', { width: 20, height: 20 },
           InnerBlocks,
           {
             template: [
-              ['core/heading',{className:'e_headline content','placeholder':'Block Überschrift','style_handle' : 'block-styles-stylesheet'}],
+              ['core/heading',{className:'e_headline content','placeholder':'Block Überschrift',fontSize: 'large'}],
 
                   ['core/column',{className:'block-text content',},
                     [

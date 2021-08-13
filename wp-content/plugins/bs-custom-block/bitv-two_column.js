@@ -57,7 +57,7 @@
           InnerBlocks,
           {
             template: [
-              ['core/heading',{className:'e_headline','placeholder':'Block Überschrift',style: { outline: '1px solid red', padding: 5 }}],
+              ['core/heading',{className:'e_headline','placeholder':'Block Überschrift',fontSize: 'large'}],
  /*                     ['core/paragraph',{className:'text_left','placeholder':'Spalte1'}],
                       ['core/button',{className:'text-button','placeholder':'Button'}],
                       ['core/paragraph',{className:'text_right','placeholder':'Spalte2'}],
