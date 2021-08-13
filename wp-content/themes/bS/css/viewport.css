@@ -3396,7 +3396,7 @@ section.content_section{
 .modul h1,.modul h2,.modul h3,.modul h4,.modul p, .modul ul
 {
   padding:0;
-  margin: 0;
+  margin-bottom: 24px ;
 }
 .modul p, .modul ul
 {
@@ -3601,7 +3601,8 @@ margin-bottom: 64px;
   order: 2;
   margin: 0;
   padding-right: 0;
-    width: 100%;
+  width: 100%;
+  margin-bottom: 24px;
 }
 .modul.benefits .text_right ,.modul.zwei_spalten .text_right{
   order: 3;
