@@ -3305,9 +3305,10 @@ section.content_section{
 
 /* Modul Definition */
 .modul{
-  max-width: 808px;
+  max-width: 856px;
   margin: auto;
   margin: 0 16px 48px 16px;
+  padding: 0 24px;
   padding-bottom: 1px;
 }
 
@@ -3323,6 +3324,7 @@ section.content_section{
 }
 .modul .modul{
   margin: 0 0 16px 0;
+  padding: 0;
 }
 
 /* Modul Testimonial */
