@@ -693,11 +693,11 @@ section .button {
     padding: 0;
     margin-bottom: 24px;
 }
-
+/*
 .modul p:last-of-type,.modul ul:last-of-type,.modul li:last-of-type {
     margin-bottom: 0;
 }
-
+*/
 
 .modul .block-text.content {
     margin: 0;

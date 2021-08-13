@@ -3388,7 +3388,7 @@ section.content_section{
 .modul{
   max-width: 808px;
   margin: auto;
-  margin: 0 16px 24px 16px;
+  margin: 0 16px 48px 16px;
   padding-bottom: 1px;
 }
 
@@ -3592,12 +3592,7 @@ margin-bottom: 64px;
   margin: 0;
   width: 100%;
 }
-.modul .e_headline{
-  margin-bottom: 24px;
-  order: 1;
-  font-size: 16px;
-  line-height: 24px;  
-}
+
 .modul.benefits .benefits-text,.modul.zwei_spalten .two-column-text{
   width: 100%;
   order: 2;
