@@ -3646,7 +3646,16 @@ margin-bottom: 64px;
 .modul .text-button {
   margin-top: 24px;
 }
+
+
+
 .wp-block-bitv-two-column-text .wp-block-column.text_right :last-child {
+margin-bottom: 0;
+}
+
+
+
+.wp-block-bitv-two-column-text .wp-block-column :last-child {
 margin-bottom: 0;
 }
 
@@ -3706,6 +3715,12 @@ margin-bottom: 0;
     margin-bottom: 24px;
 
 }
+
+
+.modul .block-text.wp-block-column :last-child {
+margin-bottom: 0;
+}
+
 
 .modul.benefits ,.modul.zwei_spalten {
   display: flex;

@@ -874,6 +874,7 @@ a.sub_menu_item {
 
 .modul.text-image .content {
     padding-left: 0;
+    padding-left: calc((100% - 1224px) / 2 + 24px );
 }
 
 
