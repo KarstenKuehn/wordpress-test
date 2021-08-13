@@ -674,6 +674,14 @@ section .button {
  .modul{
     margin: 0 auto 64px auto;
   }
+
+
+.modul .modul-image>figure,.modul figure.modul-image, .modul figure>.modul-image {
+    margin-bottom: 0;
+}
+
+
+
 .modul .e_headline{
     margin-bottom: 24px;
 }
