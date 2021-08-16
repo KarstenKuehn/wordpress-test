@@ -3503,6 +3503,10 @@ margin-bottom: 64px;
   flex-direction: column;
 }
 
+.modul .block-text :last-child {
+    margin: 0;
+}
+
 .modul .block-text, 
 .modul .text-button{
     padding: 0;
@@ -3582,12 +3586,19 @@ margin-bottom: 0;
 margin-bottom: 0;
 }
 
+.benefits .text_right img{
+ height: 112px;
+width: auto;
+  margin: auto;
+  height: auto; 
+}
 
 .benefits .text_right img{
  height: 112px;
 width: auto;
   margin: auto;
   height: auto;
+
 }
 .aligncenter {
     text-align: center;
