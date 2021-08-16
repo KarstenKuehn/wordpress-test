@@ -1583,7 +1583,6 @@ img.block_image {
 .benefits .text_right img{
  height: 112px;
 width: auto;
-  aspect-ratio:1/1;
   margin: auto
 }
 
@@ -3587,8 +3586,8 @@ margin-bottom: 0;
 .benefits .text_right img{
  height: 112px;
 width: auto;
-  aspect-ratio:1/1;
-  margin: auto
+  margin: auto;
+  height: auto;
 }
 .aligncenter {
     text-align: center;
@@ -3604,7 +3603,6 @@ width: auto;
   .benefits .text_right img{
  height: auto;
 width: auto;
-  aspect-ratio:1/1;
   margin: auto
 }
 
