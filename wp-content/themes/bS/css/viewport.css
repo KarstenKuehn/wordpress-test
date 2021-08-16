@@ -3593,13 +3593,7 @@ width: auto;
   height: auto; 
 }
 
-.benefits .text_right img{
- height: 112px;
-width: auto;
-  margin: auto;
-  height: auto;
 
-}
 .aligncenter {
     text-align: center;
 }
@@ -3609,6 +3603,10 @@ width: auto;
 .alignright {
     text-align: right;
 }
+
+.benefits .text_right figure{
+  text-align: center;
+}
 @media(min-width:768px)
 {
   .benefits .text_right img{
@@ -3616,6 +3614,18 @@ width: auto;
 width: auto;
   margin: auto
 }
+
+.benefits .text_right figure.aligncenter {
+    text-align: center;
+}
+.benefits .text_right figure.alignleft {
+    text-align: left;
+}
+.benefits .text_right figure.alignright {
+    text-align: right;
+}
+
+
 
 .modul .wp-block-buttons {
     width: auto;
