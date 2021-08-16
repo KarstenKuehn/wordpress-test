@@ -24,7 +24,7 @@
                   ],
                   ['core/column',{className:'block-text text_right'},
                     [
-                      ['core/image',{className:'modul-image','placeholder':'Benefits-Bild'}],
+                      ['core/image',{className:'modul-image','placeholder':'Benefits-Bild',"sizeSlug":'thumbnail'}],
                     ]
                   ]
                 ]
