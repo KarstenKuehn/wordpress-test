@@ -1324,8 +1324,8 @@ function shortcode_posts_function($atts = [], $content = null, $tag = '')
             if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category'])) {
                 if (preg_match('@' . $year . '@', $post['date'])) {
                     $content .= '<div class="news_container active">';
-                    $content .= '<div class="bg-image" style="background-image:url(\'' . $post['thumb'] . '\');" aria-label="' . $post['post_title'] . '"/></div>';
-                    #$content .= '<img class="bg-image" src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
+                    //$content .= '<div class="bg-image" style="background-image:url(\'' . $post['thumb'] . '\');" aria-label="' . $post['post_title'] . '"/></div>';
+                    $content .= '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
                     $content .= '<div class="news_frame">';
                     $content .= '<span class="category">' . $post['sub_category'] . '</span>' . date('d.m.y', strtotime($post['date']));
                     #$content .= '<h2 class="news_headline"><a href="'.$post['link'].'" class="list headline">'. substr(strip_tags($post['post_title']),0 ,100).'</a></h2>';
