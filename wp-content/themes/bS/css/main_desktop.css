@@ -1058,3 +1058,17 @@ form .button{
   letter-spacing: 3px;
   line-height: 24px;
 }
+
+
+.modul .teaser-text .wp-block-column.block-text {
+    border: 5px solid red;
+    margin: 0;
+    margin-right: 24px;
+}
+
+/* Modul zwei Teaser */
+
+.modul .teaser-text .wp-block-column.block-text:last-of-type {
+    border: 5px solid blue;
+    margin-right: 0;
+}
