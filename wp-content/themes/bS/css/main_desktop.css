@@ -21,15 +21,16 @@ a,h1, h2, h3, h4, p, ul, table, figure, main~.wp-block-columns, .news-div, block
 */
 
 a,h1, h2, h3, h4, p, ul, table, figure, .news-div, .zitat {
-    max-width: 808px;
+    max-width: 1026px;
     margin: auto;
     margin-bottom: 24px;
     width: 100%;
+
 }
 
 h1,h2,h3,h4,p
 {
-  padding:0;
+    padding: 0 24px;
 }
 
 /*
