@@ -624,7 +624,7 @@ section.news-liste {
     top:17%;
     padding: 0 72px;
 
-    background-color: rgba(0,0,0,0.01);
+    background-color: rgba(0,0,0,0.01);/**/
 }
 .section-left.hews-head {
     padding: 0 24px;
@@ -694,6 +694,8 @@ section .button {
 .modul p,.modul ul {
     padding: 0;
     margin-bottom: 24px;
+    width: 100%;
+    max-width: unset;
 }
 /*
 .modul p:last-of-type,.modul ul:last-of-type,.modul li:last-of-type {
@@ -703,6 +705,9 @@ section .button {
 
 .modul .block-text.content {
     margin: 0;
+}
+.modul.eine_spalte,.modul.zwei_spalten,.modul.benefits,.modul.testimonial{
+    max-width: 1026px;
 }
 @media(min-width:900px)
 {

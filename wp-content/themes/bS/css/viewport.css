@@ -2240,11 +2240,11 @@ a.main-navi_btn.active {
     content: " ";
     display: block;
     background: linear-gradient(61.33deg, rgba(52,47,42,0.5) 0%, rgba(52,47,42,0) 100%);  
-
+/*
      background: linear-gradient(100deg,rgba(52,47,42,.85) 0,rgba(52,47,42,.5) 66%,rgba(52,47,42,0) 100%);  
 
      background: linear-gradient(100deg,rgba(52,47,42,.55) 0,rgba(52,47,42,.5) 66%,rgba(52,47,42,0) 100%);  
-
+*/
     height: 100%;
     width: 100%;
     position: absolute;
@@ -3507,7 +3507,7 @@ margin-bottom: 64px;
 }
 
 .modul .block-text :last-child {
-    margin: 0;
+    margin-bottom: 0;
 }
 
 .modul .block-text, 
