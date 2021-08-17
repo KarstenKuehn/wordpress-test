@@ -3313,7 +3313,7 @@ section.content_section{
   max-width: 856px;
   margin: auto;
   margin: 0 16px 48px 16px;
-  padding: 0 24px;
+  padding: 0;
   padding-bottom: 1px;
 }
 
@@ -3448,6 +3448,7 @@ padding: 0; margin-bottom: 40px;
 /* Modul Definition */
 .modul{
 margin-bottom: 64px;
+padding: 0 24px;
 }
 
   .wp-block-columns.testimonial-block {
