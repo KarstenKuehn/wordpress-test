@@ -2,13 +2,13 @@
   var el = element.createElement;
 
   var InnerBlocks = wp.editor.InnerBlocks;
-  blocks.registerBlockType( 'bitv/zwei-teaser-modul', {
-    title: 'BITV-2-er-Teaser Modul', // The title of block in editor.
+  blocks.registerBlockType( 'bitv/drei-teaser-modul', {
+    title: 'BITV-3-er-Teaser Modul', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, '2-er Teaser Modul' ),
+        el( 'span', {}, '3-er Teaser Modul' ),
         el(
           InnerBlocks,
           {
@@ -23,9 +23,9 @@
                         [
                           ['core/heading',{className:'e_headline','placeholder':'Teaser Überschrift',fontSize: 'medium'}],
                           ['core/paragraph',{className:'text1_content','placeholder':'Teaser-Inhalt'}],
-                          ['core/button',{className:'modul-button content','placeholder':'Button'}],
                         ]
-                      ],                    
+                      ],
+                      
                     ]
                   ],
                   ['core/column',{className:'block-text text_right'},
@@ -35,14 +35,24 @@
                         [
                           ['core/heading',{className:'e_headline','placeholder':'Teaser Überschrift',fontSize: 'medium'}],
                           ['core/paragraph',{className:'text1_content','placeholder':'Teaser-Inhalt'}],
-                          ['core/button',{className:'modul-button content','placeholder':'Button'}],
                         ]
-                      ], 
+                      ],
+                    ]
+                  ],
+                  ['core/column',{className:'block-text text_right'},
+                    [
+                      ['core/image',{className:'modul-image','placeholder':'Teaser-Bild',"sizeSlug":'thumbnail'}],
+                      ['core/column',{className:'block-content',},
+                        [
+                          ['core/heading',{className:'e_headline','placeholder':'Teaser Überschrift',fontSize: 'medium'}],
+                          ['core/paragraph',{className:'text1_content','placeholder':'Teaser-Inhalt'}],
+                        ]
+                      ],
                     ]
                   ]
                 ]
-              ],  //columns         
-            ],//template
+              ],           
+            ],
 
           }
         )

@@ -3310,7 +3310,7 @@ section.content_section{
 
 /* Modul Definition */
 .modul{
-  max-width: 856px;
+  max-width: 1224px;
   margin: auto;
   margin: 0 16px 48px 16px;
   padding: 0;
@@ -3611,6 +3611,83 @@ width: auto;
 .benefits .text_right figure{
   text-align: center;
 }
+
+.modul.teaser .modul-image {
+    text-align: left;
+}
+
+.gray .modul.teaser .modul-image {
+    text-align: left;
+}
+
+.modul.teaser .modul-image img{
+    text-align: left;
+    width: 100%;
+}
+
+.modul.teaser .teaser-block {
+    margin-bottom: 0;
+    flex-direction: column;
+}
+
+.modul.teaser .teaser-block .block-text {
+    margin-bottom: 24px;
+}
+.modul.teaser .teaser-block .block-text: last-child {
+    margin-bottom: 0px;
+}
+
+.modul.teaser .block-content {
+    padding: 24px;
+    background: #fff;
+}
+.modul.teaser .block-text {
+    position: relative;
+    align-self: stretch;
+    background: #fff;
+    border: 2px solid #F3F4F7;    
+}
+
+
+.gray .modul.teaser .block-text {
+    position: relative;
+    align-self: stretch;
+    background: #fff;
+    
+    border: 2px solid #F3F4F7;  
+}
+
+
+
+.modul.teaser .modul-button.extern{
+  position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.modul.teaser a[href^="http://"], .modul.teaser a[href^="https://"] {
+    display: block;
+    height: 100%;
+    background: transparent;
+    color: transparent;
+    margin: 0;
+}
+
+.modul.teaser a[href^="http://"]:after, .modul.teaser a[href^="https://"]:after {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-size: 32px;
+    color: #0061AB;
+    position: absolute;
+    right: 8px;
+    top: 16px;
+    content: "\e895";
+       }
+/**/
 @media(min-width:768px)
 {
   .benefits .text_right img{
@@ -3753,8 +3830,19 @@ margin-bottom: 0;
     max-width: unset;
 }
 
+
+.modul.teaser .teaser-block {
+    flex-direction: row;
+    margin-right: -8px;
 }
 
+.modul.teaser .teaser-block .block-text {
+margin-right: 24px;}
+}
+
+.modul.teaser .teaser-block .block-text:last-of-type {
+margin-right: 0px;}
+}
 /*
 
 #branding #mainnav ul div:not(.menu_teaser_content) {

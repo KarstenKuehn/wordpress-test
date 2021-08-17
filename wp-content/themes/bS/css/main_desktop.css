@@ -1070,15 +1070,13 @@ form .button{
 }
 
 
-.modul .teaser-text .wp-block-column.block-text {
-    border: 5px solid red;
+.modul .teaser-block .wp-block-column.block-text {
     margin: 0;
     margin-right: 24px;
 }
 
 /* Modul zwei Teaser */
 
-.modul .teaser-text .wp-block-column.block-text:last-of-type {
-    border: 5px solid blue;
+.modul .teaser-block .wp-block-column.block-text:last-of-type {
     margin-right: 0;
 }
