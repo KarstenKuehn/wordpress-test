@@ -3642,12 +3642,14 @@ width: auto;
 .modul.teaser .block-content {
     padding: 24px;
     background: #fff;
+    position: relative;
+    padding-right: 112px;
 }
 .modul.teaser .block-text {
     position: relative;
     align-self: stretch;
     background: #fff;
-    border: 2px solid #F3F4F7;    
+   /* border: 2px solid #F3F4F7;    */
 }
 
 
@@ -3676,7 +3678,7 @@ width: auto;
     height: 100%;
     background: transparent;
     color: transparent;
-    margin: 0;
+    margin: 0;padding: 0;
 }
 
 .modul.teaser a[href^="http://"]:after, .modul.teaser a[href^="https://"]:after {
@@ -3685,8 +3687,10 @@ width: auto;
     font-size: 32px;
     color: #0061AB;
     position: absolute;
-    right: 8px;
-    top: 16px;
+    right: 24px;
+    top: 28px;
+
+    font-weight: 100;
     content: "\e895";
        }
 /**/

@@ -23,7 +23,7 @@
                         [
                           ['core/heading',{className:'e_headline','placeholder':'Teaser Überschrift',fontSize: 'medium'}],
                           ['core/paragraph',{className:'text1_content','placeholder':'Teaser-Inhalt'}],
-                          ['core/button',{className:'modul-button content','placeholder':'Button'}],
+                          ['core/button',{className:'modul-button','placeholder':'Button'}],
                         ]
                       ],
                       
@@ -36,7 +36,7 @@
                         [
                           ['core/heading',{className:'e_headline','placeholder':'Teaser Überschrift',fontSize: 'medium'}],
                           ['core/paragraph',{className:'text1_content','placeholder':'Teaser-Inhalt'}],
-                          ['core/button',{className:'modul-button content','placeholder':'Button'}],
+                          ['core/button',{className:'modul-button','placeholder':'Button'}],
                         ]
                       ],
                     ]
@@ -48,7 +48,7 @@
                         [
                           ['core/heading',{className:'e_headline','placeholder':'Teaser Überschrift',fontSize: 'medium'}],
                           ['core/paragraph',{className:'text1_content','placeholder':'Teaser-Inhalt'}],
-                          ['core/button',{className:'modul-button content','placeholder':'Button'}],
+                          ['core/button',{className:'modul-button','placeholder':'Button'}],
                         ]
                       ],
                     ]
