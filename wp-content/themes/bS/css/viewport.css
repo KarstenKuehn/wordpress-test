@@ -3441,7 +3441,9 @@ padding: 0; margin-bottom: 40px;
   line-height: 48px;
 }
 
-
+.modul .text-button a:empty,.modul .modul-button a:empty {
+    display: none;
+}
 @media(min-width:768px)
 {
 

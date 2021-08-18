@@ -18,6 +18,7 @@ icon: 'editor-alignleft',
             template: [
               ['core/heading',{className:'e_headline',fontSize: 'large','placeholder':'Block Überschrift',style: { outline: '1px solid red', padding: 5 }}],
               ['core/paragraph',{className:'modul_content','placeholder':'Inhalt'}],
+              ['core/button',{className:'modul-button','placeholder':'Button'}],
             ],
           }
         )
