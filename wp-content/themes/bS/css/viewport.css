@@ -3645,13 +3645,20 @@ width: auto;
 }
 
 .modul.teaser .block-content .e_headline {
-    padding-right: 64px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.modul.teaser .block-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .modul.teaser .block-text {
     position: relative;
     align-self: stretch;
@@ -3711,9 +3718,19 @@ width: auto;
     display: block;
     height: 100%;
     background: transparent;
-    color: red;
+    color: #091B30;
     margin: 0;padding: 0;
 }
+
+.modul.teaser .e_headline a:before {  
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";  
+}
+
 
 .modul.teaser .e_headline a:after {  
   font-family: 'Material Icons';
@@ -3721,34 +3738,32 @@ width: auto;
   font-size: 32px;
   color: #0061AB;
   display: block;
-  width: 100%;
-  height: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
   font-weight: 100;
   content: "\f1df";
-  background: rgba(0, 256, 0, .8);
+  display: table-cell;
+  vertical-align: bottom;
+  margin-left: 24px;
+
 }
 
-.modul.teaser a[href^="http://"], .modul.teaser a[href^="https://"] {
+.modul.teaser .e_headline a[href^="http://"], .modul.teaser .e_headline a[href^="https://"] {
     display: block;
     height: 100%;
     background: transparent;
-    color: green;
     margin: 0;
     padding: 0;
-    background: rgba(0, 0, 256, .8);
+    background: url('/wp-content/themes/bS/assets/extern_24dp.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    padding-right: 40px;
 }
 
-.modul.teaser a[href^="http://"]:after, .modul.teaser a[href^="https://"]:after {
-
-  position: absolute;
-  right: 24px;
-  top: 28px;
-  font-weight: 100;
-  content: "\e895";
-}
+.modul.teaser .e_headline a[href^="http://"]:after, .modul.teaser .e_headline a[href^="https://"]:after {
+    display: none;
+  }
 /**/
 @media(min-width:768px)
 {
