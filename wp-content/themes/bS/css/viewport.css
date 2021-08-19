@@ -4169,7 +4169,7 @@ width:auto
   /* Following lines where added for IE */
   -ms-grid-column: 1; 
   -ms-grid-row: 5; 
-  -ms-grid-column-span: 1;
+  -ms-grid-column-span: 1;margin-left: -32px;
 }
 
 .google-button{
@@ -4178,7 +4178,7 @@ width:auto
   /* Following lines where added for IE */
   -ms-grid-column: 3; 
   -ms-grid-row: 5; 
-  -ms-grid-column-span: 1;
+  -ms-grid-column-span: 1;margin-left: -32px;
 }
 .app-button a{
   background: url('https://lbup.local/wp-content/uploads/2021/06/AppStore.png');
