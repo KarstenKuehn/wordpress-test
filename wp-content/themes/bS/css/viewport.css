@@ -1243,7 +1243,7 @@ p
 /*accordion*/
 .accordion-item {
     padding: 0;
-    max-width: 808px;
+    max-width: 1026pxpx;
     margin: auto;
 
     border-top: 1px solid #E3E5ED;
@@ -1262,6 +1262,7 @@ p
     display: block;
     width: 100%;
     text-align: left;
+    font-size: 16px;
 }
 .question:after {
     font-family: 'Material Icons';
@@ -1290,6 +1291,7 @@ p
 .answer{
   padding: 0 16px 16px 16px;
   line-height: 1.5rem;
+  font-size: 16px;
 }
 
 .block_image_div {
