@@ -4030,7 +4030,6 @@ max-width: none; width: 100%;
 }
 
 /*** APP-Modul ***/
-
 .modul.app-modul {
     background: pink;
     display: flex;
@@ -4040,3 +4039,109 @@ max-width: none; width: 100%;
 .app-modul .e_headline{
   order: 1;
 }
+.app-modul .app-image{
+  max-height: 300px;
+  width: auto;
+  order: 2;
+}
+
+.app-modul .app-image img{
+  height: 100%;
+  width: auto;
+}
+
+.app-modul .app-text{
+  order: 3;
+}
+.app-modul .app-button
+{
+  order: 10;
+}
+.app-modul .google-button
+{
+  order: 11;
+}
+
+
+@media(min-width:768px)
+{
+
+.modul.app-modul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;      
+    -ms-grid-columns:1fr 1fr; 
+
+    display: -ms-grid;
+}
+
+
+
+.app-modul .e_headline{
+flex:1 50% ;
+order:  1;
+background-color: beige;
+}
+.app-modul .app-image{
+background-color: lawngreen;
+order:  21;
+}
+
+.app-modul .app-text{
+background-color: aqua;
+order:  2;
+}
+
+
+.app-modul .app-button
+{
+flex: 50% 0;
+background-color: gray;
+order:  10;
+}
+.app-modul .google-button
+{
+flex: 0 50%;
+order:  11;
+}
+
+
+
+/*
+.app-modul .e_headline{
+  order: 1;
+  flex-basis: 50%;
+  border: 2px solid red;
+}
+.app-modul .app-image{
+  max-height: 300px;
+  width: auto;
+  order: 2;
+    flex-basis: 50%;
+  border: 2px solid red;
+}
+
+.app-modul .app-image img{
+  height: 100%;
+  width: auto;
+}
+
+.app-modul .app-text{
+  order: 3;
+    flex-basis: 50%;
+  border: 2px solid red;
+}
+.app-modul .app-button
+{
+  order: 10;
+    flex-basis: 50%;
+  border: 2px solid red;
+}
+.app-modul .google-button
+{
+  order: 11;
+    flex-basis: 50%;
+  border: 2px solid red;
+}
+*/
+
+  }

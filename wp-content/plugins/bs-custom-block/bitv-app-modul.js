@@ -58,10 +58,15 @@
           {
             template: [
               ['core/heading',{className:'e_headline','placeholder':'Block Überschrift',fontSize: 'large'}],
-              ['core/paragraph',{className:'text1_content','placeholder':'App-Description'}],
+                                ['core/column',{className:'app-text content',},
+                    [
+                      ['core/paragraph',{'placeholder':'Blocktext'}],
+                      
+                    ]
+                  ],
               ['core/button',{className:'app-button','placeholder':'Button'}],
               ['core/button',{className:'google-button','placeholder':'Button'}],
-              ['core/image',{className:'app-image','placeholder':'App-Bild'}],        
+              ['core/image',{className:'app-image','placeholder':'App-Bild'}],   
             ],
             //templateLock: "all",
             //allowedBlocks: ['core/columns'],
