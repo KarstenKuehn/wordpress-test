@@ -944,6 +944,11 @@ section.news-liste {
     max-width: unset;
 }
 
+.modul.app-modul{
+  padding: 0 24px;
+}
+
+
 }
 
 @media(min-width:1441px)
