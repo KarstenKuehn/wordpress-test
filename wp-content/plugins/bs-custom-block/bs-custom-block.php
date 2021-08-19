@@ -75,6 +75,7 @@ function kb_whitelist_blocks()
         'bitv/benefits-text',
         'bitv/zwei-teaser-modul',
         'bitv/drei-teaser-modul',
+        'bitv/app-modul',
     );
 }
 
@@ -590,6 +591,18 @@ function loadTeaserDreiBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTeaserDreiBITV');
+
+
+function loadAppModulBITV() {
+  wp_enqueue_script(
+    'bitv-app-modul',
+    plugin_dir_url(__FILE__) . 'bitv-app-modul.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadAppModulBITV');
 
 
 function custom_block_categories( $categories ) {
