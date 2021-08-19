@@ -2637,11 +2637,14 @@ overflow: hidden;
 }
 
 
-.modul p.person ,.modul p.group,p.person ,p.group{
+p.person ,p.group{
     position: relative;
     padding-left: 56px;
 }
 
+.modul p.person, .modul p.group  {
+    padding-left: 32px;
+  }
 
 .group.with_icon:before,.person:before {
     font-family: 'Material Icons';
@@ -2659,7 +2662,7 @@ overflow: hidden;
 .person:before {
     content: "\e7ff";
   }
-.modul .person:before, .group.with_icon:before  {
+.modul .person:before, .modul .group.with_icon:before  {
     left: 0;
   }
 
