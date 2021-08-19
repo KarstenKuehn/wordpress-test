@@ -3642,6 +3642,7 @@ width: auto;
 .modul.teaser .block-content {
     padding: 24px;
     background: #fff;
+    padding-bottom: 48px;
 }
 
 .modul.teaser .block-content .e_headline {
@@ -3719,8 +3720,17 @@ width: auto;
     height: 100%;
     background: transparent;
     color: #091B30;
-    margin: 0;padding: 0;
+    margin: 0;padding: 0; 
 }
+/*
+.modul.teaser a:focus-visible::after {
+    outline: 4px dotted #1F5DA6;
+}
+*/
+.modul.teaser a:focus-visible::before {
+    outline: 4px dotted #1F5DA6;
+}
+
 
 .modul.teaser .e_headline a:before {  
   width: 100%;
@@ -3741,10 +3751,14 @@ width: auto;
   bottom: 0;
   left: 0;
   font-weight: 100;
-  content: "\f1df";
+  content: " ";
   display: table-cell;
   vertical-align: bottom;
-  margin-left: 24px;
+  width: 100%;
+  background: url('/wp-content/themes/bS/assets/more_24dp.svg');
+  background-repeat: no-repeat;
+  background-position: 24px calc(100% - 12px);
+  height: 100%;
 
 }
 
@@ -3759,7 +3773,6 @@ width: auto;
     background-position: top right;
     padding-right: 40px;
 }
-
 .modul.teaser .e_headline a[href^="http://"]:after, .modul.teaser .e_headline a[href^="https://"]:after {
     display: none;
   }
