@@ -236,7 +236,7 @@ function sub_menu($view, $current_menu, $current_menu_id)
                         if (isset($sub_child->description) && $sub_child->description != '') {
                             $link_text = $sub_child->description;
                         }
-                        $bild_navigation .= '<div class="sub_menu_block blog"><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div><div class="menu_teaser_content"><h3>' . $sub_child->title . '</h3><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div></div>';
+                        $bild_navigation .= '<div class="sub_menu_block blog"><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div><div class="menu_teaser_content"><h3 class="e_headline has-medium-font-size">' . $sub_child->title . '</h3><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div></div>';
 
                     }
                 }
