@@ -3947,6 +3947,12 @@ margin-bottom: 0;
     display: inline-block;
     margin: 0;
 }
+
+.modul .modul-button a:empty, .modul .modul-button a:empty {
+    width: 100%;
+    display: none;
+}
+
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image,.modul.image-text .wp-block-image,
 .modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image {
     order: 3;
