@@ -714,6 +714,13 @@ section .button {
 .modul.eine_spalte,.modul.zwei_spalten,.modul.benefits,.modul.testimonial{
     max-width: 1026px;
 }
+
+.app_temp .wp-block-image {
+    width: calc(50% - 24px);
+    display: inline-block;
+    margin-right: 24px;
+}
+
 @media(min-width:900px)
 {
 
