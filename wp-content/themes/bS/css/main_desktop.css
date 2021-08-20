@@ -965,7 +965,7 @@ section.news-liste {
     background-repeat: no-repeat;
     height: calc(100% - 96px);
 }
-.appbtn {
+.block_text a.appbtn {
     display: inline-block;
     width: 40%;
     height: auto;
