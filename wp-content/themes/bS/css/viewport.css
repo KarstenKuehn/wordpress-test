@@ -3589,7 +3589,7 @@ padding: 0 24px;
 
 .modul.image-text .modul-button,.modul.text-image .modul-button {
   order: 10;
-  width: 50%;
+  width: 100%;
 }
 .modul .text-button {
   margin-top: 24px;
