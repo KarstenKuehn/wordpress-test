@@ -3365,6 +3365,10 @@ section.content_section{
  margin-bottom: 0px;
 }
 
+.modul :last-child {
+    margin: 0;
+}
+
 /*
 .modul.testimonial:last-of-type {
  border-bottom: none;
