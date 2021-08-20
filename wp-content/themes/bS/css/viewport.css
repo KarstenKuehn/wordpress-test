@@ -3917,9 +3917,14 @@ margin-bottom: 0;
   width: 50%;
   align-self: flex-end;
 }
+.modul.text-image .modul-button ,.modul.image-text .modul-button {
+    margin: 0;
+    margin-top: 24px;
+}
 .modul.text-image .modul-button a ,.modul.image-text .modul-button a {
     width: auto;
     display: inline-block;
+    margin: 0;
 }
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image,.modul.image-text .wp-block-image,
 .modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image {

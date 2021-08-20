@@ -245,6 +245,10 @@ section.news-liste {
 
 }
 
+.modul.image-text .modul-button, .modul.text-image .modul-button{
+margin-bottom: 0;
+}
+
 .text-image .content {
     position: relative;
     z-index: 1;
