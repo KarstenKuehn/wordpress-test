@@ -3782,17 +3782,28 @@ width: auto;
   */
 /**/
 
-.modul.text-image .modul-button ,.modul.image-text .modul-button {
+.modul .modul-button ,.modul .modul-button {
     width: 100%;
 }
 
-.modul.text-image .modul-button a ,.modul.image-text .modul-button a {
+.modul .modul-button a ,.modul .modul-button a {
     width: 100%;
     display: block;
         margin-top: 24px;
 }
 
-.modul.text-image .modul-button a:empty ,.modul.image-text .modul-button a:empty {
+.modul .modul-button a ,.modul .modul-button a {
+    width: 100%;
+    display: block;
+        margin-top: 24px;
+}
+.modul .modul-button a span ,.modul .modul-button a span {
+    width: 100%;
+    display: block;
+    margin-top: 24px;
+}
+
+.modul .modul-button a:empty ,.modul .modul-button a:empty {
     width: 100%;
     display: none;
 }
