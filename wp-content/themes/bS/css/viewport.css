@@ -3807,6 +3807,11 @@ width: auto;
     width: 100%;
     display: none;
 }
+
+.menu_teaser_content>* {
+    padding: 0;
+}
+
 @media(min-width:768px)
 {
   .benefits .text_right img{
