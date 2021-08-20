@@ -3781,6 +3781,21 @@ width: auto;
   }
   */
 /**/
+
+.modul.text-image .modul-button ,.modul.image-text .modul-button {
+    width: 100%;
+}
+
+.modul.text-image .modul-button a ,.modul.image-text .modul-button a {
+    width: 100%;
+    display: block;
+        margin-top: 24px;
+}
+
+.modul.text-image .modul-button a:empty ,.modul.image-text .modul-button a:empty {
+    width: 100%;
+    display: none;
+}
 @media(min-width:768px)
 {
   .benefits .text_right img{
@@ -3902,7 +3917,10 @@ margin-bottom: 0;
   width: 50%;
   align-self: flex-end;
 }
-
+.modul.text-image .modul-button a ,.modul.image-text .modul-button a {
+    width: auto;
+    display: inline-block;
+}
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image,.modul.image-text .wp-block-image,
 .modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image {
     order: 3;
