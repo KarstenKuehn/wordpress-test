@@ -3154,6 +3154,10 @@ section.wp-block-lb-benefits-text.content_section {
     justify-content: center;
 }
 
+.wp-block-ub-tabbed-content {
+    margin: 0;
+}
+
 .wp-block-ub-tabbed-content-tab-content-wrap {
     width: 100%;
 }
