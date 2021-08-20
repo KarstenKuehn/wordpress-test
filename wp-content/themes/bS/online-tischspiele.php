@@ -18,7 +18,7 @@ $args = array(
 );
 $pages = get_pages($args);
 	?>
-
+<!--
     <div class="swiper-container mySwiper content-slider">
       <div class="swiper-wrapper">
 		<?php
@@ -46,7 +46,7 @@ $pages = get_pages($args);
       <div class="swiper-pagination aa desktop_hidden"></div>
     </div>
 
-
+-->
 
     <!-- Swiper
     <div class="slideshow-container content-slider">
