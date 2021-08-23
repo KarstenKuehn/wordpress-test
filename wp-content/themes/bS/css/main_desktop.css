@@ -88,6 +88,7 @@ section.news-liste {
 .section-left.hews-head .back,.section-left.hews-head .detail_info {
   width: 49.8%;
   display: inline-block;
+  margin-top: 24px;
 }
 .news-div ,.news-div h2{
     max-width: 1224px;
