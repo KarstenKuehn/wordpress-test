@@ -1488,6 +1488,11 @@ a.event_short
   margin-top: 30px;
 }
 */
+
+.news_details .hews-head{
+  margin-bottom: 96px;
+}
+
 .event_short span
 {
   padding:5px 5px 0 5px;
