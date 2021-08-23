@@ -286,6 +286,7 @@ foreach ($pages as $key => $post)
 			echo '<h2 class="news_headline">'.$post['post_title'].'</h2>';
 			echo '<div class="subline"><span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date'])).'</div>';			
 			echo '<p>'.get_the_excerpt($post["ID"]).'</p>';
+						echo '<p>'.get_the_content($post["ID"]).'</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'" class="list" title="'.$post['post_title'].'">Mehr erfahren <span class="material-icons">east</span></a>';
 			echo '</div>';
