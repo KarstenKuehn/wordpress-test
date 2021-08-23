@@ -266,14 +266,12 @@ foreach ($pages as $key => $post)
       echo '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
 
 			echo '<div class="news_frame">';
-			echo '<span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date']));
-			echo '<h2>'.$post['post_title'].'</h2>';
+			echo '<h2 class="news_headline">'.$post['post_title'].'</h2>';
+			echo '<div class="subline"><span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date'])).'</div>';			
 			echo '<p>'.$post['excerpt'].'</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'" class="list" title="'.$post['post_title'].'">Mehr erfahren <span class="material-icons">east</span></a>';
 			echo '</div>';
-
-
 		}
 	}
 }
