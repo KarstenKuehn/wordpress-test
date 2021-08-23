@@ -2610,6 +2610,7 @@ overflow: hidden;
     max-width: 1016px;
     margin: auto;
     padding: 24px; 
+    padding-bottom: 0;
     top: -80px;
     background-color: #fff;
     margin-bottom: -80px;
