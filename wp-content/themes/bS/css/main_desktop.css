@@ -799,7 +799,10 @@ a.sub_menu_item {
   padding: 0;
 }
 
-
+.more-link, .news_container a.list
+{
+  margin-bottom: 24px;
+}
 .news .category{
     border-right: 1px solid #C7CCDB;   
     display: inline-block;

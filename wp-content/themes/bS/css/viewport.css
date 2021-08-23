@@ -1615,12 +1615,12 @@ width: auto;
   font-weight: bold;
   letter-spacing: 0;
   line-height: 24px;
-  margin: 24px auto;
+  margin: 0 auto;
   width: 169px;
   text-align: center;
   display: block;
   height: 56px;
-  margin-bottom: 120px;
+  margin-bottom: 96px;
 }
 .news_container
 {
@@ -1715,8 +1715,6 @@ width: auto;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: 16px;
-
 }
 .news_container a.image-list {
     display: block;
