@@ -44,11 +44,15 @@ for (i = 0; i < divs.length; ++i) {
 }
 
 thumbs_div.innerHTML += thumbs_html;
-
+            slides_per_view=4;
+            if(divs.length<4)
+            {
+                slides_per_view=divs.length;
+            }
         var galleryThumbs = new Swiper('.gallery-thumbs', { 
             direction: 'horizontal', 
         spaceBetween: 24,
-        slidesPerView: 4,
+        slidesPerView: slides_per_view,
         freeMode: true,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,           

@@ -70,7 +70,11 @@ $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
         if(divs.length>0)
 
         {
-
+            slides_per_view=4;
+            if(divs.length<4)
+            {
+                slides_per_view=divs.length;
+            }
             for (i = 0; i < divs.length; ++i) {
                 divs[i].style.color = "white";
                 thumbs_html+=divs[i].innerHTML;
@@ -81,7 +85,7 @@ $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
             var galleryThumbs = new Swiper('.gallery-thumbs', {
                 direction: 'horizontal',
                 spaceBetween: 24,
-                slidesPerView: 4,
+                slidesPerView: slides_per_view,
                 freeMode: true,
                 watchSlidesVisibility: true,
                 watchSlidesProgress: true,
