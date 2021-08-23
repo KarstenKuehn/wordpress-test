@@ -992,6 +992,10 @@ section.news-liste {
 }
 
 
+.content_section.bitv.img_media{
+    margin-bottom: 144px;
+}
+
 }
 
 @media(min-width:1441px)
