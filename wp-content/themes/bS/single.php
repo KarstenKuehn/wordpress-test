@@ -63,7 +63,7 @@ get_header();
             <div class="detail_info"><?php echo $sub_cat_display; ?> vom <?php echo $news_date; ?></div>
         </section>
         <?php
-        echo '<h1>' . get_the_title() . '</h1>';
+        echo '<h1 class="e_headline has-huge-font-size">' . get_the_title() . '</h1>';
 
 
         $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
