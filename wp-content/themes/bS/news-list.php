@@ -50,7 +50,7 @@ foreach ($posts as $key => $post)
       {
       	echo '<pre>';
       	var_dump($post);
-      	var_dump(get_the_excerpt($post->ID));die;
+      	var_dump(get_the_excerpt($post->ID));
     	}
 
     $sub_cat = $catname;
