@@ -265,6 +265,12 @@ foreach ($pages as $key => $post)
 			//echo '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
       echo '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
 
+      if (isset($_GET['tatjana']))
+      {
+      	echo '<pre>';
+      	var_dump($post);die;
+    	}
+
 			echo '<div class="news_frame">';
 			echo '<h2 class="news_headline">'.$post['post_title'].'</h2>';
 			echo '<div class="subline"><span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date'])).'</div>';			
