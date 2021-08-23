@@ -906,6 +906,7 @@ a.sub_menu_item {
 
 .section-left.hews-head {
     padding: 0;
+    max-width: 1224px;
 }
 
 .block_text .my-block-button {
