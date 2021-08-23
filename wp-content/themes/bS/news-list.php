@@ -46,6 +46,13 @@ if(isset($_POST['filter_word']))
 foreach ($posts as $key => $post) 
 {
 
+      if (isset($_GET['tatjana']))
+      {
+      	echo '<pre>';
+      	var_dump($post);
+      	var_dump(get_the_excerpt($post->ID));die;
+    	}
+
     $sub_cat = $catname;
     $id = $post->ID;
     $cat = get_the_category($id);
