@@ -268,6 +268,7 @@ foreach ($pages as $key => $post)
       if (isset($_GET['tatjana']))
       {
       	echo '<pre>';
+      	var_dump($post);
       	var_dump($post['excerpt']);
       	var_dump(get_the_excerpt($post["ID"]));die;
     	}
