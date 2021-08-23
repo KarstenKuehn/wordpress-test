@@ -4379,5 +4379,4 @@ order:  11;
 
 p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
     display: none;
-    border: 3px solid red;
 }
