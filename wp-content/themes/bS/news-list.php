@@ -268,7 +268,7 @@ foreach ($pages as $key => $post)
       if (isset($_GET['tatjana']))
       {
       	echo '<pre>';
-      	var_dump($post);die;
+      	var_dump(get_the_excerpt($post["ID"]));die;
     	}
 
 			echo '<div class="news_frame">';
