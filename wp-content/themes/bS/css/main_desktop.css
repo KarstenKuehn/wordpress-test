@@ -714,6 +714,13 @@ section .button {
 
 .modul .text-button,.modul .modul-button{
     margin-top: 24px;
+    width: auto;
+}
+
+.modul .modul-button a
+{
+    width: auto;
+    display: inline-block;
 }
 .modul p,.modul ul {
     padding: 0;
@@ -743,6 +750,9 @@ section .button {
 {
   margin-bottom: 24px;
 }
+
+
+
 @media(min-width:900px)
 {
 
