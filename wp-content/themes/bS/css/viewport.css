@@ -1868,6 +1868,15 @@ font-size: 16px;
     max-width: 1224px;
 }  
 
+.modul p a {
+    text-decoration: underline;
+}
+
+.modul p a:hover {
+    text-decoration: none;
+}
+
+
 @media(min-width:768px)
 {
 
