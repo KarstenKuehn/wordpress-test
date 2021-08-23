@@ -4060,11 +4060,6 @@ ul.sub_menu_block {
 }
 */
 
-p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
-    display: none;
-}
-
-
 h1{
   font-size: 64px;
   line-height: 72px;
@@ -4378,4 +4373,11 @@ order:  11;
     width: calc(50% - 24px);
     display: inline-block;
     margin-right: 24px;
+}
+
+
+
+p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
+    display: none;
+    border: 3px solid red;
 }
