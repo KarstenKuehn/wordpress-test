@@ -3664,6 +3664,7 @@ width: auto;
 
 .modul.teaser .block-content {
     padding: 24px;
+    padding-bottom: 0;
     background: #fff;
 }
 
