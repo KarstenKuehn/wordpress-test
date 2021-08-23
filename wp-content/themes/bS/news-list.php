@@ -48,9 +48,11 @@ foreach ($posts as $key => $post)
 
       if (isset($_GET['tatjana']))
       {
+      	echo '<hr>';
       	echo '<pre>';
       	var_dump($post);
       	var_dump(get_the_excerpt($post->ID));
+      	echo '<hr>';
     	}
 
     $sub_cat = $catname;
