@@ -4086,7 +4086,9 @@ max-width: none; width: 100%;
 }
 
 /* Headline Definition */
-
+.modul.heding{
+  max-width: 1026px;
+}
 /* h1-style Riesig*/
 .e_headline.has-huge-font-size{
   font-size: 42px;
