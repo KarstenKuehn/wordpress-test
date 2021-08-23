@@ -268,13 +268,14 @@ foreach ($pages as $key => $post)
       if (isset($_GET['tatjana']))
       {
       	echo '<pre>';
+      	var_dump($post["ID"]);
       	var_dump(get_the_excerpt($post["ID"]));die;
     	}
 
 			echo '<div class="news_frame">';
 			echo '<h2 class="news_headline">'.$post['post_title'].'</h2>';
 			echo '<div class="subline"><span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date'])).'</div>';			
-			echo '<p>'.$post['excerpt'].'</p>';
+			echo '<p>'.get_the_excerpt($post["ID"]).'</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'" class="list" title="'.$post['post_title'].'">Mehr erfahren <span class="material-icons">east</span></a>';
 			echo '</div>';
