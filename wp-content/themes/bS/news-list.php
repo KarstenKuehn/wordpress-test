@@ -283,7 +283,7 @@ foreach ($pages as $key => $post)
     	}
 
 			echo '<div class="news_frame">';
-			echo '<h2 class="news_headline">'.$post['post_title'].'</h2>';
+			echo '<h2 class="news_headline e_headline has-medium-font-size">'.$post['post_title'].'</h2>';
 			echo '<div class="subline"><span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date'])).'</div>';			
 			echo '<p>'.get_the_excerpt($post["ID"]).'</p>';
 			echo '</div>';
