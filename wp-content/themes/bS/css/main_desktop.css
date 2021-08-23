@@ -799,7 +799,7 @@ a.sub_menu_item {
   padding: 0;
 }
 
-.more-link, .news_container a.list
+.more-link, .news_container .list
 {
   margin-bottom: 24px;
 }
