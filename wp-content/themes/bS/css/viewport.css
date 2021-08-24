@@ -1684,6 +1684,7 @@ width: auto;
   .news_frame p
 {
   order: 3;
+  min-height: unset;
   }
   .news_frame p:last-child
 {
@@ -2894,6 +2895,7 @@ margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 16px;
+    min-height: 4.4em;
 }
 .news_filter{
   display: block;
