@@ -746,7 +746,7 @@ section .button {
     display: inline-block;
     margin-right: 24px;
 }
-.more-link, .news_container a.list
+.more-link
 {
   margin-bottom: 24px;
 }
