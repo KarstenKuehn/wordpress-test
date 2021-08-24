@@ -83,6 +83,8 @@
             className: 'question',
             'aria-label':attributes.accordion_head,
             'aria-expanded':false,
+            'role':'heading',
+            'aria-level':3,            
             value: ''+attributes.accordion_head+''
           }),
           el(RichText.Content, {
