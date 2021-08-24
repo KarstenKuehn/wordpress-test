@@ -164,6 +164,23 @@ button.setAttribute('aria-expanded',true);
 			}
 
 
+		var empty_modul_buttom = document.getElementsByClassName("modul-button");
+console.log(empty_modul_buttom);
+			for (i = 0; i < empty_modul_buttom.length; i++) {
+				el=empty_modul_buttom[i].childNodes;
+
+console.log(el[0]);
+if(el[0].textContent.trim() === "")
+{
+	console.log('aa');
+
+el[0].parentNode.classList.add("mybutton");
+el[0].parentNode.remove();
+}
+
+
+			}
+/**/
 
 </script>
 </body>

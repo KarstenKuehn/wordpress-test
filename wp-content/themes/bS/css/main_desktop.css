@@ -713,7 +713,6 @@ section .button {
 }
 
 .modul .text-button,.modul .modul-button{
-    margin-top: 24px;
     width: auto;
 }
 

@@ -3845,20 +3845,8 @@ width: auto;
 
 .modul .modul-button a ,.modul .modul-button a {
     width: 100%;
-    display: block;
-        margin-top: 24px;
-}
+    display: block;}
 
-.modul .modul-button a ,.modul .modul-button a {
-    width: 100%;
-    display: block;
-        margin-top: 24px;
-}
-.modul .modul-button a span ,.modul .modul-button a span {
-    width: 100%;
-    display: block;
-    margin-top: 24px;
-}
 
 .modul .modul-button a:empty ,.modul .modul-button a:empty {
     width: 100%;
@@ -3926,11 +3914,9 @@ margin-bottom: 0;
 
 }
 
-
-.modul.eine_spalte :last-child,.modul .block-text.wp-block-column :last-child {
+.modul.eine_spalte > *:last-child {
 margin-bottom: 0;
 }
-
 
 .modul.benefits ,.modul.zwei_spalten {
   display: flex;
