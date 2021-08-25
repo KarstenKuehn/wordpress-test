@@ -10,15 +10,85 @@ $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
         <div class="main">
             <?php echo $html; ?>
         </div>
+<!--
+<div class="slider">
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+</div>
+-->
+
+
+
     </main>
 <?php get_footer(); ?>
 
-    <!-- Initialize Swiper -->
-    <script>
-  /*
- var swiper = new Swiper(".teaserSwiper");
+<script>
 
- */   var swiper = new Swiper(".teaserSwiper", {
+/*
+
+$('.slider').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  speed: 500,
+  dots: true,
+  arrows: true,
+  centerMode: false,
+  focusOnSelect: false,
+  autoplay: false,
+  autoplaySpeed: 2000,
+   infinite: false,
+  slide: 'div',
+centerPadding: '0px',  
+  responsive: [
+      {
+      breakpoint: 2000,
+      settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+      }
+      },
+      {
+      breakpoint: 900,
+      settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+      }
+      },
+      {
+      breakpoint: 768,
+      settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+      }
+      },
+      {
+      breakpoint: 480,
+      settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+      }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+  ]
+});
+
+*/
+
+</script>
+    <!-- Initialize Swiper -->
+<script>
+   var swiper = new Swiper(".teaserSwiper", {
         //cssMode: true,
         navigation: {
           nextEl: ".swiper-button-next",
