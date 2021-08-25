@@ -165,8 +165,9 @@ button.setAttribute('aria-expanded',true);
 
 
 		var empty_modul_buttom = document.getElementsByClassName("modul-button");
-console.log(empty_modul_buttom.getAttribute('id'));
+
 			for (i = 0; i < empty_modul_buttom.length; i++) {
+				console.log(empty_modul_buttom[i].getAttribute('id'));
 				el=empty_modul_buttom[i].childNodes;
 
 console.log(el[0]);
