@@ -2633,6 +2633,8 @@ overflow: hidden;
     top: -80px;
     background-color: #fff;
     margin-bottom: -80px;
+    position: relative;
+    z-index: 20;
   }
 
 
