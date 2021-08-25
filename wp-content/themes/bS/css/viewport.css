@@ -1877,6 +1877,9 @@ font-size: 16px;
     text-decoration: none;
 }
 
+.content_section.bitv:nth-child(1) .slideshow-container {
+    margin-top: -96px;
+}
 
 .bg-image + .content_section.bitv {
     margin-top: 48px;
