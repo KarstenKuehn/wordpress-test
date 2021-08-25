@@ -15,8 +15,11 @@ $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
     <!-- Initialize Swiper -->
     <script>
-      var swiper = new Swiper(".teaserSwiper", {
-        cssMode: true,
+  /*
+ var swiper = new Swiper(".teaserSwiper");
+
+ */   var swiper = new Swiper(".teaserSwiper", {
+        //cssMode: true,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -37,10 +40,13 @@ $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
     slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
         },
       });
+
+
+
     </script>
 
-
-
+<!--
+-->
     <script>
         var galleryTop = new Swiper('.gallery-main', { 
             direction: 'horizontal',
