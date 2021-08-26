@@ -1,0 +1,28 @@
+.editor-styles-wrapper .wp-block-quote.is-style-fancy-quote .wp-block-quote__citation,
+.editor-styles-wrapper .wp-block-quote.is-style-fancy-quote cite,
+.editor-styles-wrapper .wp-block-quote.is-style-fancy-quote footer {
+	font-size: 16px;
+	color: red;
+}
+
+
+/* Block: Image ------------------------------ */
+
+.editor-styles-wrapper .wp-block-image.is-style-ohne-bild {
+	border: 3px solid red;	
+	position: relative;
+}
+
+.editor-styles-wrapper .wp-block-image.is-style-ohne-bild  {
+	border: 3px solid red;	
+	position: relative;
+}
+
+.editor-styles-wrapper .wp-block-image.is-style-ohne-bild:after {
+	position: absolute;
+	background: grey;
+	opacity: 0.5;
+	display: block;	
+	width: 100%;
+	height: 100%;
+}
