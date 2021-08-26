@@ -244,7 +244,7 @@ class TermFiltersCount
 
                     // Remove empty terms, but only if their descendants are all empty too.
                     foreach ($terms as $k => $term) {
-                        if (!$term->count) {
+                        if (is_object($term) && !$term->count) {
                             if ($descendants = _get_term_children($term->term_id, $all_terms, $taxonomy)) {
                                 foreach ($descendants as $child) {
                                     if ($child->count) {
@@ -360,7 +360,8 @@ class TermFiltersCount
             $terms = $_terms;
         }
 
-        // Hierarchical queries are not limited, so 'offset' and 'number' must be handled now.
+        // Don't redundantly apply limits
+        /*
 		if ( $hierarchical && $number && is_array( $terms ) ) {
 			if ( $offset >= count( $terms ) ) {
 				$terms = array();
@@ -368,6 +369,8 @@ class TermFiltersCount
 				$terms = array_slice( $terms, $offset, $number, true );
 			}
         }
+        */
+
         // === end standard WP block ===
 
         // restore buffered term names in case they were filtered previously

@@ -3,9 +3,9 @@
 Contributors: publishpress, kevinB, stevejburge, andergmartins
 Tags: restrict, access, permissions, cms, user, private, category, pages, privacy, capabilities, role, scoper
 Requires at least: 4.9.7
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 5.6.20
-Stable tag: 3.5.4
+Stable tag: 3.5.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,7 +13,7 @@ With PublishPress Permissions you can enable or block access to specific posts, 
 
 == Description ==
 
-[PublishPress Permissions](https://publishpress.com/permissions) is the plugin for advanced WordPress permissions. It goes far beyond the options you'll find in the WordPress core. With PublishPress Permissions you can enable or block access to specific posts, pages, categories and other content on your site. You can apply these permissions for roles, individual users, and even custom groups.
+[PublishPress Permissions](https://publishpress.com/permissions) is your solution for advanced WordPress permissions. It goes far beyond the options you'll find in the WordPress core. With PublishPress Permissions you can enable or block access to specific posts, pages, categories and other content on your site. You can apply these permissions for roles, individual users, and even custom groups.
 
 = 8 Key Features in PublishPress Permissions = 
 
@@ -137,10 +137,30 @@ PublishPress Permissions creates and uses the following tables: pp_groups, pp_gr
 
 == Upgrade Notice ==
 
-= 3.5.4 =
+= 3.5.7 =
 Press Permit Core + PP extension users: download PublishPress Permissions Pro from publishpress.com instead of upgrading to this version.
 
 == Changelog ==
+
+= 3.5.7 - 26 Jul 2021 =
+* Fixed : Nav Menu Edit - Permissions configuration did not make private pages selectable
+* Fixed : Nav Menu Edit - If Pages metabox results are paged, custom Front Page and Privacy Page were forced to the top of every results page
+* Compat : WP Engine - Long wp-admin screen loads because excessive clearance of WP Engine cache caused WordPress to execute Update Plugins check on each request
+* Fixed : Default / Lock Privacy settings were not properly reflected in Gutenberg Editor display
+* Compat : HTML Forms plugin - PHP Notice on form submission / file upload
+
+= 3.5.6 - 23 Jun 2021 =
+* Fixed : Category / Term selector in post editor offered a maximum of 100 terms
+* Fixed : Menu Editor - Page / Post selection metaboxes (if more than 50 total items are available) did not list private items after clicking a paging link 
+* Fixed : PHP Notice on plugin activation under some conditions
+* Fixed : Fatal error if a very old version of Revisionary or PressPermit Core is active
+* Compat : User Switching - First switched user inherits capabilities of current logged user on some sites
+* Compat : WooCommerce - Failure / delay updating variations of variable product
+
+= 3.5.5 - 19 May 2021 =
+* Fixed : Add User screen - Javascript error on some sites
+* Fixed : Term filtering error for some custom taxonomies
+* Compat : WPML - Archives widget did not output links if multiple languages configured
 
 = 3.5.4 - 6 May 2021 =
 * Compat : Revisions - Pending Revision Monitors group ineffective when first installation of Permissions was >= 3.5
