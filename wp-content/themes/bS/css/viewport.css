@@ -2597,7 +2597,7 @@ margin: 0;
     bottom: 0;
     height: 56px;
     line-height: 56px;
-    top: 100%;
+    top: calc(100% - 56px);
   }
 
   .gallery-container .my-block-image {

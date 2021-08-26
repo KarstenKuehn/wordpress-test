@@ -30,11 +30,8 @@ $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
     </main>
 <?php get_footer(); ?>
-
 <script>
-
 /*
-
 $('.slider').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
