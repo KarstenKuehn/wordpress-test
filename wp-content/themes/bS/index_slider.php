@@ -12,17 +12,17 @@ $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
         </div>
 <!--
 <div class="slider">
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
-<div class="item"><img src="https://lbup.local/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
+<div class="item"><img src="/wp-content/uploads/2021/06/lottoBayern.png" alt="Logo"></div>
 </div>
 -->
 
