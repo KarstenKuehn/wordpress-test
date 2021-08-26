@@ -1,6 +1,6 @@
 <?php
 /* 
-	Template_x Name: LottoBayern Übersicht
+	Template Name: LottoBayern Übersicht
 */
 
 get_header();
