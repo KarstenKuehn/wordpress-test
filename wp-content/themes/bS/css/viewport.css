@@ -1892,6 +1892,7 @@ font-size: 16px;
 .slide-frame .gallery-container {
     margin-bottom: 80px;
     max-width: 1224px;
+    overflow: hidden;
 }  
 
 .modul p a {
