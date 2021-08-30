@@ -14,7 +14,8 @@ html {
   font-display: swap;
   src:  url("/wp-content/themes/bS/assets/fonts/material.eot");
   src:  url("/wp-content/themes/bS/assets/fonts/material.eot?#iefix") format("embedded-opentype"),
-        url('/wp-content/themes/bS/assets/fonts/material.woff2') format('woff2');
+        url('/wp-content/themes/bS/assets/fonts/material.woff2') format('woff2'),
+        url('/wp-content/themes/bS/assets/fonts/material.ttf') format('truetype');
 }
 
 /* lato-thin - latin */
@@ -76,6 +77,7 @@ html {
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
 }
 
 /* reset */

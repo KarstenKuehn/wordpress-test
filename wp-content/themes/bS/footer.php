@@ -21,5 +21,6 @@
         <nav class="footer-liste"><?php echo get_FooterMenu(); ?></nav>
     </div>
     <a href="#top" aria-label="zum Anfang der Seite springen"></a>
-</footer>
+</footer><?php seo_structuredData();?>
 <?php footer();?>
+

@@ -29,7 +29,6 @@ $html = preg_replace('/(\>)\s*(\<)/m', '$1$2', get_my_content());
 
 
     </main>
-<?php get_footer(); ?>
 <script>
 /*
 $('.slider').slick({
@@ -157,5 +156,4 @@ centerPadding: '0px',
 
             });
     </script>
-
-<?php seo_structuredData();?>
+<?php get_footer(); ?>
