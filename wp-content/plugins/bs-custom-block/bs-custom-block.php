@@ -72,7 +72,9 @@ function kb_whitelist_blocks()
         'bitv/image-text',
         'bitv/text-image',
         //'bitv/image-ap',
-        'bitv/ap-image',        
+        'bitv/ap-image',   
+
+        'bitv/image-ap',        
         //'bitv/accordion',
         'bitv/benefits-text',
         'bitv/zwei-teaser-modul',
@@ -190,6 +192,16 @@ function loadAPImage() {
    
 add_action('enqueue_block_editor_assets', 'loadAPImage');
 
+function loadImageAP() {
+  wp_enqueue_script(
+    'image-ap-block',
+    plugin_dir_url(__FILE__) . 'bitv-image-ap.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadImageAP');
 
 function loadPresseTextImage() {
   wp_enqueue_script(
