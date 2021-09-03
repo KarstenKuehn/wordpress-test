@@ -1669,7 +1669,7 @@ width: auto;
 }
 
 .subline {
-    margin: 8px 0;
+    margin: 24px 0 8px 0;
 }
 
 .spalten_3 .news_container:nth-child(3n+3)
@@ -3689,6 +3689,7 @@ padding: 0 24px;
   .testimonial figure +  .testimonial-quote{
       padding: 0 32px;  
       flex: 1;
+      min-height: 7em ;
   }
 
   .testimonial figure + .testimonial-quote cite{
