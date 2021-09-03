@@ -478,12 +478,12 @@ a.event_short h2
   margin-bottom: 4px;
 }
 
-.spalten_3 .news_container
+.news-liste .spalten_3 .news_container
   {
     width: calc(100% / 3 - 24px);
     margin-bottom: 48px;
   }
-.spalten_2 .news_container
+.news-liste .spalten_2 .news_container
   {
     width: calc(100% / 2 - 24px);    
     margin-bottom: 48px;

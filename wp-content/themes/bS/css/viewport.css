@@ -1965,7 +1965,7 @@ button.slick-arrow.slick-disabled
 }
 */
 
-.news {
+.news-liste .news {
   padding-bottom: 24px;
     margin-bottom: 96px;
 } 
@@ -2035,7 +2035,7 @@ margin: 0 auto;
     grid: auto / repeat(3, 1fr);
 }  
 */
-.news {
+.news-liste .news  {
     margin-bottom: 96px;
 } 
 .wp-block-latest-posts {
