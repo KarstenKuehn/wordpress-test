@@ -3,9 +3,6 @@
         <div class="footer1">
             <ul>
                 <li class="footer_item1" tabindex="0">
-                    <span class="label">Unsere Marken</span>
-                </li>
-                <li class="footer_item1" tabindex="0">
                     <a href="https://www.lotto-bayern.de/" target="_blank" rel="noreferrer"><img width="53" height="56" src="https://lotterien-spielbanken-bayern.de/wp-content/uploads/2021/07/LB_LOGO.svg" alt="Logo LOTTO Bayern" title="zur Webseite von LOTTO Bayern"></a>
                 </li>
                 <li class="footer_item1" tabindex="0">
