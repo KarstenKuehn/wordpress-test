@@ -3758,13 +3758,13 @@ width: auto;
 }
 
 
-.aligncenter {
+.has-text-align-center,.aligncenter {
     text-align: center;
 }
-.alignleft {
+.has-text-align-left,.alignleft {
     text-align: left;
 }
-.alignright {
+.has-text-align-right,.alignright {
     text-align: right;
 }
 
