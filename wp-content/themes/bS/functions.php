@@ -1263,72 +1263,6 @@ function shortcode_posts_function($atts = [], $content = null, $tag = '')
     );
 $content='';
 
-/*
-if($filter)
-{
-        $content='
-<div class="news-liste modul">
-<div class="events_header news_filter">
-<div id="filter">
-<form name="FilterForm" method="post" action="#newsliste">
-<div class="custom-select_x" >
-<label for="select_year" aria-label="Nach Jahr sortieren">
-<select id="select_year" name="select_year" onchange="this.form.submit()">
-
-';
-foreach($years as $key => $year_select)
-{
-    if ($year_select == $selectedYear)
-    {
-        echo '<option selected="selected">'.$selectedYear.'</option>';
-    }
-    else
-    {
-        echo '<option>'.$year_select.'</option>';
-    }
-    
-}
-
-$content.='
-</select>
-</label>
-</div>        
-<div class="custom-select_x" >
-<label for="select_sort" aria-label="Nachrichten sortieren">
-<select id="select_sort" name="select_sort" onchange="this.form.submit()">
-    <!--    <option value="0">Select car:</option>-->
-    <option value="desc">Nachrichten absteigend</option>
-    <option value="asc">Nachrichten aufsteigend</option>
-</select>
-</label>
-</div>
-<div class="cat">
-<div class="cat_check">
-  <label for="cat1" aria-label="Filter Gewinner-News">Gewinner-News</label>
-  <input type="checkbox" id="cat1" name="sub_cat1" class="cat_check_box" checked onchange="this.form.submit()">
-
-</div>
-<div class="cat_check">
-  <label for="cat2" aria-label="Filter Unternehmens-News">Unternehmens-News</label>
-  <input type="checkbox" id="cat2" name="sub_cat2" class="cat_check_box" onchange="this.form.submit()">
-</div>
-</div>
-    </form>
-</div>
-
-    <form class="searchformfld" id="search-filter" method="post" action="#newsliste">
-        <input type="text" name="filter_word" value="test" id="filter_word" class="text-field" onClick="this.select()" placeholder=" "/>
-        <label for="filter_word">Suchbegriff eingeben</label>
-        <button onclick="this.form.submit()" class="mobile_hidden"><span class="material-icons">search</span></button>
-    </form>
-  <button onclick="this.form.submit()" class="button desktop_hidden">Suche</button>
-</div>
-</div>
-</div>
-';
-}
-
-*/
     //Posts holen
     $posts = get_posts($args);
     $pages = [];
@@ -1391,7 +1325,7 @@ $content.='
             if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category'])) {
                 if (preg_match('@' . $year . '@', $post['date'])) {
                     $content .= '<div class="news_container active">';
-                    $content .= '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
+                    //$content .= '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
                     $content .= '<div class="news_frame">';
                     $content .= '<h2 class="news_headline e_headline has-medium-font-size">' . substr(strip_tags($post['post_title']), 0, 100) . '</h2>';                    
                     $content .= '<div class="subline"><span class="category">' . $post['sub_category'] . '</span>' . date('d.m.y', strtotime($post['date'])).'</div>';

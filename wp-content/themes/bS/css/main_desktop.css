@@ -481,10 +481,12 @@ a.event_short h2
 .spalten_3 .news_container
   {
     width: calc(100% / 3 - 24px);
+    margin-bottom: 48px;
   }
 .spalten_2 .news_container
   {
     width: calc(100% / 2 - 24px);    
+    margin-bottom: 48px;
   }
   .news_frame h2
   {
@@ -616,7 +618,7 @@ border-left: none;
 
 
 section.news-liste {
-    padding: 24px;
+    padding: 0 24px;
 }
 
 .wp-block-lb-button .button {
@@ -815,8 +817,7 @@ a.sub_menu_item {
 
 
 .news .category{
-    border-right: 1px solid #C7CCDB;   
-    display: inline-block;
+    display: block;
     margin-bottom: 4px;
 }
 
@@ -825,6 +826,13 @@ a.sub_menu_item {
 
 @media(min-width:1100px)
 {
+
+
+.news .category{
+    border-right: 1px solid #C7CCDB;   
+    display: inline-block;
+    margin-bottom: 4px;
+}
 
 .header{
         padding: 0 px;

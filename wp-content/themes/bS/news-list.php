@@ -272,7 +272,7 @@ foreach ($pages as $key => $post)
 			}
 
 			//echo '<div class="bg-image" style="background-image:url(\''.$post['thumb'].'\');"/></div>';
-      echo '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
+      //echo '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
 
       if (isset($_GET['tatjana']))
       {
