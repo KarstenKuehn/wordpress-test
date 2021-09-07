@@ -1,9 +1,14 @@
+
+
+
+
+
 (function (blocks, editor, components, i18n, element) {
   var el = element.createElement;
 
   var InnerBlocks = wp.editor.InnerBlocks;
-  blocks.registerBlockType( 'bitv/image-ap', {
-    title: 'BITV-Image-Ansprechpartner', // The title of block in editor.
+  blocks.registerBlockType( 'bitv/image-ap-x', {
+    title: 'xxx-BITV-Image-Ansprechpartner', // The title of block in editor.
    icon: 'align-pull-right', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.  
 
@@ -79,19 +84,7 @@ var attributes = props.attributes;
                       ['core/paragraph',{'placeholder':'Blocktext'}],                      
                     ]
                   ],
-    el(RichText, {
-      type: 'text',
-      label: 'E-Mail',
-      key: 'editable',
-      tagName: 'p',
-      className: 'my-block-text content',
-      placeholder: 'E-Mail'
-      keepPlaceholderOnFocus: true,
-      value: attributes.mail,
-      onChange: function (newText) {
-        props.setAttributes({mail: newText})
-      }
-    }), 
+
                   ['core/column',{className:'block-text content',},
                     [
                       ['core/paragraph',{tagName:'div',className:'ap-name','placeholder':'Name'}],

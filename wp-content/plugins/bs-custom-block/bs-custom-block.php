@@ -71,15 +71,16 @@ function kb_whitelist_blocks()
         'bitv/one-column-text',
         'bitv/image-text',
         'bitv/text-image',
-        //'bitv/image-ap',
-        'bitv/ap-image',   
 
-        'bitv/image-ap',        
+        'bitv/ap-image',
+        'bitv/image-ap-x',        
+        //'bitv/image-ap',        
         //'bitv/accordion',
         'bitv/benefits-text',
         'bitv/zwei-teaser-modul',
         'bitv/drei-teaser-modul',
         'bitv/app-modul',
+        'bitv/hero-image'
     );
 }
 
@@ -192,16 +193,6 @@ function loadAPImage() {
    
 add_action('enqueue_block_editor_assets', 'loadAPImage');
 
-function loadImageAP() {
-  wp_enqueue_script(
-    'image-ap-block',
-    plugin_dir_url(__FILE__) . 'bitv-image-ap.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadImageAP');
 
 function loadPresseTextImage() {
   wp_enqueue_script(
@@ -630,6 +621,7 @@ function loadAppModulBITV() {
 add_action('enqueue_block_editor_assets', 'loadAppModulBITV');
 
 
+
 function custom_block_categories( $categories ) {
   return array_merge(
     $categories,
@@ -642,3 +634,40 @@ function custom_block_categories( $categories ) {
   );
 }
 add_action( 'block_categories', 'custom_block_categories', 10, 2 );
+
+
+
+function loadHeroImageModulBITV() {
+  wp_enqueue_script(
+    'bitv-hero-image-modul',
+    plugin_dir_url(__FILE__) . 'bitv-hero_image.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadHeroImageModulBITV');
+
+/*
+function loadImageAP() {
+  wp_enqueue_script(
+    'image-ap-block',
+    plugin_dir_url(__FILE__) . 'image-ap/bitv-image-ap.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadImageAP');
+*/
+
+function loadImageAP() {
+  $my_dir=plugin_dir_path( __FILE__ );
+  //echo $my_dir.'<hr>';
+
+require $my_dir.'image-ap/index.php';
+
+
+}
+   
+add_action('enqueue_block_editor_assets', 'loadImageAP');
