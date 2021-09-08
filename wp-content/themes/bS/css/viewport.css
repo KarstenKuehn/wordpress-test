@@ -1545,6 +1545,8 @@ a.event_short
   font-size:42px;
   line-height:48px;
   padding-bottom:60px;
+  max-width: 808px;
+    margin: auto;
 }
 .news_feed h2,.events h2
 {
@@ -3296,6 +3298,8 @@ form .button,.news_filter button.desktop_hidden{
 section.events_overview {
     max-width: 808px;
     padding: 0 24px;
+    margin: auto;
+    margin-bottom: 96px;
 }
 /*
 section.wp-block-lb-benefits-text.content_section {
