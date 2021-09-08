@@ -53,6 +53,10 @@ get_header(); ?>
 			</div><!-- .archive-header-inner -->
 
 		</header><!-- .archive-header -->
+
+
+<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true">
+
 		<?php
 	}
 
