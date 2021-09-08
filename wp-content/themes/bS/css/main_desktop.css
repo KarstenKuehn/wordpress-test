@@ -928,6 +928,9 @@ a.sub_menu_item {
 .news_container a.list {
     padding: 0 16px;
 }
+.news-liste .news_container a.list {
+    padding: 0;
+}
 
 .section-left {
     margin-left:calc( (100% - 1224px) / 2) ;
