@@ -82,8 +82,6 @@ foreach ($posts as $key => $post)
 			$title=$post->post_title;
 			$excerpt = get_the_excerpt($post->ID);
 
-
-
 			if($filter_word!='')
 			{
 
@@ -282,10 +280,14 @@ foreach ($pages as $key => $post)
       	var_dump(get_the_excerpt($post["ID"]));die;
     	}
 
+	$content_post = get_post($post["ID"]);
+$content = $content_post->post_content;
+$content = apply_filters('the_content', $content);
+
 			echo '<div class="news_frame">';
 			echo '<h2 class="news_headline e_headline has-medium-font-size">'.$post['post_title'].'</h2>';
 			echo '<div class="subline"><span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date'])).'</div>';			
-			echo '<p>'.get_the_excerpt($post["ID"]).'</p>';
+			echo '<p>'.wp_strip_all_tags( $content).'</p>';
 			echo '</div>';
 			echo '<a href="'.$post['link'].'" class="list" title="'.$post['post_title'].'">Mehr erfahren <span class="material-icons" aria-hidden=true>east</span></a>';
 			echo '</div>';
