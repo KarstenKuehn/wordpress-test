@@ -3109,7 +3109,7 @@ option {
 .searchformfld textarea:focus-visible + label,.searchformfld textarea:not(:placeholder-shown) + label,
 .searchformfld input:focus-visible + label,.searchformfld input:not(:placeholder-shown) + label{
     opacity:1;
-    transform: scale(.8) translateY(-24px) translateX(-8px);
+    transform: scale(.8) translateY(-30px) translateX(-8px);
     color:#091B30;
 }
 
