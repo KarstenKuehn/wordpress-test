@@ -646,6 +646,7 @@ input#s {
 
 .main.search h2 {
     padding: 16px 0;
+    max-width: 1244px;
 }
 /**/
 .archive-title{
@@ -656,7 +657,7 @@ input#s {
   line-height: 48px;
   display: inline-block;
   width: 100%;
-  padding: 16px 0;
+  padding: 0;
 }
 
 .archive-subtitle p{
@@ -3109,7 +3110,7 @@ option {
 .searchformfld textarea:focus-visible + label,.searchformfld textarea:not(:placeholder-shown) + label,
 .searchformfld input:focus-visible + label,.searchformfld input:not(:placeholder-shown) + label{
     opacity:1;
-    transform: scale(.8) translateY(-24px) translateX(-8px);
+    transform: scale(.8) translateY(-24px) translateX(-16px);
     color:#091B30;
 }
 
