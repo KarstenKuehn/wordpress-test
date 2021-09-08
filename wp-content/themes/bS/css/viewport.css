@@ -1985,7 +1985,7 @@ button.slick-arrow.slick-disabled
 */
 
 .news-liste .news {
-  padding-bottom: 24px;
+  padding-bottom: 0;
     margin-bottom: 96px;
 } 
 
@@ -3626,18 +3626,19 @@ padding: 0; margin-bottom: 40px;
     display: none;
 }
 
-
+/*
 .news-liste .news{
   background: #F3F4F7;
 }
+*/
+
 @media(min-width:768px)
 {
 
 
 .news-liste .news{
   
-  padding: 24px;
-  padding-right: 0;
+  padding: 0;
   width: 100%;
   max-width: 1224px;
 }
@@ -3665,7 +3666,7 @@ padding: 0; margin-bottom: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 16px;
-    min-height: 4.4em;
+    min-height: 4.5em;
 }
 
 
@@ -3778,7 +3779,7 @@ padding: 0 24px;
     display: block;
 }
 
-.wp-block-bitv-ap-image.modul.text-image,.wp-block-bitv-ap-image.modul.image-text,.wp-block-bitv-image-text.modul.image-text,.wp-block-bitv-text-image.modul.text-image {
+.wp-block-bitv-ap-image.modul.text-image,.wp-block-bitv-image-ap.modul.image-text,.wp-block-bitv-image-text.modul.image-text,.wp-block-bitv-text-image.modul.text-image {
     min-height: 408px;
     display: flex;
     flex-direction: column;

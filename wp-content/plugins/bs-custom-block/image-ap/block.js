@@ -7,8 +7,9 @@
   var el = element.createElement;
 
   var InnerBlocks = wp.editor.InnerBlocks;
-  blocks.registerBlockType( 'bitv/image-ap-x', {
-    title: 'xxx-BITV-Image-Ansprechpartner', // The title of block in editor.
+
+  blocks.registerBlockType( 'bitv/image-ap', {
+    title: 'BITV-Image-Ansprechpartner', // The title of block in editor.
    icon: 'align-pull-right', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.  
 

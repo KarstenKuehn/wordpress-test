@@ -466,6 +466,10 @@ a.event_short h2
     background: #fff;
   }
 
+  .news-liste .news_container
+  {
+    border-bottom: 1px solid #C7CCDB;
+  }
 
 .news .category{
     color: #143C6B;
@@ -906,6 +910,12 @@ a.sub_menu_item {
 {
   padding: 0 16px;
 }
+
+.news-liste .news_frame
+{
+  padding: 0;
+}
+
 .news-div {
     padding: 0;
     margin-bottom: 0;
