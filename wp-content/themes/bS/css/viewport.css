@@ -3669,7 +3669,12 @@ padding: 0; margin-bottom: 40px;
     min-height: 4.5em;
 }
 
+.entry-content {
 
+    -webkit-line-clamp: 4;
+
+    min-height: 6em;
+}
 
 
 
