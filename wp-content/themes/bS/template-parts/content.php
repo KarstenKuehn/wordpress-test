@@ -29,7 +29,13 @@
 			<?php
 			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
 				//the_excerpt();
-				$content = get_the_excerpt();
+				//$content = get_the_excerpt();
+
+	$content_post = get_post();
+$content_xcx = $content_post->post_content;
+$content_xcx = apply_filters('the_content', $content_xcx);
+$content=wp_strip_all_tags( $content_xcx);
+
 
 				if(get_search_query()!='')
 				{

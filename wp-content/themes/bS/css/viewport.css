@@ -699,7 +699,6 @@ input#s {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 24px;
-  padding-bottom: 16px;
 }
 .main.search article .entry-content h2
 {
@@ -3659,7 +3658,7 @@ padding: 0; margin-bottom: 40px;
 
 
 
-.news_frame p {
+.entry-content,.news_frame p {
     padding: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;

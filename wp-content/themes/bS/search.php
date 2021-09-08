@@ -10,7 +10,7 @@ get_header(); ?>
 	if ( is_search() ) {
 ?>
 <main id="site-content" role="main" class="main search">
-<div class="medium">
+<div class="">
 	<?php
 
 	$archive_title    = '';
@@ -38,7 +38,7 @@ get_header(); ?>
 	if ( $archive_title || $archive_subtitle ) {
 		?>
 
-		<header class="archive-header has-text-align-center header-footer-group">
+		<header class="archive-header header-footer-group">
 
 			<div class="archive-header-inner section-inner">
 
