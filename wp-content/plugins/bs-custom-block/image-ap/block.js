@@ -80,7 +80,7 @@ var attributes = props.attributes;
             template: [
               ['core/heading',{className:'e_headline content','placeholder':'Block Überschrift',fontSize: 'large'}],
               ['core/image',{className:'modul-image','placeholder':'Verlinkung-Bild'}],
-              ['core/paragraph',{'placeholder':'Blocktext'}],                  
+              ['core/paragraph',{className:'block-text content','placeholder':'Blocktext'}],                  
             ],
           }
         ),
