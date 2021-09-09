@@ -9,7 +9,7 @@ get_header(); ?>
 
 	if ( is_search() ) {
 ?>
-<main id="site-content" role="main">
+<main id="site-content" role="main" clas="main">
 
 	<?php
 
@@ -107,7 +107,7 @@ get_header(); ?>
 
 //	echo seo_index_slider();
 ?>
-<main id="maincontent">
+<main id="maincontent" class="main">
 
         <?php
             if(get_the_post_thumbnail_url()!='')

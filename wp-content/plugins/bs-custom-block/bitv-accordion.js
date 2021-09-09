@@ -3,7 +3,7 @@
   var InnerBlocks = wp.editor.InnerBlocks;  
   var createElement = wp.element.createElement;
   blocks.registerBlockType( 'bitv/accordion', {
-    title: 'BITV-Accordion', // The title of block in editor.
+    title: 'BITV-Akkordion', // The title of block in editor.
     icon: 'align-wide', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     edit() {
@@ -13,7 +13,7 @@
         el(
           "span",
           null,
-          "Accordion: "
+          "Akkordeon: "
         ),         
         el(
           "hr",

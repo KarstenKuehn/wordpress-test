@@ -56,18 +56,7 @@
                 }
               }
             ),
-            el(RichText, {
-              key: 'editable',
-              tagName: 'p',
-              className: 'accordion_content',
-              placeholder: i18n.__('Accordion-Content', 'my-lb-block'),
-              keepPlaceholderOnFocus: true,
-              value: attributes.accordion_content,
-              onChange: function (newText) {
-                props.setAttributes({accordion_content: newText})
-              }
-            }),
-                    el(
+          el(
           InnerBlocks,
           {
             template: [

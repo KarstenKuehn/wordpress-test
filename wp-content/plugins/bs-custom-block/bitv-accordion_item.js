@@ -1,41 +1,109 @@
-( function( blocks, editor, element ) {
+(function (blocks, editor, components, i18n, element) {
   var el = element.createElement;
-  var InnerBlocks = wp.editor.InnerBlocks;  
-  var createElement = wp.element.createElement;
-  blocks.registerBlockType( 'bitv/accordion-item', {
-    title: 'BITV-Accordion-Item', // The title of block in editor.
-    icon: 'align-wide', // The icon of block in editor.
-    category: 'bitv-blocks', // The category of block in editor.
-    edit() {
-      return [        
-      el(
-          "div",{multiline: 'div',style:{border:'1px solid gray', padding:'32px'} },
+  var registerBlockType = blocks.registerBlockType;
+  var RichText = editor.RichText;
+  var BlockControls = editor.BlockControls;
+  var AlignmentToolbar = editor.AlignmentToolbar;
+  var MediaUpload = editor.MediaUpload;
+  var InspectorControls = editor.InspectorControls;
+  var TextControl = components.TextControl;
+ var InnerBlocks = editor.InnerBlocks; 
+  registerBlockType('bitv/accordion-item', {
+    title: 'BITV-Akkordeon-Element',
+    description: 'Ein benutzerdefinierter Block zum Anzeigen von Akkordeon-Elementen',
+    icon: 'align-wide',
+    category: 'bitv-blocks',
+    attributes: {
+      accordion_head: {
+      type: 'text',
+      selector: 'h3'
+      },
+      accordion_content: {
+      type: 'text',
+      selector: 'p'
+      }
+    },
+      edit: function (props) {
+      var attributes = props.attributes;
+      return [
         el(
-          "span",
-          null,
-          "Accordion-Item: "
-        ),
-        el(
+          'div', {
+            className: props.className,
+            style: { textAlign: attributes.alignment,border:'1px solid grey',padding:'24px' }
+          },
+          el(
+            "div",
+            null,
+            "Akkordeon-Element"
+          ),   
+          el(
+            'div', 
+            {
+              className: 'accordion-item',
+              style:{display:'inline-block',width:'100%'}
+            },
+            el(
+              RichText, 
+              {
+                key: 'editable',
+                tagName: 'h3',
+                className: 'accordion_head',
+                placeholder: 'Akkordeon-Head',
+                keepPlaceholderOnFocus: true,
+                value: attributes.accordion_head,
+                onChange: function (newTitle) {
+                  props.setAttributes({accordion_head: newTitle})
+                }
+              }
+            ),
+          el(
           InnerBlocks,
           {
             template: [
-              ['core/heading',{className:'e_headline content','placeholder':'Block Überschrift',fontSize: 'large'},
-               [ ['core/button',{className:'modul-button content','placeholder':'Button'}]],
-              ],
               ['core/paragraph',{className:'block-text content','placeholder':'Blocktext'}],                  
             ],
           }
         ),
+          )
+        )
+      ];
+    },
+    save: function (props) {
+      var attributes = props.attributes;
+      return (
+        el(
+          'div', {
+            className: 'accordion-item'
+          },
+
+
+          el(
+          'h5', {},
+          el(RichText.Content, {
+            tagName: 'button',
+            className: 'question',
+            'aria-label':attributes.accordion_head,
+            'aria-expanded':false,
+            'role':'heading',
+            'aria-level':3,            
+            value: ''+attributes.accordion_head+''
+          }),),
 
         el(
-          "hr",
-          null
-        ),          
-        )]
-
+          'div', {
+            className: 'answer'
+          }, 
+          el( InnerBlocks.Content, {} ),
+          ),
+        )
+      );
     },
-    save: function() {
-      return createElement('div', { className: 'accordion_item' }, createElement( InnerBlocks.Content ));
-    },
-  } );
-} )( window.wp.blocks, window.wp.editor, window.wp.element );
+  })
+})
+(
+window.wp.blocks,
+window.wp.blockEditor,
+window.wp.components,
+window.wp.i18n,
+window.wp.element
+);

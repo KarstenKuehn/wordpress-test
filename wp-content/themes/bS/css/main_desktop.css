@@ -99,10 +99,15 @@ section.news-liste {
     margin-bottom: 24px;
     padding-left: 0;
 }
-.main ul{
-  padding: 0 24px 24px 24px;
-}
 
+
+.main ul{
+    padding: 0 24px 24px 24px;
+  
+}
+.main section.bitv ul{
+ padding: 0;
+}
 .desktop_navi {
     padding-right: 8px;
 }

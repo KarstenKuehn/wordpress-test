@@ -1303,7 +1303,7 @@ p
 
 
 .question {
-    padding: 16px 48px 16px 24px;
+    padding: 24px 48px 24px 24px;
     /*border-top: 1px solid #E3E5ED;*/
     position: relative;
     line-height: 1.5rem;  cursor: pointer;
@@ -1320,7 +1320,7 @@ p
     position: absolute;
     right: 8px;
     top: 16px;
-    content: "\e148";
+    content: "\e5cf";
     line-height: 1.5rem;
     font-weight: lighter;
   }
@@ -1334,14 +1334,24 @@ p
     display: block;
   }
 .question.active:after {
-    content: "\e15d";
+    content: "\e5ce";
 }
 
 .answer{
-  padding: 16px 16px 16px 24px;
+  padding: 0px 24px 24px 24px;
   line-height: 1.5rem;
   font-size: 16px;
   border-top: 1px solid transparent;
+}
+
+
+.answer p.content ,.answer >* {
+    /* background: red; */
+    padding: 0;
+}
+.answer >:last-child {
+    /* background: red; */
+    margin: 0;
 }
 
 .block_image_div {
