@@ -1,0 +1,416 @@
+@font-face{
+  font-family:TheSans-ExtraBold;
+  src:url(fonts/TheSans_LP_800_ExtraBold.eot);
+  src:
+    url(fonts/TheSans_LP_800_ExtraBold.eot?#iefix) format('embedded-opentype'),
+    url(fonts/TheSans_LP_800_ExtraBold.woff) format('woff'),
+    url(fonts/TheSans_LP_800_ExtraBold.svg#TheSans_B2_800_) format('svg')
+}
+
+@font-face{
+    font-family:"Univers LT";
+    src:url(fonts/UniversLT.eot);
+    src:
+      url(fonts/UniversLT.eot?#iefix) format('embedded-opentype'),
+      url(fonts/UniversLT.woff2) format("woff2"),
+      url(fonts/UniversLT.woff) format("woff"),
+      url(fonts/UniversLT.ttf) format("truetype"),
+      url(fonts/UniversLT.svg) format("svg");
+  }
+@font-face{
+    font-family:"Univers LT";
+    src:url(fonts/UniversLT.eot);
+    src:
+      url(fonts/UniversLT.eot?#iefix) format('embedded-opentype'),
+      url(fonts/UniversLT.woff2) format("woff2"),
+      url(fonts/UniversLT.woff) format("woff"),
+      url(fonts/UniversLT.ttf) format("truetype"),
+      url(fonts/UniversLT.svg) format("svg");
+  }
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url(fonts/glyphicons-halflings-regular.eot);
+    src: 
+      url(fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),
+      url(fonts/glyphicons-halflings-regular.woff2) format('woff2'),
+      url(.fonts/glyphicons-halflings-regular.woff) format('woff'),
+      url(fonts/glyphicons-halflings-regular.ttf) format('truetype'),
+      url(fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+}
+
+body{
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'Univers LT',sans-serif,Helvetica;
+}
+
+/* Top Kalender-Navigation als pills-stepper-progress-bar*/
+.nav{
+  margin-right: -1px;
+}
+.nav-link {
+  display: block;
+  padding: 3px 10px;
+  width: 100%;
+}
+.nav-pills.nav {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  width: 100%;
+}
+.nav-pills .nav-link {
+  background-color: #e5e5e5;
+  font-family: 'Univers LT',sans-serif,Helvetica;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  border-radius: 0;
+  text-align: center;
+}
+.nav-pills .nav-link.active {
+  background-color: #f7dc16;
+  color: #000;
+  position: relative;
+}
+.nav-pills.nav-wizard > li {
+  position: relative;
+  overflow: visible;
+  border-right: 7px solid #fff;
+  border-left: 6px solid #fff;
+  width: 25%;
+}
+.nav-pills.nav-wizard > li:first-child {
+  border-left: 0;
+}
+.nav-pills.nav-wizard > li:last-child {
+  border-right: 0;
+}
+.nav-pills.nav-wizard > li span {
+  border-radius: 0;
+  background-color: #f7dc16;
+  color: #df0026;
+  line-height: 24px;
+  height: 24px;
+  display: block;  
+  padding: 0 5px;      
+  text-align: center;
+  font-size: smaller;
+  font-weight: 700;
+}
+.nav-pills.nav-wizard > li.active span {
+  background-color: #df0026;
+  color: #fff;
+}
+.nav-pills.nav-wizard > li .nav-arrow {
+  position: absolute;
+  top: 0px;
+  right: -12px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 12px 0 12px 12px;
+  border-color: transparent transparent transparent #f7dc16;
+  z-index: 150;
+}
+.nav-pills.nav-wizard > li.active .nav-arrow {
+ border-color: transparent transparent transparent #df0026;
+}
+.nav-pills.nav-wizard > li .nav-wedge {
+  position: absolute;
+  top: 0px;
+  left: -12px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 12px 0 12px 12px;
+  border-color: #f7dc16 #f7dc16 #f7dc16 transparent;
+  z-index: 150;
+}
+.nav-pills.nav-wizard > li.active .nav-wedge {
+  border-color: #df0026 #df0026 #df0026 transparent;
+}
+
+.anker {
+    line-height: 24px;
+    margin: 3px;
+}
+.anker.nav-link {
+    line-height: 24px
+}
+.anker.btn-default {
+    margin: 3px;
+    padding: 0 20px;
+}
+.trenner{
+border: 2px solid grey;
+margin: 5px;
+}
+a, a:hover{
+  color:#df0026;
+}
+.btn-default,.export .btn-default, .btn-default:active:hover, .btn-default:hover{ 
+    color: #fff;
+    background-color: #df0026;
+    border-color: transparent;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: unset;
+    border-radius: 0;
+    font-family: 'Univers LT',sans-serif,Helvetica;
+    font-weight: 700;
+    padding: 0 20px;
+    font-size: smaller;    
+}
+
+.u_frame {
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 25px;
+    height: 475px;
+    overflow: hidden;
+    max-width: 100%
+}
+.frame_block {
+    height: 475px;
+    position: relative;
+}
+
+.cal_navi{
+  position: relative;
+  height: 30px;
+  background-color: #f7dc16;
+  padding: 0 15%;
+}
+
+.statistik{
+  display: block;
+  height: 30px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.g_preis {
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f7dc16;
+}
+/* Übersich-Seite Kalender-/Motiv-Auswahl */
+/* Vorauswahl / Ausgewählte Kalender oder Motiv */
+.top_bild {
+  height: 265px;
+  width: auto; 
+  margin-top: 5px;
+}
+.alt_cal {
+  height: 125px;
+  padding: 15px 0
+}
+.cal_name{
+  line-height: 20px;
+  font-weight: 700;
+  height: 50px;
+  padding: 10px; 
+}
+/* Alternative Kalender- / Motiv-Bilder */
+.cal_bild{
+  width: auto;
+  height: 90px;
+}
+.alt_cal div {
+    display: inline-block;
+    width: 70px;
+    border: 1px solid #fff; 
+    margin: 0 5px;
+}
+.alt_cal div.active {
+    border: 1px solid #000; 
+}
+
+/* Step 2 + 3: 
+  Auswahl einzelne Lose
+*/
+.btn.disabled, .btn:disabled  {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* Slider Definition */
+.swiper-button-red{
+position: absolute;
+    color: #df0026;
+    height: 150px;
+    line-height: 150px;
+    font-size: 40px;
+    top: 0;
+    left: 0;
+}
+.slick-track {
+    margin-left: 0;
+}
+
+button.slick-arrow:hover,
+button.slick-arrow:focus,
+button.slick-arrow{
+  color: #df0026;
+  z-index: 100;
+  top : 75px;
+  height: 150px;
+  width: 25px;
+}
+
+button.slick-arrow.slick-disabled{
+  opacity: 0;
+  pointer-events:none;
+}
+
+.slick-next {
+  right: -23px;        
+}
+.slick-prev {
+  left: -23px;
+}
+
+.slick-arrow:before {
+  display: none
+}
+
+.form-control {
+    height: 24px;
+    padding: 2px;
+    font-size: 12px;
+    line-height: 12px;
+    min-width: 1rem!important;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: auto;
+}
+/* '+', '-' Buttons */
+.input-group-append .btn, 
+.input-group-prepend .btn {
+  height: 24px;
+  padding: 0px;
+  min-width: 1.3rem!important;
+  line-height: 13px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+
+.btn-outline-secondary.disabled, 
+.btn-outline-secondary:disabled {
+  background-color: transparent;
+  color: lightgray;
+  cursor: not-allowed;
+  pointer-events: none;   
+}
+
+
+/* Link Zufällige Auswahl*/
+.zufall,.zufall a {
+    line-height: 35px;
+    font-weight: 700;
+    height: 35px;
+    color: #000;
+    display: block;
+}
+.zufall a:hover {
+  text-decoration: none;
+    color: #df0026;
+}
+.zufall img{
+  margin: 5px 0;
+  vertical-align: top;
+  height: 20px;
+  width: auto;
+}
+
+.los_body {  
+    height: 170px;
+    max-width: 282px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+.los_slide {
+    height: 170px;
+    line-height: 1rem;
+    background: #eee;
+    margin: 0 3px;
+    padding: 0 3px;
+}
+.los_bild {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    max-width: 135px;
+}
+.slide_text {
+    padding: 0.1em 3px;
+    font-size: 12px
+}
+.los_titel {
+    font-weight: 700;
+}
+/* Step 3 : 
+  'Extra-Lose' Darstellung
+*/
+.form-group {
+    line-height: 24px;
+    margin: 7px 0;
+    font-weight: 400;
+}
+.form-group.extra_price {
+    font-weight: 700;
+}
+/* Step 4 : 
+  'Rezept' Zusammenstellung
+*/
+#los3 {
+    padding: 0;
+    background-image: url(rezept.jpg);
+    background-size: 100% auto;
+
+}
+#los3.silvester {
+    background-image: url(silvesterrezept_2.jpg);
+    background-size: auto 100%;
+    background-position: bottom 30px center;
+    background-repeat: no-repeat;
+}
+
+.rezept_body {
+  padding: 10px;
+  height: 430px;
+  max-width: 282px;
+  margin: auto;
+  position: relative;    
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.rezept_content{
+  height: calc( 100% - 30px);
+  background: rgba(256,256,256,0.8);
+}
+.rezept_footer {
+    position: absolute;
+    bottom: 35px;
+    display: block;
+    width: 100%;
+    left: 0;
+}
+#los3.silvester .rezept_footer {
+    bottom: 85px;
+}
+
+@media (max-width: 280px) {
+.los_body {
+    max-width: 202px;
+}
+}

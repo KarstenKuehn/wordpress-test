@@ -74,7 +74,8 @@ function kb_whitelist_blocks()
 
         'bitv/ap-image',       
         'bitv/image-ap',        
-        //'bitv/accordion',
+        'bitv/accordion',
+        'bitv/accordion-item',
         'bitv/benefits-text',
         'bitv/zwei-teaser-modul',
         'bitv/drei-teaser-modul',

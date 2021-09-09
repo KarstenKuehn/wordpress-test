@@ -14,13 +14,23 @@
           "span",
           null,
           "Accordion-Item: "
-        ),         
+        ),
+        el(
+          InnerBlocks,
+          {
+            template: [
+              ['core/heading',{className:'e_headline content','placeholder':'Block Überschrift',fontSize: 'large'},
+               [ ['core/button',{className:'modul-button content','placeholder':'Button'}]],
+              ],
+              ['core/paragraph',{className:'block-text content','placeholder':'Blocktext'}],                  
+            ],
+          }
+        ),
+
         el(
           "hr",
           null
         ),          
-
-          createElement( InnerBlocks )
         )]
 
     },

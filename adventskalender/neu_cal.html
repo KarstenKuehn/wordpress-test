@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Silvester_kalender</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://shaack.com/projekte/bootstrap-input-spinner/src/bootstrap-input-spinner.js"></script>
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <script type="text/javascript" src="slick/slick.js"></script>
+  <link rel="stylesheet" href="neu_main.css">
+  <meta name="robots" content="noindex,nofollow">
+</head>
+<body>  
+<ul class="nav nav-pills nav-wizard w-100">
+  <li class="active" step="1">
+    <span class="hidden-xs pr-0">Variante</span>
+    <div class="nav-arrow"></div>
+  </li>
+  <li class="disabled" step="2">
+    <div class="nav-wedge"></div>
+    <span class="hidden-xs pr-0">Lose</span>
+    <div class="nav-arrow"></div>
+  </li>
+  <li class="disabled"  step="3">
+    <div class="nav-wedge"></div>
+    <span class="hidden-xs pr-0">Topping</span>
+    <div class="nav-arrow"></div>
+  </li>
+  <li class="disabled" step="4">
+    <div class="nav-wedge"></div>
+    <span class="hidden-xs pr-0">Rezept</span>
+  </li>
+</ul>
+<div class="u_frame">
+<div class="frame_block" id="cal">
+  <div class="row p-0 m-0 cal_top">
+    <div class="col-12 text-center p-0 m-0">
+      <img src="Kalender/Silvesterkalender_schwarz.jpg" class="top_bild">
+      <div class="cal_name"><div>Silvesterkalender </div></div>
+    </div>   
+  </div>
+  <div class="alt_cal text-center motive">
+    <div class="text-center active">      
+      <a href="#"><img src="Kalender/Silvesterkalender_schwarz.jpg" class="m cal_bild" motiv="Silvesterkalender schwarz"></a>
+    </div>    
+    <div class="text-center inactive">      
+      <a href="#"><img src="Kalender/Silvesterkalender_rot.jpg" class="m cal_bild" motiv="Silvesterkalender rot"></a>
+    </div>    
+
+  </div>
+    <div class="cal_navi">
+      <div class="row p-0 m-0">
+<div class="col-12 text-center p-0 m-0"><a href="#los1" step="2" class="anker text-nowrap btn btn-default" title="zur Lose-Auswahl" onmousedown="_etracker.sendEvent(new et_ClickEvent('Start | Silvesterkalender'));">Weiter</a></div>
+      </div>
+    </div>
+</div>
+<div class="frame_block m-0" id="los1">
+  <div class="zufall text-center"><a href="#"><img src="wuerfel.png"> zufällige Auswahl</a></div>
+  <div class="losen">
+    <div class="row p-0 m-0">
+      <div class="col-12 text-center p-0 los_body">
+        <div class="slider one-time">
+          <div class="multiple">
+            <div class = "los_slide">
+              <div class="slide_bild"><img src="Lose/EXTRA_GEHALT.png" class="los_bild"></div>
+              <div class="slide_text text-left">
+                <div class="los_titel">EXTRA GEHALT <span class="float-right">3€</span></div>
+                <div class="form-group row">
+                  <div class="col-5 p-0 m-0"><label for="al_1">Menge</label></div>
+                  <div class="col-7 p-0 m-0">
+                    <label hidden="" class="los_name">EXTRA GEHALT</label>
+                    <label hidden="" class="los_price">3</label>
+                    <!--<input type="text" class="form-control los_count" placeholder="0" id="al_1" value="0" min="0" max="24">-->
+                    <div class="input-group  ">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-decrement btn-outline-secondary" type="button" tabindex="0">
+                          <strong>−</strong>
+                        </button>
+                      </div>
+                      <input type="text" inputmode="decimal" class="text-center form-control los_count" value="0" id="al_1" tabindex="0">
+                      <div class="input-group-append">
+                        <button class="btn btn-increment btn-outline-secondary" type="button" tabindex="0">
+                          <strong>+</strong>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row p-0 m-0">
+                  <div class="col-12 p-0 m-0"><a href="https://www.lotto-bayern.de/lose/extragehalt" target="_blank">MEHR INFOS</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="multiple">
+            <div class = "los_slide">
+              <div class="slide_bild"><img src="Lose/BayernGLÜCK.png" class="los_bild"></div>
+              <div class="slide_text text-left">
+                <div class="los_titel">BayernGLÜCK <span class="float-right">5€</span></div>
+                <div class="form-group row">
+                  <div class="col-5 p-0 m-0"><label for="al_2">Menge</label></div>
+                  <div class="col-7 p-0 m-0">
+                    <label hidden="" class="los_name">BayernGLÜCK</label>
+                    <label hidden="" class="los_price">5</label>
+                    <!--<input type="text" class="form-control los_count" placeholder="0" id="al_2" value="0" min="0" max="24">-->
+                    <div class="input-group  ">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-decrement btn-outline-secondary" type="button" tabindex="0">
+                          <strong>−</strong>
+                        </button>
+                      </div>
+                      <input type="text" inputmode="decimal" class="text-center form-control los_count" value="0" id="al_2" tabindex="0">
+                      <div class="input-group-append">
+                        <button class="btn btn-increment btn-outline-secondary" type="button" tabindex="0">
+                          <strong>+</strong>
+                        </button>
+                      </div>
+                    </div>                    
+                  </div>
+                </div>
+                <div class="form-group row p-0 m-0">
+                  <div class="col-12 p-0 m-0"><a href="https://www.lotto-bayern.de/lose/bayernglueck" target="_blank">MEHR INFOS</a></div>
+                </div>
+              </div>              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-0 m-0">
+      <div class="col-12 text-center p-0 los_body">
+        <div class="slider one-time">
+          <div class="multiple">
+            <div class = "los_slide">
+              <div class="slide_bild"><img src="Lose/Bayernlos.png" class="los_bild"></div>
+              <div class="slide_text text-left">
+                <div class="los_titel">Bayernlos <span class="float-right">2€</span></div>
+                <div class="form-group row">
+                  <div class="col-5 p-0 m-0"><label for="al_3">Menge</label></div>
+                  <div class="col-7 p-0 m-0">
+                    <label hidden="" class="los_name">Bayernlos</label>
+                    <label hidden="" class="los_price">2</label>
+                    <!--<input type="text" class="form-control los_count" placeholder="0" id="al_3" value="0" min="0" max="24">-->
+                    <div class="input-group  ">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-decrement btn-outline-secondary" type="button" tabindex="0">
+                          <strong>−</strong>
+                        </button>
+                      </div>
+                      <input type="text" inputmode="decimal" class="text-center form-control los_count" value="0" id="al_3" tabindex="0">
+                      <div class="input-group-append">
+                        <button class="btn btn-increment btn-outline-secondary" type="button" tabindex="0">
+                          <strong>+</strong>
+                        </button>
+                      </div>
+                    </div>                    
+                  </div>
+                </div>
+                <div class="form-group row p-0 m-0">
+                  <div class="col-12 p-0 m-0"><a href="https://www.lotto-bayern.de/lose/bayernlos" target="_blank">MEHR INFOS</a></div>
+                </div>
+              </div>               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <span class="statistik text-center"><span class="total">0</span> von 7 Losen</span>
+    <div class="g_preis text-center">Gesamtpreis <span class="cal_price">0,00</span> €</div>
+    <div class="cal_navi">
+      <div class="row p-0 m-0">
+        <div class="col-6 text-left p-0 m-0 text-right" ><a href="#cal" step="1" class="anker t text-nowrap btn btn-default" title="zur Motiv-Auswahl">Zurück</a></div>
+        <div class="col-6 text-left p-0 m-0 text-left"><a href="#los2" step="3" class="anker text-nowrap extra_lose btn btn-default" title="zur Lose-Auswahl">Weiter</a></div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div class="frame_block" id="los2">
+  <div class="zufall text-center">Optionales Topping-Los</div>
+  <div class="losen">
+    <div class="row p-0 m-0">
+      <div class="col-12 text-center p-0 los_body">
+        <div class="slider one-time">
+          <div class="multiple">
+            <div class = "los_slide">
+              <div class="slide_bild"><img src="Lose/BayernMILLIONEN.png" class="los_bild"></div>
+              <div class="slide_text text-left los_titel">BayernMILLIONEN
+                <div class="form-group row p-0 m-0 py-1 extra_price">
+                  <div class="col-7 p-0 m-0"><label for="al_2">10,50 €</label></div>
+                  <div class="col-5 p-0 m-0 text-right">
+                    <label hidden="" class="los_name">BayernMILLIONEN</label>
+                    <label hidden="" class="los_price">10.5</label>
+                    <input type="checkbox" class="radio" value="BayernMILLIONEN" name="extra_los" los_price="10.50"/>
+                  </div>
+                </div>
+                <div class="form-group row p-0 m-0">
+                  <div class="col-12 p-0 m-0"><a href="https://www.lotto-bayern.de/bayernmillionen/spielschein" target="_blank">MEHR INFOS</a></div>
+                </div>
+              </div>              
+            </div>
+          </div>          
+          <div class="multiple">
+            <div class = "los_slide">
+              <div class="slide_bild"><img src="Lose/LOS_2020.png" class="los_bild"></div>
+              <div class="slide_text text-left los_titel">
+                LOS 2020
+                <div class="form-group row p-0 m-0 py-1 extra_price">
+                  <div class="col-7 p-0 m-0"><label for="al_1">7,00 €</label></div>
+                  <div class="col-5 p-0 m-0 text-right">
+                    <label hidden="" class="los_name">LOS 2020</label>
+                    <label hidden="" class="los_price">7</label>
+                      <input type="checkbox" class="radio" value="LOS 2020" name="extra_los" los_price="7"/>
+                  </div>
+                </div>
+                <div class="form-group row p-0 m-0">
+                  <div class="col-12 p-0 m-0"><a href="https://www.lotto-bayern.de/lose/los2020" target="_blank">MEHR INFOS</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row p-0 m-0">
+      <div class="col-12 text-center p-0 los_body">
+        <div class="slider one-time">
+          <div class="multiple">
+            <div class = "los_slide">
+              <div class="slide_bild"><img src="Lose/SUPERCASH.png" class="los_bild"></div>
+              <div class="slide_text text-left los_titel">SUPER CASH
+                <div class="form-group row p-0 m-0 py-1 extra_price">
+                  <div class="col-7 p-0 m-0"><label for="al_3">5,00 €</label></div>
+                  <div class="col-5 p-0 m-0 text-right">
+                    <label hidden="" class="los_name">SUPER CASH</label>
+                    <label hidden="" class="los_price">5</label>
+                    <input type="checkbox" class="radio" value="SUPER CASH" name="extra_los" los_price="5"/>
+                  </div>
+                </div>
+                <div class="form-group row p-0 m-0">
+                  <div class="col-12 p-0 m-0"><a href="https://www.lotto-bayern.de/lose/supercash" target="_blank">MEHR INFOS</a></div>
+                </div>
+              </div>               
+            </div>
+          </div>     
+        </div>
+      </div>
+    </div> 
+    <span class="statistik text-center"><span class="erg">0</span> von 1 Los</span>
+    <div class="g_preis text-center">Gesamtpreis <span class="cal_price">0,00</span> €</div>  
+    <div class="cal_navi">
+      <div class="row p-0 m-0">
+        <div class="col-6 text-left p-0 m-0 text-right" ><a href="#los1" step="2" class="anker t text-nowrap btn btn-default" title="zur Lose">Zurück</a></div>
+        <div class="col-6 text-left p-0 m-0 text-left"><a href="#los3" step="4" class="anker text-nowrap extra_lose btn btn-default" title="zur Lose-Auswahl" onmousedown="_etracker.sendEvent(new et_ClickEvent('Weiter | Silvesterkalender'));">Weiter</a></div>
+      </div>
+    </div>
+</div>
+</div>
+<div class="frame_block silvester" id="los3">
+  <div class="rezept_content">
+    <div class="rezept_body">
+      <div class="rezept_header text-center pt-2"><h5>ZUTATEN</h5></div>
+      <div class="rezept_sub_header text-center pb-2"><h6>LOTTO Bayern Silvesterkalender</h6></div>
+      <!--<b>Kalender</b><br><label class="label_motiv">Silvesterkalender</label> -->
+      <input class="form-control" type="hidden" value="0" id="total">
+      <input type="hidden" class="motiv" name="motiv" value='Silvesterkalender schwarz'>
+      <input type="hidden" class="motiv_src" name="motiv_src" value=''>
+      <div class="backrezept pt-2"></div>
+      <div class="extra_los_rezept pt-2">
+        <b>TOPPING</b><div class="row"><div class="col-12 topping_name">kein optionales Topping-Los ausgewählt</div><div class="topping_preis"></div></div>
+      </div>
+      <div class="trenner my-2"></div>
+      <div class="pdf_preis"><div class="row"><div class="col-7"><b>GESAMTPREIS</b></div><div class="col-5 text-right"><span class="cal_price">0,00</span> €</div></div></div>
+      <input type="hidden" value="0" class="all_los_price">   
+      <div class="rezept_footer text-center">
+        Frohes Mixen und einen guten Rutsch! <br>
+        Auf dass 2021 ein echter Knaller wird.<br>
+        Ihr LOTTO Bayern Team
+      </div>
+    </div>
+  </div>
+   <div class="cal_navi">
+    <div class="row p-0 m-0">
+      <div class="col-6 text-left p-0 m-0 text-right"><a href="#los2" class="btn btn-default anker t text-nowrap extra_lose" title="zur Motiv-Auswahl" step="3">Zurück</a></div>
+      <div class="col-6 text-left p-0 m-0 text-left"><input type="button" id="btnExport" value="PDF-Datei" class="btn btn-default anker" step="4"/></div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+<script>
+var test_count=7;
+</script>
+<script id="_etLoader" type="text/javascript" charset="UTF-8" data-secure-code="eKxNd9" src="https://static.etracker.com/code/e.js"></script>
+<script async="" type="text/javascript" charset="UTF-8" id="_etCode" src="https://code.etracker.com/t.js?v=0314b6&amp;et=eKxNd9"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.20/pdfmake.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.20/vfs_fonts.js"></script>
+<script type="text/javascript" src="neu_kalender.js"></script>
+</html>

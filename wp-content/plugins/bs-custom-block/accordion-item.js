@@ -7,7 +7,7 @@
   var MediaUpload = editor.MediaUpload;
   var InspectorControls = editor.InspectorControls;
   var TextControl = components.TextControl;
-  
+ var InnerBlocks = editor.InnerBlocks; 
   registerBlockType('my-lb-block/accordion-item', {
     title: i18n.__('Akkordeon-Element', 'my-lb-block'),
     description: i18n.__('A custom block for displaying accordion-item', 'my-lb-block'),
@@ -66,7 +66,15 @@
               onChange: function (newText) {
                 props.setAttributes({accordion_content: newText})
               }
-            })
+            }),
+                    el(
+          InnerBlocks,
+          {
+            template: [
+              ['core/paragraph',{className:'block-text content','placeholder':'Blocktext'}],                  
+            ],
+          }
+        ),
           )
         )
       ];
@@ -78,6 +86,10 @@
           'div', {
             className: 'accordion-item'
           },
+
+
+          el(
+          'h5', {},
           el(RichText.Content, {
             tagName: 'button',
             className: 'question',
@@ -86,12 +98,21 @@
             'role':'heading',
             'aria-level':3,            
             value: ''+attributes.accordion_head+''
-          }),
+          }),),
+
+        el(
+          'div', {
+            className: 'answer'
+          }, attributes.accordion_content,el( InnerBlocks.Content, {} ),),
+/*
           el(RichText.Content, {
             tagName: 'div',
             className: 'answer',
             value: attributes.accordion_content
-          })
+          },
+          ),
+*/
+
         )
       );
     },

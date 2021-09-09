@@ -1327,6 +1327,7 @@ p
 
   .question:focus-visible{
     background: #F3F4F7;
+    outline: 3px dotted #1F5DA6;
   }
   .question.active
   {
@@ -1337,9 +1338,10 @@ p
 }
 
 .answer{
-  padding: 0 16px 16px 24px;
+  padding: 16px 16px 16px 24px;
   line-height: 1.5rem;
   font-size: 16px;
+  border-top: 1px solid transparent;
 }
 
 .block_image_div {
