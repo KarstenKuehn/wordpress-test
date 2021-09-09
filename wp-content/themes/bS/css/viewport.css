@@ -104,6 +104,21 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 :focus {
     outline: 0;
 }
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+em {
+    font-style: italic;
+}
+
 body {
     line-height: 1;
     color: black;
