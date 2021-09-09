@@ -2020,6 +2020,45 @@ button.slick-arrow.slick-disabled
     display: none;
 }
 
+.block-text.ap-daten.content :first-child {
+    margin-top: 24px;
+}
+
+.ap-daten.content p {
+    position: relative;
+    padding-left: 32px;
+}
+
+.ap-daten.content p:after {
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+}
+
+p.ap-name:after {
+    content: '\e7ff';
+}
+p.ap-mail:after {
+    content: '\e0e1';
+}
+
+p.ap-phone:after {
+    content: '\e0cd';
+}
+p.ap-standort:after {
+    content: '\e0c8';
+}
+p.ap-anschrift:after {
+    content: '\e151';
+}
+
 @media(min-width:768px)
 {
 

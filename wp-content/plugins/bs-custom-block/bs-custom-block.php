@@ -181,18 +181,6 @@ function loadTextImage() {
    
 add_action('enqueue_block_editor_assets', 'loadTextImage');
 
-function loadAPImage() {
-  wp_enqueue_script(
-    'ap-image-block',
-    plugin_dir_url(__FILE__) . 'bitv-ap-image.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadAPImage');
-
-
 function loadPresseTextImage() {
   wp_enqueue_script(
     'presse_text-image-block',
@@ -658,9 +646,21 @@ function loadImageAP() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadImageAP');
+
+function loadAPImage() {
+  wp_enqueue_script(
+    'ap-image-block',
+    plugin_dir_url(__FILE__) . 'bitv-ap-image.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'loadAPImage');
+
 */
 
-function loadImageAP() {
+function loadAPModul() {
   wp_enqueue_script(
     'image-ap-block',
     plugin_dir_url(__FILE__) . 'image-ap/block.js',
@@ -671,6 +671,16 @@ function loadImageAP() {
 wp_enqueue_style( 'image-ap-block-styles-css', plugins_url( '/block-styles.css', __FILE__ )
 );
 
+  wp_enqueue_script(
+    'ap-image-block',
+    plugin_dir_url(__FILE__) . 'ap-image/block.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+
+wp_enqueue_style( 'ap-image-block-styles-css', plugins_url( '/block-styles.css', __FILE__ )
+);
+
 }
    
-add_action('enqueue_block_editor_assets', 'loadImageAP');
+add_action('enqueue_block_editor_assets', 'loadAPModul');

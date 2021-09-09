@@ -8,8 +8,8 @@
 var RichText = editor.RichText;
   var InnerBlocks = wp.editor.InnerBlocks;
 
-  blocks.registerBlockType( 'bitv/image-ap', {
-    title: 'BITV-Image-Ansprechpartner', // The title of block in editor.
+  blocks.registerBlockType( 'bitv/ap-image', {
+    title: 'BITV-Ansprechpartner-Image', // The title of block in editor.
    icon: 'align-pull-right', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.  
 
@@ -73,7 +73,7 @@ attributes: {
 edit: function (props) {
 var attributes = props.attributes;
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, 'Image-Ansprechpartner-Modul' ),
+        el( 'span', {}, 'Ansprechpartner-Image-Modul' ),
         el(
           InnerBlocks,
           {
@@ -209,7 +209,7 @@ var attributes = props.attributes;
 
     save: function (props) {
     var attributes = props.attributes;
-      return el( 'div', { className:'modul image-text' },
+      return el( 'div', { className:'modul text-image' },
         el( InnerBlocks.Content, {} ),
         el('div',{className:'block-text ap-daten content'},
 
