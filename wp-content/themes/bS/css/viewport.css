@@ -3658,6 +3658,16 @@ padding: 0; margin-bottom: 40px;
 }
 */
 
+
+figcaption{
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.img_media figcaption{
+  display: none;
+}
+
 @media(min-width:768px)
 {
 
