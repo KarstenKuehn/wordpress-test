@@ -1,3 +1,4 @@
 .idea
 wp-config.php
 wp-content/debug.log
+.htaccess
