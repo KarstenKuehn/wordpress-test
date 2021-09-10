@@ -11,3 +11,12 @@
  content:'✔';
  padding-right:0.5em;
 }
+
+.ap-daten.content{
+    background: red;
+}
+
+.is-style-colored-bottom-border, 
+.editor-styles-wrapper .is-style-colored-bottom-border { 
+    border-bottom: 2px solid purple;
+}

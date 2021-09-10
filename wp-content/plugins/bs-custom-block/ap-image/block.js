@@ -8,6 +8,11 @@
 var RichText = editor.RichText;
   var InnerBlocks = wp.editor.InnerBlocks;
 
+blocks.registerBlockStyle('core/heading', {
+  name: 'colored-bottom-border',
+  label: 'Colored bottom border'
+});
+
   blocks.registerBlockType( 'bitv/ap-image', {
     title: 'BITV-Ansprechpartner-Image', // The title of block in editor.
    icon: 'align-pull-right', // The icon of block in editor.
