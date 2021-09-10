@@ -750,7 +750,7 @@ section .button {
 .modul .block-text.content {
     margin: 0;
 }
-.modul.eine_spalte,.modul.zwei_spalten,.modul.benefits,.modul.testimonial{
+.modul.eine_spalte,.modul.zwei_spalten,.modul.benefits,.modul.testimonial,.modul.accordion {
     max-width: 1026px;
 }
 
