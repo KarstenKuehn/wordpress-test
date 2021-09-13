@@ -702,7 +702,7 @@ function get_my_content()
             ''
         ),
         $html
-    );    /**/
+    );    /*
     preg_match_all('@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings);
     $i = 0;
     foreach ($_headings[0] as $key => $value) {
@@ -728,7 +728,7 @@ function get_my_content()
         $html = str_replace($value, $str_2, $html);
         $i++;
     }
-
+*/
     return $html;
 }
 

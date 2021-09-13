@@ -2,8 +2,8 @@
   var el = element.createElement;
 
   var InnerBlocks = wp.editor.InnerBlocks;
-  blocks.registerBlockType( 'bitv/app-modul', {
-    title: 'BITV-App-Modul', // The title of block in editor.
+  blocks.registerBlockType( 'bitv/app-img-modul', {
+    title: 'BITV-App-Bild-Modul', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     attributes: {
@@ -52,7 +52,7 @@
     },    
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, 'BITV-App-Modul' ),
+        el( 'span', {}, 'BITV-App-Bild-Modul' ),
         el(
           InnerBlocks,
           {

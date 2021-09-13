@@ -1383,11 +1383,14 @@ p
     height: 264px;
     background-position: right;
     position: relative;
+    overflow: hidden;
 }
+
+/*
 .hero-image img {
 display: none;
 }
-
+*/
 
 .hero-image-stairway {
     position: absolute;
@@ -1637,11 +1640,13 @@ color: #0061AB;
     align-items: center;
     justify-content: center;
     max-width: 2000px;
+    margin: 0;
 }
 .hero-image-figure img {
     max-width: 2000px;
     height: auto;
-    width: 100%;
+    width: auto;
+    min-height: 264px;
 }
 
 
@@ -4516,6 +4521,24 @@ max-width: none; width: 100%;
   -ms-grid-columns: 1fr 24px 1fr 24px 2fr;
   -ms-grid-rows: auto 5px 1fr 5px auto;
 }
+
+
+
+.modul.app-modul.mirror{
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  background: red;
+  grid-template-areas: 
+  "app-image e_headline e_headline"
+  "app-image app-text app-text"
+  "app-image app-button google-button";
+
+  -ms-grid-columns: 2fr 24px 1fr 24px 1fr;
+  -ms-grid-rows: auto 5px 1fr 5px auto;
+}
+
+}
+
 
 .modul.app-modul>*{
   margin-bottom: 0;
