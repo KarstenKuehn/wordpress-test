@@ -4477,7 +4477,7 @@ max-width: none; width: 100%;
 }
 
 
-
+/*
 
 .app-button a{
   background: url('https://lbup.local/wp-content/uploads/2021/06/AppStore.png');
@@ -4496,6 +4496,8 @@ max-width: none; width: 100%;
   text-align: center;
   color: transparent;
 }
+
+*/
 .app-button a, .google-button a{
   width: 100%;
   height: 72px;
@@ -4524,10 +4526,9 @@ max-width: none; width: 100%;
 
 
 
-.modul.app-modul.mirror{
+.modul.app-modul.is-style-mirror,.modul.app-modul.mirror{
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: auto auto 1fr;
-  background: red;
   grid-template-areas: 
   "app-image e_headline e_headline"
   "app-image app-text app-text"
@@ -4554,7 +4555,10 @@ max-width: none; width: 100%;
   padding-right: calc( 100% / 6 - 24px);
 }
 
-
+.app-modul .e_headline.app-head{
+padding: 0;
+margin: 0;
+}
 
 
 .app-text{
@@ -4600,21 +4604,9 @@ width:auto
   -ms-grid-row: 5; 
   -ms-grid-column-span: 1;
 }
-.app-button a{
-  background: url('https://lbup.local/wp-content/uploads/2021/06/AppStore.png');
-  background-size: auto 72px;
-  background-repeat: no-repeat;
-  background-position: left;
-  text-align: center;
-  color: transparent;
-}
-.google-button a{
-  background: url('https://lbup.local/wp-content/uploads/2021/06/GooglePlay.png');
-  background-size: auto 72px;
-  background-repeat: no-repeat;
-  background-position: left;
-  text-align: center;
-  color: transparent;
+
+.my-app{
+  margin: unset;
 }
 
 .app-button a, .google-button a{

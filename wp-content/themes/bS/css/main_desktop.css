@@ -1030,6 +1030,12 @@ section.news-liste {
 }
 
 
+
+.my-app img.block_image {
+    height: 100%;
+    width: auto;
+}
+
 .content_section.bitv.img_media{
     margin-bottom: 144px;
 }

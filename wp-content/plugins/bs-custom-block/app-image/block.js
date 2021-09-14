@@ -2,6 +2,21 @@
   var el = element.createElement;
 
   var InnerBlocks = wp.editor.InnerBlocks;
+
+blocks.registerBlockStyle( 'bitv/app-img-modul', {
+  name: 'mirror',
+  label: 'gespiegelt'
+} );
+  
+blocks.registerBlockStyle( 'core/paragraph', {
+    name: 'hint',
+    label: 'Hinweisbox'
+  } );
+
+blocks.registerBlockStyle( 'core/list', {
+  name: '2col-list',
+  label: '2-Spaltige Liste'
+} );
   blocks.registerBlockType( 'bitv/app-img-modul', {
     title: 'BITV-App-Bild-Modul', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
@@ -56,18 +71,24 @@
         el(
           InnerBlocks,
           {
+
+
+            
             template: [
-              ['core/heading',{className:'e_headline','placeholder':'Block Überschrift',fontSize: 'large'}],
+              ['core/heading',{className:'e_headline app-head','placeholder':'Block Überschrift',fontSize: 'large'}],
                                 ['core/column',{className:'app-text content',},
                     [
-                      ['core/paragraph',{'placeholder':'Blocktext'}],
-                      
+                      ['core/paragraph',{'placeholder':'Blocktext'}],                      
                     ]
                   ],
-                  ['core/image',{className:'app-button','placeholder':'Button'}],
+                  ['core/image',{className:'app-button my-app','placeholder':'app-button',url:'/wp-content/uploads/2021/08/AppStore.png',href:'https://itunes.apple.com/us/app/playoff-selbsthilfe-fur-glucksspieler/id1102852513?l=de&&ls=1&&mt=8/'}],
+                  ['core/image',{className:'google-button my-app','placeholder':'google-button',url:'/wp-content/uploads/2021/08/GooglePlay.png',href:'https://itunes.apple.com/us/app/playoff-selbsthilfe-fur-glucksspieler/id1102852513?l=de&&ls=1&&mt=8/'}],
+/*
               ['core/button',{className:'app-button','placeholder':'Button'}],
               ['core/button',{className:'google-button','placeholder':'Button'}],
-              ['core/image',{className:'app-image','placeholder':'App-Bild'}],   
+*/
+              ['core/image',{className:'app-image','placeholder':'App-Bild',align:'center'}],   
+
             ],
             //templateLock: "all",
             //allowedBlocks: ['core/columns'],

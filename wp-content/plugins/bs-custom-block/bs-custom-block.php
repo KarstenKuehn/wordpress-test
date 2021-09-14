@@ -700,11 +700,13 @@ function loadModul() {
     array('wp-blocks','wp-editor'),
     true
   );
+  //echo plugins_url( '/block-styles.css', __FILE__ ); die;
 
-wp_enqueue_style( $value.'-block-styles-css', plugins_url( '/block-styles.css', __FILE__ )
+wp_enqueue_style( $value.'-block-styles-css', plugins_url( $value.'/block-styles.css', __FILE__ )
 );
 
-
+wp_enqueue_style( $value.'-block-editor-styles-css', plugins_url( $value.'/editor.css', __FILE__ )
+);
 
   }
 /*
