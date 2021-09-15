@@ -4476,28 +4476,6 @@ max-width: none; width: 100%;
   margin-bottom: 24px;
 }
 
-
-/*
-
-.app-button a{
-  background: url('https://lbup.local/wp-content/uploads/2021/06/AppStore.png');
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: center;
-  color: transparent;
-}
-
-.google-button a{
-  background: url('https://lbup.local/wp-content/uploads/2021/06/GooglePlay.png');
-  background-size: auto 72px;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: center;
-  color: transparent;
-}
-
-*/
 .app-button a, .google-button a{
   width: 100%;
   height: 72px;
@@ -4516,33 +4494,29 @@ max-width: none; width: 100%;
   "e_headline e_headline app-image"
   "app-text app-text app-image"
   "app-button google-button app-image";
-  grid-gap:24px;
+  grid-gap:24px 0;
   /* Following lines where added for IE */
   display: -ms-grid;
   /* The 5px inbetween where added because IE spec doesn't have the grid-gap property */
   -ms-grid-columns: 1fr 24px 1fr 24px 2fr;
   -ms-grid-rows: auto 5px 1fr 5px auto;
+  padding: 0;
 }
 
 
 
 .modul.app-modul.is-style-mirror,.modul.app-modul.mirror{
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 50% calc( 50% / 6 - 24px) 1fr 1fr;
   grid-template-rows: auto auto 1fr;
-  grid-template-areas: 
-  "app-image e_headline e_headline"
-  "app-image app-text app-text"
-  "app-image app-button google-button";
+     grid-template-areas:
+        "app-image . e_headline e_headline"
+        "app-image . app-text app-text"
+        "app-image . app-button google-button";
 
-  -ms-grid-columns: 2fr 24px 1fr 24px 1fr;
+  -ms-grid-columns: 50% 24px 1fr 24px 1fr;
   -ms-grid-rows: auto 5px 1fr 5px auto;
 }
 
-}
-
-
-.modul.app-modul>*{
-  margin-bottom: 0;
 }
 
 .e_headline{
@@ -4555,39 +4529,38 @@ max-width: none; width: 100%;
   padding-right: calc( 100% / 6 - 24px);
 }
 
-.app-modul .e_headline.app-head{
+.modul.app-modul .e_headline.app-head{
 padding: 0;
 margin: 0;
+margin-bottom: 24px;
 }
 
 
-.app-text{
+.modul.app-modul .app-text{
   grid-area: app-text;
     
   /* Following lines where added for IE */
   -ms-grid-column: 1; 
   -ms-grid-row: 3; 
   -ms-grid-column-span: 3;
-  margin-bottom: 24px;
   padding-right: calc( 100% / 6 - 24px);
 }
 
-.app-image{
-margin: 0;
-    padding: 0;
+.modul.app-modul .app-image{
+  margin: 0;
+  padding: 0;
   grid-area:app-image;
-  
   /* Following lines where added for IE */
   -ms-grid-column: 5; 
   -ms-grid-row: 1; 
   -ms-grid-row-span: 5;
 }
-.app-image img{
+.modul.app-modul .app-image img{
 height:100%;
 max-height:408px;
 width:auto
 }
-.app-button{
+.modul.app-modul .app-button{
   grid-area:app-button;
   
   /* Following lines where added for IE */
@@ -4596,7 +4569,7 @@ width:auto
   -ms-grid-column-span: 1;
 }
 
-.google-button{
+.modul.app-modul .google-button{
   grid-area:google-button;
   
   /* Following lines where added for IE */
@@ -4605,89 +4578,26 @@ width:auto
   -ms-grid-column-span: 1;
 }
 
-.my-app{
+.modul.app-modul .my-app{
   margin: unset;
+  align-self: start;  
+  margin-top: 0;
 }
 
-.app-button a, .google-button a{
-  width: 100%;
+.modul.app-modul .my-app a{
+  width: auto;
   height: 72px;
-  display: block;
-}
-
+  display: inline-block;
 
 }
 
-/*
-.app-modul .e_headline{
-flex:1 50% ;
-order:  1;
-background-color: beige;
-}
-.app-modul .app-image{
-background-color: lawngreen;
-order:  21;
-}
 
-.app-modul .app-text{
-background-color: aqua;
-order:  2;
-}
-
-
-.app-modul .app-button
-{
-flex: 50% 0;
-background-color: gray;
-order:  10;
-}
-.app-modul .google-button
-{
-flex: 0 50%;
-order:  11;
-}
-*/
-
-
-/*
-.app-modul .e_headline{
-  order: 1;
-  flex-basis: 50%;
-  border: 2px solid red;
-}
-.app-modul .app-image{
-  max-height: 300px;
+.modul.app-modul .my-app img{
   width: auto;
-  order: 2;
-    flex-basis: 50%;
-  border: 2px solid red;
+  height: 72px;
 }
 
-.app-modul .app-image img{
-  height: 100%;
-  width: auto;
-}
 
-.app-modul .app-text{
-  order: 3;
-    flex-basis: 50%;
-  border: 2px solid red;
-}
-.app-modul .app-button
-{
-  order: 10;
-    flex-basis: 50%;
-  border: 2px solid red;
-}
-.app-modul .google-button
-{
-  order: 11;
-    flex-basis: 50%;
-  border: 2px solid red;
-}
-*/
-
-  }
   .app_temp .wp-block-image {
     width: calc(50% - 24px);
     display: inline-block;

@@ -79,8 +79,9 @@ function kb_whitelist_blocks()
         'bitv/benefits-text',
         'bitv/zwei-teaser-modul',
         'bitv/drei-teaser-modul',
-        'bitv/app-modul',
+        //'bitv/app-modul',
         'bitv/app-img-modul',
+        'bitv/img-app-modul',
         'bitv/hero-image'
     );
 }
@@ -691,7 +692,7 @@ add_action('enqueue_block_editor_assets', 'loadAPModul');
 
 function loadModul() {
 
-  $modul_arr = array('image-ap','ap-image','app-image');
+  $modul_arr = array('image-ap','ap-image','app-image','image-app');
 
   foreach ($modul_arr as $key => $value) {
   wp_enqueue_script(

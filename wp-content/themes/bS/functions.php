@@ -1365,7 +1365,6 @@ $content_news = apply_filters('the_content', $content_news);
 
 add_shortcode('posts', 'shortcode_posts_function');
 
-
 /**
  * Add HTML5 theme support.
  */
