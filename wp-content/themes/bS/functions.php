@@ -690,6 +690,7 @@ function get_FooterMenu()
 
 function get_my_content()
 {
+
     $html = apply_filters('the_content', get_the_content());
 
     $html = str_replace(
@@ -702,7 +703,7 @@ function get_my_content()
             ''
         ),
         $html
-    );    /*
+    );
     preg_match_all('@<h[1-6][\w|\W]*?</h[1-6]>@', $html, $_headings);
     $i = 0;
     foreach ($_headings[0] as $key => $value) {
@@ -725,10 +726,17 @@ function get_my_content()
             );
         }
 
-        $html = str_replace($value, $str_2, $html);
+        //$html = str_replace($value, $str_2, $html);
+
+$search = $value;
+$replace = $str_2;
+
+$html = preg_replace('@'.$search.'@', $replace, $html, 1);
         $i++;
     }
-*/
+
+
+    /**/
     return $html;
 }
 
