@@ -253,6 +253,14 @@ if(divs.length>0)
       nextEl: ".swiper-button-next.teaser",
       prevEl: ".swiper-button-prev.teaser",
     },
+        a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+        },    
     thumbs: { swiper: galleryThumbs, }, 
         });
 	}
@@ -266,6 +274,14 @@ if(divs.length>0)
       el: ".swiper-pagination.teaser",
       clickable: true,
     },
+            a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+        },
         effect:'slide',
     spaceBetween: 24,
     navigation: {
@@ -287,6 +303,14 @@ while (elements.length > 0) elements[0].remove();
           el: ".slide-frame .swiper-pagination.teaser",
           clickable: true,
         },
+        a11y: {
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+    firstSlideMessage: 'Dies ist das erste Bild.',
+    lastSlideMessage: 'Dies ist das letzte Bild.',
+    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+        },        
        // centeredSlides: true,
             effect:'slide',
         spaceBetween: 24,
