@@ -1517,3 +1517,197 @@ function wpforms_footer_scripts()
 EOF;
 
 }
+
+/**
+ * Menu
+ */
+if(!function_exists('bs_main_nav_walker')) {
+
+    function bs_main_nav_walker()
+    {
+        $main_menu_items = build_main_menu_array();
+
+        $html = '<ul id="top-menu" class="nav-container__main-nav" aria-label="Hauptnavigation">';
+
+        foreach($main_menu_items as $key => $main_menu_item) {
+            // Main-Menu-Items
+            $html .= '<li id="nav-' . $key . '" class="nav-container__main-nav-item">';
+            $html .= ' <a '.set_attributes($main_menu_item['attributes']) .'>' . $main_menu_item['title'] . '</a>';
+
+            // Submenu-Items
+            if(isset($main_menu_item['submenu'])) {
+
+                $html .= '<span class="material-icons desktop_hidden" aria-hidden="true">arrow_forward_ios</span>';
+
+                $var_css_cols = (count($main_menu_item['submenu']['submenu-list-container']) > 0) ? ' cols-' . count($main_menu_item['submenu']['submenu-list-container']) : '';
+
+                $html .= '<div class="main-nav_submenu" '.set_attributes($main_menu_item['submenu']['attributes']) .'>
+                                <div class="submenu-container">
+                                    <div class="submenu-row">';
+
+                if(count($main_menu_item['submenu']['submenu-list-container']) > 0) {
+                    $html .= '<div class="submenu-list-container' . $var_css_cols . '">';
+                    foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
+
+                        $html .= '<div class="submenu-list-box">';
+                        $html .= ($submenu_list_container['label']) ? '<label>'.$submenu_list_container['label']. '</label>' : '';
+                        $html .= '<ul>';
+                        foreach ($submenu_list_container['list-items'] as $list_item) {
+                            $html .= '<li><a href="' . $list_item['url'] . '">' . $list_item['title'] . '</a>';
+                            $html .= '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span>';
+                            $html .= '</li>';
+                        }
+                        $html .= '</ul>';
+                        $html .= '</div>';
+
+                    }
+                    $html .= '</div>';
+                }
+
+                if(count($main_menu_item['submenu']['submenu-teaser-container']) > 0) {
+                    $html .= '<div class="submenu-teaser-container' . $var_css_cols . '">';
+                    foreach ($main_menu_item['submenu']['submenu-teaser-container'] as $key1 => $submenu_teaser_container) {
+
+                        $html .= '<div class="submenu-teaser-box">';
+
+                        $html .= '<div class="submenu-teaser-box-image">';
+                        $html .= '<img alt="Bild zu: '.$submenu_teaser_container['title'].'" src="'.$submenu_teaser_container['image'].'" height="160" width="auto" />';
+                        $html .= '</div>';
+
+                        $html .= '<h3 class="e_headline has-medium-font-size">'.$submenu_teaser_container['title'].'</h3>';
+                        $html .= '<a href="'.$submenu_teaser_container['url'].'">'.$submenu_teaser_container['description'].'<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a>';
+
+                        $html .= '</div>';
+
+                    }
+                    $html .= '</div>';
+                }
+
+                $html .= '</div>';
+
+                $html .= '<div class="submenu-row first">
+                            <button aria-label="Close submenu" class="submenu__close-button">
+                                <span class="material-icons">close</span>
+                            </button>
+                        </div>';
+
+                $html .= '</div></div>';
+            }
+            $html .= '</li>';
+        }
+
+        $html .= '</ul>';
+
+        echo $html;
+    }
+}
+
+if(!function_exists('build_main_menu_array')) {
+
+    function build_main_menu_array() {
+
+        $current_page = get_post();
+
+        $nav_menu_items = buildTree(wp_get_nav_menu_items('Hauptnavigation'), 0);
+
+        $main_menu = [];
+        $menu_item = 0;
+
+        foreach ($nav_menu_items as $key => $value) {
+
+            $menu_item++;
+
+            $is_current_menu_item = is_current_menu_item($current_page, $value);
+
+            $attributes = [
+                'href' => (in_array('has-submenu', $value->classes)) ? 'javascript:void(0)' : $value->url,
+                'id' => 'nav-item-' . $menu_item,
+                'class' => ($is_current_menu_item) ? 'active' : '',
+            ];
+            $attributes['role'] = ($value->wpse_children) ? 'button' : 'link';
+
+            if ($value->wpse_children) {
+                $attributes['aria-expanded'] = 'false';
+                $attributes['aria-controls'] = 'sub-nav-'.$menu_item;
+            }
+
+            $main_menu[$menu_item] = [
+                'title' => $value->title,
+                'attributes' => $attributes,
+            ];
+
+            if ($value->wpse_children) {
+
+                $main_menu[$menu_item]['submenu'] = [];
+
+                $main_menu[$menu_item]['submenu']['attributes'] = [
+                    'id' => 'sub-nav-'.$menu_item,
+                    'role' => 'region',
+                    'aria-hidden' => 'true',
+                    'aria-labelledby' => 'nav-' . $menu_item
+                ];
+
+                foreach ($value->wpse_children as $wpse_child) {
+                    if(in_array('submenu-list-box', $wpse_child->classes)) {
+
+                        $submenu_list_box = [];
+
+                        foreach ($wpse_child->wpse_children as $key => $item) {
+                            $submenu_list_box[] = [
+                                'url' => $item->url, 'title' => $item->title
+                            ];
+                        }
+
+                        $main_menu[$menu_item]['submenu']['submenu-list-container'][] = [
+                            'label' => (in_array('is-label', $wpse_child->classes)) ? $wpse_child->attr_title : false,
+                            'list-items' => $submenu_list_box,
+                        ];
+                    }
+
+                    if(in_array('submenu-teaser-box', $wpse_child->classes)) {
+
+                        foreach ($wpse_child->wpse_children as $key => $item) {
+
+                            $post_image = get_the_post_thumbnail_url($item->object_id);
+
+                            $main_menu[$menu_item]['submenu']['submenu-teaser-container'][] = [
+                                'url' => $item->url, 'image' => $post_image,'title' => $item->title, 'description' => $item->description
+                            ];
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        return $main_menu;
+
+    }
+
+}
+
+
+if(!function_exists('set_attributes')) {
+    function set_attributes($attributes) {
+        return implode(' ',
+            array_map(  function ($k, $v) {
+                return $k .'="'. htmlspecialchars($v) .'"';
+            },
+                array_keys($attributes), $attributes)
+        );
+    }
+}
+
+if(!function_exists('is_current_menu_item')) {
+    function is_current_menu_item($current_page, $menu_item) {
+
+        /*var_dump([
+            '$current_page' => $current_page,
+            '$menu_item' => $menu_item
+        ]);*/
+
+        return ($current_page->ID == $menu_item->object_id || $current_page->post_parent == $menu_item->object_id) ? 'active' : '';
+    }
+}
