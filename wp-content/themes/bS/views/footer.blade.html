@@ -15,27 +15,25 @@ var i;
 for (i = 0; i < acc.length; i++) {
 	acc[i].getElementsByTagName('button')[0].setAttribute('id','accordion-h-'+i);
 	acc[i].getElementsByTagName('button')[0].setAttribute('aria-controls','accordion-p-'+i);
-
 	acc[i].getElementsByTagName('div')[0].setAttribute('id','accordion-p-'+i);
-  acc[i].addEventListener("click", function() {
-    this.getElementsByTagName('div')[0].classList.toggle('active');
-    this.getElementsByTagName('button')[0].classList.toggle('active');
-   var button= this.getElementsByTagName('button')[0];
-button.setAttribute('aria-expanded',false);
-button.setAttribute('id','accordion-h-'+i);
-if(button.classList.contains('active'))
-{
-button.setAttribute('aria-expanded',true);
-}
-
-    var panel = this.getElementsByTagName('div')[0]
-    panel.setAttribute('id','accordion-p-'+i);
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
+	acc[i].addEventListener("click", function() {
+    	this.getElementsByTagName('div')[0].classList.toggle('active');
+    	this.getElementsByTagName('button')[0].classList.toggle('active');
+	   	var button= this.getElementsByTagName('button')[0];
+		button.setAttribute('aria-expanded',false);
+		button.setAttribute('id','accordion-h-'+i);
+		if(button.classList.contains('active'))
+		{
+			button.setAttribute('aria-expanded',true);
+		}
+	    var panel = this.getElementsByTagName('div')[0]
+	    panel.setAttribute('id','accordion-p-'+i);
+	    if (panel.style.display === "block") {
+			panel.style.display = "none";
+	    } else {
+	      	panel.style.display = "block";
+	    }
+  	});
 }
 
 	var menu = document.getElementById("menu");
@@ -198,12 +196,12 @@ button.setAttribute('aria-expanded',true);
        // mousewheel: true,
         keyboard: true,
         a11y: {
-          prevSlideMessage: 'Vorheriges Bild',
-          nextSlideMessage: 'Nächstes Bild',
-    firstSlideMessage: 'Dies ist das erste Bild.',
-    lastSlideMessage: 'Dies ist das letzte Bild.',
-    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+          	prevSlideMessage: 'Vorheriges Bild',
+          	nextSlideMessage: 'Nächstes Bild',
+		    firstSlideMessage: 'Dies ist das erste Bild.',
+		    lastSlideMessage: 'Dies ist das letzte Bild.',
+		    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+		    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
         },
       });
 
@@ -254,12 +252,12 @@ if(divs.length>0)
       prevEl: ".swiper-button-prev.teaser",
     },
         a11y: {
-          prevSlideMessage: 'Vorheriges Bild',
-          nextSlideMessage: 'Nächstes Bild',
-    firstSlideMessage: 'Dies ist das erste Bild.',
-    lastSlideMessage: 'Dies ist das letzte Bild.',
-    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+          	prevSlideMessage: 'Vorheriges Bild',
+          	nextSlideMessage: 'Nächstes Bild',
+		    firstSlideMessage: 'Dies ist das erste Bild.',
+		    lastSlideMessage: 'Dies ist das letzte Bild.',
+		    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+		    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
         },    
     thumbs: { swiper: galleryThumbs, }, 
         });
@@ -271,24 +269,24 @@ if(divs.length>0)
         direction: 'horizontal',
 
     pagination: {
-      el: ".swiper-pagination.teaser",
-      clickable: true,
+      	el: ".swiper-pagination.teaser",
+      	clickable: true,
     },
-            a11y: {
-          prevSlideMessage: 'Vorheriges Bild',
-          nextSlideMessage: 'Nächstes Bild',
-    firstSlideMessage: 'Dies ist das erste Bild.',
-    lastSlideMessage: 'Dies ist das letzte Bild.',
-    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
-        },
-        effect:'slide',
-    spaceBetween: 24,
-    navigation: {
-      nextEl: ".swiper-button-next.teaser",
-      prevEl: ".swiper-button-prev.teaser",
+    a11y: {
+        prevSlideMessage: 'Vorheriges Bild',
+        nextSlideMessage: 'Nächstes Bild',
+	    firstSlideMessage: 'Dies ist das erste Bild.',
+	    lastSlideMessage: 'Dies ist das letzte Bild.',
+	    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+	    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
     },
-     
+    effect:'slide',
+	spaceBetween: 24,
+	navigation: {
+  		nextEl: ".swiper-button-next.teaser",
+  		prevEl: ".swiper-button-prev.teaser",
+	},
+ 
         });
 
 const elements = document.getElementsByClassName("swiper-container gallery-thumbs");
@@ -304,19 +302,19 @@ while (elements.length > 0) elements[0].remove();
           clickable: true,
         },
         a11y: {
-          prevSlideMessage: 'Vorheriges Bild',
-          nextSlideMessage: 'Nächstes Bild',
-    firstSlideMessage: 'Dies ist das erste Bild.',
-    lastSlideMessage: 'Dies ist das letzte Bild.',
-    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+          	prevSlideMessage: 'Vorheriges Bild',
+          	nextSlideMessage: 'Nächstes Bild',
+		    firstSlideMessage: 'Dies ist das erste Bild.',
+		    lastSlideMessage: 'Dies ist das letzte Bild.',
+		    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+		    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
         },        
        // centeredSlides: true,
             effect:'slide',
         spaceBetween: 24,
         navigation: {
-          nextEl: ".slide-frame .swiper-button-next.teaser",
-          prevEl: ".slide-frame .swiper-button-prev.teaser",
+          	nextEl: ".slide-frame .swiper-button-next.teaser",
+          	prevEl: ".slide-frame .swiper-button-prev.teaser",
         }, 
 
      breakpoints: {

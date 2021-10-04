@@ -242,7 +242,7 @@ if(isset($_POST['select_sort']))
     <form class="searchformfld" id="search-filter" method="post" action="#newsliste">
         <input type="text" name="filter_word" value="<?php echo $filter_word ?>" id="filter_word" class="text-field" onClick="this.select()" placeholder=" "/>
         <label for="filter_word">Suchbegriff eingeben</label>
-        <button onclick="this.form.submit()" class="mobile_hidden"><span class="material-icons">search</span></button>
+        <button onclick="this.form.submit()" class="mobile_hidden" aria-label="suchen"><span class="material-icons" aria-hidden=true>search</span></button>
     </form>
   <button onclick="this.form.submit()" class="button desktop_hidden">Suche</button>
 </div>
