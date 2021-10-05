@@ -1022,7 +1022,7 @@ a.sub_menu_item .material-icons{
   margin: auto;
   color: #fff;
 }
-#searchsubmit,#searchsubmit: active, #searchsubmit: visited, #searchsubmit: focus-visible{
+#searchsubmit,#searchsubmit: active, #searchsubmit: visited, #searchsubmit: focus{
   background: #0061AB;
   color: #fff;
   text-decoration: none;
@@ -1099,6 +1099,26 @@ vertical-align: middle;
     bottom: 0;
     width: 100%;
 }
+.page-numbers.dots{
+  position: relative;
+
+}
+
+.page-numbers{
+  margin-right: 24px;
+}
+
+.page-numbers.current{
+  color: #091B30;
+  font-weight: 700;
+}
+
+.page-numbers.placeholder
+{
+  color: #E3E5ED; 
+}
+
+
 
 .swiper-pagination.desktop_hidden.swiper-pagination-clickable.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 8px;
@@ -3201,7 +3221,8 @@ option {
     top:0px;
     right: 0;
 }
-
+.searchformfld textarea:focus + label,.searchformfld textarea:not(:placeholder-shown) + label,
+.searchformfld input:focus + label,.searchformfld input:not(:placeholder-shown) + label,
 .searchformfld textarea:focus-visible + label,.searchformfld textarea:not(:placeholder-shown) + label,
 .searchformfld input:focus-visible + label,.searchformfld input:not(:placeholder-shown) + label{
     opacity:1;
@@ -3214,7 +3235,7 @@ option {
     top: 0px;
     line-height: 13px;
 }
-
+.searchformfld textarea:hover,.searchformfld textarea:focus,.searchformfld input:hover,.searchformfld input:focus,
 .searchformfld textarea:hover,.searchformfld textarea:focus-visible,.searchformfld input:hover,.searchformfld input:focus-visible{
     outline-color: #000;
     border-bottom: 2px solid #091B30;
@@ -3243,7 +3264,11 @@ option {
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-
+.searchformfld input:focus + label{
+    opacity:1;
+    transform: scale(.8) translateY(-24px) translateX(-16px);
+    color:#091B30;
+}
 
 .kontakt-form .wpforms-field {
     padding: 0;

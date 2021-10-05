@@ -51,7 +51,6 @@ get_header(); ?>
 				<?php } ?>
 
 			</div><!-- .archive-header-inner -->
-
 		</header><!-- .archive-header -->
 
 
@@ -59,7 +58,6 @@ get_header(); ?>
 
 		<?php
 	}
-
 	if ( have_posts() ) {
 		$i = 0;
 
@@ -82,7 +80,7 @@ get_header(); ?>
 	}
 	?>
 
-	<?php //get_template_part( 'template-parts/pagination' ); ?>
+	<?php get_template_part( 'template-parts/pagination' ); ?>
 </div>
 </main><!-- #site-content -->
 <?php
