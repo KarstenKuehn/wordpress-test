@@ -223,6 +223,9 @@ p a:hover {    color: #143C6B;
 p a:focus-visible {    color: #143C6B;
    text-decoration: none;
    outline: 3px dotted #143C6B; }
+p a:focus {    color: #143C6B;
+   text-decoration: none;
+   outline: 3px dotted #143C6B; }
 
 iframe{
   width: 100%;
@@ -315,7 +318,7 @@ a
     left: -9999px;
     text-decoration: none;
 }
-.skiplink>a:active, .skiplink>a:focus-visible, a.skiplink:active, a.skiplink:focus-visible {
+.skiplink>a:active, .skiplink>a:focus-visible, a.skiplink:active, a.skiplink:focus, .skiplink>a:focus {
     position: absolute;
     top: 50px;
     top: 50vh;
@@ -457,7 +460,8 @@ section{
    } 
 .modul .modul-button a:focus-visible,.modul .text-button a:focus-visible, .my-block-button:focus-visible span.button-text, .button:focus-visible {  
   background-color: #143C6B;  color: #fff; outline: 3px dotted #000; }
-
+.modul .modul-button a:focus,.modul .text-button a:focus, .my-block-button:focus span.button-text, .button:focus {  
+  background-color: #143C6B;  color: #fff; outline: 3px dotted #000; }
 
 
 
@@ -536,6 +540,9 @@ a.custom-logo-link {
     height: 100%;
 }
 .nav-frame button:focus-visible {
+    outline: 3px dotted #1F5DA6;
+}
+.nav-frame button:focus {
     outline: 3px dotted #1F5DA6;
 }
 .mobile-menu
@@ -812,6 +819,10 @@ width: calc(100% - 6px);
   color: #1F5DA6;
   outline: 3px dotted #1F5DA6;
 }
+.sub_menu_block.blog a:focus {
+  color: #1F5DA6;
+  outline: 3px dotted #1F5DA6;
+}
 
 .sub_menu_block.blog a:hover {
   color: #143C6B;
@@ -852,6 +863,11 @@ a.sub_menu_item{
 }
 
 a.sub_menu_item: focus-visible{
+    color: #143C6B;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+a.sub_menu_item: focus{
     color: #143C6B;
     text-decoration: underline;
     text-decoration-style: dotted;
@@ -1012,6 +1028,11 @@ a.sub_menu_item .material-icons{
   background-color: #FFFFFF;    
   color: #091B30;
 }
+.text .my-block-button:focus {
+  outline: 3px dotted #000;
+  background-color: #FFFFFF;    
+  color: #091B30;
+}
 .text .my-block-button:hover {
   border: 2px solid #FFFFFF;
   background-color: #FFFFFF;    
@@ -1043,7 +1064,11 @@ a.sub_menu_item .material-icons{
   margin-top:0;
   padding: 9px 24px;
 }
-
+#searchsubmit:focus{
+  outline:3px dotted #091B30;
+  margin-top:0;
+  padding: 9px 24px;
+}
 .close-search-toggle{
     padding-left: 8px;
 }
@@ -1051,11 +1076,16 @@ a.sub_menu_item .material-icons{
 .close-search-toggle:focus-visible{
     outline: 3px dotted #091B30;
 }
+.close-search-toggle:focus{
+    outline: 3px dotted #091B30;
+}
 
 button.search-toggle: focus-visible{
     outline: 3px dotted #091B30;
 }
-
+button.search-toggle: focus{
+    outline: 3px dotted #091B30;
+}
 
 #searchsubmit: hover{
     background: #143C6B;
@@ -1197,11 +1227,14 @@ vertical-align: middle;
   display: block;
 }
 
-.navi-item a: focus-visible{
+.navi-item a: focus-visible,.navi-item a: focus{
       outline: 3px dotted #091B30;
      padding: 24px 0;
 }
 .swiper-pagination-bullet: focus-visible{
+  background: #143C6B;
+}
+.swiper-pagination-bullet: focus{
   background: #143C6B;
 }
 
@@ -1282,6 +1315,9 @@ vertical-align: middle;
 .nav-toggle:focus-visible{
   outline: 3px dotted #091B30;
 }
+.nav-toggle:focus{
+  outline: 3px dotted #091B30;
+}
 
 h1,h2,h3,h4,p
 {
@@ -1346,6 +1382,10 @@ p
   }
 
   .question:focus-visible{
+    background: #F3F4F7;
+    outline: 3px dotted #1F5DA6;
+  }
+    .question:focus{
     background: #F3F4F7;
     outline: 3px dotted #1F5DA6;
   }
@@ -1501,6 +1541,11 @@ label.footer_item1 a{
   font-weight: bold;
   outline: 4px dotted #1F5DA6;
 }
+.footer a: focus{
+  color: #1F5DA6;;
+  font-weight: bold;
+  outline: 4px dotted #1F5DA6;
+}
 
 .footer_menu a: hover{
   color: #1F5DA6;
@@ -1622,6 +1667,9 @@ a.more-link ,a.more-link:visited{
 
 /*.news_container a.list:focus-visible,*/
 a.more-link:focus-visible {
+  outline: 3px dotted #1F5DA6;
+}
+a.more-link:focus {
   outline: 3px dotted #1F5DA6;
 }
 .news_container a.list:hover,a.more-link:hover {
@@ -1830,6 +1878,9 @@ width: auto;
 }
 
 .news_container a.image-list:focus-visible{
+border: 3px dotted #1F5DA6;
+}
+.news_container a.image-list:focus{
 border: 3px dotted #1F5DA6;
 }
 
@@ -2345,9 +2396,20 @@ a.main-navi_btn.active {
     text-decoration-style: dotted;
 
   }  
+  .main-navi_btn:focus
+  {
+    color: #1F5DA6;
+    font-weight: bold;  
+    text-decoration: underline;
+    text-decoration-style: dotted;
 
+  }  
 
-  a.main-navi_btn.active:focus-visible {
+  a.main-navi_btn.active:focus-visible{
+    font-weight: bold; 
+    color: #1F5DA6;
+}
+  a.main-navi_btn.active:focus {
     font-weight: bold; 
     color: #1F5DA6;
 }
@@ -2983,10 +3045,12 @@ p.content {
 }
 
 
-.main section a.button:focus-visible, .main section a.my-block-button:focus-visible {
+.main section a.button:focus-visible, .main section a.my-block-button:focus-visible{
     text-decoration: none;
 }
-
+.main section a.button:focus, .main section a.my-block-button:focus {
+    text-decoration: none;
+}
 .main section a.button:hover, .main section a.my-block-button:hover {
     text-decoration: none;
     color: #FFF;
@@ -3193,6 +3257,10 @@ option {
     border-bottom: 2px solid #091B30;
     cursor:text;
 }
+.text-field:focus {
+    border-bottom: 2px solid #091B30;
+    cursor:text;
+}
 .text-field:disabled {
     color: #C7CCDB;
     border-bottom: 2px solid #E3E5ED;
@@ -3304,6 +3372,9 @@ option {
       margin-right: 32px;
 }
 
+.custom-select_x select:focus, .cat_check : focus{
+outline: 3px dotted #091B30;
+}
 .custom-select select {
   display: none; /*hide original SELECT element: */
 }
@@ -4088,6 +4159,9 @@ width: auto;
 .modul.teaser a:focus-visible::before {
     outline: 4px dotted #1F5DA6;
 }
+.modul.teaser a:focus::before {
+    outline: 4px dotted #1F5DA6;
+}
 
 
 .modul.teaser .e_headline a:before {  
@@ -4147,6 +4221,9 @@ width: auto;
 }
 
 .news_container .list:focus-visible::before {
+    outline: 4px dotted #1F5DA6;
+}
+.news_container .list:focus::before {
     outline: 4px dotted #1F5DA6;
 }
 
@@ -4654,4 +4731,48 @@ width:auto
 
 p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
     display: none;
+}
+
+.modul .modul-button.download{
+  position: relative;
+  width: auto;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+      width: 24px;
+    height: 24px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.modul .modul-button.download:before {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    display: block;
+
+
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-size: 24px;
+    color: #1F5DA6;
+    content: "\e171";
+    bottom: 0;
+    left: 0;
+
+
+}
+
+
+.modul .modul-button.download a {
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    vertical-align: bottom;
+    display: inline-block;
+    padding: 0;
+    padding-left: 26px;
+    color: #1F5DA6;
+    background: #fff;
 }

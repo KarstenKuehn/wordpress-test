@@ -1179,3 +1179,20 @@ form .button{
 .modul .teaser-block .wp-block-column.block-text:last-of-type {
     margin-right: 0;
 }
+
+
+.modul .modul-button.download{
+    width: auto;
+    height: 32px;
+    overflow: hidden;
+}
+
+.modul .modul-button.download a {
+    width: auto;
+    height: 32px;
+    overflow: unset;
+    line-height: 24px;
+    margin: 0;
+    
+    padding: 7px 8px 0 26px;
+}
