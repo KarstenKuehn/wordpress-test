@@ -75,9 +75,9 @@ html {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
-  font-feature-settings: 'liga';
+  font-feature-settings: "liga" 0;
 }
 
 /* reset */
@@ -1458,7 +1458,7 @@ display: none;
     height: 48px;
     background: #fff;
     bottom: -1px;
-    left:-1;
+    left:-1px;
 }
 
 footer{
@@ -1922,11 +1922,13 @@ border: 3px dotted #1F5DA6;
   line-height: 24px;
 }
 .menu_teaser_bild {
-width: 100%;
-height: auto;
-background-size: cover;
-background-position: center;
- aspect-ratio:9/5;
+  background-size: cover;
+  background-position: center;
+  --aspect-ratio: 9/5;
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-top: calc(100% / (var(--aspect-ratio)));
 }
 
 .swiper-container.spielbankendetails {
@@ -4452,7 +4454,7 @@ margin-right: 24px;}
 
 .modul.teaser .teaser-block .block-text:last-of-type {
 margin-right: 0px;}
-}
+
 /*
 
 #branding #mainnav ul div:not(.menu_teaser_content) {
@@ -4734,7 +4736,6 @@ p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
 }
 
 .modul .modul-button.download{
-  position: relative;
   width: auto;
   display: inline-block;
   padding: 0;
@@ -4745,7 +4746,7 @@ p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
     background: #fff;
 }
 
-.modul .modul-button.download:before {
+.modul .modul-button.download>a:before {
     width: 24px;
     height: 24px;
     position: absolute;
@@ -4759,12 +4760,14 @@ p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
     content: "\e171";
     bottom: 0;
     left: 0;
+    font-weight: 100;
 
 
 }
 
 
 .modul .modul-button.download a {
+  position: relative;
     margin: 0;
     width: 24px;
     height: 24px;
@@ -4775,4 +4778,5 @@ p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
     padding-left: 26px;
     color: #1F5DA6;
     background: #fff;
+    border: 0;
 }

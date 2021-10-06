@@ -285,7 +285,7 @@ $content = $content_post->post_content;
 $content = apply_filters('the_content', $content);
 
 			echo '<div class="news_frame">';
-			echo '<h2 class="news_headline e_headline has-medium-font-size">'.$post['post_title'].'</h2>';
+			echo '<h2 class="news_headline e_headline has-medium-font-size" aria-describedby="subtitel_cat_'.$post["ID"].'">'.$post['post_title'].'<div id="subtitel_cat_'.$post["ID"].'" aria-hidden="true" hidden>'.$post['sub_category'] .' vom '.date('d.m.y', strtotime($post['date'])).' '.substr(strip_tags($post['post_title']), 0, 100).'</div></h2>';
 			echo '<div class="subline"><span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date'])).'</div>';			
 			echo '<p>'.wp_strip_all_tags( $content).'</p>';
 			echo '</div>';

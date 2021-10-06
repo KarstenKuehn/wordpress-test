@@ -43,10 +43,10 @@ get_header(); ?>
 			<div class="archive-header-inner section-inner">
 
 				<?php if ( $archive_title ) { ?>
-					<h1 class="archive-title"><?php echo wp_kses_post( $archive_title ); ?></h1>
+					<h1 class="archive-title" aria-describedby="archive-subtitle"><div id="archive-subtitle" aria-hidden="true" hidden><?php echo 'Die Suche für '.get_search_query().' ergab '.$archive_subtitle;?></div><?php echo wp_kses_post( $archive_title ); ?></h1>
 				<?php } ?>
 
-				<?php if ( $archive_subtitle ) { ?>
+				<?php if ( $archive_subtitle ) {?>
 					<div class="archive-subtitle section-inner thin max-percentage intro-text"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></div>
 				<?php } ?>
 
