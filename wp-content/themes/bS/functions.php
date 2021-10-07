@@ -1550,7 +1550,7 @@ if(!function_exists('bs_main_nav_walker')) {
                     foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
 
                         $html .= '<div class="submenu-list-box">';
-                        $html .= ($submenu_list_container['label']) ? '<label>'.$submenu_list_container['label']. '</label>' : '';
+                        $html .= ($submenu_list_container['label']) ? '<span class="menu-label" role="heading" aria-level="3">'.$submenu_list_container['label']. '</span>' : '';
                         $html .= '<ul>';
                         foreach ($submenu_list_container['list-items'] as $list_item) {
                             $html .= '<li><a href="' . $list_item['url'] . '">' . $list_item['title'] . '</a>';
@@ -1564,14 +1564,15 @@ if(!function_exists('bs_main_nav_walker')) {
                     $html .= '</div>';
                 }
 
-                if(count($main_menu_item['submenu']['submenu-teaser-container']) > 0) {
+                if(array_key_exists('submenu', $main_menu_item) && array_key_exists('submenu-teaser-container', $main_menu_item['submenu'])) {
+
                     $html .= '<div class="submenu-teaser-container' . $var_css_cols . '">';
                     foreach ($main_menu_item['submenu']['submenu-teaser-container'] as $key1 => $submenu_teaser_container) {
 
                         $html .= '<div class="submenu-teaser-box">';
 
                         $html .= '<div class="submenu-teaser-box-image">';
-                        $html .= '<img alt="Bild zu: '.$submenu_teaser_container['title'].'" src="'.$submenu_teaser_container['image'].'" height="160" width="auto" />';
+                        $html .= '<img alt="Bild zu: '.$submenu_teaser_container['title'].'" src="'.$submenu_teaser_container['image'].'" />';
                         $html .= '</div>';
 
                         $html .= '<h3 class="e_headline has-medium-font-size">'.$submenu_teaser_container['title'].'</h3>';
@@ -1608,7 +1609,9 @@ if(!function_exists('build_main_menu_array')) {
 
         $current_page = get_post();
 
-        $nav_menu_items = buildTree(wp_get_nav_menu_items('Hauptnavigation'), 0);
+        $nav_menu_items = buildTree(wp_get_nav_menu_items(
+            (defined('MAIN_NAVIGATION') ? MAIN_NAVIGATION : 'HeaderNavigation')
+        ), 0);
 
         $main_menu = [];
         $menu_item = 0;
@@ -1671,7 +1674,7 @@ if(!function_exists('build_main_menu_array')) {
                             $post_image = get_the_post_thumbnail_url($item->object_id);
 
                             $main_menu[$menu_item]['submenu']['submenu-teaser-container'][] = [
-                                'url' => $item->url, 'image' => $post_image,'title' => $item->title, 'description' => $item->description
+                                'url' => $item->url, 'image' => $post_image,'title' => $item->title, 'description' => $item->attr_title
                             ];
                         }
                     }
