@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
     var main_navi_submenu = main_navi.querySelector(selector_main_navi_submenu);
 
 
+
     main_navi_items.forEach((main_navi_item, i) => {
 
         /**
@@ -64,6 +65,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (e.keyCode === 9 && e.shiftKey === false) {
 
                 targetElement.classList.add(activeClass);
+                targetElement.setAttribute('aria-expanded', true);
                 /**
                  * @TODO: check usage for subelement or sibling!!!
                  * @type {HTMLElement}
@@ -73,6 +75,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 if (submenuElement) {
 
                     submenuElement.classList.add(activeClass);
+                    submenuElement.setAttribute('aria-hidden', false);
+                    submenuElement.setAttribute('aria-expanded', true);
                     main_content.classList.add('overlay');
 
                     submenuElement.addEventListener('keydown', (e) => {
@@ -95,11 +99,9 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         main_navi_item.addEventListener('click', (e) => {
-
             toogleMenu(e.target);
             setSubmenuCloseButton(e.target);
             setBackNaviButton();
-
         })
 
     });
@@ -124,11 +126,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
         menu.forEach((item, e) => {
             item.classList.remove(activeClass);
+            item.setAttribute('aria-expanded', false);
 
             var submenuElement = getSubmenu(item);
 
             if (submenuElement) {
                 submenuElement.classList.remove(activeClass);
+                submenuElement.setAttribute('aria-hidden', true);
+                submenuElement.setAttribute('aria-expanded', false);
             }
         });
 
@@ -231,11 +236,15 @@ window.addEventListener("DOMContentLoaded", () => {
     function closeMenuItem(targetElement) {
 
         targetElement.classList.remove(activeClass);
+        targetElement.setAttribute('aria-expanded', false);
 
         var submenuElement = getSubmenu(targetElement);
 
         if (submenuElement) {
             submenuElement.classList.remove(activeClass);
+            submenuElement.setAttribute('aria-hidden', true);
+            submenuElement.setAttribute('aria-expanded', false);
+
         }
         main_content.classList.remove('overlay');
     }
@@ -284,12 +293,10 @@ window.addEventListener("DOMContentLoaded", () => {
     function unsetActiveMenu() {
         var active_main_navi_item = document.querySelector(selector_main_navi_items + '.' + activeClass);
         if (active_main_navi_item) {
-            console.log('active menu-link: ', active_main_navi_item);
 
             active_main_navi_item.classList.remove(activeClass);
 
             var submenu = getSubmenu(active_main_navi_item);
-            console.log('active submenu: ', submenu);
             submenu.classList.remove(activeClass);
         }
         toogleBackButton('none');
