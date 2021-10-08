@@ -1725,7 +1725,7 @@ color: #0061AB;
   max-width: 2000px;
 }
 
-.hero-image-figure {
+.hero-image-figure,.hero-image-figure>figure {
     height: 264px;
     display: flex;
     /* border: 2px solid red; */
@@ -1734,11 +1734,13 @@ color: #0061AB;
     justify-content: center;
     max-width: 2000px;
     margin: 0;
+    width: 100%;
+
 }
 .hero-image-figure img {
     max-width: 2000px;
     height: auto;
-    width: auto;
+    width: 100%;
     min-height: 264px;
 }
 
