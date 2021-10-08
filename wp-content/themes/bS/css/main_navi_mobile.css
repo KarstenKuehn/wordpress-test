@@ -1,15 +1,12 @@
 :root {
     --default-text-color: #091B30;
     --default-link-color: #1F5DA6;
-    --vertical-line-grey: #E3E5ED;
+    --default-line-grey: #C7CCDB;
 }
 
 * {
     box-sizing: border-box;
 }
-
-body {}
-
 
 a.custom-logo-link {
     height: auto;
@@ -20,7 +17,7 @@ a.custom-logo-link {
     padding: 0;
 }
 .border-left {
-    border-left: 1px solid #C7CCDB;
+    border-left: 1px solid #E3E5ED;
 }
 
 .overlay {
@@ -52,7 +49,6 @@ a.custom-logo-link {
 
 }
 
-
 .nav-container__logo {
     display: inline-flex;
 }
@@ -62,11 +58,14 @@ a.custom-logo-link {
 
 header .material-icons {
     line-height: 72px;
-    font-size: 32px;
+    /*font-size: 24px;*/ /*32px;*/
 }
 
 @media all and (max-width: 767px) {
 
+    .submenu-list-container .submenu-list-box .menu-label {
+        display: block;
+    }
     .nav-container__main-nav {
         list-style: none;
         display: none; /* js set display: flex */
@@ -192,8 +191,6 @@ header .material-icons {
         height: auto;
         margin: 24px 0;
     }
-    .submenu-list-container .submenu-list-box label {}
-    .submenu-list-container .submenu-list-box ul {}
     .submenu-list-container .submenu-list-box ul > li {
         margin: 0;
         padding: 0;
