@@ -318,7 +318,7 @@ a
     left: -9999px;
     text-decoration: none;
 }
-.skiplink>a:active, .skiplink>a:focus-visible, a.skiplink:active, a.skiplink:focus, .skiplink>a:focus {
+.skiplink>a:active, .skiplink>a:focus-visible, a.skiplink:active {
     position: absolute;
     top: 50px;
     top: 50vh;
@@ -335,6 +335,24 @@ a
     font-size: 2rem;
     font-family: CH-Sans;
 }
+a.skiplink:focus, .skiplink>a:focus {
+    position: absolute;
+    top: 50px;
+    top: 50vh;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: rgba(20,20,20,.8);
+    color: #fff;
+    border: 1px solid #000;
+    box-shadow: 0 0 20px rgb(0 0 0 / 50%);
+    border-radius: 5px;
+    padding: 20px 40px;
+    font-size: 20px;
+    font-size: 2rem;
+    font-family: CH-Sans;
+}
+
 
 li{
   line-height: 32px;
@@ -1227,10 +1245,16 @@ vertical-align: middle;
   display: block;
 }
 
-.navi-item a: focus-visible,.navi-item a: focus{
+.navi-item a: focus-visible{
       outline: 3px dotted #091B30;
      padding: 24px 0;
 }
+
+.navi-item a: focus{
+      outline: 3px dotted #091B30;
+     padding: 24px 0;
+}
+
 .swiper-pagination-bullet: focus-visible{
   background: #143C6B;
 }
@@ -2577,6 +2601,7 @@ a.main-navi_btn.active {
     height: 111px;
     width: 100%;
     background-size: 100% auto ;
+    background-size: cover;
 }
 
 .teaser_image_div:after{
@@ -3837,6 +3862,14 @@ figcaption{
 .img_media figcaption{
   display: none;
 }
+
+.content_section.bitv a{
+  display: inline-block;
+}
+.content_section.bitv a:focus, .custom-logo-link:focus{
+  outline: 3px dotted #1F5DA6;
+}
+
 
 @media(min-width:768px)
 {

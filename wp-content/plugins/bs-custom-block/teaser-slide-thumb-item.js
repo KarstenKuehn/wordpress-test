@@ -118,8 +118,11 @@ return [
       el(
         "div",
         null,
-        "TeaserSlide-Element"
-      ),    el(
+        "TeaserThumbSlide-Element"
+      ),        el(
+          "hr",
+          null
+        ),     el(
       'div', {
       className: 'my-block-image',
       style:{display:'inline-block',width:'40%'},

@@ -38,7 +38,7 @@ var createElement = wp.element.createElement;
         el(
           "span",
           null,
-          "Teaser-Slide-Frame: "
+          "Teaser-Thumbs-Slide-Frame: "
         ),         
         el(
           "hr",
