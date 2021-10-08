@@ -148,12 +148,12 @@ function seo_breadcrumb()
 
 function page_data()
 {
-    $db = db();
-    $q = 'SELECT * FROM wp_posts,wp_seo WHERE wp_posts.ID = wp_seo.page_id AND wp_posts.ID = "' . get_the_ID() . '"';
-    if (false === $r = $db->query($q) or !$r->num_rows) {
-        $data = array();
-    } else {
-        $data = $r->fetch_object();
+    global $wpdb;
+
+    $q = "SELECT * FROM wp_posts,wp_seo WHERE wp_posts.ID = wp_seo.page_id AND wp_posts.ID = " . get_the_ID();
+    $data = $wpdb->get_row($q);
+
+    if ($data) {
 
         $data->meta_index = 'index';
 
@@ -166,10 +166,11 @@ function page_data()
         } else {
             $data->meta_index .= ',follow';
         }
-        #print_r($data);die;
 
     }
+
     return $data;
+
 }
 
 function buildTree(array &$elements, $parentId = 0)
@@ -194,303 +195,6 @@ function wp_get_menu_array($current_menu)
     $array_menu = wp_get_nav_menu_items($current_menu);
     $array_menu_sub = buildTree($array_menu, 0);
     return $array_menu_sub;
-}
-
-function sub_menu($view, $current_menu, $current_menu_id)
-{
-    $submenu_html = '';
-    $submenu_html_liste = '';
-    $bild_navigation = '';
-    $menu_list = '';
-    $i = 0;
-    if ($current_menu->wpse_children) {
-
-        /**/
-
-
-        foreach ($current_menu->wpse_children as $key => $child) {
-            $submenu_html_liste .= '<div class="sub_menu_block navi">';
-            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label role="heading" aria-level="3">' . $child->description . '</label>' : '';
-            if ($child->wpse_children) {
-                foreach ($child->wpse_children as $key => $sub_child) {
-                    $submenu_html_liste .= '<a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a>';
-                }
-            } else {
-                $submenu_html_liste .= '<a href="' . $child->url . '" class="sub_menu_item">' . $child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a>';
-            }
-            $submenu_html_liste .= '</div>';
-            $i++;
-
-        }// end foreach ($current_menu->wpse_children...)
-        $k = 3 - $i;
-        $test = wp_get_menu_array('TeaserNavigation');
-
-        foreach ($test as $key => $teaser_child) {
-            if ($current_menu->title == $teaser_child->title) {
-                if ($arr = $teaser_child->wpse_children) {
-
-                    $arr = array_slice($arr, 0, $k);
-                    foreach ($arr as $key => $sub_child) {
-
-                        $link_text = 'zum Artikel';
-                        if (isset($sub_child->description) && $sub_child->description != '') {
-                            $link_text = $sub_child->description;
-                        }
-                        $bild_navigation .= '<div class="sub_menu_block blog"><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div><div class="menu_teaser_content"><h3 class="e_headline has-medium-font-size">' . $sub_child->title . '</h3><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div></div>';
-
-                    }
-                }
-            }
-
-        }
-
-        if ($view == 'd') {
-
-            $submenu_html .= '<div class="show-test ' . $view . ' ' . $view . '_' . $current_menu->ID . '" id="div_' . $view . '_' . $current_menu->ID . '">' . $menu_list . $submenu_html_liste . $bild_navigation . '</div>';
-
-        }
-
-        if ($view == 'm') {
-            $submenu_html .= '<div class="show-test ' . $view . ' ' . $view . '_' . $current_menu->ID . '" id="div_' . $view . '_' . $current_menu->ID . '">' . $menu_list . $bild_navigation . $submenu_html_liste . '</div>';
-        }
-
-
-    }   // end  if($current_menu->wpse_children)
-
-
-    $res = array('x' => $submenu_html, 'y' => $i);
-
-    return $res;
-    return $submenu_html;
-}
-
-function getSubMenu($current_menu, $view)
-{
-    $a = wp_get_menu_array($current_menu);
-    $submenu_html = '';
-    foreach ($a as $key => $value) {
-        $submenu_html .= sub_menu($view, $value, $key)['x'];
-    }
-    return $submenu_html;
-}
-
-function getArticelMenu($current_menu, $view)
-{
-    $a = wp_get_menu_array($current_menu);
-    $submenu_html = '';
-    $submenu_html_liste = '';
-
-    foreach ($a as $key => $value) {
-        $i = 3 - sub_menu($view, $value, $key)['y'];
-        $submenu_html_liste = '';
-        $the_query = new WP_Query(array(
-                'category_name' => $value->title,
-                'posts_per_page' => $i,
-            )
-        );
-        if ($the_query->have_posts()) :
-            while ($the_query->have_posts()) : $the_query->the_post();
-                $title = get_the_title();
-                $excerpt = get_the_excerpt();
-                $post_image = get_the_post_thumbnail($post);
-                $permalink = get_permalink($post);
-                $submenu_html_liste .= '<div class="sub_menu_block blog">' . $post_image . '<p>' . $title . '</p><a href="' . $permalink . '">zum Artikel<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div>';
-            endwhile;
-            wp_reset_postdata();
-        else :
-        endif;
-        $submenu_html_liste = '';
-
-        if ($i > 0) {
-            $submenu_html .= '<div class="blog show-test ' . $view . ' ' . $view . '_' . $value->ID . '" id="div_' . $view . '_' . $value->ID . '_blog">' . $submenu_html_liste . '</div>';
-        } else {
-
-            $submenu_html .= '<div class="show-test ' . $view . ' ' . $view . '_' . $value->ID . '" id="div_' . $view . '_' . $value->ID . '_blog"></div>';
-        }
-    }
-    return $submenu_html;
-}
-
-function haupt_menu($current_menu, $view)
-{
-    $html = '';
-    $a = wp_get_menu_array($current_menu);
-    $submenu_html = '';
-
-    //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
-    foreach ($a as $key => $value) {
-
-        if ($value->wpse_children) {
-            $html .= '<button class="main-navi_btn toggle_x ' . $view . '" data-toggle-target_x=".show-test.' . $view . '_' . $value->ID . '"  onclick="updateNavi_' . $view . '(' . $value->ID . ')" id="btn_' . $view . '_' . $value->ID . '">' . $value->title;
-            $html .= '<span class="material-icons desktop_hidden" aria-hidden="true">arrow_forward_ios</span>';
-            $html .= '</button>';
-        } else {
-
-            $menu_items = wp_get_nav_menu_items($current_menu);
-            $this_item = current(wp_filter_object_list($menu_items, array('object_id' => get_queried_object_id())));
-            $active = '';
-            if (isset($value->title) && (isset($this_item->title)) && $this_item->title == $value->title) {
-                $active = ' active';
-            }
-            $html .= '<a href="' . $value->url . '" class="main-navi_btn ' . $view . $active . '">' . $value->title . '</a>';
-        }
-
-    }
-    return $html;
-}
-
-function getSubMenuList($current_menu, $current_id = '', $view)
-{
-    $a = wp_get_menu_array($current_menu);
-    $submenu_html = '';
-    if ($current_id != '') {
-        $submenu_html .= sub_menu_list($view, $a[$current_id], $current_id)['x'];
-    }
-
-    /*
-        foreach ($a as $key => $value) {    echo $key;
-            $submenu_html .= sub_menu_list($view,$value,$key)['x'];
-        }
-    */
-
-    return $submenu_html;
-}
-
-function haupt_menu_list($current_menu, $view)
-{
-    //$html ='<ul>';
-    $a = wp_get_menu_array($current_menu);
-    $submenu_html = '';
-
-    //$html .='<button class="main-navi_btn toggle" data-toggle-target=".show-test.alle">alle</button>'; 
-    foreach ($a as $key => $value) {
-        $html .= '<li>';
-        //$html .= 'xx<a href="' . $value->url . '">' . $value->title . '</a>';
-        if ($value->wpse_children) {
-            $html .='<button class="main-navi_btn toggle_x '.$view.'" data-toggle-target_x=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$view.'_'.$value->ID.'">'.$value->title;  
-                    $html .='<span class="material-icons desktop_hidden">arrow_forward_ios</span>';
-                    $html .='</button>';
-
-            $html .= '<div class="submenu">' . getSubMenuList($current_menu, $value->ID, $view) . '</div>';
-        }
-        else
-        {
-                    $menu_items = wp_get_nav_menu_items( $current_menu );
-                    $this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
-                    $active='';
-                    if($this_item->title == $value->title)
-                    {
-                        $active=' active';
-                    }
-                    $html .= '<a href="'.$value->url.'" class="main-navi_btn '.$view.$active.'">'.$value->title.'</a>';
-            $html .= '<div class="submenu">' . getSubMenuList($current_menu, $value->ID, $view) . '</div>';
-
-        }
-        /*
-                if($value->wpse_children)
-                {
-                    $html .='<button class="main-navi_btn toggle_x '.$view.'" data-toggle-target_x=".show-test.'.$view.'_'.$value->ID.'"  onclick="updateNavi_'.$view.'('.$value->ID.')" id="btn_'.$view.'_'.$value->ID.'">'.$value->title;  
-                    $html .='<span class="material-icons desktop_hidden">arrow_forward_ios</span>';
-                    $html .='</button>';        
-                }
-                else
-                {
-
-                    $menu_items = wp_get_nav_menu_items( $current_menu );
-                    $this_item = current( wp_filter_object_list( $menu_items, array( 'object_id' => get_queried_object_id() ) ) );
-                    $active='';
-                    if($this_item->title == $value->title)
-                    {
-                        $active=' active';
-                    }
-                    $html .= '<a href="'.$value->url.'" class="main-navi_btn '.$view.$active.'">'.$value->title.'</a>';
-                }
-        */
-
-        $html .= '</li>';
-    }
-    //$html .='</ul>';
-    return $html;
-}
-
-
-function sub_menu_list($view, $current_menu, $current_menu_id)
-{
-    $submenu_html = '';
-    $submenu_html_liste = '';
-    $bild_navigation = '';
-    if ($current_menu->wpse_children) {
-
-        /**/
-
-        $i = 0;
-        foreach ($current_menu->wpse_children as $key => $child) {
-            $submenu_html_liste .= '<ul class="sub_menu_block navi">';
-            $submenu_html_liste .= (strlen(trim($child->description)) > 0) ? '<label role="heading" aria-level="3">' . $child->description . '</label>' : '';
-            if ($child->wpse_children) {
-                foreach ($child->wpse_children as $key => $sub_child) {
-                    $submenu_html_liste .= '<li><a href="' . $sub_child->url . '" class="sub_menu_item">' . $sub_child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a></li>';
-                }
-            } else {
-                $submenu_html_liste .= '<li><a href="' . $child->url . '" class="sub_menu_item">' . $child->title . '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span></a></li>';
-            }
-            $submenu_html_liste .= '</ul>';
-            $i++;
-
-        }// end foreach ($current_menu->wpse_children...)
-        $k = 3 - $i;
-        $test = wp_get_menu_array('TeaserNavigation');
-
-        foreach ($test as $key => $teaser_child) {
-            if ($current_menu->title == $teaser_child->title) {
-                if ($arr = $teaser_child->wpse_children) {
-
-                    $arr = array_slice($arr, 0, $k);
-                    foreach ($arr as $key => $sub_child) {
-
-                        $link_text = 'zum Artikel';
-                        if (isset($sub_child->description) && $sub_child->description != '') {
-                            $link_text = $sub_child->description;
-                        }
-                        $bild_navigation .= '<ul class="sub_menu_block blog"><li><div class="menu_teaser_bild" style="background-image: url(' . get_the_post_thumbnail_url($sub_child->object_id) . ')"></div><div class="menu_teaser_content"><p>' . $sub_child->title . '</p><a href="' . $sub_child->url . '">' . $link_text . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a></div></li></ul>';
-
-                    }
-                }
-            }
-
-        }
-
-        if ($view == 'd') {
-
-            $submenu_html .= $menu_list . $submenu_html_liste . $bild_navigation;
-
-        }
-
-        if ($view == 'm') {
-            $submenu_html .= '<div class="show-test ' . $view . ' ' . $view . '_' . $current_menu->ID . '" id="div_' . $view . '_' . $current_menu->ID . '">' . $menu_list . $bild_navigation . $submenu_html_liste . '</div>';
-        }
-
-
-    }   // end  if($current_menu->wpse_children)
-
-
-    $res = array('x' => $submenu_html, 'y' => $i);
-
-    return $res;
-    return $submenu_html;
-}
-
-
-function back_haupt_menu($view)
-{
-    $html = '';
-    if ($view == 'm') {
-        $html = '<button class="desktop_hidden" onclick="backNavi()" id="back_navi">
-            <span class="material-icons" aria-hidden="true">arrow_back_ios</span>
-            </button>';
-    }
-
-    return $html;
 }
 
 function wpb_custom_new_menu()
@@ -712,15 +416,15 @@ function get_my_content()
         $str_2 = $value;
 
         if (!isset($_html[0]) or !isset($_html[0][0])) {
-            preg_match_all('@<([^\s]+).*?>(.+?)</\1>@', $value, $_html);
-            $tag = 'headline_' . $_html[1][0] . '_' . $i;
-            $str_1 = $_html[0][0];
+            preg_match_all('@<([^\s]+).*?>(.+?)</\1>@', $value, $_html2);
+            $tag = 'headline_' . $_html2[1][0] . '_' . $i;
+            $str_1 = $_html2[0][0];
             $str_2 = str_replace(
                 array(
-                    '<' . $_html[1][0]
+                    '<' . $_html2[1][0]
                 ),
                 array(
-                    '<' . $_html[1][0] . ' id="' . $tag . '"'
+                    '<' . $_html2[1][0] . ' id="' . $tag . '"'
                 ),
                 $str_1
             );
@@ -728,10 +432,10 @@ function get_my_content()
 
         //$html = str_replace($value, $str_2, $html);
 
-$search = $value;
-$replace = $str_2;
+        $search = $value;
+        $replace = $str_2;
 
-$html = preg_replace('@'.$search.'@', $replace, $html, 1);
+        $html = preg_replace('@' . $search . '@', $replace, $html, 1);
         $i++;
     }
 
@@ -787,20 +491,22 @@ function postSave($post_ID)
 
 function setup_seo($post_ID)
 {
-    $db = db();
-    $q = 'SELECT * FROM wp_seo WHERE wp_seo.page_id = "' . $post_ID . '"';
-    if (false === $r = $db->query($q) or !$r->num_rows) {
-        $q = 'INSERT INTO wp_seo (page_id) VALUES ("' . $post_ID . '")';
-        $db->query($q);
+    global $wpdb;
+    $r = $wpdb->get_results("SELECT * FROM wp_seo WHERE wp_seo.page_id = $post_ID");
+    if (!$r) {
+        $wpdb->insert(
+            'wp_seo',
+            ['page_id' => $post_ID],
+            ['%s']
+        );
     }
 }
 
 
 function cleanup_seo($post_ID) // GET'S CALLED WHEN TRASH IS BEING EMPTIED !!!
 {
-    $db = db();
-    $q = 'DELETE FROM wp_seo WHERE wp_seo.page_id = "' . $post_ID . '"';
-    $db->query($q);
+    global $wpdb;
+    $wpdb->delete('wp_seo', array('page_id' => $post_ID), array('%d'));
 }
 
 // HOOKS / ADDITIONAL FUNCTIONS END
@@ -820,12 +526,17 @@ function postChangedEmail($post_ID)
     mail($empfaenger, $betreff, $nachricht, $header);
 }
 
-
-function db()
+/**
+ * DEPRECATED !!!
+ * @return wpdb
+ */
+/*function db()
 {
     $db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     return $db;
-}
+    //global $wpdb;
+    //return $wpdb;
+}*/
 
 function minify_html($input)
 {
@@ -1259,19 +970,19 @@ function ungerade($var, $cat_id)
 function shortcode_posts_function($atts = [], $content = null, $tag = '')
 {
     $post_count = $atts['count'];
-    $catname    = $atts['cat'];
-    $filter     = isset( $atts['filter']);
-    $category   = get_category_by_slug($atts['cat']);
-    $cat_id     = $category->term_id;
-    $content    = '';
+    $catname = $atts['cat'];
+    $filter = isset($atts['filter']);
+    $category = get_category_by_slug($atts['cat']);
+    $cat_id = $category->term_id;
+    $content = '';
     //Parameter für Posts
     $args = array(
         'category' => $cat_id,
         'numberposts' => -1
     );
-$content='';
+    $content = '';
 
-   //Posts holen
+    //Posts holen
     $posts = get_posts($args);
     $pages = [];
 
@@ -1319,26 +1030,26 @@ $content='';
         }
 
         //Inhalte sammeln
-        $content.= '<div class="news-div"><h2>Aktuelle News</h2><div class="news spalten_3">';
+        $content .= '<div class="news-div"><h2>Aktuelle News</h2><div class="news spalten_3">';
 
         $year = date('Y');
 
         foreach ($pages as $key => $post) {
 
-    $content_post = get_post($post["ID"]);
-$content_news = $content_post->post_content;
-$content_news = apply_filters('the_content', $content_news);
+            $content_post = get_post($post["ID"]);
+            $content_news = $content_post->post_content;
+            $content_news = apply_filters('the_content', $content_news);
 
             if (isset($post['date']) && isset($post['excerpt']) && isset($post['link']) && isset($post['category'])) {
                 if (preg_match('@' . $year . '@', $post['date'])) {
                     $content .= '<div class="news_container active">';
                     //$content .= '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
                     $content .= '<div class="news_frame">';
-                    $content .= '<h3 class="news_headline e_headline has-medium-font-size" aria-describedby="subtitel_cat_'.$post["ID"].'">' . substr(strip_tags($post['post_title']), 0, 100) . '<div id="subtitel_cat_'.$post["ID"].'" aria-hidden="true" hidden>'.$post['sub_category'] .' vom '.date('d.m.y', strtotime($post['date'])).' '.substr(strip_tags($post['post_title']), 0, 100).'</div></h3>';                    
-                    $content .= '<div class="subline" id="subtitel'.$post["ID"].'"><span class="category">' . $post['sub_category'] . '</span>' . date('d.m.y', strtotime($post['date'])).'</div>';
-                    $content .= '<p>' . wp_strip_all_tags( $content_news) . '</p>';
+                    $content .= '<h2 class="news_headline e_headline has-medium-font-size">' . substr(strip_tags($post['post_title']), 0, 100) . '</h2>';
+                    $content .= '<div class="subline"><span class="category">' . $post['sub_category'] . '</span>' . date('d.m.y', strtotime($post['date'])) . '</div>';
+                    $content .= '<p>' . wp_strip_all_tags($content_news) . '</p>';
                     $content .= '</div>';
-                    $content .= '<a href="' . $post['link'] . '" class="list" aria-describedby="subtitel_cat_'.$post["ID"].'">Mehr erfahren <span class="material-icons" aria-hidden="true">east</span></a>';
+                    $content .= '<a href="' . $post['link'] . '" class="list">Mehr erfahren <span class="material-icons" aria-hidden="true">east</span></a>';
                     $content .= '</div>';
                 }
             }
@@ -1426,7 +1137,7 @@ function use_amazon_ses($phpmailer)
 //add_action( 'wp_footer', 'wpforms_footer_scripts' );
 function wpforms_footer_scripts()
 {
-    $siteurl = str_replace('"', '',  json_encode(get_option('siteurl')));
+    $siteurl = str_replace('"', '', json_encode(get_option('siteurl')));
     return <<<EOF
     <script src='/wp-includes/js/wp-embed.min.js?ver=5.7.2' id='wp-embed-js'></script>
     <script src='/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
@@ -1516,4 +1227,204 @@ function wpforms_footer_scripts()
     
 EOF;
 
+}
+
+/**
+ * Menu
+ */
+if (!function_exists('bs_main_nav_walker')) {
+
+    function bs_main_nav_walker()
+    {
+        $main_menu_items = build_main_menu_array();
+
+        $html = '<ul id="top-menu" class="nav-container__main-nav" aria-label="Hauptnavigation">';
+
+        foreach ($main_menu_items as $key => $main_menu_item) {
+            // Main-Menu-Items
+            $html .= '<li id="nav-' . $key . '" class="nav-container__main-nav-item">';
+            $html .= ' <a ' . set_attributes($main_menu_item['attributes']) . '>' . $main_menu_item['title'] . '</a>';
+
+            // Submenu-Items
+            if (isset($main_menu_item['submenu'])) {
+
+                $html .= '<span class="material-icons desktop_hidden" aria-hidden="true">arrow_forward_ios</span>';
+
+                $var_css_cols = (count($main_menu_item['submenu']['submenu-list-container']) > 0) ? ' cols-' . count($main_menu_item['submenu']['submenu-list-container']) : '';
+
+                $html .= '<div class="main-nav_submenu" ' . set_attributes($main_menu_item['submenu']['attributes']) . '>
+                                <div class="submenu-container">
+                                    <div class="submenu-row">';
+
+                if (count($main_menu_item['submenu']['submenu-list-container']) > 0) {
+                    $html .= '<div class="submenu-list-container' . $var_css_cols . '">';
+                    foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
+
+                        $html .= '<div class="submenu-list-box">';
+                        $html .= ($submenu_list_container['label']) ? '<span class="menu-label" role="heading" aria-level="3">' . $submenu_list_container['label'] . '</span>' : '';
+                        $html .= '<ul>';
+                        foreach ($submenu_list_container['list-items'] as $list_item) {
+                            $html .= '<li><a href="' . $list_item['url'] . '">' . $list_item['title'] . '</a>';
+                            $html .= '<span class="material-icons" aria-hidden="true">arrow_forward_ios</span>';
+                            $html .= '</li>';
+                        }
+                        $html .= '</ul>';
+                        $html .= '</div>';
+
+                    }
+                    $html .= '</div>';
+                }
+
+                if (array_key_exists('submenu', $main_menu_item) && array_key_exists('submenu-teaser-container', $main_menu_item['submenu'])) {
+
+                    $html .= '<div class="submenu-teaser-container' . $var_css_cols . '">';
+                    foreach ($main_menu_item['submenu']['submenu-teaser-container'] as $key1 => $submenu_teaser_container) {
+
+                        $html .= '<div class="submenu-teaser-box">';
+
+                        $html .= '<div class="submenu-teaser-box-image">';
+                        $html .= '<img alt="Bild zu: ' . $submenu_teaser_container['title'] . '" src="' . $submenu_teaser_container['image'] . '" />';
+                        $html .= '</div>';
+
+                        $html .= '<h3 class="e_headline has-medium-font-size">' . $submenu_teaser_container['title'] . '</h3>';
+                        $html .= '<a href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a>';
+
+                        $html .= '</div>';
+
+                    }
+                    $html .= '</div>';
+                }
+
+                $html .= '</div>';
+
+                $html .= '<div class="submenu-row first">
+                            <button aria-label="Close submenu" class="submenu__close-button">
+                                <span class="material-icons">close</span>
+                            </button>
+                        </div>';
+
+                $html .= '</div></div>';
+            }
+            $html .= '</li>';
+        }
+
+        $html .= '</ul>';
+
+        echo $html;
+    }
+}
+
+if (!function_exists('build_main_menu_array')) {
+
+    function build_main_menu_array()
+    {
+
+        $current_page = get_post();
+
+        $name_of_main_menu = (defined('MAIN_NAVIGATION') ? MAIN_NAVIGATION : 'HeaderNavigation');
+        $wp_get_nav_menu_items = wp_get_nav_menu_items($name_of_main_menu);
+        $nav_menu_items = buildTree($wp_get_nav_menu_items, 0);
+
+        $main_menu = [];
+        $menu_item = 0;
+
+        foreach ($nav_menu_items as $key => $value) {
+
+            $menu_item++;
+
+            $is_current_menu_item = is_current_menu_item($current_page, $value);
+
+            $attributes = [
+                'href' => (in_array('has-submenu', $value->classes)) ? 'javascript:void(0)' : $value->url,
+                'id' => 'nav-item-' . $menu_item,
+                'class' => ($is_current_menu_item) ? 'active' : '',
+            ];
+            $attributes['role'] = ($value->wpse_children) ? 'button' : 'link';
+
+            if ($value->wpse_children) {
+                $attributes['aria-expanded'] = 'false';
+                $attributes['aria-controls'] = 'sub-nav-' . $menu_item;
+            }
+
+            $main_menu[$menu_item] = [
+                'title' => $value->title,
+                'attributes' => $attributes,
+            ];
+
+            if ($value->wpse_children) {
+
+                $main_menu[$menu_item]['submenu'] = [];
+
+                $main_menu[$menu_item]['submenu']['attributes'] = [
+                    'id' => 'sub-nav-' . $menu_item,
+                    'role' => 'region',
+                    'aria-hidden' => 'true',
+                    'aria-labelledby' => 'nav-' . $menu_item
+                ];
+
+                foreach ($value->wpse_children as $wpse_child) {
+                    if (in_array('submenu-list-box', $wpse_child->classes)) {
+
+                        $submenu_list_box = [];
+
+                        foreach ($wpse_child->wpse_children as $key => $item) {
+                            $submenu_list_box[] = [
+                                'url' => $item->url, 'title' => $item->title
+                            ];
+                        }
+
+                        $main_menu[$menu_item]['submenu']['submenu-list-container'][] = [
+                            'label' => (in_array('is-label', $wpse_child->classes)) ? $wpse_child->attr_title : false,
+                            'list-items' => $submenu_list_box,
+                        ];
+                    }
+
+                    if (in_array('submenu-teaser-box', $wpse_child->classes)) {
+
+                        foreach ($wpse_child->wpse_children as $key => $item) {
+
+                            $post_image = get_the_post_thumbnail_url($item->object_id);
+
+                            $main_menu[$menu_item]['submenu']['submenu-teaser-container'][] = [
+                                'url' => $item->url, 'image' => $post_image, 'title' => $item->title, 'description' => $item->attr_title
+                            ];
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        return $main_menu;
+
+    }
+
+}
+
+
+if (!function_exists('set_attributes')) {
+    function set_attributes($attributes)
+    {
+        return implode(' ',
+            array_map(function ($k, $v) {
+                return $k . '="' . htmlspecialchars($v) . '"';
+            },
+                array_keys($attributes), $attributes)
+        );
+    }
+}
+
+if (!function_exists('is_current_menu_item')) {
+    function is_current_menu_item($current_page, $menu_item)
+    {
+
+        /*var_dump([
+            '$current_page' => $current_page,
+            '$menu_item' => $menu_item
+        ]);*/
+
+        return ($current_page->ID == $menu_item->object_id || $current_page->post_parent == $menu_item->object_id) ? 'active' : '';
+    }
 }
