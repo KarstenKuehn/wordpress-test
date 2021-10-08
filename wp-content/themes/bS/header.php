@@ -3,7 +3,7 @@
 <body id="myBody">
 <?php echo get_skiplinks(); ?>
 <header class="border-bottom-grey">
-    <nav class="nav-container" id="navigation" role="navigation">
+    <nav class="nav-container" id="navigation">
         <div class="nav-container__logo">
             <div class="desktop_hidden">
                 <button id="back_navi">
@@ -37,6 +37,5 @@
 
     <?php
     if (true === $enable_header_search): get_template_part('template-parts/modal-search'); endif;
-    //get_template_part('template-parts/modal-menu');
     ?>
 </header>
