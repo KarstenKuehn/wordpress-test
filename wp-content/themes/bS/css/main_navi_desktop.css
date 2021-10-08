@@ -1,4 +1,7 @@
 :root {
+    --default-text-color: #091B30;
+    --default-link-color: #1F5DA6;
+    --default-line-grey: #C7CCDB;
     --container-width: 1224px;
 }
 
@@ -20,12 +23,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    border-left: 1px solid #C7CCDB;
-}
-@media all and (min-width: 768px) and (max-width: 1024px)  {
-    .nav-frame {
-        max-width: 100px;
-    }
+    border-left: 1px solid #E3E5ED;
 }
 
 .nav-frame button#seitensuche {
@@ -69,11 +67,6 @@ ul {
     margin: auto;
     list-style: none;
 }
-@media all and (min-width: 768px) and (max-width: 1024px)  {
-    .nav-container {
-        padding: 0 16px;
-    }
-}
 
 .back-btn {
     display: none;
@@ -97,12 +90,10 @@ ul {
 {
     outline: 3px dotted #000;
     background-color: #FFF;
-    color: #091B30;
+    color: var(--default-text-color);
 }
 
 .nav-container__logo img{
-    /*width: 148px;*/
-    /*height: 42px;*/
     margin: 0;
     padding: 0;
     vertical-align: bottom;
@@ -112,20 +103,13 @@ ul {
     margin: 0 auto;
     list-style: none;
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: flex-end;
     gap: 2rem; /*32px;*/
     height: 100%;
     max-width: 57rem /*912px*/;
     width: 100%;
     padding-right: 3rem; /*48px;*/
-}
-
-@media all and (min-width: 768px) and (max-width: 1024px)  {
-    .nav-container__main-nav {
-        gap: 0.75rem/*12px*/;
-        padding-right: 1rem;
-    }
 }
 
 .nav-container__main-nav-item {
@@ -149,7 +133,7 @@ ul {
 {
     outline: 3px dotted #000;
     background-color: #FFF;
-    color: #091B30;
+    color: var(--default-text-color);
 }
 
 .nav-container__main-nav-item > a:hover {
@@ -163,13 +147,6 @@ ul {
     color: var(--default-link-color);
     border-bottom: 2px solid var(--default-link-color);
 }
-
-/*.nav-container__main-nav-item:focus-within {
-    outline: 3px dotted var(--default-link-color);
-    background-color: #FFFFFF;
-    color: var(--default-link-color);
-    cursor: pointer;
-}*/
 
 
 /* === SUBMENU === */
@@ -192,30 +169,6 @@ ul {
     background: rgba(0,0,0,0.5);
 }
 
-
-/*.submenu-container li:focus-within {
-    text-decoration: underline;
-    outline: 3px dotted var(--default-link-color);
-    background-color: #FFFFFF;
-    color: var(--default-link-color);
-    cursor: pointer;
-}
-
-.submenu-container a:focus-within {
-    text-decoration: underline;
-    outline: 3px dotted var(--default-link-color);
-    background-color: #FFFFFF;
-    color: var(--default-link-color);
-    cursor: pointer;
-}
-
-.submenu-container button:focus-within {
-    outline: 3px dotted var(--default-link-color);
-    background-color: #FFFFFF;
-    color: var(--default-link-color);
-    cursor: pointer;
-}*/
-
 .submenu-container {
     display: flex;
     flex-direction: column;
@@ -223,11 +176,7 @@ ul {
     padding: 0;
     margin: 0;
 }
-@media all and (min-width: 768px) and (max-width: 1024px)  {
-    .submenu-container {
-        padding: 0 16px;
-    }
-}
+
 
 
 /* === SUBMENU: ROWS === */
@@ -238,64 +187,62 @@ ul {
     margin-right: auto;
     padding: 0 0 57px 0;
     order: 2;
-    display: inline-flex;
-    justify-content: space-between;
-    column-gap: 80px;
-}
-@media all and (min-width: 768px) and (max-width: 1024px)  {
-    .submenu-row {
 
-    }
+    display: flex;
+    justify-content: stretch;
 }
 
 .submenu-list-container {
-    /*border-right: 1px solid #E3E5ED;*/
-}
-.submenu-list-container.cols-1 {
-    width: 100%;
-    max-width: 429px;
     display: flex;
-    column-gap: 12px;
-    justify-content: space-between;
+    justify-content: flex-start;
+    border-right: 1px solid #E3E5ED;
 }
-@media all and (min-width: 768px) and (max-width: 1024px)  {
-    .submenu-list-container.cols-1 {
+.submenu-teaser-container {
+    display: flex;
+    justify-content: flex-end;
+    /*border-left: 1px solid #E3E5ED;*/
+    padding-bottom: 38px;
+}
 
-    }
+.submenu-list-container.cols-1 {
+    width: 41.5%;
 }
+.submenu-teaser-container.cols-1 {
+    width: 58.5%;
+}
+
 .submenu-list-container.cols-1 .submenu-list-box {
     width: 100%;
+    margin-right: 24px;
     max-width: 392px;
     justify-content: flex-start;
 }
-@media all and (min-width: 768px) and (max-width: 1024px)  {
-    .submenu-list-container.cols-1 .submenu-list-box {
 
-    }
-}
 .submenu-list-container.cols-1 .submenu-list-box ul {
     margin: 0;
-    /*margin: 23px 0 0 0;*/
     padding: 0;
     width: 100%;
     max-width: 392px;
 }
 
 .submenu-list-container.cols-2 {
-    /*width: 815px;*/
-    max-width: 815px;
-    display: flex;
-    column-gap: 87px;
-    justify-content: space-between;
+    width: 67%;
+    gap: 88px;
 }
+.submenu-teaser-container.cols-2 {
+    width: 33%;
+}
+
 .submenu-list-container.cols-2 .submenu-list-box {
-    width: 328px;
-    max-width: 403px;
+    width: 100%;
+    /*margin-right: 80px;*/
+    max-width: 328px;
     justify-content: flex-start;
 }
-.submenu-list-container .submenu-list-box label {
+
+.submenu-list-container .submenu-list-box .menu-label {
     display: block;
-    color: #091B30;
+    color: var(--default-text-color);
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0;
@@ -307,24 +254,26 @@ ul {
 
 .submenu-list-container.cols-2 .submenu-list-box ul {
     margin: 0;
-    /*margin: 23px 0 0 0;*/
     padding: 0;
-    width: 328px;
+    width: 100%;
+    max-width: 328px;
 }
 
 .submenu-list-container .submenu-list-box  ul > li {
-    /*display: block;*/
+    margin: 8px 0 0 0;
+    color: var(--default-text-color);
+    font-size: 24px;
+    letter-spacing: 0;
+    display: block;
     border-bottom: 1px solid #E3E5ED;
-    padding: 0 8px 0 0;
-    margin: 6px 0 0 0;
-    height: 50px;
+    position: relative;
 }
 
 .submenu-list-container .submenu-list-box  ul > li > a:focus-visible
 {
     outline: 3px dotted #000;
     background-color: #FFF;
-    color: #091B30;
+    color: var(--default-text-color);
 }
 
 .submenu-list-container .submenu-list-box  > ul > li > a {
@@ -336,32 +285,27 @@ ul {
     font-size: 1.5rem;
     letter-spacing: 0;
     white-space: nowrap;
-    line-height: 48px;
+    line-height: 49px;
     /*width: 100%;*/
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .submenu-list-container .submenu-list-box  > ul > li > span.material-icons {
     float: right;
-    line-height: 46px;
+    width: 32px;
+    line-height: 49px;
+    font-size: 24px;
     color: var(--default-link-color);
 }
 
+
 /* === SUBMENU TEASER === */
-.submenu-teaser-container {
-    display: flex;
-    column-gap: 24px;
-    justify-content: flex-end;
-    width: 100%;
-    /*max-width: 715px;*/
-    border-left: 1px solid #E3E5ED;
-}
+
 
 .submenu-teaser-container .submenu-teaser-box {
-    /*width: 288px;*/
     width: 100%;
-    max-width: 18rem;
-    float: right;
+    max-width: 288px; /*18rem;*/
+    margin-left: 24px;
 }
 
 .submenu-teaser-container .submenu-teaser-box > * {
@@ -370,43 +314,44 @@ ul {
 }
 
 .submenu-teaser-container .submenu-teaser-box > .submenu-teaser-box-image {
+    width: 100%;
     max-width: 288px;
-    height: 160px;
+    height: auto;
+    max-height: 145px;
     margin-bottom: 24px;
     overflow: hidden;
 }
 .submenu-teaser-container .submenu-teaser-box > .submenu-teaser-box-image img {
     width: 100%;
     height: auto;
+    /*object-fit: contain;*/
+    /*object-position: center;*/
 }
 
-/*.submenu-teaser-container .submenu-teaser-box > .submenu-teaser-box-image img {
-    width: 100%;
-    max-width: 288px;
-    height: 160px;
-    max-height: 160px;
-}*/
-
 .submenu-teaser-container .submenu-teaser-box > h3 {
-    height: 64px;
-    width: 256px;
-    color: #091B30;
+    margin-bottom: 16px;
+    /*min-height: 64px;*/
+    color: var(--default-text-color);
     font-family: inherit;
     font-size: 26px;
     letter-spacing: 0;
     line-height: 32px;
+}
+.submenu-teaser-container .submenu-teaser-box > a {
+    line-height: 32px;
+    font-size: 16px;
 }
 
 .submenu-teaser-container .submenu-teaser-box > a:focus-visible
 {
     outline: 3px dotted #000;
     background-color: #FFF;
-    color: #091B30;
+    color: var(--default-text-color);
 }
 
 .submenu-teaser-container .submenu-teaser-box > a > span {
-    line-height: 16px;
-    font-size: 16px;
+    line-height: 32px;
+    font-size: 32px;
 }
 
 /* === SUBMENU: CLOSE-BUTTON === */
@@ -432,7 +377,7 @@ ul {
 {
     outline: 3px dotted #000;
     background-color: #FFF;
-    color: #091B30;
+    color: var(--default-text-color);
 }
 
 .submenu-row.first > button > span.material-icons {
@@ -447,11 +392,80 @@ ul {
 }
 
 
-/*.submenu-teaser-items {
-    border-left: 1px solid #E3E5ED;
-    height: 100%;
-    justify-content: flex-end;
-    width: 403px;
-}*/
+
+/**
+ *   media-queries
+ */
 
 
+@media all and (min-width: 768px) and (max-width: 1024px)  {
+
+    .nav-frame {
+        max-width: 100px;
+    }
+
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    .submenu-row {
+        gap: 0;
+    }
+
+    .nav-container__main-nav {
+        gap: 0.75rem/*12px*/;
+        padding-right: 1rem;
+    }
+
+    .submenu-container {
+        padding: 0 16px;
+    }
+
+    .submenu-list-container.cols-2 {
+        width: 70%;
+        gap: 0;
+    }
+    .submenu-teaser-container.cols-2 {
+        width: 30%;
+    }
+    .submenu-list-container.cols-2 .submenu-list-box {
+        margin-right: 16px;
+    }
+
+    .submenu-list-container.cols-2 .submenu-list-box  > ul > li > a {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .submenu-list-container.cols-2 .submenu-teaser-container .submenu-teaser-box > h3 {
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+}
+@media all and (min-width: 1023px) and (max-width: 1225px)  {
+    .nav-container {
+        padding: 0 16px;
+    }
+    .submenu-container {
+        padding: 0 16px;
+    }
+    .nav-container__main-nav {
+        gap: 1rem; /*32px;*/
+        padding-right: 2rem; /*48px;*/
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 900px)  {
+    .submenu-list-container.cols-2 .submenu-list-box  > ul > li > a {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .submenu-teaser-container .submenu-teaser-box > .submenu-teaser-box-image {
+        max-height: 100px;
+    }
+    .nav-container__main-nav {
+        gap: 0.85rem; /*32px;*/
+        padding-right: 1.5rem; /*48px;*/
+    }
+}
