@@ -14,8 +14,6 @@ window.addEventListener("DOMContentLoaded", () => {
     var main_navi_items = main_navi.querySelectorAll(selector_main_navi_items);
     var main_navi_submenu = main_navi.querySelector(selector_main_navi_submenu);
 
-
-
     main_navi_items.forEach((main_navi_item, i) => {
 
         /**
