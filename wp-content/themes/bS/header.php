@@ -27,8 +27,11 @@
                             class="mobile_hidden label">Suche</span>
                 </button>
             <?php } ?>
-            <button class="toggle nav-toggle mobile-nav-toggle desktop_hidden " aria-expanded="false"
-                    id="menu-btn" aria-label="menu-btn">
+            <button class="toggle nav-toggle mobile-nav-toggle desktop_hidden"
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                    aria-label="menu-btn"
+                    id="menu-btn">
                 <span class="material-icons"></span>
             </button>
 
