@@ -260,24 +260,23 @@ window.addEventListener("DOMContentLoaded", () => {
         if (!menu_btn.classList.contains(activeClass)) {
             menu_btn.classList.add(activeClass);
             menu_btn.setAttribute('aria-expanded', true);
-            toogleMainNavi('flex');
+            toogleMainNavi(true);
             main_content.classList.add('overlay');
 
         } else {
             menu_btn.classList.remove(activeClass);
             menu_btn.setAttribute('aria-expanded', false);
-            toogleMainNavi('none');
+            toogleMainNavi(false);
             main_content.classList.remove('overlay');
             unsetActiveMenu();
         }
 
     }
 
-    function toogleMainNavi(propDisplay) {
-        selector_main_navi
+    function toogleMainNavi(status) {
         var main_nav = document.querySelector(selector_main_navi);
         //var main_nav = document.getElementsByClassName('nav-container__main-nav')[0];
-        main_nav.style.display = propDisplay;
+        main_nav.style.height = (status) ? "calc(100vh - 72px)" : 0;
     }
 
     function setBackNaviButton() {
