@@ -35,24 +35,25 @@ a.custom-logo-link {
 
 /* === Suche-Button rechts === */
 .nav-frame {
-    width: 32%;
+    width: 100%;
     display: inline-block;
     vertical-align: middle;
     text-align: right;
     height: 72px;
 }
 
+.nav-container > #menu-btn {
+    order: 3;
+}
+
 .nav-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .nav-container__logo {
     display: inline-flex;
-}
-.nav-container__logo .custom-logo {
 
 }
 
@@ -68,7 +69,7 @@ header .material-icons {
     }
     .nav-container__main-nav {
         list-style: none;
-        display: none; /* js set display: flex */
+        display: flex; /* js set display: flex */
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
@@ -79,7 +80,7 @@ header .material-icons {
         z-index: 1000;
         width: 100vw;
         padding: 0 16px;
-        height: calc(100vh - 72px);
+        height: 0;/*calc(100vh - 72px);*/
         background-color: #fff;
     }
     .nav-container__main-nav-item {
