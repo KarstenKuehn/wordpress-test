@@ -259,11 +259,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (!menu_btn.classList.contains(activeClass)) {
             menu_btn.classList.add(activeClass);
+            menu_btn.setAttribute('aria-expanded', true);
             toogleMainNavi('flex');
             main_content.classList.add('overlay');
 
         } else {
             menu_btn.classList.remove(activeClass);
+            menu_btn.setAttribute('aria-expanded', false);
             toogleMainNavi('none');
             main_content.classList.remove('overlay');
             unsetActiveMenu();
