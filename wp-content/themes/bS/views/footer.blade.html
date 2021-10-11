@@ -179,6 +179,7 @@ function updateNavi_d(id)
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        centeredSlides: true,
         pagination: {
           el: ".swiper-pagination",
 
@@ -196,11 +197,11 @@ function updateNavi_d(id)
         },
       });
 
-	var thumbs_arr 	= document.querySelector(".thumb");
-	var thumbs_html ='';
-	var thumbs_div 	= document.querySelectorAll(".swiper-container.gallery-thumbs .swiper-wrapper");
-	var divs 	= document.querySelectorAll('.thumb'), i;
-	var x 		= document.querySelectorAll(".swiper-container.gallery-main .swiper-wrapper");
+	var thumbs_arr 		= document.querySelector(".thumb");
+	var thumbs_html 	='';
+	var thumbs_div 		= document.querySelectorAll(".swiper-container.gallery-thumbs .swiper-wrapper");
+	var divs 			= document.querySelectorAll('.thumb'), i;
+	var x 				= document.querySelectorAll(".gallery-container.xx .swiper-container.gallery-main .swiper-wrapper");
 	var galleryTop;
 	var galleryThumbs;
 	if(x.length>0)
@@ -250,8 +251,8 @@ function updateNavi_d(id)
 			      		prevEl: ".x_swiper_"+i+" .swiper-button-prev.teaser",
 			    	},
 			        a11y: {
-			          	prevSlideMessage: 'xx_Vorheriges Bild',
-			          	nextSlideMessage: 'xx_Nächstes Bild',
+			          	prevSlideMessage: 'Vorheriges Bild',
+			          	nextSlideMessage: 'Nächstes Bild',
 					    firstSlideMessage: 'Dies ist das erste Bild.',
 					    lastSlideMessage: 'Dies ist das letzte Bild.',
 					    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
@@ -260,7 +261,7 @@ function updateNavi_d(id)
 			    	thumbs: { swiper: galleryThumbs, }, 
 		        });
 			}
-/*			else
+			else
 			{
 		    	var galleryTop = new Swiper('.gallery-main .swiper_'+i, { 
 			        direction: 'horizontal',
@@ -288,10 +289,64 @@ function updateNavi_d(id)
 				while (elements.length > 0) elements[0].remove();
 			}
 
-*/
+/**/
 
 		}// Slider auf der Seite
 	}
+
+
+	var content_slider	= document.querySelectorAll(".content-slider .swiper-container.gallery-main .swiper-wrapper");
+	if(content_slider.length>0)
+	{
+		for (c = 0; c < content_slider.length; ++c) {
+			content_slider[c].parentElement.parentElement.parentElement.classList.add('___content_slider_'+c);
+
+			content_slider[c].parentElement.classList.add('content_slider_'+c);
+			content_slider[c].classList.add('content_slider_swiper_'+c);
+	    	var c_slider = new Swiper('.content_slider_'+c, { 
+		        direction: 'horizontal',
+			    pagination: {
+		    	  	el:  ".___content_slider_"+c+" .swiper-pagination.teaser",
+		      		clickable: true,
+		    	},
+		    	a11y: {
+			        prevSlideMessage: 'Vorheriges Bild',
+			        nextSlideMessage: 'Nächstes Bild',
+				    firstSlideMessage: 'Dies ist das erste Bild.',
+				    lastSlideMessage: 'Dies ist das letzte Bild.',
+				    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+				    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+			    },
+			    effect:'slide',
+				spaceBetween: 24,
+				navigation: {
+			  		nextEl: ".___content_slider_"+c+" .swiper-button-next.teaser",
+			  		prevEl: ".___content_slider_"+c+" .swiper-button-prev.teaser",
+				},
+		breakpoints: {
+        	1100: {
+       			slidesPerView: 6,
+		        slidesPerGroup: 1,
+       			spaceBetween: 24
+      		},
+        	900: {
+       			slidesPerView: 4,
+       			spaceBetween: 24,
+        		centeredSlides: false,
+      		}, 
+      		768: {
+       			slidesPerView: 3,
+       			spaceBetween: 24,
+        		centeredSlides: false,
+      		}, 
+    	},				
+			});
+
+		}
+	}
+
+
+
 
 	/*
 

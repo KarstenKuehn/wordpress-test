@@ -247,12 +247,16 @@ section.news-liste {
 .modul.text-image .content, .modul.image-text .content{
       width: 50%;
       margin-bottom: 24px;
-      flex: 0;
+ /*     flex: 0;*/
 
 }
 
 .modul.image-text .modul-button, .modul.text-image .modul-button{
-margin-bottom: 0;
+margin-bottom: 0px;
+}
+
+.gray .modul.image-text .modul-button, .gray .modul.text-image .modul-button{
+margin-bottom: 0px;
 }
 
 .text-image .content {
@@ -272,7 +276,7 @@ margin-bottom: 0;
   background-position: center;
   overflow: hidden;
   max-width: 710px;
-    max-height: 458px;
+    max-height: 456px;
     background-repeat: no-repeat;
 }
 .text-image .block_image_div{
@@ -1011,6 +1015,11 @@ section.news-liste {
     height: 456px;
     /*overflow: hidden;*/
     display: inline-flex;
+    outline: 3px solid blue;
+    width: calc(50vw - 9px);
+        align-items: flex-start;
+
+
 }
 
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image {
@@ -1020,8 +1029,10 @@ section.news-liste {
 .modul.image-text .modul-image img,.modul.image-text figure.modul-image img,
 .modul.text-image .modul-image img,.modul.text-image figure.modul-image img {
     height: 456px;
-    width: auto;
-    max-width: unset;
+    width: 100%;
+    height: auto;
+    max-width: 708px;
+    outline: 3px solid red;
 }
 
 .modul.app-modul{
@@ -1195,4 +1206,146 @@ form .button{
     margin: 0;
     
     padding: 7px 8px 0 26px;
+}
+
+/****************************/
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "bild headline"
+    "bild contenttext"
+    "bild button";
+    max-width: 2000px;
+    margin: auto;
+}
+
+.container.revers {
+  grid-template-areas:
+    "headline bild"
+    "contenttext bild"
+    "button bild";
+}
+
+.bild { 
+    grid-area: bild; 
+    justify-self: end;
+}
+
+.revers .bild { 
+    grid-area: bild; 
+    justify-self: start;
+}
+
+.bild img{
+    width: 100%;
+    max-width: 708px;
+    height: auto;
+
+}
+
+.gray .bild{
+    margin-bottom: -144px;
+}
+
+.headline { grid-area: headline; 
+    width: 100%;
+    max-width: 612px;
+    padding-left: calc( 50% / 6 - 24px);
+    padding-right: 24px;
+}
+
+.contenttext { grid-area: contenttext; 
+
+    padding-left: calc( 50% / 6 - 24px);
+    padding-right: 24px;
+    width: 100%;
+    max-width: 612px;
+    -moz-hyphens: auto;
+   -o-hyphens: auto;
+   -webkit-hyphens: auto;
+   -ms-hyphens: auto;
+   hyphens: auto; 
+}
+
+.modul-button { grid-area: button; 
+    padding-left: calc( 50% / 6 - 24px);
+    padding-right: 24px;
+    }
+
+.revers .headline,.revers .contenttext,.revers .button { 
+    padding-left: 0;
+    padding-right: calc( 50% / 6 - 24px);
+    justify-self: end;
+}
+
+
+@media all and (-ms-high-contrast:none) {
+  .container {
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto 1fr;
+  }
+
+  .bild {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .headline {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .contenttext {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .button {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+
+
+    .revers .bild {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+
+  .revers .headline {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .revers .contenttext {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
+
+  .revers .button {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+  }
 }

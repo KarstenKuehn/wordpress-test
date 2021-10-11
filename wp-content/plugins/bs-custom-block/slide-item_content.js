@@ -193,7 +193,7 @@ return (
   el(
     'div', 
     {
-      className: 'mySlides',
+      className: 'swiper-slide',
       style: {textAlign: attributes.alignment}
     },
     el(

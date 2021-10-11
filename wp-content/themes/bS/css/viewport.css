@@ -1059,7 +1059,9 @@ a.sub_menu_item .material-icons{
 
 .gallery-main .text .my-block-button {
   margin: auto;
-  color: #fff;
+  color: #0061AB;
+    border: 2px solid #0061AB;
+    margin-bottom: 24px;
 }
 #searchsubmit,#searchsubmit: active, #searchsubmit: visited, #searchsubmit: focus{
   background: #0061AB;
@@ -1926,16 +1928,34 @@ border: 3px dotted #1F5DA6;
 .content-slider .text 
 {
   top: 0;
+  position: unset;
+  padding: 0 24px;
+  text-align: left;
 }
 .content-slider .my-block-image
 {
-  margin-bottom: 32px;
+  /*margin-bottom: 32px;*/
 }
+.content-slider .text .my-block-title
+{
+  display: block;
+  color: #091B30;
+  padding: 24px 0;
+    text-align: left;
+}
+
 .content-slider .text .my-block-text
 {
   display: block;
   color: #091B30;
+  text-align: left;
 }
+
+.content-slider .text .my-block-text:empty
+{
+  display: none;
+}
+
 .content-slider .text .my-block-text:first-of-type
 {
   font-size: 26px;
@@ -4431,7 +4451,7 @@ margin-bottom: 0;
   align-self: flex-end;
 }
 .modul.image-text .modul-button,
-.modul.image-text .modul-button {
+.modul.text-image .modul-button {
   order: 10;
   width: 50%;
   flex: 1;
@@ -4464,6 +4484,9 @@ margin-bottom: 0;
     position: absolute;
     right: 50%;
     width: 50%;
+    outline: 3px solid green;
+    width: calc(50vw);    
+        align-items: flex-start;
 }
 
 .modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image {
@@ -4475,6 +4498,10 @@ margin-bottom: 0;
     height: auto;
     width: 100%;
     max-width: unset;
+        width: 100%;
+    height: auto;
+    max-width: 612px;
+    outline: 3px solid red;
 }
 
 
@@ -4766,7 +4793,13 @@ width:auto
 
 
 
-p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty {
+span.my-block-text {
+    color:  red;
+}
+
+
+
+p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty, span.my-block-text:empty {
     display: none;
 }
 

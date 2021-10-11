@@ -4,17 +4,17 @@
   var InnerBlocks = wp.editor.InnerBlocks;
 
   registerBlockType( 'lb/lotterie-slide-item', {
-    title: 'Lotterie Slide-Item', // The title of block in editor.
+    title: 'Bild Slide-Item', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'common', // The category of block in editor.
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, 'lotterie' ),
+        el( 'span', {}, 'Slide-Bild' ),
         el(
           InnerBlocks,
           {
             template: [
-            ['core/image',{className:'lotterie-image','placeholder':'Verlinkung-Bild'}],
+            ['core/image',{className:'lotterie-image','placeholder':'Verlinkung-Bild', width:'150'}],
             ],
           }
         )
