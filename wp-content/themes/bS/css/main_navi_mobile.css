@@ -24,11 +24,11 @@ a.custom-logo-link {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    top: 115px;
+    top: 73px;
     left: 0;
     right: 0;
     bottom: 0;
-    /*background-color: rgba(0, 0, 0, 0.5);*/
+    background-color: #fff;
     z-index: 999;
 }
 
@@ -177,7 +177,8 @@ header .material-icons {
         width: 100%;
         height: auto;
     }
-    .submenu-teaser-container .submenu-teaser-box > h3 {
+    .submenu-teaser-container .submenu-teaser-box > .submenu-teaser-box-headline {
+        display: block;
         color: #091B30;
         font-family: inherit;
         font-size: 26px;

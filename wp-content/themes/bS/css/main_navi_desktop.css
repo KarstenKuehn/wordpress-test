@@ -7,10 +7,23 @@
 
 header {
     background-color: #fff;
+    width: 100vw;
 }
 
 ul {
     list-style: none;
+}
+
+.overlay {
+    /*position: fixed;*/
+    /*width: 100vw;*/
+    /*height: calc(100vh - 113px);*/
+    /*top: 113px;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*background-color: rgba(0, 0, 0, 0.1);*/
+    /*z-index: 999;*/
 }
 
 .nav-frame {
@@ -165,7 +178,7 @@ ul {
     right: 0;
     bottom: 0;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 113px);
     background: rgba(0,0,0,0.5);
 }
 
@@ -328,7 +341,8 @@ ul {
     /*object-position: center;*/
 }
 
-.submenu-teaser-container .submenu-teaser-box > h3 {
+.submenu-teaser-container .submenu-teaser-box > .submenu-teaser-box-headline {
+    display: block;
     margin-bottom: 16px;
     /*min-height: 64px;*/
     color: var(--default-text-color);
@@ -337,6 +351,7 @@ ul {
     letter-spacing: 0;
     line-height: 32px;
 }
+
 .submenu-teaser-container .submenu-teaser-box > a {
     line-height: 32px;
     font-size: 16px;
@@ -437,7 +452,7 @@ ul {
         font-weight: 500;
     }
 
-    .submenu-list-container.cols-2 .submenu-teaser-container .submenu-teaser-box > h3 {
+    .submenu-list-container.cols-2 .submenu-teaser-container .submenu-teaser-box > .submenu-teaser-box-headline {
         font-size: 20px;
         line-height: 32px;
     }
