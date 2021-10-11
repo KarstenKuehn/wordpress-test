@@ -1341,6 +1341,7 @@ if (!function_exists('build_main_menu_array')) {
             $attributes['role'] = ($value->wpse_children) ? 'button' : 'link';
 
             if ($value->wpse_children) {
+                $attributes['aria-haspopup'] = 'menu';
                 $attributes['aria-expanded'] = 'false';
                 $attributes['aria-controls'] = 'sub-nav-' . $menu_item;
             }
