@@ -1285,8 +1285,7 @@ if (!function_exists('bs_main_nav_walker')) {
                         $html .= '<div class="submenu-teaser-box-image">';
                         $html .= '<img alt="Bild zu: ' . $submenu_teaser_container['title'] . '" src="' . $submenu_teaser_container['image'] . '" />';
                         $html .= '</div>';
-
-                        $html .= '<h3 class="e_headline has-medium-font-size">' . $submenu_teaser_container['title'] . '</h3>';
+                        $html .= '<div class="submenu-teaser-box-headline" role="heading" aria-level="3">' . $submenu_teaser_container['title'] . '</div>';
                         $html .= '<a href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '<span class="material-icons" aria-hidden="true">arrow_right_alt</span></a>';
 
                         $html .= '</div>';
