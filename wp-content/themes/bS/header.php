@@ -12,6 +12,13 @@
             </div>
             <?php bs_site_logo(); ?>
         </div>
+        <button class="toggle nav-toggle mobile-nav-toggle desktop_hidden"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                aria-label="menu-btn"
+                id="menu-btn">
+            <span class="material-icons"></span>
+        </button>
         <?php if (has_nav_menu('top-menu')): bs_main_nav_walker(); endif; ?>
 
         <div class="nav-frame">
@@ -27,13 +34,6 @@
                             class="mobile_hidden label">Suche</span>
                 </button>
             <?php } ?>
-            <button class="toggle nav-toggle mobile-nav-toggle desktop_hidden"
-                    aria-expanded="false"
-                    aria-haspopup="menu"
-                    aria-label="menu-btn"
-                    id="menu-btn">
-                <span class="material-icons"></span>
-            </button>
 
         </div>
     </nav>
