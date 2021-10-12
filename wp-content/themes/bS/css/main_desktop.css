@@ -144,13 +144,6 @@ section.news-liste {
     padding: 0 16px;    
 }
 
-.menu_close: focus{background-color: green;
-}
-.menu_close button: focus{background-color: red;
-}
-.menu_close button: hover{background-color: blue;
-}
-
 .mobile_hidden.menu_close .material-icons {
   cursor: pointer;
   font-size: 32px;
@@ -179,7 +172,6 @@ section.news-liste {
 
 .grid span:first-of-type
 {
-  background:red;
   margin-left:0;
 }
 .grid span:last-of-type
@@ -1015,7 +1007,6 @@ section.news-liste {
     height: 456px;
     /*overflow: hidden;*/
     display: inline-flex;
-    outline: 3px solid blue;
     width: calc(50vw - 9px);
         align-items: flex-start;
 
@@ -1032,7 +1023,6 @@ section.news-liste {
     width: 100%;
     height: auto;
     max-width: 708px;
-    outline: 3px solid red;
 }
 
 .modul.app-modul{

@@ -1432,11 +1432,9 @@ p
 
 
 .answer p.content ,.answer >* {
-    /* background: red; */
     padding: 0;
 }
 .answer >:last-child {
-    /* background: red; */
     margin: 0;
 }
 
@@ -1730,7 +1728,6 @@ color: #0061AB;
 .hero-image-figure,.hero-image-figure>figure {
     height: 264px;
     display: flex;
-    /* border: 2px solid red; */
     /* text-align: center; */
     align-items: center;
     justify-content: center;
@@ -4484,7 +4481,6 @@ margin-bottom: 0;
     position: absolute;
     right: 50%;
     width: 50%;
-    outline: 3px solid green;
     width: calc(50vw);    
         align-items: flex-start;
 }
@@ -4501,7 +4497,6 @@ margin-bottom: 0;
         width: 100%;
     height: auto;
     max-width: 612px;
-    outline: 3px solid red;
 }
 
 
@@ -4790,13 +4785,6 @@ width:auto
     display: inline-block;
     margin-right: 24px;
 }
-
-
-
-span.my-block-text {
-    color:  red;
-}
-
 
 
 p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty, span.my-block-text:empty {
