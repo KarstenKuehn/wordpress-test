@@ -4836,3 +4836,150 @@ p:empty, ul:empty, li:empty, .text-button a:empty, .modul-button a:empty, span.m
     background: #fff;
     border: 0;
 }
+
+.tf .content_section.bitv.img_media{
+  outline: 6px solid red;
+  position: relative;
+}
+.tf .content_section.bitv.img_media.gray{
+  outline: 6px solid gray;
+}
+.tf .content_section.bitv.img_media::after{
+  outline: 3px solid lavender;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 30%;
+  height: 96px;
+  display: block;
+  bottom: 3px;
+  z-index: 2000;
+  content: "";
+  left: 6px;
+}
+.tf .content_section.bitv.img_media::before{
+  outline: 3px solid orange;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 30%;
+  height: 138px;
+  display: block;
+  bottom: -141px;
+  z-index: 2000;
+  content: "";
+  left: 6px;
+}
+
+
+.tf .content_section.bitv.img_media .block-text{
+  outline: 3px solid black;
+  -moz-hyphens: auto;
+-webkit-hyphens: auto;
+-ms-hyphens: auto;
+-o-hyphens: auto;
+hyphens: auto; 
+    z-index: 5000;
+}
+
+
+.tf .content_section.bitv.img_media.gray{
+  padding-bottom: 96px ;
+}
+
+.tf .content_section .modul.image-text, .tf .content_section .modul.text-image {
+  outline: 3px solid green;
+}
+
+
+/*
+.tf .modul.image-text .modul-image, .modul.image-text > figure.modul-image, .tf .modul.image-text .wp-block-image, 
+.tf .modul.text-image .modul-image, .modul.text-image > figure.modul-image, .tf .modul.text-image .wp-block-image {
+  outline: 3px solid blue;
+  }
+*/
+  .tf .modul.image-text .modul-image img, .tf .modul.image-text > figure.modul-image img, .tf .modul.image-text .wp-block-image img, 
+.tf .modul.text-image .modul-image img, .tf .modul.text-image > figure.modul-image img, .tf .modul.text-image .wp-block-image img {
+
+  outline: 3px solid red;
+  background: aquamarine;
+  position: relative;
+  }
+
+  .tf .img_media .modul-button{
+    padding-bottom: 24px;
+  }
+
+
+  .tf .img_media .text-image .modul-image::before{
+  outline: 3px solid lavender;
+  background: rgba(0, 255, 10, 0.2);
+  position: absolute;
+  width: 30%;
+  height: 96px;
+  display: block;
+  bottom: -96px;
+  z-index: 2000;
+  content: "";
+  margin: 0;
+  left: 0;
+}
+  .tf .img_media .image-text .modul-image::before{
+  outline: 3px solid lavender;
+  background: rgba(0, 0, 255, 0.2);
+  position: absolute;
+  width: 30%;
+  height: 96px;
+  display: block;
+  bottom: -96px;
+  z-index: 2000;
+  content: "";
+  margin: 0 0;
+  right: 0;
+}
+/*
+.modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image{
+ box-shadow: 10px -10px 50px 10px rgba(204,204,204,0.5);
+-webkit-box-shadow: 10px -10px 50px 10px rgba(204,204,204,0.5);
+-moz-box-shadow: 10px -10px 25px 50px rgba(204,204,204,0.5);
+  }
+
+.modul.text-image .modul-image,.modul.text-image > figure.modul-image, .modul.text-image .wp-block-image {
+box-shadow: -10px -10px 50px 10px rgba(204,204,204,0.5);
+-webkit-box-shadow: -10px -10px 50px 10px rgba(204,204,204,0.5);
+-moz-box-shadow: -10px -10px 50px 10px rgba(204,204,204,0.5);
+  }
+
+
+*/
+.modul.image-text.lotterie .modul-image img,.modul.image-text.lotterie > figure.modul-image img, .modul.image-text.lotterie .wp-block-image img{
+ box-shadow: 10px -10px 50px 5px rgba(204,204,204,0.5);
+-webkit-box-shadow: 10px -10px 50px 5px rgba(204,204,204,0.5);
+-moz-box-shadow: 10px -10px 25px 50px 5px rgba(204,204,204,0.5);
+  }
+
+.modul.text-image.lotterie .modul-image img,.modul.text-image.lotterie > figure.modul-image img, .modul.text-image.lotterie .wp-block-image img {
+box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.5);
+-webkit-box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.5);
+-moz-box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.5);
+  }
+
+  .modul.image-text .modul-image, .modul.image-text > figure.modul-image, .modul.image-text .wp-block-image, 
+  .modul.text-image .modul-image, .modul.text-image > figure.modul-image, .modul.text-image .wp-block-image{
+
+            align-items: center;
+  }
+
+  .gray.img_media .modul-image{
+            background: #F3F4F7;
+            background: #fff;
+
+  }
+  .img_media .lotterie .modul-image img{
+
+            background: #F3F4F7;
+            background: #fff;
+  }
+    .gray.img_media .lotterie .modul-image img{
+
+            background: #fff;
+            background: #F3F4F7;
+  }

@@ -1008,9 +1008,7 @@ section.news-liste {
     /*overflow: hidden;*/
     display: inline-flex;
     width: calc(50vw - 9px);
-        align-items: flex-start;
-
-
+    align-items: flex-start;
 }
 
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image {
@@ -1339,3 +1337,24 @@ form .button{
     -ms-grid-column-span: 1;
   }
 }
+
+
+/*
+
+.gray .modul.image-text .modul-image,.gray .modul.image-text > figure.modul-image, .gray .modul.image-text .wp-block-image,
+.gray .modul.text-image .modul-image,.gray .modul.text-image > figure.modul-image, .gray .modul.text-image .wp-block-image {
+    background: #F3F4F7;
+
+}
+
+*/
+.gray .modul.image-text .modul-button, .gray .modul.text-image .modul-button {
+    margin-bottom: 24px;
+}
+
+  .modul.image-text .modul-image, .modul.image-text > figure.modul-image, .modul.image-text .wp-block-image, 
+  .modul.text-image .modul-image, .modul.text-image > figure.modul-image, .modul.text-image .wp-block-image{
+
+            align-items: center;
+            background: transparent;
+  }
