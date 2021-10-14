@@ -4480,9 +4480,8 @@ margin-bottom: 0;
     margin: 0;
     position: absolute;
     right: 50%;
-    width: 50%;
-    width: calc(50vw);    
-        align-items: flex-start;
+    width: 50%;   
+    align-items: flex-start;
 }
 
 .modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image {
@@ -4494,7 +4493,7 @@ margin-bottom: 0;
     height: auto;
     width: 100%;
     max-width: unset;
-        width: 100%;
+    width: 100%;
     height: auto;
     max-width: 612px;
 }
@@ -4947,39 +4946,52 @@ box-shadow: -10px -10px 50px 10px rgba(204,204,204,0.5);
 -webkit-box-shadow: -10px -10px 50px 10px rgba(204,204,204,0.5);
 -moz-box-shadow: -10px -10px 50px 10px rgba(204,204,204,0.5);
   }
-
-
 */
+
+.modul.image-text .modul-image, .modul.image-text > figure.modul-image, .modul.image-text .wp-block-image, 
+.modul.text-image .modul-image, .modul.text-image > figure.modul-image, .modul.text-image .wp-block-image{
+  align-items: center;
+}
+
+.gray.img_media .modul-image{
+  background: #F3F4F7;
+  background: #fff;
+}
+
+.img_media .lotterie .modul-image img{
+  /*background: #fff;
+  background: #F3F4F7; */         
+  border: 2px solid #E3E5ED;
+ 
+}
+.gray.img_media .lotterie .modul-image img{
+  background: #F3F4F7;
+  /*background: #fff;*/
+  border: 2px solid #fff;
+}
+
+
+
 .modul.image-text.lotterie .modul-image img,.modul.image-text.lotterie > figure.modul-image img, .modul.image-text.lotterie .wp-block-image img{
- box-shadow: 10px -10px 50px 5px rgba(204,204,204,0.5);
--webkit-box-shadow: 10px -10px 50px 5px rgba(204,204,204,0.5);
--moz-box-shadow: 10px -10px 25px 50px 5px rgba(204,204,204,0.5);
+ box-shadow: 10px -10px 50px 5px rgba(204,204,204,0.1);
+-webkit-box-shadow: 10px -10px 50px 5px rgba(204,204,204,0.1);
+-moz-box-shadow: 10px -10px 25px 50px 5px rgba(204,204,204,0.1);
   }
 
 .modul.text-image.lotterie .modul-image img,.modul.text-image.lotterie > figure.modul-image img, .modul.text-image.lotterie .wp-block-image img {
-box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.5);
--webkit-box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.5);
--moz-box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.5);
+box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.1);
+-webkit-box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.1);
+-moz-box-shadow: -10px -10px 50px 5px rgba(204,204,204,0.1);
+  }
+/**/
+
+.gray .modul.image-text.lotterie .modul-image img,.gray .modul.image-text.lotterie > figure.modul-image img, .gray .modul.image-text.lotterie .wp-block-image img{
+ box-shadow: 10px -10px 50px 5px rgba(255,255,255,0.5);
+-webkit-box-shadow: 10px -10px 50px 5px rgba(255,255,255,0.5);
+-moz-box-shadow: 10px -10px 25px 50px 5px rgba(255,255,255,0.5);
   }
 
-  .modul.image-text .modul-image, .modul.image-text > figure.modul-image, .modul.image-text .wp-block-image, 
-  .modul.text-image .modul-image, .modul.text-image > figure.modul-image, .modul.text-image .wp-block-image{
-
-            align-items: center;
-  }
-
-  .gray.img_media .modul-image{
-            background: #F3F4F7;
-            background: #fff;
-
-  }
-  .img_media .lotterie .modul-image img{
-
-            background: #F3F4F7;
-            background: #fff;
-  }
-    .gray.img_media .lotterie .modul-image img{
-
-            background: #fff;
-            background: #F3F4F7;
-  }
+.gray .modul.text-image.lotterie .modul-image img,.gray .modul.text-image.lotterie > figure.modul-image img, .gray .modul.text-image.lotterie .wp-block-image img {
+box-shadow: -10px -10px 50px 5px rgba(255,255,255,0.5);
+-webkit-box-shadow: -10px -10px 50px 5px rgba(255,255,255,0.5);
+-moz-box-shadow: -10px -10px 50px 5px rgba(255,255,255,0.5);

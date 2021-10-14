@@ -761,6 +761,18 @@ section .button {
 
 
 
+.modul.lotterie.image-text .modul-image
+{
+  padding-left: 24px;
+  padding-right: 0;
+}
+
+.modul.lotterie.text-image .modul-image
+{
+  padding-right: 24px;
+  padding-left: 0;
+}
+
 @media(min-width:900px)
 {
 
