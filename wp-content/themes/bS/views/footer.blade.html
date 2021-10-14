@@ -54,12 +54,19 @@ for (i = 0; i < acc.length; i++) {
 	for (i = 0; i < img_text.length; i++) {
 		img_text[i].parentNode.classList.add("img_media");
 	}
+	var img_text = document.getElementsByClassName("modul text-video");
+	for (i = 0; i < img_text.length; i++) {
+		img_text[i].parentNode.classList.add("img_media");
+	}
 
 	var text_img = document.getElementsByClassName("modul image-text");
 	for (i = 0; i < text_img.length; i++) {
 		text_img[i].parentNode.classList.add("img_media");
 	}
-
+	var text_img = document.getElementsByClassName("modul video-text");
+	for (i = 0; i < text_img.length; i++) {
+		text_img[i].parentNode.classList.add("img_media");
+	}
 	var empty_modul_buttom = document.getElementsByClassName("modul-button");
 	for (i = 0; i < empty_modul_buttom.length; i++) {
 		el=empty_modul_buttom[i].childNodes;
