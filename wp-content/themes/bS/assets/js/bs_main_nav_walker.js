@@ -14,10 +14,20 @@ window.addEventListener("DOMContentLoaded", () => {
     var main_navi_items = main_navi.querySelectorAll(selector_main_navi_items);
     var main_navi_submenu = main_navi.querySelector(selector_main_navi_submenu);
 
-    var navigation = document.querySelector('nav.nav-container');
-    const navi_content = document.getElementById('nav-content');
+    /**
+     * close menu when outside is clicked
+     */
+    document.addEventListener('click', (e) => {
 
-    navigation.addEventListener('')
+        var navi_item = document.querySelector('.nav-container__main-nav-item .active');
+        var navi_content = document.querySelector('.main-nav_submenu.active .submenu-container');
+
+        if(navi_item && navi_content) {
+            if(!navi_item.contains(e.target) && !navi_content.contains(e.target)) {
+                resetMenu();
+            }
+        }
+    })
 
     main_navi_items.forEach((main_navi_item, i) => {
 
