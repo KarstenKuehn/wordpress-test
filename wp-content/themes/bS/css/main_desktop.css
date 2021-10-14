@@ -236,7 +236,7 @@ section.news-liste {
 
 }
 
-.modul.text-image .content, .modul.image-text .content{
+.modul.text-image .content, .modul.image-text .content, .modul.video-text .content{
       width: 50%;
       margin-bottom: 24px;
  /*     flex: 0;*/
@@ -316,7 +316,7 @@ margin-bottom: 0px;
     padding-left: calc( 100% / 6 - 24px);
     padding-right: 24px;
 }
-.modul.image-text .content {
+.modul.image-text .content, .modul.video-text .content {
     padding-left: calc( 50% / 6 - 24px);
     padding-right: 24px;
 }
@@ -713,9 +713,20 @@ section .button {
 
 .modul .modul-image>figure,.modul figure.modul-image, .modul figure>.modul-image {
     margin-bottom: 0;
+
 }
 
-
+.modul.video-text figure.modul-image {
+ background: red!important;
+ width: 100% !important;
+ height: 100% !important;
+}
+.modul.video-text .modul-image iframe{
+ background: green !important;
+ width: 100% !important;
+ height: 100% !important;
+    
+}
 
 .modul .e_headline{
     margin-bottom: 24px;
@@ -1015,7 +1026,7 @@ section.news-liste {
 */
 
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image,
-.modul.text-image .modul-image,.modul.text-image > figure.modul-image, .modul.text-image .wp-block-image {
+.modul.text-image .modul-image,.modul.text-image > figure.modul-image, .modul.text-image .wp-block-image, .modul.video-text .is-type-video .wp-block-embed__wrapper {
     height: 456px;
     /*overflow: hidden;*/
     display: inline-flex;
@@ -1023,17 +1034,24 @@ section.news-liste {
     align-items: flex-start;
 }
 
-.modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image {
+.modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image , .modul.video-text .is-type-video .wp-block-embed__wrapper{
     justify-content: flex-end;
 }
 
 .modul.image-text .modul-image img,.modul.image-text figure.modul-image img,
-.modul.text-image .modul-image img,.modul.text-image figure.modul-image img {
+.modul.text-image .modul-image img,.modul.text-image figure.modul-image img, .modul.video-text .is-type-video .wp-block-embed__wrapper iframe {
     height: 456px;
     width: 100%;
     height: auto;
     max-width: 708px;
 }
+
+.wp-block-embed__wrapper iframe {
+    height: 100%!important;
+    width: 100%!important;
+    max-width: 708px!important;
+}
+
 
 .modul.app-modul{
   padding: 0;
@@ -1365,7 +1383,7 @@ form .button{
 }
 
   .modul.image-text .modul-image, .modul.image-text > figure.modul-image, .modul.image-text .wp-block-image, 
-  .modul.text-image .modul-image, .modul.text-image > figure.modul-image, .modul.text-image .wp-block-image{
+  .modul.text-image .modul-image, .modul.text-image > figure.modul-image, .modul.text-image .wp-block-image, .modul.video-text .is-type-video{
 
             align-items: center;
             background: transparent;

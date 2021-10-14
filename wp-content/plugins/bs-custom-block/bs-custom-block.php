@@ -71,7 +71,6 @@ function kb_whitelist_blocks()
         'bitv/one-column-text',
         'bitv/image-text',
         'bitv/text-image',
-
         'bitv/ap-image',       
         'bitv/image-ap',        
         'bitv/accordion',
@@ -82,6 +81,7 @@ function kb_whitelist_blocks()
         //'bitv/app-modul',
         'bitv/app-img-modul',
         'bitv/img-app-modul',
+        'bitv/video-text',
         'bitv/hero-image'
     );
 }
@@ -638,100 +638,55 @@ function loadHeroImageModulBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadHeroImageModulBITV');
 
-/*
-function loadImageAP() {
+
+
+function loadVideoTextModulBITV() {
   wp_enqueue_script(
-    'image-ap-block',
-    plugin_dir_url(__FILE__) . 'image-ap/bitv-image-ap.js',
+    'video-text-modul',
+    plugin_dir_url(__FILE__) . '/video-text/block.js',
     array('wp-blocks','wp-editor'),
     true
   );
 }
    
-add_action('enqueue_block_editor_assets', 'loadImageAP');
-
-function loadAPImage() {
-  wp_enqueue_script(
-    'ap-image-block',
-    plugin_dir_url(__FILE__) . 'bitv-ap-image.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadAPImage');
-
-*/
-/*
-function loadAPModul() {
-  wp_enqueue_script(
-    'image-ap-block',
-    plugin_dir_url(__FILE__) . 'image-ap/block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-
-wp_enqueue_style( 'image-ap-block-styles-css', plugins_url( '/block-styles.css', __FILE__ )
-);
-
-  wp_enqueue_script(
-    'ap-image-block',
-    plugin_dir_url(__FILE__) . 'ap-image/block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-
-wp_enqueue_style( 'ap-image-block-styles-css', plugins_url( '/block-styles.css', __FILE__ )
-);
-
-}
-   
-add_action('enqueue_block_editor_assets', 'loadAPModul');
-*/
+add_action('enqueue_block_editor_assets', 'loadVideoTextModulBITV');
 
 
 function loadModul() {
 
   $modul_arr = array('image-ap','ap-image','app-image','image-app');
+  if(isset($_GET['tf']))
+  {
+    print_r($modul_arr);
+    echo '<hr>';    
+  }
+
 
   foreach ($modul_arr as $key => $value) {
-  wp_enqueue_script(
-    $value.'-block',
-    plugin_dir_url(__FILE__) . $value.'/block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-  //echo plugins_url( '/block-styles.css', __FILE__ ); die;
+    if(isset($_GET['tf']))
+    {
+      print_r($value);
+      echo ';<br>';    
+    }
+    wp_enqueue_script(
+      $value.'-block',
+      plugin_dir_url(__FILE__) . $value.'/block.js',
+      array('wp-blocks','wp-editor'),
+      true
+    );
+    //echo plugins_url( '/block-styles.css', __FILE__ ); die;
 
-wp_enqueue_style( $value.'-block-styles-css', plugins_url( $value.'/block-styles.css', __FILE__ )
-);
+    wp_enqueue_style( $value.'-block-styles-css', plugins_url( $value.'/block-styles.css', __FILE__ )
+    );
 
-wp_enqueue_style( $value.'-block-editor-styles-css', plugins_url( $value.'/editor.css', __FILE__ )
-);
+    wp_enqueue_style( $value.'-block-editor-styles-css', plugins_url( $value.'/editor.css', __FILE__ )
+    );
 
+  }  
+  if(isset($_GET['tf']))
+  {
+    //die;   
   }
-/*
-die;
-  wp_enqueue_script(
-    'image-ap-block',
-    plugin_dir_url(__FILE__) . 'image-ap/block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-
-wp_enqueue_style( 'image-ap-block-styles-css', plugins_url( '/block-styles.css', __FILE__ )
-);
-
-  wp_enqueue_script(
-    'ap-image-block',
-    plugin_dir_url(__FILE__) . 'ap-image/block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-
-wp_enqueue_style( 'ap-image-block-styles-css', plugins_url( '/block-styles.css', __FILE__ )
-);
-*/
 }
    
 add_action('enqueue_block_editor_assets', 'loadModul');
