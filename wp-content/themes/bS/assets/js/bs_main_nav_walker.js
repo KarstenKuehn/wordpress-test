@@ -149,7 +149,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 submenuElement.setAttribute('aria-expanded', false);
             }
         });
-
+        toogleOverlayContent();
     }
 
     function toogleOverlayContent() {
