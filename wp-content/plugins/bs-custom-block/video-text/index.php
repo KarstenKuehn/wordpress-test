@@ -10,8 +10,6 @@ Enqueue Block Styles Javascript
 
 
 function video_text_block_scripts() {
-	echo 'hier';
-	die ;
 wp_enqueue_script(
 
 'video-text-block-scripts-js', plugins_url( '/blocks.js', __FILE__ ), array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ), filemtime( plugin_dir_path( __FILE__ ) . '/blocks.js' )

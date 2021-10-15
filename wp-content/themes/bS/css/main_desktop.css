@@ -700,7 +700,8 @@ section .button {
     padding: 0;
 }
 .gray>.wp-block-bitv-image-ap.modul.image-text,.gray>.wp-block-bitv-ap-image.modul.text-image,
-.gray>.wp-block-bitv-image-text.modul.image-text,.gray>.wp-block-bitv-text-image.modul.text-image {
+.gray>.wp-block-bitv-image-text.modul.image-text,.gray>.wp-block-bitv-text-image.modul.text-image, 
+.gray>.modul.video-text, .gray>.modul.text-video {
 
     margin-bottom: -96px;
 }
