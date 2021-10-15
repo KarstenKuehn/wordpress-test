@@ -9,10 +9,10 @@
   var TextControl = components.TextControl;
  var InnerBlocks = editor.InnerBlocks; 
   registerBlockType('my-lb-block/accordion-item', {
-    title: i18n.__('Akkordeon-Element', 'my-lb-block'),
+    title: i18n.__('[ALT] Akkordeon-Element', 'my-lb-block'),
     description: i18n.__('A custom block for displaying accordion-item', 'my-lb-block'),
     icon: 'id',
-    category: 'common',
+    category: 'alt-blocks',
     attributes: {
       accordion_head: {
       type: 'text',
@@ -34,7 +34,7 @@
           el(
             "div",
             null,
-            "Accordion-Item"
+            "[ALT] Accordion-Item"
           ),   
           el(
             'div', 

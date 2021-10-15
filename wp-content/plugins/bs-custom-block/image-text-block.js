@@ -9,9 +9,9 @@ var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
 
 blocks.registerBlockType( 'lb/img-text', {
-  title: 'Bild-Text', // The title of block in editor.
+  title: '[ALT] Bild-Text', // The title of block in editor.
   icon: 'id', // The icon of block in editor.
-  category: 'common', // The category of block in editor.
+  category: 'alt-blocks', // The category of block in editor.
   attributes: {
     mediaID: {
     type: 'number'
@@ -97,7 +97,7 @@ blocks.registerBlockType( 'lb/img-text', {
         "div",{
         style: { textAlign: attributes.alignment,borderBottom:'1px solid grey',margin:'10px',padding:'10px' }
       },
-        "Bild-Text-Modul "
+        "[ALT] Bild-Text-Modul "
       ),     
           el(
         'div', {

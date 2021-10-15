@@ -9,9 +9,9 @@ var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
 
   blocks.registerBlockType( 'lb/presse-img-text', {
-    title: 'Ansprechpartner-Bild-Text', // The title of block in editor.
+    title: '[ALT] Ansprechpartner-Bild-Text', // The title of block in editor.
     icon: 'id', // The icon of block in editor.
-    category: 'common', // The category of block in editor.
+    category: 'alt-blocks', // The category of block in editor.
 attributes: {
   mediaID: {
   type: 'number'
@@ -115,7 +115,7 @@ return [
         "div",{
         style: { textAlign: attributes.alignment,borderBottom:'1px solid grey',margin:'10px',padding:'10px' }
       },
-        "Ansprechpartner - Modul"
+        "[ALT] Bild Ansprechpartner - Modul"
       ), 
   el('div', {
       className: 'wp-block-media-text__media',

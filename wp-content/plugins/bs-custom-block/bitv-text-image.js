@@ -3,12 +3,12 @@
 
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'bitv/text-image', {
-    title: 'BITV-Text-Image', // The title of block in editor.
+    title: 'BITV-Text-Bild', // The title of block in editor.
    icon: 'align-pull-right', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.  
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, 'Text-Image-Modul' ),
+        el( 'span', {}, 'Text-Bild-Modul' ),
         el(
           InnerBlocks,
           {

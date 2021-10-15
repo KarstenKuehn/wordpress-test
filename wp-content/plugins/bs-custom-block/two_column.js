@@ -3,9 +3,9 @@
 
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'lb/two-column-text', {
-    title: '2-Spalten-Text', // The title of block in editor.
+    title: '[ALT] 2-Spalten-Text', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
-    category: 'common', // The category of block in editor.
+    category: 'alt-blocks', // The category of block in editor.
     attributes: {
       headline: {
         type: 'string',
@@ -62,7 +62,7 @@
               borderBottom:'1px solid grey',
               margin:'10px',padding:'10px' }
             },
-            "Zwei Spalten Text Modul"
+            "[ALT] Zwei Spalten Text Modul"
           ),
 
           el( 'div', { style: { padding: '10px' } },

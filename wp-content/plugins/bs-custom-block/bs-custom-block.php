@@ -78,10 +78,10 @@ function kb_whitelist_blocks()
         'bitv/benefits-text',
         'bitv/zwei-teaser-modul',
         'bitv/drei-teaser-modul',
-        //'bitv/app-modul',
         'bitv/app-img-modul',
         'bitv/img-app-modul',
-        'bitv/video-text',
+        'bitv/video-text-modul',
+        'bitv/text-video-modul',
         'bitv/hero-image'
     );
 }
@@ -254,31 +254,6 @@ function load_hero_image() {
    
 add_action('enqueue_block_editor_assets', 'load_hero_image');
 
-function loadTextVideo() {
-  wp_enqueue_script(
-    'text-video-block',
-    plugin_dir_url(__FILE__) . 'text-media-block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadTextVideo');
-
-
-
-function loadVideoText() {
-  wp_enqueue_script(
-    'video-text-block',
-    plugin_dir_url(__FILE__) . 'media-text-block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadVideoText');
-
-
 function load_benefits_column() {
   wp_enqueue_script(
     'benefis_column',
@@ -300,19 +275,6 @@ function load_section() {
 }
    
 add_action('enqueue_block_editor_assets', 'load_section');
-/*
-function load_block_variations() {
-  wp_enqueue_script(
-    'block-variations',
-    plugin_dir_url(__FILE__) . 'block-variations.js',
-    array( 'wp-blocks','wp-editor', 'wp-element' ),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'load_block_variations');
-*/
-
 
 function load_button_link() {
   wp_enqueue_script(
@@ -598,20 +560,6 @@ function loadTeaserDreiBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadTeaserDreiBITV');
 
-
-function loadAppModulBITV() {
-  wp_enqueue_script(
-    'bitv-app-modul',
-    plugin_dir_url(__FILE__) . 'bitv-app-modul.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadAppModulBITV');
-
-
-
 function custom_block_categories( $categories ) {
   return array_merge(
     $categories,
@@ -619,6 +567,10 @@ function custom_block_categories( $categories ) {
       [
         'slug'  => 'bitv-blocks',
         'title' => 'BITV Blocks',
+      ],
+      [
+        'slug'  => 'alt-blocks',
+        'title' => '[ALT] Blocks',
       ],
     ]
   );
@@ -639,43 +591,40 @@ function loadHeroImageModulBITV() {
 add_action('enqueue_block_editor_assets', 'loadHeroImageModulBITV');
 
 
-
-function loadVideoTextModulBITV() {
-  wp_enqueue_script(
-    'video-text-modul',
-    plugin_dir_url(__FILE__) . '/video-text/block.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadVideoTextModulBITV');
-
-
 function loadModul() {
 
-  $modul_arr = array('image-ap','ap-image','app-image','image-app');
+  $modul_arr = array();
+  $directory= plugin_dir_path(__FILE__).'blocks';    
+  $scanned_directory = array_diff(scandir($directory), array('..', '.'));
   if(isset($_GET['tf']))
   {
-    print_r($modul_arr);
-    echo '<hr>';    
-  }
+    echo '<pre>';
+    print_r($scanned_directory);
+    echo '</pre>';
 
+  }
+    foreach ($scanned_directory as $key => $value) {
+    wp_enqueue_script(
+      $value.'-block',
+      plugin_dir_url(__FILE__).'blocks/' . $value.'/block.js',
+      array('wp-blocks','wp-editor'),
+      true
+    );
+    wp_enqueue_style( $value.'-block-styles-css', plugins_url( '/blocks/' .$value.'/block-styles.css', __FILE__ )
+    );
+
+    wp_enqueue_style( $value.'-block-editor-styles-css', plugins_url( '/blocks/' .$value.'/editor.css', __FILE__ )
+    );
+    }
 
   foreach ($modul_arr as $key => $value) {
-    if(isset($_GET['tf']))
-    {
-      print_r($value);
-      echo ';<br>';    
-    }
+
     wp_enqueue_script(
       $value.'-block',
       plugin_dir_url(__FILE__) . $value.'/block.js',
       array('wp-blocks','wp-editor'),
       true
     );
-    //echo plugins_url( '/block-styles.css', __FILE__ ); die;
-
     wp_enqueue_style( $value.'-block-styles-css', plugins_url( $value.'/block-styles.css', __FILE__ )
     );
 
@@ -685,7 +634,7 @@ function loadModul() {
   }  
   if(isset($_GET['tf']))
   {
-    //die;   
+    die;   
   }
 }
    

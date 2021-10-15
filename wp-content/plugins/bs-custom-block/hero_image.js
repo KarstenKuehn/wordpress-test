@@ -8,9 +8,9 @@ var MediaUpload = editor.MediaUpload;
 var InspectorControls = editor.InspectorControls;
 var TextControl = components.TextControl;
   blocks.registerBlockType( 'lb/hero-img', {
-    title: 'Hero-Bild', // The title of block in editor.
+    title: '[ALT] Hero-Bild', // The title of block in editor.
     icon: 'id', // The icon of block in editor.
-    category: 'common', // The category of block in editor.
+    category: 'alt-blocks', // The category of block in editor.
 attributes: {
   mediaID: {
   type: 'number'
@@ -92,7 +92,7 @@ return [
       el(
         "div",
         null,
-        "Hero Image"
+        "[ALT] Hero Bild"
       ),    
   el(
       'div', {

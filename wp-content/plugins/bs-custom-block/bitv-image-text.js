@@ -5,7 +5,7 @@ const iconEl = el('svg', { width: 20, height: 20 },
 );
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'bitv/image-text', {
-    title: 'BITV-Image-Text', // The title of block in editor.
+    title: 'BITV-Bild-Text', // The title of block in editor.
     icon: 'align-pull-left', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     attributes: {
@@ -54,7 +54,7 @@ const iconEl = el('svg', { width: 20, height: 20 },
     },    
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, 'Image-Text' ),
+        el( 'span', {}, 'Bild-Text-Modul' ),
         el(
           InnerBlocks,
           {

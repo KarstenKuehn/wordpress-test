@@ -5,9 +5,9 @@ var InnerBlocks = editor.InnerBlocks;
 var createElement = element.createElement;
 
   blocks.registerBlockType( 'lb/benefits-text', {
-    title: 'Benefits-Text', // The title of block in editor.
+    title: '[ALT] Benefits-Text', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
-    category: 'common', // The category of block in editor.
+    category: 'alt-blocks', // The category of block in editor.
     attributes: {
       mediaID: {
       type: 'number'
@@ -83,7 +83,7 @@ mediaALT: media.alt
               borderBottom:'1px solid grey',
               margin:'10px',padding:'10px' }
             },
-            "Benefits Text Modul"
+            "[ALT] Benefits Text Modul"
           ),
           el( 'div', { 
             className: 'content-block',
