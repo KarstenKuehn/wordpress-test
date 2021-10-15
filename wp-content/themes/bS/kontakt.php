@@ -153,10 +153,10 @@ $siteurl = str_replace('"', '',  json_encode(get_option('siteurl')));
     if(tel_input) {
         tel_input.setAttribute('type', 'tel');
         //placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-        //tel_input.setAttribute('placeholder', "0123456789");
+        //tel_input.setAttribute('placeholder', "Telefonnummer: Nur Zahlen ohne Leerstellen oder Bindestriche eingeben");
         tel_input.setAttribute('pattern', "[0-9]");
         tel_input.setAttribute('autocomplete', 'tel');
-        tel_input.setAttribute('aria-label', 'Tragen Sie hier die Telefonnummer ein.')
+        tel_input.setAttribute('aria-label', 'Telefonnummer: Nur Zahlen ohne Leerstellen oder Bindestriche eingeben.');
     }
 
     var message_label = document.querySelector('#wpforms-3127-field_8-container > label');
