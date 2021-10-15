@@ -99,8 +99,8 @@ for (i = 0; i < acc.length; i++) {
           	nextSlideMessage: 'Nächstes Bild',
 		    firstSlideMessage: 'Dies ist das erste Bild.',
 		    lastSlideMessage: 'Dies ist das letzte Bild.',
-		    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-		    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+		    paginationBulletMessage: 'Gehe zum Bild {{index}}_xxx',    
+		    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}_xxx'   
         },
       });
 
@@ -145,7 +145,15 @@ for (i = 0; i < acc.length; i++) {
 		        slidesPerView: slides_per_view,
 		        freeMode: true,
 		        watchSlidesVisibility: true,
-		        watchSlidesProgress: true,           
+		        watchSlidesProgress: true,
+		            a11y: {
+			          	prevSlideMessage: 'Vorheriges Bild',
+			          	nextSlideMessage: 'Nächstes Bild',
+					    firstSlideMessage: 'Dies ist das erste Bild.',
+					    lastSlideMessage: 'Dies ist das letzte Bild.',
+					    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+					    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+			        }, 
 		    });		
 
 			if(t>1)
@@ -153,7 +161,7 @@ for (i = 0; i < acc.length; i++) {
 				galleryTop = new Swiper('.x_swiper_'+i, { 		    			
 			        direction: 'horizontal',
 				    pagination: {
-			    		el: "xx_swiper_"+i+".swiper-pagination.teaser",
+			    		el: ".xx_swiper_"+i+" .swiper-pagination.teaser",
 			      		clickable: true,
 			    	},
 			        effect:'slide',
@@ -179,7 +187,7 @@ for (i = 0; i < acc.length; i++) {
 			        direction: 'horizontal',
 				    pagination: {
 			    	  	
-			    		el: "xx_swiper_"+i+".swiper-pagination.teaser",
+			    		el: ".xx_swiper_"+i+" .swiper-pagination.teaser",
 			      		clickable: true,
 			    	},
 			    	a11y: {
