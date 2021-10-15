@@ -105,6 +105,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     outline: 0;
 }
 
+input:focus::placeholder {
+    color: transparent;
+}
+
 sup {
     vertical-align: super;
     font-size: smaller;
