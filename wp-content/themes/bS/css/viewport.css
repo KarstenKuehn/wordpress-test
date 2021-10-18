@@ -2641,6 +2641,11 @@ a.main-navi_btn.active {
     position: absolute;
 }
 
+
+.is-style-whitout_overlay .teaser_image_div:after {
+    background: none;
+}
+
 .slideshow-container.spielbankendetails,.slideshow-container.spielbanken {
   width: 100%;
   height: 100%;
@@ -4053,18 +4058,20 @@ padding: 0 24px;
     flex-direction: column;
 }
 
-.wp-block-bitv-video-text.modul.video-text {
+
+.modul.text-video,.modul.video-text {
     min-height: 408px;
     display: flex;
     flex-direction: column;
 }
 
-.modul.video-text .block-text,
+.modul.text-video .block-text,.modul.video-text .block-text,
 .modul.image-text p.modul-text ,.modul.image-text .block-text,
 .modul.text-image p.modul-text ,.modul.text-image .block-text {
   order: 3;
 }
 .modul.video-text .is-type-video,
+.modul.text-video .is-type-video,
 .modul.image-text .modul-image,
 .modul.image-text > figure.modul-image,
 .modul.image-text .wp-block-image,
@@ -4076,7 +4083,7 @@ padding: 0 24px;
   margin-bottom: 24px;
 }
 
-.modul.video-text .modul-button,.modul.image-text .modul-button,.modul.text-image .modul-button {
+.modul.text-video .modul-button,.modul.video-text .modul-button,.modul.image-text .modul-button,.modul.text-image .modul-button {
   order: 10;
   width: 100%;
 }
@@ -4470,6 +4477,7 @@ margin-bottom: 0;
   align-self: flex-end;
 }
 .modul.video-text .modul-button,
+.modul.text-video .modul-button,
 .modul.image-text .modul-button,
 .modul.text-image .modul-button {
   order: 10;
@@ -4482,11 +4490,11 @@ margin-bottom: 0;
   width: 50%;
   align-self: flex-end;
 }
-.modul.video-text .modul-button,.modul.text-image .modul-button ,.modul.image-text .modul-button {
+.modul.text-video .modul-button,.modul.video-text .modul-button,.modul.text-image .modul-button ,.modul.image-text .modul-button {
     margin: 0;
     margin-top: 24px;
 }
-.modul.video-text .modul-button a,.modul.text-image .modul-button a ,.modul.image-text .modul-button a {
+.modul.text-video .modul-button a,.modul.video-text .modul-button a,.modul.text-image .modul-button a ,.modul.image-text .modul-button a {
     width: auto;
     display: inline-block;
     margin: 0;
@@ -4498,7 +4506,8 @@ margin-bottom: 0;
 }
 
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image,.modul.image-text .wp-block-image,
-.modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image, .modul.video-text .is-type-video {
+.modul.text-image .modul-image,.modul.text-image > figure.modul-image,.modul.text-image .wp-block-image, 
+.modul.video-text .is-type-video, .modul.text-video .is-type-video {
     order: 3;
     margin: 0;
     position: absolute;

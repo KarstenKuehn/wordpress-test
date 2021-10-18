@@ -443,6 +443,7 @@ add_action('enqueue_block_editor_assets', 'loadTestimonialBITV');
 
 */
 
+/*
 function loadButtonBITV() {
   wp_enqueue_script(
     'bitv-button',
@@ -454,7 +455,6 @@ function loadButtonBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadButtonBITV');
 
-/*
 function loadImageTextBITV() {
   wp_enqueue_script(
     'bitv-image-text',
