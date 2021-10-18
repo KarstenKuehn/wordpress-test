@@ -3,7 +3,7 @@
 
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'bitv/two-column-text', {
-    title: 'BITV-2-Spalten-Text', // The title of block in editor.
+    title: '2-Spalten-Text Modul', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     attributes: {
@@ -52,7 +52,7 @@
     },    
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, '2-Spalten-Text' ),
+        el( 'span', {}, '2-Spalten-Text Modul' ),
         el(
           InnerBlocks,
           {
