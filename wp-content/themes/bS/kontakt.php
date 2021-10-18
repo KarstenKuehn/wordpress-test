@@ -4,27 +4,6 @@
 */
 get_header();
 ?>
-<style type="text/css">
-    .form-error-message-container {
-        padding-bottom: 32px;
-        margin-bottom: 32px;
-        color: red;
-        font-weight: 400;
-        background-color: #f2f4f6;
-    }
-    .form-error-message-container h3 {
-        background-color: #f2f4f6;
-        margin-bottom: 16px;
-        padding-left: 16px;
-        color: initial;
-    }
-    .form-error-message-container ul {
-        margin-left: 16px;
-        margin-bottom: 16px;
-    }
-
-</style>
-
 <main id="maincontent">
     <div class="main">
         <?php
