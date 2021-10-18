@@ -466,7 +466,7 @@ function loadImageTextBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadImageTextBITV');
 
-
+/*
 
 function loadTextImageBITV() {
   wp_enqueue_script(
@@ -478,6 +478,9 @@ function loadTextImageBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTextImageBITV');
+
+*/
+
 /**/
 
 function custom_block_categories( $categories ) {
