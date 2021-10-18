@@ -552,7 +552,7 @@ function loadTeaserZweiBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTeaserZweiBITV');
-*/ 
+
 function loadTeaserDreiBITV() {
   wp_enqueue_script(
     'bitv-3er-teaser',
@@ -563,7 +563,7 @@ function loadTeaserDreiBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTeaserDreiBITV');
-
+*/ 
 function custom_block_categories( $categories ) {
   return array_merge(
     $categories,
