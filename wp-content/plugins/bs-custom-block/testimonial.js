@@ -4,12 +4,12 @@
   var InnerBlocks = wp.editor.InnerBlocks;
 
   registerBlockType( 'lb/testimonial', {
-    title: 'Testimonal', // The title of block in editor.
+    title: '[ALT] Testimonal', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
-    category: 'layout', // The category of block in editor.
+    category: 'alt-blocks', // The category of block in editor.
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, 'Zitate' ),
+        el( 'span', {}, '[ALT] Zitate' ),
         el(
           InnerBlocks,
           {

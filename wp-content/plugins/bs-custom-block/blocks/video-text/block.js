@@ -5,7 +5,7 @@ const iconEl = el('svg', { width: 20, height: 20 },
 );
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'bitv/video-text-modul', {
-    title: 'BITV-Video-Text', // The title of block in editor.
+    title: 'Video-Text Modul', // The title of block in editor.
     icon: 'align-pull-left', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     attributes: {

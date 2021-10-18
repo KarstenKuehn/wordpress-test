@@ -4446,6 +4446,11 @@ margin-bottom: 0;
   margin-top: 24px;
 }
 
+.modul.benefits .text_left, .modul.benefits .text_right {
+    min-height: 115px;
+}
+
+
 .modul p,.modul ul {
     padding-bottom: 16px;
 }

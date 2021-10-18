@@ -454,7 +454,7 @@ function loadButtonBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadButtonBITV');
 
-
+/*
 function loadImageTextBITV() {
   wp_enqueue_script(
     'bitv-image-text',
@@ -466,7 +466,7 @@ function loadImageTextBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadImageTextBITV');
 
-/*
+
 
 function loadTextImageBITV() {
   wp_enqueue_script(
