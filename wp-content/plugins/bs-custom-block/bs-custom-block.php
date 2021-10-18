@@ -370,10 +370,8 @@ function load_LotterieSlideItem() {
 add_action('enqueue_block_editor_assets', 'load_LotterieSlideItem');
 
 function load_VerlinkungenFrame() {
-
-
 $args = array(
-        'category-name'       => 'news',
+      'category-name'       => 'news',
       'sort_order'   => 'desc',
       'posts_per_page'   => 5,
     );
@@ -448,7 +446,7 @@ function loadTwoColumnBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadTwoColumnBITV');
 
-
+/*
 function loadBenefitsTextBITV() {
   wp_enqueue_script(
     'bitv-benefits-text',
@@ -459,6 +457,8 @@ function loadBenefitsTextBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadBenefitsTextBITV');
+
+*/
 
 function loadButtonBITV() {
   wp_enqueue_script(
@@ -504,66 +504,7 @@ function loadTextImageBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadTextImageBITV');
 
-/*
-function loadSectionBITV() {
-  wp_enqueue_script(
-    'bitv-section',
-    plugin_dir_url(__FILE__) . 'bitv-section.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadSectionBITV');
 
-function loadAccordionBITV() {
-  wp_enqueue_script(
-    'bitv-accordion',
-    plugin_dir_url(__FILE__) . 'bitv-accordion.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadAccordionBITV');
-
-
-
-function loadAccordionItemBITV() {
-  wp_enqueue_script(
-    'bitv-accordion-item',
-    plugin_dir_url(__FILE__) . 'bitv-accordion_item.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-
-
-add_action('enqueue_block_editor_assets', 'loadAccordionItemBITV');
- 
-
-function loadTeaserZweiBITV() {
-  wp_enqueue_script(
-    'bitv-2er-teaser',
-    plugin_dir_url(__FILE__) . 'bitv-2er-teaser-modul.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadTeaserZweiBITV');
-
-function loadTeaserDreiBITV() {
-  wp_enqueue_script(
-    'bitv-3er-teaser',
-    plugin_dir_url(__FILE__) . 'bitv-3er-teaser-modul.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadTeaserDreiBITV');
-*/ 
 function custom_block_categories( $categories ) {
   return array_merge(
     $categories,
@@ -580,20 +521,6 @@ function custom_block_categories( $categories ) {
   );
 }
 add_action( 'block_categories', 'custom_block_categories', 10, 2 );
-
- /* 
-
-function loadHeroImageModulBITV() {
-  wp_enqueue_script(
-    'bitv-hero-image-modul',
-    plugin_dir_url(__FILE__) . 'bitv-hero_image.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-
-add_action('enqueue_block_editor_assets', 'loadHeroImageModulBITV');
- */
 
 function loadModul() {
 

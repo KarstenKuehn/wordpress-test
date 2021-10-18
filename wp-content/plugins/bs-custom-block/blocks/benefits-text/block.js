@@ -3,7 +3,7 @@
 
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'bitv/benefits-text', {
-    title: 'BITV-Benefits-Text', // The title of block in editor.
+    title: 'Benefits-Text Modul', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     edit: function() {
