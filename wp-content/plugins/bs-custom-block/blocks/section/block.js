@@ -19,7 +19,7 @@
         el(
           "span",
           null,
-          "Section => Beliebiger Inhalt: "
+          "Section => Beliebiger Inhalt / Modul "
         ),         
         el(
           "hr",

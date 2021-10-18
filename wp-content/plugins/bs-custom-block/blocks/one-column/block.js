@@ -5,7 +5,7 @@ const iconEl = el('svg', { width: 20, height: 20 },
 );
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'bitv/one-column-text', {
-    title: 'BITV-1-Spalte-Text', // The title of block in editor.
+    title: '1-Spalte-Text Modul', // The title of block in editor.
 // Specifying a custom svg for the block
 icon: 'editor-alignleft',
     category: 'bitv-blocks', 

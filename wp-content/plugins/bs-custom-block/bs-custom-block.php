@@ -480,6 +480,8 @@ function loadButtonBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadButtonBITV');
 
+
+/*
 function loadOneColumnBITV() {
   wp_enqueue_script(
     'bitv-eine-spalte',
@@ -491,7 +493,7 @@ function loadOneColumnBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadOneColumnBITV');
 
-
+*/
 
 function loadImageTextBITV() {
   wp_enqueue_script(
