@@ -540,7 +540,7 @@ function loadAccordionItemBITV() {
 
 
 add_action('enqueue_block_editor_assets', 'loadAccordionItemBITV');
-*/  
+ 
 
 function loadTeaserZweiBITV() {
   wp_enqueue_script(
@@ -552,7 +552,7 @@ function loadTeaserZweiBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTeaserZweiBITV');
-
+*/ 
 function loadTeaserDreiBITV() {
   wp_enqueue_script(
     'bitv-3er-teaser',
