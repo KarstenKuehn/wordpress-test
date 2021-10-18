@@ -428,6 +428,8 @@ add_action('enqueue_block_editor_assets', 'loadTestimonial');
 
 /* BITV Module */
 
+/*
+
 function loadTestimonialBITV() {
   wp_enqueue_script(
     'bitv-testimonial',
@@ -438,34 +440,6 @@ function loadTestimonialBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadTestimonialBITV');
-
-
-
-/*
-function loadTwoColumnBITV() {
-  wp_enqueue_script(
-    'bitv-zwei-spalten',
-    plugin_dir_url(__FILE__) . 'bitv-two_column.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadTwoColumnBITV');
-*/
-
-
-/*
-function loadBenefitsTextBITV() {
-  wp_enqueue_script(
-    'bitv-benefits-text',
-    plugin_dir_url(__FILE__) . 'bitv-benefits-text.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadBenefitsTextBITV');
 
 */
 
@@ -480,20 +454,6 @@ function loadButtonBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadButtonBITV');
 
-
-/*
-function loadOneColumnBITV() {
-  wp_enqueue_script(
-    'bitv-eine-spalte',
-    plugin_dir_url(__FILE__) . 'bitv-one_column.js',
-    array('wp-blocks','wp-editor'),
-    true
-  );
-}
-   
-add_action('enqueue_block_editor_assets', 'loadOneColumnBITV');
-
-*/
 
 function loadImageTextBITV() {
   wp_enqueue_script(
