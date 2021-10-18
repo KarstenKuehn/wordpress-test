@@ -2,6 +2,10 @@
   var el = element.createElement;
   var InnerBlocks = wp.editor.InnerBlocks;  
   var createElement = wp.element.createElement;
+  blocks.registerBlockStyle('core/heading', {
+  name: 'colored-bottom-border',
+  label: 'Colored bottom border'
+});
   blocks.registerBlockType( 'bitv/section', {
     title: 'BITV-Section', // The title of block in editor.
     icon: 'welcome-widgets-menus', // The icon of block in editor.

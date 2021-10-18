@@ -36,3 +36,12 @@
 .is-style-mirror{
   background: red;
 }
+
+
+.is-style-colored-bottom-border, 
+.editor-styles-wrapper .is-style-colored-bottom-border { 
+    border-bottom: 12px solid blue;
+}
+.is-style-bg_frame{ 
+    background: red;
+}

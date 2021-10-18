@@ -1,22 +1,5 @@
-.is-style-paragraph-box {
- padding: 1em;
- box-shadow: 2px 2px 4px #969e95;
-}
-
-.is-style-checkmark-list{
- list-style:none !important;
- padding-left:0;
-}
-.is-style-checkmark-list li:before{
- content:'✔';
- padding-right:0.5em;
-}
-
-.ap-daten.content{
-    background: red;
-}
 
 .is-style-colored-bottom-border, 
 .editor-styles-wrapper .is-style-colored-bottom-border { 
-    border-bottom: 2px solid purple;
+    border-bottom: 2px solid red;
 }

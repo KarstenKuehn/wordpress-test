@@ -14,7 +14,7 @@ blocks.registerBlockStyle('core/heading', {
 });
 
   blocks.registerBlockType( 'bitv/ap-image', {
-    title: 'BITV-Ansprechpartner-Image', // The title of block in editor.
+    title: 'Ansprechpartner-Bild', // The title of block in editor.
    icon: 'align-pull-right', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.  
 
@@ -78,7 +78,7 @@ attributes: {
 edit: function (props) {
 var attributes = props.attributes;
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
-        el( 'span', {}, 'Ansprechpartner-Image-Modul' ),
+        el( 'span', {}, 'Ansprechpartner-Bild-Modul' ),
         el(
           InnerBlocks,
           {
