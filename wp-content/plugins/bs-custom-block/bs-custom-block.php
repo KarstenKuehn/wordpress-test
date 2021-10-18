@@ -526,6 +526,8 @@ function loadAccordionBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadAccordionBITV');
 
+/*
+
 function loadAccordionItemBITV() {
   wp_enqueue_script(
     'bitv-accordion-item',
@@ -534,9 +536,10 @@ function loadAccordionItemBITV() {
     true
   );
 }
-   
-add_action('enqueue_block_editor_assets', 'loadAccordionItemBITV');
 
+
+add_action('enqueue_block_editor_assets', 'loadAccordionItemBITV');
+*/  
 
 function loadTeaserZweiBITV() {
   wp_enqueue_script(
