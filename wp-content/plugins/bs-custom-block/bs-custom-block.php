@@ -581,7 +581,7 @@ function custom_block_categories( $categories ) {
 }
 add_action( 'block_categories', 'custom_block_categories', 10, 2 );
 
-
+ /* 
 
 function loadHeroImageModulBITV() {
   wp_enqueue_script(
@@ -591,23 +591,16 @@ function loadHeroImageModulBITV() {
     true
   );
 }
-   
-add_action('enqueue_block_editor_assets', 'loadHeroImageModulBITV');
 
+add_action('enqueue_block_editor_assets', 'loadHeroImageModulBITV');
+ */
 
 function loadModul() {
 
   $modul_arr = array();
   $directory= plugin_dir_path(__FILE__).'blocks';    
   $scanned_directory = array_diff(scandir($directory), array('..', '.'));
-  if(isset($_GET['tf']))
-  {
-    echo '<pre>';
-    print_r($scanned_directory);
-    echo '</pre>';
-
-  }
-    foreach ($scanned_directory as $key => $value) {
+  foreach ($scanned_directory as $key => $value) {
     wp_enqueue_script(
       $value.'-block',
       plugin_dir_url(__FILE__).'blocks/' . $value.'/block.js',
@@ -619,26 +612,6 @@ function loadModul() {
 
     wp_enqueue_style( $value.'-block-editor-styles-css', plugins_url( '/blocks/' .$value.'/editor.css', __FILE__ )
     );
-    }
-
-  foreach ($modul_arr as $key => $value) {
-
-    wp_enqueue_script(
-      $value.'-block',
-      plugin_dir_url(__FILE__) . $value.'/block.js',
-      array('wp-blocks','wp-editor'),
-      true
-    );
-    wp_enqueue_style( $value.'-block-styles-css', plugins_url( $value.'/block-styles.css', __FILE__ )
-    );
-
-    wp_enqueue_style( $value.'-block-editor-styles-css', plugins_url( $value.'/editor.css', __FILE__ )
-    );
-
-  }  
-  if(isset($_GET['tf']))
-  {
-    die;   
   }
 }
    
