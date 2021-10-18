@@ -87,6 +87,7 @@ $siteurl = str_replace('"', '',  json_encode(get_option('siteurl')));
 <script type='text/javascript'>
     /* <![CDATA[ */
     var wpforms_settings = {"val_tel":"telefonnummer !!!", "val_required":"Dieses Feld wird benötigt.","val_email":"Bitte geben Sie eine gültige E-Mail-Adresse ein.","val_email_suggestion":"Meinten Sie {suggestion}?","val_email_suggestion_title":"Klicken Sie hier, um diesen Vorschlag zu akzeptieren.","val_email_restricted":"Diese E-Mail-Adresse ist nicht zulässig.","val_number":"Bitte geben Sie eine gültige Telefonnummer ein.","val_number_positive":"Bitte geben Sie eine gültige positive Zahl ein.","val_confirm":"Feldwerte stimmen nicht überein.","val_checklimit":"Sie haben die Anzahl der zulässigen Auswahlen überschritten: {#}.","val_limit_characters":"{count} von {limit} maximale Zeichen.","val_limit_words":"{count} von {limit} maximale Wörter.","val_recaptcha_fail_msg":"Google reCAPTCHA-Bestätigung fehlgeschlagen. Bitte versuchen Sie es später erneut.","val_empty_blanks":"Bitte alle Felder ausfüllen.","uuid_cookie":"","locale":"de","wpforms_plugin_url":"$siteurl\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"$siteurl\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1"}
+
     /*******************************
      * Kontakt Formular autocomplete
      *******************************/
@@ -177,6 +178,39 @@ $siteurl = str_replace('"', '',  json_encode(get_option('siteurl')));
     kontakt_form.setAttribute('tabindex', '0');
     kontakt_form.setAttribute('role', 'group');
     kontakt_form.setAttribute('aria-label', 'Kontakt-Formular: Bitte füllen Sie alle benötigten Felder.')
+
+    /**/
+    const error_messages = [];
+
+    const config = {
+        attributes: true,
+        childList: true,
+        characterData: true
+    };
+
+    function callback(mutations) {
+        mutations.forEach(mutation => {
+            // console.log('Mutations:', mutation)
+            // console.log('Observer:', observer)
+            if (mutation.attributeName === 'class') {
+                let targetElement = mutation.target;
+                if(targetElement.classList.contains('wpforms-has-error')) {
+                    console.log('has Errors', targetElement);
+                    let wpforms_field_label = targetElement.getElementsByClassName('wpforms-field-label')[0];
+                    console.log('wpforms_field_label', wpforms_field_label);
+
+                    let wpforms_error = targetElement.getElementsByClassName('wpforms-error')[0];
+                    console.log('wpforms_error', wpforms_error);
+                }
+            }
+        });
+    }
+
+    const observer = new MutationObserver(callback);
+
+    // const wpforms_field_container = document.querySelector('#wpforms-3127-field_1-container');
+    // console.log('wpforms_field_container', wpforms_field_container);
+    observer.observe(document.querySelector('#wpforms-3127-field_1-container'), config);
 
     /* ]]> */
 </script>
