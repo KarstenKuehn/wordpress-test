@@ -2,9 +2,14 @@
   var el = element.createElement;
   var InnerBlocks = wp.editor.InnerBlocks;  
   var createElement = wp.element.createElement;
+  blocks.registerBlockStyle('bitv/section', {
+  name: 'gray',
+  label: 'Section grau'
+});
+
 
   blocks.registerBlockType( 'bitv/section', {
-    title: 'BITV-Section', // The title of block in editor.
+    title: 'Section', // The title of block in editor.
     icon: 'welcome-widgets-menus', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     edit() {

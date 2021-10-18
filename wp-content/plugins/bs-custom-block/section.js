@@ -24,7 +24,7 @@ var createElement = wp.element.createElement;
   var createElement = wp.element.createElement;
 
   blocks.registerBlockType( 'lb/section', {
-    title: 'Section', // The title of block in editor.
+    title: '[ALT] Section', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
     category: 'layout', // The category of block in editor.
     edit() {
@@ -38,7 +38,7 @@ var createElement = wp.element.createElement;
         el(
           "span",
           null,
-          "Beliebiger Inhalt: "
+          "[ALT] Section => Beliebiger Inhalt: "
         ),         
         el(
           "hr",

@@ -504,6 +504,7 @@ function loadTextImageBITV() {
    
 add_action('enqueue_block_editor_assets', 'loadTextImageBITV');
 
+/*
 function loadSectionBITV() {
   wp_enqueue_script(
     'bitv-section',
@@ -514,7 +515,7 @@ function loadSectionBITV() {
 }
    
 add_action('enqueue_block_editor_assets', 'loadSectionBITV');
-/*
+
 function loadAccordionBITV() {
   wp_enqueue_script(
     'bitv-accordion',

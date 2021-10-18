@@ -3,7 +3,7 @@
 
   var InnerBlocks = wp.editor.InnerBlocks;
   blocks.registerBlockType( 'bitv/hero-image', {
-    title: 'BITV-Hero-Image', // The title of block in editor.
+    title: 'Hero-Bild Modul', // The title of block in editor.
     icon: 'format-image', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     edit: function() {

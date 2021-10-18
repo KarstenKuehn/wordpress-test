@@ -1,5 +1,5 @@
 
-
-.is-style-bg_frame{ 
-    background: red;
+.is-style-colored-bottom-border, 
+.editor-styles-wrapper .is-style-colored-bottom-border { 
+    border-bottom: 2px solid red;
 }
