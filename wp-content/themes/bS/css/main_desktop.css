@@ -757,8 +757,12 @@ section .button {
 .modul .block-text.content {
     margin: 0;
 }
-.modul.eine_spalte,.modul.zwei_spalten,.modul.benefits,.modul.testimonial,.modul.accordion {
+.modul.zwei_spalten,.modul.benefits,.modul.testimonial {
     max-width: 1026px;
+}
+
+.modul.eine_spalte,.modul.accordion {
+    max-width: 808px;
 }
 
 .app_temp .wp-block-image {
@@ -785,6 +789,9 @@ section .button {
   padding-left: 0;
 }
 
+.modul.text-video .content, .modul.text-image .content {
+    padding-right: 24px;
+}
 @media(min-width:900px)
 {
 
@@ -852,11 +859,14 @@ a.sub_menu_item {
     margin-bottom: 4px;
 }
 
-
 }
 
 @media(min-width:1100px)
 {
+    
+.modul.text-video,.modul.video-text {
+    min-height: 408px;
+}
 
 
 .news .category{
@@ -932,6 +942,7 @@ a.sub_menu_item {
 
 @media(min-width:1225px)
 {
+
 .news_frame
 {
   padding: 0 16px;

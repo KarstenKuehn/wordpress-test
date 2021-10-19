@@ -67,8 +67,8 @@
                       ['core/paragraph',{'placeholder':'Blocktext'}],                      
                     ]
                   ],
-                  ['core/image',{className:'app-button my-app','placeholder':'app-button',url:'/wp-content/uploads/2021/08/AppStore.png',href:'https://itunes.apple.com/us/app/playoff-selbsthilfe-fur-glucksspieler/id1102852513?l=de&&ls=1&&mt=8/'}],
-                  ['core/image',{className:'google-button my-app','placeholder':'google-button',url:'/wp-content/uploads/2021/08/GooglePlay.png',href:'https://itunes.apple.com/us/app/playoff-selbsthilfe-fur-glucksspieler/id1102852513?l=de&&ls=1&&mt=8/'}],
+                  ['core/image',{className:'app-button my-app','placeholder':'app-button',url:'/wp-content/uploads/2021/08/AppStore.png',href:'https://itunes.apple.com/us/app/playoff-selbsthilfe-fur-glucksspieler/id1102852513?l=de&ls=1&mt=8',alt:'Download PlayOff für iOS'}],
+                  ['core/image',{className:'google-button my-app','placeholder':'google-button',url:'/wp-content/uploads/2021/08/GooglePlay.png',href:'https://play.google.com/store/apps/details?id=de.lsgbayern.playoff', alt:'Download PlayOff für Android'}],
 /*
               ['core/button',{className:'app-button','placeholder':'Button'}],
               ['core/button',{className:'google-button','placeholder':'Button'}],

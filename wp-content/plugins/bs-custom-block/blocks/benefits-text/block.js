@@ -16,7 +16,7 @@
               ['core/heading',{className:'e_headline','placeholder':'Block Überschrift',fontSize: 'large'}],
               ['core/columns',{className:'benefits-text'},
                 [
-                  ['core/column',{className:'block-text text_left',},
+                  ['core/column',{className:'block-text text_left'},
                     [
                       ['core/paragraph',{className:'text1_content','placeholder':'Benefits-Inhalt'}],
                       
