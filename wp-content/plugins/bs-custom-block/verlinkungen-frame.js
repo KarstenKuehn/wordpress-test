@@ -6,7 +6,7 @@
   registerBlockType( 'lb/verlinkungen-frame', {
     title: '[ALT] Verlinkungen-Frame', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
-    category: 'layout', // The category of block in editor.
+    category: 'alt-blocks', // The category of block in editor.
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
         el( 'span', {}, '[ALT] Verlinkungen-Frame' ),

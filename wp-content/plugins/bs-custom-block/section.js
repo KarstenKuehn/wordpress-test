@@ -26,7 +26,7 @@ var createElement = wp.element.createElement;
   blocks.registerBlockType( 'lb/section', {
     title: '[ALT] Section', // The title of block in editor.
     icon: 'admin-comments', // The icon of block in editor.
-    category: 'layout', // The category of block in editor.
+    category: 'alt-blocks', // The category of block in editor.
     edit() {
 /*      return createElement( InnerBlocks );
 
