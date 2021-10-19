@@ -158,7 +158,25 @@ blockquote, q {
   
 body {font-family: 'Lato';/* max-width: 2000px;*/margin:auto; color:#091B30;font-size: 16px;font-weight: 400;}
 
-
+/* === Kontaktformular === */
+.form-error-message-container {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    color: red;
+    font-weight: 400;
+    background-color: #f2f4f6;
+}
+.form-error-message-container h3 {
+    background-color: #f2f4f6;
+    margin-bottom: 16px;
+    padding-left: 16px;
+    color: initial;
+}
+.form-error-message-container ul {
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+/* === end === */
 
 .wp-block-columns {
     display: flex;
