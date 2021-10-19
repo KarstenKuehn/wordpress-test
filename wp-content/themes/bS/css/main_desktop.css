@@ -792,9 +792,25 @@ section .button {
 .modul.text-video .content, .modul.text-image .content {
     padding-right: 24px;
 }
+
+
+.wp-block-bitv-ap-image.modul.text-image, .wp-block-bitv-image-ap.modul.image-text, .wp-block-bitv-image-text.modul.image-text, .wp-block-bitv-text-image.modul.text-image {
+    min-height: unset;
+}
+.gray .block-text.ap-daten.content {
+    padding-bottom: 96px;
+}
+
+.modul.app-modul .app-text {
+    padding-right: calc(100% / 6 - 24px);
+}
+
 @media(min-width:900px)
 {
-
+.wp-block-bitv-ap-image.modul.text-image, .wp-block-bitv-image-ap.modul.image-text, .wp-block-bitv-image-text.modul.image-text, 
+.wp-block-bitv-text-image.modul.text-image,.modul.text-video,.modul.video-text {
+    min-height: 289px;
+}
 .section-left{
    padding: 0 16px;
     margin-left: 0;
@@ -863,9 +879,9 @@ a.sub_menu_item {
 
 @media(min-width:1100px)
 {
-    
-.modul.text-video,.modul.video-text {
-    min-height: 408px;
+.wp-block-bitv-ap-image.modul.text-image, .wp-block-bitv-image-ap.modul.image-text, .wp-block-bitv-image-text.modul.image-text, 
+.wp-block-bitv-text-image.modul.text-image,.modul.text-video,.modul.video-text {
+    min-height: 354px;
 }
 
 
@@ -943,6 +959,10 @@ a.sub_menu_item {
 @media(min-width:1225px)
 {
 
+.wp-block-bitv-ap-image.modul.text-image, .wp-block-bitv-image-ap.modul.image-text, .wp-block-bitv-image-text.modul.image-text, 
+.wp-block-bitv-text-image.modul.text-image,.modul.text-video,.modul.video-text {
+    min-height: 408px;
+}
 .news_frame
 {
   padding: 0 16px;

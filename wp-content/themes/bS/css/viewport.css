@@ -4728,7 +4728,7 @@ max-width: none; width: 100%;
   -ms-grid-column: 1; 
   -ms-grid-row: 1; 
   -ms-grid-column-span: 3;
-  padding-right: calc( 100% / 6 - 24px);
+  padding-right: 24px;
 }
 
 .modul.app-modul .e_headline.app-head{
@@ -4744,7 +4744,7 @@ margin: 0;
   -ms-grid-column: 1; 
   -ms-grid-row: 3; 
   -ms-grid-column-span: 3;
-  padding-right: calc( 100% / 6 - 24px);
+  padding-right: 24px;
 }
 
 .modul.app-modul .app-image{
