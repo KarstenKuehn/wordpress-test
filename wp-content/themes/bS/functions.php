@@ -1045,7 +1045,7 @@ function shortcode_posts_function($atts = [], $content = null, $tag = '')
                     $content .= '<div class="news_container active">';
                     //$content .= '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
                     $content .= '<div class="news_frame">';
-                    $content .= '<h2 class="news_headline e_headline has-medium-font-size">' . substr(strip_tags($post['post_title']), 0, 100) . '</h2>';
+                    $content .= '<h3 class="news_headline e_headline has-medium-font-size" aria-describedby="subtitel_cat_'.$post["ID"].'">' . substr(strip_tags($post['post_title']), 0, 100) . '<div id="subtitel_cat_'.$post["ID"].'" aria-hidden="true" hidden>'.$post['sub_category'] .' vom '.date('d.m.y', strtotime($post['date'])).' '.substr(strip_tags($post['post_title']), 0, 100).'</div></h3>';
                     $content .= '<div class="subline"><span class="category">' . $post['sub_category'] . '</span>' . date('d.m.y', strtotime($post['date'])) . '</div>';
                     $content .= '<p>' . wp_strip_all_tags($content_news) . '</p>';
                     $content .= '</div>';
