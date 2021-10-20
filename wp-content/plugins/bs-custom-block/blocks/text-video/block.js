@@ -9,48 +9,6 @@ const iconEl = el('svg', { width: 20, height: 20 },
     icon: 'align-pull-right', // The icon of block in editor.
     category: 'bitv-blocks', // The category of block in editor.
     attributes: {
-      headline: {
-        type: 'string',
-        default: 'Lorem ipsum dolor sit amet.',
-      },
-      content: {
-        type: 'string',
-        default: ''
-      },
-      content_right: {
-        type: 'string',
-        default: ''
-      },
-      button: {
-        type: 'string',
-        default: 'mehr erfahren'
-      },
-      buttonURL: {
-      type: 'url'
-      },    
-      button_right: {
-        type: 'string',
-        default: 'mehr erfahren'
-      },
-      buttonURL_right: {
-      type: 'url'
-      }, 
-      ingredients_l: {
-        type: 'string',
-        default: ''
-      },
-      ingredients_r: {
-        type: 'string',
-        default: ''
-      },
-      block: {
-        type: 'string',
-        default: ''
-      },
-      alignment: {
-        type: 'string',
-        default: 'center'
-      }
     },    
     edit: function() {
       return el( 'div', { style: { outline: '1px solid gray', padding: 5 } },
