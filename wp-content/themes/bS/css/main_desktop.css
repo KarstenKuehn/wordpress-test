@@ -1082,14 +1082,14 @@ section.news-liste {
     height: auto;
     max-width: 708px;
 }
-
+/*
 .wp-block-embed__wrapper iframe {
     height: 100%!important;
     width: 100%!important;
     max-width: 708px!important;
 }
 
-
+*/
 .modul.app-modul{
   padding: 0;
 }

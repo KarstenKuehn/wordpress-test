@@ -249,6 +249,10 @@ p a:focus {    color: #143C6B;
    text-decoration: none;
    outline: 3px dotted #143C6B; }
 
+.is-type-video{
+  max-width: 808px;
+}
+
 iframe{
   width: 100%;
   height: 456px;
