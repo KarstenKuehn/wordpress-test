@@ -728,6 +728,9 @@ input#s {
 
 .archive-subtitle p{
     padding: 16px 0;
+    
+    width: 100%;
+    max-width: 100%;
 }
 
 .archive-subtitle{
