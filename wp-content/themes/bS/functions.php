@@ -1261,7 +1261,11 @@ if (!function_exists('bs_main_nav_walker')) {
                     foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
 
                         $html .= '<div class="submenu-list-box">';
-                        $html .= ($submenu_list_container['label']) ? '<span class="menu-label" role="heading" aria-level="3">' . $submenu_list_container['label'] . '</span>' : '';
+                        $html .= ($submenu_list_container['label'])
+                            ? '<span class="menu-label" role="heading" aria-level="3" aria-describedby="description-submenu-list-box-label-'.$key1.'">' . $submenu_list_container['label'] . '</span>' .
+                                '<div style="display:none" id="description-submenu-list-box-label-'.$key1.'">Liste ' . $submenu_list_container['label'] . ' mit '.count($submenu_list_container['list-items']).' Einträgen</div>'
+                            : '';
+
                         $html .= '<ul>';
                         foreach ($submenu_list_container['list-items'] as $list_item) {
                             $html .= '<li><a href="' . $list_item['url'] . '">' . $list_item['title'] . '</a>';
@@ -1358,7 +1362,7 @@ if (!function_exists('build_main_menu_array')) {
                 $main_menu[$menu_item]['submenu']['attributes'] = [
                     'id' => 'sub-nav-' . $menu_item,
                     'role' => 'region',
-                    'aria-hidden' => 'true',
+                    // 'aria-hidden' => 'true',
                     'aria-labelledby' => 'nav-' . $menu_item
                 ];
 
