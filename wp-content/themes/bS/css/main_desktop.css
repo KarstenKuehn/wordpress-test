@@ -984,9 +984,11 @@ a.sub_menu_item {
 
 .news_container a.list {
     padding: 0 16px;
+     padding-right: 40px;
 }
 .news-liste .news_container a.list {
     padding: 0;
+        padding-right: 32px;
 }
 
 .section-left {
