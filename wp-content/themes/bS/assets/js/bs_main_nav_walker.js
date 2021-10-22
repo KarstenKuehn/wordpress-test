@@ -144,12 +144,15 @@ window.addEventListener("DOMContentLoaded", () => {
             var submenuElement = getSubmenu(item);
 
             if (submenuElement) {
+
+                toogleOverlayContent();
+
                 submenuElement.classList.remove(activeClass);
                 submenuElement.setAttribute('aria-hidden', true);
                 submenuElement.setAttribute('aria-expanded', false);
             }
         });
-        toogleOverlayContent();
+
     }
 
     function toogleOverlayContent() {
@@ -175,6 +178,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
 
                 if (submenuElement) {
+                    main_content.classList.remove('overlay');
                     submenuElement.classList.remove(activeClass);
                 }
             }
@@ -184,12 +188,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (targetElement.classList.contains(activeClass)) {
 
-            main_content.classList.remove('overlay');
-
             targetElement.classList.remove(activeClass);
             targetElement.setAttribute('aria-expanded', false);
 
             if (submenuElement) {
+                main_content.classList.remove('overlay');
                 submenuElement.classList.remove(activeClass);
                 submenuElement.setAttribute('aria-expanded', false);
                 submenuElement.setAttribute('aria-hidden', true);
@@ -197,12 +200,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
         } else {
 
-            main_content.classList.add('overlay');
-
             targetElement.classList.add(activeClass);
             targetElement.setAttribute('aria-expanded', true);
 
             if (submenuElement) {
+                main_content.classList.add('overlay');
                 submenuElement.classList.add(activeClass);
                 submenuElement.setAttribute('aria-expanded', true);
                 submenuElement.setAttribute('aria-hidden', false);
@@ -254,12 +256,12 @@ window.addEventListener("DOMContentLoaded", () => {
         var submenuElement = getSubmenu(targetElement);
 
         if (submenuElement) {
+            main_content.classList.remove('overlay');
             submenuElement.classList.remove(activeClass);
             submenuElement.setAttribute('aria-hidden', true);
             submenuElement.setAttribute('aria-expanded', false);
-
         }
-        main_content.classList.remove('overlay');
+
     }
 
     /**
@@ -273,16 +275,15 @@ window.addEventListener("DOMContentLoaded", () => {
     function toogleMenuButton(event) {
 
         if (!menu_btn.classList.contains(activeClass)) {
+            main_content.classList.add('overlay');
             menu_btn.classList.add(activeClass);
             menu_btn.setAttribute('aria-expanded', true);
             toogleMainNavi(true);
-            main_content.classList.add('overlay');
-
         } else {
+            main_content.classList.remove('overlay');
             menu_btn.classList.remove(activeClass);
             menu_btn.setAttribute('aria-expanded', false);
             toogleMainNavi(false);
-            main_content.classList.remove('overlay');
             unsetActiveMenu();
         }
 
