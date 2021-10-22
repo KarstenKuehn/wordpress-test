@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 if (submenuElement) {
 
                     submenuElement.classList.add(activeClass);
-                    submenuElement.setAttribute('aria-hidden', false);
+                    // submenuElement.setAttribute('aria-hidden', false);
                     submenuElement.setAttribute('aria-expanded', true);
                     main_content.classList.add('overlay');
 
@@ -107,6 +107,7 @@ window.addEventListener("DOMContentLoaded", () => {
             // ESC
             if (e.keyCode === 27) {
                 closeMenuItem(targetElement);
+                console.log('closeMenuItem', targetElement);
             }
 
         });
@@ -122,6 +123,7 @@ window.addEventListener("DOMContentLoaded", () => {
     function escapeMenu(targetElement) {
 
         var menu = main_navi.querySelectorAll(selector_main_navi_items);
+        let nextElement = undefined;
 
         menu.forEach((item, i) => {
             if (item === targetElement) {
@@ -130,6 +132,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 nextElement.focus();
             }
         });
+        console.log('escapeMenu', targetElement, 'nextElement', nextElement);
 
     }
 
@@ -145,7 +148,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             if (submenuElement) {
                 submenuElement.classList.remove(activeClass);
-                submenuElement.setAttribute('aria-hidden', true);
+                // submenuElement.setAttribute('aria-hidden', true);
                 submenuElement.setAttribute('aria-expanded', false);
             }
         });
@@ -192,7 +195,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (submenuElement) {
                 submenuElement.classList.remove(activeClass);
                 submenuElement.setAttribute('aria-expanded', false);
-                submenuElement.setAttribute('aria-hidden', true);
+                // submenuElement.setAttribute('aria-hidden', true);
             }
 
         } else {
@@ -205,7 +208,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (submenuElement) {
                 submenuElement.classList.add(activeClass);
                 submenuElement.setAttribute('aria-expanded', true);
-                submenuElement.setAttribute('aria-hidden', false);
+                // submenuElement.setAttribute('aria-hidden', false);
             }
 
         }
@@ -255,7 +258,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (submenuElement) {
             submenuElement.classList.remove(activeClass);
-            submenuElement.setAttribute('aria-hidden', true);
+            // submenuElement.setAttribute('aria-hidden', true);
             submenuElement.setAttribute('aria-expanded', false);
 
         }
