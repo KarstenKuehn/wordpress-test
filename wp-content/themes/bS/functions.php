@@ -1049,7 +1049,7 @@ function shortcode_posts_function($atts = [], $content = null, $tag = '')
                     $content .= '<div class="subline"><span class="category">' . $post['sub_category'] . '</span>' . date('d.m.y', strtotime($post['date'])) . '</div>';
                     $content .= '<p>' . wp_strip_all_tags($content_news) . '</p>';
                     $content .= '</div>';
-                    $content .= '<a href="' . $post['link'] . '" class="list">Mehr erfahren <span class="material-icons" aria-hidden="true">east</span></a>';
+                    $content .= '<a href="' . $post['link'] . '" class="list" aria-describedby="subtitel_cat_'.$post["ID"].'">Mehr erfahren</a>';
                     $content .= '</div>';
                 }
             }
