@@ -5079,10 +5079,10 @@ box-shadow: -10px -10px 50px 5px rgba(255,255,255,0.5);
 
 .news_container .list:after{
   position: absolute;
-  width: 40px;
+  width: 32px;
   height: 32px;
   font-family: 'Material Icons';
-  font-size: 32px;
+  font-size: 24px;
   color: #0061AB;    
   content: "\f1df";
   font-weight: 100;

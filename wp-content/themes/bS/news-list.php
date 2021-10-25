@@ -289,7 +289,7 @@ $content = apply_filters('the_content', $content);
 			echo '<div class="subline"><span class="category">'.$post['sub_category'].'</span>'.date('d.m.y',strtotime($post['date'])).'</div>';			
 			echo '<p>'.wp_strip_all_tags( $content).'</p>';
 			echo '</div>';
-			echo '<a href="'.$post['link'].'" class="list" title="'.$post['post_title'].'" aria-describedby="subtitel_cat_'.$post["ID"].'">Mehr erfahren</a>';
+			echo '<a href="'.$post['link'].'" class="list" title="'.str_replace('"', '´',$post['post_title']).'" aria-describedby="subtitel_cat_'.$post["ID"].'">Mehr erfahren</a>';
 			echo '</div>';
 		}
 	}
