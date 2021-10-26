@@ -22,8 +22,8 @@ window.addEventListener("DOMContentLoaded", () => {
         var navi_item = document.querySelector('.nav-container__main-nav-item .active');
         var navi_content = document.querySelector('.main-nav_submenu.active .submenu-container');
 
-        if(navi_item && navi_content) {
-            if(!navi_item.contains(e.target) && !navi_content.contains(e.target)) {
+        if (navi_item && navi_content) {
+            if (!navi_item.contains(e.target) && !navi_content.contains(e.target)) {
                 resetMenu();
             }
         }
@@ -80,7 +80,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (e.keyCode === 9 && e.shiftKey === false) {
 
                 targetElement.classList.add(activeClass);
-                targetElement.setAttribute('aria-expanded', true);
+                setElementFocus(targetElement);
                 /**
                  * @TODO: check usage for subelement or sibling!!!
                  * @type {HTMLElement}
@@ -88,12 +88,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 var submenuElement = getSubmenu(targetElement);
 
                 if (submenuElement) {
-
+                    targetElement.setAttribute('aria-expanded', true);
                     submenuElement.classList.add(activeClass);
-                    // submenuElement.setAttribute('aria-hidden', false);
                     submenuElement.setAttribute('aria-expanded', true);
                     main_content.classList.add('overlay');
-
                     submenuElement.addEventListener('keydown', (e) => {
                         if (e.keyCode === 27) {
                             closeMenuItem(targetElement);
@@ -102,7 +100,6 @@ window.addEventListener("DOMContentLoaded", () => {
                     });
 
                     setSubmenuCloseButton(main_navi_item);
-
                     setElementFocus(submenuElement);
 
                 }
@@ -147,24 +144,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
         menu.forEach((item, e) => {
             item.classList.remove(activeClass);
-            item.setAttribute('aria-expanded', false);
 
             var submenuElement = getSubmenu(item);
 
             if (submenuElement) {
-
+                item.setAttribute('aria-expanded', false);
                 main_content.classList.remove('overlay');
-
                 submenuElement.classList.remove(activeClass);
-                // submenuElement.setAttribute('aria-hidden', true);
                 submenuElement.setAttribute('aria-expanded', false);
             }
         });
 
     }
 
-    function setElementFocus(element)
-    {
+    function setElementFocus(element) {
         element.focus();
         document.activeElement = element;
     }
@@ -183,6 +176,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
 
                 if (submenuElement) {
+                    item.setAttribute('aria-expanded', false);
+                    submenuElement.setAttribute('aria-expanded', false);
                     main_content.classList.remove('overlay');
                     submenuElement.classList.remove(activeClass);
                 }
@@ -194,9 +189,9 @@ window.addEventListener("DOMContentLoaded", () => {
         if (targetElement.classList.contains(activeClass)) {
 
             targetElement.classList.remove(activeClass);
-            targetElement.setAttribute('aria-expanded', false);
 
             if (submenuElement) {
+                targetElement.setAttribute('aria-expanded', false);
                 main_content.classList.remove('overlay');
                 submenuElement.classList.remove(activeClass);
                 submenuElement.setAttribute('aria-expanded', false);
@@ -205,11 +200,10 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
 
             targetElement.classList.add(activeClass);
-            targetElement.setAttribute('aria-expanded', true);
-            //setElementFocus(targetElement);
+            setElementFocus(targetElement);
 
             if (submenuElement) {
-
+                targetElement.setAttribute('aria-expanded', true);
                 main_content.classList.add('overlay');
                 submenuElement.classList.add(activeClass);
                 submenuElement.setAttribute('aria-expanded', true);
@@ -257,11 +251,12 @@ window.addEventListener("DOMContentLoaded", () => {
     function closeMenuItem(targetElement) {
 
         targetElement.classList.remove(activeClass);
-        targetElement.setAttribute('aria-expanded', false);
 
         var submenuElement = getSubmenu(targetElement);
 
         if (submenuElement) {
+
+            targetElement.setAttribute('aria-expanded', false);
             main_content.classList.remove('overlay');
             submenuElement.classList.remove(activeClass);
             // submenuElement.setAttribute('aria-hidden', true);
