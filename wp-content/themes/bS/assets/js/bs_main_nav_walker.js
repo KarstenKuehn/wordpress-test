@@ -293,7 +293,7 @@ window.addEventListener("DOMContentLoaded", () => {
     function toogleMainNavi(status) {
         var main_nav = document.querySelector(selector_main_navi);
         //var main_nav = document.getElementsByClassName('nav-container__main-nav')[0];
-        main_nav.style.height = (status) ? "calc(100vh - 72px)" : 0;
+        main_nav.style.height = (status) ? "calc(100vh - 112px)" : 0;
     }
 
     function setBackNaviButton() {

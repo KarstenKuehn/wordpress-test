@@ -62,6 +62,25 @@ header .material-icons {
     /*font-size: 24px;*/ /*32px;*/
 }
 
+.submenu-teaser-container .submenu-teaser-box > a {
+    display: inline-block;
+    padding-right: 32px;
+    
+}
+
+
+.submenu-teaser-container .submenu-teaser-box > a:after {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    font-family: 'Material Icons';
+    font-size: 20px;
+    color: #0061AB;
+    content: "\f1df";
+    font-weight: 100;
+    text-align: right;
+}
+
 @media all and (max-width: 767px) {
 
     .submenu-list-container .submenu-list-box .menu-label {
@@ -94,6 +113,10 @@ header .material-icons {
         border-bottom: 1px solid #E3E5ED;
     }
 
+    .nav-container__main-nav-item span.material-icons{
+        display: none;
+    }
+
     .nav-container__main-nav-item > a {
         margin: 0;
         text-decoration: none;
@@ -105,7 +128,23 @@ header .material-icons {
         line-height: 72px;
         font-weight: 400;
         width: 100%;
+        position: relative;
     }
+
+    .nav-container__main-nav-item > a[aria-haspopup="menu"]:after {
+        display: inline-block;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 48px;
+        height: 48px;
+        content: '\e5e1';font-family: 'Material Icons';
+        font-size: 24px;
+        color: #0061AB;
+        font-weight: 100;
+        text-align: right;
+    }
+
 
     /* === SUBMENU === */
     .main-nav_submenu {
@@ -187,7 +226,6 @@ header .material-icons {
         line-height: 32px;
         padding-right: calc(100% / 6 - 24px);
     }
-
     .submenu-list-container .submenu-list-box {
         width: 100%;
         height: auto;
@@ -215,6 +253,13 @@ header .material-icons {
         font-weight: 400;
         width: 100%;
     }
+
+.nav-container__main-nav-item > a:hover,  
+.submenu-list-container .submenu-list-box  > ul > li > a:hover {
+    text-decoration: underline;
+    color: #1F5DA6;
+}
+
     .submenu-row.first > button,
     .submenu-row.first > .submenu__close-button {
         display: none;
