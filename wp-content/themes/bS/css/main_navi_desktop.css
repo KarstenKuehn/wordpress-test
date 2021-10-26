@@ -99,6 +99,13 @@ ul {
     padding-left: 3px;
 }
 
+.nav-container__logo a:focus
+{
+    outline: 3px dotted #000;
+    background-color: #FFF;
+    color: var(--default-text-color);
+}
+
 .nav-container__logo a:focus-visible
 {
     outline: 3px dotted #000;
@@ -140,6 +147,13 @@ ul {
     font-size: 1rem;
     font-family: inherit;
     letter-spacing: 0;
+}
+
+.nav-container__main-nav-item > a:focus
+{
+    outline: 3px dotted #000;
+    background-color: #FFF;
+    color: var(--default-text-color);
 }
 
 .nav-container__main-nav-item > a:focus-visible
@@ -289,7 +303,12 @@ ul {
     border-bottom: 1px solid #E3E5ED;
     position: relative;
 }
-
+.submenu-list-container .submenu-list-box  ul > li > a:focus
+{
+    outline: 3px dotted #000;
+    background-color: #FFF;
+    color: var(--default-text-color);
+}
 .submenu-list-container .submenu-list-box  ul > li > a:focus-visible
 {
     outline: 3px dotted #000;
@@ -383,6 +402,13 @@ ul {
     font-size: 16px;
 }
 
+.submenu-teaser-container .submenu-teaser-box > a:focus
+{
+    outline: 3px dotted #000;
+    background-color: #FFF;
+    color: var(--default-text-color);
+}
+
 .submenu-teaser-container .submenu-teaser-box > a:focus-visible
 {
     outline: 3px dotted #000;
@@ -415,6 +441,12 @@ ul {
 
 }
 
+.submenu__close-button:focus
+{
+    outline: 3px dotted #000;
+    background-color: #FFF;
+    color: var(--default-text-color);
+}
 .submenu__close-button:focus-visible
 {
     outline: 3px dotted #000;
