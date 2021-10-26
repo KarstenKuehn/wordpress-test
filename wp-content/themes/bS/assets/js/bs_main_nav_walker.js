@@ -41,6 +41,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
             if (submenuElement) {
 
+                setElementFocus(submenuElement);
+
                 var submenu_links = submenuElement.querySelectorAll('a');
                 submenu_links.forEach((item, i) => {
                     item.addEventListener('focusin', (e) => {
@@ -95,11 +97,14 @@ window.addEventListener("DOMContentLoaded", () => {
                     submenuElement.addEventListener('keydown', (e) => {
                         if (e.keyCode === 27) {
                             closeMenuItem(targetElement);
-                            escapeMenu(targetElement);
+                            setElementFocus(targetElement);
                         }
-                    })
+                    });
 
                     setSubmenuCloseButton(main_navi_item);
+
+                    setElementFocus(submenuElement);
+
                 }
 
             }
@@ -107,7 +112,7 @@ window.addEventListener("DOMContentLoaded", () => {
             // ESC
             if (e.keyCode === 27) {
                 closeMenuItem(targetElement);
-                console.log('closeMenuItem', targetElement);
+                setElementFocus(targetElement);
             }
 
         });
@@ -129,10 +134,10 @@ window.addEventListener("DOMContentLoaded", () => {
             if (item === targetElement) {
                 i++;
                 nextElement = (menu[i] || main_menu_searchbutton);
-                nextElement.focus();
             }
         });
-        console.log('escapeMenu', targetElement, 'nextElement', nextElement);
+
+        setElementFocus(targetElement);
 
     }
 
@@ -148,7 +153,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             if (submenuElement) {
 
-                toogleOverlayContent();
+                main_content.classList.remove('overlay');
 
                 submenuElement.classList.remove(activeClass);
                 // submenuElement.setAttribute('aria-hidden', true);
@@ -158,13 +163,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    function toogleOverlayContent() {
-
-        if (!main_content.classList.contains('overlay')) {
-            main_content.classList.add('overlay');
-        } else {
-            main_content.classList.remove('overlay');
-        }
+    function setElementFocus(element)
+    {
+        element.focus();
+        document.activeElement = element;
     }
 
     function toogleMenu(targetElement) {
@@ -198,19 +200,20 @@ window.addEventListener("DOMContentLoaded", () => {
                 main_content.classList.remove('overlay');
                 submenuElement.classList.remove(activeClass);
                 submenuElement.setAttribute('aria-expanded', false);
-                // submenuElement.setAttribute('aria-hidden', true);
             }
 
         } else {
 
             targetElement.classList.add(activeClass);
             targetElement.setAttribute('aria-expanded', true);
+            //setElementFocus(targetElement);
 
             if (submenuElement) {
+
                 main_content.classList.add('overlay');
                 submenuElement.classList.add(activeClass);
                 submenuElement.setAttribute('aria-expanded', true);
-                // submenuElement.setAttribute('aria-hidden', false);
+                setElementFocus(submenuElement);
             }
 
         }

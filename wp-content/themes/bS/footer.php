@@ -13,10 +13,9 @@
             <p>Spielteilnahme erst ab 18 Jahren und in den Bayerischen Spielbanken ab 21 Jahren.</p>
             <p>Glücksspiel kann süchtig machen. Infos und Hilfe unter <a href="https://www.bzga.de/" target="_blank" title="gehe zu Bundeszentrale für gesundheitliche Aufklärung">www.bzga.de</a>.</p>
         </div>
-        <a id="footer-navigation" aria-label="Informationen zum Webseiten-Betreiber"></a>
-        <nav class="footer-liste"><?php echo get_FooterMenu(); ?></nav>
+        <nav id="footer-navigation" aria-label="Informationen zum Webseiten-Betreiber" class="footer-liste"><?php echo get_FooterMenu(); ?></nav>
     </div>
-    <a href="#top" aria-label="zum Anfang der Seite springen"></a>
+    <a href="#navigation" aria-label="zum Anfang der Seite springen"></a>
 </footer><?php seo_structuredData();?>
 <?php footer();?>
 
