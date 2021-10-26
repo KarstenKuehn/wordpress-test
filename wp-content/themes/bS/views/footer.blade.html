@@ -40,6 +40,20 @@ for (i = 0; i < acc.length; i++) {
 </script>
 <script type="text/javascript">
 
+
+var slide_text = document.querySelectorAll('.swiper-slide .text');
+
+	if(slide_text.length>0)
+	{
+		for (c = 0; c < slide_text.length; ++c) {
+			if(slide_text[c].innerHTML==='')
+			{
+			slide_text[c].parentNode.classList.add("is-style-whitout_overlay");
+			}
+		}
+	}
+
+
 	var img_text = document.getElementsByClassName("modul text-image");
 	for (i = 0; i < img_text.length; i++) {
 		img_text[i].parentNode.classList.add("img_media");

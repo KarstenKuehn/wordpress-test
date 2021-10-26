@@ -131,7 +131,7 @@ header .material-icons {
         position: relative;
     }
 
-    .nav-container__main-nav-item > a[role="button"]:after {
+    .nav-container__main-nav-item > a[aria-haspopup="menu"]:after {
         display: inline-block;
         position: absolute;
         top: 12px;
@@ -253,6 +253,13 @@ header .material-icons {
         font-weight: 400;
         width: 100%;
     }
+
+.nav-container__main-nav-item > a:hover,  
+.submenu-list-container .submenu-list-box  > ul > li > a:hover {
+    text-decoration: underline;
+    color: #1F5DA6;
+}
+
     .submenu-row.first > button,
     .submenu-row.first > .submenu__close-button {
         display: none;

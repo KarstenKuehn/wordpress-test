@@ -333,6 +333,12 @@ ul {
     width: 100%;
     padding-right: 32px;
 }
+
+.submenu-list-container .submenu-list-box  > ul > li > a:hover {
+text-decoration: underline;
+color: #1F5DA6;
+}
+
 .submenu-list-container .submenu-list-box  > ul > li > span.material-icons {
     float: right;
     width: 32px;
