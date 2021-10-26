@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
             var submenuElement = document.getElementById(submenu_id);
 
             if (submenuElement) {
-
+                submenuElement.focus();
                 var submenu_links = submenuElement.querySelectorAll('a');
                 submenu_links.forEach((item, i) => {
                     item.addEventListener('focusin', (e) => {
@@ -86,7 +86,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 var submenuElement = getSubmenu(targetElement);
 
                 if (submenuElement) {
-
+                    submenuElement.focus();
                     submenuElement.classList.add(activeClass);
                     // submenuElement.setAttribute('aria-hidden', false);
                     submenuElement.setAttribute('aria-expanded', true);
