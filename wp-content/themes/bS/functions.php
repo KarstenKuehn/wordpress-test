@@ -1270,7 +1270,9 @@ if (!function_exists('bs_main_nav_walker')) {
 
 
                         foreach ($submenu_list_container['list-items'] as $list_item) {
-                            $html .= '<li><a href="' . $list_item['url'] . '" aria-describedby="title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'">' . $list_item['title'] . '</a></li>';
+                            $html .= '<li><a href="' . $list_item['url'] . '"';
+                            $html .=  ($submenu_list_container['label']) ? ' aria-describedby="title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'"' : '';
+                            $html .=  '>' . $list_item['title'] . '</a></li>';
                         }
                         $html .= '</ul>';
                         $html .= '</div>';
