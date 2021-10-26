@@ -2097,6 +2097,7 @@ font-size: 16px;
 
 .modul p a {
     text-decoration: underline;
+    margin-bottom: 0;
 }
 
 .modul p a:hover {
