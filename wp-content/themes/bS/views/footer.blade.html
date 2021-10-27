@@ -17,45 +17,42 @@ for (i = 0; i < acc.length; i++) {
 	acc[i].getElementsByTagName('button')[0].setAttribute('aria-controls','accordion-p-'+i);
 	acc[i].getElementsByTagName('div')[0].setAttribute('id','accordion-p-'+i);
 	acc[i].addEventListener("click", function() {
-    	this.getElementsByTagName('div')[0].classList.toggle('active');
-    	this.getElementsByTagName('button')[0].classList.toggle('active');
-	   	var button= this.getElementsByTagName('button')[0];
-		button.setAttribute('aria-expanded',false);
+  	this.getElementsByTagName('div')[0].classList.toggle('active');
+  	this.getElementsByTagName('button')[0].classList.toggle('active');
+   	var button= this.getElementsByTagName('button')[0];
+    var panel = this.getElementsByTagName('div')[0]		
+    button.setAttribute('aria-expanded',false);
 		button.setAttribute('id','accordion-h-'+i);
 		if(button.classList.contains('active'))
 		{
 			button.setAttribute('aria-expanded',true);
 		}
-	    var panel = this.getElementsByTagName('div')[0]
-	    panel.setAttribute('id','accordion-p-'+i);
-	    if (panel.style.display === "block") {
+    panel.setAttribute('id','accordion-p-'+i);
+    if (panel.style.display === "block") {
 			panel.style.display = "none";
-	    } else {
-	      	panel.style.display = "block";
-	    }
-  	});
+    } else {
+      	panel.style.display = "block";
+    }
+	});
 }
 
 !function(a){function e(){for(var e,t,n=0;n<l.length;n++)e=l[n],0<=(t=e.getBoundingClientRect()).top&&0<=t.left&&t.top<=(a.innerHeight||document.documentElement.clientHeight)&&function(e,t){var n=new Image,a=e.getAttribute("data-src");n.onload=function(){e.parent?e.parent.replaceChild(n,e):e.src=a,t&&t()},n.src=a}(l[n],function(){l.splice(n,n)})}for(var l=new Array,t=function(e,t){if(document.querySelectorAll)t=document.querySelectorAll(e);else{var n=document,a=n.styleSheets[0]||n.createStyleSheet();a.addRule(e,"f:b");for(var l=n.all,c=0,o=[],i=l.length;c<i;c++)l[c].currentStyle.f&&o.push(l[c]);a.removeRule(0),t=o}return t}("img.block_image"),n=0;n<t.length;n++)l.push(t[n]);e(),function(e,t){a.addEventListener?this.addEventListener(e,t,!1):a.attachEvent?this.attachEvent("on"+e,t):this["on"+e]=t}("scroll",e)}(this);
 </script>
 <script type="text/javascript">
 
-
-var slide_text = document.querySelectorAll('.swiper-slide .text');
+	var slide_text = document.querySelectorAll('.swiper-slide .text');
 
 	if(slide_text.length>0)
 	{
 		for (c = 0; c < slide_text.length; ++c) {
 			if(slide_text[c].innerHTML==='')
 			{
-			slide_text[c].parentNode.classList.add("is-style-whitout_overlay");
+				slide_text[c].parentNode.classList.add("is-style-whitout_overlay");
 			}
 		}
 	}
 
-
-
-var slide_link = document.querySelectorAll('.swiper-slide .text a');
+	var slide_link = document.querySelectorAll('.swiper-slide .text a');
 
 	if(slide_link.length>0)
 	{
@@ -64,7 +61,9 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 		}
 	}
 
-
+	/* 
+	Markieren Section mit Modulen : text-image | text-video | image-text | video-text mit class="img_media"
+	**/
 
 	var img_text = document.getElementsByClassName("modul text-image");
 	for (i = 0; i < img_text.length; i++) {
@@ -83,6 +82,10 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 	for (i = 0; i < text_img.length; i++) {
 		text_img[i].parentNode.classList.add("img_media");
 	}
+
+	/* 
+	Entfernen 'leeren' Button
+	**/
 	var empty_modul_buttom = document.getElementsByClassName("modul-button");
 	for (i = 0; i < empty_modul_buttom.length; i++) {
 		el=empty_modul_buttom[i].childNodes;
@@ -97,37 +100,36 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 <!-- Initialize Swiper -->
 <script>
    var swiper = new Swiper(".teaserSwiper", {
-        //cssMode: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        centeredSlides: true,
-        pagination: {
-          el: ".swiper-pagination",
+    //cssMode: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    centeredSlides: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+   // mousewheel: true,
+	  keyboard: {
+	    enabled: false						,
+	    onlyInViewport: true,
+	  },
+    a11y: {
+      prevSlideMessage: 'Vorheriges Bild',
+      nextSlideMessage: 'Nächstes Bild',
+	    firstSlideMessage: 'Dies ist das erste Bild.',
+	    lastSlideMessage: 'Dies ist das letzte Bild.',
+	    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+	    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+    },
+  });
 
-          clickable: true,
-        },
-       // mousewheel: true,
-  keyboard: {
-    enabled: false						,
-    onlyInViewport: true,
-  },
-        a11y: {
-          prevSlideMessage: 'Vorheriges Bild',
-          nextSlideMessage: 'Nächstes Bild',
-			    firstSlideMessage: 'Dies ist das erste Bild.',
-			    lastSlideMessage: 'Dies ist das letzte Bild.',
-			    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-			    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
-        },
-      });
-
-	var thumbs_arr 		= document.querySelector(".thumb");
-	var thumbs_html 	='';
-	var thumbs_div 		= document.querySelectorAll(".swiper-container.gallery-thumbs .swiper-wrapper");
-	var divs 			= document.querySelectorAll('.thumb'), i;
-	var x 				= document.querySelectorAll(".gallery-container.xx .swiper-container.gallery-main .swiper-wrapper");
+	var thumbs_arr 	= document.querySelector(".thumb");
+	var thumbs_html ='';
+	var thumbs_div 	= document.querySelectorAll(".swiper-container.gallery-thumbs .swiper-wrapper");
+	var divs 				= document.querySelectorAll('.thumb'), i;
+	var x 					= document.querySelectorAll(".gallery-container.xx .swiper-container.gallery-main .swiper-wrapper");
 	var galleryTop;
 	var galleryThumbs;			
 	var t=0;
@@ -138,55 +140,63 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 			x[i].parentElement.classList.add('x_swiper_'+i);
 			x[i].classList.add('swiper_'+i);
 			thumbs_html ='';
-			thumbs = x[i].querySelectorAll(".thumb");
-
+			thumbs 			= x[i].querySelectorAll(".thumb");
+			/* gallery-thumbs erstellen */
 			for (t = 0; t < thumbs.length; ++t) {
-				thumbs[t].style.color = "white";
-							thumbs[t].setAttribute('tabindex',0);
-		  		thumbs_html+=thumbs[t].innerHTML;
+	  		thumbs_html+=thumbs[t].innerHTML;
 			}
 
-			//thumbs_div[i].classList.add('thumbs_swiper_'+i);
 			thumbs_div[i].parentElement.classList.add('thumbs_swiper_'+i);
 			thumbs_div[i].innerHTML += thumbs_html;
-
-
-
-	var thumbs_slide_arr 		= document.querySelectorAll(".gallery-thumbs .swiper-slide");
-
-
-			for (s = 0; s < thumbs_slide_arr.length; ++s) {
-							thumbs_slide_arr[s].setAttribute('tabindex',0);
-			}
-
+			/* 
+			gallery-thumbs Slide-Elemente mit der Tabulatortaste anspringbar 
+			**/
+			var thumbs_slide_arr 		= document.querySelectorAll(".gallery-thumbs .swiper-slide");
+			thumbs_slide_arr.forEach((thumbs_slide, s) => {
+				thumbs_slide.setAttribute('tabindex',0);
+				thumbs_slide.setAttribute('data-slide-index',s);
+			});
 
 			slides_per_view=4;
-		    if(thumbs.length<4)
-		    {
-		        slides_per_view=thumbs.length;
-		    }
-		    galleryThumbs = new Swiper('.gallery-thumbs.thumbs_swiper_'+i, { 
+	    if(thumbs.length<4)
+	    {
+	        slides_per_view=thumbs.length;
+	    }
+	    galleryThumbs = new Swiper('.gallery-thumbs.thumbs_swiper_'+i, { 
 
-		    	direction: 'horizontal', 
-	        spaceBetween: 24,
-	        slidesPerView: slides_per_view,
-	        freeMode: true,
-	        watchSlidesVisibility: true,
-	        watchSlidesProgress: true,
-  keyboard: {
-    enabled: false,
-    onlyInViewport: true,
-  },	        
-          a11y: {
-          	slideRole: 'button',
-          	prevSlideMessage: 'Vorheriges Bild',
-	         	nextSlideMessage: 'Nächstes Bild',
-			    	firstSlideMessage: 'Dies ist das erste Bild.',
-			    	lastSlideMessage: 'Dies ist das letzte Bild.',
-			    	paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-			    	slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
-        	}, 
-		    });		
+	    	direction: 'horizontal', 
+        spaceBetween: 24,
+        slidesPerView: slides_per_view,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+			  keyboard: {
+			    enabled: true,
+			    onlyInViewport: false,
+			  },	
+			  keyboardControl: true,        
+        a11y: {
+        	slideRole: 'button',
+        	prevSlideMessage: 'Vorheriges Bild',
+         	nextSlideMessage: 'Nächstes Bild',
+		    	firstSlideMessage: 'Dies ist das erste Bild.',
+		    	lastSlideMessage: 'Dies ist das letzte Bild.',
+		    	paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+		    	slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+      	}, 
+	    });		
+
+			/* 
+			gallery-thumbs Slide-Elemente mit der Enter zum focus-slide wechseln
+			**/
+			galleryThumbs.$el.on("keydown", (e) => {
+			  var slideIndex = e.target.dataset.slideIndex;
+			  if (e.keyCode !== 13 && e.keyCode !== 32) return;			  
+			  if (!slideIndex) return;
+			  galleryThumbs.slideTo(slideIndex);
+			  galleryTop.slideTo(slideIndex);
+			  e.target.blur();
+			});
 
 			if(t>1)
 			{  
@@ -194,7 +204,7 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 		      direction: 'horizontal',
 			    pagination: {
 		    		el: ".xx_swiper_"+i+" .swiper-pagination.teaser",
-		      		clickable: true,
+		      	clickable: true,
 		    	},
 		      effect:'slide',
 		    	spaceBetween: 24,
@@ -209,18 +219,22 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 				    lastSlideMessage: 'Dies ist das letzte Bild.',
 				    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
 				    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
-	        },    
+	        }, 
+				  keyboard: {
+				    enabled: true,
+				    onlyInViewport: false,
+				  },	
+				  keyboardControl: true,     
 		    	thumbs: { swiper: galleryThumbs, }, 
 		    });
 			}
 			else
 			{
 	    	var galleryTop = new Swiper('.gallery-main .swiper_'+i, { 
-		        direction: 'horizontal',
+		      direction: 'horizontal',
 			    pagination: {
-		    	  	
 		    		el: ".xx_swiper_"+i+" .swiper-pagination.teaser",
-		      		clickable: true,
+		      	clickable: true,
 		    	},
 		    	a11y: {
 			      prevSlideMessage: 'Vorheriges Bild',
@@ -244,7 +258,6 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 		}// Slider auf der Seite
 	}
 
-
 	var content_slider	= document.querySelectorAll(".content-slider .swiper-container.gallery-main .swiper-wrapper");
 	if(content_slider.length>0)
 	{
@@ -254,26 +267,26 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 			content_slider[c].parentElement.classList.add('content_slider_'+c);
 			content_slider[c].classList.add('content_slider_swiper_'+c);
 	    	var c_slider = new Swiper('.content_slider_'+c, { 
-		        direction: 'horizontal',
+	        direction: 'horizontal',
 			    pagination: {
-		    	  	el:  ".___content_slider_"+c+" .swiper-pagination.teaser",
-		      		clickable: true,
+	    	  	el:  ".___content_slider_"+c+" .swiper-pagination.teaser",
+	      		clickable: true,
 		    	},
 		    	a11y: {
-			        prevSlideMessage: 'Vorheriges Bild',
-			        nextSlideMessage: 'Nächstes Bild',
+		        prevSlideMessage: 'Vorheriges Bild',
+		        nextSlideMessage: 'Nächstes Bild',
 				    firstSlideMessage: 'Dies ist das erste Bild.',
 				    lastSlideMessage: 'Dies ist das letzte Bild.',
 				    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
 				    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
 			    },
 			    effect:'slide',
-				spaceBetween: 24,
-				navigation: {
+					spaceBetween: 24,
+					navigation: {
 			  		nextEl: ".___content_slider_"+c+" .swiper-button-next.teaser",
 			  		prevEl: ".___content_slider_"+c+" .swiper-button-prev.teaser",
 				},
-		breakpoints: {
+				breakpoints: {
         	1100: {
        			slidesPerView: 6,
 		        slidesPerGroup: 1,
@@ -289,9 +302,8 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
        			spaceBetween: 24,
         		centeredSlides: false,
       		}, 
-    	},				
+    		},				
 			});
-
 		}
 	}
 </script>

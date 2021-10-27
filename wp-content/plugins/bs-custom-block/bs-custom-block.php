@@ -83,7 +83,8 @@ function kb_whitelist_blocks()
         'bitv/img-app-modul',
         'bitv/video-text-modul',
         'bitv/text-video-modul',
-        'bitv/hero-image'
+        'bitv/hero-image',
+        'bitv/slide-video-item'
     );
 }
 
@@ -209,6 +210,17 @@ add_action('enqueue_block_editor_assets', 'loadPresseImageText');
 
 
 
+function load_teaser_slide_video_item() {
+  wp_enqueue_script(
+    'teaser_slide_video_item',
+    plugin_dir_url(__FILE__) . 'teaser-slide-video-item.js',
+    array('wp-blocks','wp-editor'),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_teaser_slide_video_item');
+
 function load_yy() {
   wp_enqueue_script(
     'my-new-yy',
@@ -219,6 +231,7 @@ function load_yy() {
 }
    
 add_action('enqueue_block_editor_assets', 'load_yy');
+
 
 
 function loadTwoColumnText() {
