@@ -109,14 +109,17 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
           clickable: true,
         },
        // mousewheel: true,
-        keyboard: true,
+  keyboard: {
+    enabled: false						,
+    onlyInViewport: true,
+  },
         a11y: {
-          	prevSlideMessage: 'Vorheriges Bild',
-          	nextSlideMessage: 'Nächstes Bild',
-		    firstSlideMessage: 'Dies ist das erste Bild.',
-		    lastSlideMessage: 'Dies ist das letzte Bild.',
-		    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-		    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+          prevSlideMessage: 'Vorheriges Bild',
+          nextSlideMessage: 'Nächstes Bild',
+			    firstSlideMessage: 'Dies ist das erste Bild.',
+			    lastSlideMessage: 'Dies ist das letzte Bild.',
+			    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+			    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
         },
       });
 
@@ -139,6 +142,7 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 
 			for (t = 0; t < thumbs.length; ++t) {
 				thumbs[t].style.color = "white";
+							thumbs[t].setAttribute('tabindex',0);
 		  		thumbs_html+=thumbs[t].innerHTML;
 			}
 
@@ -148,6 +152,12 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 
 
 
+	var thumbs_slide_arr 		= document.querySelectorAll(".gallery-thumbs .swiper-slide");
+
+
+			for (s = 0; s < thumbs_slide_arr.length; ++s) {
+							thumbs_slide_arr[s].setAttribute('tabindex',0);
+			}
 
 
 			slides_per_view=4;
@@ -156,72 +166,77 @@ var slide_link = document.querySelectorAll('.swiper-slide .text a');
 		        slides_per_view=thumbs.length;
 		    }
 		    galleryThumbs = new Swiper('.gallery-thumbs.thumbs_swiper_'+i, { 
+
 		    	direction: 'horizontal', 
-		        spaceBetween: 24,
-		        slidesPerView: slides_per_view,
-		        freeMode: true,
-		        watchSlidesVisibility: true,
-		        watchSlidesProgress: true,
-		            a11y: {
-			          	prevSlideMessage: 'Vorheriges Bild',
-			          	nextSlideMessage: 'Nächstes Bild',
-					    firstSlideMessage: 'Dies ist das erste Bild.',
-					    lastSlideMessage: 'Dies ist das letzte Bild.',
-					    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-					    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
-			        }, 
+	        spaceBetween: 24,
+	        slidesPerView: slides_per_view,
+	        freeMode: true,
+	        watchSlidesVisibility: true,
+	        watchSlidesProgress: true,
+  keyboard: {
+    enabled: false,
+    onlyInViewport: true,
+  },	        
+          a11y: {
+          	slideRole: 'button',
+          	prevSlideMessage: 'Vorheriges Bild',
+	         	nextSlideMessage: 'Nächstes Bild',
+			    	firstSlideMessage: 'Dies ist das erste Bild.',
+			    	lastSlideMessage: 'Dies ist das letzte Bild.',
+			    	paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+			    	slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+        	}, 
 		    });		
 
 			if(t>1)
 			{  
 				galleryTop = new Swiper('.x_swiper_'+i, { 		    			
-			        direction: 'horizontal',
-				    pagination: {
-			    		el: ".xx_swiper_"+i+" .swiper-pagination.teaser",
-			      		clickable: true,
-			    	},
-			        effect:'slide',
-			    	spaceBetween: 24,
-			    	navigation: {
-			      		nextEl: ".x_swiper_"+i+" .swiper-button-next.teaser",
-			      		prevEl: ".x_swiper_"+i+" .swiper-button-prev.teaser",
-			    	},
-			        a11y: {
-			          	prevSlideMessage: 'Vorheriges Bild',
-			          	nextSlideMessage: 'Nächstes Bild',
-					    firstSlideMessage: 'Dies ist das erste Bild.',
-					    lastSlideMessage: 'Dies ist das letzte Bild.',
-					    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-					    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
-			        },    
-			    	thumbs: { swiper: galleryThumbs, }, 
-		        });
+		      direction: 'horizontal',
+			    pagination: {
+		    		el: ".xx_swiper_"+i+" .swiper-pagination.teaser",
+		      		clickable: true,
+		    	},
+		      effect:'slide',
+		    	spaceBetween: 24,
+		    	navigation: {
+		      	nextEl: ".x_swiper_"+i+" .swiper-button-next.teaser",
+		      	prevEl: ".x_swiper_"+i+" .swiper-button-prev.teaser",
+		    	},
+	        a11y: {
+          	prevSlideMessage: 'Vorheriges Bild',
+          	nextSlideMessage: 'Nächstes Bild',
+				    firstSlideMessage: 'Dies ist das erste Bild.',
+				    lastSlideMessage: 'Dies ist das letzte Bild.',
+				    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+				    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+	        },    
+		    	thumbs: { swiper: galleryThumbs, }, 
+		    });
 			}
 			else
 			{
-		    	var galleryTop = new Swiper('.gallery-main .swiper_'+i, { 
-			        direction: 'horizontal',
-				    pagination: {
-			    	  	
-			    		el: ".xx_swiper_"+i+" .swiper-pagination.teaser",
-			      		clickable: true,
-			    	},
-			    	a11y: {
-				        prevSlideMessage: 'Vorheriges Bild',
-				        nextSlideMessage: 'Nächstes Bild',
-					    firstSlideMessage: 'Dies ist das erste Bild.',
-					    lastSlideMessage: 'Dies ist das letzte Bild.',
-					    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
-					    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
-				    },
-				    effect:'slide',
+	    	var galleryTop = new Swiper('.gallery-main .swiper_'+i, { 
+		        direction: 'horizontal',
+			    pagination: {
+		    	  	
+		    		el: ".xx_swiper_"+i+" .swiper-pagination.teaser",
+		      		clickable: true,
+		    	},
+		    	a11y: {
+			      prevSlideMessage: 'Vorheriges Bild',
+			      nextSlideMessage: 'Nächstes Bild',
+				    firstSlideMessage: 'Dies ist das erste Bild.',
+				    lastSlideMessage: 'Dies ist das letzte Bild.',
+				    paginationBulletMessage: 'Gehe zum Bild {{index}}',    
+				    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
+			    },
+			    effect:'slide',
 					spaceBetween: 24,
 					navigation: {
-			      		nextEl: ".x_swiper_"+i+" .swiper-button-next.teaser",
-			      		prevEl: ".x_swiper_"+i+" .swiper-button-prev.teaser",
+		     		nextEl: ".x_swiper_"+i+" .swiper-button-next.teaser",
+		     		prevEl: ".x_swiper_"+i+" .swiper-button-prev.teaser",
 					},
-		 
-		        });
+	      });
 				const elements = document.getElementsByClassName("swiper-container gallery-thumbs thumbs_swiper_"+i);
 				while (elements.length > 0) elements[0].remove();
 			}

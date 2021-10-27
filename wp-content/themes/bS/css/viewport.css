@@ -2796,16 +2796,13 @@ margin: 0;
     left: 0;
 }
 
-.swiper-button  .swiper-button-next:focus ,.swiper-button  .swiper-button-prev:focus {
-    outline: 3px dotted #FFF;
-
-  border-radius: 10px;
- 
+.swiper-button-next:focus ,.swiper-button-prev:focus {
+    outline: 3px dotted #FFF; 
   border-color: #0079ff;
 
 }
 
-.swiper-button  .swiper-button-next:focus-visible ,.swiper-button  .swiper-button-prev:focus-visible {
+.swiper-button-next:focus-visible ,.swiper-button-prev:focus-visible {
     outline: 3px dotted #FFF;
 }
 
@@ -2908,6 +2905,14 @@ margin: 0;
     opacity: 0.6;
     cursor: pointer;
 }
+
+.gallery-thumbs .swiper-slide:focus{
+  outline: 3px dotted #1F5DA6;
+  opacity: 1;
+    border-bottom: 2px dotted #1F5DA6; 
+}
+
+
 .gallery-thumbs .swiper-slide:hover,.gallery-thumbs .swiper-slide-thumb-active{
   border-bottom: 2px solid #1F5DA6; 
     opacity: 1;
@@ -2932,6 +2937,11 @@ margin: 0;
     line-height: 56px;
     top: calc(100% - 56px);
   }
+
+
+span.swiper-notification {
+    display: none;
+}
 
   .gallery-container .my-block-image {
     max-height: 500px;
