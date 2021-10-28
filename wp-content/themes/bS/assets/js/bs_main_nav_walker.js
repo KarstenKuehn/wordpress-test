@@ -27,7 +27,24 @@ window.addEventListener("DOMContentLoaded", () => {
                 resetMenu();
             }
         }
-    })
+
+        // console.log('document.activeElement', document.activeElement, 'e', e);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        // ESC
+        if (e.keyCode === 27) {
+            targetElement = document.querySelector('.nav-container__main-nav-item .active');
+            if(targetElement) {
+                escapeMenu(targetElement);
+            }
+        }
+        // console.log('document.activeElement', document.activeElement, 'e', e);
+
+    });
+
+
+
 
     main_navi_items.forEach((main_navi_item, i) => {
 
@@ -94,8 +111,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     main_content.classList.add('overlay');
                     submenuElement.addEventListener('keydown', (e) => {
                         if (e.keyCode === 27) {
-                            closeMenuItem(targetElement);
-                            setElementFocus(targetElement);
+                            escapeMenu(targetElement);
                         }
                     });
 
@@ -108,8 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             // ESC
             if (e.keyCode === 27) {
-                closeMenuItem(targetElement);
-                setElementFocus(targetElement);
+                escapeMenu(targetElement);
             }
 
         });
@@ -124,17 +139,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function escapeMenu(targetElement) {
 
-        var menu = main_navi.querySelectorAll(selector_main_navi_items);
+        closeMenuItem(targetElement);
+
         let nextElement = undefined;
 
-        menu.forEach((item, i) => {
+        main_navi_items.forEach((item, i) => {
             if (item === targetElement) {
                 i++;
-                nextElement = (menu[i] || main_menu_searchbutton);
+                nextElement = (item || main_menu_searchbutton);
             }
         });
-
         setElementFocus(targetElement);
+        // console.log('escapeMenu', targetElement, nextElement, document.activeElement);
 
     }
 
@@ -158,8 +174,10 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     function setElementFocus(element) {
-        element.focus();
-        document.activeElement = element;
+        if(element) {
+            element.focus();
+            document.activeElement = element;
+        }
     }
 
     function toogleMenu(targetElement) {
@@ -248,18 +266,24 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function closeMenuItem(targetElement) {
 
-        targetElement.classList.remove(activeClass);
+        if(targetElement &&
+            targetElement.hasAttribute('class') &&
+            targetElement.classList.contains(activeClass)) {
 
-        var submenuElement = getSubmenu(targetElement);
+            targetElement.classList.remove(activeClass);
 
-        if (submenuElement) {
+            var submenuElement = getSubmenu(targetElement);
 
-            targetElement.setAttribute('aria-expanded', false);
-            main_content.classList.remove('overlay');
-            submenuElement.classList.remove(activeClass);
-            // submenuElement.setAttribute('aria-hidden', true);
-            submenuElement.setAttribute('aria-expanded', false);
+            if (submenuElement) {
+
+                targetElement.setAttribute('aria-expanded', false);
+                main_content.classList.remove('overlay');
+                submenuElement.classList.remove(activeClass);
+                submenuElement.setAttribute('aria-expanded', false);
+            }
         }
+
+        // console.log('closeMenuItem', targetElement, document.activeElement);
 
     }
 
