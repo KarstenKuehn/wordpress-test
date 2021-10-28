@@ -165,15 +165,13 @@ window.addEventListener("DOMContentLoaded", () => {
     function toogleMenu(targetElement) {
 
         var menu = main_navi.querySelectorAll(selector_main_navi_items);
+        var submenuElement = null;
 
         menu.forEach((item, e) => {
             if (item !== targetElement) {
                 item.classList.remove(activeClass);
 
-                if (item.hasAttribute('aria-controls')) {
-                    var selectorSubmenu = item.getAttribute('aria-controls');
-                    submenuElement = document.getElementById(selectorSubmenu);
-                }
+                submenuElement = getSubmenu(item);
 
                 if (submenuElement) {
                     item.setAttribute('aria-expanded', false);
@@ -184,7 +182,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        var submenuElement = getSubmenu(targetElement);
+        submenuElement = getSubmenu(targetElement);
 
         if (targetElement.classList.contains(activeClass)) {
 
