@@ -1260,22 +1260,33 @@ if (!function_exists('bs_main_nav_walker')) {
                     $html .= '<div class="submenu-list-container' . $var_css_cols . '">';
                     foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
 
-                        $html .= '<div class="submenu-list-box">';
+                        $id_submenu_list_box = $main_menu_item['submenu']['attributes']['id'].'-' . $key1;
+
+                        $id_submenu_list_box_title = 'title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
+
+                        $id_submenu_list_box_description = 'description-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
+
+                        $submenu_list_box_description = ($submenu_list_container['label'])
+                            ? 'Liste ' . $submenu_list_container['label'] . ' mit '.count($submenu_list_container['list-items']).' Eintr&auml;gen'
+                            : 'Liste mit '.count($submenu_list_container['list-items']).' Eintr&auml;gen';
+
+                        $html .= '<div class="submenu-list-box" id="'. $id_submenu_list_box . '">';
+
                         $html .= ($submenu_list_container['label'])
-                            ?   '<div class="menu-label" role="heading" aria-level="3" aria-describedby="description-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'" id="title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'">' . $submenu_list_container['label'] . '</div>' .
-                                '<div style="display:none" id="description-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'">Liste ' . $submenu_list_container['label'] . ' mit '.count($submenu_list_container['list-items']).' Einträgen</div>' .
-                                '<ul role="menu" aria-labelledby="title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'">'
+                            ?   '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="3" aria-describedby="' . $id_submenu_list_box_description . '">' . $submenu_list_container['label'] . '</div>' .
+                                '<ul role="menu" id="' . $id_submenu_list_box_description . '" aria-describedby="' . $id_submenu_list_box_description . '" aria-labelledby="' . $id_submenu_list_box_description . '" aria-label="'.$submenu_list_box_description.'">'
 
-                            :   '<ul role="menu" aria-label="Liste mit '.count($submenu_list_container['list-items']).' Einträgen">';
+                            :   '<ul role="menu" id="' . $id_submenu_list_box_description . '" aria-describedby="' . $id_submenu_list_box_description . '" aria-labelledby="' . $id_submenu_list_box_description . '" aria-label="'.$submenu_list_box_description.'">';
 
+                        foreach ($submenu_list_container['list-items'] as $key => $list_item) {
 
-                        foreach ($submenu_list_container['list-items'] as $list_item) {
-                            $html .= '<li><a role="menuitem" target="_self" href="' . $list_item['url'] . '"';
-                            $html .=  ($submenu_list_container['label']) ? ' aria-describedby="title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'"' : '';
-                            $html .=  '>' . $list_item['title'] . '</a></li>';
+                            $id_menu_item = 'menuitem-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'-'.$key;
+
+                            $html .= '<li><a role="menuitem" id="'.$id_menu_item.'" target="_self" href="' . $list_item['url'] . '">' . $list_item['title'] . '</a></li>';
+
                         }
-                        $html .= '</ul>';
-                        $html .= '</div>';
+
+                        $html .= '</ul></div>';
 
                     }
                     $html .= '</div>';
@@ -1286,13 +1297,16 @@ if (!function_exists('bs_main_nav_walker')) {
                     $html .= '<div class="submenu-teaser-container' . $var_css_cols . '">';
                     foreach ($main_menu_item['submenu']['submenu-teaser-container'] as $key1 => $submenu_teaser_container) {
 
+                        $id_submenu_teaser_box_headline = 'title-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
+                        $id_submenu_teaser_box_link = 'link-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
+
                         $html .= '<div class="submenu-teaser-box">';
 
                         $html .= '<div class="submenu-teaser-box-image">';
                         $html .= '<img alt="Bild zu: ' . $submenu_teaser_container['title'] . '" src="' . $submenu_teaser_container['image'] . '" />';
                         $html .= '</div>';
-                        $html .= '<div class="submenu-teaser-box-headline" role="heading" aria-level="3" id="title-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'">' . $submenu_teaser_container['title'] . '</div>';
-                        $html .= '<a target="_self" href="' . $submenu_teaser_container['url'] . '" aria-labelledby="title-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'"  title="Link ' . $submenu_teaser_container['description'] . ' ' . $submenu_teaser_container['title'] . '">' . $submenu_teaser_container['description'] . '</a>';
+                        $html .= '<div class="submenu-teaser-box-headline" role="heading" aria-level="3" id="'.$id_submenu_teaser_box_headline.'" aria-label="' . $submenu_teaser_container['title'] . '">' . $submenu_teaser_container['title'] . '</div>';
+                        $html .= '<a target="_self" id="'.$id_submenu_teaser_box_link.'" href="' . $submenu_teaser_container['url'] . '" aria-labelledby="'.$id_submenu_teaser_box_link.' '.$id_submenu_teaser_box_headline.'" aria-label="' . $submenu_teaser_container['description'] . '">' . $submenu_teaser_container['description'] . '</a>';
 
                         $html .= '</div>';
 
