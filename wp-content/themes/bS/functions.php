@@ -1273,16 +1273,16 @@ if (!function_exists('bs_main_nav_walker')) {
                         $html .= '<div class="submenu-list-box" id="'. $id_submenu_list_box . '">';
 
                         $html .= ($submenu_list_container['label'])
-                            ?   '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="3" aria-describedby="' . $id_submenu_list_box_description . '">' . $submenu_list_container['label'] . '</div>' .
-                                '<ul role="menu" id="' . $id_submenu_list_box_description . '" aria-describedby="' . $id_submenu_list_box_description . '" aria-labelledby="' . $id_submenu_list_box_description . '" aria-label="'.$submenu_list_box_description.'">'
+                            ?   '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="3">' . $submenu_list_container['label'] . '</div>' .
+                                '<ul role="menu" id="' . $id_submenu_list_box_description . '" aria-label="'.$submenu_list_box_description.'">'
 
-                            :   '<ul role="menu" id="' . $id_submenu_list_box_description . '" aria-describedby="' . $id_submenu_list_box_description . '" aria-labelledby="' . $id_submenu_list_box_description . '" aria-label="'.$submenu_list_box_description.'">';
+                            :   '<ul role="menu" id="' . $id_submenu_list_box_description . '" aria-label="'.$submenu_list_box_description.'">';
 
                         foreach ($submenu_list_container['list-items'] as $key => $list_item) {
 
                             $id_menu_item = 'menuitem-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'-'.$key;
 
-                            $html .= '<li><a role="menuitem" id="'.$id_menu_item.'" target="_self" href="' . $list_item['url'] . '">' . $list_item['title'] . '</a></li>';
+                            $html .= '<li><a role="menuitem" id="'.$id_menu_item.'" target="_self" href="' . $list_item['url'] . '" aria-describedby="' . $id_submenu_list_box_description . '">' . $list_item['title'] . '</a></li>';
 
                         }
 
