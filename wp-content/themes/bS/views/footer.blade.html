@@ -171,8 +171,8 @@ for (i = 0; i < acc.length; i++) {
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
 			  keyboard: {
-			    enabled: true,
-			    onlyInViewport: false,
+			    enabled: false,
+			    onlyInViewport: true,
 			  },	
 			  keyboardControl: true,        
         a11y: {
@@ -221,10 +221,9 @@ for (i = 0; i < acc.length; i++) {
 				    slideLabelMessage:    'Bild {{index}} von {{slidesLength}}'   
 	        }, 
 				  keyboard: {
-				    enabled: true,
-				    onlyInViewport: false,
-				  },	
-				  keyboardControl: true,     
+				    enabled: false,
+				    onlyInViewport: true,
+				  },	     
 		    	thumbs: { swiper: galleryThumbs, }, 
 		    });
 			}
