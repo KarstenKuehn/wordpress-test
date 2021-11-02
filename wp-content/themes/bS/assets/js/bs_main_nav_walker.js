@@ -22,12 +22,29 @@ window.addEventListener("DOMContentLoaded", () => {
         var navi_item = document.querySelector('.nav-container__main-nav-item .active');
         var navi_content = document.querySelector('.main-nav_submenu.active .submenu-container');
 
-        if(navi_item && navi_content) {
-            if(!navi_item.contains(e.target) && !navi_content.contains(e.target)) {
+        if (navi_item && navi_content) {
+            if (!navi_item.contains(e.target) && !navi_content.contains(e.target)) {
                 resetMenu();
             }
         }
-    })
+
+        // console.log('document.activeElement', document.activeElement, 'e', e);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        // ESC
+        if (e.keyCode === 27) {
+            targetElement = document.querySelector('.nav-container__main-nav-item .active');
+            if(targetElement) {
+                escapeMenu(targetElement);
+            }
+        }
+        // console.log('document.activeElement', document.activeElement, 'e', e);
+
+    });
+
+
+
 
     main_navi_items.forEach((main_navi_item, i) => {
 
@@ -80,7 +97,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (e.keyCode === 9 && e.shiftKey === false) {
 
                 targetElement.classList.add(activeClass);
-                targetElement.setAttribute('aria-expanded', true);
+                setElementFocus(targetElement);
                 /**
                  * @TODO: check usage for subelement or sibling!!!
                  * @type {HTMLElement}
@@ -88,21 +105,17 @@ window.addEventListener("DOMContentLoaded", () => {
                 var submenuElement = getSubmenu(targetElement);
 
                 if (submenuElement) {
-
+                    targetElement.setAttribute('aria-expanded', true);
                     submenuElement.classList.add(activeClass);
-                    // submenuElement.setAttribute('aria-hidden', false);
                     submenuElement.setAttribute('aria-expanded', true);
                     main_content.classList.add('overlay');
-
                     submenuElement.addEventListener('keydown', (e) => {
                         if (e.keyCode === 27) {
-                            closeMenuItem(targetElement);
-                            setElementFocus(targetElement);
+                            escapeMenu(targetElement);
                         }
                     });
 
                     setSubmenuCloseButton(main_navi_item);
-
                     setElementFocus(submenuElement);
 
                 }
@@ -111,8 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             // ESC
             if (e.keyCode === 27) {
-                closeMenuItem(targetElement);
-                setElementFocus(targetElement);
+                escapeMenu(targetElement);
             }
 
         });
@@ -127,17 +139,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function escapeMenu(targetElement) {
 
-        var menu = main_navi.querySelectorAll(selector_main_navi_items);
+        closeMenuItem(targetElement);
+
         let nextElement = undefined;
 
-        menu.forEach((item, i) => {
+        main_navi_items.forEach((item, i) => {
             if (item === targetElement) {
                 i++;
-                nextElement = (menu[i] || main_menu_searchbutton);
+                nextElement = (item || main_menu_searchbutton);
             }
         });
-
         setElementFocus(targetElement);
+        // console.log('escapeMenu', targetElement, nextElement, document.activeElement);
 
     }
 
@@ -147,56 +160,54 @@ window.addEventListener("DOMContentLoaded", () => {
 
         menu.forEach((item, e) => {
             item.classList.remove(activeClass);
-            item.setAttribute('aria-expanded', false);
 
             var submenuElement = getSubmenu(item);
 
             if (submenuElement) {
-
+                item.setAttribute('aria-expanded', false);
                 main_content.classList.remove('overlay');
-
                 submenuElement.classList.remove(activeClass);
-                // submenuElement.setAttribute('aria-hidden', true);
                 submenuElement.setAttribute('aria-expanded', false);
             }
         });
 
     }
 
-    function setElementFocus(element)
-    {
-        element.focus();
-        document.activeElement = element;
+    function setElementFocus(element) {
+        if(element) {
+            element.focus();
+            document.activeElement = element;
+        }
     }
 
     function toogleMenu(targetElement) {
 
         var menu = main_navi.querySelectorAll(selector_main_navi_items);
+        var submenuElement = null;
 
         menu.forEach((item, e) => {
             if (item !== targetElement) {
                 item.classList.remove(activeClass);
 
-                if (item.hasAttribute('aria-controls')) {
-                    var selectorSubmenu = item.getAttribute('aria-controls');
-                    submenuElement = document.getElementById(selectorSubmenu);
-                }
+                submenuElement = getSubmenu(item);
 
                 if (submenuElement) {
+                    item.setAttribute('aria-expanded', false);
+                    submenuElement.setAttribute('aria-expanded', false);
                     main_content.classList.remove('overlay');
                     submenuElement.classList.remove(activeClass);
                 }
             }
         });
 
-        var submenuElement = getSubmenu(targetElement);
+        submenuElement = getSubmenu(targetElement);
 
         if (targetElement.classList.contains(activeClass)) {
 
             targetElement.classList.remove(activeClass);
-            targetElement.setAttribute('aria-expanded', false);
 
             if (submenuElement) {
+                targetElement.setAttribute('aria-expanded', false);
                 main_content.classList.remove('overlay');
                 submenuElement.classList.remove(activeClass);
                 submenuElement.setAttribute('aria-expanded', false);
@@ -205,11 +216,10 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
 
             targetElement.classList.add(activeClass);
-            targetElement.setAttribute('aria-expanded', true);
-            //setElementFocus(targetElement);
+            setElementFocus(targetElement);
 
             if (submenuElement) {
-
+                targetElement.setAttribute('aria-expanded', true);
                 main_content.classList.add('overlay');
                 submenuElement.classList.add(activeClass);
                 submenuElement.setAttribute('aria-expanded', true);
@@ -256,17 +266,24 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function closeMenuItem(targetElement) {
 
-        targetElement.classList.remove(activeClass);
-        targetElement.setAttribute('aria-expanded', false);
+        if(targetElement &&
+            targetElement.hasAttribute('class') &&
+            targetElement.classList.contains(activeClass)) {
 
-        var submenuElement = getSubmenu(targetElement);
+            targetElement.classList.remove(activeClass);
 
-        if (submenuElement) {
-            main_content.classList.remove('overlay');
-            submenuElement.classList.remove(activeClass);
-            // submenuElement.setAttribute('aria-hidden', true);
-            submenuElement.setAttribute('aria-expanded', false);
+            var submenuElement = getSubmenu(targetElement);
+
+            if (submenuElement) {
+
+                targetElement.setAttribute('aria-expanded', false);
+                main_content.classList.remove('overlay');
+                submenuElement.classList.remove(activeClass);
+                submenuElement.setAttribute('aria-expanded', false);
+            }
         }
+
+        // console.log('closeMenuItem', targetElement, document.activeElement);
 
     }
 
