@@ -1030,7 +1030,7 @@ function shortcode_posts_function($atts = [], $content = null, $tag = '')
         }
 
         //Inhalte sammeln
-        $content .= '<div class="news-div"><h2>Aktuelle News</h2><div class="news spalten_3">';
+        $content .= '<div class="news-div"><h2>Presse & News</h2><div class="news spalten_3">';
 
         $year = date('Y');
 

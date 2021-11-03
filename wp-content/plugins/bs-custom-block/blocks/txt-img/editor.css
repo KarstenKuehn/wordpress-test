@@ -1,0 +1,92 @@
+.block-frame .wp-block-column{
+	padding: 30px;
+	border: 5px solid black;
+}
+
+
+.block-frame .is-style-spiegeln{
+	background: green;
+	border: 5px solid black;
+}
+
+.block-frame .is-style-spiegeln.wp-block-column{
+	padding: 30px;
+	border: 5px solid red;
+}
+
+
+
+.block-frame .wp-block-column .modul-title
+{
+	color: red;
+}
+
+.block-frame .is-style-spiegeln.wp-block-column .modul-title
+{
+	color: blue;
+}
+
+
+.block-frame .wp-block-column .modul-bild
+{
+		border: 5px solid red;
+}
+
+.block-frame .is-style-spiegeln.wp-block-column .modul-bild
+{
+		border: 5px solid blue;
+}
+
+
+.block-frame .wp-block-column .modul-text
+{
+	color: red;
+}
+
+.block-frame .is-style-spiegeln.wp-block-column .modul-text
+{
+	color: blue;
+}
+
+.block-frame .wp-block-column .modul-button
+{
+	color: red;
+}
+
+.block-frame .is-style-spiegeln.wp-block-column .modul-button
+{
+	color: blue;
+}
+
+
+/*
+.is-style-default{
+	border: 3px solid green;
+}
+
+
+.wp-block-columns .modul-text,.wp-block-columns .block-bild{
+	margin: 32px;
+}
+
+
+.wp-block-columns{
+	padding: 30px;
+	border: 5px solid black;
+}
+
+.wp-block-columns .modul-text{
+	order: 1;
+}
+.wp-block-columns .block-bild{
+	order: 2;
+}
+
+
+.is-style-spiegeln .modul-text{
+	order: 2;
+}
+.is-style-spiegeln .block-bild{
+	order: 1;
+}
+*/
