@@ -72,16 +72,34 @@ p.section-left{
 
 */
 
-
-.wp-block-bitv-stage-video-modul.modul.stage-video {
+.modul.stage-video {
     width: 100%;
     max-width: 100%;
    height: calc(100vh - 112px);
    overflow: hidden; 
+   padding: 0;
+
 }
 
-.wp-block-video.video {
+
+.modul.stage-video .wp-block-video.video {
     max-width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modul.stage-video .wp-block-video.video video {
+    /*max-width: 2000px;*/
+    height: 100%;
+    width: auto;
+    width: 100%!important;
+    height: auto;
+        position: relative;
+    object-fit: cover;
 }
 
 
