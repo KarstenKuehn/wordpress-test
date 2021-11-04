@@ -1953,6 +1953,11 @@ width: auto;
   margin-bottom: 0;
    padding-right: 40px;
 }
+
+.content_section.bitv .news_container a.list:focus{
+  outline: unset;
+}
+
 .more-link
 {
   padding: 0;
