@@ -73,6 +73,28 @@ p.section-left{
 */
 
 
+.wp-block-bitv-stage-video-modul.modul.stage-video {
+    width: 100%;
+    max-width: 100%;
+   height: calc(100vh - 112px);
+   overflow: hidden; 
+}
+
+.wp-block-video.video {
+    max-width: 100%;
+}
+
+
+.stage-video .block-text.content {
+color: #fff;
+position: absolute;
+width: 100%;
+display: block;
+background: linear-gradient(61.33deg, rgba(52,47,42,0.5) 0%, rgba(52,47,42,0) 100%);
+bottom: 50%;
+text-align: center;
+padding: 32px 0;
+}
 
 .block_head{
   padding: 0;

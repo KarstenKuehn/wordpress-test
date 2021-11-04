@@ -84,6 +84,7 @@ function kb_whitelist_blocks()
         'bitv/video-text-modul',
         'bitv/text-video-modul',
         'bitv/hero-image',
+        'bitv/stage-video-modul',
         'bitv/slide-video-item'
     );
 }
