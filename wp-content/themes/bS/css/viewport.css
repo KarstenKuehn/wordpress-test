@@ -2267,11 +2267,14 @@ button.slick-arrow.slick-disabled
     margin-bottom: 96px;
     margin-top: 96px;
 }
-
+/*
 .archive-subtitle {
     display: none;
 }
-
+*/
+.archive-subtitle {
+    text-align: left;
+}
 .block-text.ap-daten.content :first-child {
     margin-top: 24px;
 }
