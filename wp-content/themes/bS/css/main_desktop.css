@@ -84,6 +84,7 @@ p.section-left{
 
 .modul.stage-video .wp-block-video.video {
     max-width: 100%;
+    width: 1;
     height: 100%;
     background: #000;
     display: flex;
@@ -94,11 +95,10 @@ p.section-left{
 
 .modul.stage-video .wp-block-video.video video {
     /*max-width: 2000px;*/
-    height: 100%;
-    width: auto;
+    width: auto!important;
     width: 100%!important;
     height: auto;
-        position: relative;
+    position: relative;
     object-fit: cover;
 }
 

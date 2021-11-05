@@ -258,6 +258,38 @@ p a:focus {    color: #143C6B;
   height: 570px;    
 }
 
+.wp-block-bitv-stage-video-modul.modul.stage-video {
+    height: calc(100vh - 72px);
+    background: black;
+}
+
+.modul.stage-video  figure.wp-block-video.video {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modul.stage-video video {
+    height: 100%!important;
+    width: auto!important;
+}
+
+/*
+@media screen and (orientation:portrait) {
+  .modul.stage-video video {
+      height: 100%!important;
+      width: auto!important;
+  }
+
+}
+ @media screen and (orientation:landscape) { 
+  .modul.stage-video video {
+      height: auto!important;
+      width: 100%!important;
+  }  
+}
+*/
 .swiper-slide .is-type-video .wp-block-embed__wrapper{
   height: 570px;
 }
