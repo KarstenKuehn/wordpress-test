@@ -1252,41 +1252,32 @@ if (!function_exists('bs_main_nav_walker')) {
 
                 $var_css_cols = (count($main_menu_item['submenu']['submenu-list-container']) > 0) ? ' cols-' . count($main_menu_item['submenu']['submenu-list-container']) : '';
 
-                $html .= '<div class="main-nav_submenu sub-nav" ' . set_attributes($main_menu_item['submenu']['attributes']) . '>
-                                <div class="submenu-container">
-                                    <div class="submenu-row">';
+                $html .= '<div class="main-nav_submenu sub-nav" ' . set_attributes($main_menu_item['submenu']['attributes']) . '>' .
+                                '<div class="submenu-container">' .
+                                    '<div class="submenu-row">';
 
                 if (count($main_menu_item['submenu']['submenu-list-container']) > 0) {
+
                     $html .= '<div class="submenu-list-container' . $var_css_cols . '">';
 
                     foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
 
-                        $id_submenu_list_box = $main_menu_item['submenu']['attributes']['id'].'-' . $key1;
-
                         $id_submenu_list_box_title = 'title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
-
-                        $id_submenu_list_box_description = 'description-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
-
-                        $submenu_list_box_description = ($submenu_list_container['label'])
-                            ? 'Liste ' . $submenu_list_container['label'] . ' mit '.count($submenu_list_container['list-items']).' Eintr&auml;gen'
-                            : 'Liste mit '.count($submenu_list_container['list-items']).' Eintr&auml;gen';
 
                         $html .= '<div class="submenu-list-box">';
 
                         if($submenu_list_container['label']) {
 
-                            $html .= '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="5">' . $submenu_list_container['label'] . '</div>';
-                            $html .= '<ul class="sub-nav-group" tabindex="0" aria-labelledby="' . $id_submenu_list_box_title . '">';
+                            $html .= '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="4">' . $submenu_list_container['label'] . '</div>';
+                            $html .= '<ul class="sub-nav-group" aria-labelledby="' . $id_submenu_list_box_title . '">';
 
                         } else {
 
-                            $html .= '<ul class="sub-nav-group" tabindex="0">';
+                            $html .= '<ul class="sub-nav-group">';
 
                         }
 
                         foreach ($submenu_list_container['list-items'] as $key => $list_item) {
-
-                            $id_menu_item = 'menuitem-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'-'.$key;
 
                             $html .= '<li><a href="' . $list_item['url'] . '">' . $list_item['title'] . '</a></li>';
 
@@ -1301,6 +1292,7 @@ if (!function_exists('bs_main_nav_walker')) {
                 if (array_key_exists('submenu', $main_menu_item) && array_key_exists('submenu-teaser-container', $main_menu_item['submenu'])) {
 
                     $html .= '<div class="submenu-teaser-container' . $var_css_cols . '">';
+
                     foreach ($main_menu_item['submenu']['submenu-teaser-container'] as $key1 => $submenu_teaser_container) {
 
                         $id_submenu_teaser_box_headline = 'title-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
@@ -1311,10 +1303,8 @@ if (!function_exists('bs_main_nav_walker')) {
                         $html .= '<div class="submenu-teaser-box-image">';
                         $html .= '<img alt="Bild zu ' . $submenu_teaser_container['title'] . '" src="' . $submenu_teaser_container['image'] . '" />';
                         $html .= '</div>';
-                        #$html .= '<div class="submenu-teaser-box-headline" role="heading" aria-level="3" id="'.$id_submenu_teaser_box_headline.'" aria-label="' . $submenu_teaser_container['title'] . '">' . $submenu_teaser_container['title'] . '</div>';
-                        $html .= '<div class="submenu-teaser-box-headline" role="heading" aria-level="5" id="'.$id_submenu_teaser_box_headline.'">' . $submenu_teaser_container['title'] . '</div>';
-                        #$html .= '<a target="_self" id="'.$id_submenu_teaser_box_link.'" href="' . $submenu_teaser_container['url'] . '" aria-labelledby="'.$id_submenu_teaser_box_link.' '.$id_submenu_teaser_box_headline.'" aria-label="' . $submenu_teaser_container['description'] . '">' . $submenu_teaser_container['description'] . '</a>';
-                        $html .= '<a id="'.$id_submenu_teaser_box_link.'"  aria-labelledby="'.$id_submenu_teaser_box_headline.' '.$id_submenu_teaser_box_link.'" href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '</a>';
+                        $html .= '<div id="'.$id_submenu_teaser_box_headline.'" class="submenu-teaser-box-headline" role="heading" aria-level="4">' . $submenu_teaser_container['title'] . '</div>';
+                        $html .= '<a id="'.$id_submenu_teaser_box_link.'"  aria-labelledby="'.$id_submenu_teaser_box_headline.'" href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '</a>';
 
                         $html .= '</div>';
 
