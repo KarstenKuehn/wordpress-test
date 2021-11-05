@@ -74,7 +74,7 @@ p.section-left{
 
 .modul.stage-video {
     width: 100%;
-    max-width: 100%;
+    max-width: 2000px;
    height: calc(100vh - 112px);
    overflow: hidden; 
    padding: 0;
