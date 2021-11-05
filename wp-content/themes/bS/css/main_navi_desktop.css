@@ -149,7 +149,7 @@ ul {
     letter-spacing: 0;
 }
 
-.nav-container__main-nav-item > a:focus
+/*.nav-container__main-nav-item > a:focus
 {
     outline: 3px dotted #000;
     background-color: #FFF;
@@ -161,7 +161,7 @@ ul {
     outline: 3px dotted #000;
     background-color: #FFF;
     color: var(--default-text-color);
-}
+}*/
 
 .nav-container__main-nav-item > a:hover {
     border-bottom: 2px solid var(--default-link-color);
@@ -303,7 +303,7 @@ ul {
     border-bottom: 1px solid #E3E5ED;
     position: relative;
 }
-.submenu-list-container .submenu-list-box  ul > li > a:focus
+/*.submenu-list-container .submenu-list-box  ul > li > a:focus
 {
     outline: 3px dotted #000;
     background-color: #FFF;
@@ -314,7 +314,7 @@ ul {
     outline: 3px dotted #000;
     background-color: #FFF;
     color: var(--default-text-color);
-}
+}*/
 
 .submenu-list-container .submenu-list-box  > ul > li > a {
     text-decoration: none;
@@ -408,7 +408,7 @@ color: #1F5DA6;
     font-size: 16px;
 }
 
-.submenu-teaser-container .submenu-teaser-box > a:focus
+/*.submenu-teaser-container .submenu-teaser-box > a:focus
 {
     outline: 3px dotted #000;
     background-color: #FFF;
@@ -420,7 +420,7 @@ color: #1F5DA6;
     outline: 3px dotted #000;
     background-color: #FFF;
     color: var(--default-text-color);
-}
+}*/
 
 .submenu-teaser-container .submenu-teaser-box > a > span {
     line-height: 32px;
