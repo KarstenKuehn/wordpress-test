@@ -20,11 +20,40 @@ if (jQuery) {
             }, 500);
         });
 
+        function closeMenu() {
+            $( ".nav-container__main-nav li.nav-item > .main-nav_submenu" )
+                .each( function( index, $el ) {
+                    if($($el).hasClass('active')) {
+                        $($el).removeClass('active');
+                        $($el).attr('aria-hidden', true);
+                    }
+                });
+
+            $( ".nav-container__main-nav li.nav-item > a" )
+                .each( function( index, $el ) {
+                    if($($el).hasClass('active')) {
+                        $($el).removeClass('active');
+                        $($el).attr('aria-expanded', false);
+                        $($el).focus();
+                    }
+                });
+        }
+
         function checkSize(){
 
-            // is mobile
+            /**
+             * if clicked outside from the navigation, then menu close
+             */
+            $(document).click(function (e) {
+                if($('.nav-container__main-nav > li.nav-item')&&!$(e.target).closest('.nav-container__main-nav > li.nav-item .submenu-container').length){
+                    closeMenu();
+                }
+            });
+
+            /**
+             * mobile version
+             */
             if ($(".nav-container__main-nav").css("flex-direction") === "column" ) {
-                console.log('mobile styles');
                 /**
                  * Submenu Boxen vertauschen
                  */
@@ -64,44 +93,22 @@ if (jQuery) {
                     }
                 });
 
+            /**
+             * Desktop version
+             */
             } else if ($(".nav-container__main-nav").css("flex-direction") === "row" ){
 
-                console.log('desktop styles');
-
                 $( ".nav-container__main-nav li.nav-item" )
-                .each( function( index, $el ) {
-                   // console.log('each->elem', $el);
-                })
+                .each( function( index, $el ) {})
                 .find('button.submenu__close-button', function (e) {
                     var elem = $(this);
-                    console.log('submenu__close-button', elem);
                 })
                 .bind( "click keydown keypress", function(e) {
-                    let submenuItem = e.currentTarget.offsetParent;
-                    $(submenuItem)
-                        .removeClass('active')
-                        .attr('aria-hidden', true);
-
-                    let mainmenuItem = submenuItem.parentElement;
-                    $(mainmenuItem)
-                        .find('a.active')
-                        .removeClass('active')
-                        .attr('aria-expanded', false)
-                        .addClass('focus')
-                        .focus();
+                    closeMenu();
                 });
 
             }
         }
 
-        function testing()
-        {
-            $( ".nav-container__main-nav li.nav-item a.active").bind('click', function(e) {
-                console.log('click: ', e);
-            });
-        }
-
     }(jQuery));
 }
-
-
