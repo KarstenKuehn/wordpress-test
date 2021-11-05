@@ -1238,12 +1238,12 @@ if (!function_exists('bs_main_nav_walker')) {
     {
         $main_menu_items = build_main_menu_array();
 
-        $html = '<ul role="menu" id="top-menu" class="nav-container__main-nav" aria-label="Hauptnavigation">';
+        $html = '<ul id="top-menu" class="nav-container__main-nav nav-menu" aria-label="Hauptnavigation">';
 
         foreach ($main_menu_items as $key => $main_menu_item) {
             // Main-Menu-Items
             $html .= '<li id="nav-' . $key . '" class="nav-container__main-nav-item">';
-            $html .= ' <a role="menuitem" ' . set_attributes($main_menu_item['attributes']) . '>' . $main_menu_item['title'] . '</a>';
+            $html .= ' <a ' . set_attributes($main_menu_item['attributes']) . '>' . $main_menu_item['title'] . '</a>';
 
             // Submenu-Items
             if (isset($main_menu_item['submenu'])) {
@@ -1252,12 +1252,13 @@ if (!function_exists('bs_main_nav_walker')) {
 
                 $var_css_cols = (count($main_menu_item['submenu']['submenu-list-container']) > 0) ? ' cols-' . count($main_menu_item['submenu']['submenu-list-container']) : '';
 
-                $html .= '<div class="main-nav_submenu" ' . set_attributes($main_menu_item['submenu']['attributes']) . '>
+                $html .= '<div class="main-nav_submenu sub-nav" ' . set_attributes($main_menu_item['submenu']['attributes']) . '>
                                 <div class="submenu-container">
                                     <div class="submenu-row">';
 
                 if (count($main_menu_item['submenu']['submenu-list-container']) > 0) {
                     $html .= '<div class="submenu-list-container' . $var_css_cols . '">';
+
                     foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
 
                         $id_submenu_list_box = $main_menu_item['submenu']['attributes']['id'].'-' . $key1;
@@ -1270,19 +1271,24 @@ if (!function_exists('bs_main_nav_walker')) {
                             ? 'Liste ' . $submenu_list_container['label'] . ' mit '.count($submenu_list_container['list-items']).' Eintr&auml;gen'
                             : 'Liste mit '.count($submenu_list_container['list-items']).' Eintr&auml;gen';
 
-                        $html .= '<div class="submenu-list-box" id="'. $id_submenu_list_box . '">';
+                        $html .= '<div class="submenu-list-box">';
 
-                        $html .= ($submenu_list_container['label'])
-                            ?   '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="3">' . $submenu_list_container['label'] . '</div>' .
-                                '<ul role="menu" id="' . $id_submenu_list_box_description . '" aria-label="'.$submenu_list_box_description.'">'
+                        if($submenu_list_container['label']) {
 
-                            :   '<ul role="menu" id="' . $id_submenu_list_box_description . '" aria-label="'.$submenu_list_box_description.'">';
+                            $html .= '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="5">' . $submenu_list_container['label'] . '</div>';
+                            $html .= '<ul class="sub-nav-group" tabindex="0" aria-labelledby="' . $id_submenu_list_box_title . '">';
+
+                        } else {
+
+                            $html .= '<ul class="sub-nav-group" tabindex="0">';
+
+                        }
 
                         foreach ($submenu_list_container['list-items'] as $key => $list_item) {
 
                             $id_menu_item = 'menuitem-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1.'-'.$key;
 
-                            $html .= '<li><a role="menuitem" id="'.$id_menu_item.'" target="_self" href="' . $list_item['url'] . '" aria-describedby="' . $id_submenu_list_box_description . '">' . $list_item['title'] . '</a></li>';
+                            $html .= '<li><a href="' . $list_item['url'] . '">' . $list_item['title'] . '</a></li>';
 
                         }
 
@@ -1300,13 +1306,15 @@ if (!function_exists('bs_main_nav_walker')) {
                         $id_submenu_teaser_box_headline = 'title-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
                         $id_submenu_teaser_box_link = 'link-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
 
-                        $html .= '<div class="submenu-teaser-box">';
+                        $html .= '<div class="submenu-teaser-box sub-nav-group">';
 
                         $html .= '<div class="submenu-teaser-box-image">';
-                        $html .= '<img alt="Bild zu: ' . $submenu_teaser_container['title'] . '" src="' . $submenu_teaser_container['image'] . '" />';
+                        $html .= '<img alt="Bild zu ' . $submenu_teaser_container['title'] . '" src="' . $submenu_teaser_container['image'] . '" />';
                         $html .= '</div>';
-                        $html .= '<div class="submenu-teaser-box-headline" role="heading" aria-level="3" id="'.$id_submenu_teaser_box_headline.'" aria-label="' . $submenu_teaser_container['title'] . '">' . $submenu_teaser_container['title'] . '</div>';
-                        $html .= '<a target="_self" id="'.$id_submenu_teaser_box_link.'" href="' . $submenu_teaser_container['url'] . '" aria-labelledby="'.$id_submenu_teaser_box_link.' '.$id_submenu_teaser_box_headline.'" aria-label="' . $submenu_teaser_container['description'] . '">' . $submenu_teaser_container['description'] . '</a>';
+                        #$html .= '<div class="submenu-teaser-box-headline" role="heading" aria-level="3" id="'.$id_submenu_teaser_box_headline.'" aria-label="' . $submenu_teaser_container['title'] . '">' . $submenu_teaser_container['title'] . '</div>';
+                        $html .= '<div class="submenu-teaser-box-headline" role="heading" aria-level="5" id="'.$id_submenu_teaser_box_headline.'">' . $submenu_teaser_container['title'] . '</div>';
+                        #$html .= '<a target="_self" id="'.$id_submenu_teaser_box_link.'" href="' . $submenu_teaser_container['url'] . '" aria-labelledby="'.$id_submenu_teaser_box_link.' '.$id_submenu_teaser_box_headline.'" aria-label="' . $submenu_teaser_container['description'] . '">' . $submenu_teaser_container['description'] . '</a>';
+                        $html .= '<a id="'.$id_submenu_teaser_box_link.'"  aria-labelledby="'.$id_submenu_teaser_box_headline.' '.$id_submenu_teaser_box_link.'" href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '</a>';
 
                         $html .= '</div>';
 
@@ -1316,11 +1324,7 @@ if (!function_exists('bs_main_nav_walker')) {
 
                 $html .= '</div>';
 
-                $html .= '<div class="submenu-row first">
-                            <button aria-label="Untermenü ' . $main_menu_item['title'] . ' schliessen" class="submenu__close-button">
-                                <span class="material-icons">close</span>
-                            </button>
-                        </div>';
+                $html .= '<div class="submenu-row first sub-nav-group"><button aria-label="Menu von ' . $main_menu_item['title'] . ' schliessen" class="submenu__close-button"><span class="material-icons">close</span></button></div>';
 
                 $html .= '</div></div>';
             }
@@ -1338,7 +1342,7 @@ if (!function_exists('build_main_menu_array')) {
     function build_main_menu_array()
     {
 
-        $current_page = get_post();
+        //$current_page = get_post();
 
         $name_of_main_menu = (defined('MAIN_NAVIGATION') ? MAIN_NAVIGATION : 'HeaderNavigation');
         $wp_get_nav_menu_items = wp_get_nav_menu_items($name_of_main_menu);
@@ -1351,19 +1355,10 @@ if (!function_exists('build_main_menu_array')) {
 
             $menu_item++;
 
-            $is_current_menu_item = is_current_menu_item($current_page, $value);
-
             $attributes = [
                 'href' => (in_array('has-submenu', $value->classes)) ? 'javascript:void(0)' : $value->url,
                 'id' => 'nav-item-' . $menu_item,
-                'class' => ($is_current_menu_item) ? 'active' : '',
             ];
-
-            if ($value->wpse_children) {
-                $attributes['aria-haspopup'] = 'menu';
-                $attributes['aria-expanded'] = 'false';
-                $attributes['aria-controls'] = 'sub-nav-' . $menu_item;
-            }
 
             $main_menu[$menu_item] = [
                 'title' => $value->title,
