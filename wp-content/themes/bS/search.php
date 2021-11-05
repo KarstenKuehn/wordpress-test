@@ -26,7 +26,7 @@ get_header(); ?>
 		if ( $wp_query->found_posts ) {
 			$archive_subtitle = number_format_i18n( $wp_query->found_posts ).' Treffer';
 		} else {
-			$archive_subtitle ='Es konnten keine Ergebnisse für deine Suche gefunden werden.';
+			$archive_subtitle ='Leider konnten keine Ergebnisse gefunden werden.';
 		}
 	} elseif ( is_archive() && ! have_posts() ) {
 		$archive_title = __( 'Nothing Found', 'bS' );
