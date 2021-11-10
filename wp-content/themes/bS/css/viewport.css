@@ -2313,7 +2313,9 @@ p.ap-standort:after {
 p.ap-anschrift:after {
     content: '\e151';
 }
-
+.vergabe-link{
+  color: red;
+}
 @media(min-width:768px)
 {
 

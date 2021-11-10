@@ -20,7 +20,8 @@ var monat = d.getMonth() + 1;
 
 var jahr = d.getFullYear();
 
-var uhrzeit = tag + "." + monat + "." + jahr ;
+//var uhrzeit = tag + "." + monat + "." + jahr ;
+var uhrzeit = jahr + "-" + monat + "-" + tag ;
  var __ = wp.i18n.__;
   blocks.registerBlockType( 'lb/vergabe-link', {
     title: 'Vergabe-Link', // The title of block in editor.
@@ -184,12 +185,11 @@ save: function (props) {
 var attributes = props.attributes;
 datei_ablaufdatum = attributes.dateTo;
 testdatum = uhrzeit;
-testdatum = '2021-11-08T17:23:00';
+
 return (
 //  attributes.ablaufdatum == '8.11.2021'?
-
-   Date.parse(datei_ablaufdatum) >= Date.parse(testdatum)?
-
+  Date.parse(datei_ablaufdatum) >= Date.parse(uhrzeit)?
+  (
     el('a', {
       className: 'vergabe-link',
       href: attributes.buttonURL,
@@ -198,18 +198,12 @@ return (
       },   
       attributes.buttonText,
       el('span',{className: 'material-icons',},'east')  
-    )
-:
-
-    el('a', {
-      className: 'vergabe-link',
-      href: attributes.buttonURL,
-      //ablaufdatum:attributes.ablaufdatum,
-      dateTo:datei_ablaufdatum,
-      },   
-      attributes.buttonText,
-      el('span',{className: 'material-icons',},'west')  
-    )
+    )//ist aktuell
+  )
+  :
+  (
+''
+  )
 )// end return
 }// end save()
 }//end registerBlockType
