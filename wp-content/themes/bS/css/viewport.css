@@ -275,6 +275,14 @@ p a:focus {    color: #143C6B;
     width: auto!important;
 }
 
+.modul.stage-video figure.wp-block-video.video {
+    display: none;
+}
+
+.modul.stage-video figure.wp-block-video.video.mobile {
+    display: flex;
+}
+
 /*
 @media screen and (orientation:portrait) {
   .modul.stage-video video {
@@ -2316,9 +2324,27 @@ p.ap-anschrift:after {
 .vergabe-link{
   color: red;
 }
+
+.modul.stage-video figure.wp-block-video.video.mobile video {
+    height: auto!important;
+    width: 100%!important;
+}
+
 @media(min-width:768px)
 {
 
+.modul.stage-video video {
+    height: 100%!important;
+    width: auto!important;
+}
+.modul.stage-video figure.wp-block-video.video {
+    display: flex;
+}
+
+.modul.stage-video figure.wp-block-video.video.mobile {
+    display: none;
+}
+ 
 .main.search {
     width: 100%;
     padding: 0 16px;

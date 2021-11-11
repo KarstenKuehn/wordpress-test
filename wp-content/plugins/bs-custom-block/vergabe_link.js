@@ -11,7 +11,6 @@ var TextControl = components.TextControl;
   var RangeControl = wp.components.RangeControl;
 
 var DateTimePicker = wp.components.DateTimePicker;
-
 var d = new Date();
 
 var tag = d.getDate();
@@ -19,9 +18,12 @@ var tag = d.getDate();
 var monat = d.getMonth() + 1;
 
 var jahr = d.getFullYear();
+var hours = ('0'+d.getHours()).substr(-2);
+var minutes = ('0'+d.getMinutes()).substr(-2);
+var seconds = ('0'+d.getSeconds()).substr(-2);  
 
 //var uhrzeit = tag + "." + monat + "." + jahr ;
-var uhrzeit = jahr + "-" + monat + "-" + tag ;
+var uhrzeit = jahr + "-" + monat + "-" + tag+'T'+hours+':'+minutes+':'+seconds ;
  var __ = wp.i18n.__;
   blocks.registerBlockType( 'lb/vergabe-link', {
     title: 'Vergabe-Link', // The title of block in editor.
@@ -79,6 +81,12 @@ attributes: {
 },
 edit: function (props) {
 var attributes = props.attributes;
+var modul_datum = attributes.dateTo;
+var color= 'gray';
+if(Date.parse(modul_datum) >= Date.parse(uhrzeit)) {color= 'green';}
+else{
+  color= 'red';
+}
 var onSelectImage = function (media) {
 return props.setAttributes({
 mediaURL: media.url,
@@ -90,7 +98,7 @@ return [
   el(
     'div', {
     className: '',
-    style: { textAlign: attributes.alignment,border:'1px solid grey',paddingBottom:'10px' }
+    style: { textAlign: attributes.alignment,border:'1px solid '+color,paddingBottom:'10px' }
     },
     el(InspectorControls, {
       key: "setting"
@@ -177,7 +185,15 @@ return [
       props.setAttributes({buttonText: newbuttonText})
       }
       }),  
-  )
+      el(
+        "span",
+        {style: { color:color,fontWeight:'700'}
+    },
+        "Ablaufdatum: "+uhrzeit
+      ),
+
+
+  )//end Modul
 
 ];
 },
@@ -188,8 +204,8 @@ testdatum = uhrzeit;
 
 return (
 //  attributes.ablaufdatum == '8.11.2021'?
-  Date.parse(datei_ablaufdatum) >= Date.parse(uhrzeit)?
-  (
+//  Date.parse(datei_ablaufdatum) >= Date.parse(uhrzeit)?
+  //(
     el('a', {
       className: 'vergabe-link',
       href: attributes.buttonURL,
@@ -199,11 +215,11 @@ return (
       attributes.buttonText,
       el('span',{className: 'material-icons',},'east')  
     )//ist aktuell
-  )
-  :
-  (
-''
-  )
+  //)
+  //:
+  //(
+//''
+  //)
 )// end return
 }// end save()
 }//end registerBlockType
