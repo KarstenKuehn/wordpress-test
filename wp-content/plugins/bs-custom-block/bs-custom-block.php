@@ -36,6 +36,7 @@ function kb_whitelist_blocks()
         'my-lb-block/accordion-item',
         'lb/button',
         'lb/more-link',
+        'lb/vergabe-link',
         'lb/extranavi',
         'lb/media-text',
         'lb/presse-img-text',
@@ -317,6 +318,16 @@ function load_more_link() {
    
 add_action('enqueue_block_editor_assets', 'load_more_link');
 
+function load_vergabe_link() {
+  wp_enqueue_script(
+    'vergabe_link',
+    plugin_dir_url(__FILE__) . 'vergabe_link.js',
+    array( 'wp-blocks','wp-editor', 'wp-element' ),
+    true
+  );
+}
+   
+add_action('enqueue_block_editor_assets', 'load_vergabe_link');
 
 function load_TeaserSlideFrame() {
   wp_enqueue_script(

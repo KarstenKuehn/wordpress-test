@@ -13,7 +13,7 @@
           InnerBlocks,
           {
             template: [
-				['core/button',{className:'modul-button content','placeholder':'Button'}],
+				['core/button',{className:'modul-button content','placeholder':'Button',attributes:{'test':'test','test2':'test2',}}],
             ],
             //templateLock: "all",
             //allowedBlocks: ['core/columns'],

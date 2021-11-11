@@ -11,7 +11,6 @@ var TextControl = components.TextControl;
   var RangeControl = wp.components.RangeControl;
 
 var DateTimePicker = wp.components.DateTimePicker;
-
 var d = new Date();
 
 var tag = d.getDate();
@@ -19,11 +18,15 @@ var tag = d.getDate();
 var monat = d.getMonth() + 1;
 
 var jahr = d.getFullYear();
+var hours = ('0'+d.getHours()).substr(-2);
+var minutes = ('0'+d.getMinutes()).substr(-2);
+var seconds = ('0'+d.getSeconds()).substr(-2);  
 
-var uhrzeit = tag + "." + monat + "." + jahr ;
+//var uhrzeit = tag + "." + monat + "." + jahr ;
+var uhrzeit = jahr + "-" + monat + "-" + tag+'T'+hours+':'+minutes+':'+seconds ;
  var __ = wp.i18n.__;
-  blocks.registerBlockType( 'lb/more-link', {
-    title: 'Link mit Pfeil', // The title of block in editor.
+  blocks.registerBlockType( 'lb/vergabe-link', {
+    title: 'Vergabe-Link', // The title of block in editor.
     icon: 'admin-links', // The icon of block in editor.
     category: 'common', // The category of block in editor.
 
@@ -78,6 +81,12 @@ attributes: {
 },
 edit: function (props) {
 var attributes = props.attributes;
+var modul_datum = attributes.dateTo;
+var color= 'gray';
+if(Date.parse(modul_datum) >= Date.parse(uhrzeit)) {color= 'green';}
+else{
+  color= 'red';
+}
 var onSelectImage = function (media) {
 return props.setAttributes({
 mediaURL: media.url,
@@ -89,11 +98,14 @@ return [
   el(
     'div', {
     className: '',
-    style: { textAlign: attributes.alignment,border:'1px solid grey',paddingBottom:'10px' }
+    style: { textAlign: attributes.alignment,border:'1px solid '+color,paddingBottom:'10px' }
     },
     el(InspectorControls, {
       key: "setting"
     },
+
+/*
+
       el("div", {
         id: "Ablaufdatum Controls"
       },
@@ -108,6 +120,8 @@ return [
 
       )
 ,
+  
+*/
       el("div", {
         id: "test"
       },
@@ -171,7 +185,15 @@ return [
       props.setAttributes({buttonText: newbuttonText})
       }
       }),  
-  )
+      el(
+        "span",
+        {style: { color:color,fontWeight:'700'}
+    },
+        "Ablaufdatum: "+uhrzeit
+      ),
+
+
+  )//end Modul
 
 ];
 },
@@ -179,40 +201,25 @@ save: function (props) {
 var attributes = props.attributes;
 datei_ablaufdatum = attributes.dateTo;
 testdatum = uhrzeit;
-testdatum = '2021-11-08T17:23:00';
-console.log('testdatum '+testdatum);
-console.log('datei_ablaufdatum '+datei_ablaufdatum);
-console.log(Date.parse(datei_ablaufdatum) >= Date.parse(testdatum) ? 1 : 0)
-
-
 
 return (
 //  attributes.ablaufdatum == '8.11.2021'?
-
-   Date.parse(datei_ablaufdatum) >= Date.parse(testdatum)?
-
-    el('section', {className: 'content_section',},
+//  Date.parse(datei_ablaufdatum) >= Date.parse(uhrzeit)?
+  //(
     el('a', {
-      className: 'more-link',
+      className: 'vergabe-link',
       href: attributes.buttonURL,
-      ablaufdatum:attributes.ablaufdatum,
-      dateTo:attributes.dateTo,
+      //ablaufdatum:attributes.ablaufdatum,
+      dateTo:datei_ablaufdatum,
       },   
       attributes.buttonText,
       el('span',{className: 'material-icons',},'east')  
-    )
-  ):
-  el('section', {className: 'content_section',},
-    el('a', {
-      className: 'more-link',
-      href: attributes.buttonURL,
-      ablaufdatum:attributes.ablaufdatum,
-      dateTo:attributes.dateTo,
-      },   
-      attributes.buttonText,
-      el('span',{className: 'material-icons',},'west')  
-    )
-  ) 
+    )//ist aktuell
+  //)
+  //:
+  //(
+//''
+  //)
 )// end return
 }// end save()
 }//end registerBlockType
