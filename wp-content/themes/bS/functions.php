@@ -24,7 +24,8 @@ function seo_header()
             '{{viewport_css}}',
             '{{meta_index}}',
             '{{meta_description}}',
-            '{{ETRACKER_CODE}}'
+            '{{ETRACKER_CODE}}',
+            '{{CONTACT_FORM_HEADER_SCRIPTS}}'
         ),
         array(
             'de',
@@ -34,7 +35,8 @@ function seo_header()
             minify_css($css),
             $page_data->meta_index,
             $page_data->meta_description,
-            code_head_etracker()
+            code_head_etracker(),
+            '', //contact_form_header_scripts(),
         ),
         $html);
     #echo minify_html($html);
@@ -366,6 +368,18 @@ function footer()
     #echo minify_html($html);
 
     echo $html;
+}
+
+function contact_form_header_scripts()
+{
+
+    return <<<EOF
+        <link rel='stylesheet' id='contact-form-7-css'  href='https://lotterien-spielbanken-bayern.test/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.2' type='text/css' media='all' />
+        <style id='contact-form-7-inline-css' type='text/css'>
+        .wpcf7 .wpcf7-recaptcha iframe {margin-bottom: 0;}.wpcf7 .wpcf7-recaptcha[data-align="center"] > div {margin: 0 auto;}.wpcf7 .wpcf7-recaptcha[data-align="right"] > div {margin: 0 0 0 auto;}
+        </style>
+EOF;
+
 }
 
 function get_FooterMenu()
@@ -1121,8 +1135,15 @@ if (!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
 }
 
 
+/* === FORMULAR ====================================== */
 // Amazon SES instead PHP mail.
-add_action('phpmailer_init', 'use_amazon_ses');
+#add_action('phpmailer_init', 'use_amazon_ses');
+if(defined('FORMULAR_TEST') && FORMULAR_TEST === true) {
+    add_action('phpmailer_init', 'mailtrap');
+}else{
+    add_action('phpmailer_init', 'use_amazon_ses');
+}
+
 function use_amazon_ses($phpmailer)
 {
     $phpmailer->isSMTP();
@@ -1133,6 +1154,17 @@ function use_amazon_ses($phpmailer)
     $phpmailer->Port = AMAZON_SES_PORT;
     $phpmailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
 }
+
+function mailtrap($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = 'b46b6352615e95';
+    $phpmailer->Password = '4f615419599b02';
+}
+/* ========================================= */
+
 
 //add_action( 'wp_footer', 'wpforms_footer_scripts' );
 function wpforms_footer_scripts()
