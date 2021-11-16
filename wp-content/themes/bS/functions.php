@@ -1137,129 +1137,19 @@ if (!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
 
 /* === FORMULAR ====================================== */
 // Amazon SES instead PHP mail.
-#add_action('phpmailer_init', 'use_amazon_ses');
-if(defined('FORMULAR_TEST') && FORMULAR_TEST === true) {
-    add_action('phpmailer_init', 'mailtrap');
-}else{
-    add_action('phpmailer_init', 'use_amazon_ses');
-}
-
-function use_amazon_ses($phpmailer)
+add_action('phpmailer_init', 'wp_mailer_setup');
+function wp_mailer_setup($phpmailer)
 {
     $phpmailer->isSMTP();
     $phpmailer->SMTPAuth = true;
-    $phpmailer->Username = AMAZON_SES_USER;
-    $phpmailer->Password = AMAZON_SES_PASSWORD;
-    $phpmailer->Host = AMAZON_SES_HOST;
-    $phpmailer->Port = AMAZON_SES_PORT;
+    $phpmailer->Username = WP_MAILER_USER;
+    $phpmailer->Password = WP_MAILER_PASSWORD;
+    $phpmailer->Host = WP_MAILER_HOST;
+    $phpmailer->Port = WP_MAILER_PORT;
     $phpmailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
 }
 
-function mailtrap($phpmailer) {
-    $phpmailer->isSMTP();
-    $phpmailer->Host = 'smtp.mailtrap.io';
-    $phpmailer->SMTPAuth = true;
-    $phpmailer->Port = 2525;
-    $phpmailer->Username = 'b46b6352615e95';
-    $phpmailer->Password = '4f615419599b02';
-}
 /* ========================================= */
-
-
-//add_action( 'wp_footer', 'wpforms_footer_scripts' );
-function wpforms_footer_scripts()
-{
-    $siteurl = str_replace('"', '', json_encode(get_option('siteurl')));
-    return <<<EOF
-    <script src='/wp-includes/js/wp-embed.min.js?ver=5.7.2' id='wp-embed-js'></script>
-    <script src='/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
-    <script src='/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
-    <script src='/wp-content/plugins/wpforms-lite/assets/js/text-limit.min.js?ver=1.6.8.1' id='wpforms-text-limit-js'></script>
-    <script src='/wp-content/plugins/wpforms-lite/assets/js/jquery.validate.min.js?ver=1.19.0' id='wpforms-validation-js'></script>
-    <script src='/wp-content/plugins/wpforms-lite/assets/js/mailcheck.min.js?ver=1.1.2' id='wpforms-mailcheck-js'></script>
-    <script src='/wp-content/plugins/wpforms-lite/assets/js/wpforms.js?ver=1.6.8.1' id='wpforms-js'></script>
-    <script src='https://www.google.com/recaptcha/api.js?onload=wpformsRecaptchaLoad&#038;render=explicit' id='wpforms-recaptcha-js'></script>
-    <script id='wpforms-recaptcha-js-after'>
-        if (!Element.prototype.matches) {
-            Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-        }
-        if (!Element.prototype.closest) {
-            Element.prototype.closest = function (s) {
-                var el = this;
-                do {
-                    if (Element.prototype.matches.call(el, s)) { return el; }
-                    el = el.parentElement || el.parentNode;
-                } while (el !== null && el.nodeType === 1);
-                return null;
-            };
-        }
-        var wpformsDispatchEvent = function (el, ev, custom) {
-            var e = document.createEvent(custom ? "CustomEvent" : "HTMLEvents");
-            custom ? e.initCustomEvent(ev, true, true, false) : e.initEvent(ev, true, true);
-            el.dispatchEvent(e);
-        };
-
-        var wpformsRecaptchaLoad = function () {
-            Array.prototype.forEach.call(document.querySelectorAll(".g-recaptcha"), function (el) {
-                try {
-
-                    var recaptchaID = grecaptcha.render(el, {
-                        callback: function () {                            
-                            wpformsRecaptchaCallback(el);
-                        }
-                    }, true);
-                    
-                    /******************
-                    * WCAG - Properties 
-                    * */
-                    el.querySelector('#g-recaptcha-response').setAttribute("aria-hidden", "true");
-                    el.querySelector('#g-recaptcha-response').setAttribute("aria-label", "do not use");
-                    el.querySelector('#g-recaptcha-response').setAttribute("aria-readonly", "true");
-                    
-                    el.closest("form").querySelector("button[type=submit]").recaptchaID = recaptchaID;
-
-                } catch (error) {}
-            });
-            
-            wpformsDispatchEvent(document, "wpformsRecaptchaLoaded", true);
-        };
-        var wpformsRecaptchaCallback = function (el) {
-            
-            var wp_form = el.closest("form");            
-            if (typeof wpforms.formSubmit === "function") {
-                wpforms.formSubmit(wp_form);
-            } else {
-                wp_form.querySelector("button[type=submit]").recaptchaID = false;
-                wp_form.submit();
-            }
-        };
-        
-    </script>
-    <script>
-        /(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
-    </script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var wpforms_settings = {"val_required":"Dieses Feld wird benötigt.","val_email":"Bitte geben Sie eine gültige E-Mail-Adresse ein.","val_email_suggestion":"Meinten Sie {suggestion}?","val_email_suggestion_title":"Klicken Sie hier, um diesen Vorschlag zu akzeptieren.","val_email_restricted":"Diese E-Mail-Adresse ist nicht zulässig.","val_number":"Bitte geben Sie eine gültige Nummer ein.","val_number_positive":"Bitte geben Sie eine gültige positive Zahl ein.","val_confirm":"Feldwerte stimmen nicht überein.","val_checklimit":"Sie haben die Anzahl der zulässigen Auswahlen überschritten: {#}.","val_limit_characters":"{count} von {limit} maximale Zeichen.","val_limit_words":"{count} von {limit} maximale Wörter.","val_recaptcha_fail_msg":"Google reCAPTCHA-Bestätigung fehlgeschlagen. Bitte versuchen Sie es später erneut.","val_empty_blanks":"Bitte alle Felder ausfüllen.","uuid_cookie":"","locale":"de","wpforms_plugin_url":"$siteurl\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"$siteurl\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1"}
-        /*******************************
-        * Kontakt Formular autocomplete
-        *******************************/
-        var prefix = document.getElementById('wpforms-3127-field_2');
-        if(prefix) prefix.setAttribute('autocomplete', 'honorific-prefix');        
-        var first_name = document.getElementById('wpforms-3127-field_3');
-        if(first_name) first_name.setAttribute('autocomplete', 'given-name');
-        var last_name = document.getElementById('wpforms-3127-field_4');
-        if(last_name) last_name.setAttribute('autocomplete', 'family-name');
-        var email = document.getElementById('wpforms-3127-field_5');
-        if(email )email.setAttribute('autocomplete', 'email');
-        var tel = document.getElementById('wpforms-3127-field_6');
-        if(tel) tel.setAttribute('autocomplete', 'tel');     
-        /* ]]> */
-    </script>
-    
-EOF;
-
-}
 
 /**
  * Menu
