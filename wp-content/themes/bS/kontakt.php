@@ -2,10 +2,10 @@
 /* 
   Template Name: Kontakt Template
 */
-if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+if (function_exists('wpcf7_enqueue_scripts')) {
     wpcf7_enqueue_scripts();
 }
-if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+if (function_exists('wpcf7_enqueue_styles')) {
     wpcf7_enqueue_styles();
 }
 get_header();
@@ -20,38 +20,44 @@ get_header();
         margin-bottom: 32px;
         background-color: #f2f4f6;
     }
-    .screen-reader-response ul{
+
+    .screen-reader-response ul {
         color: red;
         list-style: none;
     }
+
     .screen-reader-response ul li {
         padding: 2px 0 5px 0;
     }
-    .screen-reader-response ul li a{
+
+    .screen-reader-response ul li a {
         color: red;
         font-weight: 400;
         font-size: 24px;
         text-decoration: underline;
     }
+
     .screen-reader-response > p {
         font-size: 24px;
         line-height: 32px;
     }
 
-    .wpcf7-form.invalid > .kontakt-form > .form-field-label{
+    .wpcf7-form.invalid > .kontakt-form > .form-field-label {
 
     }
+
     input.wpforms-field-required.wpcf7-not-valid {
         border-bottom: 2px solid red;
     }
+
     textarea.wpforms-field-required.wpcf7-not-valid {
         border-bottom: 2px solid red;
     }
 
-    span.wpcf7-not-valid-tip{
+    span.wpcf7-not-valid-tip {
         display: block;
         color: red;
-        margin-top:3px;
+        margin-top: 3px;
         margin-bottom: 16px;
     }
 
@@ -70,11 +76,11 @@ get_header();
         (function ($) {
             "use strict";
             $(document).ready(function () {
-<?php
+                <?php
                 /**
                  * see https://contactform7.com/dom-events/
                  */
-?>
+                ?>
                 /**
                  * Focus zuerst auf Überschrift
                  */
@@ -82,8 +88,31 @@ get_header();
                     .scrollIntoView();
                 $('.has-large-font-size').attr('tabindex', '0');
 
-                var wpcf7Elm = document.querySelector( '.wpcf7' );
-                $(wpcf7Elm).on( "wpcf7invalid", function() {
+                var wpcf7Elm = document.querySelector('.wpcf7');
+
+                $('.wpcf7 > .screen-reader-response > ul').one("DOMSubtreeModified", function () {
+                    $(this).find('a').attr('tabindex', '0');
+                });
+
+                $(wpcf7Elm).on("wpcf7invalid", function () {
+
+
+
+                    document.querySelector('.wpcf7 > .screen-reader-response')
+                        .scrollIntoView();
+
+                    $(wpcf7Elm).find('.screen-reader-response > p[role="status"]')
+                        .attr('tabindex', '0')
+                        .focus();
+
+                    $('#contact-form-submit').blur();
+
+                    $(wpcf7Elm).find('.wpcf7-response-output').remove();
+                    console.log('wpcf7invalid');
+                });
+
+
+                $(wpcf7Elm).on("wpcf7spam", function () {
 
                     document.querySelector('.wpcf7 > .screen-reader-response')
                         .scrollIntoView();
@@ -92,9 +121,11 @@ get_header();
                         .attr('tabindex', '0')
                         .focus();
 
+                    $(wpcf7Elm).find('.wpcf7-response-output').remove();
 
                 });
-                $(wpcf7Elm).on( "wpcf7spam", function() {
+
+                $(wpcf7Elm).on("wpcf7mailfailed", function () {
 
                     document.querySelector('.wpcf7 > .screen-reader-response')
                         .scrollIntoView();
@@ -103,19 +134,11 @@ get_header();
                         .attr('tabindex', '0')
                         .focus();
 
-                });
-                $(wpcf7Elm).on( "wpcf7mailfailed", function() {
-
-                    document.querySelector('.wpcf7 > .screen-reader-response')
-                        .scrollIntoView();
-
-                    $('.wpcf7 > .screen-reader-response > p[role="status"]')
-                        .attr('tabindex', '0')
-                        .focus();
+                    $(wpcf7Elm).find('.wpcf7-response-output').remove();
 
                 });
 
-                $(wpcf7Elm).on( "wpcf7mailsent", function() {
+                $(wpcf7Elm).on("wpcf7mailsent", function () {
 
                     /**
                      * Section Content ersetzen
@@ -131,7 +154,8 @@ get_header();
                      */
                     $(section[0])
                         .find(".has-large-font-size")
-                        .text("Vielen Dank, dass Sie uns kontaktiert haben!").attr('tabindex', '0')
+                        .text("Vielen Dank, dass Sie uns kontaktiert haben!")
+                        //.attr('tabindex', '0')
                         .focus();
 
                     $(section[0])
@@ -164,8 +188,15 @@ get_header();
 </script>
 <script type='text/javascript' id='contact-form-7-js-extra'>
     /* <![CDATA[ */
-    var wpcf7 = {"api":{"root":"https:\/\/lotterien-spielbanken-bayern.test\/wp-json\/","namespace":"contact-form-7\/v1"}};
+    var wpcf7 = {
+        "api": {
+            "root": "https:\/\/lotterien-spielbanken-bayern.test\/wp-json\/",
+            "namespace": "contact-form-7\/v1"
+        }
+    };
     /* ]]> */
 </script>
-<script type='text/javascript' src='https://lotterien-spielbanken-bayern.test/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.2' id='contact-form-7-js'></script>
+<script type='text/javascript'
+        src='https://lotterien-spielbanken-bayern.test/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.2'
+        id='contact-form-7-js'></script>
 <?php get_footer(); ?>
