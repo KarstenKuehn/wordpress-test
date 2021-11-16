@@ -4064,7 +4064,8 @@ figcaption{
 }
 
 .img_media figcaption{
-  display: none;
+  /*display: none;*/
+    text-align: center;
 }
 
 .content_section.bitv a{
