@@ -11,32 +11,40 @@ if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
 get_header();
 ?>
 <style>
-    .wpcf7{
-        margin: auto;
-    }
     .wpcf7-response-output {
         display: none;
     }
 
-    .screen-reader-response{
+    .screen-reader-response {
         padding-bottom: 32px;
         margin-bottom: 32px;
         background-color: #f2f4f6;
     }
+    .screen-reader-response ul{
+        color: red;
+        list-style: none;
+    }
     .screen-reader-response ul li {
-        line-height: 32px;
+        padding: 2px 0 5px 0;
     }
     .screen-reader-response ul li a{
         color: red;
         font-weight: 400;
         font-size: 24px;
+        text-decoration: underline;
     }
     .screen-reader-response > p {
         font-size: 24px;
+        line-height: 32px;
+    }
+
+    .wpcf7-form.invalid > .kontakt-form > .form-field-label{
+
     }
     input.wpforms-field-required.wpcf7-not-valid {
-        color:red;
-        background-color: lightgrey;
+        border-bottom: 2px solid red;
+    }
+    textarea.wpforms-field-required.wpcf7-not-valid {
         border-bottom: 2px solid red;
     }
 
@@ -58,66 +66,101 @@ get_header();
     </div>
 </main>
 <script>
-    /*jslint browser: true */
-    /*global jQuery */
     if (jQuery) {
         (function ($) {
             "use strict";
             $(document).ready(function () {
-                $('h1.has-large-font-size').attr('tabindex', '0');
+<?php
+                /**
+                 * see https://contactform7.com/dom-events/
+                 */
+?>
+                /**
+                 * Focus zuerst auf Überschrift
+                 */
+                $('.has-large-font-size').attr('tabindex', '0').focus();
 
-                /*$('.screen-reader-response > ul').on('change', function(e) {
-                    $(this).trigger('contact-form-error-message');
+                var wpcf7Elm = document.querySelector( '.wpcf7' );
+                $(wpcf7Elm).on( "wpcf7invalid", function() {
+
+                    document.querySelector('.wpcf7 > .screen-reader-response')
+                        .scrollIntoView();
+
+                    $('.wpcf7 > .screen-reader-response > p[role="status"]')
+                        .attr('tabindex', '0')
+                        .focus();
+
+
                 });
-                $(document).on('contact-form-error-message', function(e) {
-                    console.log('document is handling custom event triggered by ' + e.target.id);
-                });*/
+                $(wpcf7Elm).on( "wpcf7spam", function() {
 
-                $(".screen-reader-response").bind("DOMSubtreeModified", function() {
-                    //$(this).attr('tabindex', '0');
-                    //$(this).focus();
-                    $('.wpcf7 > .screen-reader-response > p[role="status"]').attr('tabindex', '0').focus();
-                   // $('.wpcf7 > .screen-reader-response > p[role="status"]').focus();
-                    console.log('document.activeElement', document.activeElement);
-                    //$("#wpcf7-f6513-o1").focus();
+                    document.querySelector('.wpcf7 > .screen-reader-response')
+                        .scrollIntoView();
+
+                    $('.wpcf7 > .screen-reader-response > p[role="status"]')
+                        .attr('tabindex', '0')
+                        .focus();
+
+                });
+                $(wpcf7Elm).on( "wpcf7mailfailed", function() {
+
+                    document.querySelector('.wpcf7 > .screen-reader-response')
+                        .scrollIntoView();
+
+                    $('.wpcf7 > .screen-reader-response > p[role="status"]')
+                        .attr('tabindex', '0')
+                        .focus();
+
                 });
 
+                $(wpcf7Elm).on( "wpcf7mailsent", function() {
 
-               /*if($('.wpcf7 > .screen-reader-response > ul').children().length > 0) {
-                   $('.wpcf7 > .screen-reader-response').attr('tabindex', '0');
-                   $('.wpcf7 > .screen-reader-response > p[role="status"]').focus();
+                    /**
+                     * Section Content ersetzen
+                     * @type {*|jQuery|HTMLElement}
+                     */
+                    var section = $(".wp-block-bitv-section.content_section.bitv.gray");
 
-                   console.log('screenReaderResponse has messages');
-                   console.log('document.activeElement', document.activeElement);
-               } else {
-                   console.log('screenReaderResponse has not messages');
-                   console.log(document.activeElement);
-               }*/
-                /* Validation Events for changing response CSS classes */
-                document.addEventListener( 'wpcf7invalid', function( event ) {
-                    $('.wpcf7-response-output').addClass('alert alert-danger');
-                    console.log('wpcf7invalid');
-                }, false );
-                document.addEventListener( 'wpcf7spam', function( event ) {
-                    $('.wpcf7-response-output').addClass('alert alert-warning');
-                    console.log('wpcf7spam');
-                }, false );
-                document.addEventListener( 'wpcf7mailfailed', function( event ) {
-                    $('.wpcf7-response-output').addClass('alert alert-warning');
-                    console.log('wpcf7mailfailed');
-                }, false );
-                document.addEventListener( 'wpcf7mailsent', function( event ) {
-                    $('.wpcf7-response-output').addClass('alert alert-success');
-                    console.log('wpcf7mailsent');
-                }, false );
+                    /**
+                     * Überschrift neu setzen
+                     */
+                    $(section[0])
+                        .find(".has-large-font-size")
+                        .text("Vielen Dank, dass Sie uns kontaktiert haben!").attr('tabindex', '0')
+                        .focus();
 
+                    $(section[0])
+                        .find("p.modul_content")
+                        .replaceWith(`
+                        <div role="status" aria-live="polite" aria-atomic="true">
+                            <p tabindex="0">Wir werden Ihre Anfrage an den Fachbereich weiterleiten und uns schnellstmöglich bei Ihnen melden.</p>
+                            <p tabindex="0">Mit freundlichen Grüßen</p>
+                            <p tabindex="0">Ihr Team der Staatlichen Lotterie- und Spielbankverwaltung</p>
+                        </div>
+                        `);
+                    /**
+                     * letzte Section löschen
+                     */
+                    $(section[1]).remove();
+
+                    /**
+                     * Formular Container löschen
+                     */
+                    $(this).remove();
+
+                    $('.wpcf7 > .screen-reader-response > p[role="status"]')
+                        .attr('tabindex', '0')
+                        .focus();
+
+                    document.querySelector('.has-large-font-size')
+                        .scrollIntoView();
+
+                });
 
             });
 
         }(jQuery));
     }
-
-
 
 </script>
 <script type='text/javascript' id='contact-form-7-js-extra'>
@@ -127,4 +170,3 @@ get_header();
 </script>
 <script type='text/javascript' src='https://lotterien-spielbanken-bayern.test/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.2' id='contact-form-7-js'></script>
 <?php get_footer(); ?>
-<?php #wp_footer(); ?>
