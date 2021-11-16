@@ -8,9 +8,9 @@ wp-content/debug.log
 # "mu-plugins", "plugins", "themes" directory
 wp-content/*
 # !wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
-!wp-content/uploads/*
+!wp-content/plugins/*
+!wp-content/themes/bS/*
+# !wp-content/uploads/*
 # ignore these plugins
 wp-content/plugins/hello.php
 
