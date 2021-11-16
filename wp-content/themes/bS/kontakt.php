@@ -12,7 +12,7 @@ get_header();
 ?>
 <style>
     .wpcf7-response-output {
-        display: none;
+
     }
 
     .screen-reader-response {
@@ -78,7 +78,9 @@ get_header();
                 /**
                  * Focus zuerst auf Überschrift
                  */
-                $('.has-large-font-size').attr('tabindex', '0').focus();
+                document.querySelector('.has-large-font-size')
+                    .scrollIntoView();
+                $('.has-large-font-size').attr('tabindex', '0');
 
                 var wpcf7Elm = document.querySelector( '.wpcf7' );
                 $(wpcf7Elm).on( "wpcf7invalid", function() {
@@ -121,6 +123,9 @@ get_header();
                      */
                     var section = $(".wp-block-bitv-section.content_section.bitv.gray");
 
+                    document.querySelector('.has-large-font-size')
+                        .scrollIntoView();
+
                     /**
                      * Überschrift neu setzen
                      */
@@ -133,9 +138,9 @@ get_header();
                         .find("p.modul_content")
                         .replaceWith(`
                         <div role="status" aria-live="polite" aria-atomic="true">
-                            <p tabindex="0">Wir werden Ihre Anfrage an den Fachbereich weiterleiten und uns schnellstmöglich bei Ihnen melden.</p>
-                            <p tabindex="0">Mit freundlichen Grüßen</p>
-                            <p tabindex="0">Ihr Team der Staatlichen Lotterie- und Spielbankverwaltung</p>
+                            <p>Wir werden Ihre Anfrage an den Fachbereich weiterleiten und uns schnellstmöglich bei Ihnen melden.</p>
+                            <p>Mit freundlichen Grüßen</p>
+                            <p>Ihr Team der Staatlichen Lotterie- und Spielbankverwaltung</p>
                         </div>
                         `);
                     /**
@@ -148,12 +153,6 @@ get_header();
                      */
                     $(this).remove();
 
-                    $('.wpcf7 > .screen-reader-response > p[role="status"]')
-                        .attr('tabindex', '0')
-                        .focus();
-
-                    document.querySelector('.has-large-font-size')
-                        .scrollIntoView();
 
                 });
 
