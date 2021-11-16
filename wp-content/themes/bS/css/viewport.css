@@ -2321,10 +2321,11 @@ p.ap-standort:after {
 p.ap-anschrift:after {
     content: '\e151';
 }
+/*
 .vergabe-link{
   color: red;
 }
-
+*/
 .modul.stage-video figure.wp-block-video.video.mobile video {
     height: auto!important;
     width: 100%!important;

@@ -189,7 +189,7 @@ return [
         "span",
         {style: { color:color,fontWeight:'700'}
     },
-        "Ablaufdatum: "+uhrzeit
+        "Ablaufdatum: "+attributes.dateTo
       ),
 
 
@@ -212,8 +212,7 @@ return (
       //ablaufdatum:attributes.ablaufdatum,
       dateTo:datei_ablaufdatum,
       },   
-      attributes.buttonText,
-      el('span',{className: 'material-icons',},'east')  
+      attributes.buttonText  
     )//ist aktuell
   //)
   //:
