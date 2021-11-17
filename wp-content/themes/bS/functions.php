@@ -4,6 +4,7 @@
 @ini_set('post_max_size', '64M');
 @ini_set('max_execution_time', '300');
 
+include_once 'custom-shortcodes.php';
 
 add_action('wp_head', 'seo_header');
 
@@ -28,7 +29,6 @@ function seo_header()
             '{{meta_index}}',
             '{{meta_description}}',
             '{{ETRACKER_CODE}}',
-            '{{CONTACT_FORM_HEADER_SCRIPTS}}'
         ),
         array(
             'de',
@@ -39,7 +39,6 @@ function seo_header()
             $page_data->meta_index,
             $page_data->meta_description,
             code_head_etracker(),
-            '', //contact_form_header_scripts(),
         ),
         $html);
     #echo minify_html($html);
@@ -1059,11 +1058,11 @@ function shortcode_posts_function($atts = [], $content = null, $tag = '')
                     $content .= '<div class="news_container active">';
                     //$content .= '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
                     $content .= '<div class="news_frame">';
-                    $content .= '<h3 class="news_headline e_headline has-medium-font-size" aria-describedby="subtitel_cat_'.$post["ID"].'">' . substr(strip_tags($post['post_title']), 0, 100) . '<div id="subtitel_cat_'.$post["ID"].'" aria-hidden="true" hidden>'.$post['sub_category'] .' vom '.date('d.m.y', strtotime($post['date'])).' '.substr(strip_tags($post['post_title']), 0, 100).'</div></h3>';
+                    $content .= '<h3 class="news_headline e_headline has-medium-font-size" aria-describedby="subtitel_cat_' . $post["ID"] . '">' . substr(strip_tags($post['post_title']), 0, 100) . '<div id="subtitel_cat_' . $post["ID"] . '" aria-hidden="true" hidden>' . $post['sub_category'] . ' vom ' . date('d.m.y', strtotime($post['date'])) . ' ' . substr(strip_tags($post['post_title']), 0, 100) . '</div></h3>';
                     $content .= '<div class="subline"><span class="category">' . $post['sub_category'] . '</span>' . date('d.m.y', strtotime($post['date'])) . '</div>';
                     $content .= '<p>' . wp_strip_all_tags($content_news) . '</p>';
                     $content .= '</div>';
-                    $content .= '<a href="' . $post['link'] . '" class="list" aria-describedby="subtitel_cat_'.$post["ID"].'" title="'.str_replace('"', '´',$post['post_title']).'">Mehr erfahren</a>';
+                    $content .= '<a href="' . $post['link'] . '" class="list" aria-describedby="subtitel_cat_' . $post["ID"] . '" title="' . str_replace('"', '´', $post['post_title']) . '">Mehr erfahren</a>';
                     $content .= '</div>';
                 }
             }
@@ -1175,8 +1174,8 @@ if (!function_exists('bs_main_nav_walker')) {
                 $var_css_cols = (count($main_menu_item['submenu']['submenu-list-container']) > 0) ? ' cols-' . count($main_menu_item['submenu']['submenu-list-container']) : '';
 
                 $html .= '<div class="main-nav_submenu sub-nav" ' . set_attributes($main_menu_item['submenu']['attributes']) . '>' .
-                                '<div class="submenu-container">' .
-                                    '<div class="submenu-row">';
+                    '<div class="submenu-container">' .
+                    '<div class="submenu-row">';
 
                 if (count($main_menu_item['submenu']['submenu-list-container']) > 0) {
 
@@ -1184,11 +1183,11 @@ if (!function_exists('bs_main_nav_walker')) {
 
                     foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
 
-                        $id_submenu_list_box_title = 'title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
+                        $id_submenu_list_box_title = 'title-submenu-list-box-' . $main_menu_item['submenu']['attributes']['id'] . '-' . $key1;
 
                         $html .= '<div class="submenu-list-box">';
 
-                        if($submenu_list_container['label']) {
+                        if ($submenu_list_container['label']) {
 
                             $html .= '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="4">' . $submenu_list_container['label'] . '</div>';
                             $html .= '<ul class="sub-nav-group" aria-labelledby="' . $id_submenu_list_box_title . '">';
@@ -1217,16 +1216,16 @@ if (!function_exists('bs_main_nav_walker')) {
 
                     foreach ($main_menu_item['submenu']['submenu-teaser-container'] as $key1 => $submenu_teaser_container) {
 
-                        $id_submenu_teaser_box_headline = 'title-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
-                        $id_submenu_teaser_box_link = 'link-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
+                        $id_submenu_teaser_box_headline = 'title-submenu-teaser-box-' . $main_menu_item['submenu']['attributes']['id'] . '-' . $key1;
+                        $id_submenu_teaser_box_link = 'link-submenu-teaser-box-' . $main_menu_item['submenu']['attributes']['id'] . '-' . $key1;
 
                         $html .= '<div class="submenu-teaser-box sub-nav-group">';
 
                         $html .= '<div class="submenu-teaser-box-image">';
                         $html .= '<img alt="Bild zu ' . $submenu_teaser_container['title'] . '" src="' . $submenu_teaser_container['image'] . '" />';
                         $html .= '</div>';
-                        $html .= '<div id="'.$id_submenu_teaser_box_headline.'" class="submenu-teaser-box-headline" role="heading" aria-level="4">' . $submenu_teaser_container['title'] . '</div>';
-                        $html .= '<a id="'.$id_submenu_teaser_box_link.'"  aria-labelledby="'.$id_submenu_teaser_box_headline.'" href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '</a>';
+                        $html .= '<div id="' . $id_submenu_teaser_box_headline . '" class="submenu-teaser-box-headline" role="heading" aria-level="4">' . $submenu_teaser_container['title'] . '</div>';
+                        $html .= '<a id="' . $id_submenu_teaser_box_link . '"  aria-labelledby="' . $id_submenu_teaser_box_headline . '" href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '</a>';
 
                         $html .= '</div>';
 
