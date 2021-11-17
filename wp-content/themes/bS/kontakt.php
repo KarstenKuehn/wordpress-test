@@ -195,7 +195,7 @@ get_header();
     /* <![CDATA[ */
     var wpcf7 = {
         "api": {
-            "root": "https:\/\/lotterien-spielbanken-bayern.test\/wp-json\/",
+            "root": "<?php echo str_replace('/', '\/', get_site_url()); ?>\/wp-json\/",
             "namespace": "contact-form-7\/v1"
         }
     };
@@ -203,7 +203,7 @@ get_header();
 
 </script>
 <script type='text/javascript'
-        src='https://lotterien-spielbanken-bayern.test/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.2'
+        src='<?php echo str_replace('/', '\/', get_site_url()); ?>/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.2'
         id='contact-form-7-js'></script>
 <?php echo do_shortcode("[grecaptcha_footerscripts]"); ?>
 <?php get_footer(); ?>
