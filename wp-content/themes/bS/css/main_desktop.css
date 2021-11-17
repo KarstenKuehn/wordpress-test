@@ -1472,7 +1472,7 @@ form .button{
 
 */
 .gray .modul.image-text .modul-button, .gray .modul.text-image .modul-button {
-    margin-bottom: 24px;
+    margin-bottom: 0;
 }
 
   .modul.image-text .modul-image, .modul.image-text > figure.modul-image, .modul.image-text .wp-block-image, 
