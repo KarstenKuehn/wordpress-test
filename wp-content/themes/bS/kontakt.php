@@ -3,10 +3,10 @@
   Template Name: Kontakt Template
 */
 if (function_exists('wpcf7_enqueue_scripts')) {
-    wpcf7_enqueue_scripts();
+   #wpcf7_enqueue_scripts();
 }
 if (function_exists('wpcf7_enqueue_styles')) {
-    wpcf7_enqueue_styles();
+   #wpcf7_enqueue_styles();
 }
 get_header();
 ?>
@@ -61,9 +61,6 @@ get_header();
     }
 
 </style>
-<style id='contact-form-7-inline-css' type='text/css'>
-    .wpcf7 .wpcf7-recaptcha iframe {margin-bottom: 0;}.wpcf7 .wpcf7-recaptcha[data-align="center"] > div {margin: 0 auto;}.wpcf7 .wpcf7-recaptcha[data-align="right"] > div {margin: 0 0 0 auto;}
-</style>
 <main id="maincontent">
     <div class="main">
         <?php
@@ -78,11 +75,9 @@ get_header();
         (function ($) {
             "use strict";
             $(document).ready(function () {
-                <?php
                 /**
                  * see https://contactform7.com/dom-events/
                  */
-                ?>
                 /**
                  * Focus zuerst auf Überschrift
                  */
@@ -97,8 +92,6 @@ get_header();
                 });
 
                 $(wpcf7Elm).on("wpcf7invalid", function () {
-
-
 
                     document.querySelector('.wpcf7 > .screen-reader-response')
                         .scrollIntoView();
@@ -125,6 +118,8 @@ get_header();
 
                     $(wpcf7Elm).find('.wpcf7-response-output').remove();
 
+                    console.log('wpcf7spam');
+
                 });
 
                 $(wpcf7Elm).on("wpcf7mailfailed", function () {
@@ -138,6 +133,14 @@ get_header();
 
                     $(wpcf7Elm).find('.wpcf7-response-output').remove();
 
+                    console.log('wpcf7mailfailed');
+                });
+
+                $(wpcf7Elm).on("wpcf7grecaptchaexecuted", function (event) {
+
+                    $('.wpcf7 > #g-recaptcha-response').val(event.detail.token);
+
+                    console.log('wpcf7grecaptchaexecuted', event.detail.token);
                 });
 
                 $(wpcf7Elm).on("wpcf7mailsent", function () {
@@ -197,17 +200,10 @@ get_header();
         }
     };
     /* ]]> */
+
 </script>
 <script type='text/javascript'
         src='https://lotterien-spielbanken-bayern.test/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.2'
         id='contact-form-7-js'></script>
-<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LcLlMobAAAAAFBFJHBRBF5jgew9jIv8FO1WsCtc&#038;ver=3.0' id='google-recaptcha-js'></script>
-<script type='text/javascript' src='https://lotterien-spielbanken-bayern.test/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.7' id='regenerator-runtime-js'></script>
-<script type='text/javascript' src='https://lotterien-spielbanken-bayern.test/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
-<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
-    /* <![CDATA[ */
-    var wpcf7_recaptcha = {"sitekey":"6LcLlMobAAAAAFBFJHBRBF5jgew9jIv8FO1WsCtc","actions":{"homepage":"homepage","contactform":"contactform"}};
-    /* ]]> */
-</script>
-<script type='text/javascript' src='https://lotterien-spielbanken-bayern.test/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.5.2' id='wpcf7-recaptcha-js'></script>
+<?php echo do_shortcode("[grecaptcha_footerscripts]"); ?>
 <?php get_footer(); ?>
