@@ -842,6 +842,7 @@ section .button {
 
 .modul.text-video .content, .modul.text-image .content {
     padding-right: 24px;
+    padding-right: calc( 50% / 6 - 24px );
 }
 
 
@@ -1118,12 +1119,14 @@ section.news-liste {
     /*overflow: hidden;*/
     display: inline-flex;
     width: 100%;
+    width: 50vw;
     align-items: flex-start;
+    max-width: 708px;
 }
 
 .modul.image-text .modul-image,.modul.image-text > figure.modul-image, .modul.image-text .wp-block-image , 
 .modul.video-text .is-type-video .wp-block-embed__wrapper{
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .modul.image-text .modul-image img,.modul.image-text figure.modul-image img,
@@ -1478,6 +1481,19 @@ form .button{
   .modul.image-text .modul-image, .modul.image-text > figure.modul-image, .modul.image-text .wp-block-image, 
   .modul.text-image .modul-image, .modul.text-image > figure.modul-image, .modul.text-image .wp-block-image, .modul.video-text .is-type-video{
 
-            align-items: center;
+            align-items: flex-end;
             background: transparent;
+            flex-direction: column;
   }
+   .modul.text-image .modul-image, .modul.text-image > figure.modul-image, .modul.text-image .wp-block-image, .modul.video-text .is-type-video{
+
+            align-items: flex-start;
+  }
+.content_section.bitv.section-left >*{
+  margin-left: 0;
+}
+
+
+.gray .wp-block-bitv-image-text.modul.image-text ,.gray .wp-block-bitv-text-image.modul.text-image{
+    padding-bottom: 96px;
+}

@@ -4069,9 +4069,39 @@ figcaption{
   line-height: 16px;
 }
 
-.img_media figcaption{
+figure.wp-block-image figcaption,.wp-block-image > figure figcaption{
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 12px;
+  padding: 0 16px;
+}
+
+figcaption{
   /*display: none;*/
     text-align: center;
+}
+
+
+
+.figcaptionleft figcaption, .figcaptionleft >fifure figcaption {
+    text-align: start;
+    align-self: flex-start;
+}
+.figcaptionright figcaption, .figcaptionright >fifure figcaption {
+    text-align: end;
+    align-self: flex-start;
+}
+
+.figcaptionblocksatz figcaption, .figcaptionblocksatz >fifure figcaption {
+    text-align: end;
+    align-self: flex-start;
+    text-align: justify;
+    justify-content: stretch;
+
+}
+
+figure.wp-block-image.testimonial-image figcaption {
+    display: none;
 }
 
 .content_section.bitv a{
