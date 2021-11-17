@@ -4,6 +4,7 @@
 @ini_set('post_max_size', '64M');
 @ini_set('max_execution_time', '300');
 
+include_once 'custom-shortcodes.php';
 
 add_action('wp_head', 'seo_header');
 
@@ -27,7 +28,7 @@ function seo_header()
             '{{viewport_css}}',
             '{{meta_index}}',
             '{{meta_description}}',
-            '{{ETRACKER_CODE}}'
+            '{{ETRACKER_CODE}}',
         ),
         array(
             'de',
@@ -37,7 +38,7 @@ function seo_header()
             minify_css($css),
             $page_data->meta_index,
             $page_data->meta_description,
-            code_head_etracker()
+            code_head_etracker(),
         ),
         $html);
     #echo minify_html($html);
@@ -369,6 +370,15 @@ function footer()
     #echo minify_html($html);
 
     echo $html;
+}
+
+function contact_form_header_scripts()
+{
+
+    return <<<EOF
+        <link rel='stylesheet' id='contact-form-7-css'  href='https://lotterien-spielbanken-bayern.test/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.2' type='text/css' media='all' />        
+EOF;
+
 }
 
 function get_FooterMenu()
@@ -1048,11 +1058,11 @@ function shortcode_posts_function($atts = [], $content = null, $tag = '')
                     $content .= '<div class="news_container active">';
                     //$content .= '<img class="block_image" src="/wp-content/themes/bS/assets/p.gif" data-src="'.$post['thumb'].'" alt="'.$post['post_title'].'" />';
                     $content .= '<div class="news_frame">';
-                    $content .= '<h3 class="news_headline e_headline has-medium-font-size" aria-describedby="subtitel_cat_'.$post["ID"].'">' . substr(strip_tags($post['post_title']), 0, 100) . '<div id="subtitel_cat_'.$post["ID"].'" aria-hidden="true" hidden>'.$post['sub_category'] .' vom '.date('d.m.y', strtotime($post['date'])).' '.substr(strip_tags($post['post_title']), 0, 100).'</div></h3>';
+                    $content .= '<h3 class="news_headline e_headline has-medium-font-size" aria-describedby="subtitel_cat_' . $post["ID"] . '">' . substr(strip_tags($post['post_title']), 0, 100) . '<div id="subtitel_cat_' . $post["ID"] . '" aria-hidden="true" hidden>' . $post['sub_category'] . ' vom ' . date('d.m.y', strtotime($post['date'])) . ' ' . substr(strip_tags($post['post_title']), 0, 100) . '</div></h3>';
                     $content .= '<div class="subline"><span class="category">' . $post['sub_category'] . '</span>' . date('d.m.y', strtotime($post['date'])) . '</div>';
                     $content .= '<p>' . wp_strip_all_tags($content_news) . '</p>';
                     $content .= '</div>';
-                    $content .= '<a href="' . $post['link'] . '" class="list" aria-describedby="subtitel_cat_'.$post["ID"].'" title="'.str_replace('"', '´',$post['post_title']).'">Mehr erfahren</a>';
+                    $content .= '<a href="' . $post['link'] . '" class="list" aria-describedby="subtitel_cat_' . $post["ID"] . '" title="' . str_replace('"', '´', $post['post_title']) . '">Mehr erfahren</a>';
                     $content .= '</div>';
                 }
             }
@@ -1124,113 +1134,21 @@ if (!function_exists('code_head_etracker') && defined('WP_LIVE_HOST')) {
 }
 
 
+/* === FORMULAR ====================================== */
 // Amazon SES instead PHP mail.
-add_action('phpmailer_init', 'use_amazon_ses');
-function use_amazon_ses($phpmailer)
+add_action('phpmailer_init', 'wp_mailer_setup');
+function wp_mailer_setup($phpmailer)
 {
     $phpmailer->isSMTP();
     $phpmailer->SMTPAuth = true;
-    $phpmailer->Username = AMAZON_SES_USER;
-    $phpmailer->Password = AMAZON_SES_PASSWORD;
-    $phpmailer->Host = AMAZON_SES_HOST;
-    $phpmailer->Port = AMAZON_SES_PORT;
+    $phpmailer->Username = WP_MAILER_USER;
+    $phpmailer->Password = WP_MAILER_PASSWORD;
+    $phpmailer->Host = WP_MAILER_HOST;
+    $phpmailer->Port = WP_MAILER_PORT;
     $phpmailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
 }
 
-//add_action( 'wp_footer', 'wpforms_footer_scripts' );
-function wpforms_footer_scripts()
-{
-    $siteurl = str_replace('"', '', json_encode(get_option('siteurl')));
-    return <<<EOF
-    <script src='/wp-includes/js/wp-embed.min.js?ver=5.7.2' id='wp-embed-js'></script>
-    <script src='/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
-    <script src='/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
-    <script src='/wp-content/plugins/wpforms-lite/assets/js/text-limit.min.js?ver=1.6.8.1' id='wpforms-text-limit-js'></script>
-    <script src='/wp-content/plugins/wpforms-lite/assets/js/jquery.validate.min.js?ver=1.19.0' id='wpforms-validation-js'></script>
-    <script src='/wp-content/plugins/wpforms-lite/assets/js/mailcheck.min.js?ver=1.1.2' id='wpforms-mailcheck-js'></script>
-    <script src='/wp-content/plugins/wpforms-lite/assets/js/wpforms.js?ver=1.6.8.1' id='wpforms-js'></script>
-    <script src='https://www.google.com/recaptcha/api.js?onload=wpformsRecaptchaLoad&#038;render=explicit' id='wpforms-recaptcha-js'></script>
-    <script id='wpforms-recaptcha-js-after'>
-        if (!Element.prototype.matches) {
-            Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-        }
-        if (!Element.prototype.closest) {
-            Element.prototype.closest = function (s) {
-                var el = this;
-                do {
-                    if (Element.prototype.matches.call(el, s)) { return el; }
-                    el = el.parentElement || el.parentNode;
-                } while (el !== null && el.nodeType === 1);
-                return null;
-            };
-        }
-        var wpformsDispatchEvent = function (el, ev, custom) {
-            var e = document.createEvent(custom ? "CustomEvent" : "HTMLEvents");
-            custom ? e.initCustomEvent(ev, true, true, false) : e.initEvent(ev, true, true);
-            el.dispatchEvent(e);
-        };
-
-        var wpformsRecaptchaLoad = function () {
-            Array.prototype.forEach.call(document.querySelectorAll(".g-recaptcha"), function (el) {
-                try {
-
-                    var recaptchaID = grecaptcha.render(el, {
-                        callback: function () {                            
-                            wpformsRecaptchaCallback(el);
-                        }
-                    }, true);
-                    
-                    /******************
-                    * WCAG - Properties 
-                    * */
-                    el.querySelector('#g-recaptcha-response').setAttribute("aria-hidden", "true");
-                    el.querySelector('#g-recaptcha-response').setAttribute("aria-label", "do not use");
-                    el.querySelector('#g-recaptcha-response').setAttribute("aria-readonly", "true");
-                    
-                    el.closest("form").querySelector("button[type=submit]").recaptchaID = recaptchaID;
-
-                } catch (error) {}
-            });
-            
-            wpformsDispatchEvent(document, "wpformsRecaptchaLoaded", true);
-        };
-        var wpformsRecaptchaCallback = function (el) {
-            
-            var wp_form = el.closest("form");            
-            if (typeof wpforms.formSubmit === "function") {
-                wpforms.formSubmit(wp_form);
-            } else {
-                wp_form.querySelector("button[type=submit]").recaptchaID = false;
-                wp_form.submit();
-            }
-        };
-        
-    </script>
-    <script>
-        /(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
-    </script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var wpforms_settings = {"val_required":"Dieses Feld wird benötigt.","val_email":"Bitte geben Sie eine gültige E-Mail-Adresse ein.","val_email_suggestion":"Meinten Sie {suggestion}?","val_email_suggestion_title":"Klicken Sie hier, um diesen Vorschlag zu akzeptieren.","val_email_restricted":"Diese E-Mail-Adresse ist nicht zulässig.","val_number":"Bitte geben Sie eine gültige Nummer ein.","val_number_positive":"Bitte geben Sie eine gültige positive Zahl ein.","val_confirm":"Feldwerte stimmen nicht überein.","val_checklimit":"Sie haben die Anzahl der zulässigen Auswahlen überschritten: {#}.","val_limit_characters":"{count} von {limit} maximale Zeichen.","val_limit_words":"{count} von {limit} maximale Wörter.","val_recaptcha_fail_msg":"Google reCAPTCHA-Bestätigung fehlgeschlagen. Bitte versuchen Sie es später erneut.","val_empty_blanks":"Bitte alle Felder ausfüllen.","uuid_cookie":"","locale":"de","wpforms_plugin_url":"$siteurl\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"$siteurl\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1"}
-        /*******************************
-        * Kontakt Formular autocomplete
-        *******************************/
-        var prefix = document.getElementById('wpforms-3127-field_2');
-        if(prefix) prefix.setAttribute('autocomplete', 'honorific-prefix');        
-        var first_name = document.getElementById('wpforms-3127-field_3');
-        if(first_name) first_name.setAttribute('autocomplete', 'given-name');
-        var last_name = document.getElementById('wpforms-3127-field_4');
-        if(last_name) last_name.setAttribute('autocomplete', 'family-name');
-        var email = document.getElementById('wpforms-3127-field_5');
-        if(email )email.setAttribute('autocomplete', 'email');
-        var tel = document.getElementById('wpforms-3127-field_6');
-        if(tel) tel.setAttribute('autocomplete', 'tel');     
-        /* ]]> */
-    </script>
-    
-EOF;
-
-}
+/* ========================================= */
 
 /**
  * Menu
@@ -1256,8 +1174,8 @@ if (!function_exists('bs_main_nav_walker')) {
                 $var_css_cols = (count($main_menu_item['submenu']['submenu-list-container']) > 0) ? ' cols-' . count($main_menu_item['submenu']['submenu-list-container']) : '';
 
                 $html .= '<div class="main-nav_submenu sub-nav" ' . set_attributes($main_menu_item['submenu']['attributes']) . '>' .
-                                '<div class="submenu-container">' .
-                                    '<div class="submenu-row">';
+                    '<div class="submenu-container">' .
+                    '<div class="submenu-row">';
 
                 if (count($main_menu_item['submenu']['submenu-list-container']) > 0) {
 
@@ -1265,11 +1183,11 @@ if (!function_exists('bs_main_nav_walker')) {
 
                     foreach ($main_menu_item['submenu']['submenu-list-container'] as $key1 => $submenu_list_container) {
 
-                        $id_submenu_list_box_title = 'title-submenu-list-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
+                        $id_submenu_list_box_title = 'title-submenu-list-box-' . $main_menu_item['submenu']['attributes']['id'] . '-' . $key1;
 
                         $html .= '<div class="submenu-list-box">';
 
-                        if($submenu_list_container['label']) {
+                        if ($submenu_list_container['label']) {
 
                             $html .= '<div id="' . $id_submenu_list_box_title . '" class="menu-label" role="heading" aria-level="4">' . $submenu_list_container['label'] . '</div>';
                             $html .= '<ul class="sub-nav-group" aria-labelledby="' . $id_submenu_list_box_title . '">';
@@ -1298,16 +1216,16 @@ if (!function_exists('bs_main_nav_walker')) {
 
                     foreach ($main_menu_item['submenu']['submenu-teaser-container'] as $key1 => $submenu_teaser_container) {
 
-                        $id_submenu_teaser_box_headline = 'title-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
-                        $id_submenu_teaser_box_link = 'link-submenu-teaser-box-'.$main_menu_item['submenu']['attributes']['id'].'-'.$key1;
+                        $id_submenu_teaser_box_headline = 'title-submenu-teaser-box-' . $main_menu_item['submenu']['attributes']['id'] . '-' . $key1;
+                        $id_submenu_teaser_box_link = 'link-submenu-teaser-box-' . $main_menu_item['submenu']['attributes']['id'] . '-' . $key1;
 
                         $html .= '<div class="submenu-teaser-box sub-nav-group">';
 
                         $html .= '<div class="submenu-teaser-box-image">';
                         $html .= '<img alt="Bild zu ' . $submenu_teaser_container['title'] . '" src="' . $submenu_teaser_container['image'] . '" />';
                         $html .= '</div>';
-                        $html .= '<div id="'.$id_submenu_teaser_box_headline.'" class="submenu-teaser-box-headline" role="heading" aria-level="4">' . $submenu_teaser_container['title'] . '</div>';
-                        $html .= '<a id="'.$id_submenu_teaser_box_link.'"  aria-labelledby="'.$id_submenu_teaser_box_headline.'" href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '</a>';
+                        $html .= '<div id="' . $id_submenu_teaser_box_headline . '" class="submenu-teaser-box-headline" role="heading" aria-level="4">' . $submenu_teaser_container['title'] . '</div>';
+                        $html .= '<a id="' . $id_submenu_teaser_box_link . '"  aria-labelledby="' . $id_submenu_teaser_box_headline . '" href="' . $submenu_teaser_container['url'] . '">' . $submenu_teaser_container['description'] . '</a>';
 
                         $html .= '</div>';
 
