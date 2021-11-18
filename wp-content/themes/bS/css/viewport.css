@@ -193,8 +193,10 @@ strong
 }
 
 .wp-block-image img {
-    max-width: 100%;
+max-width: 100%;
     height: auto;
+    object-fit: contain;
+    max-height: 100%;
 }
 
 
@@ -4111,9 +4113,16 @@ figure.wp-block-image.testimonial-image figcaption {
   outline: 3px dotted #1F5DA6;
 }
 
+.wp-block-image{
+text-align: center;
+}
+
+
 
 @media(min-width:768px)
 {
+.wp-block-image{text-align: unset;}
+
 
 
 .news-liste .news{
@@ -4300,7 +4309,7 @@ padding: 0 24px;
   order: 10;
   width: 100%;
 }
-.modul .text-button {
+.modul .modul-button,.modul .text-button {
   margin-top: 24px;
 }
 
@@ -5257,6 +5266,12 @@ box-shadow: -10px -10px 50px 5px rgba(255,255,255,0.5);
 -moz-box-shadow: -10px -10px 50px 5px rgba(255,255,255,0.5);
 
 }
+
+
+
+
+
+
 
 /* pressemitteilungen */
 .news_container .list .material-icons{
